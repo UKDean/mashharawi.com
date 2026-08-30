@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Omar Mashharawi — Commercial leadership in steel, exploring software and AI</title>
+<meta name="description" content="Omar Mashharawi is a commercial and sales professional with extensive experience in the steel industry, exploring software development, artificial intelligence, workflow automation, and digital products.">
+<link rel="canonical" href="https://mashharawi.com/">
+<meta name="theme-color" content="#E4E6E3">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mashharawi.com/">
+<meta property="og:title" content="Omar Mashharawi">
+<meta property="og:description" content="Business experience. Technology curiosity. Building for what comes next.">
+<meta property="og:site_name" content="mashharawi.com">
+<meta property="og:image" content="https://mashharawi.com/portrait.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<!--
+====================================================================
+PLACEHOLDERS TO FILL BEFORE PUBLISHING
+Search the file for the string:  TODO
+1.  Contact email (currently omar@mashharawi.com) ....... TODO-EMAIL
+2.  LinkedIn profile URL ................................ TODO-LINKEDIN
+3.  Featured project: name, description, App Store URL,
+    source-code URL, screenshots ........................ TODO-PROJECT
+4.  Optional: second project card ....................... TODO-PROJECT-2
+5.  Optional: replace Google Fonts with self-hosted files
+    if the site must load without external requests.
+No content on this page states anything that was not provided.
+====================================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..700&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,300..500&display=swap" rel="stylesheet">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23101418'/%3E%3Cg stroke='%23E4E6E3' stroke-width='2'%3E%3Cpath d='M4 12h24M4 20h24'/%3E%3C/g%3E%3Cg stroke='%23D8600F' stroke-width='2'%3E%3Cpath d='M8 8l-3 16M16 8l-3 16M24 8l-3 16'/%3E%3C/g%3E%3C/svg%3E">
+
+<style>
+/* ---------- tokens ---------- */
+:root{
+  --mill:#E4E6E3;      /* galvanized sheet, page ground */
+  --sheet:#F3F4F1;     /* raised surface */
+  --ink:#101418;       /* graphite */
+  --scale:#68727A;     /* mill scale grey */
+  --line:#C9CDC8;      /* hairline */
+  --blued:#1F3B4D;     /* blued steel */
+  --hot:#D8600F;       /* hot-rolled amber */
+
+  --display:"Archivo",system-ui,sans-serif;
+  --body:"Newsreader",Georgia,serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+
+  --wrap:1120px;
+  --gut:clamp(20px,5vw,64px);
+  --sec:clamp(72px,10vw,132px);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;background:var(--mill);color:var(--ink);
+  font-family:var(--body);font-size:clamp(17px,1.05vw,19px);line-height:1.62;
+  font-optical-sizing:auto;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+.wrap{max-width:var(--wrap);margin:0 auto;padding-inline:var(--gut)}
+.sec{padding-block:var(--sec);border-top:1px solid var(--line);scroll-margin-top:72px}
+#journey{scroll-margin-top:72px}
+.sec:first-of-type{border-top:0}
+
+/* ---------- type ---------- */
+h1,h2,h3,.dsp{font-family:var(--display);font-weight:600;font-stretch:112%;letter-spacing:-.015em;line-height:1.06;margin:0}
+h2{font-size:clamp(30px,4.4vw,50px)}
+h3{font-size:clamp(20px,2.1vw,25px);font-stretch:104%;line-height:1.2}
+p{margin:0 0 1.1em}
+.lead{font-size:clamp(19px,1.55vw,23px);line-height:1.55;color:#252b31;max-width:62ch}
+.muted{color:var(--scale)}
+.eyebrow{
+  font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--scale);display:flex;align-items:center;gap:10px;margin:0 0 18px
+}
+.eyebrow::before{content:"";width:22px;height:1px;background:var(--hot);flex:none}
+.sec-head{max-width:66ch;margin-bottom:clamp(32px,4vw,52px)}
+.sec-head p{margin-top:20px}
+
+/* ---------- header ---------- */
+header{
+  position:sticky;top:0;z-index:60;background:rgba(228,230,227,.86);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--line)
+}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+.brand{font-family:var(--display);font-weight:700;font-stretch:118%;font-size:15px;letter-spacing:.02em;text-decoration:none}
+.brand span{color:var(--hot)}
+nav ul{display:flex;gap:clamp(12px,1.6vw,26px);list-style:none;margin:0;padding:0}
+nav a{
+  font-family:var(--mono);font-size:12.5px;letter-spacing:.07em;text-transform:uppercase;
+  text-decoration:none;color:var(--scale);padding:6px 0;display:block;position:relative
+}
+nav a::after{content:"";position:absolute;left:0;right:100%;bottom:2px;height:1px;background:var(--hot);transition:right .25s}
+nav a:hover,nav a[aria-current="true"]{color:var(--ink)}
+nav a:hover::after,nav a[aria-current="true"]::after{right:0}
+.menu-btn{display:none}
+
+/* ---------- hero ---------- */
+.hero{padding-block:clamp(56px,8vw,104px) clamp(48px,6vw,80px)}
+.hero h1{font-size:clamp(38px,6.4vw,80px);font-stretch:118%;max-width:15ch}
+.hero .lead{margin-top:28px}
+.loc{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--scale);margin-bottom:26px}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
+.btn{
+  font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;
+  text-decoration:none;padding:14px 22px;border:1px solid var(--ink);display:inline-flex;align-items:center;gap:10px;
+  background:var(--ink);color:var(--mill);transition:background .2s,color .2s,border-color .2s,transform .2s
+}
+.btn:hover{background:var(--blued);border-color:var(--blued);transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:#9aa2a8}
+.btn.ghost:hover{border-color:var(--ink);background:transparent;color:var(--ink)}
+.btn.hot{background:var(--hot);border-color:var(--hot);color:#fff}
+.btn.hot:hover{background:#b74e0b;border-color:#b74e0b}
+.btn[aria-disabled="true"]{opacity:.45;pointer-events:none}
+
+/* signature: material transition strip (rolled rib -> data grid) */
+.strip{position:relative;height:clamp(84px,11vw,132px);margin-top:clamp(44px,6vw,72px);border-block:1px solid var(--line);overflow:hidden}
+.strip::before,.strip::after{content:"";position:absolute;inset:0}
+.strip::before{
+  background:
+    repeating-linear-gradient(102deg,transparent 0 13px,var(--scale) 13px 14.5px),
+    linear-gradient(var(--scale),var(--scale)) 0 34% / 100% 1px no-repeat,
+    linear-gradient(var(--scale),var(--scale)) 0 66% / 100% 1px no-repeat;
+  opacity:.55;
+  -webkit-mask-image:linear-gradient(90deg,#000 0 30%,transparent 62%);
+  mask-image:linear-gradient(90deg,#000 0 30%,transparent 62%)
+}
+.strip::after{
+  background:radial-gradient(circle at center,var(--blued) 1.1px,transparent 1.2px) 0 0 / 16px 16px;
+  opacity:.5;
+  -webkit-mask-image:linear-gradient(90deg,transparent 34%,#000 72%);
+  mask-image:linear-gradient(90deg,transparent 34%,#000 72%)
+}
+.strip b{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  font-family:var(--mono);font-weight:500;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;
+  background:var(--mill);padding:8px 16px;border:1px solid var(--line);color:var(--scale);white-space:nowrap
+}
+.strip b i{font-style:normal;color:var(--hot)}
+
+/* ---------- spec sheet ---------- */
+.spec{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);background:var(--sheet)}
+.spec div{padding:22px;border-right:1px solid var(--line)}
+.spec div:last-child{border-right:0}
+.spec dt{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--scale);margin-bottom:10px}
+.spec dd{margin:0;font-family:var(--display);font-stretch:106%;font-weight:600;font-size:clamp(17px,1.7vw,21px);line-height:1.25}
+
+/* ---------- portrait ---------- */
+.about-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(28px,4vw,64px);align-items:start}
+.portrait{margin:0;position:relative}
+.portrait::before{
+  content:"";position:absolute;left:-10px;top:-10px;width:64px;height:64px;
+  border-left:1px solid var(--hot);border-top:1px solid var(--hot)
+}
+.portrait img{width:100%;height:auto;border:1px solid var(--line);background:var(--sheet);display:block}
+.portrait figcaption{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--scale);
+  border:1px solid var(--line);border-top:0;padding:12px 14px;background:var(--sheet);line-height:1.5
+}
+.about-text .spec{margin-top:clamp(28px,3.2vw,40px)}
+
+/* ---------- automation / governance block ---------- */
+.auto{border:1px solid var(--line);background:var(--sheet);margin-top:clamp(36px,4.5vw,60px)}
+.auto .body{padding:clamp(24px,3vw,40px)}
+.auto .body p{max-width:64ch}
+.auto .body p:last-of-type{margin-bottom:0}
+.flow{border-top:1px solid var(--line);padding:clamp(18px,2.4vw,26px) clamp(24px,3vw,40px);background:#EDEEEB;overflow-x:auto}
+.flow svg{display:block;width:100%;min-width:560px;height:auto}
+.flow .node{fill:var(--sheet);stroke:#aeb5b0}
+.flow .node-key{fill:#F6EDE5;stroke:var(--hot)}
+.flow .lbl{font-family:var(--mono);font-size:12px;fill:var(--ink);letter-spacing:.04em}
+.flow .sub{font-family:var(--mono);font-size:10px;fill:var(--scale);letter-spacing:.12em;text-transform:uppercase}
+.flow .wire{stroke:var(--scale);stroke-width:1.2;fill:none}
+.gov{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.gov div{padding:20px clamp(18px,2vw,24px);border-right:1px solid var(--line)}
+.gov div:last-child{border-right:0}
+.gov h4{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--scale);margin:0 0 9px;font-weight:500}
+.gov p{margin:0;font-size:.95em;line-height:1.5}
+@media (max-width:900px){
+  .gov{grid-template-columns:1fr 1fr}
+  .gov div{border-bottom:1px solid var(--line)}
+  .gov div:nth-child(2n){border-right:0}
+  .gov div:nth-last-child(-n+2){border-bottom:0}
+}
+
+/* ---------- generic layout helpers ---------- */
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,64px);align-items:start}
+.cols-3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.4vw,28px)}
+.card{background:var(--sheet);border:1px solid var(--line);padding:clamp(22px,2.6vw,32px)}
+.card h3{margin-bottom:12px}
+.card p:last-child{margin-bottom:0}
+
+/* ---------- experience ---------- */
+.role{display:grid;grid-template-columns:150px 1fr;gap:clamp(20px,3vw,48px);padding-block:34px;border-top:1px solid var(--line)}
+.role:first-of-type{border-top:0;padding-top:0}
+.role .when{font-family:var(--mono);font-size:13px;letter-spacing:.06em;color:var(--scale);padding-top:6px}
+.role .co{font-family:var(--mono);font-size:13px;letter-spacing:.06em;color:var(--hot);margin:8px 0 14px}
+.role ul{margin:0;padding-left:1.15em}
+.role li{margin-bottom:7px}
+.role li::marker{color:var(--scale)}
+
+/* ---------- journey ---------- */
+.journey{border-left:2px solid var(--line);padding-left:clamp(22px,3vw,40px);max-width:70ch}
+.journey p{margin-bottom:1.2em}
+.equation{
+  font-family:var(--display);font-stretch:118%;font-weight:700;
+  font-size:clamp(26px,3.6vw,40px);line-height:1.15;margin:34px 0 0
+}
+.equation em{font-style:normal;color:var(--hot)}
+
+/* ---------- skills ---------- */
+.skills{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,56px)}
+.skills h3{margin-bottom:20px}
+.tags{display:flex;flex-wrap:wrap;gap:9px;list-style:none;margin:0;padding:0}
+.tags li{
+  font-family:var(--mono);font-size:12.5px;letter-spacing:.03em;
+  border:1px solid var(--line);background:var(--sheet);padding:8px 13px
+}
+.tags.tech li{border-color:#b9c3c9;border-left:2px solid var(--blued)}
+
+/* ---------- projects ---------- */
+.pquote{
+  font-size:clamp(20px,2.3vw,27px);line-height:1.45;max-width:52ch;
+  border-left:2px solid var(--hot);padding-left:22px;margin:0 0 clamp(32px,4vw,48px)
+}
+.project{border:1px solid var(--line);background:var(--sheet)}
+.project .body{padding:clamp(24px,3vw,38px)}
+.pmeta{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--scale);margin-bottom:16px}
+.todo{
+  font-family:var(--mono);font-size:13px;color:var(--scale);
+  border:1px dashed #b3b9b6;padding:3px 9px;display:inline-block;background:#dfe2de
+}
+.shots{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:0 clamp(24px,3vw,38px) clamp(24px,3vw,38px)}
+.shot{
+  aspect-ratio:9/16;border:1px dashed #b3b9b6;background:
+    repeating-linear-gradient(135deg,transparent 0 9px,rgba(104,114,122,.13) 9px 10px);
+  display:grid;place-items:center;text-align:center
+}
+.shot span{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--scale)}
+.slot{border:1px dashed #b3b9b6;padding:clamp(22px,2.6vw,32px);margin-top:22px}
+
+/* ---------- AI section ---------- */
+#ai{background:var(--blued);color:#E9EEF1;border-top:0}
+#ai .eyebrow{color:#9fb4c0}
+#ai .eyebrow::before{background:#E9EEF1}
+#ai .lead{color:#cfdce3}
+#ai .card{background:rgba(255,255,255,.05);border-color:rgba(233,238,241,.18)}
+#ai .card p{color:#c3d2da;margin-bottom:0}
+#ai .card h3{color:#fff}
+#ai .rule{height:1px;background:rgba(233,238,241,.2);margin:clamp(32px,4vw,48px) 0}
+#ai .note{font-family:var(--mono);font-size:13px;letter-spacing:.03em;color:#9fb4c0;max-width:60ch;margin:0}
+
+/* ---------- github ---------- */
+.gh{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,4vw,56px);align-items:center}
+.gh-panel{border:1px solid var(--line);background:var(--sheet);padding:clamp(24px,3vw,34px)}
+.gh-panel ul{list-style:none;margin:0 0 22px;padding:0}
+.gh-panel li{font-family:var(--mono);font-size:13px;padding:11px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;color:var(--scale)}
+.gh-panel li b{color:var(--ink);font-weight:500}
+
+/* ---------- contact ---------- */
+.contact-list{list-style:none;margin:28px 0 0;padding:0;border-top:1px solid var(--line);max-width:760px}
+.contact-list li{border-bottom:1px solid var(--line)}
+.contact-list a{
+  display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding:20px 0;
+  text-decoration:none;font-family:var(--display);font-stretch:106%;font-weight:600;font-size:clamp(19px,2.2vw,26px)
+}
+.contact-list span{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--scale);font-weight:400}
+.contact-list a:hover span{color:var(--hot)}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);padding-block:34px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--scale)}
+footer .bar{height:auto;flex-wrap:wrap;gap:10px}
+
+/* ---------- a11y ---------- */
+.skip{position:absolute;left:-9999px;top:0}
+.skip:focus{left:12px;top:12px;z-index:99;background:var(--ink);color:var(--mill);padding:10px 14px;font-family:var(--mono);font-size:13px}
+:focus-visible{outline:2px solid var(--hot);outline-offset:3px}
+
+/* ---------- motion ---------- */
+.rise{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
+.rise.in{opacity:1;transform:none}
+.hero .rise{transition-delay:calc(var(--i,0) * 90ms)}
+
+/* ---------- responsive ---------- */
+@media (max-width:900px){
+  .cols,.skills,.gh,.about-grid{grid-template-columns:1fr}
+  .portrait{max-width:420px}
+  .cols-3{grid-template-columns:1fr}
+  .spec{grid-template-columns:1fr 1fr}
+  .spec div{border-bottom:1px solid var(--line)}
+  .spec div:nth-child(2n){border-right:0}
+  .spec div:nth-last-child(-n+2){border-bottom:0}
+  .role{grid-template-columns:1fr;gap:10px}
+  .role .when{padding-top:0}
+}
+@media (max-width:760px){
+  .menu-btn{
+    display:inline-flex;align-items:center;gap:9px;background:transparent;border:1px solid #9aa2a8;
+    font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);
+    padding:9px 13px;cursor:pointer
+  }
+  nav{display:none;position:absolute;left:0;right:0;top:64px;background:var(--mill);border-bottom:1px solid var(--line)}
+  nav.open{display:block}
+  nav ul{flex-direction:column;gap:0;padding:8px var(--gut) 20px}
+  nav a{padding:12px 0;font-size:14px;border-bottom:1px solid var(--line)}
+  .shots{grid-template-columns:repeat(3,1fr);gap:10px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rise{opacity:1;transform:none;transition:none}
+  .btn:hover{transform:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#home">OMAR MASHHARAWI<span>.</span></a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav id="nav" aria-label="Primary">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#technology">Technology</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#ai">AI</a></li>
+        <li><a href="#github">GitHub</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HOME ============ -->
+  <section id="home" class="sec hero">
+    <div class="wrap">
+      <p class="loc rise" style="--i:0">Riyadh, Saudi Arabia</p>
+      <h1 class="rise" style="--i:1">Business Experience. Technology Curiosity. Building for What Comes Next.</h1>
+      <p class="lead rise" style="--i:2">Omar Mashharawi is a commercial and sales professional with extensive experience in the steel industry, exploring software development, artificial intelligence, and digital products.</p>
+      <div class="cta-row rise" style="--i:3">
+        <a class="btn" href="#journey">Explore my journey</a>
+        <a class="btn ghost" href="https://github.com/UKDean" target="_blank" rel="noopener">View GitHub</a>
+      </div>
+      <div class="strip rise" style="--i:4" aria-hidden="true"><b>Commercial <i>&rarr;</i> Technology</b></div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about" class="sec" aria-labelledby="about-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">About</p>
+        <h2 id="about-h">Fifteen years in commercial steel, now building with software.</h2>
+      </div>
+
+      <div class="about-grid">
+        <figure class="portrait rise">
+          <picture>
+            <source srcset="portrait.webp" type="image/webp">
+            <img src="portrait.jpg" width="1200" height="1500" alt="Portrait of Omar Mashharawi" loading="lazy" decoding="async">
+          </picture>
+          <figcaption>Omar Mashharawi<br>Section Head, Al Rajhi Steel &middot; Riyadh</figcaption>
+        </figure>
+
+        <div class="about-text rise">
+          <p>Omar Mashharawi is a commercial and sales professional with extensive experience in the steel industry, business development, customer relationships, and team leadership. Alongside his professional career, he has developed a strong interest in software development, artificial intelligence, and building digital products.</p>
+          <p>His journey from commercial management into technology reflects a broader interest in solving real-world problems through a combination of business understanding, software, and AI.</p>
+          <dl class="spec">
+            <div><dt>Experience</dt><dd>~15 years<br>in steel</dd></div>
+            <div><dt>Current role</dt><dd>Section Head<br>Al Rajhi Steel</dd></div>
+            <div><dt>Since</dt><dd>2018<br>Riyadh</dd></div>
+            <div><dt>Export sales</dt><dd>Increased<br>by 80%</dd></div>
+          </dl>
+        </div>
+      </div>
+
+      <div id="journey" style="margin-top:clamp(56px,7vw,96px)">
+        <div class="sec-head">
+          <p class="eyebrow">My journey</p>
+          <h2>From the sales floor to the source code.</h2>
+        </div>
+        <div class="journey rise">
+          <p>Omar began his career in sales within the steel industry and developed extensive experience working directly with customers, teams, business operations, pricing, market development, and commercial strategy.</p>
+          <p>Over the years, that experience created a strong understanding of how businesses actually operate, and where processes quietly become inefficient: information that is re-entered by hand, decisions that wait on a spreadsheet, work that depends on one person remembering a detail.</p>
+          <p>That gradually led to a deeper interest in technology, programming, software development, and artificial intelligence. Not as a career reset, but as the next tool for the same problems.</p>
+          <p class="equation">Business <em>+</em> Technology</p>
+          <p class="muted" style="margin-top:18px">The goal: understand technology deeply enough to build useful products and solutions that solve real problems.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section id="experience" class="sec" aria-labelledby="exp-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Experience</p>
+        <h2 id="exp-h">Commercial roles across the steel industry.</h2>
+      </div>
+
+      <article class="role rise">
+        <div class="when">2018 &mdash; Present</div>
+        <div>
+          <h3>Section Head</h3>
+          <p class="co">Al Rajhi Steel Co. &middot; Riyadh</p>
+          <ul>
+            <li>Sales management, business development, and commercial operations.</li>
+            <li>Increased export sales by 80%.</li>
+            <li>Developed pricing policies that improved channel profitability and reduced pricing conflicts.</li>
+            <li>Managed and developed sales teams, building collaborative, high-performance working environments.</li>
+            <li>Prepared monthly and quarterly business reviews.</li>
+            <li>Built sales plans based on market and sales trends.</li>
+            <li>Worked across business development, trade marketing, sales, and supplier-related functions.</li>
+            <li>Developed customer-focused processes and commercial strategies.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="role rise">
+        <div class="when">2010 &mdash; 2018</div>
+        <div>
+          <h3>Sales Manager</h3>
+          <p class="co">Al Musairiey Metallic Industries</p>
+          <ul>
+            <li>Managed the wholesale division and expanded regional market coverage.</li>
+            <li>Established sales targets and developed sales strategies.</li>
+            <li>Coached sales teams and improved profitability.</li>
+            <li>Worked on pricing and business development.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="role rise">
+        <div class="when">2008 &mdash; 2010</div>
+        <div>
+          <h3>Sales Executive</h3>
+          <p class="co">Arabian Steel Pipes</p>
+          <ul>
+            <li>Developed customer relationships and managed accounts.</li>
+            <li>Generated opportunities and supported customer business requirements.</li>
+            <li>Analyzed industry and competitor trends.</li>
+          </ul>
+        </div>
+      </article>
+
+      <div style="margin-top:clamp(48px,6vw,80px)">
+        <p class="eyebrow">Skills</p>
+        <div class="skills">
+          <div class="rise">
+            <h3>Business &amp; commercial</h3>
+            <ul class="tags">
+              <li>Sales Management</li><li>Business Development</li><li>Customer Relationship Management</li>
+              <li>Commercial Strategy</li><li>Pricing Strategy</li><li>Team Leadership</li>
+              <li>Sales Planning</li><li>Market Analysis</li><li>Operations Coordination</li>
+              <li>Performance Management</li><li>Negotiation</li><li>Account Management</li>
+            </ul>
+          </div>
+          <div class="rise">
+            <h3>Technology &amp; future skills</h3>
+            <ul class="tags tech">
+              <li>Software Development</li><li>GitHub</li><li>Artificial Intelligence</li>
+              <li>Digital Products</li><li>Automation</li><li>Workflow Automation (n8n)</li>
+              <li>Process Governance</li><li>Technology Exploration</li>
+            </ul>
+            <p class="muted" style="margin-top:20px;font-size:.94em">Listed as areas of active work and learning, not as claimed professional expertise.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TECHNOLOGY ============ -->
+  <section id="technology" class="sec" aria-labelledby="tech-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">From business to technology</p>
+        <h2 id="tech-h">The problems came first. The code came after.</h2>
+        <p class="lead">Years of working with customers, teams, and day-to-day business processes make the gaps obvious: the manual step that keeps producing errors, the system that does not talk to the next one, the report that takes a day to assemble and an hour to read.</p>
+      </div>
+
+      <div class="cols-3">
+        <div class="card rise">
+          <h3>Simplify the work</h3>
+          <p>Remove the repeated manual steps between a request arriving and the work being done.</p>
+        </div>
+        <div class="card rise">
+          <h3>Connect the systems</h3>
+          <p>Get processes and tools to pass information to each other instead of relying on re-entry.</p>
+        </div>
+        <div class="card rise">
+          <h3>Reduce the errors</h3>
+          <p>Where a mistake is expensive, put the check in the software rather than in someone's memory.</p>
+        </div>
+      </div>
+
+      <p class="lead rise" style="margin-top:clamp(32px,4vw,48px)">The interest is not technology for its own sake. It is what software and AI can do for productivity, for accuracy, and for the experience of the people using the system.</p>
+
+      <section class="auto rise" aria-labelledby="auto-h">
+        <div class="body">
+          <p class="eyebrow">Automation &amp; workflow governance</p>
+          <h3 id="auto-h">Automating a process is the easy half. Governing it is the other half.</h3>
+          <p style="margin-top:16px">A large share of business work is a chain of steps that already follows rules: a request arrives, information is checked, an approval is needed, a record has to exist afterwards. Omar is particularly interested in this layer, and in designing automated workflows on <strong>n8n</strong>: connecting the systems a business already uses, and moving repetitive steps out of people's inboxes.</p>
+          <p>The part that gets his attention is governance. An automation that runs without ownership, approval points, error handling, or a record of what it did is a risk rather than an improvement. The design question is not only what the workflow does, but who owns it, what it is allowed to decide on its own, and what it leaves behind as evidence.</p>
+        </div>
+
+        <div class="flow" aria-hidden="true">
+          <svg viewBox="0 0 880 92" xmlns="http://www.w3.org/2000/svg" role="presentation">
+            <path class="wire" d="M186 46h34M406 46h34M626 46h34"/>
+            <path class="wire" d="M214 42l7 4-7 4M434 42l7 4-7 4M654 42l7 4-7 4"/>
+            <g><rect class="node" x="1" y="17" width="185" height="58" rx="2"/>
+              <text class="sub" x="17" y="41">Trigger</text><text class="lbl" x="17" y="61">Request arrives</text></g>
+            <g><rect class="node" x="221" y="17" width="185" height="58" rx="2"/>
+              <text class="sub" x="237" y="41">Rules</text><text class="lbl" x="237" y="61">Validate &amp; enrich</text></g>
+            <g><rect class="node-key" x="441" y="17" width="185" height="58" rx="2"/>
+              <text class="sub" x="457" y="41">Control</text><text class="lbl" x="457" y="61">Human approval</text></g>
+            <g><rect class="node" x="661" y="17" width="185" height="58" rx="2"/>
+              <text class="sub" x="677" y="41">Record</text><text class="lbl" x="677" y="61">Audit trail</text></g>
+          </svg>
+        </div>
+
+        <div class="gov">
+          <div><h4>Ownership</h4><p>Every workflow has a person accountable for it, not just a switch that is on.</p></div>
+          <div><h4>Approval points</h4><p>Decisions with commercial or contractual weight stay with a human.</p></div>
+          <div><h4>Failure handling</h4><p>A workflow that breaks should say so loudly, not fail silently.</p></div>
+          <div><h4>Traceability</h4><p>What ran, on what input, and what it produced, recorded and reviewable.</p></div>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section id="projects" class="sec" aria-labelledby="proj-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Projects</p>
+        <h2 id="proj-h">Built, not just studied.</h2>
+      </div>
+
+      <p class="pquote rise">I didn't want to learn programming only as a theory. I wanted to build something real. One of my early projects was a game that I developed and published on the Apple App Store.</p>
+
+      <!-- TODO-PROJECT: replace the placeholders below with the real name, description, links and screenshots -->
+      <article class="project rise">
+        <div class="body">
+          <p class="pmeta">Featured project &middot; iOS &middot; App Store</p>
+          <h3><span class="todo">TODO: project name</span></h3>
+          <p style="margin-top:16px;max-width:60ch">
+            <span class="todo">TODO: short project description, two or three sentences, what the game is and what was built.</span>
+          </p>
+          <div class="cta-row">
+            <!-- replace href="#" with the App Store URL, then remove aria-disabled -->
+            <a class="btn hot" href="#" aria-disabled="true">View on the App Store</a>
+            <a class="btn ghost" href="https://github.com/UKDean" target="_blank" rel="noopener">Source code</a>
+          </div>
+        </div>
+        <div class="shots">
+          <div class="shot"><span>Screenshot 1</span></div>
+          <div class="shot"><span>Screenshot 2</span></div>
+          <div class="shot"><span>Screenshot 3</span></div>
+        </div>
+      </article>
+
+      <!-- TODO-PROJECT-2: duplicate the <article class="project"> block above for each additional project -->
+      <div class="slot rise">
+        <p class="pmeta" style="margin-bottom:10px">Next project</p>
+        <p class="muted" style="margin:0">Further projects are added here as they are published.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AI ============ -->
+  <section id="ai" class="sec" aria-labelledby="ai-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Exploring artificial intelligence</p>
+        <h2 id="ai-h">AI is interesting where it meets the work.</h2>
+        <p class="lead">The attention here is on applied AI: how it changes the way a business operates, how decisions get made, how work gets automated, and how people interact with the software in front of them.</p>
+      </div>
+
+      <div class="cols-3">
+        <div class="card rise">
+          <h3>Business processes</h3>
+          <p>Where judgment-heavy, repetitive work can be supported or handled by a system.</p>
+        </div>
+        <div class="card rise">
+          <h3>Decision making</h3>
+          <p>Getting the relevant information in front of the person deciding, in a form they can act on.</p>
+        </div>
+        <div class="card rise">
+          <h3>Customer experience</h3>
+          <p>Faster, more consistent responses, without losing the relationship behind them.</p>
+        </div>
+      </div>
+
+      <div class="rule" aria-hidden="true"></div>
+      <p class="note">Treated as a working tool for real business problems, not as a trend to follow.</p>
+    </div>
+  </section>
+
+  <!-- ============ GITHUB ============ -->
+  <section id="github" class="sec" aria-labelledby="gh-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">GitHub</p>
+        <h2 id="gh-h">Where the learning is actually recorded.</h2>
+      </div>
+
+      <div class="gh">
+        <div class="rise">
+          <p>GitHub is a central part of this journey. It is where projects are built, ideas are tested, modern development practices are learned, and the technical work is documented over time.</p>
+          <p>The profile is a work in progress rather than a portfolio of finished products, which is the point: it shows the actual path, including the parts still under construction.</p>
+          <div class="cta-row">
+            <a class="btn" href="https://github.com/UKDean" target="_blank" rel="noopener">View my GitHub</a>
+          </div>
+        </div>
+        <div class="gh-panel rise">
+          <ul>
+            <li><span>Profile</span><b>github.com/UKDean</b></li>
+            <li><span>Used for</span><b>Projects &amp; experiments</b></li>
+            <li><span>Focus</span><b>Software &amp; AI</b></li>
+          </ul>
+          <p class="muted" style="margin:0;font-size:.94em">Selected repositories will be listed here.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="sec" aria-labelledby="contact-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Contact</p>
+        <h2 id="contact-h">Let's connect.</h2>
+        <p class="lead">Whether you're interested in business, technology, AI, software, or simply exchanging ideas, I'd be glad to connect.</p>
+      </div>
+
+      <ul class="contact-list rise">
+        <!-- TODO-EMAIL: confirm or replace this address -->
+        <li><a href="mailto:omar@mashharawi.com">omar@mashharawi.com<span>Email</span></a></li>
+        <!-- TODO-LINKEDIN: replace # with the LinkedIn profile URL -->
+        <li><a href="#" aria-disabled="true">LinkedIn profile<span>LinkedIn</span></a></li>
+        <li><a href="https://github.com/UKDean" target="_blank" rel="noopener">github.com/UKDean<span>GitHub</span></a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap bar">
+    <span>&copy; <span id="yr">2026</span> Omar Mashharawi &middot; mashharawi.com</span>
+    <span>Riyadh, Saudi Arabia</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // mobile menu
+  var btn = document.getElementById('menuBtn'), nav = document.getElementById('nav');
+  btn.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){ nav.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
+  });
+
+  // scroll reveal
+  var items = document.querySelectorAll('.rise');
+  if(reduce || !('IntersectionObserver' in window)){
+    items.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, {rootMargin:'0px 0px -8% 0px', threshold:0.08});
+    items.forEach(function(el){ io.observe(el); });
+    // hero shows immediately on load
+    document.querySelectorAll('.hero .rise').forEach(function(el){ el.classList.add('in'); });
+  }
+
+  // active nav link
+  var links = {}, sections = [];
+  document.querySelectorAll('nav a[href^="#"]').forEach(function(a){
+    var id = a.getAttribute('href').slice(1), s = document.getElementById(id);
+    if(s){ links[id] = a; sections.push(s); }
+  });
+  if('IntersectionObserver' in window){
+    var spy = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          Object.keys(links).forEach(function(k){ links[k].removeAttribute('aria-current'); });
+          if(links[en.target.id]) links[en.target.id].setAttribute('aria-current','true');
+        }
+      });
+    }, {rootMargin:'-45% 0px -50% 0px'});
+    sections.forEach(function(s){ spy.observe(s); });
+  }
+
+  document.getElementById('yr').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
