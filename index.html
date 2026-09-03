@@ -235,8 +235,10 @@ nav a:hover::after,nav a[aria-current="true"]::after{right:0}
   font-size:clamp(20px,2.3vw,27px);line-height:1.45;max-width:52ch;
   border-left:2px solid var(--hot);padding-left:22px;margin:0 0 clamp(32px,4vw,48px)
 }
-.project{border:1px solid var(--line);background:var(--sheet)}
-.project .body{padding:clamp(24px,3vw,38px)}
+.project-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.4vw,26px)}
+.project{border:1px solid var(--line);background:var(--sheet);display:flex;flex-direction:column}
+.project .body{padding:clamp(22px,2.8vw,32px);display:flex;flex-direction:column;flex:1}
+.project .cta-row{margin-top:auto;padding-top:4px}
 .pmeta{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--scale);margin-bottom:16px}
 .todo{
   font-family:var(--mono);font-size:13px;color:var(--scale);
@@ -295,7 +297,7 @@ footer .bar{height:auto;flex-wrap:wrap;gap:10px}
 
 /* ---------- responsive ---------- */
 @media (max-width:900px){
-  .cols,.skills,.gh,.about-grid{grid-template-columns:1fr}
+  .cols,.skills,.gh,.about-grid,.project-grid{grid-template-columns:1fr}
   .portrait{max-width:420px}
   .cols-3{grid-template-columns:1fr}
   .spec{grid-template-columns:1fr 1fr}
@@ -555,35 +557,53 @@ footer .bar{height:auto;flex-wrap:wrap;gap:10px}
 
       <p class="pquote rise">I didn't want to learn programming only as a theory. I wanted to build something real.</p>
 
-      <!-- Placeholder project card hidden until a real project is published.
-           To restore it, remove the surrounding comment markers and fill in the
-           project name, description, App Store URL and screenshots. -->
-      <!--
-      <!-- TODO-PROJECT: replace the placeholders below with the real name, description, links and screenshots -->
-      <article class="project rise">
-        <div class="body">
-          <p class="pmeta">Featured project &middot; iOS &middot; App Store</p>
-          <h3><span class="todo">TODO: project name</span></h3>
-          <p style="margin-top:16px;max-width:60ch">
-            <span class="todo">TODO: short project description, two or three sentences, what the game is and what was built.</span>
-          </p>
-          <div class="cta-row">
-            <!-- replace href="#" with the App Store URL, then remove aria-disabled -->
-            <a class="btn hot" href="#" aria-disabled="true">View on the App Store</a>
-            <a class="btn ghost" href="https://github.com/UKDean" target="_blank" rel="noopener">Source code</a>
+      <div class="project-grid">
+        <article class="project rise">
+          <div class="body">
+            <p class="pmeta">iOS &middot; Flutter</p>
+            <h3>Steel Section Calculator</h3>
+            <p>An offline calculator for structural steel section weights (I/H-beams, channels, angles, bars, pipe, tube, sheet) — no ads, no login, nothing ever leaves the device. Core formulas cross-checked against published EN&nbsp;10365 / EN&nbsp;10056 reference tables. Running and tested; not yet submitted to the App Store.</p>
+            <div class="cta-row">
+              <a class="btn hot" href="#" aria-disabled="true">On the App Store &mdash; coming soon</a>
+            </div>
           </div>
-        </div>
-        <div class="shots">
-          <div class="shot"><span>Screenshot 1</span></div>
-          <div class="shot"><span>Screenshot 2</span></div>
-          <div class="shot"><span>Screenshot 3</span></div>
-        </div>
-      </article>
+        </article>
 
+        <article class="project rise">
+          <div class="body">
+            <p class="pmeta">iOS &middot; Swift</p>
+            <h3>Tubes</h3>
+            <p>An offline water-sort puzzle: pour colored liquid between tubes until every color is sorted into its own tube. No timer, no fail state, no ads. The game engine (rules, undo, a solver that proves every level solvable) is complete and fully tested; the on-device interface is still being built.</p>
+            <div class="cta-row">
+              <a class="btn hot" href="#" aria-disabled="true">On the App Store &mdash; coming soon</a>
+            </div>
+          </div>
+        </article>
 
-      -->
-      <!-- TODO-PROJECT-2: duplicate the <article class="project"> block above for each additional project -->
-      <div class="slot rise">
+        <article class="project rise">
+          <div class="body">
+            <p class="pmeta">Android &amp; iOS &middot; React Native</p>
+            <h3>Arabic Crossword</h3>
+            <p>An original Arabic crossword generator — a fresh right-to-left puzzle every time from a 305-word bank, fully offline. Complete and tested on a real device; being prepared for submission to Google Play.</p>
+            <div class="cta-row">
+              <a class="btn hot" href="#" aria-disabled="true">On Google Play &mdash; coming soon</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project rise">
+          <div class="body">
+            <p class="pmeta">CLI &middot; Python</p>
+            <h3>Steel Quotation Assistant</h3>
+            <p>A command-line tool for reinforcing-steel sales quotations: pricing by grade and size, VAT, sequential numbering, and local storage. Standard library only, no external dependencies.</p>
+            <div class="cta-row">
+              <a class="btn ghost" href="https://github.com/UKDean/SteelQuotationAssistant" target="_blank" rel="noopener">Source code</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="slot rise" style="margin-top:clamp(20px,2.6vw,28px)">
         <p class="pmeta" style="margin-bottom:10px">Next project</p>
         <p class="muted" style="margin:0">Further projects are added here as they are published.</p>
       </div>
