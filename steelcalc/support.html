@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support | Steel Section Calculator</title>
+<meta name="description" content="Support page for the Steel Section Calculator app: frequently asked questions and how to get in touch.">
+<style>
+:root{
+  --ink:#0E1A2B; --ink2:#16263E; --bone:#F1E9D6; --bone-dim:#A99E86;
+  --turquoise:#2FB3A8; --turquoise-deep:#17756E; --saffron:#E3A93A; --line:rgba(241,233,214,.14);
+}
+*{box-sizing:border-box}
+body{
+  margin:0; padding:0; background:var(--ink); color:var(--bone);
+  font-family:"Segoe UI",Tahoma,sans-serif; line-height:1.85;
+}
+.wrap{max-width:760px; margin:0 auto; padding:48px 22px 80px}
+header{border-bottom:1px solid var(--line); padding-bottom:22px; margin-bottom:30px}
+h1{font-size:30px; margin:0 0 8px; font-weight:700}
+.meta{color:var(--bone-dim); font-size:13.5px}
+h2{font-size:19px; color:var(--turquoise); margin:36px 0 10px; font-weight:600}
+h3{font-size:16px; margin:22px 0 6px; font-weight:600}
+p{margin:0 0 14px; font-size:15.5px}
+ul{margin:0 0 16px; padding-inline-start:22px}
+li{margin-bottom:7px; font-size:15.5px}
+a{color:var(--turquoise)}
+.cta{
+  display:inline-block; background:var(--turquoise-deep); border:1px solid var(--turquoise);
+  color:var(--bone); text-decoration:none; padding:13px 22px; border-radius:10px;
+  font-size:16px; margin:8px 8px 4px 0;
+}
+.cta.alt{background:transparent}
+.box{
+  background:var(--ink2); border:1px solid var(--line); border-inline-start:3px solid var(--saffron);
+  border-radius:10px; padding:16px 18px; margin:22px 0;
+}
+.box strong{color:var(--saffron)}
+footer{margin-top:50px; padding-top:22px; border-top:1px solid var(--line); color:var(--bone-dim); font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Support</h1>
+  <div class="meta">App: Steel Section Calculator</div>
+</header>
+
+<p>For any question, problem, or suggestion, email me directly or open an issue on GitHub. I read and answer every message.</p>
+<a class="cta" href="mailto:Omar@mashharawi.com?subject=Steel%20Section%20Calculator%20Support">Omar@mashharawi.com</a>
+<a class="cta alt" href="https://github.com/UKDean/SteelCalc/issues" target="_blank" rel="noopener">Open an issue on GitHub</a>
+
+<div class="box">
+  <p style="margin:0"><strong>To get a faster answer:</strong> include your device model, OS version, and the exact section designation (e.g. "IPE 200") if the issue is about a specific calculation.</p>
+</div>
+
+<h2>Frequently asked questions</h2>
+
+<h3>How do I use it?</h3>
+<p>Pick a section type from the home grid, choose the standard size from the dropdown, and enter a length in metres — the weight updates live as you type.</p>
+
+<h3>Does the app need an internet connection?</h3>
+<p>No. It works fully offline, even in Airplane Mode. Every section's dimensions are bundled inside the app, and the weight is computed on your device.</p>
+
+<h3>How accurate are the weights?</h3>
+<p>Weight is always computed from each section's standard nominal geometry (height, width, thicknesses) using the same cross-section formulas mill handbooks use — not a hardcoded number. That said, the bundled dimensions themselves are seeded from general engineering knowledge of EN 10365 / EN 10056 and have not yet been checked against an official reference table, which is why every result carries a notice to that effect. Verify before relying on a figure for a real quote or purchase. See <a href="./privacy.html">the privacy policy</a> for more on this and <a href="https://github.com/UKDean/SteelCalc/blob/main/docs/DESIGN.md" target="_blank" rel="noopener">docs/DESIGN.md</a> in the source repo for the exact formulas.</p>
+
+<h3>Is it really free and open source?</h3>
+<p>Yes — MIT licensed, no ads, no in-app purchases, no login. The full source is at <a href="https://github.com/UKDean/SteelCalc" target="_blank" rel="noopener">github.com/UKDean/SteelCalc</a>; contributions (more sizes, more languages, verified data) are welcome.</p>
+
+<h3>The size I need isn't listed</h3>
+<p>The current release covers a common range per family, not the full standard table. Open a GitHub issue with the designation you need, or add it yourself — see the Contributing section of the README.</p>
+
+<h3>Can I switch between metric and imperial units?</h3>
+<p>Yes, from the Settings screen. The underlying data and math always stay metric/EN 10365; the imperial option only changes how dimensions and weight are displayed.</p>
+
+<h3>Does the app collect my data?</h3>
+<p>No. See the <a href="./privacy.html">Privacy Policy</a>.</p>
+
+<footer>
+  © 2026 Omar Mashharawi &nbsp;·&nbsp; <a href="https://mashharawi.com">mashharawi.com</a> &nbsp;·&nbsp; <a href="./privacy.html">Privacy Policy</a>
+</footer>
+
+</div>
+</body>
+</html>
