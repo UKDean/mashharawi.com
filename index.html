@@ -17,21 +17,6 @@
 <meta property="og:image" content="https://mashharawi.com/portrait.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
-<!--
-====================================================================
-PLACEHOLDERS TO FILL BEFORE PUBLISHING
-Search the file for the string:  TODO
-1.  Contact email (currently omar@mashharawi.com) ....... TODO-EMAIL
-2.  LinkedIn profile URL ................................ TODO-LINKEDIN
-3.  Featured project: name, description, App Store URL,
-    source-code URL, screenshots ........................ TODO-PROJECT
-4.  Optional: second project card ....................... TODO-PROJECT-2
-5.  Optional: replace Google Fonts with self-hosted files
-    if the site must load without external requests.
-No content on this page states anything that was not provided.
-====================================================================
--->
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..700&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,300..500&display=swap" rel="stylesheet">
@@ -244,12 +229,17 @@ nav a:hover::after,nav a[aria-current="true"]::after{right:0}
   font-family:var(--mono);font-size:13px;color:var(--scale);
   border:1px dashed #b3b9b6;padding:3px 9px;display:inline-block;background:#dfe2de
 }
-.shots{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:0 clamp(24px,3vw,38px) clamp(24px,3vw,38px)}
+.shots{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:0 clamp(22px,2.8vw,32px) clamp(22px,2.8vw,32px)}
 .shot{
-  aspect-ratio:9/16;border:1px dashed #b3b9b6;background:
+  aspect-ratio:9/16;border:1px solid var(--line);background:var(--mill);
+  overflow:hidden
+}
+.shot.empty{
+  border-style:dashed;border-color:#b3b9b6;background:
     repeating-linear-gradient(135deg,transparent 0 9px,rgba(104,114,122,.13) 9px 10px);
   display:grid;place-items:center;text-align:center
 }
+.shot img{width:100%;height:100%;object-fit:cover;object-position:top}
 .shot span{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--scale)}
 .slot{border:1px dashed #b3b9b6;padding:clamp(22px,2.6vw,32px);margin-top:22px}
 
@@ -567,6 +557,11 @@ footer .bar{height:auto;flex-wrap:wrap;gap:10px}
               <a class="btn hot" href="#" aria-disabled="true">On the App Store &mdash; coming soon</a>
             </div>
           </div>
+          <div class="shots">
+            <div class="shot"><img src="steelcalc/shots/01-home.png" alt="Steel Section Calculator home screen, showing a grid of section types" loading="lazy" decoding="async"></div>
+            <div class="shot"><img src="steelcalc/shots/02-calculator.png" alt="Steel Section Calculator computing the weight of an IPE 200 beam" loading="lazy" decoding="async"></div>
+            <div class="shot"><img src="steelcalc/shots/03-wizard.png" alt="Steel Section Calculator's identify wizard, asking whether a part is solid or hollow" loading="lazy" decoding="async"></div>
+          </div>
         </article>
 
         <article class="project rise">
@@ -661,7 +656,7 @@ footer .bar{height:auto;flex-wrap:wrap;gap:10px}
             <li><span>Used for</span><b>Projects &amp; experiments</b></li>
             <li><span>Focus</span><b>Software &amp; AI</b></li>
           </ul>
-          <p class="muted" style="margin:0;font-size:.94em">Selected repositories will be listed here.</p>
+          <p class="muted" style="margin:0;font-size:.94em">See the <a href="#projects">Projects</a> section above for what's currently there.</p>
         </div>
       </div>
     </div>
@@ -677,9 +672,7 @@ footer .bar{height:auto;flex-wrap:wrap;gap:10px}
       </div>
 
       <ul class="contact-list rise">
-        <!-- TODO-EMAIL: confirm or replace this address -->
         <li><a href="mailto:omar@mashharawi.com">omar@mashharawi.com<span>Email</span></a></li>
-        <!-- TODO-LINKEDIN: replace # with the LinkedIn profile URL -->
         <li><a href="https://www.linkedin.com/in/mashharawi" target="_blank" rel="noopener">linkedin.com/in/mashharawi<span>LinkedIn</span></a></li>
         <li><a href="https://github.com/UKDean" target="_blank" rel="noopener">github.com/UKDean<span>GitHub</span></a></li>
       </ul>
