@@ -363,3 +363,7 @@ footer a.lang:hover{color:var(--ink);border-color:var(--hot)}
   [dir="rtl"] .spec div:nth-child(2n){border-left:0}
   [dir="rtl"] .gov div:nth-child(2n){border-left:0}
 }
+
+/* RTL flips the inline start side, so the .skip link parked at left:-9999px stops being clipped and stretches the document to ~11,200px wide, which opens the page scrolled into empty space. Park it on the right instead. */
+[dir="rtl"] .skip{left:auto;right:-9999px}
+[dir="rtl"] .skip:focus{left:auto;right:12px}
