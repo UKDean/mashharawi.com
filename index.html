@@ -40,6 +40,7 @@
 <meta name="twitter:image" content="https://mashharawi.com/og-cover.jpg">
 <meta name="twitter:image:alt" content="Omar Mashharawi — commercial steel, software and AI.">
 
+<link rel="alternate" type="application/rss+xml" title="Omar Mashharawi — notes" href="https://mashharawi.com/feed.xml">
 <link rel="stylesheet" href="/assets/site.css">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -125,6 +126,7 @@
       "url": "https://mashharawi.com/",
       "name": "Omar Mashharawi",
       "inLanguage": "en",
+      "dateModified": "2026-09-13",
       "isPartOf": { "@id": "https://mashharawi.com/#website" },
       "about": { "@id": "https://mashharawi.com/#person" },
       "mainEntity": { "@id": "https://mashharawi.com/#person" },
@@ -163,9 +165,11 @@
         <li><a href="#projects">Projects</a></li>
         <li><a href="#ai">AI</a></li>
         <li><a href="#github">GitHub</a></li>
+        <li><a href="#linkedin">LinkedIn</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
+    <a class="lang-switch" href="/ar/" hreflang="ar" lang="ar" aria-label="عرض الموقع بالعربية">العربية</a>
   </div>
 </header>
 
@@ -199,8 +203,10 @@
       <div class="about-grid">
         <figure class="portrait rise">
           <picture>
-            <source srcset="portrait.webp" type="image/webp">
-            <img src="portrait.jpg" width="1200" height="1500" alt="Portrait of Omar Mashharawi" loading="lazy" decoding="async">
+            <source type="image/webp"
+                    srcset="/portrait-420.webp 420w, /portrait-560.webp 560w, /portrait-840.webp 840w"
+                    sizes="(max-width:900px) min(420px, 88vw), 380px">
+            <img src="/portrait-840.jpg" width="840" height="1050" alt="Portrait of Omar Mashharawi" loading="lazy" decoding="async">
           </picture>
           <figcaption>Omar Mashharawi<br>Section Head, Al Rajhi Steel &middot; Riyadh</figcaption>
         </figure>
@@ -498,6 +504,44 @@
     </div>
   </section>
 
+  <!-- ============ LINKEDIN ============ -->
+  <section id="linkedin" class="sec" aria-labelledby="li-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">On LinkedIn</p>
+        <h2 id="li-h">Where the commercial side of the work gets discussed.</h2>
+      </div>
+
+      <div class="gh">
+        <div class="rise">
+          <p>LinkedIn is where the day-to-day of the steel business gets written down: what the market is doing, how pricing decisions actually get made, and where a process is costing more than it should.</p>
+          <p>The technical work sits on GitHub; the commercial thinking sits there. Both come from the same problems.</p>
+          <ul class="tags">
+            <li>Steel market</li><li>Reinforcing steel</li><li>Pricing &amp; commercial terms</li>
+            <li>Export &amp; supply</li><li>Automation in practice</li>
+          </ul>
+          <div class="cta-row">
+            <a class="btn" href="/writing/">Read the notes</a>
+            <a class="btn ghost" href="https://www.linkedin.com/in/mashharawi" target="_blank" rel="noopener me">Follow on LinkedIn</a>
+          </div>
+        </div>
+        <div class="gh-panel rise">
+          <!-- ===== SELECTED POSTS =====
+               To add a post: copy one <li> below, paste the post URL, and write a short line.
+               Get the URL from the post's "..." menu on LinkedIn > Copy link to post.
+               Keep this list to three or four entries; replace the oldest when adding a new one. -->
+          <ul>
+            <li><span>Profile</span><b>in/mashharawi</b></li>
+            <li><span>Posts about</span><b>Steel &amp; commercial</b></li>
+            <li><span>Language</span><b>Arabic &amp; English</b></li>
+            <li><span>Feed</span><b><a href="/feed.xml">RSS</a></b></li>
+          </ul>
+          <p class="muted" style="margin:0;font-size:.94em">Notes are published here first, then shared on LinkedIn automatically through the feed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ CONTACT ============ -->
   <section id="contact" class="sec" aria-labelledby="contact-h">
     <div class="wrap">
@@ -509,8 +553,8 @@
 
       <ul class="contact-list rise">
         <li><a href="mailto:omar@mashharawi.com">omar@mashharawi.com<span>Email</span></a></li>
-        <li><a href="https://www.linkedin.com/in/mashharawi" target="_blank" rel="noopener">linkedin.com/in/mashharawi<span>LinkedIn</span></a></li>
-        <li><a href="https://github.com/UKDean" target="_blank" rel="noopener">github.com/UKDean<span>GitHub</span></a></li>
+        <li><a href="https://www.linkedin.com/in/mashharawi" target="_blank" rel="noopener me">linkedin.com/in/mashharawi<span>LinkedIn</span></a></li>
+        <li><a href="https://github.com/UKDean" target="_blank" rel="noopener me">github.com/UKDean<span>GitHub</span></a></li>
       </ul>
     </div>
   </section>

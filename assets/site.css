@@ -306,13 +306,13 @@ footer a.lang:hover{color:var(--ink);border-color:var(--hot)}
   .role{grid-template-columns:1fr;gap:10px}
   .role .when{padding-top:0}
 }
-@media (max-width:760px){
+@media (max-width:920px){
   .menu-btn{
     display:inline-flex;align-items:center;gap:9px;background:transparent;border:1px solid #9aa2a8;
     font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);
     padding:9px 13px;cursor:pointer
   }
-  nav{display:none;position:absolute;left:0;right:0;top:64px;background:var(--mill);border-bottom:1px solid var(--line)}
+  nav{display:none;position:absolute;left:0;right:0;top:64px;z-index:59;background:var(--mill);border-bottom:1px solid var(--line)}
   nav.open{display:block}
   nav ul{flex-direction:column;gap:0;padding:8px var(--gut) 20px}
   nav a{padding:12px 0;font-size:14px;border-bottom:1px solid var(--line)}
@@ -369,6 +369,26 @@ footer a.lang:hover{color:var(--ink);border-color:var(--hot)}
 [dir="rtl"] .skip:focus{left:auto;right:12px}
 
 /* ==========================================================================
+   PASS 2 — header language switch, and nav sizing for mid-width screens
+   ========================================================================== */
+.lang-switch{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;
+  text-decoration:none;color:var(--scale);border:1px solid var(--line);
+  padding:6px 12px;white-space:nowrap;flex:none;
+  transition:color .2s,border-color .2s
+}
+.lang-switch:hover{color:var(--ink);border-color:var(--hot)}
+/* The nav has to carry one more item now; tighten it before it can collide. */
+@media (max-width:1080px){
+  nav a{font-size:11.5px;letter-spacing:.04em}
+  nav ul{gap:11px}
+}
+@media (max-width:920px){
+  nav ul{gap:0}
+  nav a{font-size:14px;letter-spacing:.07em}
+}
+
+/* ==========================================================================
    NOTES — used by the pages generated from notes/*.md
    ========================================================================== */
 .note h1{font-size:clamp(30px,4.4vw,52px);max-width:22ch;margin:0}
@@ -392,9 +412,11 @@ footer a.lang:hover{color:var(--ink);border-color:var(--hot)}
 
 .note-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
 .note-list li{border-bottom:1px solid var(--line)}
-.note-list a{display:grid;grid-template-columns:118px 1fr;gap:clamp(14px,2.4vw,32px);align-items:baseline;padding:24px 0;text-decoration:none}
+.note-list a{display:grid;grid-template-columns:118px 1fr;gap:clamp(14px,2.4vw,32px);
+  align-items:baseline;padding:24px 0;text-decoration:none}
 .note-date{font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;color:var(--scale);font-variant-numeric:tabular-nums}
-.note-text b{display:block;font-family:var(--display);font-weight:600;font-stretch:106%;font-size:clamp(19px,2.1vw,25px);line-height:1.22;margin-bottom:8px}
+.note-text b{display:block;font-family:var(--display);font-weight:600;font-stretch:106%;
+  font-size:clamp(19px,2.1vw,25px);line-height:1.22;margin-bottom:8px}
 .note-text span{color:var(--scale);font-size:.97em}
 .note-list a:hover .note-text b{color:var(--hot)}
 
@@ -407,6 +429,11 @@ footer a.lang:hover{color:var(--ink);border-color:var(--hot)}
 [dir="rtl"] .prose ul,[dir="rtl"] .prose ol{padding-left:0;padding-right:1.2em}
 [dir="rtl"] .prose blockquote{padding-left:0;padding-right:20px;border-left:0;border-right:2px solid var(--hot)}
 
+/* An Arabic note listed on the English index still needs the Arabic face,
+   because the page root is dir="ltr" and the global RTL rules do not apply. */
 .note-list a[dir="rtl"] .note-text b,
-.note-list a[dir="rtl"] .note-text span{font-family:"Noto Kufi Arabic","Segoe UI",Tahoma,sans-serif;letter-spacing:0;line-height:1.65}
+.note-list a[dir="rtl"] .note-text span{
+  font-family:"Noto Kufi Arabic","Segoe UI",Tahoma,sans-serif;
+  letter-spacing:0;line-height:1.65
+}
 .note-list a[dir="rtl"] .note-text b{line-height:1.4}

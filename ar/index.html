@@ -34,6 +34,7 @@
 <meta name="twitter:description" content="خبرة تجارية. فضول تقني. بناءٌ لما هو قادم.">
 <meta name="twitter:image" content="https://mashharawi.com/og-cover.jpg">
 
+<link rel="alternate" type="application/rss+xml" title="عمر المشهراوي — مقالات" href="https://mashharawi.com/feed.xml">
 <link rel="stylesheet" href="/assets/site.css">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -108,6 +109,7 @@
       "url": "https://mashharawi.com/ar/",
       "name": "عمر المشهراوي",
       "inLanguage": "ar",
+      "dateModified": "2026-09-13",
       "isPartOf": { "@id": "https://mashharawi.com/#website" },
       "about": { "@id": "https://mashharawi.com/#person" },
       "mainEntity": { "@id": "https://mashharawi.com/#person" }
@@ -132,9 +134,11 @@
         <li><a href="#projects">المشاريع</a></li>
         <li><a href="#ai">الذكاء الاصطناعي</a></li>
         <li><a href="#github">GitHub</a></li>
+        <li><a href="#linkedin">LinkedIn</a></li>
         <li><a href="#contact">تواصل</a></li>
       </ul>
     </nav>
+    <a class="lang-switch" href="/" hreflang="en" lang="en" aria-label="View the site in English">English</a>
   </div>
 </header>
 
@@ -164,8 +168,10 @@
       <div class="about-grid">
         <figure class="portrait rise">
           <picture>
-            <source srcset="/portrait.webp" type="image/webp">
-            <img src="/portrait.jpg" width="1200" height="1500" alt="صورة شخصية لعمر المشهراوي" loading="lazy" decoding="async">
+            <source type="image/webp"
+                    srcset="/portrait-420.webp 420w, /portrait-560.webp 560w, /portrait-840.webp 840w"
+                    sizes="(max-width:900px) min(420px, 88vw), 380px">
+            <img src="/portrait-840.jpg" width="840" height="1050" alt="صورة شخصية لعمر المشهراوي" loading="lazy" decoding="async">
           </picture>
           <figcaption>عمر المشهراوي<br>رئيس قسم، الراجحي للحديد &middot; الرياض</figcaption>
         </figure>
@@ -456,6 +462,43 @@
             <li><span>التركيز</span><b>البرمجيات والذكاء الاصطناعي</b></li>
           </ul>
           <p class="muted" style="margin:0;font-size:.94em">راجع قسم <a href="#projects">المشاريع</a> أعلاه لما هو متاح حالياً.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LINKEDIN ============ -->
+  <section id="linkedin" class="sec" aria-labelledby="li-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">على LinkedIn</p>
+        <h2 id="li-h">حيث يُناقَش الجانب التجاري من العمل.</h2>
+      </div>
+
+      <div class="gh">
+        <div class="rise">
+          <p>على LinkedIn يُكتب يوميّ العمل في قطاع الحديد: ما الذي يفعله السوق، وكيف تُتخذ قرارات التسعير فعلياً، وأين تكلّف العملية أكثر مما ينبغي.</p>
+          <p>العمل التقني مكانه GitHub، والتفكير التجاري مكانه هناك. وكلاهما نابع من المشكلات نفسها.</p>
+          <ul class="tags">
+            <li>سوق الحديد</li><li>حديد التسليح</li><li>التسعير والشروط التجارية</li>
+            <li>التصدير والتوريد</li><li>الأتمتة عملياً</li>
+          </ul>
+          <div class="cta-row">
+            <a class="btn" href="/writing/">اقرأ المقالات</a>
+            <a class="btn ghost" href="https://www.linkedin.com/in/mashharawi" target="_blank" rel="noopener me">تابع على LinkedIn</a>
+          </div>
+        </div>
+        <div class="gh-panel rise">
+          <!-- ===== منشورات مختارة =====
+               لإضافة منشور: انسخ عنصر <li> واحداً، ضع رابط المنشور، واكتب سطراً قصيراً.
+               الرابط من قائمة "..." على المنشور في LinkedIn ثم "نسخ الرابط". -->
+          <ul>
+            <li><span>الحساب</span><b>in/mashharawi</b></li>
+            <li><span>المواضيع</span><b>الحديد والتجارة</b></li>
+            <li><span>اللغة</span><b>عربي وإنجليزي</b></li>
+            <li><span>التغذية</span><b><a href="/feed.xml">RSS</a></b></li>
+          </ul>
+          <p class="muted" style="margin:0;font-size:.94em">تُنشر المقالات هنا أولاً، ثم تُشارَك على LinkedIn تلقائياً عبر التغذية.</p>
         </div>
       </div>
     </div>
