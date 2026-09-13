@@ -1,0 +1,48 @@
+name: Build notes
+
+# Runs only when a note or the builder changes. The files it writes
+# (writing/, feed.xml, sitemap.xml) are deliberately NOT in this list,
+# so the commit it pushes cannot trigger another run.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'notes/**'
+      - 'tools/build_notes.py'
+      - '.github/workflows/build-notes.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-notes
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Markdown renderer
+        run: pip install --quiet markdown
+
+      - name: Build notes, feed and sitemap
+        run: python3 tools/build_notes.py
+
+      - name: Commit generated files
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add writing feed.xml sitemap.xml
+          if git diff --staged --quiet; then
+            echo "Nothing changed."
+          else
+            git commit -m "Rebuild notes, feed and sitemap"
+            git push
+          fi
