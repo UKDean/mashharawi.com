@@ -367,3 +367,46 @@ footer a.lang:hover{color:var(--ink);border-color:var(--hot)}
 /* RTL flips the inline start side, so the .skip link parked at left:-9999px stops being clipped and stretches the document to ~11,200px wide, which opens the page scrolled into empty space. Park it on the right instead. */
 [dir="rtl"] .skip{left:auto;right:-9999px}
 [dir="rtl"] .skip:focus{left:auto;right:12px}
+
+/* ==========================================================================
+   NOTES — used by the pages generated from notes/*.md
+   ========================================================================== */
+.note h1{font-size:clamp(30px,4.4vw,52px);max-width:22ch;margin:0}
+.note .eyebrow{margin-bottom:16px}
+.note .lead{margin-top:22px}
+
+.prose{max-width:66ch;margin-top:clamp(28px,3.5vw,44px);border-top:1px solid var(--line);padding-top:clamp(24px,3vw,36px)}
+.prose h2{font-size:clamp(22px,2.6vw,30px);margin:1.6em 0 .5em}
+.prose h3{font-size:clamp(18px,2vw,22px);margin:1.5em 0 .45em}
+.prose p{margin:0 0 1.05em}
+.prose ul,.prose ol{margin:0 0 1.05em;padding-left:1.2em}
+.prose li{margin-bottom:.45em}
+.prose li::marker{color:var(--scale)}
+.prose blockquote{margin:1.4em 0;padding-left:20px;border-left:2px solid var(--hot);color:var(--scale)}
+.prose code{font-family:var(--mono);font-size:.9em;background:var(--sheet);border:1px solid var(--line);padding:1px 5px}
+.prose pre{background:var(--sheet);border:1px solid var(--line);padding:16px;overflow-x:auto}
+.prose pre code{border:0;padding:0;background:none}
+.prose a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--hot);text-underline-offset:3px}
+.prose img{margin:1.4em 0;border:1px solid var(--line)}
+.prose hr{border:0;border-top:1px solid var(--line);margin:2em 0}
+
+.note-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.note-list li{border-bottom:1px solid var(--line)}
+.note-list a{display:grid;grid-template-columns:118px 1fr;gap:clamp(14px,2.4vw,32px);align-items:baseline;padding:24px 0;text-decoration:none}
+.note-date{font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;color:var(--scale);font-variant-numeric:tabular-nums}
+.note-text b{display:block;font-family:var(--display);font-weight:600;font-stretch:106%;font-size:clamp(19px,2.1vw,25px);line-height:1.22;margin-bottom:8px}
+.note-text span{color:var(--scale);font-size:.97em}
+.note-list a:hover .note-text b{color:var(--hot)}
+
+.note-back{font-family:var(--mono);font-size:13px;margin-top:clamp(28px,3.5vw,44px)}
+.note-back a{text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px}
+.note-back a:hover{border-color:var(--hot)}
+
+@media (max-width:620px){ .note-list a{grid-template-columns:1fr;gap:8px} }
+
+[dir="rtl"] .prose ul,[dir="rtl"] .prose ol{padding-left:0;padding-right:1.2em}
+[dir="rtl"] .prose blockquote{padding-left:0;padding-right:20px;border-left:0;border-right:2px solid var(--hot)}
+
+.note-list a[dir="rtl"] .note-text b,
+.note-list a[dir="rtl"] .note-text span{font-family:"Noto Kufi Arabic","Segoe UI",Tahoma,sans-serif;letter-spacing:0;line-height:1.65}
+.note-list a[dir="rtl"] .note-text b{line-height:1.4}
