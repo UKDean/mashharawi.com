@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Omar Mashharawi — Notes</title>
+    <link>https://mashharawi.com/writing/</link>
+    <atom:link href="https://mashharawi.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>Notes on commercial steel, software and automation.</description>
+    <language>en</language>
+    <lastBuildDate>Sun, 13 Sep 2026 07:19:28 +0000</lastBuildDate>
+    <item>
+      <title>Weight tolerance is a commercial term, not a technical one</title>
+      <link>https://mashharawi.com/writing/weight-tolerance/</link>
+      <guid isPermaLink="true">https://mashharawi.com/writing/weight-tolerance/</guid>
+      <pubDate>Sun, 13 Sep 2026 09:00:00 +0000</pubDate>
+      <description>Two mills can both meet the standard and still hand you a different invoice. The gap lives in the tolerance band.</description>
+    </item>
+  </channel>
+</rss>
