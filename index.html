@@ -16,7 +16,7 @@
 <link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/">
 <link rel="alternate" hreflang="x-default" href="https://mashharawi.com/">
 
-<meta name="theme-color" content="#E4E6E3">
+<meta name="theme-color" content="#E2E6EA">
 
 <!-- Open Graph -->
 <meta property="og:type" content="profile">
@@ -29,7 +29,7 @@
 <meta property="og:image" content="https://mashharawi.com/og-cover.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Omar Mashharawi — commercial steel, software and AI. Riyadh, Saudi Arabia.">
+<meta property="og:image:alt" content="Omar Mashharawi, commercial steel, software and AI. Riyadh, Saudi Arabia.">
 <meta property="profile:first_name" content="Omar">
 <meta property="profile:last_name" content="Mashharawi">
 
@@ -38,9 +38,9 @@
 <meta name="twitter:title" content="Omar Mashharawi">
 <meta name="twitter:description" content="Business experience. Technology curiosity. Building for what comes next.">
 <meta name="twitter:image" content="https://mashharawi.com/og-cover.jpg">
-<meta name="twitter:image:alt" content="Omar Mashharawi — commercial steel, software and AI.">
+<meta name="twitter:image:alt" content="Omar Mashharawi, commercial steel, software and AI.">
 
-<link rel="alternate" type="application/rss+xml" title="Omar Mashharawi — notes" href="https://mashharawi.com/feed.xml">
+<link rel="alternate" type="application/rss+xml" title="Omar Mashharawi, notes" href="https://mashharawi.com/feed.xml">
 <link rel="stylesheet" href="/assets/site.css">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -162,6 +162,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#technology">Technology</a></li>
+        <li><a href="#calculator">Calculator</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#ai">AI</a></li>
         <li><a href="#github">GitHub</a></li>
@@ -182,8 +183,8 @@
            replacing the standalone location paragraph that used to sit above
            it, so the page's single top-level heading names the entity it is
            about without adding a second mono line to the design. -->
-      <h1 class="rise" style="--i:1"><span class="h1-name">Omar Mashharawi<i> &nbsp;/&nbsp; </i><b>Riyadh, Saudi Arabia</b></span>Business Experience. Technology Curiosity. Building for What Comes Next.</h1>
-      <p class="lead rise" style="--i:2">Omar Mashharawi is a commercial and sales professional with extensive experience in the steel industry, exploring software development, artificial intelligence, and digital products.</p>
+      <h1 class="rise" style="--i:1"><span class="h1-name">Omar Mashharawi<i> &nbsp;/&nbsp; </i><b>Riyadh, Saudi Arabia</b></span>Fifteen years in steel. Now building software.</h1>
+      <p class="lead rise" style="--i:2">Commercial and sales work in reinforcing steel in Riyadh, and the software, AI and automation I build alongside it.</p>
       <div class="cta-row rise" style="--i:3">
         <a class="btn" href="#journey">Explore my journey</a>
         <a class="btn ghost" href="https://github.com/UKDean" target="_blank" rel="noopener">View GitHub</a>
@@ -196,7 +197,6 @@
   <section id="about" class="sec" aria-labelledby="about-h">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">About</p>
         <h2 id="about-h">Fifteen years in commercial steel, now building with software.</h2>
       </div>
 
@@ -225,7 +225,6 @@
 
       <div id="journey" style="margin-top:clamp(56px,7vw,96px)">
         <div class="sec-head">
-          <p class="eyebrow">My journey</p>
           <h2>From the sales floor to the source code.</h2>
         </div>
         <div class="journey rise">
@@ -243,12 +242,11 @@
   <section id="experience" class="sec" aria-labelledby="exp-h">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">Experience</p>
         <h2 id="exp-h">Commercial roles across the steel industry.</h2>
       </div>
 
       <article class="role rise">
-        <div class="when">2018 &mdash; Present</div>
+        <div class="when">2018 to present</div>
         <div>
           <h3>Section Head</h3>
           <p class="co">Al Rajhi Steel Co. &middot; Riyadh</p>
@@ -266,7 +264,7 @@
       </article>
 
       <article class="role rise">
-        <div class="when">2010 &mdash; 2018</div>
+        <div class="when">2010-2018</div>
         <div>
           <h3>Sales Manager</h3>
           <p class="co">Al Musairiey Metallic Industries</p>
@@ -280,7 +278,7 @@
       </article>
 
       <article class="role rise">
-        <div class="when">2008 &mdash; 2010</div>
+        <div class="when">2008-2010</div>
         <div>
           <h3>Sales Executive</h3>
           <p class="co">Arabian Steel Pipes</p>
@@ -293,7 +291,7 @@
       </article>
 
       <div style="margin-top:clamp(48px,6vw,80px)">
-        <p class="eyebrow">Skills</p>
+        <p class="calc-lbl" style="margin-bottom:20px">Skills</p>
         <div class="skills">
           <div class="rise">
             <h3>Business &amp; commercial</h3>
@@ -377,11 +375,132 @@
     </div>
   </section>
 
+
+  <!-- ============ CALCULATOR ============ -->
+  <section id="calculator" class="sec" aria-labelledby="calc-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Live tool</p>
+        <h2 id="calc-h">Reinforcing steel weight, worked out in the page.</h2>
+      </div>
+
+      <p class="lead" style="margin-bottom:clamp(32px,4vw,48px)">Steel is ordered by the piece and invoiced by the kilo. This converts between the two: pick a diameter, set a length, read the weight. Or enter a tonnage and get the number of bars it comes to.</p>
+
+      <div class="calc rise" id="calc">
+
+        <div class="calc-main">
+          <figure class="calc-dial">
+            <svg class="calc-svg" viewBox="0 0 200 200" role="img" aria-labelledby="cSecT">
+              <title id="cSecT">Cross-section of the selected bar, drawn to scale against a 40 mm reference ring</title>
+              <circle class="calc-ref" cx="100" cy="100" r="82"></circle>
+              <g id="cSection" class="calc-bar">
+                <circle class="calc-bar-body" cx="100" cy="100" r="82"></circle>
+                <circle class="calc-bar-ribs" cx="100" cy="100" r="74"></circle>
+                <rect class="calc-bar-lug" x="13" y="93" width="11" height="14" rx="4"></rect>
+                <rect class="calc-bar-lug" x="176" y="93" width="11" height="14" rx="4"></rect>
+              </g>
+            </svg>
+            <figcaption class="calc-dial-cap">&#216;&nbsp;<b id="cDiaVal">16</b>&nbsp;mm</figcaption>
+          </figure>
+
+          <div class="calc-ctl">
+            <p class="calc-lbl" id="cDiaLbl">Diameter, mm</p>
+            <div class="calc-chips" role="group" aria-labelledby="cDiaLbl">
+              <button type="button" class="calc-chip" data-d="10" aria-pressed="false">10</button>
+              <button type="button" class="calc-chip" data-d="12" aria-pressed="false">12</button>
+              <button type="button" class="calc-chip" data-d="14" aria-pressed="false">14</button>
+              <button type="button" class="calc-chip" data-d="16" aria-pressed="false">16</button>
+              <button type="button" class="calc-chip" data-d="18" aria-pressed="false">18</button>
+              <button type="button" class="calc-chip" data-d="20" aria-pressed="false">20</button>
+              <button type="button" class="calc-chip" data-d="25" aria-pressed="false">25</button>
+              <button type="button" class="calc-chip" data-d="32" aria-pressed="false">32</button>
+              <label class="calc-other"><span>Other</span><input id="cCustom" class="calc-custom" type="number" min="1" max="100" step="0.1" inputmode="decimal"></label>
+            </div>
+            <p class="calc-hint">Common sizes in the Saudi market. 12&nbsp;m is the usual stock length.</p>
+
+            <div class="calc-fields">
+              <label class="calc-field">
+                <span>Length, m</span>
+                <input id="cLen" type="number" min="0.1" max="30" step="0.1" inputmode="decimal">
+              </label>
+              <label class="calc-field">
+                <span>Pieces</span>
+                <input id="cQty" type="number" min="1" step="1" inputmode="numeric">
+              </label>
+              <label class="calc-field calc-field-rev">
+                <span>&hellip;or tonnes</span>
+                <input id="cTon" type="number" min="0" step="0.001" inputmode="decimal">
+                <small id="cTonHint" class="calc-revhint"></small>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <dl class="calc-figs">
+          <div>
+            <dt>Mass per metre</dt>
+            <dd><b id="oMpm">0</b><span>kg/m</span></dd>
+          </div>
+          <div>
+            <dt id="oBarLbl">Per 12 m bar</dt>
+            <dd><b id="oBar">0</b><span>kg</span></dd>
+          </div>
+          <div>
+            <dt>Bars per tonne</dt>
+            <dd><b id="oPerT">0</b><span>pcs</span></dd>
+          </div>
+          <div class="calc-fig-key">
+            <dt>Weight of this quantity</dt>
+            <dd><b id="oTot">0</b><span>tonnes</span></dd>
+          </div>
+        </dl>
+
+        <div class="calc-order">
+          <div class="calc-order-head">
+            <p class="calc-lbl">Order</p>
+            <button type="button" class="calc-btn" id="cAdd">Add this line</button>
+            <button type="button" class="calc-btn ghost" id="cCopy">Copy table</button>
+          </div>
+
+          <p class="calc-empty" id="cEmpty">Nothing added yet. Build a multi-size order and the totals appear here.</p>
+
+          <table class="calc-table" hidden>
+            <caption class="vh">Order lines, with the weight of each</caption>
+            <thead>
+              <tr>
+                <th scope="col">&#216; mm</th>
+                <th scope="col">Length m</th>
+                <th scope="col">Pieces</th>
+                <th scope="col">kg</th>
+                <th scope="col">tonnes</th>
+                <th scope="col"><span class="vh">Remove</span></th>
+              </tr>
+            </thead>
+            <tbody id="cRows"></tbody>
+            <tfoot>
+              <tr>
+                <th scope="row" colspan="2">Total</th>
+                <td class="num"><b id="tPieces">0</b></td>
+                <td class="num"><b id="tKg">0</b></td>
+                <td class="num strong"><b id="tT">0</b></td>
+                <td></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <p class="calc-foot">
+          <span class="calc-formula">m = 0.006165 &times; d&sup2; &nbsp;kg/m</span>
+          These are <b>nominal</b> weights, from the nominal diameter and a density of 7,850&nbsp;kg/m&sup3;. What a mill actually delivers falls inside the tolerance band of the governing standard, and where it falls inside that band is a commercial question, not a technical one. <a href="/writing/weight-tolerance/">I wrote about that here</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ PROJECTS ============ -->
   <section id="projects" class="sec" aria-labelledby="proj-h">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">Projects</p>
         <h2 id="proj-h">Built, not just studied.</h2>
       </div>
 
@@ -392,11 +511,11 @@
           <div class="body">
             <p class="pmeta">iOS &middot; Flutter</p>
             <h3>Steel Section Calculator</h3>
-            <p>An offline calculator for structural steel section weights (I/H-beams, channels, angles, bars, pipe, tube, sheet) — no ads, no login, nothing ever leaves the device. Core formulas cross-checked against published EN&nbsp;10365 / EN&nbsp;10056 reference tables. Running and tested; not yet submitted to the App Store.</p>
+            <p>An offline calculator for structural steel section weights (I/H-beams, channels, angles, bars, pipe, tube, sheet), with no ads, no login, nothing ever leaves the device. Core formulas cross-checked against published EN&nbsp;10365 / EN&nbsp;10056 reference tables. Running and tested; not yet submitted to the App Store.</p>
             <div class="cta-row">
               <!-- Was <a href="#">: a placeholder link that resolved to this page.
                    Now a non-link status pill, so no dead anchors are crawled. -->
-              <span class="btn hot is-soon">On the App Store &mdash; coming soon</span>
+              <p class="status">Built and running. Not yet submitted to the App&nbsp;Store.</p>
             </div>
           </div>
           <div class="shots">
@@ -412,7 +531,7 @@
             <h3>Tubes</h3>
             <p>An offline water-sort puzzle: pour colored liquid between tubes until every color is sorted into its own tube. No timer, no fail state, no ads. The game engine (rules, undo, a solver that proves every level solvable) is complete and fully tested; the on-device interface is still being built.</p>
             <div class="cta-row">
-              <span class="btn hot is-soon">On the App Store &mdash; coming soon</span>
+              <p class="status">Engine complete and tested. Interface still in build.</p>
             </div>
           </div>
         </article>
@@ -421,9 +540,9 @@
           <div class="body">
             <p class="pmeta">Android &amp; iOS &middot; React Native</p>
             <h3>Arabic Crossword</h3>
-            <p>An original Arabic crossword generator — a fresh right-to-left puzzle every time from a 305-word bank, fully offline. Complete and tested on a real device; being prepared for submission to Google Play.</p>
+            <p>An original Arabic crossword generator, a fresh right-to-left puzzle every time from a 305-word bank, fully offline. Complete and tested on a real device; being prepared for submission to Google Play.</p>
             <div class="cta-row">
-              <span class="btn hot is-soon">On Google Play &mdash; coming soon</span>
+              <p class="status">Complete and device-tested. Google&nbsp;Play submission next.</p>
             </div>
           </div>
         </article>
@@ -451,7 +570,7 @@
   <section id="ai" class="sec" aria-labelledby="ai-h">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">Exploring artificial intelligence</p>
+        <p class="eyebrow">Artificial intelligence</p>
         <h2 id="ai-h">AI is interesting where it meets the work.</h2>
         <p class="lead">The attention here is on applied AI: how it changes the way a business operates, how decisions get made, how work gets automated, and how people interact with the software in front of them.</p>
       </div>
@@ -480,7 +599,6 @@
   <section id="github" class="sec" aria-labelledby="gh-h">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">GitHub</p>
         <h2 id="gh-h">Where the learning is actually recorded.</h2>
       </div>
 
@@ -508,7 +626,6 @@
   <section id="linkedin" class="sec" aria-labelledby="li-h">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">On LinkedIn</p>
         <h2 id="li-h">Where the commercial side of the work gets discussed.</h2>
       </div>
 
@@ -546,7 +663,6 @@
   <section id="contact" class="sec" aria-labelledby="contact-h">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">Contact</p>
         <h2 id="contact-h">Let's connect.</h2>
         <p class="lead">Whether you're interested in business, technology, AI, software, or simply exchanging ideas, I'd be glad to connect.</p>
       </div>
@@ -568,5 +684,7 @@
 </footer>
 
 <script src="/assets/site.js" defer></script>
+<script src="/assets/mill.js" defer></script>
+<script src="/assets/calc.js" defer></script>
 </body>
 </html>
