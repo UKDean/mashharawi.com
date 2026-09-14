@@ -13,10 +13,10 @@ figure on the website can always be traced back to the row the app used.
 
 Usage
 -----
-    python3 tools/build_sections.py --app /path/to/SteelCalc
+    python3 scripts/build_sections.py --app /path/to/SteelCalc
 
     # default location: a SteelCalc checkout beside this repo
-    python3 tools/build_sections.py
+    python3 scripts/build_sections.py
 
 Re-run it after changing any table in the app, then commit the regenerated
 JSON. Nothing here edits the app.

@@ -131,7 +131,7 @@
         <li><a href="#about">نبذة</a></li>
         <li><a href="#experience">الخبرة</a></li>
         <li><a href="#technology">التقنية</a></li>
-        <li><a href="#calculator">الحاسبة</a></li>
+        <li><a href="/ar/tools/">الأدوات</a></li>
         <li><a href="#projects">المشاريع</a></li>
         <li><a href="#ai">الذكاء الاصطناعي</a></li>
         <li><a href="#github">GitHub</a></li>
@@ -345,124 +345,33 @@
   <section id="calculator" class="sec" aria-labelledby="calc-h">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">أداة حيّة</p>
-        <h2 id="calc-h">وزن حديد التسليح، يُحسب داخل الصفحة.</h2>
+        <p class="eyebrow">الأدوات</p>
+        <h2 id="calc-h">أدوات بنيتها لأنني احتجتها.</h2>
+        <p class="lead">الحديد يُطلب بالقطعة ويُفوتر بالكيلو، والحساب بين الاثنين هو موضع الربح أو الخسارة في عرض السعر. حاسبتان تؤديان هذا العمل داخل المتصفح. والأداة الثالثة مختلفة تماماً: معالجة ملفات PDF التي يمارسها أي مكتب تجاري يومياً، لكن على جهازك أنت.</p>
       </div>
 
-      <p class="lead" style="margin-bottom:clamp(32px,4vw,48px)">الحديد يُطلب بالسيخ ويُفوتَر بالكيلوجرام، وهذه الأداة تحوّل بين الاثنين: اختر القطر، حدّد الطول، واقرأ الوزن. أو أدخل الكمية بالأطنان فتعرف عدد الأسياخ المقابل لها.</p>
+      <ul class="note-list rise">
+        <li>
+          <a href="/ar/tools/rebar-weight/">
+            <span class="note-date">في المتصفح</span>
+            <span class="note-text"><b>وزن حديد التسليح</b><span>من القطر إلى الكيلو للمتر وللسيخ وللطن، أو من التوريد بالطن إلى عدد الأسياخ.</span></span>
+          </a>
+        </li>
+        <li>
+          <a href="/ar/tools/steel-sections/">
+            <span class="note-date">في المتصفح</span>
+            <span class="note-text"><b>وزن قطاعات الحديد</b><span>IPE و HEA و HEB و UPN والزوايا والقضبان والمسطح والمواسير والتيوب، مع النطاق التجاري حول الوزن الاسمي.</span></span>
+          </a>
+        </li>
+        <li>
+          <a href="/ar/tools/openpdfkit/">
+            <span class="note-date">تطبيق سطح مكتب</span>
+            <span class="note-text"><b>OpenPDFKit</b><span>دمج وتقسيم وضغط وتحويل وحماية و OCR، بلا إنترنت بالكامل. لا يُرفع أي ملف إلى أي خادم.</span></span>
+          </a>
+        </li>
+      </ul>
 
-      <div class="calc rise" id="calc">
-
-        <div class="calc-main">
-          <figure class="calc-dial">
-            <svg class="calc-svg" viewBox="0 0 200 200" role="img" aria-labelledby="cSecT">
-              <title id="cSecT">مقطع السيخ المختار، مرسوم بمقياس نسبي مقابل حلقة مرجعية قطرها ٤٠ مم</title>
-              <circle class="calc-ref" cx="100" cy="100" r="82"></circle>
-              <g id="cSection" class="calc-bar">
-                <circle class="calc-bar-body" cx="100" cy="100" r="82"></circle>
-                <circle class="calc-bar-ribs" cx="100" cy="100" r="74"></circle>
-                <rect class="calc-bar-lug" x="13" y="93" width="11" height="14" rx="4"></rect>
-                <rect class="calc-bar-lug" x="176" y="93" width="11" height="14" rx="4"></rect>
-              </g>
-            </svg>
-            <figcaption class="calc-dial-cap">&#216;&nbsp;<b id="cDiaVal">16</b>&nbsp;<span dir="ltr">mm</span></figcaption>
-          </figure>
-
-          <div class="calc-ctl">
-            <p class="calc-lbl" id="cDiaLbl">القطر، مم</p>
-            <div class="calc-chips" role="group" aria-labelledby="cDiaLbl">
-              <button type="button" class="calc-chip" data-d="10" aria-pressed="false">10</button>
-              <button type="button" class="calc-chip" data-d="12" aria-pressed="false">12</button>
-              <button type="button" class="calc-chip" data-d="14" aria-pressed="false">14</button>
-              <button type="button" class="calc-chip" data-d="16" aria-pressed="false">16</button>
-              <button type="button" class="calc-chip" data-d="18" aria-pressed="false">18</button>
-              <button type="button" class="calc-chip" data-d="20" aria-pressed="false">20</button>
-              <button type="button" class="calc-chip" data-d="25" aria-pressed="false">25</button>
-              <button type="button" class="calc-chip" data-d="32" aria-pressed="false">32</button>
-              <label class="calc-other"><span>آخر</span><input id="cCustom" class="calc-custom" type="number" min="1" max="100" step="0.1" inputmode="decimal"></label>
-            </div>
-            <p class="calc-hint">المقاسات الشائعة في السوق السعودي، والطول المعتاد للسيخ 12 متراً.</p>
-
-            <div class="calc-fields">
-              <label class="calc-field">
-                <span>الطول، م</span>
-                <input id="cLen" type="number" min="0.1" max="30" step="0.1" inputmode="decimal">
-              </label>
-              <label class="calc-field">
-                <span>العدد، سيخ</span>
-                <input id="cQty" type="number" min="1" step="1" inputmode="numeric">
-              </label>
-              <label class="calc-field calc-field-rev">
-                <span>أو بالأطنان</span>
-                <input id="cTon" type="number" min="0" step="0.001" inputmode="decimal">
-                <small id="cTonHint" class="calc-revhint"></small>
-              </label>
-            </div>
-          </div>
-        </div>
-
-        <dl class="calc-figs">
-          <div>
-            <dt>الوزن لكل متر</dt>
-            <dd><b id="oMpm">0</b><span dir="ltr">kg/m</span></dd>
-          </div>
-          <div>
-            <dt id="oBarLbl">لكل سيخ 12 م</dt>
-            <dd><b id="oBar">0</b><span dir="ltr">kg</span></dd>
-          </div>
-          <div>
-            <dt>عدد الأسياخ في الطن</dt>
-            <dd><b id="oPerT">0</b><span>سيخ</span></dd>
-          </div>
-          <div class="calc-fig-key">
-            <dt>وزن هذه الكمية</dt>
-            <dd><b id="oTot">0</b><span>طن</span></dd>
-          </div>
-        </dl>
-
-        <div class="calc-order">
-          <div class="calc-order-head">
-            <p class="calc-lbl">أمر التوريد</p>
-            <button type="button" class="calc-btn" id="cAdd">أضف هذا البند</button>
-            <button type="button" class="calc-btn ghost" id="cCopy">نسخ الجدول</button>
-          </div>
-
-          <p class="calc-empty" id="cEmpty">لم يُضَف شيء بعد. ابنِ أمراً بعدة مقاسات فتظهر الإجماليات هنا.</p>
-
-          <table class="calc-table" hidden>
-            <caption class="vh">بنود أمر التوريد ووزن كل بند</caption>
-            <thead>
-              <tr>
-                <th scope="col">القطر مم</th>
-                <th scope="col">الطول م</th>
-                <th scope="col">العدد</th>
-                <th scope="col">كجم</th>
-                <th scope="col">طن</th>
-                <th scope="col"><span class="vh">حذف</span></th>
-              </tr>
-            </thead>
-            <tbody id="cRows"></tbody>
-            <tfoot>
-              <tr>
-                <th scope="row" colspan="2">الإجمالي</th>
-                <td class="num"><b id="tPieces">0</b></td>
-                <td class="num"><b id="tKg">0</b></td>
-                <td class="num strong"><b id="tT">0</b></td>
-                <td></td>
-              </tr>
-            </tfoot>
-          </table>
-        </div>
-
-        <p class="calc-foot">
-          <span class="calc-formula" dir="ltr">m = 0.006165 &times; d&sup2; &nbsp;kg/m</span>
-          هذه أوزان <b>نظرية</b>، محسوبة من القطر الاسمي وكثافة <span dir="ltr">7,850 kg/m&sup3;</span>. ما يسلّمه المصنع فعلياً يقع داخل حدود السماحية في المواصفة المعتمدة، وموقعه داخل هذه الحدود مسألة تجارية لا فنية. <a href="/writing/weight-tolerance/">كتبتُ عن ذلك هنا (بالإنجليزية)</a>.
-        </p>
-      </div>
-
-      <p class="note-back" style="margin-top:clamp(24px,2.6vw,34px)">
-        للكمرات والقنوات والزوايا والقضبان والمسطح والمواسير والتيوب، استخدم <a href="/ar/steelcalc/">حاسبة وزن القطاعات</a>.
-      </p>
+      <p class="note-back"><a href="/ar/tools/">كل الأدوات</a></p>
     </div>
   </section>
 
@@ -482,7 +391,7 @@
             <h3>حاسبة مقاطع الحديد</h3>
             <p>حاسبة تعمل دون اتصال لأوزان المقاطع الإنشائية (الكمرات I/H، القطاعات القناة، الزوايا، القضبان، المواسير، الأنابيب المربعة، الألواح)، بلا إعلانات، بلا تسجيل دخول، ولا تغادر أي بيانات الجهاز. المعادلات الأساسية روجعت مقابل جداول مرجعية منشورة وفق EN&nbsp;10365 و EN&nbsp;10056. تعمل ومختبرة، ولم تُقدَّم بعد إلى App Store.</p>
             <div class="cta-row">
-              <a class="btn" href="/ar/steelcalc/">افتح نسخة الويب</a>
+              <a class="btn" href="/ar/tools/steel-sections/">افتح نسخة الويب</a>
               <p class="status">جاهز ويعمل. لم يُرفع بعد إلى App&nbsp;Store.</p>
             </div>
           </div>

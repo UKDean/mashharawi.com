@@ -8,7 +8,7 @@ on:
     branches: [main]
     paths:
       - 'notes/**'
-      - 'tools/build_notes.py'
+      - 'scripts/build_notes.py'
       - '.github/workflows/build-notes.yml'
   workflow_dispatch:
 
@@ -33,7 +33,7 @@ jobs:
         run: pip install --quiet markdown
 
       - name: Build notes, feed and sitemap
-        run: python3 tools/build_notes.py
+        run: python3 scripts/build_notes.py
 
       - name: Commit generated files
         run: |

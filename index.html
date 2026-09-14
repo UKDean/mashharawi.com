@@ -165,7 +165,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#technology">Technology</a></li>
-        <li><a href="#calculator">Calculator</a></li>
+        <li><a href="/tools/">Tools</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#ai">AI</a></li>
         <li><a href="#github">GitHub</a></li>
@@ -383,124 +383,33 @@
   <section id="calculator" class="sec" aria-labelledby="calc-h">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">Live tool</p>
-        <h2 id="calc-h">Reinforcing steel weight, worked out in the page.</h2>
+        <p class="eyebrow">Tools</p>
+        <h2 id="calc-h">Tools I built because I needed them.</h2>
+        <p class="lead">Steel is ordered by the piece and invoiced by the kilo, and the arithmetic between those two is where a quote is won or lost. Two calculators do that work in the browser. The third tool is something else entirely: the PDF handling every commercial desk does daily, kept on your own machine.</p>
       </div>
 
-      <p class="lead" style="margin-bottom:clamp(32px,4vw,48px)">Steel is ordered by the piece and invoiced by the kilo. This converts between the two: pick a diameter, set a length, read the weight. Or enter a tonnage and get the number of bars it comes to.</p>
+      <ul class="note-list rise">
+        <li>
+          <a href="/tools/rebar-weight/">
+            <span class="note-date">In the browser</span>
+            <span class="note-text"><b>Reinforcing steel weight</b><span>Diameter to kilos per metre, per bar and per tonne. Or a tonnage back to a number of bars.</span></span>
+          </a>
+        </li>
+        <li>
+          <a href="/tools/steel-sections/">
+            <span class="note-date">In the browser</span>
+            <span class="note-text"><b>Steel section weight</b><span>IPE, HEA, HEB, UPN, angles, bars, flats, pipe and tube, with the commercial band around the nominal figure.</span></span>
+          </a>
+        </li>
+        <li>
+          <a href="/tools/openpdfkit/">
+            <span class="note-date">Desktop app</span>
+            <span class="note-text"><b>OpenPDFKit</b><span>Merge, split, compress, convert, protect and OCR, entirely offline. Nothing is uploaded anywhere.</span></span>
+          </a>
+        </li>
+      </ul>
 
-      <div class="calc rise" id="calc">
-
-        <div class="calc-main">
-          <figure class="calc-dial">
-            <svg class="calc-svg" viewBox="0 0 200 200" role="img" aria-labelledby="cSecT">
-              <title id="cSecT">Cross-section of the selected bar, drawn to scale against a 40 mm reference ring</title>
-              <circle class="calc-ref" cx="100" cy="100" r="82"></circle>
-              <g id="cSection" class="calc-bar">
-                <circle class="calc-bar-body" cx="100" cy="100" r="82"></circle>
-                <circle class="calc-bar-ribs" cx="100" cy="100" r="74"></circle>
-                <rect class="calc-bar-lug" x="13" y="93" width="11" height="14" rx="4"></rect>
-                <rect class="calc-bar-lug" x="176" y="93" width="11" height="14" rx="4"></rect>
-              </g>
-            </svg>
-            <figcaption class="calc-dial-cap">&#216;&nbsp;<b id="cDiaVal">16</b>&nbsp;mm</figcaption>
-          </figure>
-
-          <div class="calc-ctl">
-            <p class="calc-lbl" id="cDiaLbl">Diameter, mm</p>
-            <div class="calc-chips" role="group" aria-labelledby="cDiaLbl">
-              <button type="button" class="calc-chip" data-d="10" aria-pressed="false">10</button>
-              <button type="button" class="calc-chip" data-d="12" aria-pressed="false">12</button>
-              <button type="button" class="calc-chip" data-d="14" aria-pressed="false">14</button>
-              <button type="button" class="calc-chip" data-d="16" aria-pressed="false">16</button>
-              <button type="button" class="calc-chip" data-d="18" aria-pressed="false">18</button>
-              <button type="button" class="calc-chip" data-d="20" aria-pressed="false">20</button>
-              <button type="button" class="calc-chip" data-d="25" aria-pressed="false">25</button>
-              <button type="button" class="calc-chip" data-d="32" aria-pressed="false">32</button>
-              <label class="calc-other"><span>Other</span><input id="cCustom" class="calc-custom" type="number" min="1" max="100" step="0.1" inputmode="decimal"></label>
-            </div>
-            <p class="calc-hint">Common sizes in the Saudi market. 12&nbsp;m is the usual stock length.</p>
-
-            <div class="calc-fields">
-              <label class="calc-field">
-                <span>Length, m</span>
-                <input id="cLen" type="number" min="0.1" max="30" step="0.1" inputmode="decimal">
-              </label>
-              <label class="calc-field">
-                <span>Pieces</span>
-                <input id="cQty" type="number" min="1" step="1" inputmode="numeric">
-              </label>
-              <label class="calc-field calc-field-rev">
-                <span>&hellip;or tonnes</span>
-                <input id="cTon" type="number" min="0" step="0.001" inputmode="decimal">
-                <small id="cTonHint" class="calc-revhint"></small>
-              </label>
-            </div>
-          </div>
-        </div>
-
-        <dl class="calc-figs">
-          <div>
-            <dt>Mass per metre</dt>
-            <dd><b id="oMpm">0</b><span>kg/m</span></dd>
-          </div>
-          <div>
-            <dt id="oBarLbl">Per 12 m bar</dt>
-            <dd><b id="oBar">0</b><span>kg</span></dd>
-          </div>
-          <div>
-            <dt>Bars per tonne</dt>
-            <dd><b id="oPerT">0</b><span>pcs</span></dd>
-          </div>
-          <div class="calc-fig-key">
-            <dt>Weight of this quantity</dt>
-            <dd><b id="oTot">0</b><span>tonnes</span></dd>
-          </div>
-        </dl>
-
-        <div class="calc-order">
-          <div class="calc-order-head">
-            <p class="calc-lbl">Order</p>
-            <button type="button" class="calc-btn" id="cAdd">Add this line</button>
-            <button type="button" class="calc-btn ghost" id="cCopy">Copy table</button>
-          </div>
-
-          <p class="calc-empty" id="cEmpty">Nothing added yet. Build a multi-size order and the totals appear here.</p>
-
-          <table class="calc-table" hidden>
-            <caption class="vh">Order lines, with the weight of each</caption>
-            <thead>
-              <tr>
-                <th scope="col">&#216; mm</th>
-                <th scope="col">Length m</th>
-                <th scope="col">Pieces</th>
-                <th scope="col">kg</th>
-                <th scope="col">tonnes</th>
-                <th scope="col"><span class="vh">Remove</span></th>
-              </tr>
-            </thead>
-            <tbody id="cRows"></tbody>
-            <tfoot>
-              <tr>
-                <th scope="row" colspan="2">Total</th>
-                <td class="num"><b id="tPieces">0</b></td>
-                <td class="num"><b id="tKg">0</b></td>
-                <td class="num strong"><b id="tT">0</b></td>
-                <td></td>
-              </tr>
-            </tfoot>
-          </table>
-        </div>
-
-        <p class="calc-foot">
-          <span class="calc-formula">m = 0.006165 &times; d&sup2; &nbsp;kg/m</span>
-          These are <b>nominal</b> weights, from the nominal diameter and a density of 7,850&nbsp;kg/m&sup3;. What a mill actually delivers falls inside the tolerance band of the governing standard, and where it falls inside that band is a commercial question, not a technical one. <a href="/writing/weight-tolerance/">I wrote about that here</a>.
-        </p>
-      </div>
-
-      <p class="note-back" style="margin-top:clamp(24px,2.6vw,34px)">
-        For beams, channels, angles, bars, flats, pipe and tube, use the <a href="/steelcalc/">section weight calculator</a>.
-      </p>
+      <p class="note-back"><a href="/tools/">All tools</a></p>
     </div>
   </section>
 
@@ -522,7 +431,7 @@
             <div class="cta-row">
               <!-- Was <a href="#">: a placeholder link that resolved to this page.
                    Now a non-link status pill, so no dead anchors are crawled. -->
-              <a class="btn" href="/steelcalc/">Open the web version</a>
+              <a class="btn" href="/tools/steel-sections/">Open the web version</a>
               <p class="status">Built and running. Not yet submitted to the App&nbsp;Store.</p>
             </div>
           </div>

@@ -942,3 +942,11 @@ html{overflow-x:clip}
 .calc-comm-tol input:focus{outline:0;border-color:var(--hot);border-style:solid}
 .calc-comm .calc-hint{margin:10px 0 clamp(18px,2.2vw,24px);max-inline-size:88ch}
 .calc-figs-comm{border-top:1px solid var(--line)}
+
+/* A note-list row that is not a link: a feature list rather than an index of
+   pages. Same two columns, no hover. */
+.note-list li.note-static{
+  display:grid;grid-template-columns:118px 1fr;
+  gap:clamp(14px,2.4vw,32px);align-items:baseline;padding:24px 0
+}
+@media (max-width:620px){ .note-list li.note-static{grid-template-columns:1fr;gap:8px} }

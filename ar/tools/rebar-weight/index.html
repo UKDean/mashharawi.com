@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>حاسبة وزن حديد التسليح | عمر المشهراوي</title>
+<meta name="description" content="وزن حديد التسليح بالقطر: كجم للمتر وللسيخ وللطن، وتحويل التوريد بالطن إلى عدد أسياخ. يُحسب داخل الصفحة ولا يُخزَّن شيء.">
+<meta name="author" content="عمر المشهراوي">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+<link rel="canonical" href="https://mashharawi.com/ar/tools/rebar-weight/">
+<link rel="alternate" hreflang="en" href="https://mashharawi.com/tools/rebar-weight/">
+<link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/tools/rebar-weight/">
+<link rel="alternate" hreflang="x-default" href="https://mashharawi.com/tools/rebar-weight/">
+
+<meta name="theme-color" content="#E2E6EA">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mashharawi.com/ar/tools/rebar-weight/">
+<meta property="og:title" content="حاسبة وزن حديد التسليح | عمر المشهراوي">
+<meta property="og:description" content="وزن حديد التسليح بالقطر: كجم للمتر وللسيخ وللطن، وتحويل التوريد بالطن إلى عدد أسياخ. يُحسب داخل الصفحة ولا يُخزَّن شيء.">
+<meta property="og:site_name" content="mashharawi.com">
+<meta property="og:locale" content="ar_SA">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:image" content="https://mashharawi.com/og-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="stylesheet" href="/assets/site.css?v=20260914">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+</head>
+<body>
+<a class="skip" href="#main">تخطَّ إلى المحتوى</a>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="/ar/">عمر المشهراوي<span>.</span></a>
+    <nav aria-label="القائمة الرئيسية"><ul>
+      <li><a href="/ar/">الموقع</a></li>
+      <li><a href="/ar/tools/">الأدوات</a></li>
+    </ul></nav>
+    <a class="lang-switch" href="/tools/rebar-weight/" hreflang="en" lang="en" aria-label="View this page in English">English</a>
+  </div>
+</header>
+
+<main id="main">
+  <section id="calculator" class="sec" aria-labelledby="calc-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">أداة حيّة</p>
+        <h1 id="calc-h">وزن حديد التسليح، يُحسب داخل الصفحة.</h1>
+      </div>
+
+      <p class="lead" style="margin-bottom:clamp(32px,4vw,48px)">الحديد يُطلب بالسيخ ويُفوتَر بالكيلوجرام، وهذه الأداة تحوّل بين الاثنين: اختر القطر، حدّد الطول، واقرأ الوزن. أو أدخل الكمية بالأطنان فتعرف عدد الأسياخ المقابل لها.</p>
+
+      <div class="calc rise" id="calc">
+
+        <div class="calc-main">
+          <figure class="calc-dial">
+            <svg class="calc-svg" viewBox="0 0 200 200" role="img" aria-labelledby="cSecT">
+              <title id="cSecT">مقطع السيخ المختار، مرسوم بمقياس نسبي مقابل حلقة مرجعية قطرها ٤٠ مم</title>
+              <circle class="calc-ref" cx="100" cy="100" r="82"></circle>
+              <g id="cSection" class="calc-bar">
+                <circle class="calc-bar-body" cx="100" cy="100" r="82"></circle>
+                <circle class="calc-bar-ribs" cx="100" cy="100" r="74"></circle>
+                <rect class="calc-bar-lug" x="13" y="93" width="11" height="14" rx="4"></rect>
+                <rect class="calc-bar-lug" x="176" y="93" width="11" height="14" rx="4"></rect>
+              </g>
+            </svg>
+            <figcaption class="calc-dial-cap">&#216;&nbsp;<b id="cDiaVal">16</b>&nbsp;<span dir="ltr">mm</span></figcaption>
+          </figure>
+
+          <div class="calc-ctl">
+            <p class="calc-lbl" id="cDiaLbl">القطر، مم</p>
+            <div class="calc-chips" role="group" aria-labelledby="cDiaLbl">
+              <button type="button" class="calc-chip" data-d="10" aria-pressed="false">10</button>
+              <button type="button" class="calc-chip" data-d="12" aria-pressed="false">12</button>
+              <button type="button" class="calc-chip" data-d="14" aria-pressed="false">14</button>
+              <button type="button" class="calc-chip" data-d="16" aria-pressed="false">16</button>
+              <button type="button" class="calc-chip" data-d="18" aria-pressed="false">18</button>
+              <button type="button" class="calc-chip" data-d="20" aria-pressed="false">20</button>
+              <button type="button" class="calc-chip" data-d="25" aria-pressed="false">25</button>
+              <button type="button" class="calc-chip" data-d="32" aria-pressed="false">32</button>
+              <label class="calc-other"><span>آخر</span><input id="cCustom" class="calc-custom" type="number" min="1" max="100" step="0.1" inputmode="decimal"></label>
+            </div>
+            <p class="calc-hint">المقاسات الشائعة في السوق السعودي، والطول المعتاد للسيخ 12 متراً.</p>
+
+            <div class="calc-fields">
+              <label class="calc-field">
+                <span>الطول، م</span>
+                <input id="cLen" type="number" min="0.1" max="30" step="0.1" inputmode="decimal">
+              </label>
+              <label class="calc-field">
+                <span>العدد، سيخ</span>
+                <input id="cQty" type="number" min="1" step="1" inputmode="numeric">
+              </label>
+              <label class="calc-field calc-field-rev">
+                <span>أو بالأطنان</span>
+                <input id="cTon" type="number" min="0" step="0.001" inputmode="decimal">
+                <small id="cTonHint" class="calc-revhint"></small>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <dl class="calc-figs">
+          <div>
+            <dt>الوزن لكل متر</dt>
+            <dd><b id="oMpm">0</b><span dir="ltr">kg/m</span></dd>
+          </div>
+          <div>
+            <dt id="oBarLbl">لكل سيخ 12 م</dt>
+            <dd><b id="oBar">0</b><span dir="ltr">kg</span></dd>
+          </div>
+          <div>
+            <dt>عدد الأسياخ في الطن</dt>
+            <dd><b id="oPerT">0</b><span>سيخ</span></dd>
+          </div>
+          <div class="calc-fig-key">
+            <dt>وزن هذه الكمية</dt>
+            <dd><b id="oTot">0</b><span>طن</span></dd>
+          </div>
+        </dl>
+
+        <div class="calc-order">
+          <div class="calc-order-head">
+            <p class="calc-lbl">أمر التوريد</p>
+            <button type="button" class="calc-btn" id="cAdd">أضف هذا البند</button>
+            <button type="button" class="calc-btn ghost" id="cCopy">نسخ الجدول</button>
+          </div>
+
+          <p class="calc-empty" id="cEmpty">لم يُضَف شيء بعد. ابنِ أمراً بعدة مقاسات فتظهر الإجماليات هنا.</p>
+
+          <table class="calc-table" hidden>
+            <caption class="vh">بنود أمر التوريد ووزن كل بند</caption>
+            <thead>
+              <tr>
+                <th scope="col">القطر مم</th>
+                <th scope="col">الطول م</th>
+                <th scope="col">العدد</th>
+                <th scope="col">كجم</th>
+                <th scope="col">طن</th>
+                <th scope="col"><span class="vh">حذف</span></th>
+              </tr>
+            </thead>
+            <tbody id="cRows"></tbody>
+            <tfoot>
+              <tr>
+                <th scope="row" colspan="2">الإجمالي</th>
+                <td class="num"><b id="tPieces">0</b></td>
+                <td class="num"><b id="tKg">0</b></td>
+                <td class="num strong"><b id="tT">0</b></td>
+                <td></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <p class="calc-foot">
+          <span class="calc-formula" dir="ltr">m = 0.006165 &times; d&sup2; &nbsp;kg/m</span>
+          هذه أوزان <b>نظرية</b>، محسوبة من القطر الاسمي وكثافة <span dir="ltr">7,850 kg/m&sup3;</span>. ما يسلّمه المصنع فعلياً يقع داخل حدود السماحية في المواصفة المعتمدة، وموقعه داخل هذه الحدود مسألة تجارية لا فنية. <a href="/writing/weight-tolerance/">كتبتُ عن ذلك هنا (بالإنجليزية)</a>.
+        </p>
+      </div>
+
+      <p class="note-back" style="margin-top:clamp(24px,2.6vw,34px)">
+        للكمرات والقنوات والزوايا والقضبان والمسطح والمواسير والتيوب، استخدم <a href="/ar/tools/steel-sections/">حاسبة وزن القطاعات</a>.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap bar">
+    <span>&copy; <span id="yr">2026</span> عمر المشهراوي &middot; mashharawi.com</span>
+    <span><a class="lang" href="/tools/rebar-weight/" hreflang="en" lang="en">English</a> &middot; <a class="lang" href="/ar/">العودة إلى الموقع</a></span>
+  </div>
+</footer>
+<script src="/assets/site.js?v=20260914" defer></script>
+<script src="/assets/calc.js?v=20260914" defer></script>
+</body>
+</html>

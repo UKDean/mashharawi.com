@@ -13,7 +13,7 @@
    files, one for one, and each notes the file it came from. Porting rather
    than re-deriving is deliberate: two implementations that drift apart would
    be worse than no web version at all, so the shapes of the formulas are kept
-   identical and the tables are copied verbatim by tools/build_sections.py.
+   identical and the tables are copied verbatim by scripts/build_sections.py.
 
    The dimension tables themselves carry a per-size `verified` flag, straight
    from the app. Unverified sizes are badged in the interface rather than
