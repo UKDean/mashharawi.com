@@ -29,4 +29,22 @@
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://mashharawi.com/steelcalc/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/steelcalc/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/steelcalc/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/steelcalc/"/>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mashharawi.com/ar/steelcalc/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/steelcalc/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/steelcalc/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/steelcalc/"/>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

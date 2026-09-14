@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>حاسبة قطاعات الحديد | عمر المشهراوي</title>
+<meta name="description" content="وزن قطاعات الحديد الإنشائي: IPE و HEA و HEB و UPN والزوايا والقضبان والمسطح والمواسير والتيوب، محسوباً في المتصفح من الأبعاد الاسمية.">
+<meta name="author" content="عمر المشهراوي">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+<link rel="canonical" href="https://mashharawi.com/ar/steelcalc/">
+<link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/steelcalc/">
+<link rel="alternate" hreflang="en" href="https://mashharawi.com/steelcalc/">
+<link rel="alternate" hreflang="x-default" href="https://mashharawi.com/steelcalc/">
+
+<meta name="theme-color" content="#E2E6EA">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mashharawi.com/ar/steelcalc/">
+<meta property="og:title" content="حاسبة قطاعات الحديد">
+<meta property="og:description" content="وزن القطاع محسوباً في الصفحة: كمرات، قنوات، زوايا، قضبان، مسطح، مواسير وتيوب.">
+<meta property="og:site_name" content="mashharawi.com">
+<meta property="og:locale" content="ar_SA">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:image" content="https://mashharawi.com/og-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "حاسبة قطاعات الحديد",
+  "url": "https://mashharawi.com/ar/steelcalc/",
+  "applicationCategory": "https://schema.org/BusinessApplication",
+  "operatingSystem": "أي متصفح حديث",
+  "browserRequirements": "Requires JavaScript",
+  "inLanguage": ["ar", "en"],
+  "isAccessibleForFree": true,
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "SAR"},
+  "author": {"@type": "Person", "@id": "https://mashharawi.com/#person", "name": "عمر المشهراوي"}
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">تخطَّ إلى المحتوى</a>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="/ar/">عمر المشهراوي<span>.</span></a>
+    <nav aria-label="القائمة الرئيسية"><ul>
+      <li><a href="/ar/">الموقع</a></li>
+      <li><a href="/steelcalc/support.html">الدعم</a></li>
+      <li><a href="/steelcalc/privacy.html">الخصوصية</a></li>
+    </ul></nav>
+    <a class="lang-switch" href="/steelcalc/" hreflang="en" lang="en" aria-label="View this page in English">English</a>
+  </div>
+</header>
+
+<main id="main">
+  <section id="steelcalc" class="sec" aria-labelledby="sc-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">أداة مباشرة</p>
+        <h1 id="sc-h">وزن قطاعات الحديد، محسوباً داخل الصفحة.</h1>
+      </div>
+
+      <p class="lead" style="margin-bottom:clamp(32px,4vw,48px)">الحديد الإنشائي يُطلب بالمقاس ويُفوتر بالكيلو. اختر العائلة ثم المقاس ثم الطول: يظهر الوزن للمتر وللقطعة وللأمر كاملاً. لا يوجد وزن مخزَّن يُستدعى، بل كل رقم محسوب من أبعاد المقطع نفسه. هذه نسخة المتصفح من تطبيقي الذي يعمل بلا إنترنت، وتستخدم نفس الجداول ونفس المعادلات.</p>
+
+      <div class="calc rise" id="scalc" data-loading>
+
+        <div class="calc-main">
+          <figure class="calc-dial">
+            <svg class="calc-svg" viewBox="0 0 200 200" role="img" aria-labelledby="sSecT">
+              <title id="sSecT">مقطع عرضي للمقاس المختار، مرسوم من أبعاده الفعلية</title>
+              <g id="sShape" class="calc-sec" transform="translate(100 100) scale(1)">
+                <path id="sPath" class="calc-sec-body" d=""></path>
+              </g>
+            </svg>
+            <figcaption class="calc-dial-cap"><b id="sDims">&mdash;</b></figcaption>
+          </figure>
+
+          <div class="calc-ctl">
+            <p class="calc-lbl" id="sFamLbl">نوع القطاع</p>
+            <div class="calc-chips" role="group" aria-labelledby="sFamLbl" id="sFams"></div>
+            <p class="calc-hint" id="sStd"></p>
+
+            <div class="calc-fields">
+              <label class="calc-field" id="sSizeWrap">
+                <span>المقاس</span>
+                <select id="sSize"></select>
+              </label>
+              <label class="calc-field">
+                <span>الطول، م</span>
+                <input id="sLen" type="number" min="0.1" max="30" step="0.1" inputmode="decimal">
+              </label>
+              <label class="calc-field">
+                <span>العدد</span>
+                <input id="sQty" type="number" min="1" step="1" inputmode="numeric">
+              </label>
+            </div>
+
+            <div class="calc-fields" id="sManual" hidden></div>
+            <p class="calc-hint" id="sManualHint"></p>
+
+            <div id="sMethod" hidden>
+              <p class="calc-lbl" style="margin-top:22px">طريقة الحساب</p>
+              <div class="calc-chips" role="group" aria-label="طريقة الحساب">
+                <button type="button" class="calc-chip" data-method="exact" aria-pressed="true">دقيقة</button>
+                <button type="button" class="calc-chip" data-method="quick" aria-pressed="false">سريعة</button>
+              </div>
+              <p class="calc-hint" id="sMethodHint">تطرح سماكة الجدار من المقاس الخارجي: دقيقة هندسياً.</p>
+            </div>
+
+            <p class="calc-warn" id="sWarn" hidden></p>
+            <p class="calc-note" id="sUnver" hidden>بيانات غير موثّقة رسمياً: الأبعاد لهذه العائلة لم تُراجع بعد مقابل جدول رسمي معتمد. تحقّق منها قبل الاعتماد عليها في عرض سعر أو شراء.</p>
+          </div>
+        </div>
+
+        <dl class="calc-figs">
+          <div>
+            <dt>الوزن لكل متر</dt>
+            <dd><b id="oMpm">0</b><span>كجم/م</span></dd>
+          </div>
+          <div>
+            <dt>وزن القطعة</dt>
+            <dd><b id="oPiece">0</b><span>كجم</span></dd>
+          </div>
+          <div>
+            <dt>عدد القطع في الطن</dt>
+            <dd><b id="oPerT">0</b><span>قطعة</span></dd>
+          </div>
+          <div class="calc-fig-key">
+            <dt>وزن هذه الكمية</dt>
+            <dd><b id="oTot">0</b><span>طن</span></dd>
+          </div>
+        </dl>
+
+        <div class="calc-order">
+          <div class="calc-order-head">
+            <p class="calc-lbl">أمر التوريد</p>
+            <button type="button" class="calc-btn" id="sAdd">أضف بنداً</button>
+            <button type="button" class="calc-btn ghost" id="sCopy">نسخ الجدول</button>
+          </div>
+
+          <p class="calc-empty" id="sEmpty">لم يُضف شيء بعد. أضف بنوداً ليظهر إجمالي الأمر هنا.</p>
+
+          <table class="calc-table" hidden>
+            <caption class="vh">بنود الأمر ووزن كل بند</caption>
+            <thead>
+              <tr>
+                <th scope="col">المقاس</th>
+                <th scope="col">الطول م</th>
+                <th scope="col">العدد</th>
+                <th scope="col">كجم</th>
+                <th scope="col">طن</th>
+                <th scope="col"><span class="vh">حذف</span></th>
+              </tr>
+            </thead>
+            <tbody id="sRows"></tbody>
+            <tfoot>
+              <tr>
+                <th scope="row" colspan="2">الإجمالي</th>
+                <td class="num"><b id="tPieces">0</b></td>
+                <td class="num"><b id="tKg">0</b></td>
+                <td class="num strong"><b id="tT">0</b></td>
+                <td></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <p class="calc-fail" id="sFail" hidden>تعذّر تحميل جداول المقاطع، فلا يمكن حساب أي وزن هنا الآن. أعد تحميل الصفحة أو استخدم التطبيق الذي يعمل بلا إنترنت.</p>
+
+        <p class="calc-foot">
+          <span class="calc-formula" dir="ltr">m = A &times; 7,850&nbsp;kg/m&sup3;</span>
+          الوزن محسوب من مساحة المقطع للأبعاد الاسمية، لا من رقم مخزَّن: الأجنحة والعصب مع نصف أقطار الوصل للكمرة، والساقان مطروحاً منهما التداخل للزاوية، والحلقة للماسورة. أبعاد الكمرات والقنوات والزوايا تتبع <b>EN&nbsp;10365</b> و <b>EN&nbsp;10056</b>. وجناح الـ UPN مائل السماكة، والمعادلة تعامله بسماكة متوسطة ثابتة، ما يجعل عائلة القنوات <b>أعلى بنحو 2%</b> من الأوزان المنشورة لجداول UPN، أما مقاسات القضبان والمسطح فهي مقاسات سوقية شائعة، وتُعلَّم بنجمة إلى أن تُراجع مقابل جدول رسمي. هذه أوزان <b>اسمية</b>. ما يسلّمه المصنع فعلياً يقع داخل نطاق السماحية في المواصفة الحاكمة، وموضعه داخل هذا النطاق مسألة تجارية. <a href="/writing/weight-tolerance/">كتبت عن ذلك هنا</a>.
+        </p>
+      </div>
+
+      <p class="note-back" style="margin-top:clamp(28px,3vw,40px)">
+        نفس الحاسبة تعمل بلا إنترنت كتطبيق جوال &mdash; <a href="/steelcalc/support.html">الدعم</a> و <a href="/steelcalc/privacy.html">الخصوصية</a>. ولحديد التسليح بالقطر، استخدم <a href="/ar/#calculator">حاسبة حديد التسليح</a>.
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap bar">
+    <span>&copy; <span id="yr">2026</span> عمر المشهراوي &middot; mashharawi.com</span>
+    <span><a class="lang" href="/steelcalc/" hreflang="en" lang="en">English</a> &middot; <a class="lang" href="/ar/">العودة إلى الموقع</a></span>
+  </div>
+</footer>
+
+<script src="/assets/site.js" defer></script>
+<script src="/assets/steelcalc.js" defer></script>
+</body>
+</html>
