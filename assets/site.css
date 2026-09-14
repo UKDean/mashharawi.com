@@ -920,3 +920,25 @@ html{overflow-x:clip}
 /* A designation is a name, not a label: "L 70x70x6" should not come back as
    "L 70X70X6" from the caption's uppercasing. */
 .calc-dial-cap b{text-transform:none;letter-spacing:.04em}
+
+/* ---- commercial weight, on the section calculator ----
+   The nominal row answers "what does this weigh"; this one answers "what will
+   be delivered and invoiced", which is a band, not a number. It is a second
+   figure row rather than four more cells, because the two questions are not
+   the same question. */
+.calc-comm{border-top:1px solid var(--line);padding:clamp(18px,2.4vw,26px) clamp(20px,2.6vw,30px) 0}
+.calc-comm-head{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.calc-comm-head .calc-lbl{margin:0;margin-inline-end:auto}
+.calc-comm-tol{display:inline-flex;align-items:center;gap:9px}
+.calc-comm-tol>span{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--scale)
+}
+.calc-comm-tol input{
+  font-family:var(--mono);font-size:14px;font-variant-numeric:tabular-nums;
+  width:82px;padding:9px 10px;
+  border:1px dashed var(--edge);background:transparent;color:var(--ink)
+}
+.calc-comm-tol input:focus{outline:0;border-color:var(--hot);border-style:solid}
+.calc-comm .calc-hint{margin:10px 0 clamp(18px,2.2vw,24px);max-inline-size:88ch}
+.calc-figs-comm{border-top:1px solid var(--line)}

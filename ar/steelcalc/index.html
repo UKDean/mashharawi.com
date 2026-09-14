@@ -148,6 +148,39 @@
           </div>
         </dl>
 
+
+        <!-- الوزن التجاري: الرقم الاسمي أعلاه هو الأساس، وما يسلّمه المصنع
+             ويُفوتر يقع داخل سماحية الوزن في المواصفة الحاكمة. -->
+        <div class="calc-comm">
+          <div class="calc-comm-head">
+            <p class="calc-lbl">الوزن التجاري</p>
+            <label class="calc-comm-tol">
+              <span>السماحية <bdi dir="ltr">&plusmn;%</bdi></span>
+              <input id="sTol" type="number" min="0" max="15" step="0.1" inputmode="decimal">
+            </label>
+          </div>
+          <p class="calc-hint">نسبة <span dir="ltr">&plusmn;4.0%</span> هي سماحية الوزن التي تحددها <b>EN&nbsp;10034</b> للكمرات I و H، مقابل كثافة <span dir="ltr">7.85 kg/dm&sup3;</span>. القنوات والزوايا تحكمها مواصفات أخرى (EN&nbsp;10279 و EN&nbsp;10056-2)، وقد ينص العقد أو أمر الشراء على نسبة مختلفة. اضبط النسبة التي كُتب عليها أمرك.</p>
+        </div>
+
+        <dl class="calc-figs calc-figs-comm">
+          <div>
+            <dt>الحد الأدنى، عند &minus;السماحية</dt>
+            <dd><b id="oMin">0</b><span>طن</span></dd>
+          </div>
+          <div>
+            <dt>الاسمي</dt>
+            <dd><b id="oNom">0</b><span>طن</span></dd>
+          </div>
+          <div>
+            <dt>الحد الأعلى، عند &plus;السماحية</dt>
+            <dd><b id="oMax">0</b><span>طن</span></dd>
+          </div>
+          <div class="calc-fig-key">
+            <dt>اتساع النطاق</dt>
+            <dd><b id="oSpread">0</b><span>طن</span></dd>
+          </div>
+        </dl>
+
         <div class="calc-order">
           <div class="calc-order-head">
             <p class="calc-lbl">أمر التوريد</p>
@@ -180,6 +213,8 @@
               </tr>
             </tfoot>
           </table>
+
+          <p class="calc-hint" id="sOrderTol" hidden></p>
         </div>
 
         <p class="calc-fail" id="sFail" hidden>تعذّر تحميل جداول المقاطع، فلا يمكن حساب أي وزن هنا الآن. أعد تحميل الصفحة أو استخدم التطبيق الذي يعمل بلا إنترنت.</p>

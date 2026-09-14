@@ -154,6 +154,40 @@
           </div>
         </dl>
 
+
+        <!-- Commercial weight. The nominal figure above is the basis; what a
+             mill delivers, and therefore what is invoiced, sits inside the
+             mass tolerance of the governing standard. -->
+        <div class="calc-comm">
+          <div class="calc-comm-head">
+            <p class="calc-lbl">Commercial weight</p>
+            <label class="calc-comm-tol">
+              <span>Tolerance, &plusmn;%</span>
+              <input id="sTol" type="number" min="0" max="15" step="0.1" inputmode="decimal">
+            </label>
+          </div>
+          <p class="calc-hint">&plusmn;4.0% is the tolerance on mass that <b>EN&nbsp;10034</b> sets for I and H sections, against a density of 7.85&nbsp;kg/dm&sup3;. Channels and angles are governed by their own standards (EN&nbsp;10279, EN&nbsp;10056-2), and a contract or a purchase order can name a different figure. Set the one your order is written against.</p>
+        </div>
+
+        <dl class="calc-figs calc-figs-comm">
+          <div>
+            <dt>Minimum, at &minus;tolerance</dt>
+            <dd><b id="oMin">0</b><span>tonnes</span></dd>
+          </div>
+          <div>
+            <dt>Nominal</dt>
+            <dd><b id="oNom">0</b><span>tonnes</span></dd>
+          </div>
+          <div>
+            <dt>Maximum, at &plus;tolerance</dt>
+            <dd><b id="oMax">0</b><span>tonnes</span></dd>
+          </div>
+          <div class="calc-fig-key">
+            <dt>Spread across the band</dt>
+            <dd><b id="oSpread">0</b><span>tonnes</span></dd>
+          </div>
+        </dl>
+
         <div class="calc-order">
           <div class="calc-order-head">
             <p class="calc-lbl">Order</p>
@@ -186,6 +220,8 @@
               </tr>
             </tfoot>
           </table>
+
+          <p class="calc-hint" id="sOrderTol" hidden></p>
         </div>
 
         <p class="calc-fail" id="sFail" hidden>The section tables could not be loaded, so no weight can be computed here right now. Reload the page, or use the offline app.</p>

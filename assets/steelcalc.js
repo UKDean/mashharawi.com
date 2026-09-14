@@ -115,6 +115,7 @@
     invalid: 'سماكة الجدار كبيرة جداً بالنسبة لهذا المقاس الخارجي.',
     squareHint: 'للتيوب المربع، استخدم نفس القيمة للعرض والارتفاع.',
     head: ['المقاس', 'الطول (م)', 'العدد', 'الوزن (كجم)', 'الوزن (طن)'],
+    orderRange: 'إجمالي الأمر عند سماحية ±{t}%: من {a} إلى {b} طن.',
     fams: {
       ipe: 'IPE', hea: 'HEA', heb: 'HEB', upn: 'UPN',
       angle_equal: 'زاوية متساوية', angle_unequal: 'زاوية غير متساوية',
@@ -141,6 +142,7 @@
     invalid: 'The wall is too thick for that outside dimension.',
     squareHint: 'For a square tube, use the same value for width and height.',
     head: ['Size', 'Length (m)', 'Pieces', 'Weight (kg)', 'Weight (t)'],
+    orderRange: 'Order total at ±{t}%: {a} to {b} tonnes.',
     fams: {
       ipe: 'IPE', hea: 'HEA', heb: 'HEB', upn: 'UPN',
       angle_equal: 'Equal angle', angle_unequal: 'Unequal angle',
@@ -287,6 +289,7 @@
   var manual = {};          /* dimensions for pipe / tube, per family key */
   var quick = false;        /* hollow: quick formula instead of exact */
   var len = 6, qty = 100;
+  var tol = 4;              /* commercial tolerance, ±%, editable on the page */
   var order = [];
 
   var elChips = $('sFams'), elSize = $('sSize'), elSizeWrap = $('sSizeWrap');
@@ -336,6 +339,18 @@
     setFig($('oPiece'), bad ? 0 : perPiece, 2);
     setFig($('oPerT'), bad || perPiece <= 0 ? 0 : 1000 / perPiece, 1);
     setFig($('oTot'), bad ? 0 : perPiece * qty / 1000, 3);
+
+    /* Commercial weight. A mill delivers inside the mass tolerance of the
+       governing standard, so the invoice sits somewhere in a band around the
+       nominal figure, not on it. The band is what a buyer or a seller is
+       actually exposed to, which is why it is shown in tonnes rather than as
+       a percentage the reader has to apply themselves. */
+    var totalT = bad ? 0 : perPiece * qty / 1000;
+    var lo = totalT * (1 - tol / 100), hi = totalT * (1 + tol / 100);
+    setFig($('oMin'), lo, 3);
+    setFig($('oNom'), totalT, 3);
+    setFig($('oMax'), hi, 3);
+    setFig($('oSpread'), hi - lo, 3);
 
     var warn = $('sWarn');
     if (warn) { warn.textContent = bad ? T.invalid : ''; warn.hidden = !bad; }
@@ -461,6 +476,16 @@
     setFig($('tPieces'), pieces, 0);
     setFig($('tKg'), kg, 1);
     setFig($('tT'), kg / 1000, 3);
+
+    var range = $('sOrderTol');
+    if (range) {
+      var t = kg / 1000;
+      range.hidden = order.length === 0;
+      range.textContent = T.orderRange
+        .replace('{t}', fmt(tol, 1))
+        .replace('{a}', fmt(t * (1 - tol / 100), 3))
+        .replace('{b}', fmt(t * (1 + tol / 100), 3));
+    }
   }
 
   function copyTable() {
@@ -516,6 +541,17 @@
       elQty.addEventListener('input', function () {
         var v = parseInt(elQty.value, 10);
         if (isFinite(v) && v > 0) { qty = v; render(); }
+      });
+    }
+
+    var elTol = $('sTol');
+    if (elTol) {
+      elTol.value = String(tol);
+      elTol.addEventListener('input', function () {
+        var v = parseFloat(elTol.value);
+        /* An empty or negative field means the reader is mid-edit, not that
+           the tolerance is zero; the last good value stays until it is. */
+        if (isFinite(v) && v >= 0 && v <= 15) { tol = v; render(); drawOrder(false); }
       });
     }
 
