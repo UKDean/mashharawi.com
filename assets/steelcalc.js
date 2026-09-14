@@ -31,7 +31,9 @@
 
   var RHO = 7850;                       // kg/m3, the density every mill table assumes
   var AR = document.documentElement.getAttribute('dir') === 'rtl';
-  var DATA_URL = '/assets/data/steel-sections.json';
+  /* Versioned for the same reason the page versions its assets: a cached
+     table is a wrong weight, not a stale style. Bump on every rebuild. */
+  var DATA_URL = '/assets/data/steel-sections.json?v=20260914';
 
   /* ---- area formulas, ported from the app ------------------------------- */
 
