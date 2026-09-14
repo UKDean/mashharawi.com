@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>كاشف العقود | عمر المشهراوي</title>
+<meta name="description" content="أداة مجانية تفحص عقود وطلبات شراء حديد التسليح مقابل الشروط التجارية القياسية، وتجهّز تحليلاً جاهزاً تلصقه في حساب ChatGPT أو Claude الخاص بك.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://mashharawi.com/contract-check/">
+
+<meta name="theme-color" content="#E4E6E3">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mashharawi.com/contract-check/">
+<meta property="og:title" content="كاشف العقود">
+<meta property="og:description" content="افحص عقد أو طلب شراء حديد التسليح مقابل شروطنا التجارية القياسية قبل الإرسال.">
+<meta property="og:site_name" content="mashharawi.com">
+<meta property="og:locale" content="ar_SA">
+<meta property="og:image" content="https://mashharawi.com/og-cover.jpg">
+
+<link rel="stylesheet" href="/assets/site.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<style>
+  /* ---------- كاشف العقود: أنماط خاصة بالأداة ---------- */
+  .cc-hero{padding-block:clamp(48px,7vw,84px) clamp(32px,5vw,56px)}
+  .cc-hero h1{font-size:clamp(34px,5.4vw,56px);max-width:20ch}
+  .cc-hero .lead{margin-top:22px}
+  .cc-back{
+    font-family:var(--mono);font-size:12.5px;letter-spacing:0;text-decoration:none;color:var(--scale);
+    display:inline-flex;align-items:center;gap:8px;margin-bottom:22px
+  }
+  .cc-back:hover{color:var(--hot)}
+
+  .cc-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,20px);margin-top:clamp(28px,3.5vw,44px)}
+  .cc-step{border:1px solid var(--line);background:var(--sheet);padding:18px}
+  .cc-step b{
+    display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;
+    font-family:var(--mono);font-size:12px;color:var(--mill);background:var(--ink);margin-bottom:10px
+  }
+  .cc-step p{margin:0;font-size:.92em;line-height:1.5;color:var(--scale)}
+
+  .cc-card{border:1px solid var(--line);background:var(--sheet);padding:clamp(22px,3vw,34px);margin-top:clamp(24px,3vw,36px)}
+  .cc-card h3{margin-bottom:6px}
+  .cc-card .cc-hint{color:var(--scale);font-size:.92em;margin:0 0 18px}
+
+  .cc-warn{
+    border:1px solid var(--hot);background:#F6EDE5;padding:14px 18px;margin-bottom:18px;
+    font-size:.92em;line-height:1.7
+  }
+  .cc-warn b{color:#b74e0b}
+
+  .cc-drop{
+    border:1.5px dashed #b3b9b6;background:var(--mill);padding:clamp(24px,4vw,40px);text-align:center;cursor:pointer;
+    transition:border-color .2s,background .2s
+  }
+  .cc-drop.drag{border-color:var(--hot);background:#F6EDE5}
+  .cc-drop p{margin:0}
+  .cc-drop .big{font-family:var(--display);font-weight:600;font-size:1.05em;margin-bottom:6px}
+  .cc-drop .small{font-family:var(--mono);font-size:11.5px;color:var(--scale);letter-spacing:0}
+  .cc-drop input{display:none}
+
+  .cc-status{font-family:var(--mono);font-size:12.5px;color:var(--scale);margin:14px 0 0;min-height:1.4em}
+  .cc-status.warn{color:var(--hot)}
+  .cc-status.ok{color:#2f7a45}
+
+  .cc-textarea{
+    width:100%;box-sizing:border-box;margin-top:16px;padding:14px;border:1px solid var(--line);background:#fff;
+    font-family:var(--body);font-size:15px;line-height:1.7;resize:vertical;min-height:160px;color:var(--ink)
+  }
+  .cc-textarea[readonly]{background:var(--mill)}
+  .cc-label{
+    font-family:var(--mono);font-size:11px;letter-spacing:0;text-transform:none;color:var(--scale);
+    display:block;margin-top:18px
+  }
+
+  .cc-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+  .cc-actions button{font-family:var(--mono);font-size:13px;padding:14px 22px;border:1px solid var(--ink);cursor:pointer;background:none}
+  .cc-btn-main{background:var(--ink);color:var(--mill)}
+  .cc-btn-main:hover{background:var(--blued);border-color:var(--blued)}
+  .cc-btn-main:disabled{opacity:.4;cursor:not-allowed}
+  .cc-btn-ghost{background:transparent;color:var(--ink);border-color:#9aa2a8}
+  .cc-btn-ghost:hover{border-color:var(--ink)}
+
+  .cc-output{display:none;margin-top:clamp(24px,3vw,36px);border-top:1px solid var(--line);padding-top:clamp(24px,3vw,36px)}
+  .cc-output.show{display:block}
+  .cc-openrow{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
+  .cc-openrow a{
+    font-family:var(--mono);font-size:13px;padding:14px 22px;border:1px solid var(--ink);text-decoration:none;
+    color:var(--ink);display:inline-flex;align-items:center;gap:8px
+  }
+  .cc-openrow a:hover{background:var(--ink);color:var(--mill)}
+  .cc-steps-mini{font-size:.92em;color:var(--scale);margin:18px 0 0;padding-right:1.2em}
+  .cc-steps-mini li{margin-bottom:6px}
+
+  .cc-policy{margin-top:clamp(28px,3.5vw,44px)}
+  .cc-policy summary{
+    cursor:pointer;font-family:var(--display);font-weight:600;font-size:1.15em;
+    padding:18px 0;border-top:1px solid var(--line);list-style:none
+  }
+  .cc-policy summary::-webkit-details-marker{display:none}
+  .cc-policy summary::before{content:"+ ";color:var(--hot);font-family:var(--mono)}
+  .cc-policy[open] summary::before{content:"− "}
+  .cc-policy ol{margin:0 0 clamp(24px,3vw,36px);padding-right:1.3em}
+  .cc-policy li{margin-bottom:12px;line-height:1.7}
+
+  .cc-privacy{
+    border:1px solid var(--line);background:#EDEEEB;padding:clamp(18px,2.4vw,26px);margin-top:clamp(28px,3.5vw,44px);
+    font-size:.94em;line-height:1.7
+  }
+  .cc-privacy p{margin:0 0 .8em}
+  .cc-privacy p:last-child{margin-bottom:0}
+  .cc-privacy b{color:var(--blued)}
+
+  @media (max-width:760px){
+    .cc-steps{grid-template-columns:1fr 1fr}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">تخطَّ إلى المحتوى</a>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="/ar/">عمر <span>المشهراوي</span></a>
+    <a class="cc-back" href="/ar/" style="margin:0">→ العودة للرئيسية</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="sec cc-hero">
+    <div class="wrap">
+      <p class="eyebrow">أداة داخلية · فريق المبيعات</p>
+      <h1>كاشف العقود</h1>
+      <p class="lead">لفريق المبيعات: قبل الموافقة على عقد أو اتفاقية أو طلب شراء من عميل، افحصه هنا مقابل شروطنا التجارية القياسية. الأداة تستخرج نص الملف داخل متصفحك فقط، وتجهّز لك تحليلاً جاهزاً تلصقه في حسابك الشخصي على ChatGPT أو Claude للحصول على تقرير فوري بالعربية.</p>
+
+      <div class="cc-steps">
+        <div class="cc-step"><b>١</b><p>ارفع ملف العقد (PDF أو Word) أو الصق النص مباشرة</p></div>
+        <div class="cc-step"><b>٢</b><p>راجع النص المستخرج، واحذف اسم العميل والمشروع إن أمكن</p></div>
+        <div class="cc-step"><b>٣</b><p>انسخ التحليل الجاهز الذي تولّده الأداة</p></div>
+        <div class="cc-step"><b>٤</b><p>الصقه في حسابك الشخصي على ChatGPT أو Claude واقرأ التقرير</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+
+      <div class="cc-card">
+        <h3>١. ارفع العقد أو الصق نصّه</h3>
+        <p class="cc-hint">يدعم ملفات PDF وWord (‎.docx). العقود بالعربية أو الإنجليزية أو الصينية المبسطة كلها مدعومة.</p>
+
+        <div class="cc-warn">
+          <b>⚠️ قبل اللصق في حسابك الشخصي:</b> إن كنت تستخدم حساب ChatGPT أو Claude مجاني/شخصي (وليس حساب عمل مؤسسي)، فأنت تشارك النص مع تلك الجهة الخارجية. احذف اسم العميل ورقم المشروع ورقم العقد من النص في الخطوة التالية قبل التحليل ما أمكن ذلك، خصوصاً إن كان عقد العميل يتضمن بند سرية يقيّد مشاركة تفاصيله مع طرف ثالث.
+        </div>
+
+        <div class="cc-drop" id="ccDrop" tabindex="0" role="button" aria-label="ارفع ملف العقد">
+          <input type="file" id="ccFile" accept=".pdf,.docx,.txt">
+          <p class="big">اسحب الملف هنا أو اضغط للاختيار</p>
+          <p class="small">PDF · DOCX · TXT — لا يُرفع أي شيء لأي سيرفر</p>
+        </div>
+        <p class="cc-status" id="ccStatus"></p>
+
+        <label class="cc-label" for="ccText">نص العقد (يمكنك التعديل هنا مباشرة، أو اللصق يدوياً إن لم يعمل الاستخراج)</label>
+        <textarea class="cc-textarea" id="ccText" placeholder="سيظهر النص المستخرج هنا تلقائياً بعد رفع الملف، أو الصقه يدوياً..."></textarea>
+
+        <div class="cc-actions">
+          <button class="cc-btn-main" id="ccGenerate" disabled>توليد التحليل الجاهز</button>
+          <button class="cc-btn-ghost" id="ccClear" type="button">مسح</button>
+        </div>
+
+        <div class="cc-output" id="ccOutput">
+          <label class="cc-label" for="ccPrompt">التحليل الجاهز — انسخه والصقه في محادثة جديدة</label>
+          <textarea class="cc-textarea" id="ccPrompt" readonly style="min-height:120px"></textarea>
+          <div class="cc-openrow">
+            <button class="cc-btn-main" id="ccCopy" type="button">نسخ النص</button>
+            <a href="https://chatgpt.com/" target="_blank" rel="noopener">فتح ChatGPT ↗</a>
+            <a href="https://claude.ai/new" target="_blank" rel="noopener">فتح Claude ↗</a>
+          </div>
+          <ol class="cc-steps-mini">
+            <li>اضغط "نسخ النص" أعلاه.</li>
+            <li>افتح ChatGPT أو Claude من الروابط، وسجّل الدخول لحسابك الخاص (مجاني).</li>
+            <li>ابدأ محادثة جديدة، الصق النص، وأرسله.</li>
+            <li>اقرأ التقرير — سيكون بالعربية بغض النظر عن لغة العقد الأصلي.</li>
+          </ol>
+        </div>
+      </div>
+
+      <details class="cc-policy" id="ccPolicy">
+        <summary>شروطنا التجارية القياسية (على أساسها تُفحص العقود)</summary>
+        <ol>
+          <li><b>الدفع:</b> نقداً مقدماً، أو فتح اعتماد بنكي (LC) بشروط قياسية متفق عليها. الدفع الآجل بدون اعتماد بنكي غير مقبول كقاعدة عامة، ورسوم فتح الاعتماد على العميل.</li>
+          <li><b>تثبيت السعر:</b> السعر يُثبَّت فقط بعد السداد الكامل أو فتح وتأكيد الاعتماد البنكي — قبل ذلك يبقى العرض صالحاً لأيام محدودة فقط.</li>
+          <li><b>الشروط الجزائية والمسؤولية:</b> لا نقبل أي غرامات تأخير أو تعويضات جزائية (Liquidated Damages) أو أضراراً غير مباشرة أو خسارة أرباح، من أي نوع.</li>
+          <li><b>الفحص والجودة:</b> نفحص في مصنعنا ونرسل شهادة فحص (MTC) مع كل شحنة، ونرحّب بزيارتكم لإدارة الجودة لدينا. فحص الطرف الثالث متاح لكن على حساب العميل فقط.</li>
+          <li><b>إعادة البيع:</b> لا يجوز بيع حديدنا كخردة (سكراب).</li>
+          <li><b>التسليم:</b> نقطة التسليم موقع العميل، والعميل يتحمل تفريغ الشاحنة وجاهزية الموقع. يمكن تعديل موعد التسليم فقط قبل بدء التحميل.</li>
+          <li><b>الإرجاع:</b> يُقبل خلال أسبوع واحد فقط من تاريخ التسليم. نتحمل التحميل والشحن فقط — لا نتحمل تفريغ البضاعة أو تحميل المرتجع من موقع المشروع.</li>
+          <li><b>المطالبات (Claims):</b> يجب الإبلاغ خلال ٥ أيام عمل كحد أقصى من الاستلام، والمنتج يجب أن يكون غير مستخدم ومحفوظاً بعيداً عن الرطوبة والتلف.</li>
+          <li><b>الظروف القاهرة:</b> يجوز تمديد التسليم في ظروف قاهرة حقيقية خارجة عن إرادتنا، ولا تُقبل أي غرامات خلالها.</li>
+          <li><b>النزاعات والسرية:</b> تسوية ودية أولاً، ثم القضاء السعودي في الرياض، والمستندات للمحكمة بالعربية فقط. معلومات الأسعار وتفاصيل الشركة سرية.</li>
+        </ol>
+      </details>
+
+      <div class="cc-privacy">
+        <p><b>الخصوصية:</b> استخراج النص من الملف يحدث بالكامل داخل متصفحك — لا يُرسَل الملف أو نصّه إلى أي سيرفر تابع لهذا الموقع. عندما تلصق النص في حسابك على ChatGPT أو Claude، فأنت تشاركه مع تلك الجهة وفق سياسة الخصوصية الخاصة بها — راجع تنبيه حذف بيانات العميل أعلاه قبل اللصق.</p>
+        <p><b>حدود الأداة:</b> التحليل يُنتَج بواسطة نموذج ذكاء اصطناعي خارجي، وقد يحتوي أخطاء أو يفوّت بنوداً أو يفسّر نصاً غامضاً بشكل غير دقيق. راجع التقرير دائماً مقابل نص العقد الأصلي قبل اتخاذ أي قرار.</p>
+        <p><b>إخلاء مسؤولية:</b> هذا تحليل أولي للاسترشاد السريع الداخلي فقط، وليس رأياً قانونياً. الشروط المذكورة هنا ملخّص ولا تُغني عن الرجوع لأحدث نسخة من معايير الشركة الرسمية، وأي بند مصنَّف ضمن «تحتاج تحقق من الإدارة القانونية» يجب تصعيده فعلياً قبل الموافقة على العقد.</p>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap bar">
+    <span>© <span id="yr"></span> عمر المشهراوي</span>
+    <a class="lang" href="/ar/">mashharawi.com</a>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+// ---------- سياسة الشركة + قالب التحليل ----------
+var CC_POLICY_PROMPT = [
+"أنت مستشار تجاري متخصص بمراجعة عقود توريد حديد التسليح (Rebar). راجع نص العقد/الاتفاقية/طلب الشراء أدناه — أياً كانت لغته الأصلية (عربي، إنجليزي، أو صيني مبسط) — وقارنه ببنود سياسة الشركة البائعة التالية:",
+"",
+"── الدفع والتسعير ──",
+"١. طرق الدفع المقبولة فقط: نقداً مقدماً، أو فتح اعتماد بنكي (Letter of Credit) بشروط قياسية. الدفع الآجل بدون اعتماد بنكي غير مقبول كقاعدة عامة. رسوم فتح الاعتماد البنكي على العميل.",
+"٢. السعر يُثبَّت فقط بعد السداد الكامل أو فتح وتأكيد الاعتماد البنكي وفق الشروط المتفق عليها. قبل ذلك يبقى العرض صالحاً لأيام محدودة فقط — أي بند يفترض ثبات السعر لفترة أطول دون سداد أو اعتماد بنكي فعلي يُعتبر خطراً.",
+"",
+"── الشروط الجزائية والمسؤولية ──",
+"٣. لا تُقبل أي شروط جزائية من أي نوع: غرامات تأخير، تعويضات جزائية (Liquidated Damages)، عقوبات مالية، أضرار غير مباشرة، أو خسارة أرباح.",
+"٤. أي بند يفرض نسبة مالية ثابتة (مثل نسبة % من قيمة الطلب) كتعويض تلقائي عند التأخير = خطر عالٍ يجب رصده صراحة.",
+"٥. أي بند يمنح العميل حق إنهاء العقد من طرف واحد دون سبب وبإشعار قصير (أقل من أسبوعين تقريباً) = خطر يجب رصده.",
+"",
+"── الجودة والفحص ──",
+"٦. الفحص يتم في مصنع الشركة، وتُرسل شهادة فحص (MTC) مع كل شحنة. فحص الطرف الثالث متاح لكن على حساب العميل فقط — أي بند يُحمّل البائع تكلفة فحص خارجي = خطر.",
+"٧. لا يجوز إعادة بيع حديد الشركة كخردة (سكراب) من قبل العميل.",
+"",
+"── التسليم والمرتجعات والمطالبات ──",
+"٨. نقطة التسليم موقع العميل؛ العميل يتحمل تفريغ الشاحنة وجاهزية الموقع. يمكن تعديل موعد التسليم فقط قبل بدء التحميل.",
+"٩. الإرجاع مقبول خلال أسبوع واحد فقط من تاريخ التسليم. الشركة تتحمل التحميل والشحن فقط، ولا تتحمل تفريغ البضاعة في موقع العميل ولا تحميل المرتجع من موقعه.",
+"١٠. المطالبات (Claims) يجب الإبلاغ عنها خلال ٥ أيام عمل كحد أقصى من الاستلام، والمنتج يجب أن يكون غير مستخدم ومحفوظاً بعيداً عن الرطوبة والتلف.",
+"١١. أي فترة توريد قصيرة بشكل غير واقعي، خصوصاً إن كانت مرتبطة بشروط جزائية عند عدم الالتزام بها، تعتبر خطراً مركّباً يجب رصده بوضوح.",
+"",
+"── الظروف القاهرة والنزاعات والسرية ──",
+"١٢. يجوز تمديد التسليم في ظروف قاهرة حقيقية خارجة عن إرادة الشركة، ولا تُقبل أي غرامات خلالها. تعريف فضفاض جداً لـ«الظروف القاهرة» يستحق الانتباه.",
+"١٣. النزاعات: تسوية ودية أولاً، ثم القضاء السعودي في الرياض، والمستندات للمحكمة بالعربية فقط. أي بند يحدد محكمة أو قانوناً أجنبياً، أو لا يوضح آلية/مدة/لغة التسوية بشكل واضح، يُصنَّف ضمن «بنود تحتاج تحقق من الإدارة القانونية» حصراً — لا تكرّره ضمن أقسام المخاطر التجارية.",
+"١٤. معلومات الأسعار وتفاصيل الشركة سرية. انتبه لبنود سرية تفرض التزاماً طويلاً وغير متوازن على طرف واحد فقط.",
+"",
+"── أنماط خطر إضافية شائعة في عقود المقاولات (بناءً على خبرة سابقة، بدون الإشارة لأي طرف) ──",
+"١٥. بند «قبول تلقائي» لأمر الشراء إن لم يعترض المورد خلال مهلة قصيرة جداً (ساعات بدل أيام عمل) — يُلزم الموردَ ضمنياً دون فرصة مراجعة حقيقية.",
+"١٦. عناوين بنود قانونية (مثل «المسؤولية عن الإخلال بالعقد») بلا نص فعلي تحتها — مؤشر على مستند غير مكتمل يحتاج توضيحاً قبل التوقيع.",
+"١٧. تناقضات داخلية في نفس المستند حول مدة التسليم (أرقام مختلفة في أماكن مختلفة من نفس العقد).",
+"١٨. عبارة «شامل الضريبة» في جدول أسعار دون تفصيل واضح يحتاج تدقيقاً حسابياً للتأكد من صحة الإجمالي.",
+"",
+"ملاحظة مهمة: إن كان البند غامضاً أو يبدو أنه يحتاج قراراً إدارياً داخلياً وليس مخالفة واضحة وصريحة، صنّفه ضمن «ملاحظات» وليس «مخاطر عالية».",
+"",
+"تنبيه خاص بالبنود القانونية البحتة: بعض البنود لا تُقاس بمطابقتها لسياستنا التجارية، بل تحتاج حكماً قانونياً متخصصاً بغض النظر عن ذلك. صنّف البند ضمن «بنود تحتاج تحقق من الإدارة القانونية» (وليس ضمن المخاطر التجارية العادية) إذا كان من هذا النوع، ومنها على سبيل المثال:",
+"- الصياغة النهائية لبنود الضمان (Warranty) أو المسؤولية (Liability) أو التعويض (Indemnification).",
+"- أي بند يحدد قانوناً أو محكمة أو هيئة تحكيم خارج القضاء السعودي المعتاد، أو غامض بشأن جهة/لغة/مدة التقاضي.",
+"- أي بند ملكية فكرية، أو حقوق نشر، أو حظر منافسة، أو التزام بالسرية يتجاوز الممارسة المعتادة.",
+"- أي التزامات تتجاوز توريد بضاعة عادي (ضمانات أداء، كفالات بنكية، تأمين، مسؤولية عن أضرار لطرف ثالث).",
+"- أي تعريف قانوني دقيق (مثل تعريف «الظروف القاهرة» أو إجراءات الإخطار الرسمية المرتبطة به).",
+"- أي بند غامض الصياغة يحتمل أكثر من تفسير قانوني مختلف الأثر.",
+"",
+"المطلوب منك: اكتب تقريراً باللغة العربية فقط (حتى لو كان نص العقد بلغة أخرى)، بالتنسيق التالي بالضبط:",
+"",
+"## ملخص سريع",
+"(جملتان إلى ثلاث عن مستوى الخطورة الإجمالي للعقد)",
+"",
+"## 🔴 مخاطر عالية (تتعارض مباشرة مع سياسة الشركة)",
+"لكل بند: اسم/رقم البند إن وُجد ← اقتباس مختصر لنصه ← سبب التعارض مع سياستنا ← التعديل المقترح",
+"",
+"## 🟠 مخاطر متوسطة (تحتاج توضيح أو تفاوض)",
+"(نفس التنسيق)",
+"",
+"## ⚖️ بنود تحتاج تحقق من الإدارة القانونية",
+"لكل بند: اسم/رقم البند ← اقتباس مختصر ← لماذا يحتاج رأياً قانونياً متخصصاً بالتحديد (لا تُصدر حكماً تجارياً نهائياً عليه)",
+"",
+"## 🟡 ملاحظات (بنود غامضة تستحق الانتباه دون أن تكون مخالفة مباشرة)",
+"",
+"## ✅ بنود متوافقة مع سياستنا",
+"(اذكرها فقط إن وُجدت فعلاً بنود دفع أو فحص أو إرجاع متوافقة)",
+"",
+"كن دقيقاً ومباشراً، اقتبس نص البند الأصلي بإيجاز عند الإشارة إليه، ولا تخترع بنوداً غير موجودة في النص. إن كان النص غير مكتمل أو غير واضح في جزء ما، اذكر ذلك صراحة بدل التخمين. اختم التقرير بسطر واحد يوضّح أنه تحليل آلي أولي للاسترشاد الداخلي فقط وليس رأياً قانونياً، وأن بنود قسم «تحتاج تحقق من الإدارة القانونية» يجب تصعيدها فعلياً للإدارة القانونية قبل الموافقة على العقد.",
+"",
+"---",
+"نص العقد/الطلبية المطلوب فحصه:",
+'"""'
+].join("\n");
+
+// ---------- استخراج النص ----------
+if (window['pdfjsLib']) {
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+}
+
+var dropEl = document.getElementById('ccDrop');
+var fileEl = document.getElementById('ccFile');
+var statusEl = document.getElementById('ccStatus');
+var textEl = document.getElementById('ccText');
+var genBtn = document.getElementById('ccGenerate');
+var clearBtn = document.getElementById('ccClear');
+var outputEl = document.getElementById('ccOutput');
+var promptEl = document.getElementById('ccPrompt');
+var copyBtn = document.getElementById('ccCopy');
+
+function setStatus(msg, kind){
+  statusEl.textContent = msg || '';
+  statusEl.className = 'cc-status' + (kind ? ' ' + kind : '');
+}
+
+function updateGenerateState(){
+  genBtn.disabled = textEl.value.trim().length < 20;
+}
+textEl.addEventListener('input', updateGenerateState);
+
+dropEl.addEventListener('click', function(){ fileEl.click(); });
+dropEl.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' ') fileEl.click(); });
+['dragenter','dragover'].forEach(function(ev){
+  dropEl.addEventListener(ev, function(e){ e.preventDefault(); dropEl.classList.add('drag'); });
+});
+['dragleave','drop'].forEach(function(ev){
+  dropEl.addEventListener(ev, function(e){ e.preventDefault(); dropEl.classList.remove('drag'); });
+});
+dropEl.addEventListener('drop', function(e){
+  if(e.dataTransfer.files && e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]);
+});
+fileEl.addEventListener('change', function(){
+  if(fileEl.files && fileEl.files[0]) handleFile(fileEl.files[0]);
+});
+
+function handleFile(file){
+  var name = file.name.toLowerCase();
+  setStatus('جارٍ استخراج النص من «' + file.name + '»...');
+  if(name.endsWith('.pdf')){
+    extractPdf(file);
+  } else if(name.endsWith('.docx')){
+    extractDocx(file);
+  } else if(name.endsWith('.txt')){
+    var r = new FileReader();
+    r.onload = function(){ finishExtract(r.result); };
+    r.onerror = function(){ setStatus('تعذّرت قراءة الملف. جرّب لصق النص يدوياً.', 'warn'); };
+    r.readAsText(file);
+  } else {
+    setStatus('صيغة غير مدعومة (' + file.name.split('.').pop() + '). الرجاء تحويل الملف إلى PDF أو Word (.docx)، أو لصق النص يدوياً أدناه.', 'warn');
+  }
+}
+
+function extractPdf(file){
+  var reader = new FileReader();
+  reader.onload = function(){
+    if(!window['pdfjsLib']){
+      setStatus('تعذّر تحميل مكتبة قراءة PDF. جرّب لصق النص يدوياً.', 'warn');
+      return;
+    }
+    pdfjsLib.getDocument({data: reader.result}).promise.then(function(pdf){
+      var pages = [];
+      var pending = Promise.resolve();
+      for(var i = 1; i <= pdf.numPages; i++){
+        (function(pageNum){
+          pending = pending.then(function(){
+            return pdf.getPage(pageNum).then(function(page){
+              return page.getTextContent().then(function(content){
+                var strings = content.items.map(function(it){ return it.str; });
+                pages[pageNum - 1] = strings.join(' ');
+              });
+            });
+          });
+        })(i);
+      }
+      pending.then(function(){
+        finishExtract(pages.join('\n\n'));
+      });
+    }).catch(function(err){
+      setStatus('تعذّر قراءة ملف PDF (' + err.message + '). قد يكون الملف صورة ممسوحة ضوئياً — الرجاء لصق النص يدوياً.', 'warn');
+    });
+  };
+  reader.onerror = function(){ setStatus('تعذّرت قراءة الملف. جرّب لصق النص يدوياً.', 'warn'); };
+  reader.readAsArrayBuffer(file);
+}
+
+function extractDocx(file){
+  var reader = new FileReader();
+  reader.onload = function(){
+    if(!window['mammoth']){
+      setStatus('تعذّر تحميل مكتبة قراءة Word. جرّب لصق النص يدوياً.', 'warn');
+      return;
+    }
+    mammoth.extractRawText({arrayBuffer: reader.result}).then(function(result){
+      finishExtract(result.value);
+    }).catch(function(err){
+      setStatus('تعذّر قراءة ملف Word (' + err.message + '). جرّب لصق النص يدوياً.', 'warn');
+    });
+  };
+  reader.onerror = function(){ setStatus('تعذّرت قراءة الملف. جرّب لصق النص يدوياً.', 'warn'); };
+  reader.readAsArrayBuffer(file);
+}
+
+function finishExtract(text){
+  text = (text || '').trim();
+  textEl.value = text;
+  updateGenerateState();
+  if(text.length < 150){
+    setStatus('تم الاستخراج، لكن النص قصير جداً — قد يكون الملف صورة ممسوحة ضوئياً بلا نص حقيقي. راجع النص أدناه أو الصقه يدوياً.', 'warn');
+  } else {
+    setStatus('تم استخراج ' + text.length + ' حرفاً. راجع النص أدناه قبل المتابعة.', 'ok');
+  }
+}
+
+genBtn.addEventListener('click', function(){
+  var contract = textEl.value.trim();
+  if(contract.length < 20) return;
+  var full = CC_POLICY_PROMPT + '\n' + contract + '\n"""';
+  promptEl.value = full;
+  outputEl.classList.add('show');
+  outputEl.scrollIntoView({behavior: 'smooth', block: 'start'});
+});
+
+clearBtn.addEventListener('click', function(){
+  textEl.value = '';
+  fileEl.value = '';
+  promptEl.value = '';
+  outputEl.classList.remove('show');
+  updateGenerateState();
+  setStatus('');
+});
+
+copyBtn.addEventListener('click', function(){
+  var done = function(){
+    copyBtn.textContent = 'تم النسخ ✓';
+    setTimeout(function(){ copyBtn.textContent = 'نسخ النص'; }, 2000);
+  };
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(promptEl.value).then(done).catch(function(){ fallbackCopy(); });
+  } else {
+    fallbackCopy();
+  }
+  function fallbackCopy(){
+    promptEl.removeAttribute('readonly');
+    promptEl.select();
+    try { document.execCommand('copy'); done(); } catch(e){}
+    promptEl.setAttribute('readonly', 'true');
+  }
+});
+</script>
+</body>
+</html>
