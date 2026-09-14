@@ -1,0 +1,10 @@
+# Cloudflare Pages redirects.
+#
+# The section calculator moved from /steelcalc/ into the tools section on
+# 2026-09-14. The app's support and privacy pages did NOT move: the App Store
+# listing points at those URLs, so they stay exactly where they are and the
+# rules below match the index path only.
+/steelcalc      /tools/steel-sections/      301
+/steelcalc/     /tools/steel-sections/      301
+/ar/steelcalc   /ar/tools/steel-sections/   301
+/ar/steelcalc/  /ar/tools/steel-sections/   301

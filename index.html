@@ -16,7 +16,7 @@
 <link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/">
 <link rel="alternate" hreflang="x-default" href="https://mashharawi.com/">
 
-<meta name="theme-color" content="#E4E6E3">
+<meta name="theme-color" content="#E2E6EA">
 
 <!-- Open Graph -->
 <meta property="og:type" content="profile">
@@ -29,7 +29,7 @@
 <meta property="og:image" content="https://mashharawi.com/og-cover.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Omar Mashharawi — commercial steel, software and AI. Riyadh, Saudi Arabia.">
+<meta property="og:image:alt" content="Omar Mashharawi, commercial steel, software and AI. Riyadh, Saudi Arabia.">
 <meta property="profile:first_name" content="Omar">
 <meta property="profile:last_name" content="Mashharawi">
 
@@ -38,8 +38,9 @@
 <meta name="twitter:title" content="Omar Mashharawi">
 <meta name="twitter:description" content="Business experience. Technology curiosity. Building for what comes next.">
 <meta name="twitter:image" content="https://mashharawi.com/og-cover.jpg">
-<meta name="twitter:image:alt" content="Omar Mashharawi — commercial steel, software and AI.">
+<meta name="twitter:image:alt" content="Omar Mashharawi, commercial steel, software and AI.">
 
+<link rel="alternate" type="application/rss+xml" title="Omar Mashharawi, notes" href="https://mashharawi.com/feed.xml">
 <link rel="stylesheet" href="/assets/site.css">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,9 +48,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..700&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,300..500&display=swap" rel="stylesheet">
 
 <link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
 <!-- ==========================================================================
      Structured data. Tells Google that this URL is the profile page of one
@@ -125,6 +129,7 @@
       "url": "https://mashharawi.com/",
       "name": "Omar Mashharawi",
       "inLanguage": "en",
+      "dateModified": "2026-09-13",
       "isPartOf": { "@id": "https://mashharawi.com/#website" },
       "about": { "@id": "https://mashharawi.com/#person" },
       "mainEntity": { "@id": "https://mashharawi.com/#person" },
@@ -160,12 +165,15 @@
         <li><a href="#about">About</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#technology">Technology</a></li>
+        <li><a href="/tools/">Tools</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#ai">AI</a></li>
         <li><a href="#github">GitHub</a></li>
+        <li><a href="#linkedin">LinkedIn</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
+    <a class="lang-switch" href="/ar/" hreflang="ar" lang="ar" aria-label="عرض الموقع بالعربية">العربية</a>
   </div>
 </header>
 
@@ -178,8 +186,8 @@
            replacing the standalone location paragraph that used to sit above
            it, so the page's single top-level heading names the entity it is
            about without adding a second mono line to the design. -->
-      <h1 class="rise" style="--i:1"><span class="h1-name">Omar Mashharawi<i> &nbsp;/&nbsp; </i><b>Riyadh, Saudi Arabia</b></span>Business Experience. Technology Curiosity. Building for What Comes Next.</h1>
-      <p class="lead rise" style="--i:2">Omar Mashharawi is a commercial and sales professional with extensive experience in the steel industry, exploring software development, artificial intelligence, and digital products.</p>
+      <h1 class="rise" style="--i:1"><span class="h1-name">Omar Mashharawi<i> &nbsp;/&nbsp; </i><b>Riyadh, Saudi Arabia</b></span>Fifteen years in steel. Now building software.</h1>
+      <p class="lead rise" style="--i:2">Commercial and sales work in reinforcing steel in Riyadh, and the software, AI and automation I build alongside it.</p>
       <div class="cta-row rise" style="--i:3">
         <a class="btn" href="#journey">Explore my journey</a>
         <a class="btn ghost" href="https://github.com/UKDean" target="_blank" rel="noopener">View GitHub</a>
@@ -192,15 +200,16 @@
   <section id="about" class="sec" aria-labelledby="about-h">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">About</p>
         <h2 id="about-h">Fifteen years in commercial steel, now building with software.</h2>
       </div>
 
       <div class="about-grid">
         <figure class="portrait rise">
           <picture>
-            <source srcset="portrait.webp" type="image/webp">
-            <img src="portrait.jpg" width="1200" height="1500" alt="Portrait of Omar Mashharawi" loading="lazy" decoding="async">
+            <source type="image/webp"
+                    srcset="/portrait-420.webp 420w, /portrait-560.webp 560w, /portrait-840.webp 840w"
+                    sizes="(max-width:900px) min(420px, 88vw), 380px">
+            <img src="/portrait-840.jpg" width="840" height="1050" alt="Portrait of Omar Mashharawi" loading="lazy" decoding="async">
           </picture>
           <figcaption>Omar Mashharawi<br>Section Head, Al Rajhi Steel &middot; Riyadh</figcaption>
         </figure>
@@ -219,7 +228,6 @@
 
       <div id="journey" style="margin-top:clamp(56px,7vw,96px)">
         <div class="sec-head">
-          <p class="eyebrow">My journey</p>
           <h2>From the sales floor to the source code.</h2>
         </div>
         <div class="journey rise">
@@ -237,12 +245,11 @@
   <section id="experience" class="sec" aria-labelledby="exp-h">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">Experience</p>
         <h2 id="exp-h">Commercial roles across the steel industry.</h2>
       </div>
 
       <article class="role rise">
-        <div class="when">2018 &mdash; Present</div>
+        <div class="when">2018 to present</div>
         <div>
           <h3>Section Head</h3>
           <p class="co">Al Rajhi Steel Co. &middot; Riyadh</p>
@@ -260,7 +267,7 @@
       </article>
 
       <article class="role rise">
-        <div class="when">2010 &mdash; 2018</div>
+        <div class="when">2010-2018</div>
         <div>
           <h3>Sales Manager</h3>
           <p class="co">Al Musairiey Metallic Industries</p>
@@ -274,7 +281,7 @@
       </article>
 
       <article class="role rise">
-        <div class="when">2008 &mdash; 2010</div>
+        <div class="when">2008-2010</div>
         <div>
           <h3>Sales Executive</h3>
           <p class="co">Arabian Steel Pipes</p>
@@ -287,7 +294,7 @@
       </article>
 
       <div style="margin-top:clamp(48px,6vw,80px)">
-        <p class="eyebrow">Skills</p>
+        <p class="calc-lbl" style="margin-bottom:20px">Skills</p>
         <div class="skills">
           <div class="rise">
             <h3>Business &amp; commercial</h3>
@@ -371,11 +378,45 @@
     </div>
   </section>
 
+
+  <!-- ============ CALCULATOR ============ -->
+  <section id="calculator" class="sec" aria-labelledby="calc-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Tools</p>
+        <h2 id="calc-h">Tools I built because I needed them.</h2>
+        <p class="lead">Steel is ordered by the piece and invoiced by the kilo, and the arithmetic between those two is where a quote is won or lost. Two calculators do that work in the browser. The third tool is something else entirely: the PDF handling every commercial desk does daily, kept on your own machine.</p>
+      </div>
+
+      <ul class="note-list rise">
+        <li>
+          <a href="/tools/rebar-weight/">
+            <span class="note-date">In the browser</span>
+            <span class="note-text"><b>Reinforcing steel weight</b><span>Diameter to kilos per metre, per bar and per tonne. Or a tonnage back to a number of bars.</span></span>
+          </a>
+        </li>
+        <li>
+          <a href="/tools/steel-sections/">
+            <span class="note-date">In the browser</span>
+            <span class="note-text"><b>Steel section weight</b><span>IPE, HEA, HEB, UPN, angles, bars, flats, pipe and tube, with the commercial band around the nominal figure.</span></span>
+          </a>
+        </li>
+        <li>
+          <a href="/tools/openpdfkit/">
+            <span class="note-date">Desktop app</span>
+            <span class="note-text"><b>OpenPDFKit</b><span>Merge, split, compress, convert, protect and OCR, entirely offline. Nothing is uploaded anywhere.</span></span>
+          </a>
+        </li>
+      </ul>
+
+      <p class="note-back"><a href="/tools/">All tools</a></p>
+    </div>
+  </section>
+
   <!-- ============ PROJECTS ============ -->
   <section id="projects" class="sec" aria-labelledby="proj-h">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">Projects</p>
         <h2 id="proj-h">Built, not just studied.</h2>
       </div>
 
@@ -386,11 +427,12 @@
           <div class="body">
             <p class="pmeta">iOS &middot; Flutter</p>
             <h3>Steel Section Calculator</h3>
-            <p>An offline calculator for structural steel section weights (I/H-beams, channels, angles, bars, pipe, tube, sheet) — no ads, no login, nothing ever leaves the device. Core formulas cross-checked against published EN&nbsp;10365 / EN&nbsp;10056 reference tables. Running and tested; not yet submitted to the App Store.</p>
+            <p>An offline calculator for structural steel section weights (I/H-beams, channels, angles, bars, pipe, tube, sheet), with no ads, no login, nothing ever leaves the device. Core formulas cross-checked against published EN&nbsp;10365 / EN&nbsp;10056 reference tables. Running and tested; not yet submitted to the App Store.</p>
             <div class="cta-row">
               <!-- Was <a href="#">: a placeholder link that resolved to this page.
                    Now a non-link status pill, so no dead anchors are crawled. -->
-              <span class="btn hot is-soon">On the App Store &mdash; coming soon</span>
+              <a class="btn" href="/tools/steel-sections/">Open the web version</a>
+              <p class="status">Built and running. Not yet submitted to the App&nbsp;Store.</p>
             </div>
           </div>
           <div class="shots">
@@ -406,7 +448,7 @@
             <h3>Tubes</h3>
             <p>An offline water-sort puzzle: pour colored liquid between tubes until every color is sorted into its own tube. No timer, no fail state, no ads. The game engine (rules, undo, a solver that proves every level solvable) is complete and fully tested; the on-device interface is still being built.</p>
             <div class="cta-row">
-              <span class="btn hot is-soon">On the App Store &mdash; coming soon</span>
+              <p class="status">Engine complete and tested. Interface still in build.</p>
             </div>
           </div>
         </article>
@@ -415,9 +457,9 @@
           <div class="body">
             <p class="pmeta">Android &amp; iOS &middot; React Native</p>
             <h3>Arabic Crossword</h3>
-            <p>An original Arabic crossword generator — a fresh right-to-left puzzle every time from a 305-word bank, fully offline. Complete and tested on a real device; being prepared for submission to Google Play.</p>
+            <p>An original Arabic crossword generator, a fresh right-to-left puzzle every time from a 305-word bank, fully offline. Complete and tested on a real device; being prepared for submission to Google Play.</p>
             <div class="cta-row">
-              <span class="btn hot is-soon">On Google Play &mdash; coming soon</span>
+              <p class="status">Complete and device-tested. Google&nbsp;Play submission next.</p>
             </div>
           </div>
         </article>
@@ -445,7 +487,7 @@
   <section id="ai" class="sec" aria-labelledby="ai-h">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">Exploring artificial intelligence</p>
+        <p class="eyebrow">Artificial intelligence</p>
         <h2 id="ai-h">AI is interesting where it meets the work.</h2>
         <p class="lead">The attention here is on applied AI: how it changes the way a business operates, how decisions get made, how work gets automated, and how people interact with the software in front of them.</p>
       </div>
@@ -478,7 +520,6 @@
   <section id="github" class="sec" aria-labelledby="gh-h">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">GitHub</p>
         <h2 id="gh-h">Where the learning is actually recorded.</h2>
       </div>
 
@@ -502,19 +543,55 @@
     </div>
   </section>
 
+  <!-- ============ LINKEDIN ============ -->
+  <section id="linkedin" class="sec" aria-labelledby="li-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="li-h">Where the commercial side of the work gets discussed.</h2>
+      </div>
+
+      <div class="gh">
+        <div class="rise">
+          <p>LinkedIn is where the day-to-day of the steel business gets written down: what the market is doing, how pricing decisions actually get made, and where a process is costing more than it should.</p>
+          <p>The technical work sits on GitHub; the commercial thinking sits there. Both come from the same problems.</p>
+          <ul class="tags">
+            <li>Steel market</li><li>Reinforcing steel</li><li>Pricing &amp; commercial terms</li>
+            <li>Export &amp; supply</li><li>Automation in practice</li>
+          </ul>
+          <div class="cta-row">
+            <a class="btn" href="/writing/">Read the notes</a>
+            <a class="btn ghost" href="https://www.linkedin.com/in/mashharawi" target="_blank" rel="noopener me">Follow on LinkedIn</a>
+          </div>
+        </div>
+        <div class="gh-panel rise">
+          <!-- ===== SELECTED POSTS =====
+               To add a post: copy one <li> below, paste the post URL, and write a short line.
+               Get the URL from the post's "..." menu on LinkedIn > Copy link to post.
+               Keep this list to three or four entries; replace the oldest when adding a new one. -->
+          <ul>
+            <li><span>Profile</span><b>in/mashharawi</b></li>
+            <li><span>Posts about</span><b>Steel &amp; commercial</b></li>
+            <li><span>Language</span><b>Arabic &amp; English</b></li>
+            <li><span>Feed</span><b><a href="/feed.xml">RSS</a></b></li>
+          </ul>
+          <p class="muted" style="margin:0;font-size:.94em">Notes are published here first, then shared on LinkedIn automatically through the feed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ CONTACT ============ -->
   <section id="contact" class="sec" aria-labelledby="contact-h">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">Contact</p>
         <h2 id="contact-h">Let's connect.</h2>
         <p class="lead">Whether you're interested in business, technology, AI, software, or simply exchanging ideas, I'd be glad to connect.</p>
       </div>
 
       <ul class="contact-list rise">
         <li><a href="mailto:omar@mashharawi.com">omar@mashharawi.com<span>Email</span></a></li>
-        <li><a href="https://www.linkedin.com/in/mashharawi" target="_blank" rel="noopener">linkedin.com/in/mashharawi<span>LinkedIn</span></a></li>
-        <li><a href="https://github.com/UKDean" target="_blank" rel="noopener">github.com/UKDean<span>GitHub</span></a></li>
+        <li><a href="https://www.linkedin.com/in/mashharawi" target="_blank" rel="noopener me">linkedin.com/in/mashharawi<span>LinkedIn</span></a></li>
+        <li><a href="https://github.com/UKDean" target="_blank" rel="noopener me">github.com/UKDean<span>GitHub</span></a></li>
       </ul>
     </div>
   </section>
@@ -528,5 +605,7 @@
 </footer>
 
 <script src="/assets/site.js" defer></script>
+<script src="/assets/mill.js" defer></script>
+<script src="/assets/calc.js" defer></script>
 </body>
 </html>

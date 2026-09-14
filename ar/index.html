@@ -14,7 +14,7 @@
 <link rel="alternate" hreflang="en" href="https://mashharawi.com/">
 <link rel="alternate" hreflang="x-default" href="https://mashharawi.com/">
 
-<meta name="theme-color" content="#E4E6E3">
+<meta name="theme-color" content="#E2E6EA">
 
 <!-- Open Graph -->
 <meta property="og:type" content="profile">
@@ -27,13 +27,14 @@
 <meta property="og:image" content="https://mashharawi.com/og-cover.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="عمر المشهراوي — حديد التسليح، البرمجيات والذكاء الاصطناعي. الرياض، السعودية.">
+<meta property="og:image:alt" content="عمر المشهراوي. حديد التسليح، البرمجيات والذكاء الاصطناعي. الرياض، السعودية.">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="عمر المشهراوي">
 <meta name="twitter:description" content="خبرة تجارية. فضول تقني. بناءٌ لما هو قادم.">
 <meta name="twitter:image" content="https://mashharawi.com/og-cover.jpg">
 
+<link rel="alternate" type="application/rss+xml" title="مقالات عمر المشهراوي" href="https://mashharawi.com/feed.xml">
 <link rel="stylesheet" href="/assets/site.css">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -108,6 +109,7 @@
       "url": "https://mashharawi.com/ar/",
       "name": "عمر المشهراوي",
       "inLanguage": "ar",
+      "dateModified": "2026-09-13",
       "isPartOf": { "@id": "https://mashharawi.com/#website" },
       "about": { "@id": "https://mashharawi.com/#person" },
       "mainEntity": { "@id": "https://mashharawi.com/#person" }
@@ -129,12 +131,15 @@
         <li><a href="#about">نبذة</a></li>
         <li><a href="#experience">الخبرة</a></li>
         <li><a href="#technology">التقنية</a></li>
+        <li><a href="/ar/tools/">الأدوات</a></li>
         <li><a href="#projects">المشاريع</a></li>
         <li><a href="#ai">الذكاء الاصطناعي</a></li>
         <li><a href="#github">GitHub</a></li>
+        <li><a href="#linkedin">LinkedIn</a></li>
         <li><a href="#contact">تواصل</a></li>
       </ul>
     </nav>
+    <a class="lang-switch" href="/" hreflang="en" lang="en" aria-label="View the site in English">English</a>
   </div>
 </header>
 
@@ -143,8 +148,8 @@
   <!-- ============ الرئيسية ============ -->
   <section id="home" class="sec hero">
     <div class="wrap">
-      <h1 class="rise" style="--i:1"><span class="h1-name">عمر المشهراوي<i> &nbsp;/&nbsp; </i><b>الرياض، المملكة العربية السعودية</b></span>خبرة تجارية. فضول تقني. بناءٌ لما هو قادم.</h1>
-      <p class="lead rise" style="--i:2">عمر المشهراوي مختص مبيعات وأعمال تجارية بخبرة واسعة في قطاع الحديد، ويعمل على تطوير البرمجيات والذكاء الاصطناعي والمنتجات الرقمية.</p>
+      <h1 class="rise" style="--i:1"><span class="h1-name">عمر المشهراوي<i> &nbsp;/&nbsp; </i><b>الرياض، المملكة العربية السعودية</b></span>خمسة عشر عاماً في الحديد. وأبني البرمجيات الآن.</h1>
+      <p class="lead rise" style="--i:2">عملٌ تجاري وبيع في حديد التسليح من الرياض، وبرمجيات وذكاء اصطناعي وأتمتة أبنيها إلى جانبه.</p>
       <div class="cta-row rise" style="--i:3">
         <a class="btn" href="#journey">تعرّف على مسيرتي</a>
         <a class="btn ghost" href="https://github.com/UKDean" target="_blank" rel="noopener">حسابي على GitHub</a>
@@ -157,15 +162,16 @@
   <section id="about" class="sec" aria-labelledby="about-h">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">نبذة</p>
         <h2 id="about-h">خمسة عشر عاماً في الجانب التجاري للحديد، والآن البناء بالبرمجيات.</h2>
       </div>
 
       <div class="about-grid">
         <figure class="portrait rise">
           <picture>
-            <source srcset="/portrait.webp" type="image/webp">
-            <img src="/portrait.jpg" width="1200" height="1500" alt="صورة شخصية لعمر المشهراوي" loading="lazy" decoding="async">
+            <source type="image/webp"
+                    srcset="/portrait-420.webp 420w, /portrait-560.webp 560w, /portrait-840.webp 840w"
+                    sizes="(max-width:900px) min(420px, 88vw), 380px">
+            <img src="/portrait-840.jpg" width="840" height="1050" alt="صورة شخصية لعمر المشهراوي" loading="lazy" decoding="async">
           </picture>
           <figcaption>عمر المشهراوي<br>رئيس قسم، الراجحي للحديد &middot; الرياض</figcaption>
         </figure>
@@ -184,7 +190,6 @@
 
       <div id="journey" style="margin-top:clamp(56px,7vw,96px)">
         <div class="sec-head">
-          <p class="eyebrow">المسيرة</p>
           <h2>من صالة المبيعات إلى الشيفرة المصدرية.</h2>
         </div>
         <div class="journey rise">
@@ -202,12 +207,11 @@
   <section id="experience" class="sec" aria-labelledby="exp-h">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">الخبرة</p>
         <h2 id="exp-h">أدوار تجارية عبر قطاع الحديد.</h2>
       </div>
 
       <article class="role rise">
-        <div class="when">٢٠١٨ &mdash; حتى الآن</div>
+        <div class="when">٢٠١٨، حتى الآن</div>
         <div>
           <h3>رئيس قسم</h3>
           <p class="co">شركة الراجحي للحديد &middot; الرياض</p>
@@ -225,7 +229,7 @@
       </article>
 
       <article class="role rise">
-        <div class="when">٢٠١٠ &mdash; ٢٠١٨</div>
+        <div class="when">٢٠١٠، ٢٠١٨</div>
         <div>
           <h3>مدير مبيعات</h3>
           <p class="co">مصانع المصيريع المعدنية</p>
@@ -239,7 +243,7 @@
       </article>
 
       <article class="role rise">
-        <div class="when">٢٠٠٨ &mdash; ٢٠١٠</div>
+        <div class="when">٢٠٠٨، ٢٠١٠</div>
         <div>
           <h3>تنفيذي مبيعات</h3>
           <p class="co">أنابيب الحديد العربية</p>
@@ -252,7 +256,7 @@
       </article>
 
       <div style="margin-top:clamp(48px,6vw,80px)">
-        <p class="eyebrow">المهارات</p>
+        <p class="calc-lbl" style="margin-bottom:20px">المهارات</p>
         <div class="skills">
           <div class="rise">
             <h3>الأعمال والجانب التجاري</h3>
@@ -336,11 +340,45 @@
     </div>
   </section>
 
+
+  <!-- ============ الحاسبة ============ -->
+  <section id="calculator" class="sec" aria-labelledby="calc-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">الأدوات</p>
+        <h2 id="calc-h">أدوات بنيتها لأنني احتجتها.</h2>
+        <p class="lead">الحديد يُطلب بالقطعة ويُفوتر بالكيلو، والحساب بين الاثنين هو موضع الربح أو الخسارة في عرض السعر. حاسبتان تؤديان هذا العمل داخل المتصفح. والأداة الثالثة مختلفة تماماً: معالجة ملفات PDF التي يمارسها أي مكتب تجاري يومياً، لكن على جهازك أنت.</p>
+      </div>
+
+      <ul class="note-list rise">
+        <li>
+          <a href="/ar/tools/rebar-weight/">
+            <span class="note-date">في المتصفح</span>
+            <span class="note-text"><b>وزن حديد التسليح</b><span>من القطر إلى الكيلو للمتر وللسيخ وللطن، أو من التوريد بالطن إلى عدد الأسياخ.</span></span>
+          </a>
+        </li>
+        <li>
+          <a href="/ar/tools/steel-sections/">
+            <span class="note-date">في المتصفح</span>
+            <span class="note-text"><b>وزن قطاعات الحديد</b><span>IPE و HEA و HEB و UPN والزوايا والقضبان والمسطح والمواسير والتيوب، مع النطاق التجاري حول الوزن الاسمي.</span></span>
+          </a>
+        </li>
+        <li>
+          <a href="/ar/tools/openpdfkit/">
+            <span class="note-date">تطبيق سطح مكتب</span>
+            <span class="note-text"><b>OpenPDFKit</b><span>دمج وتقسيم وضغط وتحويل وحماية و OCR، بلا إنترنت بالكامل. لا يُرفع أي ملف إلى أي خادم.</span></span>
+          </a>
+        </li>
+      </ul>
+
+      <p class="note-back"><a href="/ar/tools/">كل الأدوات</a></p>
+    </div>
+  </section>
+
   <!-- ============ المشاريع ============ -->
   <section id="projects" class="sec" aria-labelledby="proj-h">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">المشاريع</p>
         <h2 id="proj-h">مبنيّ، لا مدروس فقط.</h2>
       </div>
 
@@ -351,9 +389,10 @@
           <div class="body">
             <p class="pmeta">iOS &middot; Flutter</p>
             <h3>حاسبة مقاطع الحديد</h3>
-            <p>حاسبة تعمل دون اتصال لأوزان المقاطع الإنشائية (الكمرات I/H، القطاعات القناة، الزوايا، القضبان، المواسير، الأنابيب المربعة، الألواح) — بلا إعلانات، بلا تسجيل دخول، ولا تغادر أي بيانات الجهاز. المعادلات الأساسية روجعت مقابل جداول مرجعية منشورة وفق EN&nbsp;10365 و EN&nbsp;10056. تعمل ومختبرة، ولم تُقدَّم بعد إلى App Store.</p>
+            <p>حاسبة تعمل دون اتصال لأوزان المقاطع الإنشائية (الكمرات I/H، القطاعات القناة، الزوايا، القضبان، المواسير، الأنابيب المربعة، الألواح)، بلا إعلانات، بلا تسجيل دخول، ولا تغادر أي بيانات الجهاز. المعادلات الأساسية روجعت مقابل جداول مرجعية منشورة وفق EN&nbsp;10365 و EN&nbsp;10056. تعمل ومختبرة، ولم تُقدَّم بعد إلى App Store.</p>
             <div class="cta-row">
-              <span class="btn hot is-soon">على App Store &mdash; قريباً</span>
+              <a class="btn" href="/ar/tools/steel-sections/">افتح نسخة الويب</a>
+              <p class="status">جاهز ويعمل. لم يُرفع بعد إلى App&nbsp;Store.</p>
             </div>
           </div>
           <div class="shots">
@@ -369,7 +408,7 @@
             <h3>Tubes</h3>
             <p>لعبة ألغاز تعمل دون اتصال: صبّ السوائل الملونة بين الأنابيب حتى يستقر كل لون في أنبوب واحد. بلا مؤقت، بلا خسارة، بلا إعلانات. محرك اللعبة (القواعد، التراجع، وحلّال يثبت قابلية حل كل مرحلة) مكتمل ومختبر بالكامل، وواجهة الجهاز ما زالت قيد البناء.</p>
             <div class="cta-row">
-              <span class="btn hot is-soon">على App Store &mdash; قريباً</span>
+              <p class="status">المحرّك مكتمل ومُختبر. الواجهة قيد البناء.</p>
             </div>
           </div>
         </article>
@@ -378,9 +417,9 @@
           <div class="body">
             <p class="pmeta">Android و iOS &middot; React Native</p>
             <h3>كلمات متقاطعة عربية</h3>
-            <p>مولّد كلمات متقاطعة عربية أصلي — لغز جديد من اليمين إلى اليسار في كل مرة، من بنك مكوّن من ٣٠٥ كلمات، ويعمل دون اتصال بالكامل. مكتمل ومختبر على جهاز حقيقي، ويجري تجهيزه للتقديم إلى Google Play.</p>
+            <p>مولّد كلمات متقاطعة عربية أصلي، يولّد لغزاً جديداً من اليمين إلى اليسار في كل مرة، من بنك مكوّن من ٣٠٥ كلمات، ويعمل دون اتصال بالكامل. مكتمل ومختبر على جهاز حقيقي، ويجري تجهيزه للتقديم إلى Google Play.</p>
             <div class="cta-row">
-              <span class="btn hot is-soon">على Google Play &mdash; قريباً</span>
+              <p class="status">مكتمل ومُختبر على الجهاز. الرفع إلى Google&nbsp;Play تالياً.</p>
             </div>
           </div>
         </article>
@@ -408,7 +447,7 @@
   <section id="ai" class="sec" aria-labelledby="ai-h">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">استكشاف الذكاء الاصطناعي</p>
+        <p class="eyebrow">الذكاء الاصطناعي</p>
         <h2 id="ai-h">الذكاء الاصطناعي يصبح مثيراً للاهتمام حين يلتقي بالعمل.</h2>
         <p class="lead">الاهتمام هنا منصبّ على الذكاء الاصطناعي التطبيقي: كيف يغيّر طريقة عمل المنشأة، وكيف تُتخذ القرارات، وكيف يُؤتمت العمل، وكيف يتعامل الناس مع البرمجية التي أمامهم.</p>
       </div>
@@ -441,7 +480,6 @@
   <section id="github" class="sec" aria-labelledby="gh-h">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">GitHub</p>
         <h2 id="gh-h">حيث يُسجَّل التعلّم فعلياً.</h2>
       </div>
 
@@ -465,11 +503,46 @@
     </div>
   </section>
 
+  <!-- ============ LINKEDIN ============ -->
+  <section id="linkedin" class="sec" aria-labelledby="li-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="li-h">حيث يُناقَش الجانب التجاري من العمل.</h2>
+      </div>
+
+      <div class="gh">
+        <div class="rise">
+          <p>على LinkedIn يُكتب يوميّ العمل في قطاع الحديد: ما الذي يفعله السوق، وكيف تُتخذ قرارات التسعير فعلياً، وأين تكلّف العملية أكثر مما ينبغي.</p>
+          <p>العمل التقني مكانه GitHub، والتفكير التجاري مكانه هناك. وكلاهما نابع من المشكلات نفسها.</p>
+          <ul class="tags">
+            <li>سوق الحديد</li><li>حديد التسليح</li><li>التسعير والشروط التجارية</li>
+            <li>التصدير والتوريد</li><li>الأتمتة عملياً</li>
+          </ul>
+          <div class="cta-row">
+            <a class="btn" href="/writing/">اقرأ المقالات</a>
+            <a class="btn ghost" href="https://www.linkedin.com/in/mashharawi" target="_blank" rel="noopener me">تابع على LinkedIn</a>
+          </div>
+        </div>
+        <div class="gh-panel rise">
+          <!-- ===== منشورات مختارة =====
+               لإضافة منشور: انسخ عنصر <li> واحداً، ضع رابط المنشور، واكتب سطراً قصيراً.
+               الرابط من قائمة "..." على المنشور في LinkedIn ثم "نسخ الرابط". -->
+          <ul>
+            <li><span>الحساب</span><b>in/mashharawi</b></li>
+            <li><span>المواضيع</span><b>الحديد والتجارة</b></li>
+            <li><span>اللغة</span><b>عربي وإنجليزي</b></li>
+            <li><span>التغذية</span><b><a href="/feed.xml">RSS</a></b></li>
+          </ul>
+          <p class="muted" style="margin:0;font-size:.94em">تُنشر المقالات هنا أولاً، ثم تُشارَك على LinkedIn تلقائياً عبر التغذية.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ تواصل ============ -->
   <section id="contact" class="sec" aria-labelledby="contact-h">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">تواصل</p>
         <h2 id="contact-h">لنتواصل.</h2>
         <p class="lead">سواء كان اهتمامك بالأعمال أو التقنية أو الذكاء الاصطناعي أو البرمجيات، أو بتبادل الأفكار ببساطة، يسعدني التواصل.</p>
       </div>
@@ -491,5 +564,7 @@
 </footer>
 
 <script src="/assets/site.js" defer></script>
+<script src="/assets/mill.js" defer></script>
+<script src="/assets/calc.js" defer></script>
 </body>
 </html>

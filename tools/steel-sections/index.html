@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Steel Section Calculator | Omar Mashharawi</title>
+<meta name="description" content="Weight of IPE, HEA, HEB, UPN, angles, bars, flats, pipe and tube, computed in the browser from nominal geometry. The web version of the offline app.">
+<meta name="author" content="Omar Mashharawi">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+<link rel="canonical" href="https://mashharawi.com/tools/steel-sections/">
+<link rel="alternate" hreflang="en" href="https://mashharawi.com/tools/steel-sections/">
+<link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/tools/steel-sections/">
+<link rel="alternate" hreflang="x-default" href="https://mashharawi.com/tools/steel-sections/">
+
+<meta name="theme-color" content="#E2E6EA">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mashharawi.com/tools/steel-sections/">
+<meta property="og:title" content="Steel Section Calculator">
+<meta property="og:description" content="Section weight worked out in the page: I/H-beams, channels, angles, bars, flats, pipe and tube.">
+<meta property="og:site_name" content="mashharawi.com">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ar_SA">
+<meta property="og:image" content="https://mashharawi.com/og-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="stylesheet" href="/assets/site.css?v=20260914">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..700&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,300..500&display=swap" rel="stylesheet">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<!-- Only what the page itself states: a free browser tool, by the person the
+     site is about. No ratings, no install counts, nothing unverifiable. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Steel Section Calculator",
+  "url": "https://mashharawi.com/tools/steel-sections/",
+  "applicationCategory": "https://schema.org/BusinessApplication",
+  "operatingSystem": "Any modern browser",
+  "browserRequirements": "Requires JavaScript",
+  "inLanguage": ["en", "ar"],
+  "isAccessibleForFree": true,
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "SAR"},
+  "author": {"@type": "Person", "@id": "https://mashharawi.com/#person", "name": "Omar Mashharawi"}
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="/">OMAR MASHHARAWI<span>.</span></a>
+    <nav aria-label="Primary"><ul>
+      <li><a href="/">Site</a></li>
+      <li><a href="/tools/">Tools</a></li>
+      <li><a href="/writing/">Notes</a></li>
+      <li><a href="/steelcalc/support.html">Support</a></li>
+      <li><a href="/steelcalc/privacy.html">Privacy</a></li>
+    </ul></nav>
+    <a class="lang-switch" href="/ar/tools/steel-sections/" hreflang="ar" lang="ar" aria-label="عرض هذه الصفحة بالعربية">العربية</a>
+  </div>
+</header>
+
+<main id="main">
+  <section id="steelcalc" class="sec" aria-labelledby="sc-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Live tool</p>
+        <h1 id="sc-h">Steel section weight, worked out in the page.</h1>
+      </div>
+
+      <p class="lead" style="margin-bottom:clamp(32px,4vw,48px)">Structural steel is specified by section and invoiced by the kilo. Pick a family, pick a size, set a length: the weight per metre, per piece, and per order follows. Nothing is looked up from a stored weight, every figure is computed from the section's own dimensions. This is the browser version of my offline app, and it uses the same tables and the same formulas.</p>
+
+      <div class="calc rise" id="scalc" data-loading>
+
+        <div class="calc-main">
+          <figure class="calc-dial">
+            <svg class="calc-svg" viewBox="0 0 200 200" role="img" aria-labelledby="sSecT">
+              <title id="sSecT">Cross-section of the selected size, drawn to scale from its own dimensions</title>
+              <g id="sShape" class="calc-sec" transform="translate(100 100) scale(1)">
+                <path id="sPath" class="calc-sec-body" d=""></path>
+              </g>
+            </svg>
+            <figcaption class="calc-dial-cap"><b id="sDims">&mdash;</b></figcaption>
+          </figure>
+
+          <div class="calc-ctl">
+            <p class="calc-lbl" id="sFamLbl">Section type</p>
+            <div class="calc-chips" role="group" aria-labelledby="sFamLbl" id="sFams"></div>
+            <p class="calc-hint" id="sStd"></p>
+
+            <div class="calc-fields">
+              <label class="calc-field" id="sSizeWrap">
+                <span>Size</span>
+                <select id="sSize"></select>
+              </label>
+              <label class="calc-field">
+                <span>Length, m</span>
+                <input id="sLen" type="number" min="0.1" max="30" step="0.1" inputmode="decimal">
+              </label>
+              <label class="calc-field">
+                <span>Pieces</span>
+                <input id="sQty" type="number" min="1" step="1" inputmode="numeric">
+              </label>
+            </div>
+
+            <!-- Pipe and tube are sold in whatever the supplier rolls, so they
+                 take dimensions instead of a size list, exactly as the app's
+                 manual screen does. -->
+            <div class="calc-fields" id="sManual" hidden></div>
+            <p class="calc-hint" id="sManualHint"></p>
+
+            <div id="sMethod" hidden>
+              <p class="calc-lbl" style="margin-top:22px">Method</p>
+              <div class="calc-chips" role="group" aria-label="Method">
+                <button type="button" class="calc-chip" data-method="exact" aria-pressed="true">Exact</button>
+                <button type="button" class="calc-chip" data-method="quick" aria-pressed="false">Quick</button>
+              </div>
+              <p class="calc-hint" id="sMethodHint">Subtracts the wall from the outside dimension: geometrically exact.</p>
+            </div>
+
+            <p class="calc-warn" id="sWarn" hidden></p>
+            <p class="calc-note" id="sUnver" hidden>Unverified data: the dimensions for this family have not yet been checked against an official reference table. Verify before relying on a figure for a quote or a purchase.</p>
+          </div>
+        </div>
+
+        <dl class="calc-figs">
+          <div>
+            <dt>Mass per metre</dt>
+            <dd><b id="oMpm">0</b><span>kg/m</span></dd>
+          </div>
+          <div>
+            <dt>Per piece</dt>
+            <dd><b id="oPiece">0</b><span>kg</span></dd>
+          </div>
+          <div>
+            <dt>Pieces per tonne</dt>
+            <dd><b id="oPerT">0</b><span>pcs</span></dd>
+          </div>
+          <div class="calc-fig-key">
+            <dt>Weight of this quantity</dt>
+            <dd><b id="oTot">0</b><span>tonnes</span></dd>
+          </div>
+        </dl>
+
+
+        <!-- Commercial weight. The nominal figure above is the basis; what a
+             mill delivers, and therefore what is invoiced, sits inside the
+             mass tolerance of the governing standard. -->
+        <div class="calc-comm">
+          <div class="calc-comm-head">
+            <p class="calc-lbl">Commercial weight</p>
+            <label class="calc-comm-tol">
+              <span>Tolerance, &plusmn;%</span>
+              <input id="sTol" type="number" min="0" max="15" step="0.1" inputmode="decimal">
+            </label>
+          </div>
+          <p class="calc-hint">&plusmn;4.0% is the tolerance on mass that <b>EN&nbsp;10034</b> sets for I and H sections, against a density of 7.85&nbsp;kg/dm&sup3;. Channels and angles are governed by their own standards (EN&nbsp;10279, EN&nbsp;10056-2), and a contract or a purchase order can name a different figure. Set the one your order is written against.</p>
+        </div>
+
+        <dl class="calc-figs calc-figs-comm">
+          <div>
+            <dt>Minimum, at &minus;tolerance</dt>
+            <dd><b id="oMin">0</b><span>tonnes</span></dd>
+          </div>
+          <div>
+            <dt>Nominal</dt>
+            <dd><b id="oNom">0</b><span>tonnes</span></dd>
+          </div>
+          <div>
+            <dt>Maximum, at &plus;tolerance</dt>
+            <dd><b id="oMax">0</b><span>tonnes</span></dd>
+          </div>
+          <div class="calc-fig-key">
+            <dt>Spread across the band</dt>
+            <dd><b id="oSpread">0</b><span>tonnes</span></dd>
+          </div>
+        </dl>
+
+        <div class="calc-order">
+          <div class="calc-order-head">
+            <p class="calc-lbl">Order</p>
+            <button type="button" class="calc-btn" id="sAdd">Add this line</button>
+            <button type="button" class="calc-btn ghost" id="sCopy">Copy table</button>
+          </div>
+
+          <p class="calc-empty" id="sEmpty">Nothing added yet. Build a multi-size order and the totals appear here.</p>
+
+          <table class="calc-table" hidden>
+            <caption class="vh">Order lines, with the weight of each</caption>
+            <thead>
+              <tr>
+                <th scope="col">Size</th>
+                <th scope="col">Length m</th>
+                <th scope="col">Pieces</th>
+                <th scope="col">kg</th>
+                <th scope="col">tonnes</th>
+                <th scope="col"><span class="vh">Remove</span></th>
+              </tr>
+            </thead>
+            <tbody id="sRows"></tbody>
+            <tfoot>
+              <tr>
+                <th scope="row" colspan="2">Total</th>
+                <td class="num"><b id="tPieces">0</b></td>
+                <td class="num"><b id="tKg">0</b></td>
+                <td class="num strong"><b id="tT">0</b></td>
+                <td></td>
+              </tr>
+            </tfoot>
+          </table>
+
+          <p class="calc-hint" id="sOrderTol" hidden></p>
+        </div>
+
+        <p class="calc-fail" id="sFail" hidden>The section tables could not be loaded, so no weight can be computed here right now. Reload the page, or use the offline app.</p>
+
+        <p class="calc-foot">
+          <span class="calc-formula">m = A &times; 7,850&nbsp;kg/m&sup3;</span>
+          Weight comes from the cross-sectional area of the nominal geometry, not from a stored figure: flanges and web plus the root fillets for a beam, legs less the overlap for an angle, the annulus for a pipe. Dimensions for beams, channels and angles follow <b>EN&nbsp;10365</b> and <b>EN&nbsp;10056</b>. A UPN flange tapers, and the formula treats it as one flat average thickness, which puts the channel family about <b>2% above</b> the published UPN masses; bar and flat sizes are common market sizes and are marked with an asterisk until they are checked against an official table. These are <b>nominal</b> weights. What a mill delivers falls inside the tolerance band of the governing standard, and where it falls inside that band is a commercial question. <a href="/writing/weight-tolerance/">I wrote about that here</a>.
+        </p>
+      </div>
+
+      <p class="note-back" style="margin-top:clamp(28px,3vw,40px)">
+        The same calculator runs offline as a mobile app &mdash; <a href="/steelcalc/support.html">support</a> and <a href="/steelcalc/privacy.html">privacy</a>. For reinforcing bar by diameter, use <a href="/tools/rebar-weight/">the rebar calculator</a>.
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap bar">
+    <span>&copy; <span id="yr">2026</span> Omar Mashharawi &middot; mashharawi.com</span>
+    <span><a class="lang" href="/ar/tools/steel-sections/" hreflang="ar" lang="ar">العربية</a> &middot; <a class="lang" href="/">Back to the site</a></span>
+  </div>
+</footer>
+
+<script src="/assets/site.js?v=20260914" defer></script>
+<script src="/assets/steelcalc.js?v=20260914" defer></script>
+</body>
+</html>

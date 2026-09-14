@@ -1,0 +1,24 @@
+{
+  "name": "mashharawi-motion",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Remotion compositions that turn a note into an animated LinkedIn post, in the same visual language as mashharawi.com.",
+  "scripts": {
+    "studio": "remotion studio",
+    "post": "remotion render NotePost out/post.mp4",
+    "band": "remotion render MillBand out/band.mp4",
+    "still": "remotion still NotePost out/post.png"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.400",
+    "@remotion/google-fonts": "4.0.400",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "remotion": "4.0.400",
+    "zod": "3.22.3"
+  },
+  "devDependencies": {
+    "@types/react": "19.0.0",
+    "typescript": "5.8.3"
+  }
+}

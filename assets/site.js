@@ -1,4 +1,4 @@
-/* mashharawi.com — shared behaviour.
+/* mashharawi.com, shared behaviour.
    Extracted verbatim from the original inline <script> in index.html so the
    English and Arabic pages share one implementation. No behavioural change. */
 (function(){
