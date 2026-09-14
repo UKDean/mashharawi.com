@@ -3,14 +3,24 @@
 
 Source of truth is notes/*.md. Everything in writing/, feed.xml and
 sitemap.xml is generated: edit the Markdown, never the output.
-Files starting with "_" are ignored. Run: python3 tools/build_notes.py
+Files starting with "_" are ignored. Run: python3 scripts/build_notes.py
 """
 import os, re, html, datetime, email.utils, markdown
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE, AUTHOR = "https://mashharawi.com", "Omar Mashharawi"
 NOTES, OUT = os.path.join(ROOT, "notes"), os.path.join(ROOT, "writing")
-STATIC = [(SITE + "/", "1.0"), (SITE + "/ar/", "0.9")]
+# Pages that are not built from notes/*.md. Each entry is an English page,
+# its Arabic twin, and the priority of each. They are listed here because this
+# script writes the whole sitemap: a page added by hand elsewhere and not added
+# here disappears from the sitemap on the next notes build.
+PAIRS = [
+    ("/", "/ar/", "1.0", "0.9"),
+    ("/tools/", "/ar/tools/", "0.9", "0.8"),
+    ("/tools/rebar-weight/", "/ar/tools/rebar-weight/", "0.9", "0.8"),
+    ("/tools/steel-sections/", "/ar/tools/steel-sections/", "0.9", "0.8"),
+    ("/tools/openpdfkit/", "/ar/tools/openpdfkit/", "0.8", "0.7"),
+]
 F_EN = ('<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..700'
         '&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,300..500&display=swap" rel="stylesheet">')
 F_AR = ('<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@300;400;500;600;700'
@@ -56,6 +66,8 @@ def shell(lang, d, title, desc, canon, body, head="", robots=None, fonts=None):
     skip = "تخطَّ إلى المحتوى" if lang == "ar" else "Skip to content"
     brand = "عمر المشهراوي" if lang == "ar" else "OMAR MASHHARAWI"
     site = "الموقع" if lang == "ar" else "Site"
+    tools = "/ar/tools/" if lang == "ar" else "/tools/"
+    toolsl = "الأدوات" if lang == "ar" else "Tools"
     rob = '<meta name="robots" content="' + robots + '">' if robots else ""
     return f"""<!DOCTYPE html>
 <html lang="{lang}" dir="{d}">
@@ -91,6 +103,7 @@ def shell(lang, d, title, desc, canon, body, head="", robots=None, fonts=None):
     <a class="brand" href="{home}">{brand}<span>.</span></a>
     <nav aria-label="Primary"><ul>
       <li><a href="{home}">{site}</a></li>
+      <li><a href="{tools}">{toolsl}</a></li>
       <li><a href="/writing/">{alln}</a></li>
       <li><a href="/feed.xml">RSS</a></li>
     </ul></nav>
@@ -200,12 +213,14 @@ def rss(notes):
 
 def sitemap(notes):
     rows = []
-    for loc, pri in STATIC:
-        rows.append('  <url>\n    <loc>' + loc + '</loc>\n'
-                    '    <xhtml:link rel="alternate" hreflang="en" href="' + SITE + '/"/>\n'
-                    '    <xhtml:link rel="alternate" hreflang="ar" href="' + SITE + '/ar/"/>\n'
-                    '    <xhtml:link rel="alternate" hreflang="x-default" href="' + SITE + '/"/>\n'
-                    '    <changefreq>monthly</changefreq>\n    <priority>' + pri + '</priority>\n  </url>')
+    for en_path, ar_path, en_pri, ar_pri in PAIRS:
+        en, ar = SITE + en_path, SITE + ar_path
+        alts = ('    <xhtml:link rel="alternate" hreflang="en" href="' + en + '"/>\n'
+                '    <xhtml:link rel="alternate" hreflang="ar" href="' + ar + '"/>\n'
+                '    <xhtml:link rel="alternate" hreflang="x-default" href="' + en + '"/>\n')
+        for loc, pri in ((en, en_pri), (ar, ar_pri)):
+            rows.append('  <url>\n    <loc>' + loc + '</loc>\n' + alts +
+                        '    <changefreq>monthly</changefreq>\n    <priority>' + pri + '</priority>\n  </url>')
     if notes:
         rows.append('  <url>\n    <loc>' + SITE + '/writing/</loc>\n    <lastmod>'
                     + max(n["date"] for n in notes) + '</lastmod>\n'
