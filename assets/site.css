@@ -92,8 +92,9 @@ header{
   backdrop-filter:blur(10px);border-bottom:1px solid var(--line)
 }
 .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
-.brand{font-family:var(--display);font-weight:700;font-stretch:118%;font-size:15px;letter-spacing:.02em;text-decoration:none}
+.brand{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;font-family:var(--display);font-weight:700;font-stretch:118%;font-size:15px;letter-spacing:.02em;text-decoration:none}
 .brand span{color:var(--hot)}
+.brand-mark{width:26px;height:26px;border-radius:50%;display:block;flex:0 0 auto}
 nav ul{display:flex;gap:clamp(12px,1.6vw,26px);list-style:none;margin:0;padding:0}
 nav a{
   font-family:var(--mono);font-size:12.5px;letter-spacing:.07em;text-transform:uppercase;

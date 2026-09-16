@@ -105,7 +105,7 @@ def shell(lang, d, title, desc, canon, body, head="", robots=None, fonts=None):
 <a class="skip" href="#main">{skip}</a>
 <header>
   <div class="wrap bar">
-    <a class="brand" href="{home}">{brand}<span>.</span></a>
+    <a class="brand" href="{home}"><img class="brand-mark" src="/assets/logo-mark.png" alt="" width="26" height="26">{brand}<span>.</span></a>
     <nav aria-label="Primary"><ul>
       <li><a href="{home}">{site}</a></li>
       <li><a href="{tools}">{toolsl}</a></li>
