@@ -77,6 +77,7 @@ def shell(lang, d, title, desc, canon, body, head="", robots=None, fonts=None):
     return f"""<!DOCTYPE html>
 <html lang="{lang}" dir="{d}">
 <head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206422515377950" crossorigin="anonymous"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{e(title)}</title>
