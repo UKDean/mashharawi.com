@@ -5,44 +5,87 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>الدعم | Tubes</title>
 <meta name="description" content="صفحة دعم تطبيق Tubes: أسئلة شائعة وطريقة التواصل.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&family=Nunito:wght@500;700;800&display=swap">
 <style>
 :root{
-  --ink:#0E1A2B; --ink2:#16263E; --bone:#F1E9D6; --bone-dim:#A99E86;
-  --turquoise:#2FB3A8; --turquoise-deep:#17756E; --saffron:#E3A93A; --line:rgba(241,233,214,.14);
+  --bg:#eef4f0; --bg2:#eaf1f6; --panel:#ffffff; --line:#d3ddd6;
+  --text:#223029; --text-dim:#75887e; --accent:#2f9e8f; --accent-soft:#2f9e8f1a;
+  --shadow:rgba(34,48,41,.10);
+  --c1:#e0435c; --c3:#2fb673; --c4:#3d7fe0; --c8:#e0c23d;
+  --font-display:'Quicksand',system-ui,sans-serif;
+  --font-body:'Nunito',system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0f1a17; --bg2:#0f171c; --panel:#182420; --line:#324339;
+    --text:#e8f1ec; --text-dim:#8ea89b; --accent:#4fc4b3; --accent-soft:#4fc4b333;
+    --shadow:rgba(0,0,0,.35);
+  }
 }
 *{box-sizing:border-box}
 body{
-  margin:0; padding:0; background:var(--ink); color:var(--bone);
-  font-family:"Noto Sans Arabic","Segoe UI",Tahoma,sans-serif; line-height:1.85;
+  margin:0; padding:0; background:linear-gradient(160deg, var(--bg), var(--bg2)); color:var(--text);
+  font-family:var(--font-body); line-height:1.85; -webkit-font-smoothing:antialiased;
 }
-.wrap{max-width:760px; margin:0 auto; padding:48px 22px 80px}
-header{border-bottom:1px solid var(--line); padding-bottom:22px; margin-bottom:30px}
-h1{font-size:30px; margin:0 0 8px; font-weight:700}
-.meta{color:var(--bone-dim); font-size:13.5px}
-h2{font-size:19px; color:var(--turquoise); margin:36px 0 10px; font-weight:600}
-h3{font-size:16px; margin:22px 0 6px; font-weight:600}
+.wrap{max-width:740px; margin:0 auto; padding:40px 20px 70px}
+
+.brand{display:flex; align-items:center; gap:12px; margin-bottom:28px;}
+.brand .tubes{display:flex; align-items:flex-end; gap:4px;}
+.brand .tube{width:9px; height:26px; border-radius:3px 3px 8px 8px; background:var(--c1);}
+.brand .tube:nth-child(2){background:var(--c3); height:22px;}
+.brand .tube:nth-child(3){background:var(--c4); height:29px;}
+.brand a{font-family:var(--font-display); font-weight:700; font-size:18px; color:var(--text); text-decoration:none;}
+.brand .sep{color:var(--text-dim); font-size:13px;}
+.brand .crumb{color:var(--text-dim); font-size:13px; text-decoration:none;}
+.brand .crumb:hover{color:var(--accent)}
+
+header{margin-bottom:22px}
+h1{font-family:var(--font-display); font-size:30px; margin:0 0 8px; font-weight:700; color:var(--text);}
+.meta{color:var(--text-dim); font-size:13px}
+
+h2{font-family:var(--font-display); font-size:18px; color:var(--text); margin:40px 0 14px; font-weight:700;}
 p{margin:0 0 14px; font-size:15.5px}
-ul{margin:0 0 16px; padding-inline-start:22px}
-li{margin-bottom:7px; font-size:15.5px}
-a{color:var(--turquoise)}
+a{color:var(--accent); font-weight:700; text-decoration:none;}
+a:hover{text-decoration:underline}
+
 .cta{
-  display:inline-block; background:var(--turquoise-deep); border:1px solid var(--turquoise);
-  color:var(--bone); text-decoration:none; padding:13px 22px; border-radius:10px;
-  font-size:16px; margin:8px 0 4px;
+  display:inline-flex; align-items:center; gap:8px; background:var(--accent); border:none;
+  color:#fff; text-decoration:none; padding:14px 24px; border-radius:14px;
+  font-family:var(--font-display); font-weight:700; font-size:16px; margin:6px 0 4px;
+  box-shadow:0 3px 0 var(--shadow);
 }
+.cta:hover{text-decoration:none; filter:brightness(1.05)}
+
 .box{
-  background:var(--ink2); border:1px solid var(--line); border-inline-start:3px solid var(--saffron);
-  border-radius:10px; padding:16px 18px; margin:22px 0;
+  background:var(--panel); border:1px solid var(--line); border-radius:16px;
+  padding:18px 20px; margin:22px 0; box-shadow:0 3px 0 var(--shadow);
 }
-.box strong{color:var(--saffron)}
-hr{border:0; border-top:1px solid var(--line); margin:56px 0 40px}
+.box strong{color:var(--accent)}
+
+.faq{
+  background:var(--panel); border-radius:16px; padding:18px 20px; margin:0 0 12px;
+  box-shadow:0 3px 0 var(--shadow);
+}
+.faq h3{font-family:var(--font-display); font-size:15.5px; margin:0 0 8px; font-weight:700; color:var(--text);}
+.faq p{margin:0; font-size:14.5px; color:var(--text-dim)}
+
+hr{border:0; border-top:1px solid var(--line); margin:54px 0 36px}
 .en{direction:ltr; text-align:left}
-.en ul{padding-left:22px; padding-right:0}
-footer{margin-top:50px; padding-top:22px; border-top:1px solid var(--line); color:var(--bone-dim); font-size:13px}
+
+footer{margin-top:48px; padding-top:22px; border-top:1px solid var(--line); color:var(--text-dim); font-size:13px}
+footer a{color:var(--text-dim); font-weight:600; text-decoration:underline; text-decoration-color:var(--line);}
+footer a:hover{color:var(--accent)}
 </style>
 </head>
 <body>
 <div class="wrap">
+
+<div class="brand">
+  <span class="tubes"><span class="tube"></span><span class="tube"></span><span class="tube"></span></span>
+  <a href="https://mashharawi.com/tubes/">Tubes</a>
+  <span class="sep">·</span>
+  <a class="crumb" href="https://mashharawi.com">mashharawi.com</a>
+</div>
 
 <header>
   <h1>الدعم</h1>
@@ -50,7 +93,7 @@ footer{margin-top:50px; padding-top:22px; border-top:1px solid var(--line); colo
 </header>
 
 <p>لأي سؤال أو مشكلة أو اقتراح، راسلني مباشرة. أقرأ كل رسالة وأرد عليها.</p>
-<a class="cta" href="mailto:Omar@mashharawi.com?subject=دعم%20تطبيق%20Tubes">Omar@mashharawi.com</a>
+<a class="cta" href="mailto:Omar@mashharawi.com?subject=دعم%20تطبيق%20Tubes">✉️ Omar@mashharawi.com</a>
 
 <div class="box">
   <p style="margin:0"><strong>لتسريع الرد:</strong> اذكر في رسالتك طراز جهازك، وإصدار نظام iOS، ورقم المستوى إن كانت المشكلة تخصّ مستوى معيّنا.</p>
@@ -58,37 +101,51 @@ footer{margin-top:50px; padding-top:22px; border-top:1px solid var(--line); colo
 
 <h2>أسئلة شائعة</h2>
 
-<h3>كيف ألعب؟</h3>
-<p>اضغط أنبوبًا لتحديده، ثم اضغط أنبوبًا آخر لتصبّ فيه أعلى كمية من اللون نفسه. الهدف أن ينتهي كل أنبوب إما فارغًا أو ممتلئًا بلون واحد فقط.</p>
+<div class="faq">
+  <h3>كيف ألعب؟</h3>
+  <p>اضغط أنبوبًا لتحديده، ثم اضغط أنبوبًا آخر لتصبّ فيه أعلى كمية من اللون نفسه. الهدف أن ينتهي كل أنبوب إما فارغًا أو ممتلئًا بلون واحد فقط.</p>
+</div>
 
-<h3>هل يحتاج التطبيق إلى إنترنت؟</h3>
-<p>لا. يعمل بالكامل دون اتصال، حتى في وضع الطيران. كل المستويات مضمّنة داخل التطبيق.</p>
+<div class="faq">
+  <h3>هل يحتاج التطبيق إلى إنترنت؟</h3>
+  <p>لا. يعمل بالكامل دون اتصال، حتى في وضع الطيران. كل المستويات مضمّنة داخل التطبيق.</p>
+</div>
 
-<h3>وصلت لرسالة "طريق مسدود"، ماذا أفعل؟</h3>
-<p>هذا أمر طبيعي في هذا النوع من الألغاز — حركة غير مثالية قد تُغلق كل الحلول المتبقية. اضغط "تراجع" وجرّب ترتيبًا مختلفًا. لا يُحتسب هذا خسارة، ولا يوجد حد للمحاولات.</p>
+<div class="faq">
+  <h3>وصلت لرسالة "طريق مسدود"، ماذا أفعل؟</h3>
+  <p>هذا أمر طبيعي في هذا النوع من الألغاز — حركة غير مثالية قد تُغلق كل الحلول المتبقية. اضغط "تراجع" وجرّب ترتيبًا مختلفًا. لا يُحتسب هذا خسارة، ولا يوجد حد للمحاولات.</p>
+</div>
 
-<h3>كيف تُحسب النجوم؟</h3>
-<p>على عدد الحركات مقارنة بأقل عدد حركات ممكن لحل المستوى. النجوم اختيارية بالكامل ولا تمنعك من التقدّم إلى المستوى التالي — الهدف تجربة هادئة بلا ضغط.</p>
+<div class="faq">
+  <h3>كيف تُحسب النجوم؟</h3>
+  <p>على عدد الحركات مقارنة بأقل عدد حركات ممكن لحل المستوى. النجوم اختيارية بالكامل ولا تمنعك من التقدّم إلى المستوى التالي — الهدف تجربة هادئة بلا ضغط.</p>
+</div>
 
-<h3>ما هو زر التلميح؟</h3>
-<p>يقترح عليك الحركة التالية المفيدة فقط، دون كشف الحل كاملاً، حتى تبقى تحديات التفكير قائمة.</p>
+<div class="faq">
+  <h3>ما هو زر التلميح؟</h3>
+  <p>يقترح عليك الحركة التالية المفيدة فقط، دون كشف الحل كاملاً، حتى تبقى تحديات التفكير قائمة.</p>
+</div>
 
-<h3>فقدت تقدمي</h3>
-<p>يُحفظ تقدّمك (المستويات المكتملة والنجوم) تلقائيًا على جهازك. يُفقد فقط إذا حذفت التطبيق أو أعدت تعيين التقدّم يدويًا من شاشة الإعدادات.</p>
+<div class="faq">
+  <h3>فقدت تقدمي</h3>
+  <p>يُحفظ تقدّمك (المستويات المكتملة والنجوم) تلقائيًا على جهازك. يُفقد فقط إذا حذفت التطبيق أو أعدت تعيين التقدّم يدويًا من شاشة الإعدادات.</p>
+</div>
 
-<h3>هل يجمع التطبيق بياناتي؟</h3>
-<p>لا، إطلاقًا. التفاصيل في <a href="./privacy.html">سياسة الخصوصية</a>.</p>
+<div class="faq">
+  <h3>هل يجمع التطبيق بياناتي؟</h3>
+  <p>لا، إطلاقًا. التفاصيل في <a href="./privacy.html">سياسة الخصوصية</a>.</p>
+</div>
 
 <hr>
 
 <div class="en" lang="en">
-<header style="border:0; margin-bottom:20px; padding:0">
+<header>
   <h1>Support</h1>
   <div class="meta">App: Tubes</div>
 </header>
 
 <p>For any question, problem, or suggestion, email me directly. I read and answer every message.</p>
-<a class="cta" href="mailto:Omar@mashharawi.com?subject=Tubes%20Support">Omar@mashharawi.com</a>
+<a class="cta" href="mailto:Omar@mashharawi.com?subject=Tubes%20Support">✉️ Omar@mashharawi.com</a>
 
 <div class="box">
   <p style="margin:0"><strong>To get a faster answer:</strong> include your device model, iOS version, and the level number if the issue is about a specific level.</p>
@@ -96,26 +153,40 @@ footer{margin-top:50px; padding-top:22px; border-top:1px solid var(--line); colo
 
 <h2>Frequently asked questions</h2>
 
-<h3>How do I play?</h3>
-<p>Tap a tube to select it, then tap another tube to pour the top matching-color liquid into it. The goal is for every tube to end up either empty or filled with a single color.</p>
+<div class="faq">
+  <h3>How do I play?</h3>
+  <p>Tap a tube to select it, then tap another tube to pour the top matching-color liquid into it. The goal is for every tube to end up either empty or filled with a single color.</p>
+</div>
 
-<h3>Does the app need an internet connection?</h3>
-<p>No. It works fully offline, even in Airplane Mode. Every level is bundled inside the app.</p>
+<div class="faq">
+  <h3>Does the app need an internet connection?</h3>
+  <p>No. It works fully offline, even in Airplane Mode. Every level is bundled inside the app.</p>
+</div>
 
-<h3>I got a "dead end" message — what now?</h3>
-<p>This is a real, normal part of this puzzle genre — a non-optimal move can close off every remaining solution. Tap Undo and try a different order. It's never counted as a loss, and there's no limit on attempts.</p>
+<div class="faq">
+  <h3>I got a "dead end" message — what now?</h3>
+  <p>This is a real, normal part of this puzzle genre — a non-optimal move can close off every remaining solution. Tap Undo and try a different order. It's never counted as a loss, and there's no limit on attempts.</p>
+</div>
 
-<h3>How are stars calculated?</h3>
-<p>Based on your move count compared to the puzzle's proven-optimal solution. Stars are entirely optional and never block you from moving to the next level — the goal is a calm, no-pressure experience.</p>
+<div class="faq">
+  <h3>How are stars calculated?</h3>
+  <p>Based on your move count compared to the puzzle's proven-optimal solution. Stars are entirely optional and never block you from moving to the next level — the goal is a calm, no-pressure experience.</p>
+</div>
 
-<h3>What does the hint button do?</h3>
-<p>It suggests only the next useful move, without revealing the full solution, so the puzzle stays a puzzle.</p>
+<div class="faq">
+  <h3>What does the hint button do?</h3>
+  <p>It suggests only the next useful move, without revealing the full solution, so the puzzle stays a puzzle.</p>
+</div>
 
-<h3>I lost my progress</h3>
-<p>Your progress (completed levels and stars) is saved automatically on your device. It's only lost if you delete the app or manually reset progress from the Settings screen.</p>
+<div class="faq">
+  <h3>I lost my progress</h3>
+  <p>Your progress (completed levels and stars) is saved automatically on your device. It's only lost if you delete the app or manually reset progress from the Settings screen.</p>
+</div>
 
-<h3>Does the app collect my data?</h3>
-<p>No. See the <a href="./privacy.html">Privacy Policy</a>.</p>
+<div class="faq">
+  <h3>Does the app collect my data?</h3>
+  <p>No. See the <a href="./privacy.html">Privacy Policy</a>.</p>
+</div>
 </div>
 
 <footer>
