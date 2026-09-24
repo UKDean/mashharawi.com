@@ -3,125 +3,212 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
 <title>الدعم | حاسبة قطاعات الحديد</title>
 <meta name="description" content="صفحة دعم تطبيق حاسبة قطاعات الحديد: أسئلة شائعة وطريقة التواصل.">
 <style>
 :root{
-  --ink:#0E1A2B; --ink2:#16263E; --bone:#F1E9D6; --bone-dim:#A99E86;
-  --turquoise:#2FB3A8; --turquoise-deep:#17756E; --saffron:#E3A93A; --line:rgba(241,233,214,.14);
+  --bg:#F6FAFD; --card:#FFFFFF; --card2:#F0F4F8; --line:#DDE7EE;
+  --text:#16232B; --text-dim:#5E7380; --accent:#0F6C8C; --accent-ink:#0B5872;
+  --tint:#BDE9FF; --chip:#D0E6F2; --shadow:rgba(22,35,43,.07);
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",system-ui,"Noto Sans Arabic",Tahoma,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0E1720; --card:#16222C; --card2:#132029; --line:#27353F;
+    --text:#E7F1F7; --text-dim:#93A8B4; --accent:#6FCCEC; --accent-ink:#9BDDF6;
+    --tint:#17384A; --chip:#17384A; --shadow:rgba(0,0,0,.4);
+  }
 }
 *{box-sizing:border-box}
 body{
-  margin:0; padding:0; background:var(--ink); color:var(--bone);
-  font-family:"Noto Sans Arabic","Segoe UI",Tahoma,sans-serif; line-height:1.85;
+  margin:0; padding:0; background:var(--bg); color:var(--text);
+  font-family:var(--font); line-height:1.8; -webkit-font-smoothing:antialiased;
 }
-.wrap{max-width:760px; margin:0 auto; padding:48px 22px 80px}
-header{border-bottom:1px solid var(--line); padding-bottom:22px; margin-bottom:30px}
-h1{font-size:30px; margin:0 0 8px; font-weight:700}
-.meta{color:var(--bone-dim); font-size:13.5px}
-h2{font-size:19px; color:var(--turquoise); margin:36px 0 10px; font-weight:600}
-h3{font-size:16px; margin:22px 0 6px; font-weight:600}
+.wrap{max-width:740px; margin:0 auto; padding:36px 20px 70px}
+
+.brand{display:flex; align-items:center; flex-wrap:wrap; gap:6px 10px; margin-bottom:26px}
+.brand .mark{width:26px; height:26px; color:var(--accent); flex:none}
+.brand .name{font-weight:700; font-size:17px; color:var(--text); text-decoration:none; letter-spacing:-.01em; white-space:nowrap}
+.brand .sep{color:var(--text-dim); font-size:13px}
+.brand .crumb{color:var(--text-dim); font-size:13px; text-decoration:none}
+.brand .crumb:hover{color:var(--accent)}
+
+header{margin-bottom:20px}
+h1{font-size:30px; margin:0 0 6px; font-weight:700; letter-spacing:-.02em}
+.meta{color:var(--text-dim); font-size:13px; line-height:1.7}
+
+h2{font-size:18px; margin:38px 0 14px; font-weight:700; letter-spacing:-.01em}
 p{margin:0 0 14px; font-size:15.5px}
-ul{margin:0 0 16px; padding-inline-start:22px}
-li{margin-bottom:7px; font-size:15.5px}
-a{color:var(--turquoise)}
+ul{margin:0 0 16px; padding-inline-start:20px}
+li{margin-bottom:6px; font-size:15.5px}
+a{color:var(--accent); font-weight:600; text-decoration:none}
+a:hover{text-decoration:underline}
+
 .cta{
-  display:inline-block; background:var(--turquoise-deep); border:1px solid var(--turquoise);
-  color:var(--bone); text-decoration:none; padding:13px 22px; border-radius:10px;
-  font-size:16px; margin-block:8px 4px; margin-inline-end:8px;
+  display:inline-flex; align-items:center; gap:9px; background:var(--accent);
+  color:#FFFFFF; text-decoration:none; padding:13px 22px; border-radius:14px;
+  font-weight:700; font-size:16px; margin:6px 0 4px;
 }
-.cta.alt{background:transparent}
+.cta:hover{text-decoration:none; filter:brightness(1.08)}
+@media (prefers-color-scheme: dark){ .cta{color:#08131A} }
+
 .box{
-  background:var(--ink2); border:1px solid var(--line); border-inline-start:3px solid var(--saffron);
-  border-radius:10px; padding:16px 18px; margin:22px 0;
+  background:var(--tint); border-radius:16px; padding:16px 18px; margin:22px 0;
+  font-size:15px;
 }
-.box strong{color:var(--saffron)}
-hr{border:0; border-top:1px solid var(--line); margin:56px 0 40px}
+.box strong{color:var(--accent-ink)}
+
+.card{
+  background:var(--card); border:1px solid var(--line); border-radius:16px;
+  padding:16px 18px; margin:0 0 10px; box-shadow:0 1px 2px var(--shadow);
+}
+.card h3{font-size:15.5px; margin:0 0 6px; font-weight:700}
+.card p{margin:0; font-size:14.5px; color:var(--text-dim)}
+.card p + p{margin-top:10px}
+.card a{color:var(--accent)}
+
+table{width:100%; border-collapse:collapse; margin:16px 0; font-size:14.5px;
+  background:var(--card); border:1px solid var(--line); border-radius:14px; overflow:hidden}
+th,td{text-align:start; padding:11px 14px; border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+th{color:var(--text-dim); font-weight:600; background:var(--card2)}
+td:last-child{color:var(--text-dim); width:34%}
+
+hr{border:0; border-top:1px solid var(--line); margin:54px 0 36px}
 .en{direction:ltr; text-align:left}
-.en ul{padding-left:22px; padding-right:0}
-footer{margin-top:50px; padding-top:22px; border-top:1px solid var(--line); color:var(--bone-dim); font-size:13px}
+.en ul{padding-left:20px; padding-right:0}
+footer{margin-top:46px; padding-top:20px; border-top:1px solid var(--line); color:var(--text-dim); font-size:13px}
+footer a{color:var(--text-dim); font-weight:600; text-decoration:underline; text-decoration-color:var(--line)}
+bdi{white-space:nowrap}
+footer a:hover{color:var(--accent)}
 </style>
 </head>
 <body>
 <div class="wrap">
+
+<div class="brand">
+  <svg class="mark" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5 4h14v3.2h-5.2v9.6H19V20H5v-3.2h5.2V7.2H5z"/></svg>
+  <a class="name" href="https://mashharawi.com/tools/steel-sections/">حاسبة قطاعات الحديد</a>
+  <span class="sep">·</span>
+  <a class="crumb" href="https://mashharawi.com">mashharawi.com</a>
+</div>
 
 <header>
   <h1>الدعم</h1>
   <div class="meta">تطبيق: حاسبة قطاعات الحديد (Steel Section Calculator)</div>
 </header>
 
-<p>يتوفر أيضًا <a href="/ar/tools/steel-sections/">إصدار ويب من هذه الحاسبة</a> لا يحتاج إلى تثبيت.</p>
-
 <p>لأي سؤال أو مشكلة أو اقتراح، راسلني مباشرة. أقرأ كل رسالة وأرد عليها.</p>
-<a class="cta" href="mailto:Omar@mashharawi.com?subject=%D8%AF%D8%B9%D9%85%20%D8%AD%D8%A7%D8%B3%D8%A8%D8%A9%20%D9%82%D8%B7%D8%A7%D8%B9%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AD%D8%AF%D9%8A%D8%AF">Omar@mashharawi.com</a>
+<a class="cta" href="mailto:Omar@mashharawi.com?subject=%D8%AF%D8%B9%D9%85%20%D8%AD%D8%A7%D8%B3%D8%A8%D8%A9%20%D9%82%D8%B7%D8%A7%D8%B9%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AD%D8%AF%D9%8A%D8%AF">✉️ Omar@mashharawi.com</a>
 
 <div class="box">
-  <p style="margin:0"><strong>لتسريع الرد:</strong> اذكر في رسالتك طراز جهازك وإصدار نظام التشغيل، والتسمية الدقيقة للقطاع (مثل "IPE 200") إن كانت المشكلة تخصّ حسابًا معيّنًا.</p>
+  <p style="margin:0"><strong>لتسريع الرد:</strong> اذكر في رسالتك طراز جهازك وإصدار نظام التشغيل، والتسمية الدقيقة للقطاع (مثل <bdi>«IPE 200»</bdi>) إن كانت المشكلة تخصّ حسابًا معيّنًا.</p>
 </div>
+
+<p>يتوفر أيضًا <a href="/ar/tools/steel-sections/">إصدار ويب من هذه الحاسبة</a> لا يحتاج إلى تثبيت.</p>
 
 <h2>أسئلة شائعة</h2>
 
-<h3>كيف أستخدمه؟</h3>
-<p>اختر نوع القطاع من الشبكة الرئيسية، ثم اختر المقاس القياسي من القائمة المنسدلة، وأدخل الطول بالمتر — يتحدّث الوزن فورًا أثناء الكتابة.</p>
+<div class="card">
+  <h3>كيف أستخدمه؟</h3>
+  <p>اختر نوع القطاع من الشبكة الرئيسية، ثم اختر المقاس القياسي من القائمة المنسدلة، وأدخل الطول بالمتر — يتحدّث الوزن فورًا أثناء الكتابة.</p>
+</div>
 
-<h3>هل يحتاج التطبيق إلى إنترنت؟</h3>
-<p>لا. يعمل بالكامل دون اتصال، حتى في وضع الطيران. أبعاد كل قطاع مضمّنة داخل التطبيق، ويُحسب الوزن على جهازك.</p>
+<div class="card">
+  <h3>لا أعرف نوع القطاع الذي بين يديّ</h3>
+  <p>في أسفل الشاشة الرئيسية زرّ يفتح معالج التعرّف: يسألك أسئلة بسيطة — هل القطاع مصمت أم مجوف، وما شكل مقطعه — حتى يصل بك إلى النوع الصحيح.</p>
+</div>
 
-<h3>ما مدى دقة الأوزان؟</h3>
-<p>يُحسب الوزن دائمًا من الهندسة الاسمية القياسية لكل قطاع (الارتفاع والعرض والسماكات) بنفس معادلات المقطع التي تستخدمها كتيّبات المصانع، وليس من رقم ثابت. غير أن الأبعاد المضمّنة نفسها مبنية على معرفة هندسية عامة بالمواصفتين EN 10365 وEN 10056 ولم تُقارَن بعد بجدول مرجعي رسمي، ولذلك تحمل كل نتيجة تنبيهًا بذلك. تحقّق قبل الاعتماد على أي رقم في عرض سعر أو عملية شراء فعلية. راجع <a href="./privacy.html">سياسة الخصوصية</a> لمزيد من التفاصيل.</p>
+<div class="card">
+  <h3>هل يحتاج التطبيق إلى إنترنت؟</h3>
+  <p>لا. يعمل بالكامل دون اتصال، حتى في وضع الطيران. أبعاد كل قطاع مضمّنة داخل التطبيق، ويُحسب الوزن على جهازك.</p>
+</div>
 
-<h3>هل هو مجاني فعلًا؟</h3>
-<p>نعم — بلا إعلانات ولا مشتريات داخل التطبيق ولا تسجيل دخول.</p>
+<div class="card">
+  <h3>ما مدى دقة الأوزان؟</h3>
+  <p>يُحسب الوزن دائمًا من الهندسة الاسمية القياسية لكل قطاع (الارتفاع والعرض والسماكات) بنفس معادلات المقطع التي تستخدمها كتيّبات المصانع، وليس من رقم ثابت. غير أن الأبعاد المضمّنة نفسها مبنية على معرفة هندسية عامة بالمواصفتين EN 10365 وEN 10056 ولم تُقارَن بعد بجدول مرجعي رسمي، ولذلك تحمل كل نتيجة تنبيهًا بذلك. تحقّق قبل الاعتماد على أي رقم في عرض سعر أو عملية شراء فعلية. راجع <a href="./privacy.html">سياسة الخصوصية</a> لمزيد من التفاصيل.</p>
+</div>
 
-<h3>المقاس الذي أحتاجه غير موجود</h3>
-<p>يغطي الإصدار الحالي نطاقًا شائعًا لكل عائلة من القطاعات، وليس الجدول القياسي الكامل. راسلني بالتسمية التي تحتاجها وسأنظر في إضافتها في تحديث قادم.</p>
+<div class="card">
+  <h3>هل هو مجاني فعلًا؟</h3>
+  <p>نعم — بلا إعلانات ولا مشتريات داخل التطبيق ولا تسجيل دخول.</p>
+</div>
 
-<h3>هل يمكنني التبديل بين النظام المتري والإمبراطوري؟</h3>
-<p>نعم، من شاشة الإعدادات. تبقى البيانات والحسابات الأساسية دائمًا مترية وفق EN 10365، ويقتصر الخيار الإمبراطوري على طريقة عرض الأبعاد والوزن.</p>
+<div class="card">
+  <h3>المقاس الذي أحتاجه غير موجود</h3>
+  <p>يغطي الإصدار الحالي نطاقًا شائعًا لكل عائلة من القطاعات، وليس الجدول القياسي الكامل. راسلني بالتسمية التي تحتاجها وسأنظر في إضافتها في تحديث قادم.</p>
+</div>
 
-<h3>هل يجمع التطبيق بياناتي؟</h3>
-<p>لا. راجع <a href="./privacy.html">سياسة الخصوصية</a>.</p>
+<div class="card">
+  <h3>هل يمكنني التبديل بين النظام المتري والإمبراطوري؟</h3>
+  <p>نعم، من شاشة الإعدادات. تبقى البيانات والحسابات الأساسية دائمًا مترية وفق EN 10365، ويقتصر الخيار الإمبراطوري على طريقة عرض الأبعاد والوزن.</p>
+</div>
+
+<div class="card">
+  <h3>هل يجمع التطبيق بياناتي؟</h3>
+  <p>لا. راجع <a href="./privacy.html">سياسة الخصوصية</a>.</p>
+</div>
 
 <hr>
 
 <div class="en" lang="en">
 
-<header style="border:0; margin-bottom:20px; padding:0">
+<header>
   <h1>Support</h1>
   <div class="meta">App: Steel Section Calculator</div>
 </header>
 
-<p>There is also a <a href="/tools/steel-sections/">web version of this calculator</a>, which needs no installation.</p>
-
 <p>For any question, problem, or suggestion, email me directly. I read and answer every message.</p>
-<a class="cta" href="mailto:Omar@mashharawi.com?subject=Steel%20Section%20Calculator%20Support">Omar@mashharawi.com</a>
+<a class="cta" href="mailto:Omar@mashharawi.com?subject=Steel%20Section%20Calculator%20Support">✉️ Omar@mashharawi.com</a>
 
 <div class="box">
-  <p style="margin:0"><strong>To get a faster answer:</strong> include your device model, OS version, and the exact section designation (e.g. "IPE 200") if the issue is about a specific calculation.</p>
+  <p style="margin:0"><strong>To get a faster answer:</strong> include your device model, OS version, and the exact section designation (e.g. “IPE 200”) if the issue is about a specific calculation.</p>
 </div>
+
+<p>There is also a <a href="/tools/steel-sections/">web version of this calculator</a>, which needs no installation.</p>
 
 <h2>Frequently asked questions</h2>
 
-<h3>How do I use it?</h3>
-<p>Pick a section type from the home grid, choose the standard size from the dropdown, and enter a length in metres — the weight updates live as you type.</p>
+<div class="card">
+  <h3>How do I use it?</h3>
+  <p>Pick a section type from the home grid, choose the standard size from the dropdown, and enter a length in metres — the weight updates live as you type.</p>
+</div>
 
-<h3>Does the app need an internet connection?</h3>
-<p>No. It works fully offline, even in Airplane Mode. Every section's dimensions are bundled inside the app, and the weight is computed on your device.</p>
+<div class="card">
+  <h3>I don't know which section type I'm holding</h3>
+  <p>Tap “Not sure what to pick?” on the home screen. The app asks a few plain questions — solid or hollow, and the shape of the cross-section — until it lands on the right section.</p>
+</div>
 
-<h3>How accurate are the weights?</h3>
-<p>Weight is always computed from each section's standard nominal geometry (height, width, thicknesses) using the same cross-section formulas mill handbooks use — not a hardcoded number. That said, the bundled dimensions themselves are seeded from general engineering knowledge of EN 10365 / EN 10056 and have not yet been checked against an official reference table, which is why every result carries a notice to that effect. Verify before relying on a figure for a real quote or purchase. See <a href="./privacy.html">the privacy policy</a> for more on this.</p>
+<div class="card">
+  <h3>Does the app need an internet connection?</h3>
+  <p>No. It works fully offline, even in Airplane Mode. Every section's dimensions are bundled inside the app, and the weight is computed on your device.</p>
+</div>
 
-<h3>Is it really free?</h3>
-<p>Yes — no ads, no in-app purchases, no login.</p>
+<div class="card">
+  <h3>How accurate are the weights?</h3>
+  <p>Weight is always computed from each section's standard nominal geometry (height, width, thicknesses) using the same cross-section formulas mill handbooks use — not a hardcoded number. That said, the bundled dimensions themselves are seeded from general engineering knowledge of EN 10365 / EN 10056 and have not yet been checked against an official reference table, which is why every result carries a notice to that effect. Verify before relying on a figure for a real quote or purchase. See <a href="./privacy.html">the privacy policy</a> for more on this.</p>
+</div>
 
-<h3>The size I need isn't listed</h3>
-<p>The current release covers a common range per family, not the full standard table. Email me the designation you need and I will consider adding it in a future update.</p>
+<div class="card">
+  <h3>Is it really free?</h3>
+  <p>Yes — no ads, no in-app purchases, no login.</p>
+</div>
 
-<h3>Can I switch between metric and imperial units?</h3>
-<p>Yes, from the Settings screen. The underlying data and math always stay metric/EN 10365; the imperial option only changes how dimensions and weight are displayed.</p>
+<div class="card">
+  <h3>The size I need isn't listed</h3>
+  <p>The current release covers a common range per family, not the full standard table. Email me the designation you need and I will consider adding it in a future update.</p>
+</div>
 
-<h3>Does the app collect my data?</h3>
-<p>No. See the <a href="./privacy.html">Privacy Policy</a>.</p>
+<div class="card">
+  <h3>Can I switch between metric and imperial units?</h3>
+  <p>Yes, from the Settings screen. The underlying data and math always stay metric/EN 10365; the imperial option only changes how dimensions and weight are displayed.</p>
+</div>
+
+<div class="card">
+  <h3>Does the app collect my data?</h3>
+  <p>No. See the <a href="./privacy.html">Privacy Policy</a>.</p>
+</div>
 </div>
 
 <footer>

@@ -3,43 +3,95 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
 <title>سياسة الخصوصية | حاسبة قطاعات الحديد</title>
 <meta name="description" content="سياسة خصوصية تطبيق حاسبة قطاعات الحديد: لا يجمع التطبيق أي بيانات شخصية ويعمل بالكامل دون اتصال بالإنترنت.">
 <style>
 :root{
-  --ink:#0E1A2B; --ink2:#16263E; --bone:#F1E9D6; --bone-dim:#A99E86;
-  --turquoise:#2FB3A8; --saffron:#E3A93A; --line:rgba(241,233,214,.14);
+  --bg:#F6FAFD; --card:#FFFFFF; --card2:#F0F4F8; --line:#DDE7EE;
+  --text:#16232B; --text-dim:#5E7380; --accent:#0F6C8C; --accent-ink:#0B5872;
+  --tint:#BDE9FF; --chip:#D0E6F2; --shadow:rgba(22,35,43,.07);
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",system-ui,"Noto Sans Arabic",Tahoma,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0E1720; --card:#16222C; --card2:#132029; --line:#27353F;
+    --text:#E7F1F7; --text-dim:#93A8B4; --accent:#6FCCEC; --accent-ink:#9BDDF6;
+    --tint:#17384A; --chip:#17384A; --shadow:rgba(0,0,0,.4);
+  }
 }
 *{box-sizing:border-box}
 body{
-  margin:0; padding:0; background:var(--ink); color:var(--bone);
-  font-family:"Noto Sans Arabic","Segoe UI",Tahoma,sans-serif; line-height:1.85;
+  margin:0; padding:0; background:var(--bg); color:var(--text);
+  font-family:var(--font); line-height:1.8; -webkit-font-smoothing:antialiased;
 }
-.wrap{max-width:760px; margin:0 auto; padding:48px 22px 80px}
-header{border-bottom:1px solid var(--line); padding-bottom:22px; margin-bottom:34px}
-h1{font-size:30px; margin:0 0 8px; font-weight:700}
-.meta{color:var(--bone-dim); font-size:13.5px}
-h2{font-size:19px; color:var(--turquoise); margin:38px 0 10px; font-weight:600}
+.wrap{max-width:740px; margin:0 auto; padding:36px 20px 70px}
+
+.brand{display:flex; align-items:center; flex-wrap:wrap; gap:6px 10px; margin-bottom:26px}
+.brand .mark{width:26px; height:26px; color:var(--accent); flex:none}
+.brand .name{font-weight:700; font-size:17px; color:var(--text); text-decoration:none; letter-spacing:-.01em; white-space:nowrap}
+.brand .sep{color:var(--text-dim); font-size:13px}
+.brand .crumb{color:var(--text-dim); font-size:13px; text-decoration:none}
+.brand .crumb:hover{color:var(--accent)}
+
+header{margin-bottom:20px}
+h1{font-size:30px; margin:0 0 6px; font-weight:700; letter-spacing:-.02em}
+.meta{color:var(--text-dim); font-size:13px; line-height:1.7}
+
+h2{font-size:18px; margin:38px 0 14px; font-weight:700; letter-spacing:-.01em}
 p{margin:0 0 14px; font-size:15.5px}
-ul{margin:0 0 16px; padding-inline-start:22px}
-li{margin-bottom:7px; font-size:15.5px}
-a{color:var(--turquoise)}
-.box{
-  background:var(--ink2); border:1px solid var(--line); border-inline-start:3px solid var(--saffron);
-  border-radius:10px; padding:16px 18px; margin:22px 0;
+ul{margin:0 0 16px; padding-inline-start:20px}
+li{margin-bottom:6px; font-size:15.5px}
+a{color:var(--accent); font-weight:600; text-decoration:none}
+a:hover{text-decoration:underline}
+
+.cta{
+  display:inline-flex; align-items:center; gap:9px; background:var(--accent);
+  color:#FFFFFF; text-decoration:none; padding:13px 22px; border-radius:14px;
+  font-weight:700; font-size:16px; margin:6px 0 4px;
 }
-.box strong{color:var(--saffron)}
-table{width:100%; border-collapse:collapse; margin:16px 0; font-size:14.5px}
-th,td{text-align:start; padding:11px 10px; border-bottom:1px solid var(--line)}
-th{color:var(--bone-dim); font-weight:600}
-hr{border:0; border-top:1px solid var(--line); margin:56px 0 40px}
+.cta:hover{text-decoration:none; filter:brightness(1.08)}
+@media (prefers-color-scheme: dark){ .cta{color:#08131A} }
+
+.box{
+  background:var(--tint); border-radius:16px; padding:16px 18px; margin:22px 0;
+  font-size:15px;
+}
+.box strong{color:var(--accent-ink)}
+
+.card{
+  background:var(--card); border:1px solid var(--line); border-radius:16px;
+  padding:16px 18px; margin:0 0 10px; box-shadow:0 1px 2px var(--shadow);
+}
+.card h3{font-size:15.5px; margin:0 0 6px; font-weight:700}
+.card p{margin:0; font-size:14.5px; color:var(--text-dim)}
+.card p + p{margin-top:10px}
+.card a{color:var(--accent)}
+
+table{width:100%; border-collapse:collapse; margin:16px 0; font-size:14.5px;
+  background:var(--card); border:1px solid var(--line); border-radius:14px; overflow:hidden}
+th,td{text-align:start; padding:11px 14px; border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+th{color:var(--text-dim); font-weight:600; background:var(--card2)}
+td:last-child{color:var(--text-dim); width:34%}
+
+hr{border:0; border-top:1px solid var(--line); margin:54px 0 36px}
 .en{direction:ltr; text-align:left}
-.en ul{padding-left:22px; padding-right:0}
-footer{margin-top:50px; padding-top:22px; border-top:1px solid var(--line); color:var(--bone-dim); font-size:13px}
+.en ul{padding-left:20px; padding-right:0}
+footer{margin-top:46px; padding-top:20px; border-top:1px solid var(--line); color:var(--text-dim); font-size:13px}
+footer a{color:var(--text-dim); font-weight:600; text-decoration:underline; text-decoration-color:var(--line)}
+footer a:hover{color:var(--accent)}
 </style>
 </head>
 <body>
 <div class="wrap">
+
+<div class="brand">
+  <svg class="mark" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5 4h14v3.2h-5.2v9.6H19V20H5v-3.2h5.2V7.2H5z"/></svg>
+  <a class="name" href="https://mashharawi.com/tools/steel-sections/">حاسبة قطاعات الحديد</a>
+  <span class="sep">·</span>
+  <a class="crumb" href="https://mashharawi.com">mashharawi.com</a>
+</div>
 
 <header>
   <h1>سياسة الخصوصية</h1>
@@ -102,7 +154,7 @@ footer{margin-top:50px; padding-top:22px; border-top:1px solid var(--line); colo
 
 <div class="en" lang="en">
 
-<header style="border:0; margin-bottom:20px; padding:0">
+<header>
   <h1>Privacy Policy</h1>
   <div class="meta">App: Steel Section Calculator &nbsp;·&nbsp; Effective: 3 September 2026 &nbsp;·&nbsp; Version 1.0</div>
 </header>
