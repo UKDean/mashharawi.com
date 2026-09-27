@@ -6,43 +6,41 @@ Live site: https://mashharawi.com
 
 ## Stack
 
-Static, no build step. One HTML file with inline CSS and vanilla JavaScript, plus image assets. Fonts are loaded from Google Fonts.
+Static site, no build step for the pages themselves. Hand-written HTML, a shared stylesheet and vanilla JavaScript in `assets/`, fonts from Google Fonts. English at the root, Arabic under `ar/`.
 
-## Files
+## Layout
 
-| File | Purpose |
+| Path | Purpose |
 |---|---|
-| `index.html` | The full site: markup, styles, and scripts |
-| `portrait.webp` | Portrait, primary format |
-| `portrait.jpg` | Portrait, fallback for older browsers |
-| `portrait-small.jpg` | 600px portrait, spare asset |
-| `robots.txt` | Crawler rules |
-| `sitemap.xml` | Sitemap for search engines |
+| `index.html`, `ar/index.html` | Home page, English and Arabic |
+| `tools/`, `ar/tools/` | Tools index and the in-browser calculators: `steel-sections`, `rebar-weight`, plus `openpdfkit` |
+| `contract-check/` | Internal contract review tool |
+| `steelcalc/` | Support and privacy pages for the Steel Section Calculator iOS app, plus its screenshots in `shots/` |
+| `tubes/`, `crossword/` | Support and privacy pages for the Tubes and Arabic crossword apps |
+| `notes/` | Source Markdown for the writing section |
+| `writing/`, `feed.xml`, `sitemap.xml` | Generated from `notes/` by `scripts/build_notes.py`. Edit the Markdown, not the output |
+| `assets/` | `site.css`, scripts, logo, and `data/` for the calculators |
+| `scripts/build_sections.py` | Builds `assets/data/steel-sections.json` from the SteelCalc app's tables |
+| `motion/` | Remotion project for motion assets |
+| `_redirects` | Cloudflare Pages redirects |
 
-All asset paths are relative, so every file must stay in the repository root.
+App Store listings point at the support and privacy URLs under `steelcalc/`, `tubes/` and `crossword/`, so those paths must not move.
+
+## Apps
+
+- Steel Section Calculator (iOS): https://apps.apple.com/us/app/steel-section-calculator/id6815107544
 
 ## Local preview
 
-```powershell
+```bash
 # from the repository folder
-python -m http.server 8000
+python3 -m http.server 8000
 # then open http://localhost:8000
 ```
 
-Opening `index.html` directly by double click also works.
-
 ## Deployment
 
-Cloudflare Pages, connected to this repository. Every push to `main` publishes automatically. No build command, no output directory (static site).
-
-## Content still to fill
-
-Search `index.html` for `TODO`:
-
-1. `TODO-EMAIL` contact address
-2. `TODO-LINKEDIN` LinkedIn profile URL
-3. `TODO-PROJECT` featured project name, description, App Store link, screenshots
-4. `TODO-PROJECT-2` optional second project card
+Cloudflare Pages, connected to this repository. Every push to `main` publishes automatically. No build command, no output directory. The `build-notes` GitHub workflow runs `scripts/build_notes.py`.
 
 ## Accuracy rule for this repository
 
