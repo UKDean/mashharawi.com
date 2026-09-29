@@ -1,0 +1,21 @@
+# Cloudflare Pages response headers.
+#
+# No script-src CSP yet: AdSense pulls from a long, changing list of Google
+# domains, and a policy that misses one silently breaks the ads. The header
+# below only stops other sites framing these pages.
+
+/*
+  Strict-Transport-Security: max-age=31536000
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  Content-Security-Policy: frame-ancestors 'self'
+  X-Frame-Options: SAMEORIGIN
+
+# The home page loads site.js, mill.js and calc.js without a ?v= query, so
+# assets get one day fresh rather than a year immutable.
+/assets/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/steelcalc/shots/*
+  Cache-Control: public, max-age=604800

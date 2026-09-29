@@ -318,11 +318,11 @@ footer a.lang:hover{color:var(--ink);border-color:var(--hot)}
 /* ---------- a11y ---------- */
 .skip{position:absolute;left:-9999px;top:0}
 .skip:focus{left:12px;top:12px;z-index:99;background:var(--ink);color:var(--mill);padding:10px 14px;font-family:var(--mono);font-size:13px}
-:focus-visible{outline:2px solid var(--hot);outline-offset:3px}
+:focus-visible{outline:2px solid var(--hot-ink);outline-offset:3px}
 
 /* ---------- motion ---------- */
-.rise{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
-.rise.in{opacity:1;transform:none}
+.js .rise{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
+.js .rise.in{opacity:1;transform:none}
 .hero .rise{transition-delay:calc(var(--i,0) * 90ms)}
 
 /* ---------- responsive ---------- */
@@ -351,7 +351,7 @@ footer a.lang:hover{color:var(--ink);border-color:var(--hot)}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .rise{opacity:1;transform:none;transition:none}
+  .js .rise{opacity:1;transform:none;transition:none}
   .btn:hover{transform:none}
 }
 
@@ -567,7 +567,7 @@ footer a.lang:hover{color:var(--ink);border-color:var(--hot)}
   border:1px solid var(--line);background:var(--mill);color:var(--ink);
   transition:border-color .18s,box-shadow .18s
 }
-.calc-field input:focus{outline:0;border-color:var(--hot);box-shadow:inset 0 -2px 0 var(--hot)}
+.calc-field input:focus{outline:0;border-color:var(--hot-ink);box-shadow:inset 0 -2px 0 var(--hot-ink)}
 .calc-field-rev input{border-style:dashed}
 .calc-revhint{
   font-family:var(--mono);font-size:10.5px;letter-spacing:.02em;color:var(--hot);
@@ -901,7 +901,7 @@ html{overflow-x:clip}
   border-radius:0;cursor:pointer;
   transition:border-color .18s,box-shadow .18s
 }
-.calc-field select:focus{outline:0;border-color:var(--hot);box-shadow:inset 0 -2px 0 var(--hot)}
+.calc-field select:focus{outline:0;border-color:var(--hot-ink);box-shadow:inset 0 -2px 0 var(--hot-ink)}
 
 /* The unverified-data notice, and the message when a wall is thicker than the
    section it is meant to line. Both are the interface telling the truth about
@@ -940,7 +940,7 @@ html{overflow-x:clip}
   width:82px;padding:9px 10px;
   border:1px dashed var(--edge);background:transparent;color:var(--ink)
 }
-.calc-comm-tol input:focus{outline:0;border-color:var(--hot);border-style:solid}
+.calc-comm-tol input:focus{outline:0;border-color:var(--hot-ink);border-style:solid}
 .calc-comm .calc-hint{margin:10px 0 clamp(18px,2.2vw,24px);max-inline-size:88ch}
 .calc-figs-comm{border-top:1px solid var(--line)}
 
