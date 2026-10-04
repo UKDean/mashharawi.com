@@ -951,3 +951,43 @@ html{overflow-x:clip}
   gap:clamp(14px,2.4vw,32px);align-items:baseline;padding:24px 0
 }
 @media (max-width:620px){ .note-list li.note-static{grid-template-columns:1fr;gap:8px} }
+
+/* ==========================================================================
+   MOBILE HEADER — brand, menu and language switch on one line
+   At 375px the bar needed ~450px: the wide brand, two bordered controls and
+   16px gaps pushed the language switch off-screen and the page scrolled
+   sideways. Narrow the brand and the controls instead of dropping any of
+   them; the brand clips as a last resort rather than widening the page.
+   ========================================================================== */
+@media (max-width:520px){
+  .bar{gap:10px}
+  .brand{font-size:13px;font-stretch:100%;gap:7px;min-width:0;overflow:hidden}
+  .brand-mark{width:24px;height:24px}
+  .menu-btn{padding:8px 10px;letter-spacing:.06em;margin-inline-start:auto}
+  .lang-switch{padding:7px 9px;letter-spacing:.04em}
+}
+
+/* ==========================================================================
+   ARABIC TYPE — no tracking, and an Arabic face behind every Latin family
+   Letter-spacing pulls apart the joins Arabic letters depend on, and the
+   mono and display families carry no Arabic glyphs, so labels fell through
+   to whatever the system had. Plex Mono and Archivo stay first so Latin
+   and digits keep their look; Arabic glyphs now fall back to Noto Kufi.
+   ========================================================================== */
+[dir="rtl"]{
+  --mono:"IBM Plex Mono","Noto Kufi Arabic",ui-monospace,monospace;
+  --display:"Archivo","Noto Kufi Arabic",system-ui,sans-serif;
+}
+[dir="rtl"] *{letter-spacing:0 !important}
+@media (max-width:400px){
+  .brand{font-size:12px;letter-spacing:0}
+  .bar{gap:8px}
+}
+/* The contact rows put a long handle and its label side by side; on a phone
+   "linkedin.com/in/mashharawi" alone fills the line. Let the row wrap. */
+@media (max-width:420px){
+  .contact-list a{flex-wrap:wrap;gap:4px 14px}
+}
+/* The header's "العربية" link sits on the English page, where the mono face
+   and tracking apply; give it an Arabic face and untracked letters. */
+.lang-switch[lang="ar"]{font-family:"Noto Kufi Arabic","Geeza Pro","Segoe UI",Tahoma,sans-serif;letter-spacing:0;font-size:12.5px}
