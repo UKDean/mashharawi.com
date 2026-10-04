@@ -12,8 +12,10 @@
   Content-Security-Policy: frame-ancestors 'self'
   X-Frame-Options: SAMEORIGIN
 
-# The home page loads site.js, mill.js and calc.js without a ?v= query, so
-# assets get one day fresh rather than a year immutable.
+# Some pages load scripts without a ?v= query, so assets get one day fresh
+# rather than a year immutable. site.css is linked as site.css?v=YYYYMMDD on
+# every page (and in scripts/build_notes.py): bump that date whenever the
+# stylesheet changes, or visitors keep the old one for up to a day.
 /assets/*
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 
