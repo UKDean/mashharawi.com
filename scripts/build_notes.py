@@ -26,10 +26,10 @@ PAIRS = [
 SINGLES = [
     ("/contract-check/", "0.5"),
 ]
-F_EN = ('<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..700'
-        '&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,300..500&display=swap" rel="stylesheet">')
-F_AR = ('<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@300;400;500;600;700'
-        '&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">')
+F_EN = ('<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200..500'
+        '&display=swap" rel="stylesheet">')
+F_AR = ('<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@200;300;400;500'
+        '&family=Inter:wght@200..500&display=swap" rel="stylesheet">')
 
 
 def parse(path):
@@ -85,7 +85,7 @@ def shell(lang, d, title, desc, canon, body, head="", robots=None, fonts=None):
 <meta name="author" content="{AUTHOR}">
 {rob}
 <link rel="canonical" href="{canon}">
-<meta name="theme-color" content="#E4E6E3">
+<meta name="theme-color" content="#0A0A0A">
 <meta property="og:type" content="article">
 <meta property="og:url" content="{canon}">
 <meta property="og:title" content="{e(title)}">

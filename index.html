@@ -18,7 +18,7 @@
 <link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/">
 <link rel="alternate" hreflang="x-default" href="https://mashharawi.com/">
 
-<meta name="theme-color" content="#E2E6EA">
+<meta name="theme-color" content="#0A0A0A">
 
 <!-- Open Graph -->
 <meta property="og:type" content="profile">
@@ -47,7 +47,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..700&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,300..500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200..500&display=swap" rel="stylesheet">
 
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -178,19 +178,25 @@
 <main id="main">
 
   <!-- ============ HOME ============ -->
-  <section id="home" class="sec hero">
+  <section id="home" class="sec hero noir-hero">
+      <div class="hero-photo">
+        <picture>
+          <source type="image/webp" srcset="/portrait-560.webp 560w, /portrait-840.webp 840w, /portrait.webp 1200w" sizes="(max-width:820px) 100vw, 62vw">
+          <img src="/portrait-840.jpg" width="840" height="1050" alt="Portrait of Omar Mashharawi" fetchpriority="high" decoding="async">
+        </picture>
+      </div>
     <div class="wrap">
       <!-- The name and location now live inside the h1 as a masthead line,
            replacing the standalone location paragraph that used to sit above
            it, so the page's single top-level heading names the entity it is
            about without adding a second mono line to the design. -->
-      <h1 class="rise" style="--i:1"><span class="h1-name">Omar Mashharawi<i> &nbsp;/&nbsp; </i><b>Riyadh, Saudi Arabia</b></span>Fifteen years in steel. Now building software.</h1>
+      <h1 class="rise" style="--i:1"><span class="h1-name">Omar Mashharawi<i> &nbsp;/&nbsp; </i><b>Riyadh, Saudi Arabia</b></span>Fifteen years in <strong>steel</strong>.<br> Now building software.</h1>
       <p class="lead rise" style="--i:2">Commercial and sales work in reinforcing steel in Riyadh, and the software, AI and automation I build alongside it.</p>
       <div class="cta-row rise" style="--i:3">
-        <a class="btn" href="#journey">Explore my journey</a>
-        <a class="btn ghost" href="https://github.com/UKDean" target="_blank" rel="noopener">View GitHub</a>
+        <a class="btn" href="/tools/steel-sections/">Try the steel calculator</a>
+        <a class="btn ghost" href="#contact">Get in touch &rarr;</a>
       </div>
-      <div class="strip rise" style="--i:4" aria-hidden="true"><b>Commercial <i>&rarr;</i> Technology</b></div>
+      <p class="hero-foot rise" style="--i:4"><span>Section Head &middot; Al Rajhi Steel</span><span>Riyadh &middot; since 2008</span></p>
     </div>
   </section>
 
@@ -201,16 +207,7 @@
         <h2 id="about-h">Fifteen years in commercial steel, now building with software.</h2>
       </div>
 
-      <div class="about-grid">
-        <figure class="portrait rise">
-          <picture>
-            <source type="image/webp"
-                    srcset="/portrait-420.webp 420w, /portrait-560.webp 560w, /portrait-840.webp 840w"
-                    sizes="(max-width:900px) min(420px, 88vw), 380px">
-            <img src="/portrait-840.jpg" width="840" height="1050" alt="Portrait of Omar Mashharawi" loading="lazy" decoding="async">
-          </picture>
-          <figcaption>Omar Mashharawi<br>Section Head, Al Rajhi Steel &middot; Riyadh</figcaption>
-        </figure>
+      <div class="about-grid about-solo">
 
         <div class="about-text rise">
           <p>Omar Mashharawi is a commercial and sales professional with extensive experience in the steel industry, business development, customer relationships, and team leadership. Alongside his professional career, he has developed a strong interest in software development, artificial intelligence, and building digital products.</p>
@@ -601,7 +598,6 @@
 </footer>
 
 <script src="/assets/site.js" defer></script>
-<script src="/assets/mill.js" defer></script>
 <script src="/assets/calc.js" defer></script>
 </body>
 </html>
