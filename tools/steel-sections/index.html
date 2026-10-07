@@ -27,7 +27,7 @@
 <meta property="og:image" content="https://mashharawi.com/og-noir.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="stylesheet" href="/assets/site.css?v=20261008b">
+<link rel="stylesheet" href="/assets/site.css?v=20261009">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200..500&display=swap" rel="stylesheet">
@@ -57,6 +57,7 @@
   "author": {"@type": "Person", "@id": "https://mashharawi.com/#person", "name": "Omar Mashharawi"}
 }
 </script>
+<script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/cdn-cgi/*"}}]},"eagerness":"moderate"}]}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -196,6 +197,7 @@
             <p class="calc-lbl">Order</p>
             <button type="button" class="calc-btn" id="sAdd">Add this line</button>
             <button type="button" class="calc-btn ghost" id="sCopy">Copy table</button>
+            <button type="button" class="calc-btn ghost calc-print" onclick="window.print()">Print / PDF</button>
           </div>
 
           <p class="calc-empty" id="sEmpty">Nothing added yet. Build a multi-size order and the totals appear here.</p>
@@ -253,7 +255,7 @@
   </div>
 </footer>
 
-<script src="/assets/site.js?v=20260914" defer></script>
+<script src="/assets/site.js?v=20261009" defer></script>
 <script src="/assets/steelcalc.js?v=20260914" defer></script>
 </body>
 </html>

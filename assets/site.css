@@ -1177,3 +1177,51 @@ nav a:hover,nav a[aria-current="true"]{color:var(--ink)}
    or two showed only black. The hero text now paints with the page; the
    slow reveal stays for sections further down. */
 .js .noir-hero .rise{opacity:1;transform:none;transition:none}
+
+/* ==========================================================================
+   PAGE TRANSITIONS — a short cross-fade between pages of the site, with the
+   header held still. Browsers without cross-document view transitions just
+   navigate as before; reduced-motion users get no animation.
+   ========================================================================== */
+@media (prefers-reduced-motion:no-preference){
+  @view-transition{navigation:auto}
+}
+header{view-transition-name:site-header}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.22s}
+
+/* ==========================================================================
+   PRINT — the calculators print as a clean light sheet: inputs, figures,
+   the order table and the method note, with the date and the site address.
+   Everything interactive or decorative is left off the page.
+   ========================================================================== */
+@page{margin:14mm}
+@media print{
+  :root,[dir="rtl"]{
+    color-scheme:light;
+    --mill:#fff;--sheet:#fff;--sunk:#f2f2f2;
+    --ink:#000;--lead:#111;--scale:#444;--dim:#444;
+    --line:#bbb;--edge:#777;--hot:#000;--hot-ink:#000;--hot-wash:#f2f2f2
+  }
+  html,body{background:#fff!important;color:#000}
+  body{font-size:10.5pt;line-height:1.45}
+  header,footer,nav,.skip,.menu-btn,.lang-switch,.cta-row,.note-back,
+  .calc-order-head .calc-btn,.calc-x,.calc-fail,.hero-photo,
+  ins.adsbygoogle,iframe{display:none!important}
+  .sec{padding-block:0;border:0}
+  .wrap{max-width:none;padding-inline:0}
+  .js .rise{opacity:1!important;transform:none!important}
+  main .lead{display:none}
+  h1{font-size:18pt}
+  .calc{border:1px solid #bbb}
+  .calc-main,.calc-figs,.calc-comm{break-inside:avoid}
+  .calc[data-printed]::before{
+    content:"mashharawi.com  ·  " attr(data-printed);
+    display:block;padding:8px 12px;border-bottom:1px solid #bbb;font-size:9pt;color:#444;
+    direction:ltr;unicode-bidi:isolate;text-align:start
+  }
+  [dir="rtl"] .calc[data-printed]::before{text-align:end}
+  .calc-figs dd b{font-size:16pt}
+  .calc-table{break-inside:auto}
+  .calc-table tr{break-inside:avoid}
+  a{color:#000;text-decoration:none}
+}

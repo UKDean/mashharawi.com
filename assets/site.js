@@ -49,6 +49,15 @@
     sections.forEach(function(s){ spy.observe(s); });
   }
 
+  // stamp printed calculator sheets with the date and time
+  window.addEventListener('beforeprint', function(){
+    // a plain YYYY-MM-DD HH:MM reads the same in both languages and keeps
+    // its order inside right-to-left text
+    var d = new Date(), z = function(n){ return (n < 10 ? '0' : '') + n; };
+    var when = d.getFullYear() + '-' + z(d.getMonth() + 1) + '-' + z(d.getDate()) + ' ' + z(d.getHours()) + ':' + z(d.getMinutes());
+    document.querySelectorAll('.calc').forEach(function(c){ c.setAttribute('data-printed', when); });
+  });
+
   var yr = document.getElementById('yr');
   if(yr) yr.textContent = new Date().getFullYear();
 })();
