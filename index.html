@@ -43,7 +43,7 @@
 <meta name="twitter:image:alt" content="Omar Mashharawi, commercial steel, software and AI.">
 
 <link rel="alternate" type="application/rss+xml" title="Omar Mashharawi, notes" href="https://mashharawi.com/feed.xml">
-<link rel="stylesheet" href="/assets/site.css?v=20261007">
+<link rel="stylesheet" href="/assets/site.css?v=20261008">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -181,7 +181,8 @@
   <section id="home" class="sec hero noir-hero">
       <div class="hero-photo">
         <picture>
-          <source type="image/webp" srcset="/portrait-560.webp 560w, /portrait-840.webp 840w, /portrait.webp 1200w" sizes="(max-width:820px) 100vw, 62vw">
+          <source type="image/webp" media="(max-width:820px)" srcset="/portrait-hero-m.webp">
+          <source type="image/webp" srcset="/portrait-560.webp 560w, /portrait-840.webp 840w, /portrait.webp 1200w" sizes="62vw">
           <img src="/portrait-840.jpg" width="840" height="1050" alt="Portrait of Omar Mashharawi" fetchpriority="high" decoding="async">
         </picture>
       </div>
@@ -210,8 +211,8 @@
       <div class="about-grid about-solo">
 
         <div class="about-text rise">
-          <p>Omar Mashharawi is a commercial and sales professional with extensive experience in the steel industry, business development, customer relationships, and team leadership. Alongside his professional career, he has developed a strong interest in software development, artificial intelligence, and building digital products.</p>
-          <p>His journey from commercial management into technology reflects a broader interest in solving real-world problems through a combination of business understanding, software, and AI.</p>
+          <p>I'm a commercial and sales professional with extensive experience in the steel industry, business development, customer relationships, and team leadership. Alongside that career, I've developed a strong interest in software development, artificial intelligence, and building digital products.</p>
+          <p>My move from commercial management into technology comes from a broader interest in solving real-world problems through a combination of business understanding, software, and AI.</p>
           <dl class="spec">
             <div><dt>Experience</dt><dd>~15 years<br>in steel</dd></div>
             <div><dt>Current role</dt><dd>Section Head<br>Al Rajhi Steel</dd></div>
@@ -226,7 +227,7 @@
           <h2>From the sales floor to the source code.</h2>
         </div>
         <div class="journey rise">
-          <p>Omar began his career in sales within the steel industry and developed extensive experience working directly with customers, teams, business operations, pricing, market development, and commercial strategy.</p>
+          <p>I began my career in sales within the steel industry and built extensive experience working directly with customers, teams, business operations, pricing, market development, and commercial strategy.</p>
           <p>Over the years, that experience created a strong understanding of how businesses actually operate, and where processes quietly become inefficient: information that is re-entered by hand, decisions that wait on a spreadsheet, work that depends on one person remembering a detail.</p>
           <p>That gradually led to a deeper interest in technology, programming, software development, and artificial intelligence. Not as a career reset, but as the next tool for the same problems.</p>
           <p class="equation">Business <em>+</em> Technology</p>
@@ -344,8 +345,8 @@
         <div class="body">
           <p class="eyebrow">Automation &amp; workflow governance</p>
           <h3 id="auto-h">Automating a process is the easy half. Governing it is the other half.</h3>
-          <p style="margin-top:16px">A large share of business work is a chain of steps that already follows rules: a request arrives, information is checked, an approval is needed, a record has to exist afterwards. Omar is particularly interested in this layer, and in designing automated workflows on <strong>n8n</strong>: connecting the systems a business already uses, and moving repetitive steps out of people's inboxes.</p>
-          <p>The part that gets his attention is governance. An automation that runs without ownership, approval points, error handling, or a record of what it did is a risk rather than an improvement. The design question is not only what the workflow does, but who owns it, what it is allowed to decide on its own, and what it leaves behind as evidence.</p>
+          <p style="margin-top:16px">A large share of business work is a chain of steps that already follows rules: a request arrives, information is checked, an approval is needed, a record has to exist afterwards. I'm particularly interested in this layer, and in designing automated workflows on <strong>n8n</strong>: connecting the systems a business already uses, and moving repetitive steps out of people's inboxes.</p>
+          <p>The part that gets my attention is governance. An automation that runs without ownership, approval points, error handling, or a record of what it did is a risk rather than an improvement. The design question is not only what the workflow does, but who owns it, what it is allowed to decide on its own, and what it leaves behind as evidence.</p>
         </div>
 
         <div class="flow" aria-hidden="true">
@@ -418,7 +419,7 @@
       <p class="pquote rise">I didn't want to learn programming only as a theory. I wanted to build something real.</p>
 
       <div class="project-grid">
-        <article class="project rise">
+        <article class="project project-feature rise">
           <div class="body">
             <p class="pmeta">iOS &middot; Flutter</p>
             <h3>Steel Section Calculator</h3>
@@ -437,28 +438,6 @@
 
         <article class="project rise">
           <div class="body">
-            <p class="pmeta">iOS &middot; Swift</p>
-            <h3>Tubes</h3>
-            <p>An offline water-sort puzzle: pour colored liquid between tubes until every color is sorted into its own tube. No timer, no fail state, no ads. The game engine (rules, undo, a solver that proves every level solvable) is complete and fully tested; the on-device interface is still being built.</p>
-            <div class="cta-row">
-              <p class="status">Engine complete and tested. Interface still in build.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="project rise">
-          <div class="body">
-            <p class="pmeta">Android &amp; iOS &middot; React Native</p>
-            <h3>Arabic Crossword</h3>
-            <p>An original Arabic crossword generator, a fresh right-to-left puzzle every time from a 305-word bank, fully offline. Complete and tested on a real device; being prepared for submission to Google Play.</p>
-            <div class="cta-row">
-              <p class="status">Complete and device-tested. Google&nbsp;Play submission next.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="project rise">
-          <div class="body">
             <p class="pmeta">CLI &middot; Python</p>
             <h3>Steel Quotation Assistant</h3>
             <p>A command-line tool for reinforcing-steel sales quotations: pricing by grade and size, VAT, sequential numbering, and local storage. Standard library only, no external dependencies.</p>
@@ -469,9 +448,12 @@
         </article>
       </div>
 
-      <div class="slot rise" style="margin-top:clamp(20px,2.6vw,28px)">
-        <p class="pmeta" style="margin-bottom:10px">Next project</p>
-        <p class="muted" style="margin:0">Further projects are added here as they are published.</p>
+      <div class="in-build rise">
+        <p class="pmeta">In progress</p>
+        <ul>
+          <li><b>Tubes</b><span class="pmeta">iOS &middot; Swift</span><span>A water-sort puzzle. The engine and level solver are complete and tested; the on-device interface is still being built.</span></li>
+          <li><b>Arabic Crossword</b><span class="pmeta">Android &amp; iOS &middot; React Native</span><span>An Arabic right-to-left crossword generator. Complete and tested on a real device; Google&nbsp;Play submission next.</span></li>
+        </ul>
       </div>
     </div>
   </section>
