@@ -1127,3 +1127,25 @@ nav a:hover,nav a[aria-current="true"]{color:var(--ink)}
 .note-text b{font-weight:400}
 .equation{font-weight:300}
 .equation em{color:var(--scale)}
+
+/* ==========================================================================
+   SMALL FIXES, October 2026
+   ========================================================================== */
+/* Two greys under the hero (the masthead's location and the role line) sat
+   at #5C5C59 on the near-black ground, 2.95:1. --dim is the quietest grey
+   that still reads at small sizes: 4.99:1 on the ground, 4.72:1 on --sheet. */
+:root{--dim:#80807C}
+.noir-hero h1 .h1-name b,.noir-hero h1 .h1-name i,.hero-foot{color:var(--dim)}
+
+/* Calculator figures on a 320px phone: two columns of 1fr cannot shrink
+   below a number like "3.600 tonnes", so the grid pushed the page sideways.
+   Let the tracks shrink, let the unit drop under the number, and tighten
+   the padding and the figure size on the narrowest screens. */
+.calc-figs{grid-template-columns:repeat(4,minmax(0,1fr))}
+.calc-figs dd{flex-wrap:wrap;row-gap:2px}
+@media (max-width:900px){ .calc-figs{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (max-width:360px){
+  .calc-figs>div{padding:14px 12px}
+  .calc-figs dd b{font-size:24px}
+  .calc-figs dt{letter-spacing:.08em}
+}
