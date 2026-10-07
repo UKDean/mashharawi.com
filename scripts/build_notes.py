@@ -93,7 +93,7 @@ def shell(lang, d, title, desc, canon, body, head="", robots=None, fonts=None):
 <meta property="og:image" content="{SITE}/og-noir{'-ar' if lang == 'ar' else ''}.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="alternate" type="application/rss+xml" title="{AUTHOR} notes" href="{SITE}/feed.xml">
-<link rel="stylesheet" href="/assets/site.css?v=20261008">
+<link rel="stylesheet" href="/assets/site.css?v=20261008b">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 {f}
