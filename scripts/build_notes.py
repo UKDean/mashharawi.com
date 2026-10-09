@@ -20,6 +20,7 @@ PAIRS = [
     ("/tools/rebar-weight/", "/ar/tools/rebar-weight/", "0.9", "0.8"),
     ("/tools/steel-sections/", "/ar/tools/steel-sections/", "0.9", "0.8"),
     ("/tools/openpdfkit/", "/ar/tools/openpdfkit/", "0.8", "0.7"),
+    ("/privacy/", "/ar/privacy/", "0.3", "0.3"),
 ]
 # Pages with no English/Arabic twin (Arabic-only, or vice versa) — same
 # "listed here or it vanishes from the sitemap" rule as PAIRS above.
@@ -122,7 +123,7 @@ def shell(lang, d, title, desc, canon, body, head="", robots=None, fonts=None):
 <footer>
   <div class="wrap bar">
     <span>&copy; {datetime.date.today().year} {AUTHOR} &middot; mashharawi.com</span>
-    <span><a class="lang" href="{home}">{back}</a></span>
+    <span><a class="lang" href="{'/ar/privacy/' if lang == 'ar' else '/privacy/'}">{'الخصوصية' if lang == 'ar' else 'Privacy'}</a> &middot; <a class="lang" href="{home}">{back}</a></span>
   </div>
 </footer>
 </body>
