@@ -27,7 +27,7 @@
 <meta property="og:image" content="https://mashharawi.com/og-noir.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="stylesheet" href="/assets/site.css?v=20261009b">
+<link rel="stylesheet" href="/assets/site.css?v=20261010">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200..500&display=swap" rel="stylesheet">
@@ -39,6 +39,64 @@
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<!-- The same questions and answers that are visible on the page. -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "inLanguage": "en",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "How is the weight of reinforcing steel calculated?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "From the nominal diameter: mass per metre = 0.006165 × d² kg/m, with d in millimetres. The constant comes from a steel density of 7,850 kg/m³. A 16 mm bar is 0.006165 × 16² = 1.578 kg/m, so a 12 m bar weighs about 18.94 kg."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How many bars are in one tonne?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Divide 1,000 kg by the weight of one bar. For 16 mm at 12 m that is 1,000 ÷ 18.94, about 52.8 bars. Enter a tonnage in the calculator and it gives the number of bars directly."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why is the invoiced weight different from the calculated weight?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The calculator gives the nominal weight. A mill delivers inside the tolerance band of the governing standard, so the weighed steel can sit a little above or below the nominal figure and still comply. Where it falls inside that band is a commercial question, which is why the tolerance belongs in the contract."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Which bar lengths and diameters can I use?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Any. The common Saudi market sizes, 10 to 32 mm, are one tap away, and 12 m is the usual stock length, but both can be changed, including diameters not on the list."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can I keep a record of an order?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. Add several lines to build a multi-size order with totals, then copy the table or use Print / PDF to save a dated sheet you can attach to a quotation."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is anything I type sent anywhere?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. The calculation runs in your browser, and nothing you enter leaves the page."
+   }
+  }
+ ]
+}
+</script>
 <script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/cdn-cgi/*"}}]},"eagerness":"moderate"}]}</script>
 </head>
 <body>
@@ -175,6 +233,34 @@
           These are <b>nominal</b> weights, from the nominal diameter and a density of 7,850&nbsp;kg/m&sup3;. What a mill actually delivers falls inside the tolerance band of the governing standard, and where it falls inside that band is a commercial question, not a technical one. <a href="/writing/weight-tolerance/">I wrote about that here</a>.
         </p>
       </div>
+
+      <section class="faq rise" aria-labelledby="faq-h">
+        <h2 id="faq-h">Common questions</h2>
+        <details>
+          <summary>How is the weight of reinforcing steel calculated?</summary>
+          <p>From the nominal diameter: mass per metre = 0.006165 × d² kg/m, with d in millimetres. The constant comes from a steel density of 7,850 kg/m³. A 16 mm bar is 0.006165 × 16² = 1.578 kg/m, so a 12 m bar weighs about 18.94 kg.</p>
+        </details>
+        <details>
+          <summary>How many bars are in one tonne?</summary>
+          <p>Divide 1,000 kg by the weight of one bar. For 16 mm at 12 m that is 1,000 ÷ 18.94, about 52.8 bars. Enter a tonnage in the calculator and it gives the number of bars directly.</p>
+        </details>
+        <details>
+          <summary>Why is the invoiced weight different from the calculated weight?</summary>
+          <p>The calculator gives the nominal weight. A mill delivers inside the tolerance band of the governing standard, so the weighed steel can sit a little above or below the nominal figure and still comply. Where it falls inside that band is a commercial question, which is why the tolerance belongs in the contract.</p>
+        </details>
+        <details>
+          <summary>Which bar lengths and diameters can I use?</summary>
+          <p>Any. The common Saudi market sizes, 10 to 32 mm, are one tap away, and 12 m is the usual stock length, but both can be changed, including diameters not on the list.</p>
+        </details>
+        <details>
+          <summary>Can I keep a record of an order?</summary>
+          <p>Yes. Add several lines to build a multi-size order with totals, then copy the table or use Print / PDF to save a dated sheet you can attach to a quotation.</p>
+        </details>
+        <details>
+          <summary>Is anything I type sent anywhere?</summary>
+          <p>No. The calculation runs in your browser, and nothing you enter leaves the page.</p>
+        </details>
+      </section>
 
       <p class="note-back" style="margin-top:clamp(24px,2.6vw,34px)">
         For beams, channels, angles, bars, flats, pipe and tube, use the <a href="/tools/steel-sections/">section weight calculator</a>.

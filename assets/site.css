@@ -1225,3 +1225,23 @@ header{view-transition-name:site-header}
   .calc-table tr{break-inside:avoid}
   a{color:#000;text-decoration:none}
 }
+
+/* ==========================================================================
+   FAQ — on the calculator pages. Native <details>, so it opens without
+   JavaScript and reads in full to search and answer engines (the same text
+   is in the page's FAQPage JSON-LD).
+   ========================================================================== */
+.faq{margin-top:clamp(48px,6vw,80px);max-width:78ch}
+.faq h2{font-size:clamp(24px,2.6vw,32px);margin-bottom:clamp(14px,1.6vw,20px)}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-of-type{border-bottom:1px solid var(--line)}
+.faq summary{
+  list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline;gap:20px;
+  padding:18px 0;color:var(--ink);font-weight:400;font-size:clamp(16px,1.3vw,18px)
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--scale);font-weight:300;font-size:20px;line-height:1;transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{margin:0 0 20px;color:var(--lead);max-width:70ch}
+.faq summary:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
+@media print{ .faq{display:none} }

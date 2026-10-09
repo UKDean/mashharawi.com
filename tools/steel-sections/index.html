@@ -27,7 +27,7 @@
 <meta property="og:image" content="https://mashharawi.com/og-noir.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="stylesheet" href="/assets/site.css?v=20261009b">
+<link rel="stylesheet" href="/assets/site.css?v=20261010">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200..500&display=swap" rel="stylesheet">
@@ -55,6 +55,64 @@
   "isAccessibleForFree": true,
   "offers": {"@type": "Offer", "price": "0", "priceCurrency": "SAR"},
   "author": {"@type": "Person", "@id": "https://mashharawi.com/#person", "name": "Omar Mashharawi"}
+}
+</script>
+<!-- The same questions and answers that are visible on the page. -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "inLanguage": "en",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "How is the weight of a steel section calculated?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "From the cross-sectional area of the nominal geometry multiplied by a density of 7,850 kg/m³: flanges and web plus the root fillets for a beam, the two legs less their overlap for an angle, the ring for a pipe. Nothing is read from a stored weight table."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Which sections and standards are covered?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "IPE, HEA, HEB and UPN beams and channels, equal and unequal angles, round, square and hex bars, flats, pipe and tube. Beam, channel and angle dimensions follow EN 10365 and EN 10056."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why can a result differ slightly from a published table?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "A UPN flange tapers, and the formula treats it as one average thickness, which puts channels about 2% above the published UPN masses. Bar and flat sizes are common market sizes and are marked with an asterisk until they are checked against an official table."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What is the commercial weight band?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The nominal weight answers what a section weighs; the band answers what will be delivered and invoiced. The default is ±4%, the tolerance on mass EN 10034 sets for I and H sections. Channels and angles are governed by other standards (EN 10279, EN 10056-2), and a contract can name a different figure, so the tolerance can be changed."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is there an offline version?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. The same calculator runs as an iPhone app, Steel Section Calculator on the App Store, with the same tables and formulas."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can I print or save the result?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. Build an order line by line, then copy the table or use Print / PDF to save a dated sheet with the inputs, figures and totals."
+   }
+  }
+ ]
 }
 </script>
 <script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/cdn-cgi/*"}}]},"eagerness":"moderate"}]}</script>
@@ -236,6 +294,34 @@
           Weight comes from the cross-sectional area of the nominal geometry, not from a stored figure: flanges and web plus the root fillets for a beam, legs less the overlap for an angle, the annulus for a pipe. Dimensions for beams, channels and angles follow <b>EN&nbsp;10365</b> and <b>EN&nbsp;10056</b>. A UPN flange tapers, and the formula treats it as one flat average thickness, which puts the channel family about <b>2% above</b> the published UPN masses; bar and flat sizes are common market sizes and are marked with an asterisk until they are checked against an official table. These are <b>nominal</b> weights. What a mill delivers falls inside the tolerance band of the governing standard, and where it falls inside that band is a commercial question. <a href="/writing/weight-tolerance/">I wrote about that here</a>.
         </p>
       </div>
+
+      <section class="faq rise" aria-labelledby="faq-h">
+        <h2 id="faq-h">Common questions</h2>
+        <details>
+          <summary>How is the weight of a steel section calculated?</summary>
+          <p>From the cross-sectional area of the nominal geometry multiplied by a density of 7,850 kg/m³: flanges and web plus the root fillets for a beam, the two legs less their overlap for an angle, the ring for a pipe. Nothing is read from a stored weight table.</p>
+        </details>
+        <details>
+          <summary>Which sections and standards are covered?</summary>
+          <p>IPE, HEA, HEB and UPN beams and channels, equal and unequal angles, round, square and hex bars, flats, pipe and tube. Beam, channel and angle dimensions follow EN 10365 and EN 10056.</p>
+        </details>
+        <details>
+          <summary>Why can a result differ slightly from a published table?</summary>
+          <p>A UPN flange tapers, and the formula treats it as one average thickness, which puts channels about 2% above the published UPN masses. Bar and flat sizes are common market sizes and are marked with an asterisk until they are checked against an official table.</p>
+        </details>
+        <details>
+          <summary>What is the commercial weight band?</summary>
+          <p>The nominal weight answers what a section weighs; the band answers what will be delivered and invoiced. The default is ±4%, the tolerance on mass EN 10034 sets for I and H sections. Channels and angles are governed by other standards (EN 10279, EN 10056-2), and a contract can name a different figure, so the tolerance can be changed.</p>
+        </details>
+        <details>
+          <summary>Is there an offline version?</summary>
+          <p>Yes. The same calculator runs as an iPhone app, Steel Section Calculator on the App Store, with the same tables and formulas.</p>
+        </details>
+        <details>
+          <summary>Can I print or save the result?</summary>
+          <p>Yes. Build an order line by line, then copy the table or use Print / PDF to save a dated sheet with the inputs, figures and totals.</p>
+        </details>
+      </section>
 
       <div class="cta-row">
         <a class="btn" href="https://apps.apple.com/us/app/steel-section-calculator/id6815107544" target="_blank" rel="noopener">Download on the App&nbsp;Store</a>
