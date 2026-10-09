@@ -23,6 +23,7 @@ Everything on this site is stated by Omar himself. The calculators compute weigh
 ## Writing
 
 - [Weight tolerance is a commercial term, not a technical one](https://mashharawi.com/writing/weight-tolerance/): why invoiced steel weight differs from the nominal weight
+- [جدول أوزان حديد التسليح لكل الأقطار](https://mashharawi.com/writing/rebar-weight-table/): rebar weight per metre, per 12 m bar and bars per tonne for 8–32 mm, in Arabic
 - [All notes](https://mashharawi.com/writing/) and [RSS feed](https://mashharawi.com/feed.xml)
 
 ## Contact

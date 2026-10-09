@@ -1245,3 +1245,14 @@ header{view-transition-name:site-header}
 .faq details p{margin:0 0 20px;color:var(--lead);max-width:70ch}
 .faq summary:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
 @media print{ .faq{display:none} }
+
+/* ---- tables inside notes (Markdown tables from notes/*.md) ---- */
+.note table{width:100%;border-collapse:collapse;margin:18px 0 30px;font-variant-numeric:tabular-nums}
+.note th,.note td{padding:11px 12px;border-bottom:1px solid var(--line);text-align:center}
+.note th{font-weight:400;font-size:13px;line-height:1.4;color:var(--scale);border-bottom-color:var(--edge);vertical-align:bottom}
+.note td{color:var(--ink)}
+.note tbody tr:hover{background:var(--sheet)}
+@media (max-width:520px){
+  .note th,.note td{padding:9px 5px;font-size:14px}
+  .note th{font-size:11.5px}
+}
