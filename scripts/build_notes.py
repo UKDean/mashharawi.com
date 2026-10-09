@@ -74,6 +74,7 @@ def shell(lang, d, title, desc, canon, body, head="", robots=None, fonts=None):
     site = "الموقع" if lang == "ar" else "Site"
     tools = "/ar/tools/" if lang == "ar" else "/tools/"
     toolsl = "الأدوات" if lang == "ar" else "Tools"
+    writing = "/ar/writing/" if lang == "ar" else "/writing/"
     rob = '<meta name="robots" content="' + robots + '">' if robots else ""
     return f"""<!DOCTYPE html>
 <html lang="{lang}" dir="{d}">
@@ -112,7 +113,7 @@ def shell(lang, d, title, desc, canon, body, head="", robots=None, fonts=None):
     <nav aria-label="Primary"><ul>
       <li><a href="{home}">{site}</a></li>
       <li><a href="{tools}">{toolsl}</a></li>
-      <li><a href="/writing/">{alln}</a></li>
+      <li><a href="{writing}">{alln}</a></li>
       <li><a href="/feed.xml">RSS</a></li>
     </ul></nav>
   </div>
@@ -158,7 +159,7 @@ def note_page(n):
       <div class="prose">
 {n['body']}
       </div>
-      <p class="note-back"><a href="/writing/">&larr; {alln}</a></p>
+      <p class="note-back"><a href="{'/ar/writing/' if n['lang'] == 'ar' else '/writing/'}">{'&rarr;' if n['lang'] == 'ar' else '&larr;'} {alln}</a></p>
     </div>
   </article>"""
     return shell(n["lang"], n["dir"], n["title"] + " — " + AUTHOR, n["summary"], n["url"], body, ld)
@@ -199,6 +200,37 @@ def index_page(notes):
                  SITE + "/writing/", body, robots=robots, fonts=fonts)
 
 
+def index_page_ar(notes):
+    """The Arabic notes index at /ar/writing/: every note, Arabic first, with
+    English notes marked so a reader knows before clicking."""
+    e = html.escape
+    ordered = [n for n in notes if n["lang"] == "ar"] + [n for n in notes if n["lang"] != "ar"]
+    intro = "مقالات قصيرة عن الجانب التجاري للحديد، وعن البرمجيات والأتمتة التي ترافقه. تُنشر هنا أولاً، ثم تُشارَك على LinkedIn."
+    rows = "\n".join(
+        '        <li>\n'
+        '          <a href="/writing/' + n["slug"] + '/" lang="' + n["lang"] + '" dir="' + n["dir"] + '">\n'
+        '            <span class="note-date"><time datetime="' + n["date"] + '">' + n["date"] + '</time></span>\n'
+        '            <span class="note-text"><b>' + e(n["title"]) + '</b><span>' + e(n["summary"])
+        + ('' if n["lang"] == "ar" else ' <i lang="ar" dir="rtl">(بالإنجليزية)</i>') + '</span></span>\n'
+        '          </a>\n        </li>' for n in ordered)
+    body = f"""  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">الكتابة</p>
+        <h1>المقالات</h1>
+        <p class="lead">{intro}</p>
+      </div>
+      <ul class="note-list">
+{rows}
+      </ul>
+      <p class="note-back"><a href="/feed.xml">RSS</a> &middot; <a href="https://www.linkedin.com/in/mashharawi" target="_blank" rel="noopener me">LinkedIn</a></p>
+    </div>
+  </section>"""
+    return shell("ar", "rtl", "المقالات — عمر المشهراوي",
+                 "مقالات عمر المشهراوي عن تجارة الحديد وأوزانه وتسعيره، والبرمجيات والأتمتة.",
+                 SITE + "/ar/writing/", body, fonts=F_AR)
+
+
 def rss(notes):
     esc = lambda s: html.escape(s, quote=False)
     now = email.utils.format_datetime(datetime.datetime.now(datetime.timezone.utc))
@@ -233,9 +265,14 @@ def sitemap(notes):
         rows.append('  <url>\n    <loc>' + SITE + path + '</loc>\n'
                     '    <changefreq>monthly</changefreq>\n    <priority>' + pri + '</priority>\n  </url>')
     if notes:
-        rows.append('  <url>\n    <loc>' + SITE + '/writing/</loc>\n    <lastmod>'
-                    + max(n["date"] for n in notes) + '</lastmod>\n'
-                    '    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>')
+        last = max(n["date"] for n in notes)
+        en, ar = SITE + "/writing/", SITE + "/ar/writing/"
+        alts = ('    <xhtml:link rel="alternate" hreflang="en" href="' + en + '"/>\n'
+                '    <xhtml:link rel="alternate" hreflang="ar" href="' + ar + '"/>\n'
+                '    <xhtml:link rel="alternate" hreflang="x-default" href="' + en + '"/>\n')
+        for loc in (en, ar):
+            rows.append('  <url>\n    <loc>' + loc + '</loc>\n' + alts + '    <lastmod>' + last + '</lastmod>\n'
+                        '    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>')
         for n in notes:
             rows.append('  <url>\n    <loc>' + n["url"] + '</loc>\n    <lastmod>' + n["date"] + '</lastmod>\n'
                         '    <changefreq>yearly</changefreq>\n    <priority>0.7</priority>\n  </url>')
@@ -265,6 +302,8 @@ def main():
         seen.add(n["slug"])
         write(os.path.join(OUT, n["slug"], "index.html"), note_page(n))
     write(os.path.join(OUT, "index.html"), index_page(notes))
+    if notes:
+        write(os.path.join(ROOT, "ar", "writing", "index.html"), index_page_ar(notes))
     write(os.path.join(ROOT, "feed.xml"), rss(notes))
     write(os.path.join(ROOT, "sitemap.xml"), sitemap(notes))
     print("done")

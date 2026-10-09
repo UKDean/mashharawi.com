@@ -104,6 +104,18 @@
   </url>
   <url>
     <loc>https://mashharawi.com/writing/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/writing/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/writing/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/writing/"/>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mashharawi.com/ar/writing/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/writing/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/writing/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/writing/"/>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
