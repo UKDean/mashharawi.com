@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206422515377950" crossorigin="anonymous"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -230,8 +229,39 @@
   </div>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+<script type="module">
+  // pdf.js 6.4.299, legacy build, served from this site (byte-identical to
+  // npm pdfjs-dist@6.4.299/legacy/build). The modern build fails text
+  // extraction on iOS Safari ("undefined is not a function"), so the legacy
+  // build is used everywhere. Same-origin rather than a CDN because its
+  // worker cannot carry an SRI hash.
+  // Module scripts run after the page's classic scripts, so this announces
+  // itself with an event; extractPdf() waits for it rather than racing it.
+  import * as pdfjsLib from '/assets/vendor/pdfjs/6.4.299-legacy/pdf.min.mjs';
+  pdfjsLib.GlobalWorkerOptions.workerSrc = '/assets/vendor/pdfjs/6.4.299-legacy/pdf.worker.min.mjs';
+  // Safari (including iOS) cannot iterate a ReadableStream with `for await`,
+  // which pdf.js's getTextContent() does even in the legacy build. Add the
+  // standard async iterator where it is missing; no-op elsewhere.
+  if (typeof ReadableStream !== 'undefined' && !ReadableStream.prototype[Symbol.asyncIterator]) {
+    ReadableStream.prototype[Symbol.asyncIterator] = async function* () {
+      const reader = this.getReader();
+      try {
+        for (;;) {
+          const { done, value } = await reader.read();
+          if (done) return;
+          yield value;
+        }
+      } finally {
+        reader.releaseLock();
+      }
+    };
+  }
+  window.pdfjsLib = pdfjsLib;
+  window.dispatchEvent(new Event('pdfjs-ready'));
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.13.0/mammoth.browser.min.js"
+        integrity="sha384-8NWE3bZDrmRI4IePMoQaEoLhAQ1MmRMJkdNgnGiHRFanTqsFKr0TmK6aSZvFJ/PO"
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
 document.getElementById('yr').textContent = new Date().getFullYear();
 
@@ -306,8 +336,14 @@ var CC_POLICY_PROMPT = [
 ].join("\n");
 
 // ---------- استخراج النص ----------
-if (window['pdfjsLib']) {
-  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+// pdf.js loads as a module (above) and may not be ready yet when a file is
+// picked; resolve once it is, or give up after 10 s (old browser, blocked).
+function whenPdfjsReady(){
+  return new Promise(function(resolve, reject){
+    if(window.pdfjsLib) return resolve(window.pdfjsLib);
+    var timer = setTimeout(function(){ reject(new Error('pdf.js not loaded')); }, 10000);
+    window.addEventListener('pdfjs-ready', function(){ clearTimeout(timer); resolve(window.pdfjsLib); }, {once: true});
+  });
 }
 
 var dropEl = document.getElementById('ccDrop');
@@ -365,11 +401,21 @@ function handleFile(file){
 function extractPdf(file){
   var reader = new FileReader();
   reader.onload = function(){
-    if(!window['pdfjsLib']){
+    var data = reader.result;
+    whenPdfjsReady().catch(function(){
       setStatus('تعذّر تحميل مكتبة قراءة PDF. جرّب لصق النص يدوياً.', 'warn');
-      return;
-    }
-    pdfjsLib.getDocument({data: reader.result}).promise.then(function(pdf){
+      return null;
+    }).then(function(lib){
+      if(!lib) return;
+      readPdf(lib, data);
+    });
+  };
+  reader.onerror = function(){ setStatus('تعذّرت قراءة الملف. جرّب لصق النص يدوياً.', 'warn'); };
+  reader.readAsArrayBuffer(file);
+}
+
+function readPdf(pdfjsLib, data){
+    pdfjsLib.getDocument({data: data}).promise.then(function(pdf){
       var pages = [];
       var pending = Promise.resolve();
       for(var i = 1; i <= pdf.numPages; i++){
@@ -384,15 +430,12 @@ function extractPdf(file){
           });
         })(i);
       }
-      pending.then(function(){
+      return pending.then(function(){
         finishExtract(pages.join('\n\n'));
       });
     }).catch(function(err){
       setStatus('تعذّر قراءة ملف PDF (' + err.message + '). قد يكون الملف صورة ممسوحة ضوئياً — الرجاء لصق النص يدوياً.', 'warn');
     });
-  };
-  reader.onerror = function(){ setStatus('تعذّرت قراءة الملف. جرّب لصق النص يدوياً.', 'warn'); };
-  reader.readAsArrayBuffer(file);
 }
 
 function extractDocx(file){
