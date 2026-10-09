@@ -1,0 +1,32 @@
+# Omar Mashharawi
+
+> Omar Mashharawi (عمر المشهراوي) is a commercial and sales professional in the steel industry in Riyadh, Saudi Arabia: Section Head at Al Rajhi Steel since 2018, after sales roles at Al Musairiey Metallic Industries and Arabian Steel Pipes. Alongside that work he builds software for the steel trade: in-browser weight calculators, an iOS steel section calculator, and notes on how steel is priced and invoiced. The site is in English, with an Arabic version under /ar/.
+
+Everything on this site is stated by Omar himself. The calculators compute weights from section geometry (EN 10365 and EN 10056 dimensions, steel density 7,850 kg/m³); they are nominal figures, and the commercial weight of a delivery falls inside the tolerance band of the governing standard.
+
+## About
+
+- [Home and profile](https://mashharawi.com/): background, experience, skills, projects and contact
+- [Arabic version](https://mashharawi.com/ar/): the same profile in Arabic
+
+## Tools
+
+- [Steel section weight calculator](https://mashharawi.com/tools/steel-sections/): IPE, HEA, HEB, UPN, angles, bars, flats, pipe and tube; weight per metre, per piece and per order, with the commercial tolerance band
+- [Reinforcing steel (rebar) weight calculator](https://mashharawi.com/tools/rebar-weight/): kilograms per metre, per bar and per tonne by diameter, or tonnage back to a number of bars
+- [OpenPDFKit](https://mashharawi.com/tools/openpdfkit/): offline desktop app to merge, split, compress, convert, protect and OCR PDFs
+- [All tools](https://mashharawi.com/tools/)
+
+## Apps
+
+- [Steel Section Calculator for iOS](https://apps.apple.com/us/app/steel-section-calculator/id6815107544): offline, no ads, no login; the same formulas as the web calculator
+
+## Writing
+
+- [Weight tolerance is a commercial term, not a technical one](https://mashharawi.com/writing/weight-tolerance/): why invoiced steel weight differs from the nominal weight
+- [All notes](https://mashharawi.com/writing/) and [RSS feed](https://mashharawi.com/feed.xml)
+
+## Contact
+
+- Email: omar@mashharawi.com
+- [LinkedIn](https://www.linkedin.com/in/mashharawi)
+- [GitHub](https://github.com/UKDean)
