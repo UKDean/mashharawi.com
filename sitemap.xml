@@ -66,6 +66,22 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://mashharawi.com/tools/rebarplan/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/tools/rebarplan/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/tools/rebarplan/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/tools/rebarplan/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mashharawi.com/ar/tools/rebarplan/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/tools/rebarplan/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/tools/rebarplan/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/tools/rebarplan/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://mashharawi.com/tools/openpdfkit/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/tools/openpdfkit/"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/tools/openpdfkit/"/>
