@@ -13,6 +13,7 @@ Everything on this site is stated by Omar himself. The calculators compute weigh
 
 - [Steel section weight calculator](https://mashharawi.com/tools/steel-sections/): IPE, HEA, HEB, UPN, angles, bars, flats, pipe and tube; weight per metre, per piece and per order, with the commercial tolerance band
 - [Reinforcing steel (rebar) weight calculator](https://mashharawi.com/tools/rebar-weight/): kilograms per metre, per bar and per tonne by diameter, or tonnage back to a number of bars
+- [RebarPlan](https://mashharawi.com/tools/rebarplan/): free Windows and macOS app combining a bar bending schedule (BS 8666 or ACI 318 / SBC 304) with an optimised rebar cutting plan from stock bars; Arabic, English and Chinese; open source
 - [OpenPDFKit](https://mashharawi.com/tools/openpdfkit/): offline desktop app to merge, split, compress, convert, protect and OCR PDFs
 - [All tools](https://mashharawi.com/tools/)
 

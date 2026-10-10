@@ -19,6 +19,7 @@ PAIRS = [
     ("/tools/", "/ar/tools/", "0.9", "0.8"),
     ("/tools/rebar-weight/", "/ar/tools/rebar-weight/", "0.9", "0.8"),
     ("/tools/steel-sections/", "/ar/tools/steel-sections/", "0.9", "0.8"),
+    ("/tools/rebarplan/", "/ar/tools/rebarplan/", "0.8", "0.7"),
     ("/tools/openpdfkit/", "/ar/tools/openpdfkit/", "0.8", "0.7"),
     ("/privacy/", "/ar/privacy/", "0.3", "0.3"),
 ]
