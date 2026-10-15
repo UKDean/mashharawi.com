@@ -27,7 +27,7 @@
 <meta property="og:image" content="https://mashharawi.com/og-noir-ar.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="stylesheet" href="/assets/site.css?v=20261015">
+<link rel="stylesheet" href="/assets/site.css?v=20261016">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@200;300;400;500&family=Inter:wght@200..500&display=swap">
@@ -144,7 +144,7 @@
 <body>
 <a class="skip" href="#main">تخطَّ إلى المحتوى</a>
 
-<header class="c-header c-header--solid">
+<header class="c-header">
   <a class="c-header__name" href="/ar/">عمر المشهراوي</a>
   <nav class="c-header__nav" aria-label="الرئيسية">
     <a href="/ar/#about">نبذة</a>
@@ -158,14 +158,19 @@
 </header>
 
 <main id="main">
-  <section id="steelcalc" class="sec" aria-labelledby="sc-h">
-    <div class="wrap">
-      <div class="sec-head">
-        <p class="eyebrow">أداة مباشرة</p>
-        <h1 id="sc-h">وزن قطاعات الحديد، محسوباً داخل الصفحة.</h1>
+  <section class="c-hero c-hero--full c-hero--short" aria-labelledby="sc-h">
+    <img class="c-hero__img" src="/assets/img/rebar-yard-1600.webp" srcset="/assets/img/rebar-yard-800.webp 800w, /assets/img/rebar-yard-1600.webp 1600w, /assets/img/rebar-yard-2560.webp 2560w" sizes="100vw" width="1600" height="873" alt="" fetchpriority="high" decoding="async">
+    <div class="c-hero__shade"></div>
+    <div class="c-hero__body">
+      <div class="c-hero__text">
+        <p class="c-label">الأدوات / II &middot; في المتصفح &middot; مجاناً</p>
+        <h1 class="c-hero__title" id="sc-h">وزن قطاعات الحديد.</h1>
+        <p class="c-hero__lead">الحديد الإنشائي يُطلب بالمقاس ويُفوتر بالكيلو. اختر العائلة ثم المقاس ثم الطول: يظهر الوزن للمتر وللقطعة وللأمر كاملاً. لا يوجد وزن مخزَّن يُستدعى، بل كل رقم محسوب من أبعاد المقطع نفسه. هذه نسخة المتصفح من تطبيقي الذي يعمل بلا إنترنت، وتستخدم نفس الجداول ونفس المعادلات.</p>
       </div>
-
-      <p class="lead" style="margin-bottom:clamp(32px,4vw,48px)">الحديد الإنشائي يُطلب بالمقاس ويُفوتر بالكيلو. اختر العائلة ثم المقاس ثم الطول: يظهر الوزن للمتر وللقطعة وللأمر كاملاً. لا يوجد وزن مخزَّن يُستدعى، بل كل رقم محسوب من أبعاد المقطع نفسه. هذه نسخة المتصفح من تطبيقي الذي يعمل بلا إنترنت، وتستخدم نفس الجداول ونفس المعادلات.</p>
+    </div>
+  </section>
+  <section id="steelcalc" class="sec c-after-hero">
+    <div class="wrap">
 
       <div class="calc rise" id="scalc" data-loading>
 
