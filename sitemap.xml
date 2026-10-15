@@ -143,6 +143,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://mashharawi.com/writing/bars-per-tonne/</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://mashharawi.com/writing/rebar-weight-table/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>yearly</changefreq>
