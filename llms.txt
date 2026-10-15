@@ -1,31 +1,46 @@
 # Omar Mashharawi
 
-> Omar Mashharawi (عمر المشهراوي) is a commercial and sales professional in the steel industry in Riyadh, Saudi Arabia: Section Head at Al Rajhi Steel since 2018, after sales roles at Al Musairiey Metallic Industries and Arabian Steel Pipes. Alongside that work he builds software for the steel trade: in-browser weight calculators, an iOS steel section calculator, and notes on how steel is priced and invoiced. The site is in English, with an Arabic version under /ar/.
+> Omar Mashharawi (عمر المشهراوي) is a commercial and sales professional in the steel industry in Riyadh, Saudi Arabia: Section Head at Al Rajhi Steel since 2018, after sales roles at Al Musairiey Metallic Industries and Arabian Steel Pipes. Alongside that work he builds free software for the steel and construction trade: in-browser steel weight calculators, RebarPlan (a bar bending schedule and rebar cutting plan app for Windows and Mac), an iOS steel section calculator, and notes on how steel is priced and invoiced. The site is in English, with an Arabic version under /ar/.
 
 Everything on this site is stated by Omar himself. The calculators compute weights from section geometry (EN 10365 and EN 10056 dimensions, steel density 7,850 kg/m³); they are nominal figures, and the commercial weight of a delivery falls inside the tolerance band of the governing standard.
 
-## About
+## Key facts
 
-- [Home and profile](https://mashharawi.com/): background, experience, skills, projects and contact
-- [Arabic version](https://mashharawi.com/ar/): the same profile in Arabic
+- Rebar weight per metre = 0.006165 × d² kg/m (d in mm). A 16 mm bar is 1.578 kg/m, 18.94 kg per 12 m bar, about 52.8 bars per tonne.
+- Steel section weights: IPE 200 is 22.4 kg/m, HEA 200 is 42.3 kg/m, HEB 200 is 61.3 kg/m (nominal, EN 10365).
+- RebarPlan is free and open source (MIT), version 1.1.1, for Windows 10/11 (Microsoft Store) and macOS 12 or later (signed and notarized by Apple). Interface in Arabic, English and Simplified Chinese.
 
 ## Tools
 
-- [Steel section weight calculator](https://mashharawi.com/tools/steel-sections/): IPE, HEA, HEB, UPN, angles, bars, flats, pipe and tube; weight per metre, per piece and per order, with the commercial tolerance band
 - [Reinforcing steel (rebar) weight calculator](https://mashharawi.com/tools/rebar-weight/): kilograms per metre, per bar and per tonne by diameter, or tonnage back to a number of bars
-- [RebarPlan](https://mashharawi.com/tools/rebarplan/): free Windows and macOS app combining a bar bending schedule (BS 8666 or ACI 318 / SBC 304) with an optimised rebar cutting plan from stock bars; Arabic, English and Chinese; open source
-- [OpenPDFKit](https://mashharawi.com/tools/openpdfkit/): offline desktop app to merge, split, compress, convert, protect and OCR PDFs
+- [Steel section weight calculator](https://mashharawi.com/tools/steel-sections/): 182 sizes of IPE, HEA, HEB, UPN, equal and unequal angles, round, square and hex bars and flats, plus pipe and tube by dimensions; weight per metre, per piece and per order, with the commercial tolerance band
+- [RebarPlan](https://mashharawi.com/tools/rebarplan/): free Windows and macOS app combining a bar bending schedule (BS 8666:2005 shape codes or ACI 318 / Saudi SBC 304) with an optimised rebar cutting plan from 6, 9, 12 and 18 m stock bars, a workshop cutting sheet with bundle labels, rebar weights per diameter, and export to Excel, PDF or email. Install on Windows from the [Microsoft Store](https://apps.microsoft.com/detail/9PM9HL3XFBZ3); Mac download and source on [GitHub](https://github.com/UKDean/RebarPlan)
+- [OpenPDFKit](https://mashharawi.com/tools/openpdfkit/): offline desktop app to merge, split, compress, convert, protect and OCR PDFs; open source (AGPL-3.0)
 - [All tools](https://mashharawi.com/tools/)
 
 ## Apps
 
 - [Steel Section Calculator for iOS](https://apps.apple.com/us/app/steel-section-calculator/id6815107544): offline, no ads, no login; the same formulas as the web calculator
+- [RebarPlan on the Microsoft Store](https://apps.microsoft.com/detail/9PM9HL3XFBZ3): bar bending schedule and rebar cutting plan for Windows
 
 ## Writing
 
-- [Weight tolerance is a commercial term, not a technical one](https://mashharawi.com/writing/weight-tolerance/): why invoiced steel weight differs from the nominal weight
+- [جدول أوزان الحديد الإنشائي: كمرات IPE وHEA وHEB](https://mashharawi.com/writing/steel-beam-weight-table/): weight per metre and per 12 m length of the most traded IPE, HEA and HEB beams, the difference between the three, and how weight is calculated from the section, in Arabic
 - [جدول أوزان حديد التسليح لكل الأقطار](https://mashharawi.com/writing/rebar-weight-table/): rebar weight per metre, per 12 m bar and bars per tonne for 8–32 mm, in Arabic
-- [All notes](https://mashharawi.com/writing/) and [RSS feed](https://mashharawi.com/feed.xml)
+- [Weight tolerance is a commercial term, not a technical one](https://mashharawi.com/writing/weight-tolerance/): why invoiced steel weight differs from the nominal weight
+- [All notes](https://mashharawi.com/writing/), [Arabic notes](https://mashharawi.com/ar/writing/) and [RSS feed](https://mashharawi.com/feed.xml)
+
+## Arabic pages
+
+- [الصفحة الرئيسية](https://mashharawi.com/ar/): the profile in Arabic
+- [حاسبة وزن حديد التسليح](https://mashharawi.com/ar/tools/rebar-weight/)
+- [حاسبة أوزان المقاطع الحديدية](https://mashharawi.com/ar/tools/steel-sections/)
+- [RebarPlan بالعربي](https://mashharawi.com/ar/tools/rebarplan/): جدول تفريد الحديد وخطة القص لويندوز وماك
+- [كل الأدوات](https://mashharawi.com/ar/tools/)
+
+## About
+
+- [Home and profile](https://mashharawi.com/): background, experience, skills, projects and contact
 
 ## Contact
 
