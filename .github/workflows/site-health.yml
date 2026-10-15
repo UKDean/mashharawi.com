@@ -1,0 +1,89 @@
+name: Site health
+
+# Every day at 10:00 Riyadh (07:00 UTC, an hour after scheduled notes
+# publish): crawl the live site the way search and AI crawlers do, apply the
+# safe fixes, and open a GitHub issue (which emails the owner) if anything
+# is still wrong. The issue closes itself on the next clean run.
+#
+# Safe fixes only: rebuild the notes pages, feed and sitemap when they are out
+# of date, and add missing notes to llms.txt. Anything else is reported, not
+# changed. On Mondays it also re-announces every URL to IndexNow (Bing).
+on:
+  schedule:
+    - cron: '0 7 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: build-notes
+  cancel-in-progress: false
+
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Markdown renderer
+        run: pip install --quiet markdown
+
+      - name: Safe fixes
+        id: fix
+        run: |
+          python3 scripts/build_notes.py
+          python3 scripts/site_health.py --fix-llms
+          # feed.xml always gets a new lastBuildDate, so only commit when
+          # something real changed
+          if git diff --quiet -- writing ar/writing sitemap.xml llms.txt; then
+            git checkout -- feed.xml
+            echo "fixed=" >> "$GITHUB_OUTPUT"
+          else
+            git config user.name  "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add writing ar/writing sitemap.xml feed.xml llms.txt
+            git commit -m "Site health: rebuild notes and llms.txt"
+            git push
+            echo "fixed=yes" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Wait for the fix to deploy
+        if: steps.fix.outputs.fixed == 'yes'
+        run: sleep 120
+
+      - name: Crawl the live site
+        id: crawl
+        continue-on-error: true
+        run: python3 scripts/site_health.py
+
+      - name: Re-announce every URL to IndexNow (Mondays)
+        if: github.event.schedule && steps.crawl.outcome == 'success'
+        run: |
+          if [ "$(date -u +%u)" = "1" ]; then python3 scripts/indexnow.py; else echo "not Monday"; fi
+
+      - name: Open or update the health issue
+        if: steps.crawl.outcome != 'success'
+        run: |
+          n=$(gh issue list --label site-health --state open --json number -q '.[0].number')
+          gh label create site-health --color B60205 --description "Daily site health check" 2>/dev/null || true
+          if [ -n "$n" ]; then
+            gh issue comment "$n" --body-file health-report.md
+          else
+            gh issue create --title "Site health check failed" --label site-health --body-file health-report.md
+          fi
+          exit 1
+
+      - name: Close the health issue when healthy
+        if: steps.crawl.outcome == 'success'
+        run: |
+          for n in $(gh issue list --label site-health --state open --json number -q '.[].number'); do
+            gh issue close "$n" --comment "Healthy again on $(date -u +%F)."
+          done
