@@ -163,12 +163,12 @@ def note_page(n):
           '  "author": { "@type": "Person", "name": "' + AUTHOR + '", "url": "' + SITE + '/" },\n'
           '  "publisher": { "@type": "Person", "name": "' + AUTHOR + '", "url": "' + SITE + '/" }\n'
           '}\n</script>\n')
-    body = f"""  <article class="sec note">
+    body = f"""  <article class="sec note c-note">
     <div class="wrap">
-      <p class="eyebrow">{label} &middot; <time datetime="{n['date']}">{n['date']}</time></p>
-      <h1>{e(n['title'])}</h1>
-      <p class="lead">{e(n['summary'])}</p>
-      <div class="prose">
+      <p class="c-label">{label} &middot; <time datetime="{n['date']}">{n['date']}</time></p>
+      <h1 class="c-note__title">{e(n['title'])}</h1>
+      <p class="c-note__lead">{e(n['summary'])}</p>
+      <div class="prose c-prose">
 {n['body']}
       </div>
       <p class="note-back"><a href="{'/ar/writing/' if n['lang'] == 'ar' else '/writing/'}">{'&rarr;' if n['lang'] == 'ar' else '&larr;'} {alln}</a></p>
@@ -189,18 +189,20 @@ def index_page(notes):
             '            <span class="note-date"><time datetime="' + n["date"] + '">' + n["date"] + '</time></span>\n'
             '            <span class="note-text"><b>' + e(n["title"]) + '</b><span>' + e(n["summary"]) + '</span></span>\n'
             '          </a>\n        </li>' for n in notes)
-        listing = '      <ul class="note-list">\n' + rows + '\n      </ul>'
+        listing = '      <ul class="note-list c-notes">\n' + rows + '\n      </ul>'
         robots = None
     else:
         listing = ('      <p class="muted">The first note has not been published yet. '
                    'Add a Markdown file under <code>notes/</code> and it appears here automatically.</p>')
         robots = "noindex, follow"
-    body = f"""  <section class="sec">
+    body = f"""  <section class="sec c-tool">
     <div class="wrap">
-      <div class="sec-head">
-        <p class="eyebrow">Writing</p>
-        <h1>Notes</h1>
-        <p class="lead">{intro}</p>
+      <div class="c-tool__head">
+        <div>
+          <p class="c-label">Writing</p>
+          <h1 class="c-tool__title">Notes</h1>
+        </div>
+        <p class="c-tool__lead">{intro}</p>
       </div>
 {listing}
       <p class="note-back"><a href="/feed.xml">RSS feed</a> &middot; <a href="https://www.linkedin.com/in/mashharawi" target="_blank" rel="noopener me">LinkedIn</a></p>
@@ -225,14 +227,16 @@ def index_page_ar(notes):
         '            <span class="note-text"><b>' + e(n["title"]) + '</b><span>' + e(n["summary"])
         + ('' if n["lang"] == "ar" else ' <i lang="ar" dir="rtl">(بالإنجليزية)</i>') + '</span></span>\n'
         '          </a>\n        </li>' for n in ordered)
-    body = f"""  <section class="sec">
+    body = f"""  <section class="sec c-tool">
     <div class="wrap">
-      <div class="sec-head">
-        <p class="eyebrow">الكتابة</p>
-        <h1>المقالات</h1>
-        <p class="lead">{intro}</p>
+      <div class="c-tool__head">
+        <div>
+          <p class="c-label">الكتابة</p>
+          <h1 class="c-tool__title">المقالات</h1>
+        </div>
+        <p class="c-tool__lead">{intro}</p>
       </div>
-      <ul class="note-list">
+      <ul class="note-list c-notes">
 {rows}
       </ul>
       <p class="note-back"><a href="/feed.xml">RSS</a> &middot; <a href="https://www.linkedin.com/in/mashharawi" target="_blank" rel="noopener me">LinkedIn</a></p>

@@ -121,46 +121,48 @@
 </header>
 
 <main id="main">
-  <section class="sec" aria-labelledby="t-h">
+  <section class="sec c-tool" aria-labelledby="t-h">
     <div class="wrap">
-      <div class="sec-head">
-        <p class="eyebrow">Tools</p>
-        <h1 id="t-h">Tools.</h1>
-        <p class="lead">Four things I built because the work needed them. Two are calculators that run in this page and keep nothing; the third is a desktop application that keeps your files on your own machine; the fourth is an internal tool for reviewing customer contracts, used with your own ChatGPT or Claude account. All of them are free, and none of them ask for an account on this site.</p>
+      <div class="c-tool__head">
+        <div>
+          <p class="c-label">Tools</p>
+          <h1 class="c-tool__title" id="t-h">Tools.</h1>
+        </div>
+        <p class="c-tool__lead">Four things I built because the work needed them. Two are calculators that run in this page and keep nothing; the third is a desktop application that keeps your files on your own machine; the fourth is an internal tool for reviewing customer contracts, used with your own ChatGPT or Claude account. All of them are free, and none of them ask for an account on this site.</p>
       </div>
 
-      <ul class="note-list rise">
-        <li>
-          <a href="/tools/rebar-weight/">
-            <span class="note-date">In the browser</span>
-            <span class="note-text"><b>Reinforcing steel weight</b><span>Diameter to kilos per metre, per bar and per tonne, and a tonnage back to a number of bars. Nominal weights, with a note on where the tolerance band sits.</span></span>
-          </a>
-        </li>
-        <li>
-          <a href="/tools/steel-sections/">
-            <span class="note-date">In the browser</span>
-            <span class="note-text"><b>Steel section weight</b><span>182 sizes across IPE, HEA, HEB, UPN, angles, bars and flats, plus pipe and tube from entered dimensions. Computed from each section's own geometry, with the commercial band around the nominal figure.</span></span>
-          </a>
-        </li>
-        <li>
-          <a href="/tools/rebarplan/">
-            <span class="note-date">Desktop app · Windows and Mac</span>
-            <span class="note-text"><b>RebarPlan</b><span>Bar bending schedule and cutting plan in one program: cut lengths to BS 8666 or ACI / SBC 304, weight per diameter, and the fewest 12&nbsp;m bars to cut the job from. Arabic, English and Chinese; free and open source.</span></span>
-          </a>
-        </li>
-        <li>
-          <a href="/tools/openpdfkit/">
-            <span class="note-date">Desktop app</span>
-            <span class="note-text"><b>OpenPDFKit</b><span>Thirteen everyday PDF tools, merge to OCR, running entirely offline on Windows and macOS. Open source, and nothing is uploaded anywhere.</span></span>
-          </a>
-        </li>
-        <li>
-          <a href="/contract-check/">
-            <span class="note-date">Internal tool · Sales team</span>
-            <span class="note-text"><b>Contract Risk Checker</b><span>Extracts a customer's contract or PO text in the browser and prepares a ready-to-paste analysis against our standard commercial terms, for your own ChatGPT or Claude account. Arabic interface and report.</span></span>
-          </a>
-        </li>
-      </ul>
+      <div class="c-rows">
+        <a class="c-row" href="/tools/rebar-weight/">
+          <span class="c-row__num" aria-hidden="true">I</span>
+          <span><span class="c-label c-row__meta">In the browser</span><span class="c-row__title">Reinforcing steel weight</span>
+          <span class="c-row__desc">Diameter to kilos per metre, per bar and per tonne, and a tonnage back to a number of bars. Nominal weights, with a note on where the tolerance band sits.</span></span>
+          <span class="c-row__thumb"><img src="/assets/img/rebar-bundle-800.webp" width="800" height="447" alt="" loading="lazy" decoding="async"></span>
+        </a>
+        <a class="c-row" href="/tools/steel-sections/">
+          <span class="c-row__num" aria-hidden="true">II</span>
+          <span><span class="c-label c-row__meta">In the browser</span><span class="c-row__title">Steel section weight</span>
+          <span class="c-row__desc">182 sizes across IPE, HEA, HEB, UPN, angles, bars and flats, plus pipe and tube from entered dimensions. Computed from each section's own geometry, with the commercial band around the nominal figure.</span></span>
+          <span class="c-row__thumb"><img src="/assets/img/rebar-yard-800.webp" width="800" height="436" alt="" loading="lazy" decoding="async"></span>
+        </a>
+        <a class="c-row" href="/tools/rebarplan/">
+          <span class="c-row__num" aria-hidden="true">III</span>
+          <span><span class="c-label c-row__meta">Desktop app · Windows and Mac</span><span class="c-row__title c-latin">RebarPlan</span>
+          <span class="c-row__desc">Bar bending schedule and cutting plan in one program: cut lengths to BS 8666 or ACI / SBC 304, weight per diameter, and the fewest 12&nbsp;m bars to cut the job from. Arabic, English and Chinese; free and open source.</span></span>
+          <span class="c-row__thumb"><img src="/assets/img/rebar-bending-800.webp" width="800" height="436" alt="" loading="lazy" decoding="async"></span>
+        </a>
+        <a class="c-row" href="/tools/openpdfkit/">
+          <span class="c-row__num" aria-hidden="true">IV</span>
+          <span><span class="c-label c-row__meta">Desktop app</span><span class="c-row__title c-latin">OpenPDFKit</span>
+          <span class="c-row__desc">Thirteen everyday PDF tools, merge to OCR, running entirely offline on Windows and macOS. Open source, and nothing is uploaded anywhere.</span></span>
+          <span></span>
+        </a>
+        <a class="c-row" href="/contract-check/">
+          <span class="c-row__num" aria-hidden="true">V</span>
+          <span><span class="c-label c-row__meta">Internal tool · Sales team</span><span class="c-row__title">Contract Risk Checker</span>
+          <span class="c-row__desc">Extracts a customer's contract or PO text in the browser and prepares a ready-to-paste analysis against our standard commercial terms, for your own ChatGPT or Claude account. Arabic interface and report.</span></span>
+          <span></span>
+        </a>
+      </div>
 
       <p class="note-back">The mobile version of the section calculator is an app of its own, <a href="https://apps.apple.com/us/app/steel-section-calculator/id6815107544" target="_blank" rel="noopener">on the App&nbsp;Store</a> &mdash; <a href="/steelcalc/support.html">support</a> and <a href="/steelcalc/privacy.html">privacy</a>. Source for everything is on <a href="https://github.com/UKDean" target="_blank" rel="noopener me">GitHub</a>.</p>
     </div>

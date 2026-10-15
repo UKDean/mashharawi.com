@@ -121,46 +121,48 @@
 </header>
 
 <main id="main">
-  <section class="sec" aria-labelledby="t-h">
+  <section class="sec c-tool" aria-labelledby="t-h">
     <div class="wrap">
-      <div class="sec-head">
-        <p class="eyebrow">الأدوات</p>
-        <h1 id="t-h">الأدوات.</h1>
-        <p class="lead">أربعة أشياء بنيتها لأن العمل احتاجها. اثنتان حاسبتان تعملان داخل الصفحة ولا تحفظان شيئاً، والثالثة تطبيق سطح مكتب يُبقي ملفاتك على جهازك، والرابعة أداة داخلية لمراجعة عقود العملاء تُستخدم مع حسابك الشخصي على ChatGPT أو Claude. جميعها مجانية، ولا تطلب أي حساب على هذا الموقع.</p>
+      <div class="c-tool__head">
+        <div>
+          <p class="c-label">الأدوات</p>
+          <h1 class="c-tool__title" id="t-h">الأدوات.</h1>
+        </div>
+        <p class="c-tool__lead">أربعة أشياء بنيتها لأن العمل احتاجها. اثنتان حاسبتان تعملان داخل الصفحة ولا تحفظان شيئاً، والثالثة تطبيق سطح مكتب يُبقي ملفاتك على جهازك، والرابعة أداة داخلية لمراجعة عقود العملاء تُستخدم مع حسابك الشخصي على ChatGPT أو Claude. جميعها مجانية، ولا تطلب أي حساب على هذا الموقع.</p>
       </div>
 
-      <ul class="note-list rise">
-        <li>
-          <a href="/ar/tools/rebar-weight/">
-            <span class="note-date">في المتصفح</span>
-            <span class="note-text"><b>وزن حديد التسليح</b><span>من القطر إلى الكيلو للمتر وللسيخ وللطن، ومن التوريد بالطن إلى عدد الأسياخ. أوزان اسمية، مع إشارة إلى موضع نطاق السماحية.</span></span>
-          </a>
-        </li>
-        <li>
-          <a href="/ar/tools/steel-sections/">
-            <span class="note-date">في المتصفح</span>
-            <span class="note-text"><b>وزن قطاعات الحديد</b><span>182 مقاساً بين IPE و HEA و HEB و UPN والزوايا والقضبان والمسطح، إضافة إلى المواسير والتيوب بإدخال الأبعاد. محسوبة من هندسة كل مقطع، مع النطاق التجاري حول الوزن الاسمي.</span></span>
-          </a>
-        </li>
-        <li>
-          <a href="/ar/tools/rebarplan/">
-            <span class="note-date">تطبيق سطح مكتب · ويندوز وماك</span>
-            <span class="note-text"><b>RebarPlan</b><span>جدول التفريد وخطة القص في برنامج واحد: أطوال القص حسب BS 8666 أو ACI والكود السعودي، والوزن لكل قطر، وأقل عدد من أسياخ 12&nbsp;م لقص المشروع. بالعربية والإنجليزية والصينية، مجاني ومفتوح المصدر.</span></span>
-          </a>
-        </li>
-        <li>
-          <a href="/ar/tools/openpdfkit/">
-            <span class="note-date">تطبيق سطح مكتب</span>
-            <span class="note-text"><b>OpenPDFKit</b><span>ثلاث عشرة أداة PDF يومية، من الدمج إلى OCR، تعمل بلا إنترنت على ويندوز وماك. مفتوحة المصدر، ولا يُرفع أي ملف إلى أي خادم.</span></span>
-          </a>
-        </li>
-        <li>
-          <a href="/contract-check/">
-            <span class="note-date">أداة داخلية · فريق المبيعات</span>
-            <span class="note-text"><b>كاشف العقود</b><span>يستخرج نص عقد أو طلب شراء العميل داخل المتصفح، ويجهّز تحليلاً جاهزاً مقابل شروطنا التجارية القياسية تلصقه في حسابك الشخصي على ChatGPT أو Claude.</span></span>
-          </a>
-        </li>
-      </ul>
+      <div class="c-rows">
+        <a class="c-row" href="/ar/tools/rebar-weight/">
+          <span class="c-row__num" aria-hidden="true">I</span>
+          <span><span class="c-label c-row__meta">في المتصفح</span><span class="c-row__title">وزن حديد التسليح</span>
+          <span class="c-row__desc">من القطر إلى الكيلو للمتر وللسيخ وللطن، ومن التوريد بالطن إلى عدد الأسياخ. أوزان اسمية، مع إشارة إلى موضع نطاق السماحية.</span></span>
+          <span class="c-row__thumb"><img src="/assets/img/rebar-bundle-800.webp" width="800" height="447" alt="" loading="lazy" decoding="async"></span>
+        </a>
+        <a class="c-row" href="/ar/tools/steel-sections/">
+          <span class="c-row__num" aria-hidden="true">II</span>
+          <span><span class="c-label c-row__meta">في المتصفح</span><span class="c-row__title">وزن قطاعات الحديد</span>
+          <span class="c-row__desc">182 مقاساً بين IPE و HEA و HEB و UPN والزوايا والقضبان والمسطح، إضافة إلى المواسير والتيوب بإدخال الأبعاد. محسوبة من هندسة كل مقطع، مع النطاق التجاري حول الوزن الاسمي.</span></span>
+          <span class="c-row__thumb"><img src="/assets/img/rebar-yard-800.webp" width="800" height="436" alt="" loading="lazy" decoding="async"></span>
+        </a>
+        <a class="c-row" href="/ar/tools/rebarplan/">
+          <span class="c-row__num" aria-hidden="true">III</span>
+          <span><span class="c-label c-row__meta">تطبيق سطح مكتب · ويندوز وماك</span><span class="c-row__title c-latin">RebarPlan</span>
+          <span class="c-row__desc">جدول التفريد وخطة القص في برنامج واحد: أطوال القص حسب BS 8666 أو ACI والكود السعودي، والوزن لكل قطر، وأقل عدد من أسياخ 12&nbsp;م لقص المشروع. بالعربية والإنجليزية والصينية، مجاني ومفتوح المصدر.</span></span>
+          <span class="c-row__thumb"><img src="/assets/img/rebar-bending-800.webp" width="800" height="436" alt="" loading="lazy" decoding="async"></span>
+        </a>
+        <a class="c-row" href="/ar/tools/openpdfkit/">
+          <span class="c-row__num" aria-hidden="true">IV</span>
+          <span><span class="c-label c-row__meta">تطبيق سطح مكتب</span><span class="c-row__title c-latin">OpenPDFKit</span>
+          <span class="c-row__desc">ثلاث عشرة أداة PDF يومية، من الدمج إلى OCR، تعمل بلا إنترنت على ويندوز وماك. مفتوحة المصدر، ولا يُرفع أي ملف إلى أي خادم.</span></span>
+          <span></span>
+        </a>
+        <a class="c-row" href="/contract-check/">
+          <span class="c-row__num" aria-hidden="true">V</span>
+          <span><span class="c-label c-row__meta">أداة داخلية · فريق المبيعات</span><span class="c-row__title">كاشف العقود</span>
+          <span class="c-row__desc">يستخرج نص عقد أو طلب شراء العميل داخل المتصفح، ويجهّز تحليلاً جاهزاً مقابل شروطنا التجارية القياسية تلصقه في حسابك الشخصي على ChatGPT أو Claude.</span></span>
+          <span></span>
+        </a>
+      </div>
 
       <p class="note-back">النسخة المحمولة من حاسبة القطاعات تطبيق مستقل، <a href="https://apps.apple.com/us/app/steel-section-calculator/id6815107544" target="_blank" rel="noopener">متاح على App&nbsp;Store</a> &mdash; <a href="/steelcalc/support.html">الدعم</a> و <a href="/steelcalc/privacy.html">الخصوصية</a>. المصدر كاملاً على <a href="https://github.com/UKDean" target="_blank" rel="noopener me">GitHub</a>.</p>
     </div>
