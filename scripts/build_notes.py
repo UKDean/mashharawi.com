@@ -28,10 +28,10 @@ PAIRS = [
 SINGLES = [
     ("/contract-check/", "0.5"),
 ]
-F_EN = ('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400'
-        '&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">')
-F_AR = F_EN + ('\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700'
-               '&family=IBM+Plex+Sans+Arabic:wght@300;400;500&display=swap">')
+F_EN = ('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200..500'
+        '&display=swap">')
+F_AR = ('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@200;300;400;500'
+        '&family=Inter:wght@200..500&display=swap">')
 
 
 def parse(path):
