@@ -1,0 +1,88 @@
+name: Publish scheduled notes
+
+# Every morning at 09:00 Riyadh (06:00 UTC), publish any note in
+# notes/scheduled/ whose date has come: move it into notes/, rebuild the
+# writing pages, feed and sitemap, push, then tell IndexNow. Zapier picks the
+# new feed item up and posts it to LinkedIn.
+#
+# A push made with GITHUB_TOKEN does not start other workflows, so this job
+# builds the notes itself instead of relying on "Build notes".
+#
+# Run it by hand from the Actions tab to test: set "as_of" to a future date
+# and keep "dry_run" on to see what would publish without changing anything.
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+    inputs:
+      as_of:
+        description: 'Pretend today is this date (YYYY-MM-DD). Empty = today in Riyadh.'
+        required: false
+        default: ''
+      dry_run:
+        description: 'Build but do not commit or push'
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-notes
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Markdown renderer
+        run: pip install --quiet markdown
+
+      - name: Move due notes out of the queue
+        id: due
+        env:
+          AS_OF: ${{ inputs.as_of }}
+        run: |
+          if [ -n "$AS_OF" ]; then out=$(python3 scripts/publish_scheduled.py --as-of "$AS_OF"); else out=$(python3 scripts/publish_scheduled.py); fi
+          echo "$out"
+          slugs=$(echo "$out" | sed -n 's|^notes/[0-9-]\{11\}\(.*\)\.md$|\1|p' | tr '\n' ' ')
+          echo "slugs=$slugs" >> "$GITHUB_OUTPUT"
+
+      - name: Build notes, feed and sitemap
+        if: steps.due.outputs.slugs != ''
+        run: python3 scripts/build_notes.py
+
+      - name: Show what would publish
+        if: steps.due.outputs.slugs != ''
+        run: |
+          git status --short
+          for s in ${{ steps.due.outputs.slugs }}; do test -f "writing/$s/index.html" && echo "built writing/$s/"; done
+
+      - name: Commit and push
+        if: steps.due.outputs.slugs != '' && inputs.dry_run != true
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add notes writing feed.xml sitemap.xml llms.txt
+          git commit -m "Publish scheduled note: ${{ steps.due.outputs.slugs }}"
+          git push
+
+      - name: Tell IndexNow (Bing) once the deploy is live
+        if: steps.due.outputs.slugs != '' && inputs.dry_run != true
+        run: |
+          urls="https://mashharawi.com/writing/ https://mashharawi.com/ar/writing/ https://mashharawi.com/llms.txt"
+          for s in ${{ steps.due.outputs.slugs }}; do
+            u="https://mashharawi.com/writing/$s/"
+            for i in $(seq 1 30); do
+              [ "$(curl -s -o /dev/null -w '%{http_code}' "$u?cb=$RANDOM")" = 200 ] && break
+              sleep 10
+            done
+            urls="$u $urls"
+          done
+          python3 scripts/indexnow.py $urls
