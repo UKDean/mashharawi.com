@@ -27,10 +27,11 @@
 <meta property="og:image" content="https://mashharawi.com/og-noir-ar.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="stylesheet" href="/assets/site.css?v=20261011">
+<link rel="stylesheet" href="/assets/site.css?v=20261015">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@200;300;400;500&family=Inter:wght@200..500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500&display=swap">
 
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,51 +42,67 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/cdn-cgi/*"}}]},"eagerness":"moderate"}]}</script>
 </head>
-<body>
+<body class="has-sticky-dl">
 <a class="skip" href="#main">تخطَّ إلى المحتوى</a>
 
-<header>
-  <div class="wrap bar">
-    <a class="brand" href="/ar/"><img class="brand-mark" src="/assets/logo-mark.png" alt="" width="26" height="26">عمر المشهراوي<span>.</span></a>
-    <nav aria-label="القائمة الرئيسية"><ul>
-      <li><a href="/ar/">الموقع</a></li>
-      <li><a href="/ar/tools/">الأدوات</a></li>
-    </ul></nav>
-    <a class="lang-switch" href="/tools/rebarplan/" hreflang="en" lang="en" aria-label="View this page in English">English</a>
-  </div>
+<header class="c-header">
+  <a class="c-header__name" href="/ar/">عمر المشهراوي</a>
+  <nav class="c-header__nav" aria-label="الرئيسية">
+    <a href="/ar/#about">نبذة</a>
+    <a href="/ar/#experience">الخبرة</a>
+    <a href="/ar/tools/" aria-current="page">الأدوات</a>
+    <a href="/ar/writing/">المقالات</a>
+    <a href="/ar/#contact">تواصل</a>
+    <a href="/tools/rebarplan/" hreflang="en" lang="en" class="c-header__lang">English</a>
+  </nav>
+  <button class="c-header__menu" type="button" aria-label="القائمة" aria-expanded="false"><span></span><span></span></button>
 </header>
 
 <main id="main">
-  <section class="sec" aria-labelledby="r-h">
-    <div class="wrap">
-      <div class="sec-head">
-        <p class="eyebrow">تطبيق سطح مكتب &middot; ويندوز وماك &middot; عربي، English، 简体中文</p>
-        <h1 id="r-h">RebarPlan.</h1>
-        <p class="lead">جدول تفريد الحديد وخطة القص في برنامج واحد. أدخل العلامات أو استوردها من Excel، فيحسب RebarPlan أطوال القص والوزن لكل قطر، وأفضل طريقة لقص المشروع من أسياخ 12&nbsp;م بأقل هدر. مجاني، يعمل بدون إنترنت، ومفتوح المصدر.</p>
+  <section class="c-hero c-hero--full" aria-labelledby="r-h">
+    <img class="c-hero__img" src="/assets/img/rebar-bending-1600.webp" srcset="/assets/img/rebar-bending-800.webp 800w, /assets/img/rebar-bending-1600.webp 1600w, /assets/img/rebar-bending-2560.webp 2560w" sizes="100vw" width="1600" height="873" alt="عامل يثني سيخ حديد على ماكينة الثني" fetchpriority="high" decoding="async">
+    <div class="c-hero__shade"></div>
+    <div class="c-hero__body">
+      <div class="c-hero__text">
+        <p class="c-label">الأدوات / <span class="c-latin">RebarPlan</span> &middot; ويندوز وماك &middot; مجاني ومفتوح المصدر</p>
+        <h1 class="c-hero__title c-hero__title--app" id="r-h">RebarPlan</h1>
+        <p class="c-hero__lead">جدول تفريد الحديد، وخطة قص بأقل هدر، وورقة الورشة، في تطبيق واحد لسطح المكتب. بالعربية والإنجليزية والصينية المبسطة.</p>
       </div>
-      <p style="margin-top:24px"><a href="https://apps.microsoft.com/detail/9PM9HL3XFBZ3?mode=direct" target="_blank" rel="noopener" aria-label="حمّل RebarPlan من متجر مايكروسوفت"><img src="/assets/badges/microsoft-store-ar.svg" width="161" height="44" alt="احصل عليه من Microsoft" style="height:44px;width:auto;display:block"></a></p>
-      <div class="cta-row rise">
-        <a class="btn" href="https://github.com/UKDean/RebarPlan/releases/download/v1.1.1/RebarPlan_1.1.1_universal.dmg" download>تحميل للماك</a>
-        <a class="btn ghost" href="https://github.com/UKDean/RebarPlan" target="_blank" rel="noopener">الكود المصدري</a>
-      </div>
-      <p class="note-back" style="margin-top:14px">ويندوز 10/11: ثبّته من متجر مايكروسوفت مجاناً، مع تحديثات تلقائية وبدون أي تنبيه أمني. ماك: الإصدار <b>1.1.1</b> لماك 12 أو أحدث، لأجهزة Apple silicon وIntel (4.3&nbsp;ميجا)، وهو موقّع وموثّق من Apple. يُثبَّت كتطبيق عادي على جهازك بأيقونته الخاصة. ملف التثبيت المباشر لويندوز ما زال متاحاً في <a href="https://github.com/UKDean/RebarPlan/releases" target="_blank" rel="noopener">كل الإصدارات</a>.</p>
-      <p class="rise" style="margin-top:28px"><img src="/ar/tools/rebarplan/screen-ar.jpg" width="1440" height="900" alt="RebarPlan يعرض أنماط القص لكل قطر" loading="lazy" style="width:100%;height:auto;border:1px solid var(--line, #2a2a2a);border-radius:10px"></p>
     </div>
   </section>
 
-  <section class="sec" aria-labelledby="r-what">
-    <div class="wrap">
-      <div class="sec-head"><h2 id="r-what">ماذا يفعل.</h2></div>
-      <ul class="note-list rise">
-        <li class="note-static"><span class="note-date">التفريد</span><span class="note-text"><b>طول القص حسب الشكل</b><span>أشكال BS 8666:2005 (00 و11 و21 و51)، أو ACI 318 والكود السعودي SBC 304 بأبعاد من الخارج للخارج. ينبّه إذا كان أي ضلع أقصر من الحد الأدنى في BS 8666.</span></span></li>
-        <li class="note-static"><span class="note-date">التفريد</span><span class="note-text"><b>الوزن لكل قطر</b><span>عدد القطع والأمتار والكيلوجرامات لكل قطر، بكثافة 7,850 كجم/م³.</span></span></li>
-        <li class="note-static"><span class="note-date">القص</span><span class="note-text"><b>أقل عدد من الأسياخ</b><span>أنماط قص لكل قطر من أسياخ 12&nbsp;م أو خليط من 6 و9 و12 و18&nbsp;م. مختبَر ألا يزيد عن الحد الأدنى النظري بأكثر من سيخ واحد.</span></span></li>
-        <li class="note-static"><span class="note-date">التكلفة</span><span class="note-text"><b>الوفر بالريال</b><span>أدخل سعر الطن لترى تكلفة الحديد، وكم وفّرت خطة القص مقارنة بقص كل علامة وحدها.</span></span></li>
-        <li class="note-static"><span class="note-date">الموقع</span><span class="note-text"><b>ورقة الورشة والملصقات</b><span>قائمة قص جاهزة للطباعة لعامل القص، وملصق لكل حزمة.</span></span></li>
-        <li class="note-static"><span class="note-date">الأوزان</span><span class="note-text"><b>أوزان الحديد</b><span>جديد في الإصدار 1.1: الوزن لكل متر وللسيخ وللطلبية لكل قطر، وعدد الأسياخ في الطن، وقائمة أوزان تأخذ جدول التفريد كاملاً وتُصدَّر إلى Excel.</span></span></li>
-        <li class="note-static"><span class="note-date">التصدير</span><span class="note-text"><b>Excel أو PDF أو إيميل</b><span>صدّر الجدول والخطة إلى Excel، أو احفظ التقرير PDF، أو افتح رسالة جديدة والملف مرفق.</span></span></li>
-      </ul>
+  <div class="c-section c-downloads">
+    <div class="c-downloads__grid">
+      <div class="c-dl">
+        <p class="c-label">ويندوز</p>
+        <a href="https://apps.microsoft.com/detail/9PM9HL3XFBZ3?mode=direct" target="_blank" rel="noopener" aria-label="حمّل RebarPlan من متجر مايكروسوفت"><img src="/assets/badges/microsoft-store-ar.svg" width="161" height="52" alt="احصل عليه من Microsoft" style="height:52px;width:auto"></a>
+        <p class="c-dl__note">يُثبَّت ويتحدّث من متجر مايكروسوفت. ويندوز 10 و11.</p>
+      </div>
+      <div class="c-dl">
+        <p class="c-label">ماك</p>
+        <a class="c-btn" href="https://github.com/UKDean/RebarPlan/releases/download/v1.1.1/RebarPlan_1.1.1_universal.dmg" download>تحميل لنظام ماك <small>.dmg &middot; 1.1.1</small></a>
+        <p class="c-dl__note">الإصدار 1.1.1 لماك 12 أو أحدث، لأجهزة Apple silicon وIntel. موقّع وموثّق من Apple.</p>
+      </div>
+      <div class="c-dl">
+        <p class="c-label">الكود المصدري</p>
+        <a class="c-dl__repo" href="https://github.com/UKDean/RebarPlan" target="_blank" rel="noopener">github.com/UKDean/RebarPlan</a>
+        <a class="c-link" href="https://github.com/UKDean/RebarPlan/releases" target="_blank" rel="noopener">كل الإصدارات على GitHub &larr;</a>
+      </div>
     </div>
+  </div>
+
+  <section class="c-section" aria-labelledby="r-what">
+    <p class="c-label">ماذا يفعل</p>
+    <h2 class="c-h2" id="r-what" style="margin-top:12px">من المخطط <em>إلى ماكينة الثني.</em></h2>
+    <div class="c-features">
+      <div class="c-feature"><span class="c-row__num" aria-hidden="true">I</span><h3>جدول تفريد الحديد</h3><p>العناصر والأشكال والأطوال والكميات في جدول واحد.</p></div>
+      <div class="c-feature"><span class="c-row__num" aria-hidden="true">II</span><h3>خطة القص</h3><p>ترتيب القص بأقل هدر من الأسياخ المتاحة.</p></div>
+      <div class="c-feature"><span class="c-row__num" aria-hidden="true">III</span><h3>ورقة الورشة والملصقات</h3><p>أوراق للطباعة في الورشة وملصقات للحزم.</p></div>
+      <div class="c-feature"><span class="c-row__num" aria-hidden="true">IV</span><h3>أوزان الحديد</h3><p>الوزن حسب القطر وللجدول كاملاً.</p></div>
+      <div class="c-feature"><span class="c-row__num" aria-hidden="true">V</span><h3>التصدير</h3><p>إلى Excel أو PDF أو مباشرة بالبريد.</p></div>
+      <div class="c-feature"><span class="c-row__num" aria-hidden="true">VI</span><h3>ثلاث لغات</h3><p>العربية والإنجليزية والصينية المبسطة.</p></div>
+    </div>
+    <figure class="c-shot"><img src="/ar/tools/rebarplan/screen-ar.jpg" width="1440" height="900" alt="RebarPlan يعرض أنماط القص لكل قطر" loading="lazy" decoding="async"></figure>
   </section>
 
   <section class="sec" aria-labelledby="r-priv">
@@ -99,12 +116,21 @@
   </section>
 </main>
 
-<footer>
-  <div class="wrap bar">
-    <span>&copy; <span id="yr">2026</span> عمر المشهراوي &middot; mashharawi.com</span>
-    <span><a class="lang" href="/ar/privacy/">الخصوصية</a> &middot; <a class="lang" href="/tools/rebarplan/" hreflang="en" lang="en">English</a> &middot; <a class="lang" href="/ar/">العودة إلى الموقع</a></span>
+<footer class="c-footer">
+  <div class="c-footer__quote">
+    <p>مجاني، مفتوح المصدر، ومبني من خبرة 15 عاماً في طلبيات الحديد.</p>
+    <a class="c-label" href="/ar/tools/">كل الأدوات ←</a>
+  </div>
+  <div class="c-footer__base">
+    <span>&copy; <span id="yr">2026</span> عمر المشهراوي</span>
+    <a href="mailto:info@mashharawi.com">info@mashharawi.com</a>
+    <a href="/ar/privacy/">الخصوصية</a>
   </div>
 </footer>
-<script src="/assets/site.js?v=20261009" defer></script>
+<nav class="c-sticky-dl" aria-label="التحميل">
+  <a href="https://apps.microsoft.com/detail/9PM9HL3XFBZ3?mode=direct" target="_blank" rel="noopener">ويندوز</a>
+  <a href="https://github.com/UKDean/RebarPlan/releases/download/v1.1.1/RebarPlan_1.1.1_universal.dmg" download>ماك</a>
+</nav>
+<script src="/assets/site.js?v=20261015" defer></script>
 </body>
 </html>

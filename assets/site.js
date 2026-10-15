@@ -16,6 +16,18 @@
     });
   }
 
+  // mobile menu, cinema header
+  document.querySelectorAll('.c-header__menu').forEach(function(b){
+    var h = b.closest('.c-header');
+    b.addEventListener('click', function(){
+      var open = h.classList.toggle('is-open');
+      b.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    h.addEventListener('click', function(e){
+      if(e.target.tagName === 'A'){ h.classList.remove('is-open'); b.setAttribute('aria-expanded','false'); }
+    });
+  });
+
   // scroll reveal
   var items = document.querySelectorAll('.rise');
   if(reduce || !('IntersectionObserver' in window)){

@@ -28,10 +28,10 @@ PAIRS = [
 SINGLES = [
     ("/contract-check/", "0.5"),
 ]
-F_EN = ('<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200..500'
-        '&display=swap" rel="stylesheet">')
-F_AR = ('<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@200;300;400;500'
-        '&family=Inter:wght@200..500&display=swap" rel="stylesheet">')
+F_EN = ('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400'
+        '&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">')
+F_AR = F_EN + ('\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700'
+               '&family=IBM+Plex+Sans+Arabic:wght@300;400;500&display=swap">')
 
 
 def parse(path):
@@ -68,14 +68,23 @@ def shell(lang, d, title, desc, canon, body, head="", robots=None, fonts=None):
     e = html.escape
     f = fonts or (F_AR if lang == "ar" else F_EN)
     home = "/ar/" if lang == "ar" else "/"
-    back = "العودة إلى الموقع" if lang == "ar" else "Back to the site"
-    alln = "كل المقالات" if lang == "ar" else "All notes"
     skip = "تخطَّ إلى المحتوى" if lang == "ar" else "Skip to content"
-    brand = "عمر المشهراوي" if lang == "ar" else "OMAR MASHHARAWI"
-    site = "الموقع" if lang == "ar" else "Site"
-    tools = "/ar/tools/" if lang == "ar" else "/tools/"
-    toolsl = "الأدوات" if lang == "ar" else "Tools"
+    brand = "عمر المشهراوي" if lang == "ar" else "Omar Mashharawi"
     writing = "/ar/writing/" if lang == "ar" else "/writing/"
+    navl = "الرئيسية" if lang == "ar" else "Main"
+    menul = "القائمة" if lang == "ar" else "Menu"
+    quote = ("ملاحظات عن الأوزان والسماحيات وما يصل إلى الفاتورة." if lang == "ar"
+             else "Notes on weights, tolerances and what ends up on the invoice.")
+    more = "كل المقالات ←" if lang == "ar" else "All writing &rarr;"
+    if lang == "ar":
+        items = [("نبذة", "/ar/#about", ""), ("الخبرة", "/ar/#experience", ""), ("الأدوات", "/ar/tools/", ""),
+                 ("المقالات", "/ar/writing/", ' aria-current="page"'), ("تواصل", "/ar/#contact", "")]
+        lang_link = '<a href="/" hreflang="en" lang="en" class="c-header__lang">English</a>'
+    else:
+        items = [("About", "/#about", ""), ("Experience", "/#experience", ""), ("Tools", "/tools/", ""),
+                 ("Writing", "/writing/", ' aria-current="page"'), ("Contact", "/#contact", "")]
+        lang_link = '<a href="/ar/" hreflang="ar" lang="ar" class="c-header__lang">العربية</a>'
+    nav = "\n    ".join('<a href="' + h + '"' + c + '>' + t + '</a>' for t, h, c in items) + "\n    " + lang_link
     rob = '<meta name="robots" content="' + robots + '">' if robots else ""
     return f"""<!DOCTYPE html>
 <html lang="{lang}" dir="{d}">
@@ -96,7 +105,7 @@ def shell(lang, d, title, desc, canon, body, head="", robots=None, fonts=None):
 <meta property="og:image" content="{SITE}/og-noir{'-ar' if lang == 'ar' else ''}.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="alternate" type="application/rss+xml" title="{AUTHOR} notes" href="{SITE}/feed.xml">
-<link rel="stylesheet" href="/assets/site.css?v=20261011">
+<link rel="stylesheet" href="/assets/site.css?v=20261015">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 {f}
@@ -108,26 +117,28 @@ def shell(lang, d, title, desc, canon, body, head="", robots=None, fonts=None):
 </head>
 <body>
 <a class="skip" href="#main">{skip}</a>
-<header>
-  <div class="wrap bar">
-    <a class="brand" href="{home}"><img class="brand-mark" src="/assets/logo-mark.png" alt="" width="26" height="26">{brand}<span>.</span></a>
-    <nav aria-label="Primary"><ul>
-      <li><a href="{home}">{site}</a></li>
-      <li><a href="{tools}">{toolsl}</a></li>
-      <li><a href="{writing}">{alln}</a></li>
-      <li><a href="/feed.xml">RSS</a></li>
-    </ul></nav>
-  </div>
+<header class="c-header c-header--solid">
+  <a class="c-header__name" href="{home}">{brand}</a>
+  <nav class="c-header__nav" aria-label="{navl}">
+    {nav}
+  </nav>
+  <button class="c-header__menu" type="button" aria-label="{menul}" aria-expanded="false"><span></span><span></span></button>
 </header>
 <main id="main">
 {body}
 </main>
-<footer>
-  <div class="wrap bar">
-    <span>&copy; {datetime.date.today().year} {AUTHOR} &middot; mashharawi.com</span>
-    <span><a class="lang" href="{'/ar/privacy/' if lang == 'ar' else '/privacy/'}">{'الخصوصية' if lang == 'ar' else 'Privacy'}</a> &middot; <a class="lang" href="{home}">{back}</a></span>
+<footer class="c-footer">
+  <div class="c-footer__quote">
+    <p>{quote}</p>
+    <a class="c-label" href="{writing}">{more}</a>
+  </div>
+  <div class="c-footer__base">
+    <span>&copy; <span id="yr">{datetime.date.today().year}</span> {brand}</span>
+    <a href="mailto:info@mashharawi.com">info@mashharawi.com</a>
+    <a href="{'/ar/privacy/' if lang == 'ar' else '/privacy/'}">{'الخصوصية' if lang == 'ar' else 'Privacy'}</a>
   </div>
 </footer>
+<script src="/assets/site.js?v=20261015" defer></script>
 </body>
 </html>
 """
@@ -195,7 +206,7 @@ def index_page(notes):
       <p class="note-back"><a href="/feed.xml">RSS feed</a> &middot; <a href="https://www.linkedin.com/in/mashharawi" target="_blank" rel="noopener me">LinkedIn</a></p>
     </div>
   </section>"""
-    fonts = F_EN + "\n" + F_AR if any(n["lang"] == "ar" for n in notes) else F_EN
+    fonts = F_AR if any(n["lang"] == "ar" for n in notes) else F_EN
     return shell("en", "ltr", "Notes — " + AUTHOR,
                  "Notes on commercial steel, software and automation by Omar Mashharawi.",
                  SITE + "/writing/", body, robots=robots, fonts=fonts)

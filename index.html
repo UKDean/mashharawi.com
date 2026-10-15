@@ -43,11 +43,11 @@
 <meta name="twitter:image:alt" content="Omar Mashharawi, commercial steel, software and AI.">
 
 <link rel="alternate" type="application/rss+xml" title="Omar Mashharawi, notes" href="https://mashharawi.com/feed.xml">
-<link rel="stylesheet" href="/assets/site.css?v=20261011">
-
+<link rel="stylesheet" href="/assets/site.css?v=20261015">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200..500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
 
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -158,47 +158,72 @@
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<header>
-  <div class="wrap bar">
-    <a class="brand" href="#home"><img class="brand-mark" src="/assets/logo-mark.png" alt="" width="26" height="26">OMAR MASHHARAWI<span>.</span></a>
-    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Menu</button>
-    <nav id="nav" aria-label="Primary">
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="/tools/">Tools</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="/writing/">Writing</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-    <a class="lang-switch" href="/ar/" hreflang="ar" lang="ar" aria-label="عرض الموقع بالعربية">العربية</a>
-  </div>
+<header class="c-header">
+  <a class="c-header__name" href="/">Omar Mashharawi</a>
+  <nav class="c-header__nav" aria-label="Main">
+    <a href="/#about">About</a>
+    <a href="/#experience">Experience</a>
+    <a href="/tools/">Tools</a>
+    <a href="/writing/">Writing</a>
+    <a href="/#contact">Contact</a>
+    <a href="/ar/" hreflang="ar" lang="ar" class="c-header__lang">العربية</a>
+  </nav>
+  <button class="c-header__menu" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
 </header>
 
 <main id="main">
 
   <!-- ============ HOME ============ -->
-  <section id="home" class="sec hero noir-hero">
-      <div class="hero-photo">
-        <picture>
-          <source type="image/webp" media="(max-width:820px)" srcset="/portrait-hero-m.webp">
-          <source type="image/webp" srcset="/portrait-560.webp 560w, /portrait-840.webp 840w, /portrait.webp 1200w" sizes="62vw">
-          <img src="/portrait-840.jpg" width="840" height="1050" alt="Portrait of Omar Mashharawi" fetchpriority="high" decoding="async">
-        </picture>
+  <section id="home" class="c-hero c-hero--portrait">
+    <picture>
+      <source type="image/webp" media="(max-width:760px)" srcset="/portrait-hero-m.webp">
+      <source type="image/webp" srcset="/portrait-560.webp 560w, /portrait-840.webp 840w, /portrait.webp 1200w" sizes="58vw">
+      <img class="c-hero__img" src="/portrait.webp" width="1200" height="1500" alt="Portrait of Omar Mashharawi" fetchpriority="high" decoding="async">
+    </picture>
+    <div class="c-hero__shade"></div>
+    <div class="c-hero__body">
+      <div class="c-hero__text">
+        <p class="c-label">Riyadh &middot; Al Rajhi Steel &middot; since 2008</p>
+        <h1 class="c-hero__title">Fifteen years in steel. <em>Now building software.</em></h1>
       </div>
-    <div class="wrap">
-      <!-- The name and location now live inside the h1 as a masthead line,
-           replacing the standalone location paragraph that used to sit above
-           it, so the page's single top-level heading names the entity it is
-           about without adding a second mono line to the design. -->
-      <h1 class="rise" style="--i:1"><span class="h1-name">Omar Mashharawi<i> &nbsp;/&nbsp; </i><b>Riyadh, Saudi Arabia</b></span>Fifteen years in <strong>steel</strong>.<br> Now building software.</h1>
-      <p class="lead rise" style="--i:2">Commercial and sales work in reinforcing steel in Riyadh, and the software, AI and automation I build alongside it.</p>
-      <div class="cta-row rise" style="--i:3">
-        <a class="btn" href="/tools/steel-sections/">Try the steel calculator</a>
-        <a class="btn ghost" href="#contact">Get in touch &rarr;</a>
+      <div class="c-hero__cta">
+        <a class="c-btn" href="/tools/rebar-weight/">Open the steel calculator</a>
+        <a class="c-link" href="mailto:info@mashharawi.com">info@mashharawi.com</a>
       </div>
-      <p class="hero-foot rise" style="--i:4"><span>Section Head &middot; Al Rajhi Steel</span><span>Riyadh &middot; since 2008</span></p>
+    </div>
+  </section>
+
+  <section class="c-section c-split" id="tools" aria-labelledby="tools-h">
+    <div class="c-split__head">
+      <p class="c-label">Tools</p>
+      <h2 class="c-h2" id="tools-h">Built because <em>I needed them.</em></h2>
+      <a class="c-link" href="/tools/" style="align-self:flex-start;margin-top:8px">All tools &rarr;</a>
+    </div>
+    <div class="c-rows">
+      <a class="c-row" href="/tools/rebar-weight/">
+        <span class="c-row__num" aria-hidden="true">I</span>
+        <span><span class="c-row__title">Reinforcing steel weight</span>
+        <span class="c-row__desc">Diameter to kilos per metre, per bar and per tonne.</span></span>
+        <span class="c-row__thumb"><img src="/assets/img/rebar-bundle-800.webp" width="800" height="447" alt="" loading="lazy" decoding="async"></span>
+      </a>
+      <a class="c-row" href="/tools/steel-sections/">
+        <span class="c-row__num" aria-hidden="true">II</span>
+        <span><span class="c-row__title">Steel section weight</span>
+        <span class="c-row__desc">182 sizes of IPE, HEA, HEB, UPN, angles, bars and flats, plus pipe and tube.</span></span>
+        <span class="c-row__thumb"><img src="/assets/img/rebar-yard-800.webp" width="800" height="436" alt="" loading="lazy" decoding="async"></span>
+      </a>
+      <a class="c-row" href="/tools/rebarplan/">
+        <span class="c-row__num" aria-hidden="true">III</span>
+        <span><span class="c-row__title c-latin">RebarPlan</span>
+        <span class="c-row__desc">Bar bending schedule, cutting plan and shop sheet. Windows and Mac.</span></span>
+        <span class="c-row__thumb"><img src="/assets/img/rebar-bending-800.webp" width="800" height="436" alt="" loading="lazy" decoding="async"></span>
+      </a>
+      <a class="c-row" href="/tools/openpdfkit/">
+        <span class="c-row__num" aria-hidden="true">IV</span>
+        <span><span class="c-row__title c-latin">OpenPDFKit</span>
+        <span class="c-row__desc">Merge, split, compress and OCR, entirely offline.</span></span>
+        <span></span>
+      </a>
     </div>
   </section>
 
@@ -376,39 +401,6 @@
   </section>
 
 
-  <!-- ============ CALCULATOR ============ -->
-  <section id="calculator" class="sec" aria-labelledby="calc-h">
-    <div class="wrap">
-      <div class="sec-head">
-        <p class="eyebrow">Tools</p>
-        <h2 id="calc-h">Tools I built because I needed them.</h2>
-        <p class="lead">Steel is ordered by the piece and invoiced by the kilo, and the arithmetic between those two is where a quote is won or lost. Two calculators do that work in the browser. The third tool is something else entirely: the PDF handling every commercial desk does daily, kept on your own machine.</p>
-      </div>
-
-      <ul class="note-list rise">
-        <li>
-          <a href="/tools/rebar-weight/">
-            <span class="note-date">In the browser</span>
-            <span class="note-text"><b>Reinforcing steel weight</b><span>Diameter to kilos per metre, per bar and per tonne. Or a tonnage back to a number of bars.</span></span>
-          </a>
-        </li>
-        <li>
-          <a href="/tools/steel-sections/">
-            <span class="note-date">In the browser</span>
-            <span class="note-text"><b>Steel section weight</b><span>IPE, HEA, HEB, UPN, angles, bars, flats, pipe and tube, with the commercial band around the nominal figure.</span></span>
-          </a>
-        </li>
-        <li>
-          <a href="/tools/openpdfkit/">
-            <span class="note-date">Desktop app</span>
-            <span class="note-text"><b>OpenPDFKit</b><span>Merge, split, compress, convert, protect and OCR, entirely offline. Nothing is uploaded anywhere.</span></span>
-          </a>
-        </li>
-      </ul>
-
-      <p class="note-back"><a href="/tools/">All tools</a></p>
-    </div>
-  </section>
 
   <!-- ============ PROJECTS ============ -->
   <section id="projects" class="sec" aria-labelledby="proj-h">
@@ -573,14 +565,19 @@
   </section>
 </main>
 
-<footer>
-  <div class="wrap bar">
-    <span>&copy; <span id="yr">2026</span> Omar Mashharawi &middot; mashharawi.com</span>
-    <span><a class="lang" href="/privacy/">Privacy</a> &middot; Riyadh, Saudi Arabia &middot; <a class="lang" href="/ar/" hreflang="ar" lang="ar">العربية</a></span>
+<footer class="c-footer">
+  <div class="c-footer__quote">
+    <p>Notes on weights, tolerances and what ends up on the invoice.</p>
+    <a class="c-label" href="/writing/">All writing &rarr;</a>
+  </div>
+  <div class="c-footer__base">
+    <span>&copy; <span id="yr">2026</span> Omar Mashharawi</span>
+    <a href="mailto:info@mashharawi.com">info@mashharawi.com</a>
+    <a href="/privacy/">Privacy</a>
   </div>
 </footer>
 
-<script src="/assets/site.js?v=20261009" defer></script>
+<script src="/assets/site.js?v=20261015" defer></script>
 <script src="/assets/calc.js" defer></script>
 </body>
 </html>

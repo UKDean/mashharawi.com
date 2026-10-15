@@ -37,11 +37,12 @@
 <meta name="twitter:image" content="https://mashharawi.com/og-noir-ar.jpg">
 
 <link rel="alternate" type="application/rss+xml" title="مقالات عمر المشهراوي" href="https://mashharawi.com/feed.xml">
-<link rel="stylesheet" href="/assets/site.css?v=20261011">
-
+<link rel="stylesheet" href="/assets/site.css?v=20261015">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@200;300;400;500&family=Inter:wght@200..500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500&display=swap">
+
 
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -124,43 +125,72 @@
 <body>
 <a class="skip" href="#main">تخطَّ إلى المحتوى</a>
 
-<header>
-  <div class="wrap bar">
-    <a class="brand" href="#home"><img class="brand-mark" src="/assets/logo-mark.png" alt="" width="26" height="26">عمر المشهراوي<span>.</span></a>
-    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">القائمة</button>
-    <nav id="nav" aria-label="القائمة الرئيسية">
-      <ul>
-        <li><a href="#about">نبذة</a></li>
-        <li><a href="#experience">الخبرة</a></li>
-        <li><a href="/ar/tools/">الأدوات</a></li>
-        <li><a href="#projects">المشاريع</a></li>
-        <li><a href="/ar/writing/">المقالات</a></li>
-        <li><a href="#contact">تواصل</a></li>
-      </ul>
-    </nav>
-    <a class="lang-switch" href="/" hreflang="en" lang="en" aria-label="View the site in English">English</a>
-  </div>
+<header class="c-header">
+  <a class="c-header__name" href="/ar/">عمر المشهراوي</a>
+  <nav class="c-header__nav" aria-label="الرئيسية">
+    <a href="/ar/#about">نبذة</a>
+    <a href="/ar/#experience">الخبرة</a>
+    <a href="/ar/tools/">الأدوات</a>
+    <a href="/ar/writing/">المقالات</a>
+    <a href="/ar/#contact">تواصل</a>
+    <a href="/" hreflang="en" lang="en" class="c-header__lang">English</a>
+  </nav>
+  <button class="c-header__menu" type="button" aria-label="القائمة" aria-expanded="false"><span></span><span></span></button>
 </header>
 
 <main id="main">
 
   <!-- ============ الرئيسية ============ -->
-  <section id="home" class="sec hero noir-hero">
-      <div class="hero-photo">
-        <picture>
-          <source type="image/webp" media="(max-width:820px)" srcset="/portrait-hero-m.webp">
-          <source type="image/webp" srcset="/portrait-560.webp 560w, /portrait-840.webp 840w, /portrait.webp 1200w" sizes="62vw">
-          <img src="/portrait-840.jpg" width="840" height="1050" alt="صورة شخصية لعمر المشهراوي" fetchpriority="high" decoding="async">
-        </picture>
+  <section id="home" class="c-hero c-hero--portrait">
+    <picture>
+      <source type="image/webp" media="(max-width:760px)" srcset="/portrait-hero-m.webp">
+      <source type="image/webp" srcset="/portrait-560.webp 560w, /portrait-840.webp 840w, /portrait.webp 1200w" sizes="58vw">
+      <img class="c-hero__img" src="/portrait.webp" width="1200" height="1500" alt="صورة شخصية لعمر المشهراوي" fetchpriority="high" decoding="async">
+    </picture>
+    <div class="c-hero__shade"></div>
+    <div class="c-hero__body">
+      <div class="c-hero__text">
+        <p class="c-label">الرياض &middot; الراجحي للحديد &middot; منذ 2008</p>
+        <h1 class="c-hero__title">خمسة عشر عاماً في الحديد. <em>والآن أبني البرمجيات.</em></h1>
       </div>
-    <div class="wrap">
-      <h1 class="rise" style="--i:1"><span class="h1-name">عمر المشهراوي<i> &nbsp;/&nbsp; </i><b>الرياض، المملكة العربية السعودية</b></span>خمسة عشر عاماً في <strong>الحديد</strong>،<br> وأبني البرمجيات الآن.</h1>
-      <p class="lead rise" style="--i:2">عملٌ تجاري وبيع في حديد التسليح من الرياض، وبرمجيات وذكاء اصطناعي وأتمتة أبنيها إلى جانبه.</p>
-      <div class="cta-row rise" style="--i:3">
-        <a class="btn" href="/ar/tools/steel-sections/">جرّب حاسبة الحديد</a>
-        <a class="btn ghost" href="#contact">تواصل معي &larr;</a>
+      <div class="c-hero__cta">
+        <a class="c-btn" href="/ar/tools/rebar-weight/">افتح حاسبة الحديد</a>
+        <a class="c-link" href="mailto:info@mashharawi.com">info@mashharawi.com</a>
       </div>
-      <p class="hero-foot rise" style="--i:4"><span>رئيس قسم &middot; الراجحي للحديد</span><span>الرياض &middot; منذ 2008</span></p>
+    </div>
+  </section>
+
+  <section class="c-section c-split" id="tools" aria-labelledby="tools-h">
+    <div class="c-split__head">
+      <p class="c-label">الأدوات</p>
+      <h2 class="c-h2" id="tools-h">بنيتها <em>لأنني احتجتها.</em></h2>
+      <a class="c-link" href="/ar/tools/" style="align-self:flex-start;margin-top:8px">كل الأدوات &larr;</a>
+    </div>
+    <div class="c-rows">
+      <a class="c-row" href="/ar/tools/rebar-weight/">
+        <span class="c-row__num" aria-hidden="true">I</span>
+        <span><span class="c-row__title">وزن حديد التسليح</span>
+        <span class="c-row__desc">من القطر إلى الكيلو للمتر والسيخ والطن.</span></span>
+        <span class="c-row__thumb"><img src="/assets/img/rebar-bundle-800.webp" width="800" height="447" alt="" loading="lazy" decoding="async"></span>
+      </a>
+      <a class="c-row" href="/ar/tools/steel-sections/">
+        <span class="c-row__num" aria-hidden="true">II</span>
+        <span><span class="c-row__title">أوزان المقاطع الحديدية</span>
+        <span class="c-row__desc">182 مقاساً من IPE وHEA وHEB وUPN والزوايا والقضبان والمسطح، ومعها المواسير والتيوب.</span></span>
+        <span class="c-row__thumb"><img src="/assets/img/rebar-yard-800.webp" width="800" height="436" alt="" loading="lazy" decoding="async"></span>
+      </a>
+      <a class="c-row" href="/ar/tools/rebarplan/">
+        <span class="c-row__num" aria-hidden="true">III</span>
+        <span><span class="c-row__title c-latin">RebarPlan</span>
+        <span class="c-row__desc">جدول التفريد وخطة القص وورقة الورشة. ويندوز وماك.</span></span>
+        <span class="c-row__thumb"><img src="/assets/img/rebar-bending-800.webp" width="800" height="436" alt="" loading="lazy" decoding="async"></span>
+      </a>
+      <a class="c-row" href="/ar/tools/openpdfkit/">
+        <span class="c-row__num" aria-hidden="true">IV</span>
+        <span><span class="c-row__title c-latin">OpenPDFKit</span>
+        <span class="c-row__desc">دمج وتقسيم وضغط وتعرّف على النص، بدون إنترنت.</span></span>
+        <span></span>
+      </a>
     </div>
   </section>
 
@@ -338,39 +368,6 @@
   </section>
 
 
-  <!-- ============ الحاسبة ============ -->
-  <section id="calculator" class="sec" aria-labelledby="calc-h">
-    <div class="wrap">
-      <div class="sec-head">
-        <p class="eyebrow">الأدوات</p>
-        <h2 id="calc-h">أدوات بنيتها لأنني احتجتها.</h2>
-        <p class="lead">الحديد يُطلب بالقطعة ويُفوتر بالكيلو، والحساب بين الاثنين هو موضع الربح أو الخسارة في عرض السعر. حاسبتان تؤديان هذا العمل داخل المتصفح. والأداة الثالثة مختلفة تماماً: معالجة ملفات PDF التي يمارسها أي مكتب تجاري يومياً، لكن على جهازك أنت.</p>
-      </div>
-
-      <ul class="note-list rise">
-        <li>
-          <a href="/ar/tools/rebar-weight/">
-            <span class="note-date">في المتصفح</span>
-            <span class="note-text"><b>وزن حديد التسليح</b><span>من القطر إلى الكيلو للمتر وللسيخ وللطن، أو من التوريد بالطن إلى عدد الأسياخ.</span></span>
-          </a>
-        </li>
-        <li>
-          <a href="/ar/tools/steel-sections/">
-            <span class="note-date">في المتصفح</span>
-            <span class="note-text"><b>وزن قطاعات الحديد</b><span>IPE و HEA و HEB و UPN والزوايا والقضبان والمسطح والمواسير والتيوب، مع النطاق التجاري حول الوزن الاسمي.</span></span>
-          </a>
-        </li>
-        <li>
-          <a href="/ar/tools/openpdfkit/">
-            <span class="note-date">تطبيق سطح مكتب</span>
-            <span class="note-text"><b>OpenPDFKit</b><span>دمج وتقسيم وضغط وتحويل وحماية و OCR، بلا إنترنت بالكامل. لا يُرفع أي ملف إلى أي خادم.</span></span>
-          </a>
-        </li>
-      </ul>
-
-      <p class="note-back"><a href="/ar/tools/">كل الأدوات</a></p>
-    </div>
-  </section>
 
   <!-- ============ المشاريع ============ -->
   <section id="projects" class="sec" aria-labelledby="proj-h">
@@ -534,14 +531,19 @@
   </section>
 </main>
 
-<footer>
-  <div class="wrap bar">
-    <span>&copy; <span id="yr">2026</span> عمر المشهراوي &middot; mashharawi.com</span>
-    <span><a class="lang" href="/ar/privacy/">الخصوصية</a> &middot; الرياض، السعودية &middot; <a class="lang" href="/" hreflang="en" lang="en">English</a></span>
+<footer class="c-footer">
+  <div class="c-footer__quote">
+    <p>ملاحظات عن الأوزان والسماحيات وما يصل إلى الفاتورة.</p>
+    <a class="c-label" href="/ar/writing/">كل المقالات ←</a>
+  </div>
+  <div class="c-footer__base">
+    <span>&copy; <span id="yr">2026</span> عمر المشهراوي</span>
+    <a href="mailto:info@mashharawi.com">info@mashharawi.com</a>
+    <a href="/ar/privacy/">الخصوصية</a>
   </div>
 </footer>
 
-<script src="/assets/site.js?v=20261009" defer></script>
+<script src="/assets/site.js?v=20261015" defer></script>
 <script src="/assets/calc.js" defer></script>
 </body>
 </html>

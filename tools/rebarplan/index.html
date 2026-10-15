@@ -27,10 +27,10 @@
 <meta property="og:image" content="https://mashharawi.com/og-noir.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="stylesheet" href="/assets/site.css?v=20261011">
+<link rel="stylesheet" href="/assets/site.css?v=20261015">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200..500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
 
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,52 +41,67 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/cdn-cgi/*"}}]},"eagerness":"moderate"}]}</script>
 </head>
-<body>
+<body class="has-sticky-dl">
 <a class="skip" href="#main">Skip to content</a>
 
-<header>
-  <div class="wrap bar">
-    <a class="brand" href="/"><img class="brand-mark" src="/assets/logo-mark.png" alt="" width="26" height="26">OMAR MASHHARAWI<span>.</span></a>
-    <nav aria-label="Primary"><ul>
-      <li><a href="/">Site</a></li>
-      <li><a href="/tools/">Tools</a></li>
-      <li><a href="/writing/">Notes</a></li>
-    </ul></nav>
-    <a class="lang-switch" href="/ar/tools/rebarplan/" hreflang="ar" lang="ar" aria-label="عرض هذه الصفحة بالعربية">العربية</a>
-  </div>
+<header class="c-header">
+  <a class="c-header__name" href="/">Omar Mashharawi</a>
+  <nav class="c-header__nav" aria-label="Main">
+    <a href="/#about">About</a>
+    <a href="/#experience">Experience</a>
+    <a href="/tools/" aria-current="page">Tools</a>
+    <a href="/writing/">Writing</a>
+    <a href="/#contact">Contact</a>
+    <a href="/ar/tools/rebarplan/" hreflang="ar" lang="ar" class="c-header__lang">العربية</a>
+  </nav>
+  <button class="c-header__menu" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
 </header>
 
 <main id="main">
-  <section class="sec" aria-labelledby="r-h">
-    <div class="wrap">
-      <div class="sec-head">
-        <p class="eyebrow">Desktop app &middot; Windows and macOS &middot; Arabic, English, 简体中文</p>
-        <h1 id="r-h">RebarPlan.</h1>
-        <p class="lead">A bar bending schedule and a cutting plan in one program. Enter the bar marks, or import them from Excel, and RebarPlan works out the cut lengths, the weight per diameter, and how to cut the job from 12&nbsp;m stock bars with the least waste. Free, offline and open source.</p>
+  <section class="c-hero c-hero--full" aria-labelledby="r-h">
+    <img class="c-hero__img" src="/assets/img/rebar-bending-1600.webp" srcset="/assets/img/rebar-bending-800.webp 800w, /assets/img/rebar-bending-1600.webp 1600w, /assets/img/rebar-bending-2560.webp 2560w" sizes="100vw" width="1600" height="873" alt="A worker bending a reinforcing bar on a bending machine" fetchpriority="high" decoding="async">
+    <div class="c-hero__shade"></div>
+    <div class="c-hero__body">
+      <div class="c-hero__text">
+        <p class="c-label">Tools / RebarPlan &middot; Windows &amp; Mac &middot; Free &amp; open source</p>
+        <h1 class="c-hero__title c-hero__title--app" id="r-h">RebarPlan</h1>
+        <p class="c-hero__lead">Bar bending schedule, minimum-waste cutting plan and shop sheet, in one desktop app. Arabic, English and Simplified Chinese.</p>
       </div>
-      <p style="margin-top:24px"><a href="https://apps.microsoft.com/detail/9PM9HL3XFBZ3?mode=direct" target="_blank" rel="noopener" aria-label="Get RebarPlan from the Microsoft Store"><img src="/assets/badges/microsoft-store-en.svg" width="161" height="44" alt="Get it from Microsoft" style="height:44px;width:auto;display:block"></a></p>
-      <div class="cta-row rise">
-        <a class="btn" href="https://github.com/UKDean/RebarPlan/releases/download/v1.1.1/RebarPlan_1.1.1_universal.dmg" download>Download for Mac</a>
-        <a class="btn ghost" href="https://github.com/UKDean/RebarPlan" target="_blank" rel="noopener">View the source</a>
-      </div>
-      <p class="note-back" style="margin-top:14px">Windows 10/11: install from the Microsoft Store, free, with automatic updates and no security notice. Mac: version <b>1.1.1</b> for macOS 12 or later, Apple silicon and Intel (4.3&nbsp;MB), signed and notarized by Apple. It installs as a normal desktop application with its own icon. The Windows installer file is still available under <a href="https://github.com/UKDean/RebarPlan/releases" target="_blank" rel="noopener">all versions</a>.</p>
-      <p class="rise" style="margin-top:28px"><img src="/tools/rebarplan/screen-en.jpg" width="1440" height="900" alt="RebarPlan showing cutting patterns for each diameter" loading="lazy" style="width:100%;height:auto;border:1px solid var(--line, #2a2a2a);border-radius:10px"></p>
     </div>
   </section>
 
-  <section class="sec" aria-labelledby="r-what">
-    <div class="wrap">
-      <div class="sec-head"><h2 id="r-what">What it does.</h2></div>
-      <ul class="note-list rise">
-        <li class="note-static"><span class="note-date">Schedule</span><span class="note-text"><b>Cut lengths by shape</b><span>BS 8666:2005 shape codes 00, 11, 21 and 51, or ACI 318 / Saudi SBC 304 with out-to-out dimensions. Legs below the BS 8666 minimum are flagged.</span></span></li>
-        <li class="note-static"><span class="note-date">Schedule</span><span class="note-text"><b>Weight per diameter</b><span>Pieces, metres and kilograms for each size, at 7,850&nbsp;kg/m³.</span></span></li>
-        <li class="note-static"><span class="note-date">Cutting</span><span class="note-text"><b>Fewest stock bars</b><span>Cutting patterns per diameter from 12&nbsp;m bars, or any mix of 6, 9, 12 and 18&nbsp;m. Tested to stay within one bar of the theoretical minimum.</span></span></li>
-        <li class="note-static"><span class="note-date">Cost</span><span class="note-text"><b>Saving in riyals</b><span>Enter a price per tonne to see the steel cost and what the plan saves against cutting each mark on its own.</span></span></li>
-        <li class="note-static"><span class="note-date">Site</span><span class="note-text"><b>Workshop sheet and labels</b><span>A printable cutting list for the operator, and a label for every bundle.</span></span></li>
-        <li class="note-static"><span class="note-date">Weights</span><span class="note-text"><b>Rebar weights</b><span>New in 1.1: weight per metre, per bar and per order for every diameter, bars per tonne, and a weight list that takes the whole bar schedule and exports to Excel.</span></span></li>
-        <li class="note-static"><span class="note-date">Export</span><span class="note-text"><b>Excel, PDF or email</b><span>Export the schedule and plan to Excel, save the report as PDF, or open a new email with the file attached.</span></span></li>
-      </ul>
+  <div class="c-section c-downloads">
+    <div class="c-downloads__grid">
+      <div class="c-dl">
+        <p class="c-label">Windows</p>
+        <a href="https://apps.microsoft.com/detail/9PM9HL3XFBZ3?mode=direct" target="_blank" rel="noopener" aria-label="Get RebarPlan from the Microsoft Store"><img src="/assets/badges/microsoft-store-en.svg" width="161" height="52" alt="Get it from Microsoft" style="height:52px;width:auto"></a>
+        <p class="c-dl__note">Installs and updates through the Microsoft Store. Windows 10 and 11.</p>
+      </div>
+      <div class="c-dl">
+        <p class="c-label">macOS</p>
+        <a class="c-btn" href="https://github.com/UKDean/RebarPlan/releases/download/v1.1.1/RebarPlan_1.1.1_universal.dmg" download>Download for Mac <small>.dmg &middot; 1.1.1</small></a>
+        <p class="c-dl__note">Version 1.1.1 for macOS 12 or later, Apple silicon and Intel. Signed and notarised by Apple.</p>
+      </div>
+      <div class="c-dl">
+        <p class="c-label">Source</p>
+        <a class="c-dl__repo" href="https://github.com/UKDean/RebarPlan" target="_blank" rel="noopener">github.com/UKDean/RebarPlan</a>
+        <a class="c-link" href="https://github.com/UKDean/RebarPlan/releases" target="_blank" rel="noopener">All releases on GitHub &rarr;</a>
+      </div>
     </div>
+  </div>
+
+  <section class="c-section" aria-labelledby="r-what">
+    <p class="c-label">What it does</p>
+    <h2 class="c-h2" id="r-what" style="margin-top:12px">From the drawing <em>to the bending machine.</em></h2>
+    <div class="c-features">
+      <div class="c-feature"><span class="c-row__num" aria-hidden="true">I</span><h3>Bar bending schedule</h3><p>Members, shapes, lengths and quantities in one BBS.</p></div>
+      <div class="c-feature"><span class="c-row__num" aria-hidden="true">II</span><h3>Cutting plan</h3><p>Cuts arranged for the least waste from stock bars.</p></div>
+      <div class="c-feature"><span class="c-row__num" aria-hidden="true">III</span><h3>Shop sheet &amp; labels</h3><p>Printable sheets for the shop floor and labels for bundles.</p></div>
+      <div class="c-feature"><span class="c-row__num" aria-hidden="true">IV</span><h3>Rebar weights</h3><p>Weight by diameter and for the whole schedule.</p></div>
+      <div class="c-feature"><span class="c-row__num" aria-hidden="true">V</span><h3>Export</h3><p>Excel, PDF, or straight to email.</p></div>
+      <div class="c-feature"><span class="c-row__num" aria-hidden="true">VI</span><h3>Three languages</h3><p>Arabic, English and Simplified Chinese.</p></div>
+    </div>
+    <figure class="c-shot"><img src="/tools/rebarplan/screen-en.jpg" width="1440" height="900" alt="RebarPlan showing cutting patterns for each diameter" loading="lazy" decoding="async"></figure>
   </section>
 
   <section class="sec" aria-labelledby="r-priv">
@@ -100,12 +115,21 @@
   </section>
 </main>
 
-<footer>
-  <div class="wrap bar">
-    <span>&copy; <span id="yr">2026</span> Omar Mashharawi &middot; mashharawi.com</span>
-    <span><a class="lang" href="/privacy/">Privacy</a> &middot; <a class="lang" href="/ar/tools/rebarplan/" hreflang="ar" lang="ar">العربية</a> &middot; <a class="lang" href="/">Back to the site</a></span>
+<footer class="c-footer">
+  <div class="c-footer__quote">
+    <p>Free, open source, and built from fifteen years of rebar orders.</p>
+    <a class="c-label" href="/tools/">All tools &rarr;</a>
+  </div>
+  <div class="c-footer__base">
+    <span>&copy; <span id="yr">2026</span> Omar Mashharawi</span>
+    <a href="mailto:info@mashharawi.com">info@mashharawi.com</a>
+    <a href="/privacy/">Privacy</a>
   </div>
 </footer>
-<script src="/assets/site.js?v=20261009" defer></script>
+<nav class="c-sticky-dl" aria-label="Download">
+  <a href="https://apps.microsoft.com/detail/9PM9HL3XFBZ3?mode=direct" target="_blank" rel="noopener">Windows</a>
+  <a href="https://github.com/UKDean/RebarPlan/releases/download/v1.1.1/RebarPlan_1.1.1_universal.dmg" download>Mac</a>
+</nav>
+<script src="/assets/site.js?v=20261015" defer></script>
 </body>
 </html>
