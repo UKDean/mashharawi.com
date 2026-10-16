@@ -21,6 +21,8 @@ Everything on this site is stated by Omar himself. The calculators compute weigh
 ## Apps
 
 - [Steel Section Calculator for iOS](https://apps.apple.com/us/app/steel-section-calculator/id6815107544): offline, no ads, no login; the same formulas as the web calculator
+- [Tubes — colour sort for iOS](https://apps.apple.com/app/id6808328865): a water-sort puzzle game with a level solver
+- [Arabic Crossword (شبكة الكلمات المتقاطعة) for iOS](https://apps.apple.com/app/id6807667621): an Arabic right-to-left crossword generator
 - [RebarPlan on the Microsoft Store](https://apps.microsoft.com/detail/9PM9HL3XFBZ3): bar bending schedule and rebar cutting plan for Windows
 
 ## Writing
