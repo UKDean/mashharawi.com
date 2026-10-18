@@ -1,24 +1,20 @@
 /* mashharawi.com, rebar quotation shortcuts.
-   1. A floating WhatsApp button on the pages that include this file.
-   2. On the rebar weight calculator, a button that sends the order the
-      visitor built to WhatsApp as a quotation request. Nothing is sent by the
-      page itself: WhatsApp opens with the message, and the visitor decides
-      whether to send it. */
+   1. A floating WhatsApp button on the pages that include this file. It opens
+      Omar's WhatsApp Business link; his number is not published.
+   2. On the rebar weight calculator, a button that copies the order the
+      visitor built and opens the same WhatsApp chat, so the visitor can paste
+      it. The page sends nothing itself. */
 (function () {
   'use strict';
   var AR = document.documentElement.getAttribute('dir') === 'rtl';
-  var WA = '966500590063';
-  function wa(text) { return 'https://wa.me/' + WA + '?text=' + encodeURIComponent(text); }
-  function from() { return (AR ? 'الصفحة: ' : 'Page: ') + location.origin + location.pathname; }
+  var LINK = 'https://wa.me/message/D6ABM7QFWVSPB1';
 
   if (!document.querySelector('.q-fab')) {
     var a = document.createElement('a');
     a.className = 'q-fab';
     a.target = '_blank';
     a.rel = 'noopener';
-    a.href = wa(AR
-      ? 'السلام عليكم أستاذ عمر، أحتاج عرض سعر حديد تسليح.\n' + from()
-      : 'Hello Omar, I need a rebar quotation.\n' + from());
+    a.href = LINK;
     a.textContent = AR ? 'اطلب عرض سعر · واتساب' : 'Rebar quote · WhatsApp';
     document.body.appendChild(a);
   }
@@ -29,13 +25,14 @@
   b.type = 'button';
   b.className = 'calc-btn ok';
   b.id = 'cQuote';
-  b.textContent = AR ? 'أرسل الطلب لعرض سعر (واتساب)' : 'Send for a quote (WhatsApp)';
+  var LABEL = AR ? 'انسخ الطلب وأرسله على واتساب' : 'Copy order & open WhatsApp';
+  b.textContent = LABEL;
   head.appendChild(b);
 
   function txt(id) { var e = document.getElementById(id); return e ? e.textContent.trim() : ''; }
   function val(id) { var e = document.getElementById(id); return e ? e.value : ''; }
 
-  b.addEventListener('click', function () {
+  function orderText() {
     var lines = [AR ? 'السلام عليكم أستاذ عمر، أحتاج عرض سعر لهذا الطلب:' : 'Hello Omar, please quote this rebar order:'];
     var rows = document.querySelectorAll('#cRows tr');
     if (!rows.length) {
@@ -54,7 +51,19 @@
     lines.push(AR ? 'قص حسب الطلب أو إيبوكسي؟ ' : 'Cutting or epoxy coating? ');
     lines.push(AR ? 'مدينة المشروع: ' : 'Project city: ');
     lines.push(AR ? 'الشركة: ' : 'Company: ');
-    lines.push(from());
-    window.open(wa(lines.join('\n')), '_blank', 'noopener');
+    return lines.join('\n');
+  }
+
+  b.addEventListener('click', function () {
+    var text = orderText();
+    var done = function (ok) {
+      b.textContent = ok ? (AR ? 'تم نسخ الطلب، الصقه في المحادثة' : 'Order copied, paste it in the chat')
+                         : (AR ? 'افتح واتساب واكتب الطلب' : 'Open WhatsApp and type the order');
+      setTimeout(function () { b.textContent = LABEL; }, 6000);
+    };
+    try {
+      navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(false); });
+    } catch (e) { done(false); }
+    window.open(LINK, '_blank', 'noopener');
   });
 })();

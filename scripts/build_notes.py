@@ -67,11 +67,11 @@ def parse(path):
 
 # Rebar quotation band shown at the end of every note, and the WhatsApp button.
 # Facts here are only what Omar stated about Al Rajhi Steel's supply.
-_WA = "https://wa.me/966500590063?text="
+_WA = "https://wa.me/message/D6ABM7QFWVSPB1"
 def quote_band(lang):
     from urllib.parse import quote as q
     if lang == "ar":
-        link = _WA + q("السلام عليكم أستاذ عمر، أحتاج عرض سعر حديد تسليح.\nالمقاسات والكميات: \nالدرجة (60/80): \nمدينة المشروع: ")
+        link = _WA
         return ("""  <section class="q-band" aria-labelledby="qb-h">
     <div class="wrap">
       <p class="q-eyebrow">توريد حديد التسليح · الراجحي للحديد</p>
@@ -81,12 +81,12 @@ def quote_band(lang):
         <li>10 إلى 32 مم · طول 12 م</li><li>Grade 60 و Grade 80</li><li>قص حسب الطلب</li><li>دهان إيبوكسي</li><li>شهادات الفحص متوفرة</li><li>تسليم فوري بعد الدفع أو الاعتماد البنكي</li><li>الرياض · جدة · القصيم · الطائف</li>
       </ul>
       <div class="q-actions">
-        <a class="q-btn q-btn--wa" href="""" + link + """" target="_blank" rel="noopener">واتساب <span class="q-num">050 059 0063</span></a>
+        <a class="q-btn q-btn--wa" href="https://wa.me/message/D6ABM7QFWVSPB1" target="_blank" rel="noopener">تواصل على واتساب</a>
         <a class="q-btn q-btn--line" href="/ar/rebar/">تفاصيل التوريد</a>
       </div>
     </div>
   </section>""")
-    link = _WA + q("Hello Omar, I need a rebar quotation.\nSizes and quantities: \nGrade (60/80): \nProject city: ")
+    link = _WA
     return ("""  <section class="q-band" aria-labelledby="qb-h">
     <div class="wrap">
       <p class="q-eyebrow">Rebar supply · Al Rajhi Steel</p>
@@ -96,7 +96,7 @@ def quote_band(lang):
         <li>10 to 32 mm · 12 m bars</li><li>Grade 60 and Grade 80</li><li>Cut to length</li><li>Epoxy coating</li><li>Test certificates available</li><li>Immediate delivery after payment or LC opening</li><li>Riyadh · Jeddah · Qassim · Taif</li>
       </ul>
       <div class="q-actions">
-        <a class="q-btn q-btn--wa" href="""" + link + """" target="_blank" rel="noopener">WhatsApp <span class="q-num">+966 50 059 0063</span></a>
+        <a class="q-btn q-btn--wa" href="https://wa.me/message/D6ABM7QFWVSPB1" target="_blank" rel="noopener">Message on WhatsApp</a>
         <a class="q-btn q-btn--line" href="/rebar/">Supply details</a>
       </div>
     </div>
