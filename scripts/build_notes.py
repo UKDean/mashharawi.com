@@ -16,6 +16,7 @@ NOTES, OUT = os.path.join(ROOT, "notes"), os.path.join(ROOT, "writing")
 # here disappears from the sitemap on the next notes build.
 PAIRS = [
     ("/", "/ar/", "1.0", "0.9"),
+    ("/rebar/", "/ar/rebar/", "0.9", "0.9"),
     ("/tools/", "/ar/tools/", "0.9", "0.8"),
     ("/tools/rebar-weight/", "/ar/tools/rebar-weight/", "0.9", "0.8"),
     ("/tools/steel-sections/", "/ar/tools/steel-sections/", "0.9", "0.8"),
@@ -64,6 +65,44 @@ def parse(path):
     return meta
 
 
+# Rebar quotation band shown at the end of every note, and the WhatsApp button.
+# Facts here are only what Omar stated about Al Rajhi Steel's supply.
+_WA = "https://wa.me/966500590063?text="
+def quote_band(lang):
+    from urllib.parse import quote as q
+    if lang == "ar":
+        link = _WA + q("السلام عليكم أستاذ عمر، أحتاج عرض سعر حديد تسليح.\nالمقاسات والكميات: \nالدرجة (60/80): \nمدينة المشروع: ")
+        return ("""  <section class="q-band" aria-labelledby="qb-h">
+    <div class="wrap">
+      <p class="q-eyebrow">توريد حديد التسليح · الراجحي للحديد</p>
+      <h2 id="qb-h">تحتاج حديد تسليح لمشروعك؟</h2>
+      <p>أنا رئيس قسم في الراجحي للحديد. أرسل لي المقاسات والكميات أو جدول التفريد، وأرجع لك بعرض سعر.</p>
+      <ul class="q-facts">
+        <li>10 إلى 32 مم · طول 12 م</li><li>Grade 60 و Grade 80</li><li>قص حسب الطلب</li><li>دهان إيبوكسي</li><li>شهادات الفحص متوفرة</li><li>تسليم فوري بعد الدفع أو الاعتماد البنكي</li><li>الرياض · جدة · القصيم · الطائف</li>
+      </ul>
+      <div class="q-actions">
+        <a class="q-btn q-btn--wa" href="""" + link + """" target="_blank" rel="noopener">واتساب <span class="q-num">050 059 0063</span></a>
+        <a class="q-btn q-btn--line" href="/ar/rebar/">تفاصيل التوريد</a>
+      </div>
+    </div>
+  </section>""")
+    link = _WA + q("Hello Omar, I need a rebar quotation.\nSizes and quantities: \nGrade (60/80): \nProject city: ")
+    return ("""  <section class="q-band" aria-labelledby="qb-h">
+    <div class="wrap">
+      <p class="q-eyebrow">Rebar supply · Al Rajhi Steel</p>
+      <h2 id="qb-h">Need reinforcing steel for a project?</h2>
+      <p>I am a Section Head at Al Rajhi Steel. Send me the sizes and quantities, or the bar bending schedule, and I will come back with a quotation.</p>
+      <ul class="q-facts">
+        <li>10 to 32 mm · 12 m bars</li><li>Grade 60 and Grade 80</li><li>Cut to length</li><li>Epoxy coating</li><li>Test certificates available</li><li>Immediate delivery after payment or LC opening</li><li>Riyadh · Jeddah · Qassim · Taif</li>
+      </ul>
+      <div class="q-actions">
+        <a class="q-btn q-btn--wa" href="""" + link + """" target="_blank" rel="noopener">WhatsApp <span class="q-num">+966 50 059 0063</span></a>
+        <a class="q-btn q-btn--line" href="/rebar/">Supply details</a>
+      </div>
+    </div>
+  </section>""")
+
+
 def shell(lang, d, title, desc, canon, body, head="", robots=None, fonts=None):
     e = html.escape
     f = fonts or (F_AR if lang == "ar" else F_EN)
@@ -105,7 +144,7 @@ def shell(lang, d, title, desc, canon, body, head="", robots=None, fonts=None):
 <meta property="og:image" content="{SITE}/og-noir{'-ar' if lang == 'ar' else ''}.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="alternate" type="application/rss+xml" title="{AUTHOR} notes" href="{SITE}/feed.xml">
-<link rel="stylesheet" href="/assets/site.css?v=20261016">
+<link rel="stylesheet" href="/assets/site.css?v=20261018">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 {f}
@@ -126,6 +165,7 @@ def shell(lang, d, title, desc, canon, body, head="", robots=None, fonts=None):
 </header>
 <main id="main">
 {body}
+{quote_band(lang)}
 </main>
 <footer class="c-footer">
   <div class="c-footer__quote">
@@ -139,6 +179,7 @@ def shell(lang, d, title, desc, canon, body, head="", robots=None, fonts=None):
   </div>
 </footer>
 <script src="/assets/site.js?v=20261015" defer></script>
+<script src="/assets/quote.js?v=20261018" defer></script>
 </body>
 </html>
 """
