@@ -7,6 +7,7 @@
 (function () {
   'use strict';
   var AR = document.documentElement.getAttribute('dir') === 'rtl';
+  var ZH = /^zh/i.test(document.documentElement.getAttribute('lang') || '');
   var LINK = 'https://wa.me/message/D6ABM7QFWVSPB1';
 
   if (!document.querySelector('.q-fab')) {
@@ -15,7 +16,7 @@
     a.target = '_blank';
     a.rel = 'noopener';
     a.href = LINK;
-    a.textContent = AR ? 'اطلب عرض سعر · واتساب' : 'Rebar quote · WhatsApp';
+    a.textContent = AR ? 'اطلب عرض سعر · واتساب' : (ZH ? '钢筋询价 · WhatsApp' : 'Rebar quote · WhatsApp');
     document.body.appendChild(a);
   }
 

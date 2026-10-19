@@ -14,6 +14,17 @@ Everything on this site is stated by Omar himself. The calculators compute weigh
 
 - [Rebar supply from Al Rajhi Steel](https://mashharawi.com/rebar/): Omar takes rebar quotation requests. Al Rajhi Steel makes reinforcing steel only, at mills in Riyadh and Jeddah, with branches in Riyadh, Jeddah, Qassim and Taif, shipping to every region of Saudi Arabia: 10, 12, 14, 16, 18, 20, 25 and 32 mm in 12 m bars, Grade 60 and Grade 80, cutting to length and epoxy coating, all test certificates available, immediate delivery after payment or LC opening. Contact: WhatsApp https://wa.me/message/D6ABM7QFWVSPB1, omar.mashharawi@rajhisteel.com
 
+## Simplified Chinese pages (简体中文)
+
+For Chinese contractors working in Saudi Arabia: rebar supply, cutting to a bar bending schedule, epoxy-coated rebar, a rebar weight table and a quotation guide, in Simplified Chinese. Contact through WhatsApp https://wa.me/message/D6ABM7QFWVSPB1 or omar.mashharawi@rajhisteel.com.
+
+- [沙特钢筋供应与加工（中文首页）](https://mashharawi.com/zh/)
+- [沙特钢筋供应商：利雅得、吉达钢筋厂直供](https://mashharawi.com/zh/rebar/)
+- [钢筋切割与弯曲：按钢筋下料单(BBS)订货](https://mashharawi.com/zh/rebar-cutting-bending/)
+- [钢筋重量表与计算公式](https://mashharawi.com/zh/rebar-weight-table/)
+- [沙特环氧涂层钢筋](https://mashharawi.com/zh/epoxy-coated-rebar/)
+- [在沙特如何快速获得钢筋报价](https://mashharawi.com/zh/rebar-quotation-guide/)
+
 ## Tools
 
 - [Reinforcing steel (rebar) weight calculator](https://mashharawi.com/tools/rebar-weight/): kilograms per metre, per bar and per tonne by diameter, or tonnage back to a number of bars

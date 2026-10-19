@@ -29,6 +29,19 @@ PAIRS = [
 SINGLES = [
     ("/contract-check/", "0.5"),
 ]
+# Simplified Chinese pages (for Chinese contractors in Saudi Arabia). ZH_TWINS
+# gives the English page a Chinese page translates, so both carry hreflang
+# alternates; ZH_PAGES lists every Chinese page and its priority. Same rule:
+# a page not listed here disappears from the sitemap on the next build.
+ZH_TWINS = {"/rebar/": "/zh/rebar/"}
+ZH_PAGES = [
+    ("/zh/", "0.8"),
+    ("/zh/rebar/", "0.9"),
+    ("/zh/rebar-cutting-bending/", "0.8"),
+    ("/zh/rebar-weight-table/", "0.8"),
+    ("/zh/epoxy-coated-rebar/", "0.7"),
+    ("/zh/rebar-quotation-guide/", "0.7"),
+]
 F_EN = ('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200..500'
         '&display=swap">')
 F_AR = ('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@200;300;400;500'
@@ -314,10 +327,22 @@ def sitemap(notes):
         en, ar = SITE + en_path, SITE + ar_path
         alts = ('    <xhtml:link rel="alternate" hreflang="en" href="' + en + '"/>\n'
                 '    <xhtml:link rel="alternate" hreflang="ar" href="' + ar + '"/>\n'
+                + ('    <xhtml:link rel="alternate" hreflang="zh-Hans" href="' + SITE + ZH_TWINS[en_path] + '"/>\n'
+                   if en_path in ZH_TWINS else '') +
                 '    <xhtml:link rel="alternate" hreflang="x-default" href="' + en + '"/>\n')
-        for loc, pri in ((en, en_pri), (ar, ar_pri)):
+        locs = ((en, en_pri), (ar, ar_pri))
+        if en_path in ZH_TWINS:
+            locs += ((SITE + ZH_TWINS[en_path], dict(ZH_PAGES)[ZH_TWINS[en_path]]),)
+        for loc, pri in locs:
             rows.append('  <url>\n    <loc>' + loc + '</loc>\n' + alts +
                         '    <changefreq>monthly</changefreq>\n    <priority>' + pri + '</priority>\n  </url>')
+    twinned = set(ZH_TWINS.values())
+    for path, pri in ZH_PAGES:
+        if path in twinned:
+            continue
+        rows.append('  <url>\n    <loc>' + SITE + path + '</loc>\n'
+                    '    <xhtml:link rel="alternate" hreflang="zh-Hans" href="' + SITE + path + '"/>\n'
+                    '    <changefreq>monthly</changefreq>\n    <priority>' + pri + '</priority>\n  </url>')
     for path, pri in SINGLES:
         rows.append('  <url>\n    <loc>' + SITE + path + '</loc>\n'
                     '    <changefreq>monthly</changefreq>\n    <priority>' + pri + '</priority>\n  </url>')
