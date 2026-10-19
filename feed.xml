@@ -6,7 +6,14 @@
     <atom:link href="https://mashharawi.com/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Notes on commercial steel, software and automation.</description>
     <language>en</language>
-    <lastBuildDate>Mon, 19 Oct 2026 05:59:06 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 19 Oct 2026 12:42:55 +0000</lastBuildDate>
+    <item>
+      <title>كيف تحسب كمية حديد التسليح في السقف؟ مثال محلول خطوة بخطوة</title>
+      <link>https://mashharawi.com/writing/slab-rebar-quantity/</link>
+      <guid isPermaLink="true">https://mashharawi.com/writing/slab-rebar-quantity/</guid>
+      <pubDate>Mon, 19 Oct 2026 09:00:00 +0000</pubDate>
+      <description>طريقة حساب عدد أسياخ البلاطة وأطوالها ووزنها من المخطط، بمثال محلول لسقف 6 × 5 م، ولماذا يكون الحديد المشترى أكثر من الحديد الصافي.</description>
+    </item>
     <item>
       <title>جدول أوزان الحديد الإنشائي: كمرات IPE وHEA وHEB</title>
       <link>https://mashharawi.com/writing/steel-beam-weight-table/</link>

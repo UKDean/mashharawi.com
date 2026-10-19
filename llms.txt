@@ -42,6 +42,7 @@ For Chinese contractors working in Saudi Arabia: rebar supply, cutting to a bar 
 
 ## Writing
 
+- [كيف تحسب كمية حديد التسليح في السقف؟ مثال محلول خطوة بخطوة](https://mashharawi.com/writing/slab-rebar-quantity/): طريقة حساب عدد أسياخ البلاطة وأطوالها ووزنها من المخطط، بمثال محلول لسقف 6 × 5 م، ولماذا يكون الحديد المشترى أكثر من الحديد الصافي. (Arabic)
 - [كم سيخ حديد في الطن؟ تحويل الطلبية بين الأطنان والأسياخ](https://mashharawi.com/writing/bars-per-tonne/): number of 12 m rebar bars per tonne for 8–32 mm, and converting an order between tonnes and bars, in Arabic
 - [جدول أوزان الحديد الإنشائي: كمرات IPE وHEA وHEB](https://mashharawi.com/writing/steel-beam-weight-table/): weight per metre and per 12 m length of the most traded IPE, HEA and HEB beams, the difference between the three, and how weight is calculated from the section, in Arabic
 - [جدول أوزان حديد التسليح لكل الأقطار](https://mashharawi.com/writing/rebar-weight-table/): rebar weight per metre, per 12 m bar and bars per tonne for 8–32 mm, in Arabic
