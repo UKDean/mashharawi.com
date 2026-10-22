@@ -196,7 +196,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/writing/"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/writing/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/writing/"/>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -205,9 +205,15 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/writing/"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/writing/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/writing/"/>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mashharawi.com/writing/bs8666-vs-aci-cut-length/</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mashharawi.com/writing/slab-rebar-quantity/</loc>

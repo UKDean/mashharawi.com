@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206422515377950" crossorigin="anonymous"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>طول القص بين BS 8666 وACI 318: ما الفرق ولماذا يهم؟ — Omar Mashharawi</title>
+<meta name="description" content="لماذا يخرج طول القص لنفس السيخ مختلفاً بين المواصفة البريطانية BS 8666 والأمريكية ACI 318 (والكود السعودي SBC 304)، بأمثلة محسوبة لسيخ L وسيخ U.">
+<meta name="author" content="Omar Mashharawi">
+
+<link rel="canonical" href="https://mashharawi.com/writing/bs8666-vs-aci-cut-length/">
+<meta name="theme-color" content="#0A0A0A">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mashharawi.com/writing/bs8666-vs-aci-cut-length/">
+<meta property="og:title" content="طول القص بين BS 8666 وACI 318: ما الفرق ولماذا يهم؟ — Omar Mashharawi">
+<meta property="og:description" content="لماذا يخرج طول القص لنفس السيخ مختلفاً بين المواصفة البريطانية BS 8666 والأمريكية ACI 318 (والكود السعودي SBC 304)، بأمثلة محسوبة لسيخ L وسيخ U.">
+<meta property="og:image" content="https://mashharawi.com/og-noir-ar.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" type="application/rss+xml" title="Omar Mashharawi notes" href="https://mashharawi.com/feed.xml">
+<link rel="stylesheet" href="/assets/site.css?v=20261018">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@200;300;400;500&family=Inter:wght@200..500&display=swap">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "طول القص بين BS 8666 وACI 318: ما الفرق ولماذا يهم؟",
+  "description": "لماذا يخرج طول القص لنفس السيخ مختلفاً بين المواصفة البريطانية BS 8666 والأمريكية ACI 318 (والكود السعودي SBC 304)، بأمثلة محسوبة لسيخ L وسيخ U.",
+  "datePublished": "2026-10-22",
+  "dateModified": "2026-10-22",
+  "inLanguage": "ar",
+  "mainEntityOfPage": "https://mashharawi.com/writing/bs8666-vs-aci-cut-length/",
+  "author": { "@type": "Person", "name": "Omar Mashharawi", "url": "https://mashharawi.com/" },
+  "publisher": { "@type": "Person", "name": "Omar Mashharawi", "url": "https://mashharawi.com/" }
+}
+</script>
+<script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/cdn-cgi/*"}}]},"eagerness":"moderate"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">تخطَّ إلى المحتوى</a>
+<header class="c-header c-header--solid">
+  <a class="c-header__name" href="/ar/">عمر المشهراوي</a>
+  <nav class="c-header__nav" aria-label="الرئيسية">
+    <a href="/ar/#about">نبذة</a>
+    <a href="/ar/#experience">الخبرة</a>
+    <a href="/ar/tools/">الأدوات</a>
+    <a href="/ar/writing/" aria-current="page">المقالات</a>
+    <a href="/ar/#contact">تواصل</a>
+    <a href="/" hreflang="en" lang="en" class="c-header__lang">English</a>
+  </nav>
+  <button class="c-header__menu" type="button" aria-label="القائمة" aria-expanded="false"><span></span><span></span></button>
+</header>
+<main id="main">
+  <article class="sec note c-note">
+    <div class="wrap">
+      <p class="c-label">مقال &middot; <time datetime="2026-10-22">2026-10-22</time></p>
+      <h1 class="c-note__title">طول القص بين BS 8666 وACI 318: ما الفرق ولماذا يهم؟</h1>
+      <p class="c-note__lead">لماذا يخرج طول القص لنفس السيخ مختلفاً بين المواصفة البريطانية BS 8666 والأمريكية ACI 318 (والكود السعودي SBC 304)، بأمثلة محسوبة لسيخ L وسيخ U.</p>
+      <div class="prose c-prose">
+<p>جدول التفريد يعطي أبعاد السيخ بعد الثني، والورشة تحتاج طول السيخ قبل الثني: طول القص. والانتقال من الأول إلى الثاني ليس جمعاً للأبعاد، لأن السيخ عند الثني يلتف حول دائرة فيقصر طوله المطلوب. ومقدار هذا النقص يختلف بين المواصفة البريطانية BS 8666:2005 والأمريكية ACI 318، التي يعتمد عليها الكود السعودي SBC 304.</p>
+<h2>من أين يأتي الفرق؟</h2>
+<p><strong>نصف قطر الثني.</strong> كل مواصفة تحدد أصغر دائرة يُثنى حولها السيخ:</p>
+<ul>
+<li><strong>BS 8666:</strong> نصف القطر الداخلي 2 × القطر للأسياخ حتى 16 مم، و3.5 × القطر لما فوقها.</li>
+<li><strong>ACI 318:</strong> قطر الثني الداخلي 6 × القطر للأسياخ من 10 إلى 25 مم، و8 × القطر من 28 إلى 36 مم، و10 × القطر لما فوقها. أي أن نصف القطر 3 × القطر للأقطار الشائعة.</li>
+</ul>
+<p><strong>طريقة الحساب.</strong> BS 8666 تعطي معادلة جاهزة لكل شكل برقم (Shape Code): 00 للسيخ المستقيم، و11 لسيخ L، و21 لسيخ U، و51 للكانة المغلقة، وغيرها. أما في ACI فيُحسب طول محور السيخ: مجموع الأبعاد الخارجية ناقص خصم لكل ثنية يعتمد على قطر الثني.</p>
+<p>وفي الحالتين يُقرَّب طول القص لأعلى إلى أقرب 25 مم، كما تنص BS 8666 وكما تعمل أغلب ورش القص.</p>
+<h2>مثال 1: سيخ L قطر 16 مم، الساقان 600 و1,200 مم</h2>
+<p><strong>BS 8666 (الشكل 11):</strong> نصف قطر الثني = 2 × 16 = 32 مم</p>
+<p>الطول = A + B − 0.5r − d = 600 + 1,200 − 16 − 16 = 1,768 مم، ويُقرَّب إلى <strong>1,775 مم</strong></p>
+<p><strong>ACI 318:</strong> نصف قطر الثني = 3 × 16 = 48 مم، والخصم لثنية 90° حوالي 40 مم</p>
+<p>الطول = 1,800 − 40 = 1,760 مم، ويُقرَّب إلى <strong>1,775 مم</strong></p>
+<p>الفرق 8 مم، واختفى بعد التقريب.</p>
+<h2>مثال 2: سيخ U قطر 16 مم، الأبعاد 300 و1,500 و300 مم</h2>
+<p><strong>BS 8666 (الشكل 21):</strong> الطول = A + B + C − r − 2d = 2,100 − 32 − 32 = 2,036 مم، ويُقرَّب إلى <strong>2,050 مم</strong></p>
+<p><strong>ACI 318:</strong> ثنيتان بخصم 40 مم لكل واحدة: 2,100 − 80 = 2,020 مم، ويُقرَّب إلى <strong>2,025 مم</strong></p>
+<p>الفرق هنا 25 مم لكل سيخ. وفي جدول فيه 1,000 سيخ من هذا الشكل يصبح 25 متراً من حديد 16 مم، أي حوالي 39.5 كجم، والأهم أن الأبعاد بعد الثني لن تطابق المخطط.</p>
+<h2>لماذا يهم هذا في الموقع؟</h2>
+<p>المشكلة لا تظهر عندما يُعدّ الجدول ويُقص ويُثنى على مواصفة واحدة. تظهر عند الخلط: استشاري يعدّ جدول التفريد على BS 8666، وورشة تثني بقوالب ACI أو العكس. عندها تخرج الساق الأخيرة أطول أو أقصر من المخطط، ويُعاد القص أو يُقبل سيخ خارج الأبعاد.</p>
+<p>قبل القص اسأل سؤالين:</p>
+<ol>
+<li>ما المواصفة المذكورة في مواصفات المشروع لجدول التفريد؟</li>
+<li>هل قوالب الثني في الورشة مطابقة لأقطار الثني في هذه المواصفة؟</li>
+</ol>
+<h2>احسبها مباشرة</h2>
+<p><a href="/ar/tools/rebarplan/">RebarPlan</a> يحسب طول القص على BS 8666 أو ACI 318 / SBC 304 حسب اختيارك، وينبّه إذا كانت ساق أقصر من الحد الأدنى في BS 8666، ثم يرتّب القص بأقل هدر. وهو مجاني لويندوز وماك.</p>
+<p>الأرقام هنا للتخطيط والتقدير. المرجع النهائي هو مواصفة المشروع والمهندس المسؤول.</p>
+      </div>
+      <p class="note-back"><a href="/ar/writing/">&rarr; كل المقالات</a></p>
+    </div>
+  </article>
+  <section class="q-band" aria-labelledby="qb-h">
+    <div class="wrap">
+      <p class="q-eyebrow">توريد حديد التسليح · الراجحي للحديد</p>
+      <h2 id="qb-h">تحتاج حديد تسليح لمشروعك؟</h2>
+      <p>أنا رئيس قسم في الراجحي للحديد. أرسل لي المقاسات والكميات أو جدول التفريد، وأرجع لك بعرض سعر.</p>
+      <ul class="q-facts">
+        <li>10 إلى 32 مم · طول 12 م</li><li>Grade 60 و Grade 80</li><li>قص حسب الطلب</li><li>دهان إيبوكسي</li><li>شهادات الفحص متوفرة</li><li>تسليم فوري بعد الدفع أو الاعتماد البنكي</li><li>الرياض · جدة · القصيم · الطائف</li><li>شحن لجميع مناطق المملكة</li>
+      </ul>
+      <div class="q-actions">
+        <a class="q-btn q-btn--wa" href="https://wa.me/message/D6ABM7QFWVSPB1" target="_blank" rel="noopener">تواصل على واتساب</a>
+        <a class="q-btn q-btn--line" href="/ar/rebar/">تفاصيل التوريد</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="c-footer">
+  <div class="c-footer__quote">
+    <p>ملاحظات عن الأوزان والسماحيات وما يصل إلى الفاتورة.</p>
+    <a class="c-label" href="/ar/writing/">كل المقالات ←</a>
+  </div>
+  <div class="c-footer__base">
+    <span>&copy; <span id="yr">2026</span> عمر المشهراوي</span>
+    <a href="mailto:info@mashharawi.com">info@mashharawi.com</a>
+    <a href="/ar/privacy/">الخصوصية</a>
+  </div>
+</footer>
+<script src="/assets/site.js?v=20261015" defer></script>
+<script src="/assets/quote.js?v=20261018" defer></script>
+</body>
+</html>

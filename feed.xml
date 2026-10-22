@@ -6,7 +6,14 @@
     <atom:link href="https://mashharawi.com/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Notes on commercial steel, software and automation.</description>
     <language>en</language>
-    <lastBuildDate>Thu, 22 Oct 2026 11:14:12 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 22 Oct 2026 11:29:53 +0000</lastBuildDate>
+    <item>
+      <title>طول القص بين BS 8666 وACI 318: ما الفرق ولماذا يهم؟</title>
+      <link>https://mashharawi.com/writing/bs8666-vs-aci-cut-length/</link>
+      <guid isPermaLink="true">https://mashharawi.com/writing/bs8666-vs-aci-cut-length/</guid>
+      <pubDate>Thu, 22 Oct 2026 09:00:00 +0000</pubDate>
+      <description>لماذا يخرج طول القص لنفس السيخ مختلفاً بين المواصفة البريطانية BS 8666 والأمريكية ACI 318 (والكود السعودي SBC 304)، بأمثلة محسوبة لسيخ L وسيخ U.</description>
+    </item>
     <item>
       <title>كيف تحسب كمية حديد التسليح في السقف؟ مثال محلول خطوة بخطوة</title>
       <link>https://mashharawi.com/writing/slab-rebar-quantity/</link>
