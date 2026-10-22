@@ -125,6 +125,22 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://mashharawi.com/tools/approvals/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/tools/approvals/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/tools/approvals/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/tools/approvals/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mashharawi.com/ar/tools/approvals/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/tools/approvals/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/tools/approvals/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/tools/approvals/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://mashharawi.com/privacy/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/privacy/"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/privacy/"/>

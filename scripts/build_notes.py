@@ -22,6 +22,7 @@ PAIRS = [
     ("/tools/steel-sections/", "/ar/tools/steel-sections/", "0.9", "0.8"),
     ("/tools/rebarplan/", "/ar/tools/rebarplan/", "0.8", "0.7"),
     ("/tools/openpdfkit/", "/ar/tools/openpdfkit/", "0.8", "0.7"),
+    ("/tools/approvals/", "/ar/tools/approvals/", "0.6", "0.5"),
     ("/privacy/", "/ar/privacy/", "0.3", "0.3"),
 ]
 # Pages with no English/Arabic twin (Arabic-only, or vice versa) — same

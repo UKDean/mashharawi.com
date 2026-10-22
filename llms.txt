@@ -30,6 +30,7 @@ For Chinese contractors working in Saudi Arabia: rebar supply, cutting to a bar 
 - [Reinforcing steel (rebar) weight calculator](https://mashharawi.com/tools/rebar-weight/): kilograms per metre, per bar and per tonne by diameter, or tonnage back to a number of bars
 - [Steel section weight calculator](https://mashharawi.com/tools/steel-sections/): 182 sizes of IPE, HEA, HEB, UPN, equal and unequal angles, round, square and hex bars and flats, plus pipe and tube by dimensions; weight per metre, per piece and per order, with the commercial tolerance band
 - [RebarPlan](https://mashharawi.com/tools/rebarplan/): free Windows and macOS app combining a bar bending schedule (BS 8666:2005 shape codes or ACI 318 / Saudi SBC 304) with an optimised rebar cutting plan from 6, 9, 12 and 18 m stock bars, a workshop cutting sheet with bundle labels, rebar weights per diameter, and export to Excel, PDF or email. Install on Windows from the [Microsoft Store](https://apps.microsoft.com/detail/9PM9HL3XFBZ3); Mac download and source on [GitHub](https://github.com/UKDean/RebarPlan)
+- [Document Approval Assistant](https://mashharawi.com/tools/approvals/): internal web tool for Al Rajhi Steel and Saudi Benaa staff that builds project approval, vendor registration, prequalification and technical submittal packages from the company certificate library: Arabic and English OCR, rule-based expiry checks, form filling, one ordered PDF with cover and index, review and approval workflow. Sign-in with a company email only
 - [OpenPDFKit](https://mashharawi.com/tools/openpdfkit/): offline desktop app to merge, split, compress, convert, protect and OCR PDFs; open source (AGPL-3.0)
 - [All tools](https://mashharawi.com/tools/)
 
@@ -56,6 +57,7 @@ For Chinese contractors working in Saudi Arabia: rebar supply, cutting to a bar 
 - [حاسبة وزن حديد التسليح](https://mashharawi.com/ar/tools/rebar-weight/)
 - [حاسبة أوزان المقاطع الحديدية](https://mashharawi.com/ar/tools/steel-sections/)
 - [RebarPlan بالعربي](https://mashharawi.com/ar/tools/rebarplan/): جدول تفريد الحديد وخطة القص لويندوز وماك
+- [مساعد اعتماد المستندات](https://mashharawi.com/ar/tools/approvals/): أداة داخلية لتجهيز حزم اعتماد المشاريع وتسجيل الموردين من شهادات الشركة
 - [كل الأدوات](https://mashharawi.com/ar/tools/)
 
 ## About
