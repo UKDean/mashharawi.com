@@ -46,11 +46,11 @@
 <header class="c-header c-header--solid">
   <a class="c-header__name" href="/">Omar Mashharawi</a>
   <nav class="c-header__nav" aria-label="Main">
-    <a href="/#about">About</a>
+    <a href="/about/">About</a>
     <a href="/#experience">Experience</a>
     <a href="/tools/">Tools</a>
     <a href="/writing/" aria-current="page">Writing</a>
-    <a href="/#contact">Contact</a>
+    <a href="/contact/">Contact</a>
     <a href="/ar/" hreflang="ar" lang="ar" class="c-header__lang">العربية</a>
   </nav>
   <button class="c-header__menu" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
@@ -63,33 +63,107 @@
       <p class="c-note__lead">Two mills can both meet the standard and still hand you a different invoice. The gap lives in the tolerance band.</p>
       <div class="prose c-prose">
 <p>A rebar standard gives a nominal mass per metre and a tolerance around it. Both are technical. What happens inside that band is commercial.</p>
-<h2>Where the money sits</h2>
-<p>Order by piece, pay by weight, and the tolerance decides the difference.</p>
+<p>An engineer checks that the bar is inside the band and moves on. A buyer should not, because the band is wide enough to move the invoice by several percent without anyone doing anything wrong.</p>
+<h2>What the standards allow</h2>
+<p>The two standards most often named in Saudi specifications treat the band differently.</p>
 <ul>
-<li>On the light side of the band, the buyer gets fewer kilos than the drawing assumed.</li>
-<li>On the heavy side, the buyer pays for steel the structure does not need.</li>
+<li><strong>BS 4449</strong> sets a tolerance on the nominal mass per metre of <strong>±4.5%</strong> for bars above 8 mm, and <strong>±6%</strong> for 8 mm and below. The band runs both ways.</li>
+<li><strong>ASTM A615/A615M</strong> sets only a lower limit: an individual bar may weigh up to <strong>6% under</strong> its nominal weight. The standard does not cap the heavy side.</li>
 </ul>
-<p>Neither case is a defect. Both are inside the standard.</p>
+<p>Always check the edition your specification names. The point here is not the exact figure, it is that every standard leaves a band, and the band has a price.</p>
+<h2>What the band looks like in kilograms</h2>
+<p>Nominal mass per metre for a round bar is d² / 162, with d in millimetres. Here is the BS 4449 band of ±4.5% for common sizes:</p>
+<table>
+<thead>
+<tr>
+<th>Diameter</th>
+<th>Nominal (kg/m)</th>
+<th>Light end (kg/m)</th>
+<th>Heavy end (kg/m)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>12 mm</td>
+<td>0.888</td>
+<td>0.848</td>
+<td>0.928</td>
+</tr>
+<tr>
+<td>16 mm</td>
+<td>1.578</td>
+<td>1.507</td>
+<td>1.649</td>
+</tr>
+<tr>
+<td>20 mm</td>
+<td>2.466</td>
+<td>2.355</td>
+<td>2.577</td>
+</tr>
+<tr>
+<td>25 mm</td>
+<td>3.853</td>
+<td>3.680</td>
+<td>4.026</td>
+</tr>
+<tr>
+<td>32 mm</td>
+<td>6.313</td>
+<td>6.029</td>
+<td>6.597</td>
+</tr>
+</tbody>
+</table>
+<p>Every value in that table is a compliant bar. A 32 mm bar 12 m long can weigh anywhere between 72.3 kg and 79.2 kg and pass. You can check any size with the <a href="/tools/rebar-weight/">rebar weight calculator</a> or the full <a href="/writing/rebar-weight-table/">rebar weight table</a>.</p>
+<h2>Two ways to bill the same steel</h2>
+<p>The tolerance only matters because of how the steel is invoiced. There are two common bases, and they react to the band in opposite ways.</p>
+<ul>
+<li><strong>Theoretical weight.</strong> Pieces × length × nominal mass. The invoice is fixed by the count and the size. It does not move with how the mill rolled the bars.</li>
+<li><strong>Actual weight.</strong> The weighbridge ticket. The invoice moves with every kilo the bars weigh above or below nominal.</li>
+</ul>
+<p>Take 1,000 bars of 16 mm at 12 m. The theoretical weight is 1,000 × 12 × 1.578 = <strong>18.936 t</strong>.</p>
+<p>Now suppose the batch was rolled 3% light, which is inside the band.</p>
+<ul>
+<li>Billed on theoretical weight, the buyer pays for 18.936 t and receives 18.368 t of steel. The 568 kg difference sits with the seller.</li>
+<li>Billed on actual weight, the buyer pays for 18.368 t. The buyer still gets 12,000 m of bar, which is what the drawing needs.</li>
+</ul>
+<p>Turn it around: the same batch rolled 3% heavy weighs 19.504 t.</p>
+<ul>
+<li>On theoretical weight, the buyer pays for 18.936 t and the extra steel is the seller&rsquo;s cost.</li>
+<li>On actual weight, the buyer pays for 568 kg of steel the structure does not need.</li>
+</ul>
+<p>Neither case is a defect. Both are inside the standard. The billing basis decides who carries the difference, and on large orders the difference is real money.</p>
+<h2>Ordering by tonnes changes the problem</h2>
+<p>Many orders are placed in tonnes, not pieces. Then the tolerance stops being a money question and becomes a length question.</p>
+<p>Order 20 t of 16 mm bars at 12 m:</p>
+<ul>
+<li>At nominal mass, 20 t is about <strong>1,056 bars</strong>.</li>
+<li>At the heavy end of the band, it is about <strong>1,011 bars</strong>: around 45 fewer.</li>
+<li>At the light end, it is about <strong>1,106 bars</strong>: around 50 more.</li>
+</ul>
+<p>A site that ordered by tonnes against a bar bending schedule can run short of bars on a heavy batch, even though every bar complies. The note on <a href="/writing/bars-per-tonne/">how many bars are in a tonne</a> works through the count for each size.</p>
+<h2>Per bar, per sample, per batch</h2>
+<p>The tolerance is checked on test samples, not by weighing every bar. A mill can be inside the band on every test and still deliver a batch whose average sits close to one end of it.</p>
+<p>That is why the certificate matters. Ask for a mill test certificate that shows the measured mass per metre, or the deviation from nominal, for each size and heat. It turns &ldquo;within tolerance&rdquo; from a claim into a number you can compare with the weighbridge.</p>
 <h2>What to put in the contract</h2>
-<p>State the tolerance you expect, state how weight is verified, and state who witnesses it.</p>
+<p>State the tolerance you expect, state how weight is verified, and state who witnesses it. In practice that means writing down:</p>
+<ol>
+<li><strong>The standard and its edition</strong>, so the band is defined and not argued about later.</li>
+<li><strong>The billing basis</strong>: theoretical or actual weight. If theoretical, name the nominal mass table, normally the one in the standard.</li>
+<li><strong>The weighbridge</strong>, if actual weight: whose it is, a current calibration certificate, and the ticket attached to the invoice.</li>
+<li><strong>Who witnesses the weighing</strong>, and whether a buyer&rsquo;s representative can attend.</li>
+<li><strong>How a weight dispute is settled</strong>: a re-weigh at an agreed weighbridge, and the difference above which it applies.</li>
+<li><strong>For cut and bent bars</strong>: whether weight comes from the bending schedule lengths at nominal mass, or from weighing the bundles after processing.</li>
+</ol>
+<p>None of this is technical. The engineer has already accepted the bar. These lines decide who pays for the band the standard allows.</p>
       </div>
       <p class="note-back"><a href="/writing/">&larr; All notes</a></p>
     </div>
   </article>
-  <section class="q-band" aria-labelledby="qb-h">
-    <div class="wrap">
-      <p class="q-eyebrow">Rebar supply · Al Rajhi Steel</p>
-      <h2 id="qb-h">Need reinforcing steel for a project?</h2>
-      <p>I am a Section Head at Al Rajhi Steel. Send me the sizes and quantities, or the bar bending schedule, and I will come back with a quotation.</p>
-      <ul class="q-facts">
-        <li>10 to 32 mm · 12 m bars</li><li>Grade 60 and Grade 80</li><li>Cut to length</li><li>Epoxy coating</li><li>Test certificates available</li><li>Immediate delivery after payment or LC opening</li><li>Riyadh · Jeddah · Qassim · Taif</li><li>Shipping across Saudi Arabia</li>
-      </ul>
-      <div class="q-actions">
-        <a class="q-btn q-btn--wa" href="https://wa.me/message/D6ABM7QFWVSPB1" target="_blank" rel="noopener">Message on WhatsApp</a>
-        <a class="q-btn q-btn--line" href="/rebar/">Supply details</a>
-      </div>
-    </div>
-  </section>
+  <aside class="wrap note-supply" style="padding-block:0 clamp(40px,5vw,68px)">
+    <p class="muted">Written by <a href="/about/">Omar Mashharawi</a>, Section Head at Al Rajhi Steel. For rebar supply, see <a href="/rebar/">supply details</a>.</p>
+  </aside>
 </main>
 <footer class="c-footer">
   <div class="c-footer__quote">
@@ -99,6 +173,8 @@
   <div class="c-footer__base">
     <span>&copy; <span id="yr">2026</span> Omar Mashharawi</span>
     <a href="mailto:info@mashharawi.com">info@mashharawi.com</a>
+    <a href="/about/">About</a>
+    <a href="/contact/">Contact</a>
     <a href="/privacy/">Privacy</a>
   </div>
 </footer>

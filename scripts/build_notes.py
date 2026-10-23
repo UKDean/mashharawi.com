@@ -23,6 +23,8 @@ PAIRS = [
     ("/tools/rebarplan/", "/ar/tools/rebarplan/", "0.8", "0.7"),
     ("/tools/openpdfkit/", "/ar/tools/openpdfkit/", "0.8", "0.7"),
     ("/tools/approvals/", "/ar/tools/approvals/", "0.6", "0.5"),
+    ("/about/", "/ar/about/", "0.7", "0.6"),
+    ("/contact/", "/ar/contact/", "0.5", "0.4"),
     ("/privacy/", "/ar/privacy/", "0.3", "0.3"),
 ]
 # Pages with no English/Arabic twin (Arabic-only, or vice versa) — same
@@ -34,15 +36,10 @@ SINGLES = [
 # gives the English page a Chinese page translates, so both carry hreflang
 # alternates; ZH_PAGES lists every Chinese page and its priority. Same rule:
 # a page not listed here disappears from the sitemap on the next build.
-ZH_TWINS = {"/rebar/": "/zh/rebar/"}
-ZH_PAGES = [
-    ("/zh/", "0.8"),
-    ("/zh/rebar/", "0.9"),
-    ("/zh/rebar-cutting-bending/", "0.8"),
-    ("/zh/rebar-weight-table/", "0.8"),
-    ("/zh/epoxy-coated-rebar/", "0.7"),
-    ("/zh/rebar-quotation-guide/", "0.7"),
-]
+# Empty since 2026-10-23: the /zh/ pages are short sales pages and carry
+# noindex while the site is under AdSense review. They stay live by link.
+ZH_TWINS = {}
+ZH_PAGES = []
 F_EN = ('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200..500'
         '&display=swap">')
 F_AR = ('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@200;300;400;500'
@@ -79,42 +76,16 @@ def parse(path):
     return meta
 
 
-# Rebar quotation band shown at the end of every note, and the WhatsApp button.
-# Facts here are only what Omar stated about Al Rajhi Steel's supply.
-_WA = "https://wa.me/message/D6ABM7QFWVSPB1"
+# One-line author and supply note at the end of every note. It replaced a full
+# quotation band so the notes read as articles, not sales pages.
 def quote_band(lang):
-    from urllib.parse import quote as q
     if lang == "ar":
-        link = _WA
-        return ("""  <section class="q-band" aria-labelledby="qb-h">
-    <div class="wrap">
-      <p class="q-eyebrow">توريد حديد التسليح · الراجحي للحديد</p>
-      <h2 id="qb-h">تحتاج حديد تسليح لمشروعك؟</h2>
-      <p>أنا رئيس قسم في الراجحي للحديد. أرسل لي المقاسات والكميات أو جدول التفريد، وأرجع لك بعرض سعر.</p>
-      <ul class="q-facts">
-        <li>10 إلى 32 مم · طول 12 م</li><li>Grade 60 و Grade 80</li><li>قص حسب الطلب</li><li>دهان إيبوكسي</li><li>شهادات الفحص متوفرة</li><li>تسليم فوري بعد الدفع أو الاعتماد البنكي</li><li>الرياض · جدة · القصيم · الطائف</li><li>شحن لجميع مناطق المملكة</li>
-      </ul>
-      <div class="q-actions">
-        <a class="q-btn q-btn--wa" href="https://wa.me/message/D6ABM7QFWVSPB1" target="_blank" rel="noopener">تواصل على واتساب</a>
-        <a class="q-btn q-btn--line" href="/ar/rebar/">تفاصيل التوريد</a>
-      </div>
-    </div>
-  </section>""")
-    link = _WA
-    return ("""  <section class="q-band" aria-labelledby="qb-h">
-    <div class="wrap">
-      <p class="q-eyebrow">Rebar supply · Al Rajhi Steel</p>
-      <h2 id="qb-h">Need reinforcing steel for a project?</h2>
-      <p>I am a Section Head at Al Rajhi Steel. Send me the sizes and quantities, or the bar bending schedule, and I will come back with a quotation.</p>
-      <ul class="q-facts">
-        <li>10 to 32 mm · 12 m bars</li><li>Grade 60 and Grade 80</li><li>Cut to length</li><li>Epoxy coating</li><li>Test certificates available</li><li>Immediate delivery after payment or LC opening</li><li>Riyadh · Jeddah · Qassim · Taif</li><li>Shipping across Saudi Arabia</li>
-      </ul>
-      <div class="q-actions">
-        <a class="q-btn q-btn--wa" href="https://wa.me/message/D6ABM7QFWVSPB1" target="_blank" rel="noopener">Message on WhatsApp</a>
-        <a class="q-btn q-btn--line" href="/rebar/">Supply details</a>
-      </div>
-    </div>
-  </section>""")
+        return ("""  <aside class="wrap note-supply" style="padding-block:0 clamp(40px,5vw,68px)">
+    <p class="muted">كتبه <a href="/ar/about/">عمر المشهراوي</a>، رئيس قسم في الراجحي للحديد. لطلب حديد التسليح: <a href="/ar/rebar/">تفاصيل التوريد</a>.</p>
+  </aside>""")
+    return ("""  <aside class="wrap note-supply" style="padding-block:0 clamp(40px,5vw,68px)">
+    <p class="muted">Written by <a href="/about/">Omar Mashharawi</a>, Section Head at Al Rajhi Steel. For rebar supply, see <a href="/rebar/">supply details</a>.</p>
+  </aside>""")
 
 
 def shell(lang, d, title, desc, canon, body, head="", robots=None, fonts=None):
@@ -130,12 +101,12 @@ def shell(lang, d, title, desc, canon, body, head="", robots=None, fonts=None):
              else "Notes on weights, tolerances and what ends up on the invoice.")
     more = "كل المقالات ←" if lang == "ar" else "All writing &rarr;"
     if lang == "ar":
-        items = [("نبذة", "/ar/#about", ""), ("الخبرة", "/ar/#experience", ""), ("الأدوات", "/ar/tools/", ""),
-                 ("المقالات", "/ar/writing/", ' aria-current="page"'), ("تواصل", "/ar/#contact", "")]
+        items = [("نبذة", "/ar/about/", ""), ("الخبرة", "/ar/#experience", ""), ("الأدوات", "/ar/tools/", ""),
+                 ("المقالات", "/ar/writing/", ' aria-current="page"'), ("تواصل", "/ar/contact/", "")]
         lang_link = '<a href="/" hreflang="en" lang="en" class="c-header__lang">English</a>'
     else:
-        items = [("About", "/#about", ""), ("Experience", "/#experience", ""), ("Tools", "/tools/", ""),
-                 ("Writing", "/writing/", ' aria-current="page"'), ("Contact", "/#contact", "")]
+        items = [("About", "/about/", ""), ("Experience", "/#experience", ""), ("Tools", "/tools/", ""),
+                 ("Writing", "/writing/", ' aria-current="page"'), ("Contact", "/contact/", "")]
         lang_link = '<a href="/ar/" hreflang="ar" lang="ar" class="c-header__lang">العربية</a>'
     nav = "\n    ".join('<a href="' + h + '"' + c + '>' + t + '</a>' for t, h, c in items) + "\n    " + lang_link
     rob = '<meta name="robots" content="' + robots + '">' if robots else ""
@@ -189,6 +160,8 @@ def shell(lang, d, title, desc, canon, body, head="", robots=None, fonts=None):
   <div class="c-footer__base">
     <span>&copy; <span id="yr">{datetime.date.today().year}</span> {brand}</span>
     <a href="mailto:info@mashharawi.com">info@mashharawi.com</a>
+    <a href="{'/ar/about/' if lang == 'ar' else '/about/'}">{'نبذة' if lang == 'ar' else 'About'}</a>
+    <a href="{'/ar/contact/' if lang == 'ar' else '/contact/'}">{'تواصل' if lang == 'ar' else 'Contact'}</a>
     <a href="{'/ar/privacy/' if lang == 'ar' else '/privacy/'}">{'الخصوصية' if lang == 'ar' else 'Privacy'}</a>
   </div>
 </footer>

@@ -64,9 +64,11 @@ For Chinese contractors working in Saudi Arabia: rebar supply, cutting to a bar 
 ## About
 
 - [Home and profile](https://mashharawi.com/): background, experience, skills, projects and contact
+- [About](https://mashharawi.com/about/): who writes the site, career in steel since 2008, how the content is written ([Arabic](https://mashharawi.com/ar/about/))
 
 ## Contact
 
+- [Contact page](https://mashharawi.com/contact/): email for the site, WhatsApp and work email for rebar quotations ([Arabic](https://mashharawi.com/ar/contact/))
 - Email: info@mashharawi.com
 - [LinkedIn](https://www.linkedin.com/in/mashharawi)
 - [GitHub](https://github.com/UKDean)
