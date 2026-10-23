@@ -38,12 +38,42 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "AboutPage",
-  "url": "https://mashharawi.com/about/",
-  "name": "About | Omar Mashharawi",
-  "inLanguage": "en",
-  "mainEntity": { "@id": "https://mashharawi.com/#person" },
-  "isPartOf": { "@id": "https://mashharawi.com/#website" }
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "url": "https://mashharawi.com/about/",
+      "name": "About | Omar Mashharawi",
+      "inLanguage": "en",
+      "mainEntity": {
+        "@id": "https://mashharawi.com/#person"
+      },
+      "isPartOf": {
+        "@id": "https://mashharawi.com/#website"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mashharawi.com/#person",
+      "name": "Omar Mashharawi",
+      "alternateName": [
+        "عمر المشهراوي",
+        "Omar Al-Mashharawi",
+        "Omar Almashharawi"
+      ],
+      "url": "https://mashharawi.com/",
+      "image": "https://mashharawi.com/portrait.jpg",
+      "jobTitle": "Section Head",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Al Rajhi Steel Co."
+      },
+      "email": "mailto:info@mashharawi.com",
+      "sameAs": [
+        "https://www.linkedin.com/in/mashharawi",
+        "https://github.com/UKDean"
+      ]
+    }
+  ]
 }
 </script>
 <script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/cdn-cgi/*"}}]},"eagerness":"moderate"}]}</script>
