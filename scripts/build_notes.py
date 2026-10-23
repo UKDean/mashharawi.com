@@ -166,7 +166,6 @@ def shell(lang, d, title, desc, canon, body, head="", robots=None, fonts=None):
   </div>
 </footer>
 <script src="/assets/site.js?v=20261015" defer></script>
-<script src="/assets/quote.js?v=20261018" defer></script>
 </body>
 </html>
 """
