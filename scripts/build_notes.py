@@ -129,7 +129,7 @@ def shell(lang, d, title, desc, canon, body, head="", robots=None, fonts=None):
 <meta property="og:image" content="{SITE}/og-noir{'-ar' if lang == 'ar' else ''}.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="alternate" type="application/rss+xml" title="{AUTHOR} notes" href="{SITE}/feed.xml">
-<link rel="stylesheet" href="/assets/site.css?v=20261018">
+<link rel="stylesheet" href="/assets/site.css?v=20261024">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 {f}
@@ -142,7 +142,7 @@ def shell(lang, d, title, desc, canon, body, head="", robots=None, fonts=None):
 <body>
 <a class="skip" href="#main">{skip}</a>
 <header class="c-header c-header--solid">
-  <a class="c-header__name" href="{home}">{brand}</a>
+  <a class="c-header__name" href="{home}"><img class="c-header__mark" src="/assets/brand/mark-64.png" width="32" height="32" alt="">{brand}</a>
   <nav class="c-header__nav" aria-label="{navl}">
     {nav}
   </nav>

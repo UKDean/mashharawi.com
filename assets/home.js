@@ -38,6 +38,22 @@
     reveal.forEach(function(el){ ro.observe(el); });
   }
 
+  // Brand film: plays once when it comes into view, then rests on the logo.
+  var bf = $('.fx-brand__film video'), bfr = $('.fx-brand__replay');
+  if(bf){
+    bf.addEventListener('ended', function(){ bfr.hidden = false; });
+    bfr.addEventListener('click', function(){ bfr.hidden = true; bf.currentTime = 0; bf.play(); });
+    if(reduce || !('IntersectionObserver' in window)){ bfr.hidden = false; }
+    else {
+      var bo = new IntersectionObserver(function(es){
+        if(!es[0].isIntersecting) return;
+        bo.disconnect();
+        var p = bf.play(); if(p && p.catch) p.catch(function(){ bfr.hidden = false; });
+      }, {threshold:.5});
+      bo.observe(bf);
+    }
+  }
+
   var header = $('.c-header');
   if(reduce){
     window.addEventListener('scroll', function(){ header.classList.toggle('is-solid', scrollY > 40); }, {passive:true});
