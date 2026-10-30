@@ -1497,7 +1497,7 @@ html[lang="ar"] .c-notes .note-text b,.c-notes a[lang="ar"] .note-text b{font:40
 /* ---- Rebar supply blocks: quote band, spec grid, WhatsApp button (2026-10-18).
    Contact for rebar quotations from Al Rajhi Steel. Green is used only on
    the WhatsApp actions, so it reads as "message me" and nowhere else. ---- */
-.q-band{background:var(--ink);color:#E6E8EA;padding-block:clamp(40px,5vw,68px)}
+.q-band{background:var(--bg-2,#151514);border-block:1px solid var(--c-line,#2A2927);color:#E6E8EA;padding-block:clamp(40px,5vw,68px)}
 .q-band .wrap{display:grid;gap:18px}
 .q-band .q-eyebrow{margin:0;font:400 12px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:#B5B3AD}
 html[lang="ar"] .q-band .q-eyebrow{font:400 14px var(--f-ar-body);letter-spacing:0}

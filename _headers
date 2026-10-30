@@ -1,8 +1,7 @@
 # Cloudflare Pages response headers.
 #
-# No script-src CSP yet: AdSense pulls from a long, changing list of Google
-# domains, and a policy that misses one silently breaks the ads. The header
-# below only stops other sites framing these pages.
+# No script-src CSP yet. The header below only stops other sites framing
+# these pages.
 
 /*
   Strict-Transport-Security: max-age=31536000

@@ -36,10 +36,16 @@ SINGLES = [
 # gives the English page a Chinese page translates, so both carry hreflang
 # alternates; ZH_PAGES lists every Chinese page and its priority. Same rule:
 # a page not listed here disappears from the sitemap on the next build.
-# Empty since 2026-10-23: the /zh/ pages are short sales pages and carry
-# noindex while the site is under AdSense review. They stay live by link.
-ZH_TWINS = {}
-ZH_PAGES = []
+ZH_TWINS = {"/rebar/": "/zh/rebar/"}
+ZH_PAGES = [
+    ("/zh/", "0.8"),
+    ("/zh/rebar/", "0.9"),
+    ("/zh/rebar-cutting-bending/", "0.8"),
+    ("/zh/rebar-weight-table/", "0.8"),
+    ("/zh/epoxy-coated-rebar/", "0.7"),
+    ("/zh/rebar-quotation-guide/", "0.7"),
+    ("/zh/hrb400-vs-astm-a615/", "0.8"),
+]
 F_EN = ('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200..500'
         '&display=swap">')
 F_AR = ('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@200;300;400;500'
@@ -76,16 +82,42 @@ def parse(path):
     return meta
 
 
-# One-line author and supply note at the end of every note. It replaced a full
-# quotation band so the notes read as articles, not sales pages.
+# Rebar quotation band shown at the end of every note, and the WhatsApp button.
+# Facts here are only what Omar stated about Al Rajhi Steel's supply.
+_WA = "https://wa.me/message/D6ABM7QFWVSPB1"
 def quote_band(lang):
+    from urllib.parse import quote as q
     if lang == "ar":
-        return ("""  <aside class="wrap note-supply" style="padding-block:0 clamp(40px,5vw,68px)">
-    <p class="muted">كتبه <a href="/ar/about/">عمر المشهراوي</a>، رئيس قسم في الراجحي للحديد. لطلب حديد التسليح: <a href="/ar/rebar/">تفاصيل التوريد</a>.</p>
-  </aside>""")
-    return ("""  <aside class="wrap note-supply" style="padding-block:0 clamp(40px,5vw,68px)">
-    <p class="muted">Written by <a href="/about/">Omar Mashharawi</a>, Section Head at Al Rajhi Steel. For rebar supply, see <a href="/rebar/">supply details</a>.</p>
-  </aside>""")
+        link = _WA
+        return ("""  <section class="q-band" aria-labelledby="qb-h">
+    <div class="wrap">
+      <p class="q-eyebrow">توريد حديد التسليح · الراجحي للحديد</p>
+      <h2 id="qb-h">تحتاج حديد تسليح لمشروعك؟</h2>
+      <p>أنا رئيس قسم في الراجحي للحديد. أرسل لي المقاسات والكميات أو جدول التفريد، وأرجع لك بعرض سعر.</p>
+      <ul class="q-facts">
+        <li>10 إلى 32 مم · طول 12 م</li><li>Grade 60 و Grade 80</li><li>قص حسب الطلب</li><li>دهان إيبوكسي</li><li>شهادات الفحص متوفرة</li><li>تسليم فوري بعد الدفع أو الاعتماد البنكي</li><li>الرياض · جدة · القصيم · الطائف</li><li>شحن لجميع مناطق المملكة</li>
+      </ul>
+      <div class="q-actions">
+        <a class="q-btn q-btn--wa" href="https://wa.me/message/D6ABM7QFWVSPB1" target="_blank" rel="noopener">تواصل على واتساب</a>
+        <a class="q-btn q-btn--line" href="/ar/rebar/">تفاصيل التوريد</a>
+      </div>
+    </div>
+  </section>""")
+    link = _WA
+    return ("""  <section class="q-band" aria-labelledby="qb-h">
+    <div class="wrap">
+      <p class="q-eyebrow">Rebar supply · Al Rajhi Steel</p>
+      <h2 id="qb-h">Need reinforcing steel for a project?</h2>
+      <p>I am a Section Head at Al Rajhi Steel. Send me the sizes and quantities, or the bar bending schedule, and I will come back with a quotation.</p>
+      <ul class="q-facts">
+        <li>10 to 32 mm · 12 m bars</li><li>Grade 60 and Grade 80</li><li>Cut to length</li><li>Epoxy coating</li><li>Test certificates available</li><li>Immediate delivery after payment or LC opening</li><li>Riyadh · Jeddah · Qassim · Taif</li><li>Shipping across Saudi Arabia</li>
+      </ul>
+      <div class="q-actions">
+        <a class="q-btn q-btn--wa" href="https://wa.me/message/D6ABM7QFWVSPB1" target="_blank" rel="noopener">Message on WhatsApp</a>
+        <a class="q-btn q-btn--line" href="/rebar/">Supply details</a>
+      </div>
+    </div>
+  </section>""")
 
 
 def shell(lang, d, title, desc, canon, body, head="", robots=None, fonts=None):
@@ -113,7 +145,6 @@ def shell(lang, d, title, desc, canon, body, head="", robots=None, fonts=None):
     return f"""<!DOCTYPE html>
 <html lang="{lang}" dir="{d}">
 <head>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6206422515377950" crossorigin="anonymous"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{e(title)}</title>
@@ -129,7 +160,7 @@ def shell(lang, d, title, desc, canon, body, head="", robots=None, fonts=None):
 <meta property="og:image" content="{SITE}/og-noir{'-ar' if lang == 'ar' else ''}.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="alternate" type="application/rss+xml" title="{AUTHOR} notes" href="{SITE}/feed.xml">
-<link rel="stylesheet" href="/assets/site.css?v=20261024">
+<link rel="stylesheet" href="/assets/site.css?v=20261031">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 {f}
