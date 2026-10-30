@@ -232,7 +232,7 @@ def note_page(n):
       <p class="note-back"><a href="{'/ar/writing/' if n['lang'] == 'ar' else '/writing/'}">{'&rarr;' if n['lang'] == 'ar' else '&larr;'} {alln}</a></p>
     </div>
   </article>"""
-    return shell(n["lang"], n["dir"], n["title"] + " — " + AUTHOR, n["summary"], n["url"], body, ld)
+    return shell(n["lang"], n["dir"], n["title"] + " — " + ("عمر المشهراوي" if n["lang"] == "ar" else AUTHOR), n["summary"], n["url"], body, ld)
 
 
 def index_page(notes):

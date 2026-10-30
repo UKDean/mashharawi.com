@@ -6,7 +6,7 @@
     <atom:link href="https://mashharawi.com/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Notes on commercial steel, software and automation.</description>
     <language>en</language>
-    <lastBuildDate>Fri, 30 Oct 2026 23:30:32 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 30 Oct 2026 23:39:59 +0000</lastBuildDate>
     <item>
       <title>طول القص بين BS 8666 وACI 318: ما الفرق ولماذا يهم؟</title>
       <link>https://mashharawi.com/writing/bs8666-vs-aci-cut-length/</link>
@@ -22,25 +22,25 @@
       <description>طريقة حساب عدد أسياخ البلاطة وأطوالها ووزنها من المخطط، بمثال محلول لسقف 6 × 5 م، ولماذا يكون الحديد المشترى أكثر من الحديد الصافي.</description>
     </item>
     <item>
-      <title>جدول أوزان الحديد الإنشائي: كمرات IPE وHEA وHEB</title>
+      <title>جدول أوزان الحديد الإنشائي: وزن متر كمرات IPE وHEA وHEB</title>
       <link>https://mashharawi.com/writing/steel-beam-weight-table/</link>
       <guid isPermaLink="true">https://mashharawi.com/writing/steel-beam-weight-table/</guid>
       <pubDate>Fri, 16 Oct 2026 09:00:00 +0000</pubDate>
       <description>الوزن لكل متر ووزن 12 متراً لكمرات IPE وHEA وHEB الأكثر تداولاً، مع الفرق بين الأنواع الثلاثة وطريقة حساب الوزن من أبعاد المقطع.</description>
     </item>
     <item>
-      <title>كم سيخ حديد في الطن؟ تحويل الطلبية بين الأطنان والأسياخ</title>
+      <title>عدد أسياخ الحديد في الطن لكل قطر: جدول من 8 إلى 32 مم</title>
       <link>https://mashharawi.com/writing/bars-per-tonne/</link>
       <guid isPermaLink="true">https://mashharawi.com/writing/bars-per-tonne/</guid>
       <pubDate>Fri, 16 Oct 2026 09:00:00 +0000</pubDate>
-      <description>عدد أسياخ حديد التسليح في الطن لكل قطر بطول 12 متراً، وطريقة التحويل من الأطنان إلى الأسياخ والعكس، ولماذا يختلف العدد الفعلي قليلاً عن الحساب.</description>
+      <description>كم سيخ حديد في الطن؟ جدول عدد أسياخ حديد التسليح في الطن لكل قطر بطول 12 متراً، مع طريقة التحويل من الأطنان إلى الأسياخ والعكس.</description>
     </item>
     <item>
-      <title>جدول أوزان حديد التسليح لكل الأقطار</title>
+      <title>جدول أوزان حديد التسليح: وزن المتر والسيخ 12 م لكل الأقطار</title>
       <link>https://mashharawi.com/writing/rebar-weight-table/</link>
       <guid isPermaLink="true">https://mashharawi.com/writing/rebar-weight-table/</guid>
       <pubDate>Fri, 09 Oct 2026 09:00:00 +0000</pubDate>
-      <description>وزن المتر والسيخ وعدد الأسياخ في الطن لأقطار حديد التسليح من 8 إلى 32 مم، مع طريقة الحساب ولماذا يختلف الوزن في الفاتورة.</description>
+      <description>وزن متر حديد التسليح ووزن السيخ 12 متر وعدد الأسياخ في الطن لأقطار 8 إلى 32 مم في جدول واحد، مع معادلة الحساب ولماذا يختلف الوزن في الفاتورة.</description>
     </item>
     <item>
       <title>Weight tolerance is a commercial term, not a technical one</title>
