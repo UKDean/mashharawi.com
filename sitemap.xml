@@ -141,6 +141,86 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://mashharawi.com/kavro/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/kavro/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/kavro/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/kavro/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mashharawi.com/ar/kavro/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/kavro/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/kavro/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/kavro/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mashharawi.com/kavro/support/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/kavro/support/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/kavro/support/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/kavro/support/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://mashharawi.com/ar/kavro/support/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/kavro/support/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/kavro/support/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/kavro/support/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://mashharawi.com/kavro/open-source/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/kavro/open-source/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/kavro/open-source/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/kavro/open-source/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://mashharawi.com/ar/kavro/open-source/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/kavro/open-source/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/kavro/open-source/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/kavro/open-source/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://mashharawi.com/kavro/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/kavro/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/kavro/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/kavro/privacy/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://mashharawi.com/ar/kavro/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/kavro/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/kavro/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/kavro/privacy/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://mashharawi.com/kavro/terms/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/kavro/terms/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/kavro/terms/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/kavro/terms/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://mashharawi.com/ar/kavro/terms/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/kavro/terms/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/kavro/terms/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/kavro/terms/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://mashharawi.com/about/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/about/"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/about/"/>

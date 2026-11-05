@@ -2,3 +2,12 @@
 .claude/
 .mcp.json
 health-report.md
+
+# Private business files
+/DESIGN-BRIEF.md
+/Claude outputs/*.xlsx
+/Claude outputs/winback_sequence_alrajhi.md
+/Claude outputs/whatsapp-quote-button.html
+
+# Local Python environment
+.venv/

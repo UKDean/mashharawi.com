@@ -17,6 +17,7 @@ Static site, no build step for the pages themselves. Hand-written HTML, a shared
 | `contract-check/` | Internal contract review tool |
 | `steelcalc/` | Support and privacy pages for the Steel Section Calculator iOS app, plus its screenshots in `shots/` |
 | `tubes/`, `crossword/` | Support and privacy pages for the Tubes and Arabic crossword apps |
+| `kavro/`, `ar/kavro/` | KAVRO product, support and legal pages. Generated outside this repository; don't edit them by hand |
 | `notes/` | Source Markdown for the writing section |
 | `writing/`, `feed.xml`, `sitemap.xml` | Generated from `notes/` by `scripts/build_notes.py`. Edit the Markdown, not the output |
 | `assets/` | `site.css`, scripts, logo, and `data/` for the calculators |
