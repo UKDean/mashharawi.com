@@ -33,6 +33,7 @@ For Chinese contractors working in Saudi Arabia: rebar supply, cutting to a bar 
 - [RebarPlan](https://mashharawi.com/tools/rebarplan/): free Windows and macOS app combining a bar bending schedule (BS 8666:2005 shape codes or ACI 318 / Saudi SBC 304) with an optimised rebar cutting plan from 6, 9, 12 and 18 m stock bars, a workshop cutting sheet with bundle labels, rebar weights per diameter, and export to Excel, PDF or email. Install on Windows from the [Microsoft Store](https://apps.microsoft.com/detail/9PM9HL3XFBZ3); Mac download and source on [GitHub](https://github.com/UKDean/RebarPlan)
 - [Document Approval Assistant](https://mashharawi.com/tools/approvals/): internal web tool for Al Rajhi Steel and Saudi Benaa staff that builds project approval, vendor registration, prequalification and technical submittal packages from the company certificate library: Arabic and English OCR, rule-based expiry checks, form filling, one ordered PDF with cover and index, review and approval workflow. Sign-in with a company email only
 - [OpenPDFKit](https://mashharawi.com/tools/openpdfkit/): offline desktop app to merge, split, compress, convert, protect and OCR PDFs; open source (AGPL-3.0)
+- [KAVRO](https://mashharawi.com/kavro/): QR code reader that reads codes from your photos on the device, shows where each one leads and flags look-alike links, payment codes, app links, Wi-Fi settings and risky downloads; never opens anything without asking. Coming soon to iPhone and Windows
 - [All tools](https://mashharawi.com/tools/)
 
 ## Apps
