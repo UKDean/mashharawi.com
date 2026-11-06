@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy Policy | KAVRO</title>
-<meta name="description" content="How KAVRO handles images, scan history and URL reputation checks, and what is sent to third parties.">
+<meta name="description" content="How KAVRO handles images, scan history and settings. Version 1.0 keeps everything on your device and sends nothing online.">
 <meta name="author" content="Omar Mashharawi">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <link rel="canonical" href="https://mashharawi.com/kavro/privacy/">
@@ -15,7 +15,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mashharawi.com/kavro/privacy/">
 <meta property="og:title" content="Privacy Policy | KAVRO">
-<meta property="og:description" content="How KAVRO handles images, scan history and URL reputation checks, and what is sent to third parties.">
+<meta property="og:description" content="How KAVRO handles images, scan history and settings. Version 1.0 keeps everything on your device and sends nothing online.">
 <meta property="og:site_name" content="KAVRO">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://mashharawi.com/assets/kavro/og.png">
@@ -32,44 +32,31 @@
 </div></header>
 <main id="main" class="wrap narrow doc">
 <h1>Privacy Policy</h1>
-<p class="meta">Last updated: 5 November 2026</p>
-<p class="lead">KAVRO reads QR codes on your device. Data leaves your device only when you ask for a reputation check. This policy explains both.</p>
+<p class="meta">Last updated: 6 November 2026</p>
+<p class="lead">KAVRO reads QR codes on your device. This version doesn&#x27;t collect your data and makes no network requests of its own.</p>
 <h2>Who is responsible</h2>
-<p>KAVRO is created and owned by Omar Mashharawi, Riyadh, Saudi Arabia. This policy covers the KAVRO apps, the KAVRO reputation service and the KAVRO pages on mashharawi.com. On the Apple App Store, the seller shown on the listing is the holder of the Apple Developer account that publishes KAVRO. Omar Mashharawi remains its creator and owner, and is responsible for this policy. If you build your own copy, you run your own service and this policy doesn&#x27;t apply to it.</p>
+<p>KAVRO is created and owned by Omar Mashharawi, Riyadh, Saudi Arabia. This policy covers the KAVRO apps for iPhone and Windows and the KAVRO pages on mashharawi.com. On the Apple App Store, the seller shown on the listing is the holder of the Apple Developer account that publishes KAVRO. Omar Mashharawi remains its creator and owner, and is responsible for this policy.</p>
 <h2>The short version</h2>
-<div class="scroll"><table><thead><tr><th scope="col">Happens on your device</th><th scope="col">Happens online, only if you ask</th></tr></thead><tbody><tr><td>Reading QR codes, security analysis, scan history, settings</td><td>Reputation checks of a link you choose. KAVRO shows you exactly what will be sent first</td></tr></tbody></table></div>
-<p>KAVRO does process some data. When you request a reputation check, an address leaves your device and reaches the services listed below. Without such a request, the app itself sends nothing.</p>
+<p>Everything KAVRO does happens on your device: reading QR codes, the security analysis, scan history and settings. KAVRO doesn&#x27;t collect, upload, sell or share your data, and it has no accounts, advertising, analytics or tracking.</p>
 <h2>Image processing</h2>
 <p>QR images are processed on your device, with Apple&#x27;s Vision framework on iOS and the ZXing.Net library on Windows. Images are never uploaded and never saved by KAVRO.</p>
 <h2>Camera</h2>
-<p>The iOS app doesn&#x27;t use the camera and doesn&#x27;t ask for camera permission. The Windows version uses your webcam to read QR codes, only after you start it from the scan screen and Windows has your permission. It stops when you leave that screen or a code is found. Video is processed in memory on your device, one frame at a time. It is never saved or uploaded. If you refuse permission, you can still read QR codes from image files.</p>
+<p>On iPhone, KAVRO can scan QR codes live with the camera, using Apple&#x27;s VisionKit, only after you tap Scan with Camera and iOS has your permission. It stops when a code is found or you close the scanner. The video is analyzed on your iPhone, is never saved or uploaded, and no photos are taken. The Windows version uses your webcam to read QR codes, only after you start it from the scan screen and Windows has your permission. It stops when you leave that screen or a code is found. Video is processed in memory on your device, one frame at a time. It is never saved or uploaded. If you refuse permission, you can still read QR codes from image files.</p>
 <h2>Photo library</h2>
 <p>On iOS, KAVRO uses the system photo picker, so it doesn&#x27;t ask for access to your library. It only receives the image you select.</p>
 <h2>Scan history</h2>
 <p>History is off until you turn it on in Settings. When it&#x27;s on, history is stored locally on your device and isn&#x27;t sent to us. It contains the decoded text and the scan date, and never the image.</p>
 <p>KAVRO removes Wi-Fi passwords and payment identifiers before saving a new entry. Other decoded text is saved as it appears, and can still be sensitive, such as a link containing a private token. Entries saved by an earlier version stay on your device unchanged until you clear them, and sensitive values in them are masked on screen. You can turn history off or clear it in Settings. A device backup may include it.</p>
 <h2>Network requests</h2>
-<p>The app makes a network request of its own only when you tap Check Reputation or Look Up Store Listing and confirm. Opening a link, handing off to a payment app or reporting a link happens in another app, only after you confirm, and that app&#x27;s own policy applies.</p>
-<p>You can turn reputation checks off in Settings. Decoding and local analysis keep working offline.</p>
-<h2>Threat intelligence providers</h2>
-<p>When you request a check, the KAVRO reputation service passes the address to the threat databases enabled on it. These can include Google Web Risk or Google Safe Browsing, VirusTotal and URLhaus. They receive the request from our service, so they don&#x27;t see your IP address, but they do see the address you approved and may keep it under their own policies.</p>
-<div class="scroll"><table><thead><tr><th scope="col">Service</th><th scope="col">Run by</th><th scope="col">Receives</th><th scope="col">Their policy</th></tr></thead><tbody><tr><td>KAVRO reputation service</td><td>Omar Mashharawi, hosted on Cloudflare</td><td>The address you approved, and your IP address while the request is handled</td><td>This page</td></tr><tr><td>Google Web Risk or Google Safe Browsing</td><td>Google</td><td>The address you approved</td><td>policies.google.com/privacy</td></tr><tr><td>VirusTotal</td><td>Google (VirusTotal)</td><td>The address you approved, or only its domain</td><td>virustotal.com</td></tr><tr><td>URLhaus</td><td>abuse.ch</td><td>The address you approved, or only its domain</td><td>abuse.ch</td></tr><tr><td>Apple App Store lookup</td><td>Apple</td><td>Only the App Store ID of an app you chose to look up</td><td>apple.com/privacy</td></tr></tbody></table></div>
-<p>VirusTotal is only queried. KAVRO doesn&#x27;t submit URLs for scanning, because submitted URLs can become visible to its community.</p>
-<p>To check whether a site offers HTTPS or redirects elsewhere, our service also sends HEAD requests to that site. The site sees a request from our service, not from you.</p>
-<h2>URL query parameters and sensitive information</h2>
-<p>A URL can contain private details, such as reset tokens, invitation codes or email addresses, often after a question mark.</p>
-<ul><li>By default only the scheme, domain and port are sent.</li><li>The full URL is sent only if you turn that on for that one check. KAVRO warns you when a link appears to contain private details.</li><li>Usernames, passwords and page fragments in a URL are always removed before sending.</li></ul>
-<h2>Server logs and IP addresses</h2>
-<p>Our service code writes no logs of addresses or IP addresses, and platform request logging is turned off.</p>
-<p>Your IP address is necessarily visible to Cloudflare, our host, while delivering and protecting the service. For rate limiting we keep a salted one-way hash of it for about two minutes. Cloudflare&#x27;s own processing is covered by its privacy policy.</p>
+<p>This version of KAVRO makes no network requests of its own and works fully offline. It never opens anything by itself. Opening a link, handing off to a payment app or reporting a link happens in another app, only after you confirm, and that app&#x27;s own policy applies.</p>
+<h2>Planned online checks</h2>
+<p>A later version may offer optional online reputation checks of a link you choose. Before any such version is released, this policy will be updated to explain exactly what would be sent, to whom, and how long it would be kept, and a check would run only when you ask for it.</p>
 <h2>Data retention</h2>
-<div class="scroll"><table><thead><tr><th scope="col">Data</th><th scope="col">Where</th><th scope="col">How long</th></tr></thead><tbody><tr><td>QR images</td><td>Memory on your device, during the scan</td><td>Discarded after the scan. Never saved</td></tr><tr><td>Scan history</td><td>Your device, only if you turn history on</td><td>Until you clear it or delete the app</td></tr><tr><td>Settings</td><td>Your device</td><td>Until you delete the app</td></tr><tr><td>Reputation result</td><td>KAVRO service cache, under a one-way hash. The checked address isn&#x27;t stored, but a result can include host names it redirects to</td><td>Up to 30 minutes</td></tr><tr><td>Hashed IP address for rate limits</td><td>KAVRO service</td><td>About 2 minutes</td></tr><tr><td>Emails you send us</td><td>Our mailbox</td><td>As long as needed to answer you. Ask us to delete them</td></tr></tbody></table></div>
+<div class="scroll"><table><thead><tr><th scope="col">Data</th><th scope="col">Where</th><th scope="col">How long</th></tr></thead><tbody><tr><td>QR images</td><td>Memory on your device, during the scan</td><td>Discarded after the scan. Never saved</td></tr><tr><td>Scan history</td><td>Your device, only if you turn history on</td><td>Until you clear it or delete the app</td></tr><tr><td>Settings</td><td>Your device</td><td>Until you delete the app</td></tr><tr><td>Emails you send us</td><td>Our mailbox</td><td>As long as needed to answer you. Ask us to delete them</td></tr></tbody></table></div>
 <h2>Data deletion</h2>
-<p>Clear history in Settings, or delete the app to remove all local data. Our service holds no record that can be tied to you, so there&#x27;s nothing for us to look up. For addresses already sent to a provider, contact that provider. To delete emails you sent us, write to <a class="ltr" href="mailto:omar@mashharawi.com">omar@mashharawi.com</a>.</p>
+<p>Clear history in Settings, or delete the app to remove all local data. We hold no data about your use of the app, so there&#x27;s nothing for us to look up or delete. To delete emails you sent us, write to <a class="ltr" href="mailto:omar@mashharawi.com">omar@mashharawi.com</a>.</p>
 <h2>Your privacy rights</h2>
 <p>Depending on where you live, you may have rights to access, correct, delete, restrict or object to the processing of your personal data, to withdraw consent, and to complain to a data protection authority. Contact us to use these rights. We don&#x27;t sell personal data, and we don&#x27;t use it for advertising or tracking.</p>
-<h2>International transfers</h2>
-<p>Our host and the providers operate in several countries, so a checked address may be processed outside your own.</p>
 <h2>Children</h2>
 <p>KAVRO isn&#x27;t directed at children and doesn&#x27;t knowingly collect their personal data.</p>
 <h2>Changes</h2>
