@@ -305,6 +305,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://mashharawi.com/zh/rebar-procurement-saudi/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/rebar-procurement-saudi/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mashharawi.com/zh/rebar-price-saudi/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/rebar-price-saudi/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://mashharawi.com/contract-check/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
