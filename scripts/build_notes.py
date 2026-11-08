@@ -50,6 +50,8 @@ ZH_PAGES = [
     ("/zh/epoxy-coated-rebar/", "0.7"),
     ("/zh/rebar-quotation-guide/", "0.7"),
     ("/zh/hrb400-vs-astm-a615/", "0.8"),
+    ("/zh/rebar-procurement-saudi/", "0.8"),
+    ("/zh/rebar-price-saudi/", "0.7"),
 ]
 F_EN = ('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200..500'
         '&display=swap">')
