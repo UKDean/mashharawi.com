@@ -275,7 +275,7 @@ def index_page(notes):
   </section>"""
     fonts = F_AR if any(n["lang"] == "ar" for n in notes) else F_EN
     return shell("en", "ltr", "Notes — " + AUTHOR,
-                 "Notes on commercial steel, software and automation by Omar Mashharawi.",
+                 "Notes on rebar and steel in Saudi Arabia by Omar Mashharawi: weight tables, bars per tonne, slab and villa quantities, cut lengths, grades and pricing.",
                  SITE + "/writing/", body, robots=robots, fonts=fonts)
 
 
