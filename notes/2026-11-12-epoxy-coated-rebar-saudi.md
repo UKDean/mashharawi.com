@@ -3,11 +3,14 @@ title: Epoxy-coated rebar in Saudi Arabia: when you need it and what it really c
 date: 2026-11-12
 summary: Where epoxy-coated rebar is specified in Saudi projects, the difference between ASTM A775 and A934, why it makes laps longer, and how to handle it on site so the coating still protects the steel.
 lang: en
+image: /assets/img/notes/epoxy-coated-rebar-saudi.jpg
 ---
 
 Epoxy-coated rebar is ordinary rebar with a thin layer of fusion-bonded epoxy on the outside. The steel does the structural work. The coating keeps chlorides and moisture away from the steel so it rusts later, or not at all.
 
 The coating only works if it reaches the concrete intact. Most of what goes wrong with epoxy-coated bars happens between the coating line and the pour, not in the factory.
+
+![Epoxy-coated rebar: ASTM A775 and A934, longer laps, site checklist](/assets/img/notes/epoxy-coated-rebar-saudi.webp)
 
 ## Where it is specified in Saudi Arabia
 

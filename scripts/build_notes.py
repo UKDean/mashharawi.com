@@ -127,7 +127,7 @@ def quote_band(lang):
   </section>""")
 
 
-def shell(lang, d, title, desc, canon, body, head="", robots=None, fonts=None):
+def shell(lang, d, title, desc, canon, body, head="", robots=None, fonts=None, og_image=None):
     e = html.escape
     f = fonts or (F_AR if lang == "ar" else F_EN)
     home = "/ar/" if lang == "ar" else "/"
@@ -164,7 +164,7 @@ def shell(lang, d, title, desc, canon, body, head="", robots=None, fonts=None):
 <meta property="og:url" content="{canon}">
 <meta property="og:title" content="{e(title)}">
 <meta property="og:description" content="{e(desc)}">
-<meta property="og:image" content="{SITE}/og-noir{'-ar' if lang == 'ar' else ''}.jpg">
+<meta property="og:image" content="{og_image or (SITE + '/og-noir' + ('-ar' if lang == 'ar' else '') + '.jpg')}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="alternate" type="application/rss+xml" title="{AUTHOR} notes" href="{SITE}/feed.xml">
 <link rel="stylesheet" href="/assets/site.css?v=20261031">
@@ -239,7 +239,10 @@ def note_page(n):
       <p class="note-back"><a href="{'/ar/writing/' if n['lang'] == 'ar' else '/writing/'}">{'&rarr;' if n['lang'] == 'ar' else '&larr;'} {alln}</a></p>
     </div>
   </article>"""
-    return shell(n["lang"], n["dir"], n["title"] + " — " + ("عمر المشهراوي" if n["lang"] == "ar" else AUTHOR), n["summary"], n["url"], body, ld)
+    # Optional front matter "image: /assets/img/notes/<slug>.jpg" becomes the
+    # share image (LinkedIn, WhatsApp, X); notes without one keep og-noir.
+    og = SITE + n["image"] if n.get("image", "").startswith("/") else None
+    return shell(n["lang"], n["dir"], n["title"] + " — " + ("عمر المشهراوي" if n["lang"] == "ar" else AUTHOR), n["summary"], n["url"], body, ld, og_image=og)
 
 
 def index_page(notes):
