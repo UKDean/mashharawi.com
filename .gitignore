@@ -11,3 +11,6 @@ health-report.md
 
 # Local Python environment
 .venv/
+
+# Website team working files (plans, reports). Never published.
+.site-team/
