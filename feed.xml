@@ -6,7 +6,14 @@
     <atom:link href="https://mashharawi.com/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Notes on commercial steel, software and automation.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 08 Nov 2026 05:01:42 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 12 Nov 2026 04:20:52 +0000</lastBuildDate>
+    <item>
+      <title>Epoxy-coated rebar in Saudi Arabia: when you need it and what it really costs</title>
+      <link>https://mashharawi.com/writing/epoxy-coated-rebar-saudi/</link>
+      <guid isPermaLink="true">https://mashharawi.com/writing/epoxy-coated-rebar-saudi/</guid>
+      <pubDate>Thu, 12 Nov 2026 09:00:00 +0000</pubDate>
+      <description>Where epoxy-coated rebar is specified in Saudi projects, the difference between ASTM A775 and A934, why it makes laps longer, and how to handle it on site so the coating still protects the steel.</description>
+    </item>
     <item>
       <title>طول القص بين BS 8666 وACI 318: ما الفرق ولماذا يهم؟</title>
       <link>https://mashharawi.com/writing/bs8666-vs-aci-cut-length/</link>
