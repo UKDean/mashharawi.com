@@ -10,7 +10,7 @@ Epoxy-coated rebar is ordinary rebar with a thin layer of fusion-bonded epoxy on
 
 The coating only works if it reaches the concrete intact. Most of what goes wrong with epoxy-coated bars happens between the coating line and the pour, not in the factory.
 
-![Epoxy-coated rebar: ASTM A775 and A934, longer laps, site checklist](/assets/img/notes/epoxy-coated-rebar-saudi.webp)
+![Epoxy-coated rebar: ASTM A775 and A934, longer laps, site checklist](/assets/img/notes/epoxy-coated-rebar-saudi.webp){: style="filter:none"}
 
 ## Where it is specified in Saudi Arabia
 
