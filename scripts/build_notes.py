@@ -81,6 +81,14 @@ def parse(path):
     if meta["lang"] not in ("en", "ar"):
         raise SystemExit(os.path.basename(path) + ": lang must be en or ar")
     meta["dir"] = "rtl" if meta["lang"] == "ar" else "ltr"
+    # Optional "updated: YYYY-MM-DD" after a real content revision: becomes
+    # dateModified, the sitemap lastmod and a visible "updated" line.
+    if meta.get("updated"):
+        try:
+            datetime.date.fromisoformat(meta["updated"])
+        except ValueError:
+            raise SystemExit(os.path.basename(path) + ": updated must be YYYY-MM-DD")
+    meta["modified"] = max(meta["date"], meta.get("updated") or meta["date"])
     meta["slug"] = re.sub(r"^\d{4}-\d{2}-\d{2}-", "", os.path.basename(path)[:-3])
     if not re.fullmatch(r"[a-z0-9][a-z0-9-]*", meta["slug"]):
         raise SystemExit(os.path.basename(path) + ": name must be YYYY-MM-DD-lower-with-hyphens.md")
@@ -217,12 +225,16 @@ def note_page(n):
     e = html.escape
     label = "مقال" if n["lang"] == "ar" else "Note"
     alln = "كل المقالات" if n["lang"] == "ar" else "All notes"
+    upd = ""
+    if n["modified"] != n["date"]:
+        upd = (" &middot; " + ("آخر تحديث" if n["lang"] == "ar" else "Updated") +
+               ' <time datetime="' + n["modified"] + '">' + n["modified"] + "</time>")
     ld = ('<script type="application/ld+json">\n{\n'
           '  "@context": "https://schema.org",\n  "@type": "BlogPosting",\n'
           '  "headline": ' + jstr(n["title"]) + ',\n'
           '  "description": ' + jstr(n["summary"]) + ',\n'
           '  "datePublished": "' + n["date"] + '",\n'
-          '  "dateModified": "' + n["date"] + '",\n'
+          '  "dateModified": "' + n["modified"] + '",\n'
           '  "inLanguage": "' + n["lang"] + '",\n'
           '  "mainEntityOfPage": "' + n["url"] + '",\n'
           '  "author": { "@type": "Person", "name": "' + AUTHOR + '", "url": "' + SITE + '/" },\n'
@@ -230,7 +242,7 @@ def note_page(n):
           '}\n</script>\n')
     body = f"""  <article class="sec note c-note">
     <div class="wrap">
-      <p class="c-label">{label} &middot; <time datetime="{n['date']}">{n['date']}</time></p>
+      <p class="c-label">{label} &middot; <time datetime="{n['date']}">{n['date']}</time>{upd}</p>
       <h1 class="c-note__title">{e(n['title'])}</h1>
       <p class="c-note__lead">{e(n['summary'])}</p>
       <div class="prose c-prose">
@@ -361,7 +373,7 @@ def sitemap(notes):
         rows.append('  <url>\n    <loc>' + SITE + path + '</loc>\n'
                     '    <changefreq>monthly</changefreq>\n    <priority>' + pri + '</priority>\n  </url>')
     if notes:
-        last = max(n["date"] for n in notes)
+        last = max(n["modified"] for n in notes)
         en, ar = SITE + "/writing/", SITE + "/ar/writing/"
         alts = ('    <xhtml:link rel="alternate" hreflang="en" href="' + en + '"/>\n'
                 '    <xhtml:link rel="alternate" hreflang="ar" href="' + ar + '"/>\n'
@@ -370,7 +382,7 @@ def sitemap(notes):
             rows.append('  <url>\n    <loc>' + loc + '</loc>\n' + alts + '    <lastmod>' + last + '</lastmod>\n'
                         '    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>')
         for n in notes:
-            rows.append('  <url>\n    <loc>' + n["url"] + '</loc>\n    <lastmod>' + n["date"] + '</lastmod>\n'
+            rows.append('  <url>\n    <loc>' + n["url"] + '</loc>\n    <lastmod>' + n["modified"] + '</lastmod>\n'
                         '    <changefreq>yearly</changefreq>\n    <priority>0.7</priority>\n  </url>')
     return ('<?xml version="1.0" encoding="UTF-8"?>\n'
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n'
