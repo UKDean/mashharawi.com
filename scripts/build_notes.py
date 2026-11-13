@@ -5,7 +5,7 @@ Source of truth is notes/*.md. Everything in writing/, feed.xml and
 sitemap.xml is generated: edit the Markdown, never the output.
 Files starting with "_" are ignored. Run: python3 scripts/build_notes.py
 """
-import os, re, html, datetime, email.utils, markdown
+import os, re, html, datetime, email.utils, subprocess, markdown
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE, AUTHOR = "https://mashharawi.com", "Omar Mashharawi"
@@ -351,6 +351,33 @@ def rss(notes):
             + items + '\n  </channel>\n</rss>\n')
 
 
+def _git(*args):
+    try:
+        return subprocess.run(["git", "-C", ROOT] + list(args), capture_output=True,
+                              text=True, timeout=30).stdout.strip()
+    except (OSError, subprocess.SubprocessError):
+        return ""
+
+
+_SHALLOW = []
+
+
+def lastmod(path):
+    """Sitemap <lastmod> line for a hand-written page: the date of the last git
+    commit that touched its index.html. Empty (no lastmod) when there is no git
+    history to ask, or when the clone is shallow, where every file would wrongly
+    report the date of the single fetched commit."""
+    if not _SHALLOW:
+        _SHALLOW.append(_git("rev-parse", "--is-shallow-repository") != "false")
+    if _SHALLOW[0]:
+        return ""
+    rel = os.path.join(path.strip("/"), "index.html")
+    if not os.path.exists(os.path.join(ROOT, rel)):
+        return ""
+    day = _git("log", "-1", "--format=%cs", "--", rel)
+    return '    <lastmod>' + day + '</lastmod>\n' if re.fullmatch(r"\d{4}-\d{2}-\d{2}", day) else ""
+
+
 def sitemap(notes):
     rows = []
     for en_path, ar_path, en_pri, ar_pri in PAIRS:
@@ -360,11 +387,11 @@ def sitemap(notes):
                 + ('    <xhtml:link rel="alternate" hreflang="zh-Hans" href="' + SITE + ZH_TWINS[en_path] + '"/>\n'
                    if en_path in ZH_TWINS else '') +
                 '    <xhtml:link rel="alternate" hreflang="x-default" href="' + en + '"/>\n')
-        locs = ((en, en_pri), (ar, ar_pri))
+        locs = ((en, en_pri, en_path), (ar, ar_pri, ar_path))
         if en_path in ZH_TWINS:
-            locs += ((SITE + ZH_TWINS[en_path], dict(ZH_PAGES)[ZH_TWINS[en_path]]),)
-        for loc, pri in locs:
-            rows.append('  <url>\n    <loc>' + loc + '</loc>\n' + alts +
+            locs += ((SITE + ZH_TWINS[en_path], dict(ZH_PAGES)[ZH_TWINS[en_path]], ZH_TWINS[en_path]),)
+        for loc, pri, path in locs:
+            rows.append('  <url>\n    <loc>' + loc + '</loc>\n' + alts + lastmod(path) +
                         '    <changefreq>monthly</changefreq>\n    <priority>' + pri + '</priority>\n  </url>')
     twinned = set(ZH_TWINS.values())
     for path, pri in ZH_PAGES:
@@ -372,9 +399,10 @@ def sitemap(notes):
             continue
         rows.append('  <url>\n    <loc>' + SITE + path + '</loc>\n'
                     '    <xhtml:link rel="alternate" hreflang="zh-Hans" href="' + SITE + path + '"/>\n'
+                    + lastmod(path) +
                     '    <changefreq>monthly</changefreq>\n    <priority>' + pri + '</priority>\n  </url>')
     for path, pri in SINGLES:
-        rows.append('  <url>\n    <loc>' + SITE + path + '</loc>\n'
+        rows.append('  <url>\n    <loc>' + SITE + path + '</loc>\n' + lastmod(path) +
                     '    <changefreq>monthly</changefreq>\n    <priority>' + pri + '</priority>\n  </url>')
     if notes:
         last = max(n["modified"] for n in notes)

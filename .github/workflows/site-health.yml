@@ -28,6 +28,9 @@ jobs:
       GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          # full history: build_notes.py dates sitemap <lastmod> from git log
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:

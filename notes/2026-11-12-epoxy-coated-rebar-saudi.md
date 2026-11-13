@@ -1,6 +1,7 @@
 ---
-title: Epoxy-coated rebar in Saudi Arabia: when you need it and what it really costs
+title: Epoxy-coated rebar in Saudi Arabia: when to use it, what it costs
 date: 2026-11-12
+updated: 2026-11-13
 summary: Where epoxy-coated rebar is specified in Saudi projects, ASTM A775 vs A934, why laps get longer, and site handling that keeps the coating intact.
 lang: en
 image: /assets/img/notes/epoxy-coated-rebar-saudi.jpg
