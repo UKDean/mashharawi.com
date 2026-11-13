@@ -5,8 +5,8 @@
 <script>document.documentElement.classList.add("js")</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Reinforcing Steel Weight Calculator | Omar Mashharawi</title>
-<meta name="description" content="Rebar weight by diameter: kilos per metre, per bar and per tonne, and tonnage back to a number of bars. Computed in the page, nothing stored.">
+<title>Rebar Weight Calculator: kg/m, Bars per Tonne | Omar Mashharawi</title>
+<meta name="description" content="Free rebar weight calculator: kg per metre, per 12 m bar and per order for 10 to 32 mm, and tonnes back to a number of bars. Runs in your browser.">
 <meta name="author" content="Omar Mashharawi">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 
@@ -18,8 +18,8 @@
 <meta name="theme-color" content="#0A0A0A">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mashharawi.com/tools/rebar-weight/">
-<meta property="og:title" content="Reinforcing Steel Weight Calculator | Omar Mashharawi">
-<meta property="og:description" content="Rebar weight by diameter: kilos per metre, per bar and per tonne, and tonnage back to a number of bars. Computed in the page, nothing stored.">
+<meta property="og:title" content="Rebar Weight Calculator: kg/m, Bars per Tonne | Omar Mashharawi">
+<meta property="og:description" content="Free rebar weight calculator: kg per metre, per 12 m bar and per order for 10 to 32 mm, and tonnes back to a number of bars. Runs in your browser.">
 <meta property="og:site_name" content="mashharawi.com">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="ar_SA">
@@ -118,7 +118,23 @@
    "name": "Is anything I type sent anywhere?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "No. The calculation runs in your browser, and nothing you enter leaves the page, unless you press Send for a quote yourself: WhatsApp then opens with the message, and you decide whether to send it."
+    "text": "No. The calculation runs in your browser, and nothing you enter leaves the page, unless you press Copy order & open WhatsApp yourself: the order is copied, WhatsApp opens, and you decide whether to paste and send it."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What is the weight of rebar per metre for each size?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Per metre: 10 mm 0.617 kg, 12 mm 0.888 kg, 14 mm 1.208 kg, 16 mm 1.578 kg, 18 mm 1.998 kg, 20 mm 2.466 kg, 25 mm 3.853 kg and 32 mm 6.313 kg. A 12 m bar of the same sizes weighs 7.40, 10.65, 14.50, 18.94, 23.97, 29.59, 46.24 and 75.76 kg. These are nominal weights at a density of 7,850 kg/m³."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I get a quote for the rebar I calculated?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Add your lines to the order and press Copy order & open WhatsApp: the order is copied and a WhatsApp chat with me opens, so you can paste it. Add the grade (Grade 60 or Grade 80), whether you need cutting to length or epoxy coating, and the project city. Al Rajhi Steel supplies 10 to 32 mm in 12 m bars and ships across Saudi Arabia."
    }
   }
  ]
@@ -292,6 +308,31 @@
           These are <b>nominal</b> weights, from the nominal diameter and a density of 7,850&nbsp;kg/m&sup3;. What a mill actually delivers falls inside the tolerance band of the governing standard, and where it falls inside that band is a commercial question, not a technical one. <a href="/writing/weight-tolerance/">I wrote about that here</a>.
         </p>
       </div>
+    </div>
+  </section>
+
+  <section class="q-band" aria-labelledby="qb-h">
+    <div class="wrap">
+      <p class="q-eyebrow">Rebar supply · Al Rajhi Steel</p>
+      <h2 id="qb-h">Send this quantity for a quote.</h2>
+      <p>Send me the quantities you just calculated, the diameters, grade, tonnes and project city, and I will come back with a rebar quotation from Al Rajhi Steel, where I am a Section Head. The <b>Copy order &amp; open WhatsApp</b> button above copies the order for you.</p>
+      <ul class="q-facts">
+        <li>10 to 32 mm · 12 m bars</li><li>Grade 60 and Grade 80</li><li>Cut to length</li><li>Epoxy coating</li><li>Test certificates available</li><li>Immediate delivery after payment or LC opening</li><li>Riyadh · Jeddah · Qassim · Taif</li><li>Shipping across Saudi Arabia</li>
+      </ul>
+      <div class="q-actions">
+        <a class="q-btn q-btn--wa" href="https://wa.me/message/D6ABM7QFWVSPB1" target="_blank" rel="noopener">Send the quantities on WhatsApp</a>
+        <a class="q-btn q-btn--line" href="/rebar/">Supply details</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="how-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="how-h">How the calculator works.</h2>
+        <p class="lead">It takes the nominal diameter d in millimetres and a steel density of 7,850&nbsp;kg/m&sup3;: mass per metre = &pi;/4 &times; d&sup2; &times; 7,850 &divide; 1,000,000 = 0.0061654 &times; d&sup2; kg/m, which is about d&sup2; &divide; 162.2. The page shows the familiar rounded constant 0.006165 but computes with the full expression, so large tonnages do not drift. Weight per bar is mass per metre &times; length, the order weight is that &times; pieces, and bars per tonne is 1,000 &divide; weight per bar. Entering tonnes works backwards: tonnes &times; 1,000 &divide; weight per bar, rounded to whole bars, and the hint shows what those bars actually weigh.</p>
+      </div>
+      <p class="note-back">Full tables: <a href="/writing/rebar-weight-table/" hreflang="ar">rebar weight per metre and per 12&nbsp;m bar</a> and <a href="/writing/bars-per-tonne/" hreflang="ar">bars per tonne for every diameter</a> (both in Arabic). Why the invoice differs from the nominal weight: <a href="/writing/weight-tolerance/">weight tolerance is a commercial term</a>. Other tools: <a href="/tools/steel-sections/">steel section weight</a>, <a href="/tools/rebarplan/">RebarPlan</a> for bar bending schedules and cutting plans.</p>
 
       <section class="faq rise" aria-labelledby="faq-h">
         <h2 id="faq-h">Common questions</h2>
@@ -317,7 +358,15 @@
         </details>
         <details>
           <summary>Is anything I type sent anywhere?</summary>
-          <p>No. The calculation runs in your browser, and nothing you enter leaves the page, unless you press Send for a quote yourself: WhatsApp then opens with the message, and you decide whether to send it.</p>
+          <p>No. The calculation runs in your browser, and nothing you enter leaves the page, unless you press Copy order &amp; open WhatsApp yourself: the order is copied, WhatsApp opens, and you decide whether to paste and send it.</p>
+        </details>
+        <details>
+          <summary>What is the weight of rebar per metre for each size?</summary>
+          <p>Per metre: 10 mm 0.617 kg, 12 mm 0.888 kg, 14 mm 1.208 kg, 16 mm 1.578 kg, 18 mm 1.998 kg, 20 mm 2.466 kg, 25 mm 3.853 kg and 32 mm 6.313 kg. A 12 m bar of the same sizes weighs 7.40, 10.65, 14.50, 18.94, 23.97, 29.59, 46.24 and 75.76 kg. These are nominal weights at a density of 7,850 kg/m³.</p>
+        </details>
+        <details>
+          <summary>How do I get a quote for the rebar I calculated?</summary>
+          <p>Add your lines to the order and press Copy order &amp; open WhatsApp: the order is copied and a WhatsApp chat with me opens, so you can paste it. Add the grade (Grade 60 or Grade 80), whether you need cutting to length or epoxy coating, and the project city. Al Rajhi Steel supplies 10 to 32 mm in 12 m bars and ships across Saudi Arabia.</p>
         </details>
       </section>
 
@@ -328,20 +377,6 @@
   </section>
 
 
-  <section class="q-band" aria-labelledby="qb-h">
-    <div class="wrap">
-      <p class="q-eyebrow">Rebar supply · Al Rajhi Steel</p>
-      <h2 id="qb-h">Need reinforcing steel for a project?</h2>
-      <p>I am a Section Head at Al Rajhi Steel. Send me the sizes and quantities, or the bar bending schedule, and I will come back with a quotation.</p>
-      <ul class="q-facts">
-        <li>10 to 32 mm · 12 m bars</li><li>Grade 60 and Grade 80</li><li>Cut to length</li><li>Epoxy coating</li><li>Test certificates available</li><li>Immediate delivery after payment or LC opening</li><li>Riyadh · Jeddah · Qassim · Taif</li><li>Shipping across Saudi Arabia</li>
-      </ul>
-      <div class="q-actions">
-        <a class="q-btn q-btn--wa" href="https://wa.me/message/D6ABM7QFWVSPB1" target="_blank" rel="noopener">Message on WhatsApp</a>
-        <a class="q-btn q-btn--line" href="/rebar/">Supply details</a>
-      </div>
-    </div>
-  </section>
 </main>
 
 <footer class="c-footer">
@@ -359,6 +394,6 @@
 </footer>
 <script src="/assets/site.js?v=20261015" defer></script>
 <script src="/assets/calc.js?v=20260914" defer></script>
-<script src="/assets/quote.js?v=20261018" defer></script>
+<script src="/assets/quote.js?v=20261019" defer></script>
 </body>
 </html>

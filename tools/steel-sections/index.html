@@ -5,8 +5,8 @@
 <script>document.documentElement.classList.add("js")</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Steel Section Calculator | Omar Mashharawi</title>
-<meta name="description" content="Weight of IPE, HEA, HEB, UPN, angles, bars, flats, pipe and tube, computed in the browser from nominal geometry. The web version of the offline app.">
+<title>Steel Sections Weight Table and Calculator | Omar Mashharawi</title>
+<meta name="description" content="Free steel sections weight calculator: kg per metre, per piece and per order for IPE, HEA, HEB, UPN, angles, bars, flats, pipe and tube.">
 <meta name="author" content="Omar Mashharawi">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 
@@ -18,8 +18,8 @@
 <meta name="theme-color" content="#0A0A0A">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mashharawi.com/tools/steel-sections/">
-<meta property="og:title" content="Steel Section Calculator">
-<meta property="og:description" content="Section weight worked out in the page: I/H-beams, channels, angles, bars, flats, pipe and tube.">
+<meta property="og:title" content="Steel Sections Weight Table and Calculator | Omar Mashharawi">
+<meta property="og:description" content="Free steel sections weight calculator: kg per metre, per piece and per order for IPE, HEA, HEB, UPN, angles, bars, flats, pipe and tube.">
 <meta property="og:site_name" content="mashharawi.com">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="ar_SA">
@@ -109,6 +109,30 @@
    "acceptedAnswer": {
     "@type": "Answer",
     "text": "Yes. Build an order line by line, then copy the table or use Print / PDF to save a dated sheet with the inputs, figures and totals."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How much does an IPE, HEA or HEB beam weigh per metre?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "At size 200 the calculator gives IPE 200 22.4 kg/m, HEA 200 42.3 kg/m and HEB 200 61.3 kg/m, so a 12 m IPE 200 weighs about 268 kg. Pick the family and size above for any of the 182 listed sizes."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I calculate the weight of a steel pipe?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Weight per metre = π/4 × (D² − (D − 2t)²) × 0.00785 kg/m, with outside diameter D and wall thickness t in millimetres; this is the Exact method. The Quick method, π × D × t × 0.00785, is the simplified formula many supplier calculators use, and it gives a heavier figure."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Does Al Rajhi Steel supply steel sections?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. Al Rajhi Steel makes reinforcing steel only, at two mills in Riyadh and Jeddah. This section calculator is a free tool; for the rebar on the same project, send the diameters, grade and tonnes on WhatsApp."
    }
   }
  ]
@@ -323,6 +347,31 @@
           Weight comes from the cross-sectional area of the nominal geometry, not from a stored figure: flanges and web plus the root fillets for a beam, legs less the overlap for an angle, the annulus for a pipe. Dimensions for beams, channels and angles follow <b>EN&nbsp;10365</b> and <b>EN&nbsp;10056</b>. A UPN flange tapers, and the formula treats it as one flat average thickness, which puts the channel family about <b>2% above</b> the published UPN masses; bar and flat sizes are common market sizes and are marked with an asterisk until they are checked against an official table. These are <b>nominal</b> weights. What a mill delivers falls inside the tolerance band of the governing standard, and where it falls inside that band is a commercial question. <a href="/writing/weight-tolerance/">I wrote about that here</a>.
         </p>
       </div>
+    </div>
+  </section>
+
+  <section class="q-band" aria-labelledby="qb-h">
+    <div class="wrap">
+      <p class="q-eyebrow">Rebar supply · Al Rajhi Steel</p>
+      <h2 id="qb-h">Need rebar for the same project?</h2>
+      <p>This calculator is for structural sections. Al Rajhi Steel, where I am a Section Head, makes reinforcing steel only: for the rebar on the same project, send me the diameters, grade, tonnes and project city, and I will come back with a quotation. You can work out the tonnage first in the <a href="/tools/rebar-weight/">rebar weight calculator</a>.</p>
+      <ul class="q-facts">
+        <li>10 to 32 mm · 12 m bars</li><li>Grade 60 and Grade 80</li><li>Cut to length</li><li>Epoxy coating</li><li>Test certificates available</li><li>Immediate delivery after payment or LC opening</li><li>Riyadh · Jeddah · Qassim · Taif</li><li>Shipping across Saudi Arabia</li>
+      </ul>
+      <div class="q-actions">
+        <a class="q-btn q-btn--wa" href="https://wa.me/message/D6ABM7QFWVSPB1" target="_blank" rel="noopener">Send rebar quantities on WhatsApp</a>
+        <a class="q-btn q-btn--line" href="/rebar/">Supply details</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="how-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="how-h">How the weight is calculated.</h2>
+        <p class="lead">Every figure is computed, not looked up: mass per metre = A &times; 7,850&nbsp;kg/m&sup3;, where A is the cross-sectional area from the section&rsquo;s nominal dimensions, so kg/m = A in mm&sup2; &times; 0.00785. I and H beams: A = 2&middot;b&middot;tf + (h &minus; 2&middot;tf)&middot;tw + (4 &minus; &pi;)&middot;r&sup2;. UPN channels use the same sum with half the fillet term. Angles: A = t&middot;(a + b &minus; t) + (4 &minus; &pi;)/4&middot;r1&sup2; &minus; (4 &minus; &pi;)/2&middot;r2&sup2;. Round bar &pi;&middot;d&sup2;/4, square s&sup2;, hex (&radic;3/2)&middot;w&sup2;, flat width &times; thickness. Pipe on Exact: &pi;/4&middot;(D&sup2; &minus; (D &minus; 2t)&sup2;), on Quick: &pi;&middot;D&middot;t. Rectangular tube on Exact: w&middot;h &minus; (w &minus; 2t)&middot;(h &minus; 2t), on Quick: 2&middot;(w + h)&middot;t. The commercial band is the nominal tonnes &times; (1 &plusmn; tolerance), &plusmn;4% by default.</p>
+      </div>
+      <p class="note-back">Tables and background: <a href="/writing/steel-beam-weight-table/" hreflang="ar">IPE, HEA and HEB weight per metre, with a worked IPE 200</a> (in Arabic) and <a href="/writing/weight-tolerance/">why weight tolerance is a commercial term</a>. Other tools: <a href="/tools/rebar-weight/">rebar weight calculator</a>, <a href="/tools/rebarplan/">RebarPlan</a> for bar bending schedules and cutting plans.</p>
 
       <section class="faq rise" aria-labelledby="faq-h">
         <h2 id="faq-h">Common questions</h2>
@@ -350,6 +399,18 @@
           <summary>Can I print or save the result?</summary>
           <p>Yes. Build an order line by line, then copy the table or use Print / PDF to save a dated sheet with the inputs, figures and totals.</p>
         </details>
+        <details>
+          <summary>How much does an IPE, HEA or HEB beam weigh per metre?</summary>
+          <p>At size 200 the calculator gives IPE 200 22.4 kg/m, HEA 200 42.3 kg/m and HEB 200 61.3 kg/m, so a 12 m IPE 200 weighs about 268 kg. Pick the family and size above for any of the 182 listed sizes.</p>
+        </details>
+        <details>
+          <summary>How do I calculate the weight of a steel pipe?</summary>
+          <p>Weight per metre = π/4 × (D² − (D − 2t)²) × 0.00785 kg/m, with outside diameter D and wall thickness t in millimetres; this is the Exact method. The Quick method, π × D × t × 0.00785, is the simplified formula many supplier calculators use, and it gives a heavier figure.</p>
+        </details>
+        <details>
+          <summary>Does Al Rajhi Steel supply steel sections?</summary>
+          <p>No. Al Rajhi Steel makes reinforcing steel only, at two mills in Riyadh and Jeddah. This section calculator is a free tool; for the rebar on the same project, send the diameters, grade and tonnes on WhatsApp.</p>
+        </details>
       </section>
 
       <div class="cta-row">
@@ -362,20 +423,6 @@
     </div>
   </section>
 
-  <section class="q-band" aria-labelledby="qb-h">
-    <div class="wrap">
-      <p class="q-eyebrow">Rebar supply · Al Rajhi Steel</p>
-      <h2 id="qb-h">Need reinforcing steel for a project?</h2>
-      <p>I am a Section Head at Al Rajhi Steel. Send me the sizes and quantities, or the bar bending schedule, and I will come back with a quotation.</p>
-      <ul class="q-facts">
-        <li>10 to 32 mm · 12 m bars</li><li>Grade 60 and Grade 80</li><li>Cut to length</li><li>Epoxy coating</li><li>Test certificates available</li><li>Immediate delivery after payment or LC opening</li><li>Riyadh · Jeddah · Qassim · Taif</li><li>Shipping across Saudi Arabia</li>
-      </ul>
-      <div class="q-actions">
-        <a class="q-btn q-btn--wa" href="https://wa.me/message/D6ABM7QFWVSPB1" target="_blank" rel="noopener">Message on WhatsApp</a>
-        <a class="q-btn q-btn--line" href="/rebar/">Supply details</a>
-      </div>
-    </div>
-  </section>
 </main>
 
 <footer class="c-footer">
@@ -394,6 +441,6 @@
 
 <script src="/assets/site.js?v=20261015" defer></script>
 <script src="/assets/steelcalc.js?v=20260914" defer></script>
-<script src="/assets/quote.js?v=20261018" defer></script>
+<script src="/assets/quote.js?v=20261019" defer></script>
 </body>
 </html>

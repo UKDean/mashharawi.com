@@ -229,12 +229,16 @@ def note_page(n):
     if n["modified"] != n["date"]:
         upd = (" &middot; " + ("آخر تحديث" if n["lang"] == "ar" else "Updated") +
                ' <time datetime="' + n["modified"] + '">' + n["modified"] + "</time>")
+    # Optional front matter "image: /assets/img/notes/<slug>.jpg" becomes the
+    # share image (LinkedIn, WhatsApp, X); notes without one keep og-noir.
+    og = SITE + n["image"] if n.get("image", "").startswith("/") else None
     ld = ('<script type="application/ld+json">\n{\n'
           '  "@context": "https://schema.org",\n  "@type": "BlogPosting",\n'
           '  "headline": ' + jstr(n["title"]) + ',\n'
           '  "description": ' + jstr(n["summary"]) + ',\n'
           '  "datePublished": "' + n["date"] + '",\n'
           '  "dateModified": "' + n["modified"] + '",\n'
+          + ('  "image": "' + og + '",\n' if og else '') +
           '  "inLanguage": "' + n["lang"] + '",\n'
           '  "mainEntityOfPage": "' + n["url"] + '",\n'
           '  "author": { "@type": "Person", "name": "' + AUTHOR + '", "url": "' + SITE + '/" },\n'
@@ -251,10 +255,10 @@ def note_page(n):
       <p class="note-back"><a href="{'/ar/writing/' if n['lang'] == 'ar' else '/writing/'}">{'&rarr;' if n['lang'] == 'ar' else '&larr;'} {alln}</a></p>
     </div>
   </article>"""
-    # Optional front matter "image: /assets/img/notes/<slug>.jpg" becomes the
-    # share image (LinkedIn, WhatsApp, X); notes without one keep og-noir.
-    og = SITE + n["image"] if n.get("image", "").startswith("/") else None
-    return shell(n["lang"], n["dir"], n["title"] + " — " + ("عمر المشهراوي" if n["lang"] == "ar" else AUTHOR), n["summary"], n["url"], body, ld, og_image=og)
+    # Add the author suffix only while the full title fits Google's ~65 characters.
+    full = n["title"] + " — " + ("عمر المشهراوي" if n["lang"] == "ar" else AUTHOR)
+    title = full if len(full) <= 65 else n["title"]
+    return shell(n["lang"], n["dir"], title, n["summary"], n["url"], body, ld, og_image=og)
 
 
 def index_page(notes):

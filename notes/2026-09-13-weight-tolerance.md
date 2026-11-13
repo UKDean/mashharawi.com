@@ -1,13 +1,17 @@
 ---
 title: Weight tolerance is a commercial term, not a technical one
 date: 2026-09-13
+updated: 2026-11-13
 summary: Two mills can both meet the standard and still hand you a different invoice. The gap lives in the tolerance band.
 lang: en
+image: /assets/img/notes/weight-tolerance.jpg
 ---
 
 A rebar standard gives a nominal mass per metre and a tolerance around it. Both are technical. What happens inside that band is commercial.
 
 An engineer checks that the bar is inside the band and moves on. A buyer should not, because the band is wide enough to move the invoice by several percent without anyone doing anything wrong.
+
+![Rebar weight tolerance: BS 4449 band of ±4.5% in kg/m for 12 to 32 mm bars, and the ASTM A615 limit](/assets/img/notes/weight-tolerance.webp){: style="filter:none;height:auto" width="1400" height="1400" loading="lazy"}
 
 ## What the standards allow
 
@@ -20,14 +24,14 @@ Always check the edition your specification names. The point here is not the exa
 
 ## What the band looks like in kilograms
 
-Nominal mass per metre for a round bar is d² / 162, with d in millimetres. Here is the BS 4449 band of ±4.5% for common sizes:
+Nominal mass per metre for a round bar is d² / 162.2, with d in millimetres. Here is the BS 4449 band of ±4.5% for common sizes:
 
 | Diameter | Nominal (kg/m) | Light end (kg/m) | Heavy end (kg/m) |
 |---|---|---|---|
 | 12 mm | 0.888 | 0.848 | 0.928 |
 | 16 mm | 1.578 | 1.507 | 1.649 |
 | 20 mm | 2.466 | 2.355 | 2.577 |
-| 25 mm | 3.853 | 3.680 | 4.026 |
+| 25 mm | 3.853 | 3.680 | 4.027 |
 | 32 mm | 6.313 | 6.029 | 6.597 |
 
 Every value in that table is a compliant bar. A 32 mm bar 12 m long can weigh anywhere between 72.3 kg and 79.2 kg and pass. You can check any size with the [rebar weight calculator](/tools/rebar-weight/) or the full [rebar weight table](/writing/rebar-weight-table/).

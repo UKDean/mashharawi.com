@@ -18,15 +18,15 @@ Everything on this site is stated by Omar himself. The calculators compute weigh
 
 For Chinese contractors working in Saudi Arabia: rebar supply, cutting to a bar bending schedule, epoxy-coated rebar, a rebar weight table and a quotation guide, in Simplified Chinese. Contact through WhatsApp https://wa.me/message/D6ABM7QFWVSPB1 or omar.mashharawi@rajhisteel.com.
 
-- [沙特钢筋供应与加工（中文首页）](https://mashharawi.com/zh/)
-- [沙特钢筋供应商：利雅得、吉达钢筋厂直供](https://mashharawi.com/zh/rebar/)
-- [钢筋切割与弯曲：按钢筋下料单(BBS)订货](https://mashharawi.com/zh/rebar-cutting-bending/)
-- [钢筋重量表与计算公式](https://mashharawi.com/zh/rebar-weight-table/)
-- [沙特环氧涂层钢筋](https://mashharawi.com/zh/epoxy-coated-rebar/)
-- [在沙特如何快速获得钢筋报价](https://mashharawi.com/zh/rebar-quotation-guide/)
-- [国标HRB400/HRB500与美标ASTM A615 Grade 60/80对比](https://mashharawi.com/zh/hrb400-vs-astm-a615/)
-- [中资企业在沙特采购钢筋：标准、材料报审、询价与付款流程](https://mashharawi.com/zh/rebar-procurement-saudi/)
-- [沙特钢筋价格是怎么定的：影响钢筋吨价的因素](https://mashharawi.com/zh/rebar-price-saudi/)
+- [沙特钢筋供应与加工中文资料 | Al Rajhi Steel](https://mashharawi.com/zh/)
+- [沙特钢筋供应商 | 利雅得、吉达工厂直供 Al Rajhi Steel](https://mashharawi.com/zh/rebar/)
+- [沙特钢筋切割与弯曲加工 | 按钢筋下料单（BBS）订货](https://mashharawi.com/zh/rebar-cutting-bending/)
+- [钢筋重量表 10–32毫米：每米重量、每吨根数与计算公式](https://mashharawi.com/zh/rebar-weight-table/)
+- [沙特环氧涂层钢筋 | 沿海与地下工程钢筋防腐](https://mashharawi.com/zh/epoxy-coated-rebar/)
+- [沙特钢筋询价指南：报价前需要准备哪些资料](https://mashharawi.com/zh/rebar-quotation-guide/)
+- [HRB400与ASTM A615 Grade 60对比 | 沙特项目钢筋选用](https://mashharawi.com/zh/hrb400-vs-astm-a615/)
+- [沙特钢筋采购流程：标准、材料报审、询价与付款](https://mashharawi.com/zh/rebar-procurement-saudi/)
+- [沙特钢筋价格是怎么定的？影响吨价的因素与报价比较](https://mashharawi.com/zh/rebar-price-saudi/)
 
 ## Tools
 
@@ -64,6 +64,8 @@ For Chinese contractors working in Saudi Arabia: rebar supply, cutting to a bar 
 - [حاسبة أوزان المقاطع الحديدية](https://mashharawi.com/ar/tools/steel-sections/)
 - [RebarPlan بالعربي](https://mashharawi.com/ar/tools/rebarplan/): جدول تفريد الحديد وخطة القص لويندوز وماك
 - [مساعد اعتماد المستندات](https://mashharawi.com/ar/tools/approvals/): أداة داخلية لتجهيز حزم اعتماد المشاريع وتسجيل الموردين من شهادات الشركة
+- [OpenPDFKit بالعربي](https://mashharawi.com/ar/tools/openpdfkit/): برنامج مكتبي بلا إنترنت لدمج ملفات PDF وتقسيمها وضغطها وتحويلها وحمايتها والتعرف الضوئي على النص، مفتوح المصدر
+- [KAVRO بالعربي](https://mashharawi.com/ar/kavro/): قارئ رموز QR يوضح إلى أين يقود كل رمز قبل فتحه
 - [كل الأدوات](https://mashharawi.com/ar/tools/)
 
 ## About

@@ -5,7 +5,7 @@
 <script>document.documentElement.classList.add("js")</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>RebarPlan: Free Bar Schedule and Cutting Plan App</title>
+<title>Free Bar Bending Schedule and Rebar Cutting App | RebarPlan</title>
 <meta name="description" content="Free open-source app for Windows and macOS: bar schedules to BS 8666 or ACI 318 / SBC 304, weights per diameter and an optimised cutting plan from 12 m bars.">
 <meta name="author" content="Omar Mashharawi">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
@@ -18,7 +18,7 @@
 <meta name="theme-color" content="#0A0A0A">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mashharawi.com/tools/rebarplan/">
-<meta property="og:title" content="RebarPlan: Free Bar Schedule and Cutting Plan App">
+<meta property="og:title" content="Free Bar Bending Schedule and Rebar Cutting App | RebarPlan">
 <meta property="og:description" content="Free open-source app for Windows and macOS: bar schedules to BS 8666 or ACI 318 / SBC 304, weights per diameter and an optimised cutting plan from 12 m bars.">
 <meta property="og:site_name" content="mashharawi.com">
 <meta property="og:locale" content="en_US">
@@ -87,6 +87,40 @@
   "@id": "https://mashharawi.com/#person",
   "name": "Omar Mashharawi"
  }
+}
+</script>
+<!-- The same questions and answers that are visible on the page. -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "inLanguage": "en",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Is there free software for a bar bending schedule?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. RebarPlan is free and open source (MIT licence) for Windows 10 and 11 and macOS 12 or later, in Arabic, English and Simplified Chinese. It makes the bar bending schedule, the cutting plan, a workshop sheet with bundle labels and the weights, and exports to Excel or PDF."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How does RebarPlan reduce rebar cutting waste?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "It builds the plan bar by bar: for each stock bar it picks the combination of cut lengths that fills it best, repeats that pattern as far as the quantities allow, and keeps whichever of several variants needs the fewest bars. You can set the available stock lengths (6, 9, 12 or 18 m) and a saw kerf per cut."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why is the cut length different under BS 8666 and ACI 318?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "BS 8666 builds the length from shape-code formulas with its own minimum bend radius, while ACI 318 and the Saudi code SBC 304 take out-to-out dimensions and work out the centreline length from the ACI bend diameters. RebarPlan does either, and rounds bent bars up to the next 25 mm."
+   }
+  }
+ ]
 }
 </script>
 <script type="application/ld+json">
@@ -180,6 +214,47 @@
     <figure class="c-shot"><img src="/tools/rebarplan/screen-en.jpg" width="1440" height="900" alt="RebarPlan showing cutting patterns for each diameter" loading="lazy" decoding="async"></figure>
   </section>
 
+  <section class="q-band" aria-labelledby="qb-h">
+    <div class="wrap">
+      <p class="q-eyebrow">Rebar supply · Al Rajhi Steel</p>
+      <h2 id="qb-h">Send the schedule for a quote.</h2>
+      <p>Send me the quantities RebarPlan gives you, the diameters, grade, tonnes and project city, or the bar bending schedule itself, and I will come back with a rebar quotation from Al Rajhi Steel, where I am a Section Head.</p>
+      <ul class="q-facts">
+        <li>10 to 32 mm · 12 m bars</li><li>Grade 60 and Grade 80</li><li>Cut to length</li><li>Epoxy coating</li><li>Test certificates available</li><li>Immediate delivery after payment or LC opening</li><li>Riyadh · Jeddah · Qassim · Taif</li><li>Shipping across Saudi Arabia</li>
+      </ul>
+      <div class="q-actions">
+        <a class="q-btn q-btn--wa" href="https://wa.me/message/D6ABM7QFWVSPB1" target="_blank" rel="noopener">Send the quantities on WhatsApp</a>
+        <a class="q-btn q-btn--line" href="/rebar/">Supply details</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="how-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="how-h">How it works.</h2>
+        <p class="lead">RebarPlan works in millimetres. Cut lengths follow either BS&nbsp;8666:2005, from the shape-code formulas with a minimum former radius of 2d up to &Oslash;16 and 3.5d above, or ACI&nbsp;318 / SBC&nbsp;304, as the centreline length from out-to-out leg dimensions with minimum bend diameters of 6d up to &Oslash;25, 8d for &Oslash;28 to &Oslash;36 and 10d above. Bent bars are rounded up to the next 25&nbsp;mm. Weight per metre is &pi;/4 &times; d&sup2; &times; 7,850 &divide; 1,000,000, about 0.006165 &times; d&sup2; kg/m, the same formula as the online rebar weight calculator. The cutting plan picks the best combination of pieces for one stock bar at a time, tries several variants plus best-fit decreasing, and keeps the plan that needs the fewest bars.</p>
+      </div>
+      <p class="note-back">Read more: <a href="/writing/bs8666-vs-aci-cut-length/" hreflang="ar">cut length under BS 8666 and ACI 318, with worked L and U bars</a> and <a href="/writing/slab-rebar-quantity/" hreflang="ar">how to calculate the rebar in a slab</a> (both in Arabic). Other tools: <a href="/tools/rebar-weight/">rebar weight calculator</a>, <a href="/tools/steel-sections/">steel section weight</a>.</p>
+
+      <section class="faq" aria-labelledby="faq-h">
+        <h2 id="faq-h">Common questions</h2>
+        <details>
+          <summary>Is there free software for a bar bending schedule?</summary>
+          <p>Yes. RebarPlan is free and open source (MIT licence) for Windows 10 and 11 and macOS 12 or later, in Arabic, English and Simplified Chinese. It makes the bar bending schedule, the cutting plan, a workshop sheet with bundle labels and the weights, and exports to Excel or PDF.</p>
+        </details>
+        <details>
+          <summary>How does RebarPlan reduce rebar cutting waste?</summary>
+          <p>It builds the plan bar by bar: for each stock bar it picks the combination of cut lengths that fills it best, repeats that pattern as far as the quantities allow, and keeps whichever of several variants needs the fewest bars. You can set the available stock lengths (6, 9, 12 or 18 m) and a saw kerf per cut.</p>
+        </details>
+        <details>
+          <summary>Why is the cut length different under BS 8666 and ACI 318?</summary>
+          <p>BS 8666 builds the length from shape-code formulas with its own minimum bend radius, while ACI 318 and the Saudi code SBC 304 take out-to-out dimensions and work out the centreline length from the ACI bend diameters. RebarPlan does either, and rounds bent bars up to the next 25 mm.</p>
+        </details>
+      </section>
+    </div>
+  </section>
+
   <section class="sec" aria-labelledby="r-priv">
     <div class="wrap">
       <div class="sec-head">
@@ -190,20 +265,6 @@
     </div>
   </section>
 
-  <section class="q-band" aria-labelledby="qb-h">
-    <div class="wrap">
-      <p class="q-eyebrow">Rebar supply · Al Rajhi Steel</p>
-      <h2 id="qb-h">Need reinforcing steel for a project?</h2>
-      <p>I am a Section Head at Al Rajhi Steel. Send me the sizes and quantities, or the bar bending schedule, and I will come back with a quotation.</p>
-      <ul class="q-facts">
-        <li>10 to 32 mm · 12 m bars</li><li>Grade 60 and Grade 80</li><li>Cut to length</li><li>Epoxy coating</li><li>Test certificates available</li><li>Immediate delivery after payment or LC opening</li><li>Riyadh · Jeddah · Qassim · Taif</li><li>Shipping across Saudi Arabia</li>
-      </ul>
-      <div class="q-actions">
-        <a class="q-btn q-btn--wa" href="https://wa.me/message/D6ABM7QFWVSPB1" target="_blank" rel="noopener">Message on WhatsApp</a>
-        <a class="q-btn q-btn--line" href="/rebar/">Supply details</a>
-      </div>
-    </div>
-  </section>
 </main>
 
 <footer class="c-footer">
@@ -224,6 +285,6 @@
   <a href="https://github.com/UKDean/RebarPlan/releases/download/v1.1.1/RebarPlan_1.1.1_universal.dmg" download>Mac</a>
 </nav>
 <script src="/assets/site.js?v=20261015" defer></script>
-<script src="/assets/quote.js?v=20261018" defer></script>
+<script src="/assets/quote.js?v=20261019" defer></script>
 </body>
 </html>

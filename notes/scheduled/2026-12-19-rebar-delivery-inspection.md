@@ -8,7 +8,7 @@ image: /assets/img/notes/rebar-delivery-inspection.jpg
 
 When a rebar truck arrives, check five things before anyone signs the delivery note: the paperwork against the purchase order, the bundle tags against the mill test certificate, the marks rolled on the bars, the weight, and for cut and bent bars, the shapes against the schedule. ASTM A615 accepts a bar that weighs at least 94% of its nominal weight. For 16 mm that is 1.484 kg/m, or 17.80 kg for a 12 m bar.
 
-![Rebar delivery inspection: minimum weight under ASTM A615 and site checklist](/assets/img/notes/rebar-delivery-inspection.webp){: style="filter:none"}
+![Rebar delivery inspection: minimum weight under ASTM A615 and site checklist](/assets/img/notes/rebar-delivery-inspection.webp){: style="filter:none;height:auto" width="1400" height="1400" loading="lazy"}
 
 ## Before the truck arrives
 
