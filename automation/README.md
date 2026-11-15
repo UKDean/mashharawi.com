@@ -12,7 +12,7 @@
    → حاسبة الأوزان: زر «اطلب عرض سعر رسمي بهذه الكميات»
    → /ar/quote/ أو /quote/: النموذج مملوء بالأقطار والأطنان
    → quote-form.js يرسل الطلب (JSON) إلى Google Apps Script
-   → Code.gs: تحقق + منع السبام + تقييم A/B/C + سطر في جدول Leads
+   → Code.gs: تحقق + منع السبام + تقييم A/B/C + سطر في جدول Leads (أو Leads_TEST في وضع الاختبار)
    → رسالة Telegram لك وحدك عبر بوتك (والبريد اختياري)
 ```
 
@@ -22,7 +22,7 @@
 
 ```
 [TEST] طلب عرض سعر جديد — A (88/100)
-المرجع: L-261116-0001
+المرجع: L-261116-K7Q2MX
 الاسم: عميل تجريبي | شركة تجريبية | مدير المشتريات
 الجوال: +966500000001 | demo@example.com
 المشروع: برج تجريبي | التسليم: الرياض
@@ -46,25 +46,15 @@
 | `quote/index.html`, `ar/quote/index.html` | صفحتا النموذج (noindex) |
 | `automation/apps-script/Code.gs` | الخلفية: التسجيل، التقييم، Telegram، التقرير، الملخص اليومي، التصدير لمركز المبيعات |
 | `automation/apps-script/appsscript.json` | إعدادات المشروع (منطقة الرياض الزمنية، صلاحيات) |
-| `automation/apps-script/test/` | 15 اختباراً للخلفية (Node) |
+| `automation/apps-script/test/` | 32 اختباراً للخلفية (Node) |
 | `automation/tests/site_e2e.py` | اختبار الرحلة كاملة في متصفح Chrome |
 | `automation/tests/screenshots.py` | لقطات الحاسوب والجوال |
 
-## التشغيل (خطوات تقوم بها أنت)
+## التشغيل
 
-> **قبل بيانات العملاء الحقيقية:** لا تُدخل بيانات حقيقية في حساب Google شخصي قبل موافقة الشركة. ابدأ بالوضع التجريبي، وعند الموافقة أنشئ الجدول في الحساب المعتمد (الخطوة 1) واضبط `TEST_MODE=false`.
+خطوات التشغيل كاملة بالعربية في **[RUNBOOK.ar.md](RUNBOOK.ar.md)**، ونتائج مراجعة الأمان في **[SECURITY-REVIEW.ar.md](SECURITY-REVIEW.ar.md)**.
 
-1. أنشئ Google Sheet جديداً **في الحساب المعتمد** (أو حسابك للاختبار فقط).
-2. من القائمة: Extensions › Apps Script. احذف المحتوى، والصق `Code.gs`. ومن Project Settings فعّل «Show appsscript.json» والصق `appsscript.json`.
-3. Project Settings › Script properties، أضف:
-   - `TELEGRAM_BOT_TOKEN` = توكن البوت (موجود لديك)
-   - `TELEGRAM_CHAT_ID` = رقم محادثتك مع البوت (أرسل أي رسالة للبوت، ثم افتح `https://api.telegram.org/bot<TOKEN>/getUpdates` في متصفحك وانسخ `chat.id`)
-   - `TEST_MODE` = `true`
-   - اختياري: `NOTIFY_EMAIL`، `EXPORT_KEY` (نص عشوائي طويل لربط مركز المبيعات لاحقاً)
-4. شغّل الدالة `setup` مرة واحدة (توافق على الصلاحيات). تُنشأ جداول Leads وEvents والقوائم المنسدلة ومشغّلا 06:00 (التقرير) و07:00 (ملخص المتابعات).
-5. شغّل `sendTestTelegram` وتأكد من وصول الرسالة، ثم `seedDemoData` لترى 3 عملاء وهميين والتقرير.
-6. Deploy › New deployment › Web app: Execute as **Me**، Who has access **Anyone**. انسخ رابط `/exec`.
-7. أرسل لي الرابط، وأضعه في `LEAD_ENDPOINT` داخل `assets/quote.js` عبر PR. الرابط ليس سراً، والتوكن يبقى في Script properties فقط.
+الملخص: السكربت مرتبط بجدول واحد (صلاحية `spreadsheets.currentonly`). الإعدادات في Script properties: `TELEGRAM_BOT_TOKEN` و`TELEGRAM_CHAT_ID` و`TEST_MODE`، واختيارياً `NOTIFY_EMAIL` و`EXPORT_KEY`. في وضع الاختبار (الافتراضي) يُكتب كل شيء في أوراق `_TEST` فقط. ويبقى `LEAD_ENDPOINT` فارغاً حتى تعتمد النشر.
 
 ## ما تحدّثه أنت في الجدول
 
@@ -88,19 +78,16 @@ https://mashharawi.com/ar/tools/rebar-weight/?utm_source=linkedin&utm_medium=soc
 
 ## الأمان
 
-- لا مفاتيح ولا توكنات في المستودع؛ كلها في Script properties.
-- منع السبام: حقل مخفي (honeypot)، ورفض الإرسال الأسرع من 3 ثوانٍ، و3 طلبات كحد أقصى لكل رقم خلال 10 دقائق، و60 طلباً في الساعة إجمالاً.
-- كل نص يبدأ بـ = + - @ يُحفظ كنص لا كصيغة في الجدول.
-- فشل Telegram لا يُضيّع الطلب: الصف محفوظ وعمود «حالة الإشعار» يوضح ما حدث.
+راجع [SECURITY-REVIEW.ar.md](SECURITY-REVIEW.ar.md) لكل التفاصيل. باختصار: الرابط العام يقبل الإرسال فقط ولا يعيد بيانات. ولا مفاتيح في المستودع. وهناك حقل مخفي وحدود للإرسال. والطلب يُحفظ قبل محاولة Telegram، ولا يُكرَّر عند إعادة الإرسال.
 
 ## الربط مع مركز مبيعات مشهراوي (الخطوة التالية)
 
-المراحل والفئات في هذا النظام مطابقة لجدول «العملاء المحتملون» في المركز. الرابط `/exec?action=export&key=EXPORT_KEY` يعيد الطلبات بنفس هيكل عملاء المركز (`tier`، `stage`، `owner`، `log`، `review:true`)، ليُستورد إلى المركز بعد موافقتك على طريقة الاستيراد.
+المراحل والفئات في هذا النظام مطابقة لجدول «العملاء المحتملون» في المركز. الرابط `/exec?action=export&key=EXPORT_KEY` يعيد عميلاً واحداً لكل رقم جوال بمعرّف ثابت (`web-9665…`)، بنفس هيكل عملاء المركز (`tier`، `stage`، `owner`، `log`، `review:true`)، فلا يتكرر العميل عند الاستيراد. لا توجد مزامنة تلقائية؛ تُبنى طريقة الاستيراد بعد موافقتك.
 
 ## الاختبارات
 
 ```bash
-node --test automation/apps-script/test/code.test.js     # الخلفية: 15 اختباراً
+node --test automation/apps-script/test/code.test.js     # الخلفية: 32 اختباراً
 python3 -m http.server 8765 &                            # من جذر المستودع
-python3 automation/tests/site_e2e.py                     # الرحلة كاملة: 18 فحصاً
+python3 automation/tests/site_e2e.py                     # الرحلة كاملة: 21 فحصاً
 ```

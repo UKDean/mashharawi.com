@@ -12,6 +12,10 @@
   var AR = document.documentElement.getAttribute('dir') === 'rtl';
   var DIAMETERS = [10, 12, 14, 16, 18, 20, 25, 32];
   var started = Date.now();
+  // One id per submission: a network retry or a double click sends the same id,
+  // so the server keeps one request and answers with the first reference.
+  function newSid() { return 'S' + Date.now().toString(36) + Math.random().toString(36).slice(2, 10); }
+  var sid = newSid();
   var T = AR ? {
     total: 'الإجمالي', t: 'طن',
     need: 'أكمل الحقول المطلوبة المعلَّمة.', qty: 'أدخل كمية قطر واحد على الأقل.',
@@ -74,7 +78,7 @@
       utm_content: last.utm_content || '', first_utm_source: first.utm_source || '', first_utm_campaign: first.utm_campaign || '',
       first_utm_content: first.utm_content || '', first_landing: first.landing || '', referrer: last.referrer || first.referrer || '',
       website: v('fWebsite'), // honeypot: real people leave it empty
-      elapsed_ms: Date.now() - started
+      elapsed_ms: Date.now() - started, sid: sid
     };
   }
   window.MASH_COLLECT = collect;
@@ -106,6 +110,8 @@
     cb.onclick = function () {
       try { navigator.clipboard.writeText(pre.textContent).then(function () { cb.textContent = T.copied; }); } catch (e) {}
     };
+    var mail = $('rfqMail');
+    if (mail) mail.href = 'mailto:omar.mashharawi@rajhisteel.com?subject=' + encodeURIComponent(AR ? 'طلب عرض سعر حديد تسليح' : 'Rebar quotation request') + '&body=' + encodeURIComponent(pre.textContent);
     $('rfqAlt').hidden = false;
   }
 
@@ -125,7 +131,7 @@
       .then(function (r) { return r.json(); })
       .then(function (res) {
         if (!res || !res.ok) throw new Error(res && res.error || 'rejected');
-        form.reset(); totals();
+        form.reset(); totals(); sid = newSid();
         say(T.ok + res.ref + '. ' + T.ok2, 'ok');
       })
       .catch(function () { fallback(d); })

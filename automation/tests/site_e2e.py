@@ -74,6 +74,7 @@ with sync_playwright() as p:
     check('lead payload: tonnes per diameter', set(body['tonnes']) == {'d16', 'd20'}, body['tonnes'])
     check('lead payload: source post attached', body['utm_content'] == 'c01-bars-per-tonne' and body['first_landing'] == '/writing/bars-per-tonne/', body)
     check('lead payload: no price fields', not any(k for k in body if 'price' in k.lower()))
+    check('lead payload: submission id for retry-safety', isinstance(body.get('sid'), str) and len(body['sid']) >= 10, body.get('sid'))
     check('success message shows reference', 'L-TEST-0001' in page.inner_text('#rfqMsg'))
 
     # 5. fallback when the endpoint is not configured
@@ -83,9 +84,19 @@ with sync_playwright() as p:
     page2.select_option('#fCity', index=1); page2.select_option('#fGrade', '80'); page2.select_option('#fStage', 'comparing'); page2.check('#fConsent')
     page2.click('#rfqSend')
     check('no endpoint -> summary + WhatsApp/email fallback', page2.is_visible('#rfqSummary') and page2.is_visible('#rfqAlt') and 'Ø' not in '' and '25mm 12t' in page2.inner_text('#rfqSummary'), page2.inner_text('#rfqSummary'))
+    mailto = page2.get_attribute('#rfqMail', 'href')
+    check('fallback email link carries the full request', mailto.startswith('mailto:omar.mashharawi@rajhisteel.com?') and 'Demo%20Co' in mailto, mailto[:120])
     sent_without_ep = [r for r in posted if r and 'Demo Co' in r]
     check('no endpoint -> nothing sent', not sent_without_ep)
 
+    # 6. endpoint answers an error (busy / rate / server) -> visitor still gets the fallback
+    page3 = ctx.new_page(); setup(page3)
+    page3.route(EP, lambda r: r.fulfill(status=200, body=json.dumps({'ok': False, 'error': 'busy'}), headers={'content-type': 'application/json', 'access-control-allow-origin': '*'}))
+    page3.goto(BASE + '/ar/quote/?t12=5')
+    page3.fill('#fName', 'عميل'); page3.fill('#fCompany', 'شركة'); page3.fill('#fPhone', '0500000004')
+    page3.select_option('#fCity', index=1); page3.select_option('#fGrade', '60'); page3.select_option('#fStage', 'budget'); page3.check('#fConsent')
+    page3.click('#rfqSend'); page3.wait_for_selector('#rfqSummary:not([hidden])')
+    check('server error -> summary + WhatsApp/email fallback', page3.is_visible('#rfqAlt') and '12مم 5طن' in page3.inner_text('#rfqSummary'), page3.inner_text('#rfqSummary'))
     check('no JavaScript errors', not errors, errors)
     b.close()
 fails = [r for r in results if not r[1]]

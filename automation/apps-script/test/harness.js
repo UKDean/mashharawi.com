@@ -5,7 +5,7 @@ function makeSheet(name) {
   const rows = [];
   const sh = {
     name, rows, frozen: 0, validations: [],
-    appendRow(r) { rows.push(r.slice()); },
+    appendRow(r) { if (sh.failAppend) throw new Error('sheet unavailable'); rows.push(r.slice()); },
     getLastRow() { return rows.length; },
     setFrozenRows(n) { sh.frozen = n; },
     clear() { rows.length = 0; },
@@ -29,18 +29,20 @@ function load(opts = {}) {
   const fetches = [], mails = [], triggers = [];
   const ss = {
     getSheetByName: n => sheets[n] || null,
-    insertSheet: n => (sheets[n] = makeSheet(n))
+    insertSheet: n => { const sh = (sheets[n] = makeSheet(n)); if (opts.appendFail) sh.failAppend = true; return sh; }
   };
+  const appendFail = opts.appendFail;
   const ctx = {
     console, JSON, Math, Date, String, Number, Object, Array, RegExp, Error,
     SpreadsheetApp: {
-      getActiveSpreadsheet: () => ss, openById: () => ss,
+      getActiveSpreadsheet: () => ss,
+      openById: () => { throw new Error('openById must never be used (currentonly scope)'); },
       newDataValidation: () => { const r = { requireValueInList(v) { r.values = v; return r; }, setAllowInvalid() { return r; }, build() { return r; } }; return r; },
       getUi: () => ({ createMenu: () => { const m = { addItem() { return m; }, addToUi() {} }; return m; } })
     },
-    PropertiesService: { getScriptProperties: () => ({ getProperty: k => (k in props ? props[k] : null), setProperty: (k, v) => { props[k] = v; } }) },
+    PropertiesService: { getScriptProperties: () => ({ getProperty: k => (k in props ? props[k] : null), setProperty: (k, v) => { props[k] = v; }, deleteProperty: k => { delete props[k]; } }) },
     CacheService: { getScriptCache: () => ({ get: k => cache[k] || null, put: (k, v) => { cache[k] = v; } }) },
-    LockService: { getScriptLock: () => ({ tryLock() { return true; }, releaseLock() {} }) },
+    LockService: { getScriptLock: () => ({ tryLock() { return opts.lockBusy ? false : true; }, releaseLock() {} }) },
     UrlFetchApp: { fetch: (url, o) => { fetches.push({ url, o, body: JSON.parse(o.payload) }); const code = opts.telegramCode || 200; if (code === 'throw') throw new Error('net'); return { getResponseCode: () => code }; } },
     MailApp: { sendEmail: m => mails.push(m) },
     ContentService: { MimeType: { JSON: 'json' }, createTextOutput: t => ({ text: t, setMimeType() { return this; } }) },
@@ -62,8 +64,10 @@ function load(opts = {}) {
 }
 
 function post(env, body) {
-  const out = env.ctx.doPost({ postData: { contents: JSON.stringify(body) } });
+  const raw = typeof body === 'string' ? body : JSON.stringify(body);
+  const out = env.ctx.doPost({ postData: { contents: raw } });
   return JSON.parse(out.text);
 }
+function get(env, parameter) { return JSON.parse(env.ctx.doGet({ parameter }).text); }
 
-module.exports = { load, post };
+module.exports = { load, post, get };
