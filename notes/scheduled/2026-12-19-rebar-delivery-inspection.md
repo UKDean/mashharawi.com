@@ -119,4 +119,4 @@ To get a quick quotation, send:
 - Straight 12 m bars or cut to length, and whether epoxy coating is needed.
 - The delivery city and the required date.
 
-Al Rajhi Steel supplies rebar in 10, 12, 14, 16, 18, 20, 25 and 32 mm, Grade 60 and Grade 80, in 12 m bars or cut to length, with all test certificates, from mills in Riyadh and Jeddah to every region of Saudi Arabia. See the [rebar supply page](/rebar/) for details.
+Al Rajhi Steel supplies rebar in 10, 12, 14, 16, 18, 20, 25 and 32 mm, Grade 60 and Grade 80, in 12 m bars or cut to length, with mill test certificates for the sizes and grade ordered, from mills in Riyadh and Jeddah to every region of Saudi Arabia. See the [rebar supply page](/rebar/) for details.
