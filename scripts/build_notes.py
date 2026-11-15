@@ -210,6 +210,7 @@ def shell(lang, d, title, desc, canon, body, head="", robots=None, fonts=None, o
     <a href="{'/ar/privacy/' if lang == 'ar' else '/privacy/'}">{'الخصوصية' if lang == 'ar' else 'Privacy'}</a>
   </div>
 </footer>
+<script src="/assets/quote.js?v=20261116" defer></script>
 <script src="/assets/site.js?v=20261015" defer></script>
 </body>
 </html>
