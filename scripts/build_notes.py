@@ -154,7 +154,7 @@ def shell(lang, d, title, desc, canon, body, head="", robots=None, fonts=None, o
         items = [("About", "/about/", ""), ("Experience", "/#experience", ""), ("Tools", "/tools/", ""),
                  ("Writing", "/writing/", ' aria-current="page"'), ("Contact", "/contact/", "")]
         lang_link = '<a href="/ar/" hreflang="ar" lang="ar" class="c-header__lang">العربية</a>'
-    nav = "\n    ".join('<a href="' + h + '"' + c + '>' + t + '</a>' for t, h, c in items) + "\n    " + lang_link
+    nav = "\n    ".join('<a href="' + h + '"' + c + '>' + t + '</a>' for t, h, c in items) + "\n    " + lang_link + "\n    " + '<a href="/zh/" hreflang="zh-Hans" lang="zh-Hans" class="c-header__lang">中文</a>'
     rob = '<meta name="robots" content="' + robots + '">' if robots else ""
     return f"""<!DOCTYPE html>
 <html lang="{lang}" dir="{d}">
