@@ -22,7 +22,7 @@ PAIRS = [
     ("/tools/steel-sections/", "/ar/tools/steel-sections/", "0.9", "0.8"),
     ("/tools/rebarplan/", "/ar/tools/rebarplan/", "0.8", "0.7"),
     ("/tools/openpdfkit/", "/ar/tools/openpdfkit/", "0.8", "0.7"),
-    ("/tools/approvals/", "/ar/tools/approvals/", "0.6", "0.5"),
+    # /tools/approvals/ and /contract-check/ are internal tools: noindex, kept live, left out of the sitemap.
     ("/kavro/", "/ar/kavro/", "0.8", "0.7"),
     ("/kavro/support/", "/ar/kavro/support/", "0.4", "0.3"),
     ("/kavro/open-source/", "/ar/kavro/open-source/", "0.4", "0.3"),
@@ -35,7 +35,6 @@ PAIRS = [
 # Pages with no English/Arabic twin (Arabic-only, or vice versa) — same
 # "listed here or it vanishes from the sitemap" rule as PAIRS above.
 SINGLES = [
-    ("/contract-check/", "0.5"),
 ]
 # Simplified Chinese pages (for Chinese contractors in Saudi Arabia). ZH_TWINS
 # gives the English page a Chinese page translates, so both carry hreflang
