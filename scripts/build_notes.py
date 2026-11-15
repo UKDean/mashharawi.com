@@ -22,7 +22,7 @@ PAIRS = [
     ("/tools/steel-sections/", "/ar/tools/steel-sections/", "0.9", "0.8"),
     ("/tools/rebarplan/", "/ar/tools/rebarplan/", "0.8", "0.7"),
     ("/tools/openpdfkit/", "/ar/tools/openpdfkit/", "0.8", "0.7"),
-    ("/tools/approvals/", "/ar/tools/approvals/", "0.6", "0.5"),
+    # /tools/approvals/ and /contract-check/ are internal tools: noindex, kept live, left out of the sitemap.
     ("/kavro/", "/ar/kavro/", "0.8", "0.7"),
     ("/kavro/support/", "/ar/kavro/support/", "0.4", "0.3"),
     ("/kavro/open-source/", "/ar/kavro/open-source/", "0.4", "0.3"),
@@ -35,7 +35,6 @@ PAIRS = [
 # Pages with no English/Arabic twin (Arabic-only, or vice versa) — same
 # "listed here or it vanishes from the sitemap" rule as PAIRS above.
 SINGLES = [
-    ("/contract-check/", "0.5"),
 ]
 # Simplified Chinese pages (for Chinese contractors in Saudi Arabia). ZH_TWINS
 # gives the English page a Chinese page translates, so both carry hreflang
@@ -110,7 +109,7 @@ def quote_band(lang):
       <h2 id="qb-h">تحتاج حديد تسليح لمشروعك؟</h2>
       <p>أنا رئيس قسم في الراجحي للحديد. أرسل لي المقاسات والكميات أو جدول التفريد، وأرجع لك بعرض سعر.</p>
       <ul class="q-facts">
-        <li>10 إلى 32 مم · طول 12 م</li><li>Grade 60 و Grade 80</li><li>قص حسب الطلب</li><li>دهان إيبوكسي</li><li>شهادات الفحص متوفرة</li><li>تسليم فوري بعد الدفع أو الاعتماد البنكي</li><li>الرياض · جدة · القصيم · الطائف</li><li>شحن لجميع مناطق المملكة</li>
+        <li>10 إلى 32 مم · طول 12 م</li><li>Grade 60 و Grade 80</li><li>قص حسب الطلب</li><li>دهان إيبوكسي</li><li>شهادات المطحنة للمقاسات والدرجة المطلوبة</li><li>تسليم فوري بعد الدفع أو الاعتماد البنكي وفق إجراءات الشركة</li><li>الرياض · جدة · القصيم · الطائف</li><li>شحن لجميع مناطق المملكة</li>
       </ul>
       <div class="q-actions">
         <a class="q-btn q-btn--wa" href="https://wa.me/message/D6ABM7QFWVSPB1" target="_blank" rel="noopener">تواصل على واتساب</a>
@@ -125,7 +124,7 @@ def quote_band(lang):
       <h2 id="qb-h">Need reinforcing steel for a project?</h2>
       <p>I am a Section Head at Al Rajhi Steel. Send me the sizes and quantities, or the bar bending schedule, and I will come back with a quotation.</p>
       <ul class="q-facts">
-        <li>10 to 32 mm · 12 m bars</li><li>Grade 60 and Grade 80</li><li>Cut to length</li><li>Epoxy coating</li><li>Test certificates available</li><li>Immediate delivery after payment or LC opening</li><li>Riyadh · Jeddah · Qassim · Taif</li><li>Shipping across Saudi Arabia</li>
+        <li>10 to 32 mm · 12 m bars</li><li>Grade 60 and Grade 80</li><li>Cut to length</li><li>Epoxy coating</li><li>Mill test certificates for the sizes and grade ordered</li><li>Immediate delivery after payment or LC, subject to company procedures</li><li>Riyadh · Jeddah · Qassim · Taif</li><li>Shipping across Saudi Arabia</li>
       </ul>
       <div class="q-actions">
         <a class="q-btn q-btn--wa" href="https://wa.me/message/D6ABM7QFWVSPB1" target="_blank" rel="noopener">Message on WhatsApp</a>

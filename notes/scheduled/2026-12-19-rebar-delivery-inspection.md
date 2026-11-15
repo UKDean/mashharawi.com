@@ -36,7 +36,7 @@ ASTM A615 bars carry rolled marks in a fixed order:
 1. A letter or symbol for the **producing mill**.
 2. The **bar size**.
 3. The **type of steel**: "S" for carbon steel to A615.
-4. The **grade**: a number, or longitudinal grade lines. One line means Grade 60 and three lines mean Grade 80.
+4. The **grade**: a number, or longitudinal grade lines, as set out in the marking requirements of ASTM A615. Check the mill's marking guide for what each grade looks like on its bars.
 
 Keep the mill's marking guide with the approved submittal and compare a few bars from each bundle. The marks should agree with the tag, and the tag with the certificate. On a site with both grades, the marks are what keep them apart.
 
@@ -104,7 +104,7 @@ Yes, if a wire-brushed piece still meets the weight, dimensions and tensile requ
 
 ### How do I check the rebar grade on site?
 
-Read the rolled marks on the bar. After the mill symbol, size and "S", A615 bars show the grade as a number or as grade lines: one line for Grade 60, three lines for Grade 80. The marks should match the bundle tag and the mill test certificate.
+Read the rolled marks on the bar. After the mill symbol, size and "S", A615 bars show the grade as a number or as grade lines, as defined in the standard and in the mill's marking guide. The marks should match the bundle tag and the mill test certificate.
 
 ### How often does the mill test rebar?
 
@@ -119,4 +119,4 @@ To get a quick quotation, send:
 - Straight 12 m bars or cut to length, and whether epoxy coating is needed.
 - The delivery city and the required date.
 
-Al Rajhi Steel supplies rebar in 10, 12, 14, 16, 18, 20, 25 and 32 mm, Grade 60 and Grade 80, in 12 m bars or cut to length, with all test certificates, from mills in Riyadh and Jeddah to every region of Saudi Arabia. See the [rebar supply page](/rebar/) for details.
+Al Rajhi Steel supplies rebar in 10, 12, 14, 16, 18, 20, 25 and 32 mm, Grade 60 and Grade 80, in 12 m bars or cut to length, with mill test certificates for the sizes and grade ordered, from mills in Riyadh and Jeddah to every region of Saudi Arabia. See the [rebar supply page](/rebar/) for details.

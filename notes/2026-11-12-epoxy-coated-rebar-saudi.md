@@ -101,4 +101,4 @@ To quote coated bars quickly, send:
 - Whether the bars are straight 12 m or cut and bent to the schedule.
 - The delivery city, the required date and how long the bars will be stored before the pour.
 
-Al Rajhi Steel supplies epoxy-coated rebar from 10 to 32 mm in Grade 60 and Grade 80, cut to length, with test certificates, delivered across Saudi Arabia. The Jeddah plant is close to projects on the west coast. See the [rebar supply page](/rebar/) for details, or use the [rebar weight calculator](/tools/rebar-weight/) to turn a schedule into tonnes. A Chinese version of the supply notes is at [环氧涂层钢筋](/zh/epoxy-coated-rebar/).
+Al Rajhi Steel supplies epoxy-coated rebar from 10 to 32 mm in Grade 60 and Grade 80, cut to length, with mill test certificates for the sizes and grade ordered, delivered across Saudi Arabia. The Jeddah plant is close to projects on the west coast. See the [rebar supply page](/rebar/) for details, or use the [rebar weight calculator](/tools/rebar-weight/) to turn a schedule into tonnes. A Chinese version of the supply notes is at [环氧涂层钢筋](/zh/epoxy-coated-rebar/).
