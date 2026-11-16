@@ -3,5 +3,8 @@
 User-agent: *
 Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
+# Cloudflare's internal endpoints (email protection, challenges) are not
+# pages; Google reported them as 404s in Search Console.
+Disallow: /cdn-cgi/
 
 Sitemap: https://mashharawi.com/sitemap.xml
