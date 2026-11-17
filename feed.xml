@@ -6,7 +6,14 @@
     <atom:link href="https://mashharawi.com/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Notes on commercial steel, software and automation.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 15 Nov 2026 23:57:29 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 17 Nov 2026 03:43:39 +0000</lastBuildDate>
+    <item>
+      <title>طول وصلة التراكب لحديد التسليح: هل 40 قطر تكفي؟ جدول حسب ACI 318 لـ Grade 60 وGrade 80</title>
+      <link>https://mashharawi.com/writing/lap-splice-length/</link>
+      <guid isPermaLink="true">https://mashharawi.com/writing/lap-splice-length/</guid>
+      <pubDate>Tue, 17 Nov 2026 09:00:00 +0000</pubDate>
+      <description>كم يجب أن يكون طول وصلة التراكب (Lap Splice) لكل قطر من 10 إلى 32 مم حسب ACI 318-19، ولماذا تطول الوصلة مع الأقطار الكبيرة وحديد Grade 80، وكم تضيف الوصلات إلى طنّية المشروع.</description>
+    </item>
     <item>
       <title>اختبار الثني في المصنع والثني في الموقع: رقمان مختلفان لا تخلط بينهما</title>
       <link>https://mashharawi.com/writing/bend-test-vs-site-bending/</link>

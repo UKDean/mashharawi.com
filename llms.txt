@@ -47,6 +47,7 @@ For Chinese contractors working in Saudi Arabia: rebar supply, cutting to a bar 
 
 ## Writing
 
+- [طول وصلة التراكب لحديد التسليح: هل 40 قطر تكفي؟ جدول حسب ACI 318 لـ Grade 60 وGrade 80](https://mashharawi.com/writing/lap-splice-length/): كم يجب أن يكون طول وصلة التراكب (Lap Splice) لكل قطر من 10 إلى 32 مم حسب ACI 318-19، ولماذا تطول الوصلة مع الأقطار الكبيرة وحديد Grade 80، وكم تضيف الوصلات إلى طنّية المشروع. (Arabic)
 - [اختبار الثني في المصنع والثني في الموقع: رقمان مختلفان لا تخلط بينهما](https://mashharawi.com/writing/bend-test-vs-site-bending/): لماذا يُثنى سيخ الاختبار في المصنع حول مسمار أصغر بكثير من البكرة التي يطلبها الكود في الموقع، وما الذي يحدث للسيخ إذا ثُني على بكرة أصغر من المطلوب. (Arabic)
 - [Epoxy-coated rebar in Saudi Arabia: when to use it, what it costs](https://mashharawi.com/writing/epoxy-coated-rebar-saudi/): where epoxy-coated rebar is specified in Saudi projects, ASTM A775 vs A934, why coated bars need longer laps under ACI 318, and site handling and repair
 - [طول القص بين BS 8666 وACI 318: ما الفرق ولماذا يهم؟](https://mashharawi.com/writing/bs8666-vs-aci-cut-length/): لماذا يخرج طول القص لنفس السيخ مختلفاً بين المواصفة البريطانية BS 8666 والأمريكية ACI 318 (والكود السعودي SBC 304)، بأمثلة محسوبة لسيخ L وسيخ U. (Arabic)
