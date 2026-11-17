@@ -10,7 +10,7 @@ image: /assets/img/notes/rebar-price-adjustment.jpg
 
 هذا المقال للتوعية العملية، وليس استشارة قانونية. النص الرسمي وشروط عقدك هي المرجع.
 
-![تعديل أسعار العقود الحكومية بعد ارتفاع أسعار حديد التسليح](/assets/img/notes/rebar-price-adjustment.webp){: style="filter:none;height:auto" width="1400" height="1400" loading="lazy"}
+![مكتب موقع إنشائي: عقد وفواتير وآلة حاسبة، وخلفه مبنى قيد الإنشاء وحزم حديد التسليح](/assets/img/notes/rebar-price-adjustment-hero.webp){: style="filter:none;height:auto" width="1600" height="893"}
 
 ## كم ارتفع الحديد في 2026؟
 
@@ -25,6 +25,8 @@ image: /assets/img/notes/rebar-price-adjustment.jpg
 | 18 مم | 2,560.35 | 3,278.37 | 28.04% |
 
 مقاول قدّم عرضه في يناير على سعر 2,550 ريال للطن، واشترى الحديد في مايو، دفع حوالي 725 ريالاً زيادة في كل طن.
+
+![تعديل أسعار العقود الحكومية بعد ارتفاع أسعار حديد التسليح](/assets/img/notes/rebar-price-adjustment.webp){: style="filter:none;height:auto" width="1400" height="1400" loading="lazy"}
 
 ## ما الذي يقوله النظام؟
 
