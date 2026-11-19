@@ -13,7 +13,9 @@ Static site, no build step for the pages themselves. Hand-written HTML, a shared
 | Path | Purpose |
 |---|---|
 | `index.html`, `ar/index.html` | Home page, English and Arabic |
-| `tools/`, `ar/tools/` | Tools index and the in-browser calculators: `steel-sections`, `rebar-weight`, plus `openpdfkit` |
+| `tools/`, `ar/tools/` | Tools index and the in-browser calculators: `steel-sections`, `rebar-weight`, `cutting-optimizer`, plus `openpdfkit` |
+| `assets/cutopt/` | Rebar cutting optimizer: `engine.js` (calculation only, no DOM, tested), `app.js` (page), `cutopt.css`. Chinese page at `zh/rebar-cutting-optimizer/` |
+| `tests/` | Engine tests, run with `node --test tests/*.test.js` (Node 18+, no dependencies). The `Tests` workflow runs them on every PR |
 | `contract-check/` | Internal contract review tool |
 | `steelcalc/` | Support and privacy pages for the Steel Section Calculator iOS app, plus its screenshots in `shots/` |
 | `tubes/`, `crossword/` | Support and privacy pages for the Tubes and Arabic crossword apps |
