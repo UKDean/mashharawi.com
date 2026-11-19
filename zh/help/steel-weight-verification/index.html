@@ -30,7 +30,7 @@
 
 <link rel="stylesheet" href="/assets/site.css?v=20261031">
 <link rel="stylesheet" href="/assets/cutopt/cutopt.css?v=20261119h">
-<link rel="stylesheet" href="/assets/help/help.css?v=20261119a">
+<link rel="stylesheet" href="/assets/help/help.css?v=20261120a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Inter:wght@200..500&display=swap">
@@ -139,7 +139,7 @@
 <h2 id="example">计算实例</h2>
 <div class="h-ex"><p class="h-ex-t">单个试样</p><p>16 毫米，三根 1.000 米，实测 4.600 公斤。</p>
 <ol><li>每米重量 = 0.006165 × 16² = 1.57824 公斤/米。</li><li>理论重量 = 1.57824 × 1.000 × 3 = 4.73472 公斤。</li><li>差值 = 4.600 − 4.73472 = −0.13472 公斤。</li><li>偏差 = −0.13472 ÷ 4.73472 × 100 = <b>−2.85%</b>：试样比理论轻。</li></ol></div>
-<div class="h-ex"><p class="h-ex-t">多个试样</p><div class="h-scroll"><table class="h-table"><thead><tr><th scope="col">试样</th><th scope="col">直径</th><th scope="col">长度 × 根数</th><th scope="col">理论 kg</th><th scope="col">实测 kg</th><th scope="col">单个试样偏差</th></tr></thead><tbody><tr><td>A</td><td>16</td><td>1.000 米 × 2</td><td>3.15648</td><td>3.10</td><td>−1.79%</td></tr><tr><td>B</td><td>16</td><td>0.500 米 × 1</td><td>0.78912</td><td>0.80</td><td>+1.38%</td></tr><tr><td>C</td><td>16</td><td>2.000 米 × 1</td><td>3.15648</td><td>3.20</td><td>+1.38%</td></tr><tr><td>D</td><td>25</td><td>1.000 米 × 1</td><td>3.853125</td><td>3.80</td><td>−1.38%</td></tr></tbody></table></div>
+<div class="h-ex"><p class="h-ex-t">多个试样</p><div class="h-scroll" tabindex="0" role="region" aria-label="试样 · 直径 · 长度 × 根数 · 理论 kg · 实测 kg · 单个试样偏差"><table class="h-table"><thead><tr><th scope="col">试样</th><th scope="col">直径</th><th scope="col">长度 × 根数</th><th scope="col">理论 kg</th><th scope="col">实测 kg</th><th scope="col">单个试样偏差</th></tr></thead><tbody><tr><td>A</td><td>16</td><td>1.000 米 × 2</td><td>3.15648</td><td>3.10</td><td>−1.79%</td></tr><tr><td>B</td><td>16</td><td>0.500 米 × 1</td><td>0.78912</td><td>0.80</td><td>+1.38%</td></tr><tr><td>C</td><td>16</td><td>2.000 米 × 1</td><td>3.15648</td><td>3.20</td><td>+1.38%</td></tr><tr><td>D</td><td>25</td><td>1.000 米 × 1</td><td>3.853125</td><td>3.80</td><td>−1.38%</td></tr></tbody></table></div>
 <p>16 毫米合并：（7.100 − 7.10208）÷ 7.10208 × 100 = <b>−0.03%</b>，各试样在 −1.79% 至 +1.38% 之间。25 毫米单独列出。总质量：理论 10.955 公斤，实测 10.900 公斤；不对 16 和 25 毫米给出单一百分比。</p></div>
 <h2 id="results">结果解读</h2>
 <ul><li><b>偏差符号。</b>正值：比理论重；负值：比理论轻。</li><li><b>单个试样偏差</b>属于一个试样。<b>合并偏差</b>把同一直径的所有试样视为一次合并称重，旁边显示最低和最高试样，不掩盖单个结果；它不是百分比的平均值。</li><li>全部试样的<b>总质量</b>只以公斤给出，不同直径绝不合并为一个百分比。</li><li><b>输入检查。</b>差值超过 25% 时显示中性提示，请您重新检查单位、根数和直径；这不是验收限值。</li><li>只有在您输入范围时，才会显示<b>在您输入的范围内 / 超出范围</b>。</li></ul>

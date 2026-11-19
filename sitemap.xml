@@ -229,7 +229,7 @@
     <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/help/cutting-optimizer/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/help/cutting-optimizer/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/help/cutting-optimizer/"/>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -239,7 +239,7 @@
     <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/help/cutting-optimizer/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/help/cutting-optimizer/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/help/cutting-optimizer/"/>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -249,7 +249,7 @@
     <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/help/cutting-optimizer/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/help/cutting-optimizer/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/help/cutting-optimizer/"/>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -289,7 +289,7 @@
     <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/help/steel-weight-verification/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/help/steel-weight-verification/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/help/steel-weight-verification/"/>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -299,7 +299,7 @@
     <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/help/steel-weight-verification/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/help/steel-weight-verification/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/help/steel-weight-verification/"/>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -309,7 +309,7 @@
     <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/help/steel-weight-verification/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/help/steel-weight-verification/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/help/steel-weight-verification/"/>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -369,6 +369,66 @@
     <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/help/construction-dictionary/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/help/construction-dictionary/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/help/construction-dictionary/"/>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://mashharawi.com/tools/smart-rfq-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/tools/smart-rfq-generator/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/tools/smart-rfq-generator/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/tools/smart-rfq-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/tools/smart-rfq-generator/"/>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mashharawi.com/ar/tools/smart-rfq-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/tools/smart-rfq-generator/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/tools/smart-rfq-generator/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/tools/smart-rfq-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/tools/smart-rfq-generator/"/>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mashharawi.com/zh/tools/smart-rfq-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/tools/smart-rfq-generator/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/tools/smart-rfq-generator/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/tools/smart-rfq-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/tools/smart-rfq-generator/"/>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mashharawi.com/help/smart-rfq-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/help/smart-rfq-generator/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/help/smart-rfq-generator/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/help/smart-rfq-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/help/smart-rfq-generator/"/>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mashharawi.com/ar/help/smart-rfq-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/help/smart-rfq-generator/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/help/smart-rfq-generator/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/help/smart-rfq-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/help/smart-rfq-generator/"/>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://mashharawi.com/zh/help/smart-rfq-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/help/smart-rfq-generator/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/help/smart-rfq-generator/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/help/smart-rfq-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/help/smart-rfq-generator/"/>
     <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

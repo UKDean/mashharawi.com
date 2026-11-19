@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" dir="ltr">
+<head>
+<meta charset="utf-8">
+<script>document.documentElement.classList.add("js")</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>钢筋询价单生成工具：在线编制钢筋询价（RFQ） | Omar Mashharawi</title>
+<meta name="description" content="免费钢筋询价单工具：填写产品、直径、牌号和吨数，检查后生成规范的询价单，可打印或自行发送。不报价，不保存任何数据。">
+<meta name="author" content="Omar Mashharawi">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+<link rel="canonical" href="https://mashharawi.com/zh/tools/smart-rfq-generator/">
+<link rel="alternate" hreflang="en" href="https://mashharawi.com/tools/smart-rfq-generator/">
+<link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/tools/smart-rfq-generator/">
+<link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/tools/smart-rfq-generator/">
+<link rel="alternate" hreflang="x-default" href="https://mashharawi.com/tools/smart-rfq-generator/">
+
+<meta name="theme-color" content="#0A0A0A">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mashharawi.com/zh/tools/smart-rfq-generator/">
+<meta property="og:title" content="钢筋询价单生成工具：在线编制钢筋询价（RFQ） | Omar Mashharawi">
+<meta property="og:description" content="免费钢筋询价单工具：填写产品、直径、牌号和吨数，检查后生成规范的询价单，可打印或自行发送。不报价，不保存任何数据。">
+<meta property="og:site_name" content="mashharawi.com">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="ar_SA">
+<meta property="og:image" content="https://mashharawi.com/og-brand.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="stylesheet" href="/assets/site.css?v=20261031">
+<link rel="stylesheet" href="/assets/rfq/rfq.css?v=20261120a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200..500&family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
+<style>html[lang="zh-Hans"] body,html[lang="zh-Hans"] h1,html[lang="zh-Hans"] h2,html[lang="zh-Hans"] h3{font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;font-stretch:normal;letter-spacing:0}html[lang="zh-Hans"] .c-hero__title{line-height:1.25}</style>
+<link rel="icon" href="/favicon.ico?v=20261024" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=20261024">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20261024">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png?v=20261024">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=20261024">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png?v=20261024">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20261024">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebApplication",
+ "name": "钢筋询价单生成工具",
+ "url": "https://mashharawi.com/zh/tools/smart-rfq-generator/",
+ "applicationCategory": "https://schema.org/BusinessApplication",
+ "operatingSystem": "Any modern browser",
+ "browserRequirements": "Requires JavaScript",
+ "inLanguage": "zh-Hans",
+ "isAccessibleForFree": true,
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "SAR"
+ },
+ "author": {
+  "@type": "Person",
+  "@id": "https://mashharawi.com/#person",
+  "name": "Omar Mashharawi"
+ }
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "中文",
+   "item": "https://mashharawi.com/zh/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "钢筋询价单生成工具",
+   "item": "https://mashharawi.com/zh/tools/smart-rfq-generator/"
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="c-header">
+  <a class="c-header__name" href="/zh/"><img class="c-header__mark" src="/assets/brand/mark-64.png" width="32" height="32" alt="">Omar Mashharawi · 钢筋</a>
+  <nav class="c-header__nav" aria-label="主菜单">
+    <a href="/zh/rebar/">钢筋供应</a>
+    <a href="/zh/rebar-cutting-optimizer/">下料优化</a>
+    <a href="/zh/bbs-analyzer/">钢筋表分析</a>
+    <a href="/zh/tools/smart-rfq-generator/" aria-current="page">询价单</a>
+    <a href="/zh/tools/construction-dictionary/">术语词典</a>
+    <a href="/zh/help/">帮助</a>
+    <a href="/tools/smart-rfq-generator/" hreflang="en" lang="en" class="c-header__lang">English</a>
+    <a href="/ar/tools/smart-rfq-generator/" hreflang="ar" lang="ar" class="c-header__lang">العربية</a>
+  </nav>
+  <button class="c-header__menu" type="button" aria-label="菜单" aria-expanded="false"><span></span><span></span></button>
+</header>
+
+<main id="main">
+  <section class="c-hero c-hero--full c-hero--short r-no-print" aria-labelledby="r-h">
+    <img class="c-hero__img" src="/assets/img/rebar-yard-1600.webp" srcset="/assets/img/rebar-yard-800.webp 800w, /assets/img/rebar-yard-1600.webp 1600w" sizes="100vw" width="1600" height="873" alt="" fetchpriority="high" decoding="async">
+    <div class="c-hero__shade"></div>
+    <div class="c-hero__body">
+      <div class="c-hero__text">
+        <p class="c-label">在线工具 &middot; 浏览器内运行 &middot; 免费</p>
+        <h1 class="c-hero__title" id="r-h">编制清晰的钢筋询价单。</h1>
+        <p class="c-hero__lead">填写所需的产品、直径、牌号和吨数，检查汇总，生成规范的询价单用于打印或发送。本工具只编制询价，不报价；在您亲自发送之前，不会发送任何内容。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec c-after-hero" aria-labelledby="r-h">
+    <div class="wrap">
+      <div class="r-intro r-no-print"><p><b>工具用途。</b>把您的需求整理成向 Al Rajhi Steel 采购钢筋的规范询价单。不计算价格、不预留库存，也不是订单。</p><p><b>隐私。</b>填写和预览询价单时，所有内容只保留在当前浏览器标签页中：不上传到本网站、不保存，关闭或刷新标签页即清空表单。当您点击<b>在 WhatsApp 中打开</b>或<b>在邮件中打开</b>时，询价文本会传给该应用，此后由该应用处理。</p></div>
+      <noscript><p class="r-noscript">本工具需要 JavaScript。您输入的内容不会发送到任何地方。</p></noscript>
+      <div class="calc rfq" id="rfq" data-lang="zh">
+        <p class="cd-help r-no-print"><a href="/zh/help/smart-rfq-generator/" target="_blank" rel="noopener">询价单工具使用指南（在新标签页打开）</a></p>
+        <div class="r-layout r-no-print">
+          <div class="r-form">
+            <p class="r-reqnote">标 * 的为必填项。</p>
+            <fieldset class="r-sec" id="secA"><legend>A. 客户 <a class="cd-q" href="/zh/help/smart-rfq-generator/#customer" target="_blank" rel="noopener">帮助</a></legend><div class="r-grid"><div class="r-field"><label for="c-company">公司名称 <span class="r-req" aria-hidden="true">*</span></label><input id="c-company" class="co-in r-in" type="text" autocomplete="off" aria-describedby="c-company-err" aria-required="true" maxlength="120"><p class="r-err" id="c-company-err" hidden></p></div><div class="r-field"><label for="c-contact">联系人 <span class="r-req" aria-hidden="true">*</span></label><input id="c-contact" class="co-in r-in" type="text" autocomplete="off" aria-describedby="c-contact-err" aria-required="true" maxlength="120"><p class="r-err" id="c-contact-err" hidden></p></div><div class="r-field"><label for="c-phone">电话号码 <span class="r-req" aria-hidden="true">*</span></label><input id="c-phone" class="co-in r-in" type="tel" autocomplete="off" aria-describedby="c-phone-err" aria-required="true" maxlength="40" inputmode="tel" dir="ltr"><p class="r-err" id="c-phone-err" hidden></p></div><div class="r-field"><label for="c-email">电子邮箱</label><input id="c-email" class="co-in r-in" type="email" autocomplete="off" aria-describedby="c-email-err" maxlength="254" inputmode="email" dir="ltr"><p class="r-err" id="c-email-err" hidden></p></div><div class="r-field"><label for="c-country">国家</label><input id="c-country" class="co-in r-in" type="text" autocomplete="off" aria-describedby="c-country-err" maxlength="120"><p class="r-err" id="c-country-err" hidden></p></div><div class="r-field"><label for="c-city">城市</label><input id="c-city" class="co-in r-in" type="text" autocomplete="off" aria-describedby="c-city-err" maxlength="120"><p class="r-err" id="c-city-err" hidden></p></div></div></fieldset>
+            <fieldset class="r-sec" id="secB"><legend>B. 项目 <a class="cd-q" href="/zh/help/smart-rfq-generator/#project" target="_blank" rel="noopener">帮助</a></legend><div class="r-grid"><div class="r-field"><label for="p-name">项目名称 <span class="r-req" aria-hidden="true">*</span></label><input id="p-name" class="co-in r-in" type="text" autocomplete="off" aria-describedby="p-name-err" aria-required="true" maxlength="120"><p class="r-err" id="p-name-err" hidden></p></div><div class="r-field"><label for="p-location">项目所在地 <span class="r-req" aria-hidden="true">*</span></label><input id="p-location" class="co-in r-in" type="text" autocomplete="off" aria-describedby="p-location-err" aria-required="true" maxlength="120"><p class="r-err" id="p-location-err" hidden></p></div><div class="r-field"><label for="p-site">交货地址</label><input id="p-site" class="co-in r-in" type="text" autocomplete="off" aria-describedby="p-site-err" maxlength="300"><p class="r-err" id="p-site-err" hidden></p></div><div class="r-field"><label for="p-date">要求交货日期</label><input id="p-date" class="co-in r-in" type="date" autocomplete="off" aria-describedby="p-date-err"><p class="r-err" id="p-date-err" hidden></p></div><fieldset class="r-group" id="p-schedule" aria-describedby="p-schedule-err"><legend>交货安排 <span class="r-req" aria-hidden="true">*</span></legend><div class="r-radios"><label class="r-radio"><input type="radio" name="p-schedule" value="single" autocomplete="off"> <span>一次交货</span></label><label class="r-radio"><input type="radio" name="p-schedule" value="multiple" autocomplete="off"> <span>分批交货</span></label><label class="r-radio"><input type="radio" name="p-schedule" value="tbd" autocomplete="off"> <span>待商议</span></label></div><p class="r-err" id="p-schedule-err" hidden></p></fieldset><div class="r-wide"><div class="r-field"><label for="p-notes">项目补充说明</label><textarea id="p-notes" class="co-in r-in" rows="3" autocomplete="off" aria-describedby="p-notes-err" maxlength="1000"></textarea><p class="r-err" id="p-notes-err" hidden></p></div></div></div></fieldset>
+            <fieldset class="r-sec" id="secC"><legend>C. 产品 <a class="cd-q" href="/zh/help/smart-rfq-generator/#products" target="_blank" rel="noopener">帮助</a></legend>
+              <p class="r-products"><b>直条带肋钢筋：</b>10、12、14、16、18、20、25、32 毫米；Grade 60 或 Grade 80；12 米定尺。<b>环氧涂层钢筋：</b>单独的产品；所选直径和牌号须经销售团队确认。<b>8 毫米冷轧钢筋，Grade 40：</b>单独的产品，6 米长。</p>
+              <ol class="r-lines" id="rLines"></ol>
+              <p class="r-err" id="lines-err" hidden></p>
+              <button type="button" class="calc-btn ghost" id="rAdd">+ 添加产品行</button>
+            </fieldset>
+            <fieldset class="r-sec" id="secD"><legend>D. 商务条件 <a class="cd-q" href="/zh/help/smart-rfq-generator/#commercial" target="_blank" rel="noopener">帮助</a></legend>
+              <fieldset class="r-group" id="payment" aria-describedby="payment-err"><legend>付款条件 <span class="r-req" aria-hidden="true">*</span></legend><div class="r-radios"><label class="r-radio"><input type="radio" name="payment" value="cash" autocomplete="off"> <span>预付现金</span></label><label class="r-radio"><input type="radio" name="payment" value="lc" autocomplete="off"> <span>银行信用证（LC）</span></label><label class="r-radio"><input type="radio" name="payment" value="tbc" autocomplete="off"> <span>与销售确认</span></label></div><p class="r-err" id="payment-err" hidden></p></fieldset>
+              <ul class="r-cnotes"><li>最终付款条件和产品供货情况须经 Al Rajhi Steel 销售团队确认。</li><li>数量低于 30 公吨时，可能适用整车运输要求并产生额外运输费用。请与销售团队确认。</li></ul>
+            </fieldset>
+          </div>
+          <aside class="r-summary" aria-labelledby="sumH">
+            <h2 class="calc-lbl" id="sumH">汇总</h2>
+            <div id="rSum" aria-live="polite"></div>
+          </aside>
+        </div>
+
+        <div class="r-review" id="secE">
+          <h2 class="r-review__h r-no-print">检查并发送 <a class="cd-q" href="/zh/help/smart-rfq-generator/#review" target="_blank" rel="noopener">帮助</a></h2>
+          <div class="r-no-print r-review__bar">
+            <button type="button" class="calc-btn ok" id="rPreviewBtn" data-first="预览询价单" data-again="更新预览">预览询价单</button>
+            <button type="button" class="calc-btn ghost" id="rClear" data-first="清空表单" data-again="再次点击以清空全部内容">清空表单</button>
+          </div>
+          <div class="r-errsum r-no-print" id="rErrSum" tabindex="-1" hidden><p>预览前请修改以下内容：</p><ul></ul></div>
+          <article class="r-doc" id="rDoc" tabindex="-1" hidden></article>
+          <div class="r-share r-no-print" id="rShare" hidden>
+            <p class="r-stale" id="rStale" hidden></p>
+            <label class="r-check"><input type="checkbox" id="rReviewed" autocomplete="off"> <span>我已检查此询价单，内容无误。</span></label>
+            <div class="r-share__btns">
+              <button type="button" class="calc-btn ghost" id="rPrint">打印 / 保存为 PDF</button>
+              <button type="button" class="calc-btn ghost" id="rCopy">复制询价文本</button>
+              <button type="button" class="calc-btn ok" id="rWa" aria-describedby="rLen">在 WhatsApp 中打开</button>
+              <button type="button" class="calc-btn ok" id="rMail">在邮件中打开</button>
+            </div>
+            <p class="r-sendto">“在 WhatsApp 中打开”和“在邮件中打开”会把询价文本传给该应用，收件人为 Al Rajhi Steel 销售联系人（WhatsApp +966500590063，omar.mashharawi@rajhisteel.com）。从那一刻起，文本已在 WhatsApp 或您的邮件应用中；您在其中按下发送后，才会送达销售团队。复制则会把文本放到您设备的剪贴板中。</p>
+            <p class="co-msg" id="rMsg" role="status" aria-live="polite"></p>
+            <label class="r-textlbl" for="rText">将被复制或发送的文本</label>
+            <textarea id="rText" class="co-in r-text" readonly rows="10" autocomplete="off" aria-describedby="rLen"></textarea>
+            <p class="r-len" id="rLen"></p>
+          </div>
+        </div>
+      </div>
+      <template id="rLineTpl"><li class="r-line">
+  <div class="r-line__head"><h4 class="r-line__title">行 <span class="r-line__n"></span></h4><button type="button" class="calc-btn ghost r-remove">删除此行</button></div>
+  <div class="r-line__grid">
+    <div class="r-field r-type"><label>产品类型 <span class="r-req" aria-hidden="true">*</span></label><select class="co-in r-in" data-k="type" aria-required="true" autocomplete="off"><option value="">请选择…</option><option value="standard">直条带肋钢筋</option><option value="epoxy">环氧涂层钢筋</option><option value="cold8">8 毫米冷轧钢筋</option></select><p class="r-err" hidden></p></div>
+    <div class="r-field"><label>直径 <span class="r-req" aria-hidden="true">*</span></label><select class="co-in r-in" data-k="dia" aria-required="true" autocomplete="off"><option value="">请选择…</option></select><p class="r-err" hidden></p></div>
+    <div class="r-field"><label>牌号 <span class="r-req" aria-hidden="true">*</span></label><select class="co-in r-in" data-k="grade" aria-required="true" autocomplete="off"><option value="">请选择…</option></select><p class="r-err" hidden></p></div>
+    <div class="r-field"><label>数量（公吨） <span class="r-req" aria-hidden="true">*</span></label><input class="co-in r-in" data-k="qty" type="text" inputmode="decimal" autocomplete="off" aria-required="true" maxlength="12" dir="ltr"><p class="r-err" hidden></p></div>
+    <div class="r-field"><label>交货日期</label><input class="co-in r-in" data-k="date" type="date" autocomplete="off"><p class="r-err" hidden></p></div>
+    <div class="r-field r-line__notes"><label>备注</label><input class="co-in r-in" data-k="notes" type="text" maxlength="200" autocomplete="off"><p class="r-err" hidden></p></div>
+  </div>
+  <p class="r-line__spec"><span>长度: </span><b class="r-line__len">–</b></p>
+  <p class="r-note r-note--fixed" hidden>8 毫米 · Grade 40 · 6 米：该产品规格固定。</p>
+  <p class="r-note r-note--epoxy" hidden>环氧涂层钢筋：所选直径和牌号的供货情况须经销售团队确认。</p>
+</li></template>
+    </div>
+  </section>
+
+  <section class="sec r-no-print" aria-labelledby="about-h">
+    <div class="wrap cd-about r-about">
+      <h2 id="about-h">询价单代表什么、不代表什么</h2>
+      <ul><li>这是您编制的询价请求，不是报价、采购订单、销售合同或供货确认。</li><li>参考号在您的浏览器中生成，用于识别您的询价，不是 Al Rajhi Steel 的报价编号。</li><li>产品和选项反映 Al Rajhi Steel 的产品范围。环氧涂层钢筋的供货、最终规格、付款条件和交货由销售团队确认。</li><li>可以询价 30 吨以下的数量；可能适用整车运输要求并产生额外运输费用。</li></ul>
+    </div>
+  </section>
+</main>
+
+<footer class="c-footer">
+  <div class="c-footer__quote">
+    <p>沙特钢筋供应、切割加工与重量计算的中文资料。</p>
+    <a class="c-label" href="/zh/">全部中文页面 &rarr;</a>
+  </div>
+  <div class="c-footer__base">
+    <span>&copy; <span id="yr">2026</span> Omar Mashharawi</span>
+    <a href="mailto:info@mashharawi.com">info@mashharawi.com</a>
+    <a href="/about/">About</a>
+    <a href="/contact/">Contact</a>
+    <a href="/privacy/">Privacy</a>
+  </div>
+</footer>
+<script src="/assets/site.js?v=20261015" defer></script>
+<script src="/assets/rfq/i18n.js?v=20261120a" defer></script>
+<script src="/assets/rfq/rfq.js?v=20261120a" defer></script>
+<script src="/assets/rfq/app.js?v=20261120a" defer></script>
+</body>
+</html>

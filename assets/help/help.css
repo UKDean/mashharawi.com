@@ -23,6 +23,7 @@
 .h-body a:hover{border-color:var(--hot)}
 .h-note{padding:12px 14px;background:var(--mill);border-inline-start:4px solid var(--blued);font-size:.95em}
 .h-scroll{overflow-x:auto;margin:12px 0 16px}
+.h-scroll:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 .h-table{border-collapse:collapse;inline-size:100%;font-size:.92em;min-inline-size:520px}
 .h-table th,.h-table td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:start;vertical-align:top}
 .h-table th{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--scale);font-weight:400;border-bottom-color:var(--ink)}

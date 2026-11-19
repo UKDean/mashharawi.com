@@ -14,7 +14,7 @@ const BBST = require('../assets/bbs/i18n.js');
 const ROOT = path.join(__dirname, '..');
 const SITE = 'https://mashharawi.com';
 const PREFIX = { en: '/help/', ar: '/ar/help/', zh: '/zh/help/' };
-const SLUGS = ['', 'cutting-optimizer/', 'bbs-analyzer/', 'steel-weight-verification/', 'construction-dictionary/'];
+const SLUGS = ['', 'cutting-optimizer/', 'bbs-analyzer/', 'steel-weight-verification/', 'construction-dictionary/', 'smart-rfq-generator/'];
 const LANG = { en: ['en', 'ltr'], ar: ['ar', 'rtl'], zh: ['zh-Hans', 'ltr'] };
 const read = (url) => fs.readFileSync(path.join(ROOT, url, 'index.html'), 'utf8');
 const main = (html) => (html.match(/<main[\s\S]*?<\/main>/) || [''])[0];
@@ -24,8 +24,8 @@ const PENDING = new Set();
 const pages = [];
 for (const l of Object.keys(PREFIX)) for (const s of SLUGS) pages.push({ l, s, url: PREFIX[l] + s });
 
-test('all 15 pages exist with the right language, direction and canonical URL', () => {
-  assert.equal(pages.length, 15);
+test('all 18 pages exist with the right language, direction and canonical URL', () => {
+  assert.equal(pages.length, 18);
   for (const p of pages) {
     const h = read(p.url);
     assert.match(h, new RegExp(`<html lang="${LANG[p.l][0]}" dir="${LANG[p.l][1]}">`), p.url);
@@ -233,7 +233,7 @@ test('the formula table matches the tools for every size', () => {
   }
 });
 
-test('sitemap lists the 15 help URLs with reciprocal alternates', () => {
+test('sitemap lists the 18 help URLs with reciprocal alternates', () => {
   const sm = fs.readFileSync(path.join(ROOT, 'sitemap.xml'), 'utf8');
   for (const p of pages) {
     const block = (sm.match(new RegExp(`<url>\\s*<loc>${(SITE + p.url).replace(/[.]/g, '\\.')}</loc>[\\s\\S]*?</url>`)) || [])[0];

@@ -30,7 +30,7 @@
 
 <link rel="stylesheet" href="/assets/site.css?v=20261031">
 <link rel="stylesheet" href="/assets/cutopt/cutopt.css?v=20261119h">
-<link rel="stylesheet" href="/assets/help/help.css?v=20261119a">
+<link rel="stylesheet" href="/assets/help/help.css?v=20261120a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Inter:wght@200..500&display=swap">
@@ -138,7 +138,7 @@
 <p>点击<b>计算最优下料</b>。如有错误行，会被标出，提示信息会说明原因（例如下料件长于定尺）。</p>
 <h2 id="example">计算实例</h2>
 <div class="h-ex"><p class="h-ex-t">基础用 16 毫米 Gr60</p><p>参数：定尺 12 米，锯缝 0，余量 0，可再用余料起 1 米。下料单：96 × 2.35 米、64 × 3.60 米、40 × 4.25 米。</p>
-<div class="h-scroll"><table class="h-table"><thead><tr><th scope="col">根数</th><th scope="col">方案（米）</th><th scope="col">余料</th></tr></thead><tbody><tr><td>32 ×</td><td>4.25 + 3.60 + 3.60</td><td>0.55 米 废料</td></tr><tr><td>18 ×</td><td>2.35 + 2.35 + 2.35 + 2.35 + 2.35</td><td>0.25 米 废料</td></tr><tr><td>4 ×</td><td>4.25 + 4.25 + 2.35</td><td>1.15 米 可再用</td></tr><tr><td>1 ×</td><td>2.35 + 2.35</td><td>7.30 米 可再用</td></tr></tbody></table></div>
+<div class="h-scroll" tabindex="0" role="region" aria-label="根数 · 方案（米） · 余料"><table class="h-table"><thead><tr><th scope="col">根数</th><th scope="col">方案（米）</th><th scope="col">余料</th></tr></thead><tbody><tr><td>32 ×</td><td>4.25 + 3.60 + 3.60</td><td>0.55 米 废料</td></tr><tr><td>18 ×</td><td>2.35 + 2.35 + 2.35 + 2.35 + 2.35</td><td>0.25 米 废料</td></tr><tr><td>4 ×</td><td>4.25 + 4.25 + 2.35</td><td>1.15 米 可再用</td></tr><tr><td>1 ×</td><td>2.35 + 2.35</td><td>7.30 米 可再用</td></tr></tbody></table></div>
 <p>结果：<b>55 根</b> 12 米钢筋，<b>已证明为最少</b>。需用 626 米，采购 660 米，损耗 34 米（<b>5.15%</b>），其中可再用余料 11.90 米（4 × 1.15 米和 1 × 7.30 米），废料 22.10 米。利用率 94.85%。需采购重量：660 米 × 1.578 公斤/米 = <b>1.042 吨</b>。</p></div>
 <h2 id="results">结果解读</h2>
 <ul><li><b>状态行。</b>“已证明为最少用料根数”表示方案根数等于数学下限，不存在根数更少的方案；在单一定尺下也意味着损耗最小。“优良方案，未证明为最少”表示方案有效，但工具无法证明其最优，显示的数字是它最多可能比最少值多的根数。</li><li><b>定尺根数、利用率、损耗、需采购重量。</b>所有直径的合计，重量为理论值（0.006165 × d²）。</li><li><b>汇总表。</b>每种直径和牌号一行，各有结果。</li><li><b>下料方案。</b>“32 ×”表示 32 根钢筋按同一方式切割。蓝色块是下料件，细琥珀色条是锯缝，末端是余料：可再用为浅琥珀色，废料为斜线。</li><li><b>损耗</b>包括锯缝、余量和所有余料。可再用余料单独列出，因为可能用于其他部位。</li></ul>
