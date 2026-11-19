@@ -109,13 +109,13 @@
      "steel reinforcement"
     ],
     "ar": [
-     "حديد تسليح",
-     "أسياخ التسليح",
-     "حديد"
+     "صلب التسليح",
+     "فولاذ التسليح",
+     "أسياخ التسليح"
     ],
     "zh": [
-     "钢筋材料",
-     "建筑钢筋"
+     "建筑钢筋",
+     "混凝土用钢筋"
     ]
    },
    "related": [
@@ -130,6 +130,11 @@
     "en": "The contractor ordered 120 t of reinforcing steel for the raft foundation.",
     "ar": "طلب المقاول 120 طناً من حديد التسليح للبشة.",
     "zh": "承包商为筏板基础订购了120吨钢筋。"
+   },
+   "notes": {
+    "en": "“حديد” on its own is common site shorthand in Arabic, but it means any iron or steel, so it is not listed as a synonym.",
+    "ar": "كلمة «حديد» وحدها اختصار شائع في المواقع، لكنها تعني أي حديد أو صلب، لذلك لم تُدرج كمرادف.",
+    "zh": "阿拉伯语工地常单说“حديد”，但它泛指任何钢铁，因此未列为同义词。"
    }
   },
   {
@@ -414,9 +419,9 @@
     "zh": "实际重量"
    },
    "definition": {
-    "en": "Weight measured on a calibrated scale or weighbridge. It differs from the theoretical weight within the mass tolerance allowed by the product standard.",
-    "ar": "الوزن المقاس على ميزان أو قبان معاير. يختلف عن الوزن النظري ضمن سماحية الكتلة التي تسمح بها مواصفة المنتج.",
-    "zh": "用经校准的秤或地磅称得的重量，与理论重量的差异应在产品标准允许的重量偏差范围内。"
+    "en": "The weight of bars measured on a calibrated scale or weighbridge. The permitted variation from the nominal (theoretical) mass is defined by the applicable product standard or the contract; the measured result has to be compared with that tolerance before it can be said to comply. A measured weight does not by itself show compliance.",
+    "ar": "وزن الأسياخ المقاس على ميزان أو قبان معاير. التفاوت المسموح عن الكتلة الاسمية (النظرية) تحدده مواصفة المنتج المعمول بها أو العقد، ويجب مقارنة النتيجة المقاسة بذلك التفاوت قبل الحكم بالمطابقة. فالوزن المقاس وحده لا يثبت المطابقة.",
+    "zh": "用经校准的秤或地磅称得的钢筋重量。与公称（理论）质量之间的允许偏差由适用的产品标准或合同规定；只有将实测结果与该允许偏差比较后，才能判断是否符合。实测重量本身并不说明符合要求。"
    },
    "synonyms": {
     "en": [
@@ -425,18 +430,19 @@
      "measured weight"
     ],
     "ar": [
-     "الوزن بالميزان",
-     "الوزن المقاس"
+     "الوزن المقاس",
+     "الوزن بالميزان"
     ],
     "zh": [
-     "过磅重量",
-     "实测重量"
+     "实测重量",
+     "过磅重量"
     ]
    },
    "related": [
     "theoretical-weight",
     "weighbridge",
-    "mass-tolerance"
+    "mass-tolerance",
+    "calibration"
    ]
   },
   {
@@ -444,30 +450,26 @@
    "category": "rebar",
    "term": {
     "en": "Steel grade",
-    "ar": "درجة الحديد",
+    "ar": "درجة حديد التسليح",
     "zh": "钢筋牌号"
    },
    "definition": {
-    "en": "The designation that fixes the minimum mechanical properties of reinforcing steel, such as Grade 60 or Grade 80 under ASTM A615. Different grades are different products and must not be mixed without approval.",
-    "ar": "التسمية التي تحدد الحد الأدنى للخواص الميكانيكية لحديد التسليح، مثل Grade 60 أو Grade 80 في المواصفة ASTM A615. الدرجات المختلفة منتجات مختلفة ولا يجوز الخلط بينها دون اعتماد.",
-    "zh": "规定钢筋最低力学性能的标识，例如 ASTM A615 的 Grade 60 或 Grade 80。不同牌号是不同产品，未经批准不得混用。"
+    "en": "The designation that a product standard gives to a class of reinforcing steel, defined mainly by its specified minimum yield strength and, depending on the standard, by tensile, ductility and chemical requirements. Examples: Grade 60 (Gr60) and Grade 80 (Gr80) in ASTM A615, HRB400 in GB/T 1499.2. A grade has meaning only within its own standard; different grades are different products and must not be substituted without approval.",
+    "ar": "التسمية التي تعطيها مواصفة المنتج لفئة من حديد التسليح، وتتحدد أساساً بالحد الأدنى المحدد لمقاومة الخضوع، وبحسب المواصفة بمتطلبات الشد والمطيلية والتركيب الكيميائي. أمثلة: Grade 60 ‏(Gr60) وGrade 80 ‏(Gr80) في ASTM A615، وHRB400 في GB/T 1499.2. الدرجة لها معنى داخل مواصفتها فقط، والدرجات المختلفة منتجات مختلفة ولا يجوز إحلال إحداها مكان الأخرى دون اعتماد.",
+    "zh": "产品标准对一类钢筋给出的标识，主要按规定的最小屈服强度划分，并视标准而定包括抗拉、延性和化学成分要求。例如 ASTM A615 的 Grade 60（Gr60）和 Grade 80（Gr80），GB/T 1499.2 的 HRB400。牌号只在其所属标准内有意义；不同牌号是不同产品，未经批准不得互相替代。"
    },
    "synonyms": {
     "en": [
-     "grade 60",
-     "Gr60",
-     "grade 80",
-     "Gr80",
-     "steel class"
+     "rebar grade",
+     "strength grade"
     ],
     "ar": [
-     "رتبة الحديد",
-     "Grade 60",
-     "Grade 80"
+     "درجة الصلب",
+     "رتبة حديد التسليح"
     ],
     "zh": [
      "钢筋级别",
-     "级别"
+     "强度级别"
     ]
    },
    "related": [
@@ -839,22 +841,19 @@
     "zh": "弯曲直径"
    },
    "definition": {
-    "en": "The inside diameter around which a bar is bent, set as a multiple of the bar diameter. Too small a bend can crack the bar.",
-    "ar": "القطر الداخلي الذي يُثنى حوله السيخ، ويُحدد كمضاعف لقطر السيخ. الثني بقطر أصغر من اللازم قد يسبب تشقق السيخ.",
-    "zh": "钢筋弯曲时所围绕的内径，按钢筋直径的倍数规定。弯曲直径过小可能使钢筋开裂。"
+    "en": "The inside diameter of a bend in a fabricated bar, expressed as a multiple of the bar diameter. The minimum value is set by the design code or the schedule standard used (for example ACI 318 or BS 8666) and depends on bar size and use. In the workshop the bend is formed around a mandrel (former) of the matching diameter; the mandrel diameter for a bend test is a separate value set by the product standard.",
+    "ar": "القطر الداخلي للثنية في السيخ المشكَّل، ويُعبَّر عنه كمضاعف لقطر السيخ. يحدد حده الأدنى كود التصميم أو مواصفة الجداول المستخدمة (مثل ACI 318 أو BS 8666)، ويعتمد على قطر السيخ واستخدامه. في الورشة تُشكَّل الثنية حول محور (مسمار ثني) بالقطر المناسب؛ أما قطر المحور في اختبار الثني فقيمة مستقلة تحددها مواصفة المنتج.",
+    "zh": "加工钢筋弯折处的内径，以钢筋直径的倍数表示。最小值由所用设计规范或钢筋表标准（如 ACI 318 或 BS 8666）规定，并取决于钢筋直径和用途。车间加工时围绕相应直径的弯心成型；弯曲试验所用的弯心直径则是产品标准另行规定的数值。"
    },
    "synonyms": {
     "en": [
-     "mandrel diameter",
-     "former diameter",
-     "pin diameter"
+     "inside bend diameter",
+     "internal bend diameter"
     ],
     "ar": [
-     "قطر المحور",
-     "قطر مسمار الثني"
+     "القطر الداخلي للثنية"
     ],
     "zh": [
-     "弯心直径",
      "弯弧内直径"
     ]
    },
@@ -910,9 +909,9 @@
     "zh": "碳当量"
    },
    "definition": {
-    "en": "A value calculated from the chemical composition of steel that indicates how easily it can be welded. A lower value means better weldability.",
-    "ar": "قيمة تُحسب من التركيب الكيميائي للصلب وتدل على سهولة لحامه. كلما قلت القيمة كانت قابلية اللحام أفضل.",
-    "zh": "由钢材化学成分计算得出、表示其焊接难易程度的数值。数值越低，可焊性越好。"
+    "en": "A value calculated from the chemical composition of steel (carbon plus weighted amounts of manganese and other alloying elements) and used as an indicator of weldability, in particular the risk of hardening and cracking next to the weld. Standards use different formulas, for example the IIW formula or the one in ASTM A706, and any maximum value is set by the product standard or the specification. A lower value generally means fewer welding precautions, but weldability also depends on the welding procedure.",
+    "ar": "قيمة تُحسب من التركيب الكيميائي للصلب (الكربون مضافاً إليه نسب موزونة من المنغنيز وعناصر السبك الأخرى)، وتُستخدم مؤشراً لقابلية اللحام، وخاصة لخطر التصلد والتشقق بجوار اللحام. تستخدم المواصفات معادلات مختلفة، مثل معادلة IIW أو المعادلة الواردة في ASTM A706، وأي حد أقصى تحدده مواصفة المنتج أو مواصفات المشروع. القيمة الأقل تعني عادة احتياطات لحام أقل، لكن قابلية اللحام تعتمد أيضاً على إجراء اللحام.",
+    "zh": "由钢材化学成分（碳加上按权重计入的锰及其他合金元素）计算得出的数值，用作可焊性指标，尤其反映焊缝附近淬硬和开裂的风险。不同标准采用不同公式，例如 IIW 公式或 ASTM A706 中的公式，最大值（如有）由产品标准或项目规范规定。数值越低通常焊接预防措施越少，但可焊性还取决于焊接工艺。"
    },
    "synonyms": {
     "en": [
@@ -941,17 +940,17 @@
     "zh": "可焊钢筋"
    },
    "definition": {
-    "en": "Reinforcing steel whose chemistry is limited so that it can be welded by suitable procedures, for example ASTM A706 bars. Ordinary bars should not be welded without approval.",
-    "ar": "حديد تسليح محدود التركيب الكيميائي بحيث يمكن لحامه بإجراءات مناسبة، مثل أسياخ ASTM A706. الأسياخ العادية لا تُلحم دون اعتماد.",
-    "zh": "化学成分受到限制、可按适当工艺焊接的钢筋，例如 ASTM A706 钢筋。普通钢筋未经批准不应焊接。"
+    "en": "Reinforcing steel made to a standard that limits its chemical composition, usually through a maximum carbon equivalent, so that it can be welded with a qualified procedure; ASTM A706 is an example. Whether other bars may be welded, and how, depends on the welding code and the project specification (for reinforcing steel in the United States, AWS D1.4).",
+    "ar": "حديد تسليح مصنَّع وفق مواصفة تحد من تركيبه الكيميائي، غالباً بحد أقصى لمكافئ الكربون، حتى يمكن لحامه بإجراء لحام معتمد؛ ومثال ذلك ASTM A706. أما إمكانية لحام الأسياخ الأخرى وطريقته فتحددهما مواصفة اللحام ومواصفات المشروع (لحديد التسليح في الولايات المتحدة: AWS D1.4).",
+    "zh": "按限制化学成分（通常规定碳当量上限）的标准生产、可按合格焊接工艺焊接的钢筋，例如 ASTM A706。其他钢筋能否焊接以及如何焊接，取决于焊接规范和项目规范（美国钢筋焊接按 AWS D1.4）。"
    },
    "synonyms": {
     "en": [
-     "low-alloy rebar",
-     "A706"
+     "A706 rebar",
+     "weldable rebar"
     ],
     "ar": [
-     "حديد قابل للحام"
+     "أسياخ تسليح قابلة للحام"
     ],
     "zh": [
      "可焊接钢筋"
@@ -1413,19 +1412,17 @@
     "zh": "混凝土坍落度"
    },
    "definition": {
-    "en": "A measure of the consistency of fresh concrete: the drop in height of a cone of concrete after the slump cone is lifted. Checked on site before placing each load against the specified range.",
-    "ar": "مقياس لقوام الخرسانة الطازجة: مقدار هبوط ارتفاع مخروط الخرسانة بعد رفع قالب الهبوط. يُفحص في الموقع قبل صب كل حمولة ويُقارن بالمدى المحدد.",
-    "zh": "衡量新拌混凝土稠度的指标：提起坍落度筒后混凝土锥体高度的下降值。浇筑每车前在现场检查是否在规定范围内。"
+    "en": "The drop in height of a cone of fresh concrete after the slump cone is lifted, measured by a standard test method. It indicates the consistency of the mix; workability is a broader property that slump only partly describes. The required range and how often it is tested are set by the project specification.",
+    "ar": "مقدار هبوط ارتفاع مخروط الخرسانة الطازجة بعد رفع قالب الهبوط، ويُقاس بطريقة اختبار قياسية. وهو مؤشر لقوام الخلطة؛ أما القابلية للتشغيل فخاصية أوسع لا يصفها الهبوط إلا جزئياً. ويحدد مدى القيم المطلوب وتكرار الاختبار في مواصفات المشروع.",
+    "zh": "提起坍落度筒后新拌混凝土锥体高度的下降值，按标准试验方法测定。它反映拌合物的稠度；和易性是更广的性能，坍落度只能部分说明。要求范围和检测频率由项目规范规定。"
    },
    "synonyms": {
     "en": [
      "slump",
-     "slump test",
-     "workability"
+     "slump test"
     ],
     "ar": [
-     "اختبار الهبوط",
-     "قوام الخرسانة"
+     "اختبار الهبوط"
     ],
     "zh": [
      "坍落度",
@@ -2367,24 +2364,21 @@
     "zh": "锚固长度"
    },
    "definition": {
-    "en": "The embedded length a bar needs beyond a critical section so that bond with the concrete can develop its full design stress. It depends on bar size, concrete strength, cover and bar position.",
-    "ar": "الطول المدفون الذي يحتاجه السيخ بعد المقطع الحرج حتى يطوّر التماسك مع الخرسانة كامل إجهاده التصميمي. يعتمد على قطر السيخ ومقاومة الخرسانة والغطاء وموضع السيخ.",
-    "zh": "钢筋在临界截面以外所需的埋入长度，使其通过与混凝土的粘结达到全部设计应力。取决于钢筋直径、混凝土强度、保护层和钢筋位置。"
+    "en": "The embedded length a bar needs beyond a critical section to develop its design stress through bond with the concrete. It is calculated with the design code used for the project: ACI 318 and SBC 304 call it development length, while Eurocode 2 uses anchorage length with its own method. The value depends on bar size, concrete strength, cover, bar position and the code, so it is taken from the code and the drawings, not from a general rule.",
+    "ar": "الطول المدفون الذي يحتاجه السيخ بعد المقطع الحرج ليطوّر إجهاده التصميمي عن طريق التماسك مع الخرسانة. يُحسب بكود التصميم المعتمد للمشروع: يستخدم ACI 318 والكود السعودي SBC 304 مصطلح development length، بينما يستخدم Eurocode 2 مصطلح anchorage length بطريقته الخاصة. تعتمد القيمة على قطر السيخ ومقاومة الخرسانة والغطاء وموضع السيخ والكود، لذلك تؤخذ من الكود والمخططات لا من قاعدة عامة.",
+    "zh": "钢筋在临界截面以外为通过与混凝土粘结达到其设计应力所需的埋入长度。按项目采用的设计规范计算：ACI 318 和 SBC 304 称为 development length，Eurocode 2 称为 anchorage length 并有各自的方法，中国规范称为锚固长度。取值取决于钢筋直径、混凝土强度、保护层、钢筋位置和规范，因此应以规范和图纸为准，而非通用规则。"
    },
    "synonyms": {
     "en": [
-     "anchorage length",
-     "embedment length",
-     "Ld"
+     "Ld",
+     "anchorage length (Eurocode 2)"
     ],
     "ar": [
      "طول التثبيت",
-     "طول الرباط",
      "طول الإرساء"
     ],
     "zh": [
-     "锚固",
-     "埋置长度"
+     "锚固"
     ]
    },
    "related": [
@@ -3614,28 +3608,28 @@
    "term": {
     "en": "Consultant",
     "ar": "الاستشاري",
-    "zh": "监理/咨询单位"
+    "zh": "工程咨询单位"
    },
    "definition": {
-    "en": "The engineering firm appointed by the client to design the project and/or supervise construction, review submittals and approve work.",
-    "ar": "المكتب الهندسي الذي يعيّنه المالك لتصميم المشروع و/أو الإشراف على التنفيذ ومراجعة الاعتمادات واعتماد الأعمال.",
-    "zh": "业主委托负责设计和/或监理施工、审查报审文件并验收工程的工程咨询公司。"
+    "en": "The engineering firm appointed by the client. Depending on its contract it may design the project, supervise construction, or both. The supervision role reviews submittals, inspects and approves work on site; the design role produces the drawings and specifications. Under FIDIC contracts the role that administers the contract is called “the Engineer”.",
+    "ar": "المكتب الهندسي الذي يعيّنه المالك. وبحسب عقده قد يتولى التصميم، أو الإشراف على التنفيذ، أو الاثنين معاً. دور الإشراف يراجع الاعتمادات ويفحص الأعمال في الموقع ويعتمدها، ودور التصميم يعد المخططات والمواصفات. وفي عقود فيديك يسمى الدور الذي يدير العقد «المهندس».",
+    "zh": "业主委托的工程咨询公司。视合同而定，可能负责设计、施工监理或两者兼有。施工监理角色负责审查报审资料、在现场检查和验收工程（中国称“监理单位”）；设计角色负责编制图纸和规范（中国称“设计单位”）。两者职责不同，不能互换使用。在 FIDIC 合同中，负责管理合同的角色称为“工程师”。"
    },
    "synonyms": {
     "en": [
-     "engineer",
+     "the Engineer",
      "supervision consultant",
-     "the Engineer"
+     "design consultant"
     ],
     "ar": [
      "المهندس الاستشاري",
-     "الإشراف",
-     "الاستشاري المشرف"
+     "استشاري الإشراف",
+     "استشاري التصميم"
     ],
     "zh": [
-     "监理",
      "监理单位",
-     "设计院"
+     "设计单位",
+     "工程师（FIDIC）"
     ]
    },
    "related": [
@@ -3644,13 +3638,10 @@
     "inspection-request"
    ],
    "notes": {
-    "en": "Chinese has no single equivalent: 监理 is the supervising engineer, 设计院 the designer. The term shown covers both roles.",
-    "ar": "لا يوجد في الصينية مقابل واحد: ‏监理 هو الإشراف و‏设计院 هو المصمم. المصطلح المعروض يشمل الدورين.",
-    "zh": "中文没有单一对应词：监理负责施工监督，设计院负责设计。此处所示术语涵盖两种角色。"
-   },
-   "review": [
-    "zh"
-   ]
+    "en": "In Chinese the role must be named: 监理单位 is the construction supervision entity and 设计单位 the design entity. Use the one that matches the consultant’s contract.",
+    "ar": "في الصينية يجب تسمية الدور: ‏监理单位 هي جهة الإشراف على التنفيذ و‏设计单位 جهة التصميم. استخدم ما يطابق عقد الاستشاري.",
+    "zh": "中文须按角色称呼：监理单位为施工监理单位，设计单位为设计单位。请按咨询单位的合同角色选用。"
+   }
   },
   {
    "id": "site-engineer",
@@ -3932,22 +3923,19 @@
     "zh": "采购订单"
    },
    "definition": {
-    "en": "A buyer’s formal document to a supplier confirming the items, quantities, prices, delivery terms and payment terms of an order.",
-    "ar": "وثيقة رسمية من المشتري إلى المورد تؤكد الأصناف والكميات والأسعار وشروط التسليم وشروط الدفع للطلبية.",
-    "zh": "买方向供应商发出的正式文件，确认订单的品名、数量、价格、交货条件和付款条件。"
+    "en": "A buyer’s formal document to a supplier confirming the items, quantities, prices, delivery terms and payment terms of an order. It is issued after the internal purchase request has been approved.",
+    "ar": "وثيقة رسمية من المشتري إلى المورد تؤكد الأصناف والكميات والأسعار وشروط التسليم وشروط الدفع للطلبية. وتصدر بعد اعتماد طلب الشراء الداخلي.",
+    "zh": "买方向供应商发出的正式文件，确认订单的品名、数量、价格、交货条件和付款条件。在内部请购获批后签发。"
    },
    "synonyms": {
     "en": [
-     "PO",
-     "order"
+     "PO"
     ],
     "ar": [
-     "طلب شراء",
      "أمر توريد"
     ],
     "zh": [
-     "订货单",
-     "订单"
+     "订货单"
     ]
    },
    "related": [
@@ -3955,7 +3943,12 @@
     "payment-terms",
     "delivery-note"
    ],
-   "abbreviation": "PO"
+   "abbreviation": "PO",
+   "notes": {
+    "en": "“طلب شراء” (purchase request or requisition) is the internal request that comes before the order, so it is not listed as a synonym.",
+    "ar": "«طلب الشراء» هو الطلب الداخلي الذي يسبق أمر الشراء، لذلك لم يُدرج كمرادف.",
+    "zh": "“请购单”（purchase request）是下单前的内部申请，因此未列为同义词。"
+   }
   },
   {
    "id": "rfq",
@@ -4717,27 +4710,26 @@
    "category": "qaqc",
    "term": {
     "en": "Mass tolerance",
-    "ar": "سماحية الكتلة",
-    "zh": "重量偏差"
+    "ar": "التفاوت المسموح في الكتلة",
+    "zh": "重量允许偏差"
    },
    "definition": {
-    "en": "The permitted difference between the actual and the nominal mass of reinforcing bars, set by the product standard. It is checked by weighing measured lengths of bar.",
-    "ar": "الفرق المسموح بين الكتلة الفعلية والاسمية لأسياخ التسليح، وتحدده مواصفة المنتج. ويُفحص بوزن أطوال مقاسة من الأسياخ.",
-    "zh": "钢筋实际重量与理论重量之间允许的偏差，由产品标准规定，通过称量一定长度钢筋来检验。"
+    "en": "The permitted variation between the actual mass and the nominal mass of reinforcing bars. Its limits, which may differ by bar size, and the way samples are taken and weighed are set by the applicable product standard or the project specification, not by a general rule. It is checked by weighing bars of measured length and comparing the result with the nominal mass.",
+    "ar": "التفاوت المسموح بين الكتلة الفعلية والكتلة الاسمية لأسياخ التسليح. حدوده، التي قد تختلف حسب القطر، وطريقة أخذ العينات ووزنها، تحددها مواصفة المنتج المعمول بها أو مواصفات المشروع، لا قاعدة عامة. ويُفحص بوزن أسياخ معلومة الطول ومقارنة النتيجة بالكتلة الاسمية.",
+    "zh": "钢筋实际质量与公称质量之间允许的偏差。其限值（可能因直径而异）以及取样和称量方法由适用的产品标准或项目规范规定，而非通用规则。检验方法是称量已知长度的钢筋并与公称质量比较。"
    },
    "synonyms": {
     "en": [
      "weight tolerance",
-     "permissible variation in mass",
-     "weight deviation"
+     "permissible variation in mass"
     ],
     "ar": [
      "سماحية الوزن",
-     "انحراف الوزن"
+     "التفاوت المسموح في الوزن"
     ],
     "zh": [
-     "重量允许偏差",
-     "质量偏差"
+     "允许重量偏差",
+     "重量偏差限值"
     ]
    },
    "related": [
@@ -4745,7 +4737,12 @@
     "actual-weight",
     "tolerance",
     "theoretical-weight"
-   ]
+   ],
+   "notes": {
+    "en": "A deviation is the measured difference; the tolerance is the permitted limit. The two are not the same.",
+    "ar": "الانحراف هو الفرق المقاس، والتفاوت المسموح هو الحد المقبول؛ وهما ليسا الشيء نفسه.",
+    "zh": "偏差是实测差值，允许偏差是规定的限值，两者不同。"
+   }
   },
   {
    "id": "tensile-test",
@@ -5009,7 +5006,7 @@
    "category": "logistics",
    "term": {
     "en": "Delivery note",
-    "ar": "مذكرة التسليم",
+    "ar": "سند التسليم",
     "zh": "送货单"
    },
    "definition": {
@@ -5019,21 +5016,18 @@
    },
    "synonyms": {
     "en": [
-     "delivery order",
      "DN",
-     "waybill",
-     "goods delivery note"
+     "goods delivery note",
+     "delivery ticket"
     ],
     "ar": [
+     "مذكرة التسليم",
      "إشعار التسليم",
-     "سند التسليم",
-     "الدليفري نوت",
-     "بوليصة التسليم"
+     "الدليفري نوت"
     ],
     "zh": [
      "发货单",
-     "出库单",
-     "运单"
+     "随货单"
     ]
    },
    "related": [
@@ -5041,7 +5035,12 @@
     "material-inspection-request",
     "proof-of-delivery"
    ],
-   "abbreviation": "DN"
+   "abbreviation": "DN",
+   "notes": {
+    "en": "“الدليفري نوت” is site usage borrowed from English. A waybill (transport document) and a delivery order (release of goods by a carrier or port) are different documents.",
+    "ar": "«الدليفري نوت» تعبير مواقع مأخوذ من الإنجليزية. وبوليصة النقل (مستند الناقل) وأمر التسليم (إذن الإفراج عن البضاعة من الناقل أو الميناء) مستندان مختلفان.",
+    "zh": "“الدليفري نوت”是借自英文的工地用语。运单（承运人的运输单据）和提货单（承运人或港口放货的凭证）是不同的单据。"
+   }
   },
   {
    "id": "proof-of-delivery",
@@ -5907,13 +5906,13 @@
    "category": "drawings",
    "term": {
     "en": "Request for information",
-    "ar": "طلب استيضاح",
-    "zh": "技术咨询单"
+    "ar": "طلب استيضاح فني",
+    "zh": "信息请求单"
    },
    "definition": {
-    "en": "A formal question from the contractor to the designer or consultant to clarify a drawing or specification.",
-    "ar": "سؤال رسمي من المقاول إلى المصمم أو الاستشاري لتوضيح مخطط أو مواصفة.",
-    "zh": "承包商向设计或咨询单位正式提出的、要求澄清图纸或规范的问题。"
+    "en": "A formal question from the contractor to the designer or consultant to clarify a drawing or specification. The answer is given in writing and does not by itself change the contract scope.",
+    "ar": "سؤال رسمي من المقاول إلى المصمم أو الاستشاري لتوضيح مخطط أو مواصفة. يُرد عليه كتابةً، ولا يغيّر الرد بذاته نطاق العقد.",
+    "zh": "承包商向设计或咨询单位正式提出的、要求澄清图纸或规范的问题。答复以书面形式给出，答复本身不改变合同范围。"
    },
    "synonyms": {
     "en": [
@@ -5926,15 +5925,21 @@
      "استفسار فني"
     ],
     "zh": [
-     "技术疑问",
+     "技术澄清单",
      "图纸疑问"
     ]
    },
    "related": [
     "consultant",
-    "ifc-drawing"
+    "ifc-drawing",
+    "variation-order"
    ],
    "abbreviation": "RFI",
+   "notes": {
+    "en": "Chinese projects use several names for this document; 信息请求单 follows the English term. Confirm the name used in the project procedures.",
+    "ar": "تستخدم المشاريع الصينية عدة أسماء لهذا المستند؛ و‏信息请求单 ترجمة للمصطلح الإنجليزي. تأكد من الاسم المستخدم في إجراءات المشروع.",
+    "zh": "中国项目对该文件有多种叫法；“信息请求单”沿用英文术语。请以项目程序中的名称为准。"
+   },
    "review": [
     "zh"
    ]

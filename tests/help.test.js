@@ -57,27 +57,72 @@ test('language switch in the header keeps you on the equivalent page', () => {
   }
 });
 
-test('no mixed languages: headings, navigation and body follow the page language', () => {
-  const AR = /[\u0600-\u06FF]/, CJK = /[\u4e00-\u9fff]/;
-  for (const p of pages) {
-    const m = main(read(p.url));
-    const heads = [...m.matchAll(/<(h1|h2|h3|summary|th)[^>]*>([\s\S]*?)<\/\1>/g)].map(x => text(x[2]).trim()).filter(Boolean);
-    for (const hd of heads) {
-      if (/^[\d\s.×Ø%()\-–kgm/]+$|^(kg\/m|Ø mm|Gr60|BBS|MTC|RebarPlan)$/.test(hd)) continue;   // numbers and units
-      if (p.l === 'ar') assert.match(hd, AR, `${p.url}: "${hd}"`);
-      if (p.l === 'zh') assert.match(hd, CJK, `${p.url}: "${hd}"`);
-      if (p.l === 'en') { assert.doesNotMatch(hd, AR, `${p.url}: "${hd}"`); assert.doesNotMatch(hd, CJK, `${p.url}: "${hd}"`); }
-    }
-    // words quoted from another language count only if they are not marked
-    // with their own lang attribute (marked spans are correct markup)
-    const own = LANG[p.l][0];
-    const body = text(m.replace(/<span lang="([^"]+)"[^>]*>[^<]*<\/span>/g, (x, l) => (l === own ? x : ' ')));
-    if (p.l === 'en') { assert.ok((body.match(/[\u0600-\u06FF]/g) || []).length < 40, p.url); assert.ok((body.match(/[\u4e00-\u9fff]/g) || []).length < 20, p.url); }
-    if (p.l === 'ar') { assert.ok((body.match(/[\u0600-\u06FF]/g) || []).length > 1500, p.url); assert.ok((body.match(/[\u4e00-\u9fff]/g) || []).length < 20, p.url); }
-    if (p.l === 'zh') { assert.ok((body.match(/[\u4e00-\u9fff]/g) || []).length > 800, p.url); assert.ok((body.match(/[\u0600-\u06FF]/g) || []).length < 40, p.url); }
-    // no English sentences on the Arabic and Chinese pages (product names and units are allowed)
-    if (p.l !== 'en') assert.doesNotMatch(body, /\b(the|and|with|from|this|that|your|which)\s+(the|a|an|is|are|tool|bars?|cut|length|weight)\b/i, p.url);
+/* Language check for one page's <main>. Returns a list of problems (empty
+   when the page is clean). Text in a span with its own lang attribute is
+   left out of the counts only if it is a quoted term: the span holds plain
+   text in the script of the language it declares, at most 3 words and 24
+   characters, and all such spans together hold at most 200 characters.
+   Anything else marked with lang is reported, so a passage that was not
+   translated cannot be hidden by wrapping it in a span. */
+const SCRIPT = { ar: /^[؀-ۿ\s،]+$/, 'zh-Hans': /^[㐀-鿿\s、，]+$/, en: /^[A-Za-z0-9\s.,'’()\-]+$/ };
+function languageProblems(mainHtml, l) {
+  const AR = /[؀-ۿ]/, CJK = /[一-鿿]/, own = LANG[l][0], problems = [];
+  const heads = [...mainHtml.matchAll(/<(h1|h2|h3|summary|th)[^>]*>([\s\S]*?)<\/\1>/g)].map(x => text(x[2]).trim()).filter(Boolean);
+  for (const hd of heads) {
+    if (/^[\d\s.×Ø%()\-–kgm/]+$|^(kg\/m|Ø mm|Gr60|BBS|MTC|RebarPlan)$/.test(hd)) continue;   // numbers and units
+    if (l === 'ar' && !AR.test(hd)) problems.push('heading not in Arabic: ' + hd);
+    if (l === 'zh' && !CJK.test(hd)) problems.push('heading not in Chinese: ' + hd);
+    if (l === 'en' && (AR.test(hd) || CJK.test(hd))) problems.push('heading not in English: ' + hd);
   }
+  let budget = 0;
+  const cleaned = mainHtml.replace(/<span lang="([^"]+)"[^>]*>([^<]*)<\/span>/g, (x, lang, inner) => {
+    if (lang === own) return x;
+    const t = inner.replace(/&[a-z#0-9]+;/g, ' ').trim();
+    const ok = SCRIPT[lang] && SCRIPT[lang].test(t) && t.length <= 24 && t.split(/\s+/).length <= 3;
+    if (!ok) { problems.push(`marked ${lang} text is not a short quoted term: "${t.slice(0, 60)}"`); return x; }
+    budget += t.length;
+    return ' ';
+  });
+  if (budget > 200) problems.push('too much marked foreign text: ' + budget + ' characters');
+  const body = text(cleaned);
+  const n = re => (body.match(re) || []).length;
+  if (l === 'en') { if (n(/[؀-ۿ]/g) >= 40) problems.push('Arabic text in English page'); if (n(/[一-鿿]/g) >= 20) problems.push('Chinese text in English page'); }
+  if (l === 'ar') { if (n(/[؀-ۿ]/g) <= 1500) problems.push('too little Arabic'); if (n(/[一-鿿]/g) >= 20) problems.push('Chinese text in Arabic page'); }
+  if (l === 'zh') { if (n(/[一-鿿]/g) <= 800) problems.push('too little Chinese'); if (n(/[؀-ۿ]/g) >= 40) problems.push('Arabic text in Chinese page'); }
+  // no English sentences on the Arabic and Chinese pages (product names and units are allowed)
+  if (l !== 'en' && /\b(the|and|with|from|this|that|your|which)\s+(the|a|an|is|are|tool|bars?|cut|length|weight)\b/i.test(body)) problems.push('English sentence in ' + l + ' page');
+  return problems;
+}
+
+test('no mixed languages: headings, navigation and body follow the page language', () => {
+  for (const p of pages) assert.deepEqual(languageProblems(main(read(p.url)), p.l), [], p.url);
+});
+
+test('the language check still catches untranslated content (control cases)', () => {
+  const en = body => `<main><h2 id="x">Heading</h2><p>${'English text. '.repeat(20)}${body}</p></main>`;
+  const arFill = 'نص عربي '.repeat(260), zhFill = '中文内容'.repeat(260);
+  const ar = body => `<main><h2 id="x">عنوان</h2><p>${arFill}${body}</p></main>`;
+  const zh = body => `<main><h2 id="x">标题</h2><p>${zhFill}${body}</p></main>`;
+  const para = 'هذه فقرة عربية كاملة لم تترجم إلى الإنجليزية في الصفحة';
+  // clean: a few short, correctly marked terms
+  assert.deepEqual(languageProblems(en('Type <span lang="ar" dir="rtl">كانات</span> or <span lang="zh-Hans">箍筋</span>.'), 'en'), []);
+  // an untranslated Arabic paragraph, unmarked
+  assert.ok(languageProblems(en(para + para), 'en').includes('Arabic text in English page'));
+  // the same paragraph wrapped in a lang span is reported, not ignored
+  assert.ok(languageProblems(en(`<span lang="ar" dir="rtl">${para}</span>`), 'en').some(x => x.startsWith('marked ar text')));
+  // a lang attribute that does not match the script inside
+  assert.ok(languageProblems(en('<span lang="ar">not Arabic</span>'), 'en').some(x => x.startsWith('marked ar text')));
+  // many short marked terms add up
+  assert.ok(languageProblems(en('<span lang="ar">كلمة عربية طويلة</span> '.repeat(20)), 'en').some(x => x.startsWith('too much marked')));
+  // English left in an Arabic page, marked or not
+  assert.ok(languageProblems(ar('Use the tool and check the length.'), 'ar').includes('English sentence in ar page'));
+  assert.ok(languageProblems(ar('<span lang="en">Use the tool and check the length of the bars</span>'), 'ar').some(x => x.startsWith('marked en text')));
+  // Chinese left in an Arabic page; Arabic left in a Chinese page
+  assert.ok(languageProblems(ar('钢筋下料表分析工具使用指南计算实例结果解读'), 'ar').includes('Chinese text in Arabic page'));
+  assert.ok(languageProblems(zh(para), 'zh').includes('Arabic text in Chinese page'));
+  // headings in the wrong language
+  assert.ok(languageProblems('<main><h2>Getting started</h2><p>' + arFill + '</p></main>', 'ar').some(x => x.startsWith('heading not in Arabic')));
+  assert.ok(languageProblems('<main><h3>البداية</h3></main>', 'en').some(x => x.startsWith('heading not in English')));
 });
 
 test('the index has the seven sections; every guide has the teaching sections', () => {

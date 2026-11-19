@@ -107,7 +107,46 @@ test('review flags are used for uncertain translations', () => {
   assert.ok(flagged.length >= 10);
   for (const t of flagged) for (const l of t.review) assert.ok(D.LANGS.includes(l));
   assert.ok(BY['development-length'].review.includes('ar'));
-  assert.ok(BY.consultant.review.includes('zh'));
+  assert.ok(BY.rfi.review.includes('zh'));
+});
+
+test('reviewed terminology: precise terms, no misleading or over-broad synonyms', () => {
+  const syn = (id, l) => BY[id].synonyms[l].map(D.norm);
+  // over-broad or wrong-document synonyms removed
+  assert.ok(!syn('reinforcing-steel', 'ar').includes(D.norm('حديد')), '“حديد” alone is too broad');
+  assert.ok(!syn('purchase-order', 'en').includes('order'));
+  assert.ok(!syn('purchase-order', 'ar').includes(D.norm('طلب شراء')), 'a purchase request is not an order');
+  for (const w of ['delivery order', 'waybill']) assert.ok(!syn('delivery-note', 'en').includes(w), w);
+  assert.ok(!syn('delivery-note', 'ar').includes(D.norm('بوليصة التسليم')));
+  assert.ok(!syn('delivery-note', 'zh').includes('运单'));
+  for (const g of ['grade 60', 'gr60', 'grade 80', 'gr80']) assert.ok(!syn('grade', 'en').includes(g), 'an example grade is not a synonym');
+  assert.ok(!syn('grade', 'ar').some(x => /[a-z]/.test(x)), 'no English in Arabic synonyms');
+  assert.ok(!syn('mass-tolerance', 'en').includes('weight deviation') && !syn('mass-tolerance', 'ar').includes(D.norm('انحراف الوزن')), 'deviation is not tolerance');
+  assert.ok(!syn('concrete-slump', 'en').includes('workability'), 'slump is not workability');
+  assert.ok(!syn('development-length', 'en').includes('embedment length'));
+  assert.ok(!syn('bend-diameter', 'en').includes('mandrel diameter'), 'mandrel diameter is related, not the same');
+  assert.ok(!syn('weldable', 'en').includes('low-alloy rebar'));
+  assert.ok(!syn('consultant', 'en').includes('engineer') && !syn('consultant', 'ar').includes(D.norm('الإشراف')));
+  // Chinese consultant: a general term, the two roles named and kept apart
+  const c = BY.consultant;
+  assert.equal(c.term.zh, '工程咨询单位');
+  assert.ok(!c.term.zh.includes('/'));
+  assert.ok(c.synonyms.zh.includes('监理单位') && c.synonyms.zh.includes('设计单位'));
+  assert.match(c.definition.zh, /监理单位/); assert.match(c.definition.zh, /设计单位/); assert.match(c.definition.zh, /不能互换/);
+  assert.ok(!c.review, 'resolved');
+  // actual weight: measured, compared with the standard's tolerance, no automatic compliance
+  const aw = BY['actual-weight'].definition;
+  assert.match(aw.en, /calibrated/); assert.match(aw.en, /product standard/); assert.match(aw.en, /compared/); assert.match(aw.en, /does not by itself show compliance/);
+  assert.doesNotMatch(aw.en, /differs from the theoretical weight within/);
+  assert.match(aw.ar, /معاير/); assert.match(aw.ar, /لا يثبت المطابقة/);
+  assert.match(aw.zh, /校准/); assert.match(aw.zh, /并不说明符合要求/);
+  // requirements that depend on a standard say so
+  assert.match(BY['mass-tolerance'].definition.en, /product standard or the project specification/);
+  assert.match(BY['development-length'].definition.en, /ACI 318/); assert.match(BY['development-length'].definition.en, /Eurocode 2/);
+  assert.match(BY['bend-diameter'].definition.en, /mandrel/); assert.match(BY['bend-diameter'].definition.en, /separate value/);
+  assert.match(BY['carbon-equivalent'].definition.en, /different formulas/);
+  assert.match(BY['concrete-slump'].definition.en, /workability is a broader property/);
+  assert.match(BY.grade.definition.en, /only within its own standard/);
 });
 
 /* ---- search ------------------------------------------------------------------ */
@@ -144,6 +183,9 @@ test('synonyms, regional names and abbreviations', () => {
   assert.equal(ids('BBS')[0], 'bar-bending-schedule');
   assert.equal(ids('كانات', { lang: 'ar' })[0], 'stirrup');
   assert.equal(ids('shuttering')[0], 'formwork');
+  assert.equal(ids('Gr60')[0], 'grade');                                     // example grade, found through the definition
+  // a word that first appears inside a longer word still matches later as a whole word
+  assert.equal(ids('طلب شراء', { lang: 'ar' })[0], 'purchase-order');
 });
 
 test('search by definition text ranks below name matches', () => {

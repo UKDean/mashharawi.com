@@ -67,6 +67,13 @@ Errors (the tests and the script fail):
 
 Duplicates are never removed automatically. When the validator reports one, decide whether the two records are the same concept (merge them and keep the other name as a synonym) or genuinely different concepts that share a word (keep both and make the synonym specific, or record it in `sharedSynonyms` with the reason). Examples resolved this way in the initial data: “الهبوط” is the Arabic for both settlement and concrete slump, so it stays the term for settlement and slump keeps “هبوط الخرسانة”; “test certificate” stays with the mill test certificate and not the laboratory test report.
 
+## Terminology choices (review of PR #17)
+
+- Synonyms must name the same thing. Left out on purpose: “حديد” alone (any iron or steel), “طلب شراء” (the internal purchase request, not the order), “waybill” and “delivery order” (different documents), “workability” for slump (slump is one measure of it), “mandrel diameter” for bend diameter (related, not the same), “weight deviation” for mass tolerance (a measured difference, not a limit), and example grades such as Grade 60 as synonyms of “steel grade”.
+- Regional or site words (جسر / كمرة, الدليفري نوت, بسكوت) are kept as synonyms, and the notes say where they are used instead of presenting them as standard.
+- Where a requirement depends on a standard or the project specification (mass tolerance, development length, bend diameter, carbon equivalent, slump range, grades), the definition says so and does not give a general value.
+- Chinese “consultant” is the general 工程咨询单位, with 监理单位 (construction supervision) and 设计单位 (design) as separate role names; they are not interchangeable.
+
 ## Search
 
 - Normalisation: NFKC, lower case; Arabic diacritics, tatweel and direction marks removed; أ إ آ ٱ → ا, ى → ي, ة → ه, ؤ → و, ئ → ي; Arabic-Indic digits → 0–9; punctuation → space.

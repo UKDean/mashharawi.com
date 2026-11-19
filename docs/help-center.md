@@ -51,6 +51,10 @@ three languages) have:
 All of them open the guide **in the same language, in a new tab**, so the
 work in the tool is not lost.
 
+## Languages in the guides
+
+Each guide is written in its page language. A word quoted from another language (for example an Arabic site term in the English dictionary guide) is marked with its own `lang` (and `dir` for Arabic). The language test (`languageProblems` in `tests/help.test.js`) ignores marked text only when it is a short quoted term: plain text in the declared script, at most 3 words and 24 characters, and at most 200 characters per page. Longer or mismatched marked text is reported, so an untranslated passage cannot be hidden by wrapping it in a span; control cases in the same file check this.
+
 ## Numbers
 
 All worked examples are computed by the tool engines, and

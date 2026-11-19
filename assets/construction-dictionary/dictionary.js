@@ -106,10 +106,12 @@
       var h = list[k];
       if (!h) continue;
       if (h === form) return exact;
-      var at = h.indexOf(form);
-      if (at < 0) continue;
-      var s = at === 0 ? prefix : startsWord(h, at) ? (h.lastIndexOf(' ', at) < 0 ? prefix : word) : han ? word : inner;
-      if (s > best) best = s;
+      // every occurrence counts: the first may sit inside a longer word
+      for (var at = h.indexOf(form); at >= 0; at = h.indexOf(form, at + 1)) {
+        var s = at === 0 ? prefix : startsWord(h, at) ? (h.lastIndexOf(' ', at) < 0 ? prefix : word) : han ? word : inner;
+        if (s > best) best = s;
+        if (best >= prefix) break;
+      }
     }
     return best;
   }
