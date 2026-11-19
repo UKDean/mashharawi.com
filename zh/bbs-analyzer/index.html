@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" dir="ltr">
+<head>
+<meta charset="utf-8">
+<script>document.documentElement.classList.add("js")</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>钢筋表（BBS）分析工具：从 Excel 或 CSV 统计钢筋根数与重量</title>
+<meta name="description" content="免费钢筋下料表分析工具：打开 Excel 或 CSV 钢筋表，自动核对，按直径、牌号和形状统计根数、长度和理论重量。在浏览器中运行，不上传数据。">
+<meta name="author" content="Omar Mashharawi">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+<link rel="canonical" href="https://mashharawi.com/zh/bbs-analyzer/">
+<link rel="alternate" hreflang="en" href="https://mashharawi.com/tools/bbs-analyzer/">
+<link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/tools/bbs-analyzer/">
+<link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/bbs-analyzer/">
+<link rel="alternate" hreflang="x-default" href="https://mashharawi.com/tools/bbs-analyzer/">
+
+<meta name="theme-color" content="#0A0A0A">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mashharawi.com/zh/bbs-analyzer/">
+<meta property="og:title" content="钢筋表（BBS）分析工具：从 Excel 或 CSV 统计钢筋根数与重量">
+<meta property="og:description" content="免费钢筋下料表分析工具：打开 Excel 或 CSV 钢筋表，自动核对，按直径、牌号和形状统计根数、长度和理论重量。在浏览器中运行，不上传数据。">
+<meta property="og:site_name" content="mashharawi.com">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="ar_SA">
+<meta property="og:image" content="https://mashharawi.com/og-brand.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="stylesheet" href="/assets/site.css?v=20261031">
+<link rel="stylesheet" href="/assets/cutopt/cutopt.css?v=20261119">
+<link rel="stylesheet" href="/assets/bbs/bbs.css?v=20261119b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Inter:wght@200..500&display=swap">
+<style>html[lang="zh-Hans"] body,html[lang="zh-Hans"] h1,html[lang="zh-Hans"] h2,html[lang="zh-Hans"] h3{font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;font-stretch:normal;letter-spacing:0}html[lang="zh-Hans"] .c-hero__title{line-height:1.25}</style>
+<link rel="icon" href="/favicon.ico?v=20261024" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=20261024">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20261024">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png?v=20261024">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=20261024">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png?v=20261024">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20261024">
+<!-- Only what the page itself states: a free browser tool. No ratings, no counts. -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebApplication",
+ "name": "钢筋表（BBS）分析工具",
+ "url": "https://mashharawi.com/zh/bbs-analyzer/",
+ "applicationCategory": "https://schema.org/BusinessApplication",
+ "operatingSystem": "Any modern browser",
+ "browserRequirements": "Requires JavaScript",
+ "inLanguage": [
+  "en",
+  "ar",
+  "zh-Hans"
+ ],
+ "isAccessibleForFree": true,
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "SAR"
+ },
+ "author": {
+  "@type": "Person",
+  "@id": "https://mashharawi.com/#person",
+  "name": "Omar Mashharawi"
+ }
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "inLanguage": "zh-Hans",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "钢筋表的重量怎么计算？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "每行：0.006165 × d² 公斤/米 × 下料长度（米）× 根数。16 毫米钢筋每米 1.578 公斤，96 根 2.35 米约重 356 公斤。工具按直径、牌号和形状汇总。结果为理论重量，不是称重数量。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "支持哪些文件？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Excel .xlsx（以及 .xlsm，不运行宏）、CSV 或 TSV、从 Excel 粘贴的区域，或手动输入的行。旧版 .xls 需先另存为 .xlsx 或 CSV。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "我的钢筋表会被上传吗？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "不会。文件在您的浏览器中读取，不发送也不保存任何内容，关闭页面即消失。无需注册账号。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "如果我的列名不同怎么办？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "在列匹配中为每个字段选择正确的列。只有直径、下料长度和根数是必填的。如果长度表头没有单位，请选择毫米或米。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "为什么有行被排除？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "排除列表会写明每行的原因：直径、长度或根数缺失或无法读取，数值与单位不符，或总根数与 构件数 × 每件根数 矛盾。工具不会补全缺失的工程数据。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "可以根据钢筋表优化下料吗？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "可以。“发送到下料优化工具”会按直径和牌号合并下料长度并打开优化工具。请先在那里核对，然后计算。超过 12 米的钢筋不会发送，并会列出。"
+   }
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "中文",
+   "item": "https://mashharawi.com/zh/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "钢筋表分析工具",
+   "item": "https://mashharawi.com/zh/bbs-analyzer/"
+  }
+ ]
+}
+</script>
+<script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/cdn-cgi/*"}}]},"eagerness":"moderate"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="c-header">
+  <a class="c-header__name" href="/zh/"><img class="c-header__mark" src="/assets/brand/mark-64.png" width="32" height="32" alt="">Omar Mashharawi · 钢筋</a>
+  <nav class="c-header__nav" aria-label="主菜单">
+    <a href="/zh/rebar/">钢筋供应</a>
+    <a href="/zh/rebar-cutting-bending/">切割与弯曲</a>
+    <a href="/zh/rebar-cutting-optimizer/">下料优化</a>
+    <a href="/zh/bbs-analyzer/" aria-current="page">钢筋表分析</a>
+    <a href="/zh/rebar-weight-table/">重量表</a>
+    <a href="/tools/bbs-analyzer/" hreflang="en" lang="en" class="c-header__lang">English</a>
+    <a href="/ar/tools/bbs-analyzer/" hreflang="ar" lang="ar" class="c-header__lang">العربية</a>
+  </nav>
+  <button class="c-header__menu" type="button" aria-label="菜单" aria-expanded="false"><span></span><span></span></button>
+</header>
+
+<main id="main">
+  <section class="c-hero c-hero--full c-hero--short" aria-labelledby="b-h">
+    <img class="c-hero__img" src="/assets/img/rebar-yard-1600.webp" srcset="/assets/img/rebar-yard-800.webp 800w, /assets/img/rebar-yard-1600.webp 1600w, /assets/img/rebar-yard-2560.webp 2560w" sizes="100vw" width="1600" height="873" alt="" fetchpriority="high" decoding="async">
+    <div class="c-hero__shade"></div>
+    <div class="c-hero__body">
+      <div class="c-hero__text">
+        <p class="c-label">在线工具 &middot; 浏览器内运行 &middot; 免费</p>
+        <h1 class="c-hero__title" id="b-h">几秒钟核对一份钢筋表。</h1>
+        <p class="c-hero__lead">以 Excel 或 CSV 打开钢筋表，或直接粘贴。工具自动识别各列，标出无法可靠读取的内容，并按直径、牌号和形状统计根数、长度和理论重量。然后可把下料长度发送到下料优化工具。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="analyzer" class="sec c-after-hero">
+    <div class="wrap">
+      <div class="calc" id="bbs">
+
+        <div class="co-panel b-input">
+          <p class="calc-lbl">钢筋表</p>
+          <div class="b-in">
+            <label class="b-drop" id="bDrop">
+              <input id="bFile" type="file" accept=".xlsx,.xlsm,.csv,.tsv,.txt,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+              <b>选择 .xlsx 或 .csv 文件</b>
+              <small>或拖放到这里。仅在本浏览器中读取，不上传任何内容。</small>
+            </label>
+            <div class="b-side">
+              <button type="button" class="calc-btn ghost" id="bSample">载入示例钢筋表</button>
+              <details class="co-paste" style="margin-top:0">
+                <summary>从 Excel 粘贴</summary>
+                <div>
+                  <p>在 Excel 中选中钢筋表（含表头行），复制后粘贴到这里。</p>
+                  <textarea id="bPaste" spellcheck="false"></textarea>
+                  <button type="button" class="calc-btn" id="bPasteGo">读取粘贴内容</button>
+                </div>
+              </details>
+            </div>
+          </div>
+          <label class="calc-field b-sheet" id="bSheetWrap" hidden><span>工作表</span><select id="bSheet" class="co-in"></select></label>
+
+          <details class="b-manual">
+            <summary>手动输入</summary>
+            <div>
+              <table class="co-table b-man"><thead><tr><th scope="col">构件</th><th scope="col">钢筋编号</th><th scope="col">直径 mm</th><th scope="col">牌号</th><th scope="col">形状代码</th><th scope="col">下料长度 mm</th><th scope="col">总根数</th><th scope="col"><span class="vh">&times;</span></th></tr></thead><tbody id="bManRows"></tbody></table>
+              <datalist id="bDiaList"></datalist>
+              <datalist id="bGradeList"><option value="Gr60"></option><option value="Gr80"></option></datalist>
+              <div class="co-actions">
+                <button type="button" class="calc-btn ghost grow" id="bManAdd">添加一行</button>
+                <button type="button" class="calc-btn" id="bManGo">分析这些行</button>
+              </div>
+            </div>
+          </details>
+          <p class="co-msg" id="bMsg" role="status" aria-live="polite"></p>
+        </div>
+
+        <div class="co-panel b-mapping" id="bMap" hidden>
+          <p class="calc-lbl">列匹配</p>
+          <p class="calc-hint" style="margin-top:0">各列按表头名称匹配，请逐一核对；表中没有的列可留空。根数取自总根数列，或由 构件数 &times; 每件根数 得出。</p>
+          <div class="b-map-top">
+            <label class="calc-field"><span>表头行</span><input id="bHdr" class="co-in" type="number" min="1" step="1" inputmode="numeric"></label>
+            <label class="calc-field"><span>下料长度单位</span><select id="uLength" class="co-in"><option value="">—</option><option value="mm">毫米</option><option value="m">米</option></select></label>
+            <label class="calc-field"><span>总长度单位</span><select id="uTotalLength" class="co-in"><option value="">—</option><option value="mm">毫米</option><option value="m">米</option></select></label>
+            <label class="calc-field"><span>重量单位</span><select id="uWeight" class="co-in"><option value="">—</option><option value="kg">公斤</option><option value="t">吨</option></select></label>
+            <button type="button" class="calc-btn ok" id="bAnalyze">分析</button>
+          </div>
+          <div class="b-fields" id="bFields"></div>
+          <div class="b-preview-wrap"><table class="b-preview"><tbody id="bPreview"></tbody></table></div>
+        </div>
+
+        <div class="co-panel" id="bOut" hidden>
+          <p class="calc-lbl">结果</p>
+          <p class="b-src" id="bSrc"></p>
+          <dl class="co-figs">
+          <div><dt>根数</dt><dd><b id="fBars">0</b><span>根</span></dd></div>
+          <div><dt>理论重量</dt><dd><b id="fWt">0</b><span>吨</span></dd></div>
+          <div><dt>总长度</dt><dd><b id="fLen">0</b><span>米</span></dd></div>
+          <div><dt>行</dt><dd><b id="fRows">0</b><span></span></dd></div>
+          </dl>
+          <div class="b-notes">
+            <div class="b-box warn" id="bWarnBox"><h3>警告</h3><ul id="bWarn"></ul></div>
+            <div class="b-box"><h3>计算前提</h3><ul id="bAssume"></ul></div>
+          </div>
+
+          <h2 class="calc-lbl b-h">按直径</h2>
+          <div class="co-scroll"><table class="calc-table b-tbl" id="tDia"></table></div>
+          <div class="b-grid2">
+            <div><h2 class="calc-lbl b-h">按直径和牌号</h2><div class="co-scroll"><table class="calc-table b-tbl" id="tDiaGrade"></table></div></div>
+            <div><h2 class="calc-lbl b-h">按牌号</h2><div class="co-scroll"><table class="calc-table b-tbl" id="tGrade"></table></div>
+                 <h2 class="calc-lbl b-h">按形状代码</h2><div class="co-scroll"><table class="calc-table b-tbl" id="tShape"></table></div></div>
+          </div>
+          <div id="bIssuesBox">
+            <h2 class="calc-lbl b-h">排除的行</h2>
+            <div class="co-scroll"><table class="calc-table b-issues" id="tIssues"></table></div>
+          </div>
+          <h2 class="calc-lbl b-h">使用的行</h2>
+          <div class="co-scroll"><table class="calc-table b-rows" id="tRows"></table></div>
+          <button type="button" class="calc-btn ghost co-showall" id="bMore" hidden></button>
+
+          <div class="co-actions b-actions">
+            <button type="button" class="calc-btn ghost" id="bCsv">下载 CSV</button>
+            <button type="button" class="calc-btn ghost grow" id="bPrint">打印 / PDF</button>
+            <button type="button" class="calc-btn ok" id="bSend">发送到下料优化工具</button>
+          </div>
+          <p class="calc-hint" id="bSendNote"></p>
+          <p class="b-sendmsg" id="bSendMsg" role="status" aria-live="polite"></p>
+        </div>
+
+        <p class="calc-foot">理论重量：0.006165 &times; d&sup2; 公斤/米。仅供规划和核对的估算值，不是称重或认证数量。钢厂交货重量在相应标准的允许偏差范围内。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="q-band" aria-labelledby="qb-h">
+    <div class="wrap">
+      <p class="q-eyebrow">钢筋供应 &middot; Al Rajhi Steel</p>
+      <h2 id="qb-h">把汇总数量发来询价。</h2>
+      <p>把本次分析中各直径、牌号的吨数以及项目城市发给我，我会回复 Al Rajhi Steel（拉吉希钢铁）的正式钢筋报价，我在该公司担任部门主管。按指定长度切割须经确认，弯曲要求须在报价前确认。</p>
+      <ul class="q-facts">
+        <li>规格 10、12、14、16、18、20、25、32 毫米 &middot; 12 米定尺</li><li>Grade 60 与 Grade 80</li><li>可供应环氧涂层钢筋</li><li>按订购规格和牌号提供质保书（MTC）</li><li>按指定长度切割，须经确认</li><li>弯曲要求须在报价前确认</li><li>付款确认或信用证（LC）批准后安排供货，须符合公司流程、产品库存情况及约定的交货计划</li>
+      </ul>
+      <div class="q-actions">
+        <a class="q-btn q-btn--wa" href="https://wa.me/message/D6ABM7QFWVSPB1" target="_blank" rel="noopener">WhatsApp 询价</a>
+        <a class="q-btn q-btn--line" href="/zh/rebar/">供应详情</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec co-how" aria-labelledby="how-h">
+    <div class="wrap">
+      <div class="sec-head"><h2 id="how-h">工具如何读取钢筋表。</h2></div>
+      <div class="lead">
+        <p>文件在您的浏览器中读取。Excel 工作簿由内置的小型读取器打开，只读取数值。绝不运行公式；含公式的单元格使用文件中保存的结果，并标记该行。绝不打开宏。</p>
+        <p>按英文、阿拉伯文和中文表头识别各列（钢筋编号、直径、下料长度、构件数、Bar mark、Dia、رقم السيخ 等），任何一列都可手动更改。长度单位取自表头，例如“下料长度(毫米)”；表头未注明时由您选择。工具从不猜测。</p>
+        <p>逐行核对。缺少或无法读取直径、长度或根数的行会被排除并列出原因，绝不自动补全。带逗号的长度（2,875）会被拒绝，因为它可能表示 2.875 或 2875。只在另一种单位下才合理的数值会被拒绝，而不是换算。</p>
+        <p>重复的钢筋编号、不同写法的牌号、非标准直径、超过 12&nbsp;米的钢筋，以及表中重量与理论重量不一致的情况，都会作为警告列出。</p>
+        <p>“发送到下料优化工具”会按直径、牌号和下料长度合并有效行，并在新标签页打开下料优化工具供您核对。直径和牌号绝不合并，原钢筋表保留在此页不变。</p>
+      </div>
+      <p class="note-back">相关页面：<a href="/zh/rebar-cutting-optimizer/">钢筋下料优化</a>、<a href="/zh/rebar-weight-table/">钢筋重量表</a>、<a href="/zh/rebar-cutting-bending/">钢筋切割与弯曲</a>、<a href="/tools/rebarplan/">RebarPlan</a>（编制钢筋表的桌面软件）。</p>
+      <section class="faq rise" aria-labelledby="faq-h">
+        <h2 id="faq-h">常见问题</h2>
+        <details>
+          <summary>钢筋表的重量怎么计算？</summary>
+          <p>每行：0.006165 × d² 公斤/米 × 下料长度（米）× 根数。16 毫米钢筋每米 1.578 公斤，96 根 2.35 米约重 356 公斤。工具按直径、牌号和形状汇总。结果为理论重量，不是称重数量。</p>
+        </details>
+        <details>
+          <summary>支持哪些文件？</summary>
+          <p>Excel .xlsx（以及 .xlsm，不运行宏）、CSV 或 TSV、从 Excel 粘贴的区域，或手动输入的行。旧版 .xls 需先另存为 .xlsx 或 CSV。</p>
+        </details>
+        <details>
+          <summary>我的钢筋表会被上传吗？</summary>
+          <p>不会。文件在您的浏览器中读取，不发送也不保存任何内容，关闭页面即消失。无需注册账号。</p>
+        </details>
+        <details>
+          <summary>如果我的列名不同怎么办？</summary>
+          <p>在列匹配中为每个字段选择正确的列。只有直径、下料长度和根数是必填的。如果长度表头没有单位，请选择毫米或米。</p>
+        </details>
+        <details>
+          <summary>为什么有行被排除？</summary>
+          <p>排除列表会写明每行的原因：直径、长度或根数缺失或无法读取，数值与单位不符，或总根数与 构件数 × 每件根数 矛盾。工具不会补全缺失的工程数据。</p>
+        </details>
+        <details>
+          <summary>可以根据钢筋表优化下料吗？</summary>
+          <p>可以。“发送到下料优化工具”会按直径和牌号合并下料长度并打开优化工具。请先在那里核对，然后计算。超过 12 米的钢筋不会发送，并会列出。</p>
+        </details>
+      </section>
+    </div>
+  </section>
+</main>
+
+<footer class="c-footer">
+  <div class="c-footer__quote">
+    <p>沙特钢筋供应、切割加工与重量计算的中文资料。</p>
+    <a class="c-label" href="/zh/">全部中文页面 &rarr;</a>
+  </div>
+  <div class="c-footer__base">
+    <span>&copy; <span id="yr">2026</span> Omar Mashharawi</span>
+    <a href="mailto:info@mashharawi.com">info@mashharawi.com</a>
+    <a href="/about/">About</a>
+    <a href="/contact/">Contact</a>
+    <a href="/privacy/">Privacy</a>
+  </div>
+</footer>
+<script src="/assets/site.js?v=20261015" defer></script>
+<script src="/assets/bbs/xlsx.js?v=20261119b" defer></script>
+<script src="/assets/bbs/engine.js?v=20261119b" defer></script>
+<script src="/assets/bbs/i18n.js?v=20261119b" defer></script>
+<script src="/assets/bbs/app.js?v=20261119b" defer></script>
+<script src="/assets/quote.js?v=20261019" defer></script>
+</body>
+</html>

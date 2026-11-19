@@ -1,0 +1,69 @@
+/* mashharawi.com, BBS Analyzer. Builds on site.css (.calc) and the cutting
+   optimizer's cutopt.css (.co-*) so both tools look and behave alike. */
+
+.b-in{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(16px,2vw,24px)}
+.b-drop{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:150px;padding:20px;
+  border:1px dashed var(--edge);background:var(--sunk);text-align:center;cursor:pointer;transition:border-color .16s,background .16s}
+.b-drop.over,.b-drop:hover{border-color:var(--hot-ink)}
+.b-drop:focus-within{outline:2px solid var(--hot-ink);outline-offset:2px}
+.b-drop b{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+.b-drop small{font-family:var(--mono);font-size:11px;color:var(--scale);line-height:1.5}
+.b-drop input{position:absolute;inline-size:1px;block-size:1px;opacity:0}
+.b-side{display:flex;flex-direction:column;gap:10px}
+.b-side .calc-btn{inline-size:100%}
+.b-sheet{margin-top:12px}
+.b-sheet select{max-inline-size:320px}
+
+.b-manual{margin-top:16px;border:1px dashed var(--line)}
+.b-manual summary{cursor:pointer;padding:12px 14px;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
+.b-manual>div{padding:0 14px 14px;overflow-x:auto}
+.b-man{min-inline-size:640px}
+
+.b-map-top{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end}
+.b-map-top .calc-field{min-inline-size:150px}
+.b-fields{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px;margin-top:16px}
+.b-fields select,.b-map-top select{font-size:12px}
+select.co-in{appearance:auto}
+select.need{border-color:var(--hot-ink);box-shadow:inset 0 -2px 0 var(--hot-ink)}
+.b-preview-wrap{overflow-x:auto;margin-top:16px;border:1px solid var(--line)}
+.b-preview{border-collapse:collapse;font-family:var(--mono);font-size:11.5px;min-inline-size:100%}
+.b-preview td,.b-preview th{padding:6px 8px;border-bottom:1px solid var(--line);border-inline-end:1px solid var(--line);white-space:nowrap;text-align:start;font-weight:400;color:var(--lead)}
+.b-preview tr.hdr th{color:var(--ink);background:var(--mill);font-weight:500}
+.b-preview .used{background:rgba(31,59,77,.10)}
+.b-preview tr.hdr .used{background:rgba(216,96,15,.18)}
+.b-preview th.num{color:var(--scale);text-align:end}
+
+.b-src{font-family:var(--mono);font-size:11px;color:var(--scale);margin:0 0 12px}
+.b-notes{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
+.b-notes h3{margin:0 0 8px;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--scale);font-weight:400}
+.b-notes ul{margin:0;padding-inline-start:18px;font-size:.92em;line-height:1.55;color:var(--lead)}
+.b-notes li{margin-bottom:6px}
+.b-notes li.hot{color:var(--hot-ink)}
+.b-box{padding:14px 16px;background:var(--mill);border-inline-start:4px solid var(--blued)}
+.b-box.warn{border-color:var(--hot)}
+
+.b-grid2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.4vw,30px)}
+.b-h{margin:clamp(24px,3vw,36px) 0 0}
+.b-tbl{min-inline-size:100%}
+.b-share{display:flex;align-items:center;gap:8px;justify-content:flex-end}
+.b-share .trk{display:block;inline-size:110px;block-size:8px;background:var(--line);flex:0 0 auto}
+.b-share i{display:block;block-size:100%;background:var(--blued);min-inline-size:1px}
+.b-share b{font-weight:400;min-inline-size:48px;text-align:end}
+.b-rows{min-inline-size:900px;font-size:12px}
+.b-issues{min-inline-size:700px;font-size:12px}
+.b-issues td:nth-child(3){color:#B3261E}
+.b-sendmsg{margin:10px 0 0;font-family:var(--mono);font-size:12px;color:var(--lead)}
+.b-sendmsg a{color:var(--ink);border-bottom:1px solid var(--hot)}
+
+@media (max-width:900px){
+  .b-in,.b-notes,.b-grid2{grid-template-columns:1fr}
+}
+@media print{
+  .b-input,.b-mapping,.b-actions,#bMore,.co-how,.q-band,.q-fab,.c-hero,.faq{display:none!important}
+  .b-rows,.b-issues{min-inline-size:0;font-size:8pt}
+  .b-share i{background:#999!important}
+}
+#bbs [hidden]{display:none!important}
+#fRows{font-size:clamp(13px,1.3vw,15px);letter-spacing:0;line-height:1.4}
+.b-share i{background:#3A6684}
+.b-preview .used{background:rgba(58,102,132,.22)}
