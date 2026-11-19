@@ -14,7 +14,7 @@ const BBST = require('../assets/bbs/i18n.js');
 const ROOT = path.join(__dirname, '..');
 const SITE = 'https://mashharawi.com';
 const PREFIX = { en: '/help/', ar: '/ar/help/', zh: '/zh/help/' };
-const SLUGS = ['', 'cutting-optimizer/', 'bbs-analyzer/', 'steel-weight-verification/'];
+const SLUGS = ['', 'cutting-optimizer/', 'bbs-analyzer/', 'steel-weight-verification/', 'construction-dictionary/'];
 const LANG = { en: ['en', 'ltr'], ar: ['ar', 'rtl'], zh: ['zh-Hans', 'ltr'] };
 const read = (url) => fs.readFileSync(path.join(ROOT, url, 'index.html'), 'utf8');
 const main = (html) => (html.match(/<main[\s\S]*?<\/main>/) || [''])[0];
@@ -24,8 +24,8 @@ const PENDING = new Set();
 const pages = [];
 for (const l of Object.keys(PREFIX)) for (const s of SLUGS) pages.push({ l, s, url: PREFIX[l] + s });
 
-test('all 12 pages exist with the right language, direction and canonical URL', () => {
-  assert.equal(pages.length, 12);
+test('all 15 pages exist with the right language, direction and canonical URL', () => {
+  assert.equal(pages.length, 15);
   for (const p of pages) {
     const h = read(p.url);
     assert.match(h, new RegExp(`<html lang="${LANG[p.l][0]}" dir="${LANG[p.l][1]}">`), p.url);
@@ -68,7 +68,10 @@ test('no mixed languages: headings, navigation and body follow the page language
       if (p.l === 'zh') assert.match(hd, CJK, `${p.url}: "${hd}"`);
       if (p.l === 'en') { assert.doesNotMatch(hd, AR, `${p.url}: "${hd}"`); assert.doesNotMatch(hd, CJK, `${p.url}: "${hd}"`); }
     }
-    const body = text(m);
+    // words quoted from another language count only if they are not marked
+    // with their own lang attribute (marked spans are correct markup)
+    const own = LANG[p.l][0];
+    const body = text(m.replace(/<span lang="([^"]+)"[^>]*>[^<]*<\/span>/g, (x, l) => (l === own ? x : ' ')));
     if (p.l === 'en') { assert.ok((body.match(/[\u0600-\u06FF]/g) || []).length < 40, p.url); assert.ok((body.match(/[\u4e00-\u9fff]/g) || []).length < 20, p.url); }
     if (p.l === 'ar') { assert.ok((body.match(/[\u0600-\u06FF]/g) || []).length > 1500, p.url); assert.ok((body.match(/[\u4e00-\u9fff]/g) || []).length < 20, p.url); }
     if (p.l === 'zh') { assert.ok((body.match(/[\u4e00-\u9fff]/g) || []).length > 800, p.url); assert.ok((body.match(/[\u0600-\u06FF]/g) || []).length < 40, p.url); }
@@ -185,7 +188,7 @@ test('the formula table matches the tools for every size', () => {
   }
 });
 
-test('sitemap lists the 12 help URLs with reciprocal alternates', () => {
+test('sitemap lists the 15 help URLs with reciprocal alternates', () => {
   const sm = fs.readFileSync(path.join(ROOT, 'sitemap.xml'), 'utf8');
   for (const p of pages) {
     const block = (sm.match(new RegExp(`<url>\\s*<loc>${(SITE + p.url).replace(/[.]/g, '\\.')}</loc>[\\s\\S]*?</url>`)) || [])[0];
