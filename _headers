@@ -20,3 +20,24 @@
 
 /steelcalc/shots/*
   Cache-Control: public, max-age=604800
+
+# Photos rarely change, so browsers keep them for 30 days and refresh them
+# quietly in the background after that. If you replace a photo in place and
+# need everyone to see it at once, save it under a new file name instead.
+# The "! Cache-Control" line drops the one-day value from /assets/* above.
+/assets/img/*
+  ! Cache-Control
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=604800
+
+/assets/brand/*
+  ! Cache-Control
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=604800
+
+/portrait*
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=604800
+
+/tools/rebarplan/screen-*
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=604800
+
+/ar/tools/rebarplan/screen-*
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=604800
