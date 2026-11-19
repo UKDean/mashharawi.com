@@ -1,0 +1,59 @@
+/* ==========================================================================
+   mashharawi.com, 404 page
+   The page sits in the noir system (site.css): warm black, bone white,
+   Inter at light weights, no accent hue. The canvas scene (notfound.js)
+   paints behind the copy on wide screens; on phones the copy follows it.
+   ========================================================================== */
+.nf{background:var(--bg,#0B0B0A);color:var(--fg,#EFEDE8)}
+.nf-hero{position:relative;min-height:clamp(760px,100svh,1060px);display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+.nf-stage{position:absolute;inset:0}
+.nf-canvas{position:absolute;inset:0;display:block}
+
+/* static 404, shown until (or instead of) the canvas */
+.nf-fallback{position:absolute;left:50%;top:30%;width:min(44vw,500px);height:auto;transform:translate(-50%,-50%)}
+.nf.is-live .nf-fallback{display:none}
+
+.nf-copy{position:relative;z-index:2;width:100%;max-width:760px;margin:0 auto;
+  padding:0 var(--pad-x,24px) clamp(36px,6vh,72px);text-align:center;
+  display:flex;flex-direction:column;align-items:center}
+.nf-copy h1{margin:0;font-weight:inherit}
+.nf-code{display:block;margin-bottom:18px}
+.nf-title{display:block;font:300 clamp(32px,3.9vw,52px)/1.06 var(--f-display,"Inter",system-ui,sans-serif);
+  letter-spacing:.06em;color:var(--fg,#EFEDE8);text-wrap:balance}
+.nf-lead{margin:18px 0 4px;font:300 clamp(17px,1.35vw,19px)/1.6 var(--f-body,"Inter",system-ui,sans-serif);color:var(--fg-2,#D0CEC8);max-width:52ch}
+.nf-sub{margin:0 0 26px;font:300 15px/1.6 var(--f-body,"Inter",system-ui,sans-serif);color:var(--fg-3,#A5A39D);max-width:52ch}
+.nf-btn{letter-spacing:.14em}
+.nf-btn span{transition:transform .25s}
+.nf-btn:hover span{transform:translateX(4px)}
+.nf-btn:focus-visible,.nf-alt a:focus-visible{outline:2px solid var(--fg,#EFEDE8);outline-offset:4px}
+.nf-alt{margin:18px 0 0;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px}
+.nf-alt a[lang="ar"]{font-family:var(--f-ar-body,"IBM Plex Sans Arabic",system-ui,sans-serif)}
+.nf-tagline{margin-top:clamp(26px,4vh,44px);display:flex;align-items:center;gap:16px;color:var(--fg-4,#8A8883)}
+.nf-tagline::before,.nf-tagline::after{content:"";width:40px;height:1px;background:var(--c-line,#2A2927)}
+.nf-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* the copy waits for the welds, then comes in one line at a time */
+.nf.is-live .nf-copy > *{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.nf.is-live.is-ready .nf-copy > *{opacity:1;transform:none}
+.nf.is-ready .nf-copy > :nth-child(2){transition-delay:.12s}
+.nf.is-ready .nf-copy > :nth-child(3){transition-delay:.22s}
+.nf.is-ready .nf-copy > :nth-child(4){transition-delay:.34s}
+.nf.is-ready .nf-copy > :nth-child(5){transition-delay:.44s}
+.nf.is-ready .nf-copy > :nth-child(6){transition-delay:.6s}
+
+/* phones: a shorter scene of its own, the copy below it */
+@media (max-width:719.98px){
+  .nf-hero{min-height:0;display:block}
+  .nf-stage{position:relative;height:clamp(380px,60svh,520px)}
+  .nf-fallback{top:52%;width:86vw}
+  .nf-copy{padding-top:4px;padding-bottom:56px}
+  .nf-title{letter-spacing:.04em}
+  .nf-tagline{letter-spacing:.1em;white-space:nowrap}
+  .nf-tagline::before,.nf-tagline::after{display:none}
+  .nf-btn{width:100%;justify-content:center}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .nf.is-live .nf-copy > *{transition:none}
+  .nf-btn span{transition:none}
+}
