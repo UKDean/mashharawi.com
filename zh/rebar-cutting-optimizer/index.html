@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" dir="ltr">
+<head>
+<meta charset="utf-8">
+<script>document.documentElement.classList.add("js")</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>钢筋下料优化计算器：12米定尺最少根数、最低损耗</title>
+<meta name="description" content="免费钢筋下料优化工具：输入或从 Excel 粘贴下料长度，得到 12 米定尺的切割方案、损耗率、可再用余料和各直径重量。在浏览器中运行，不上传数据。">
+<meta name="author" content="Omar Mashharawi">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+<link rel="canonical" href="https://mashharawi.com/zh/rebar-cutting-optimizer/">
+<link rel="alternate" hreflang="en" href="https://mashharawi.com/tools/cutting-optimizer/">
+<link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/tools/cutting-optimizer/">
+<link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/rebar-cutting-optimizer/">
+<link rel="alternate" hreflang="x-default" href="https://mashharawi.com/tools/cutting-optimizer/">
+
+<meta name="theme-color" content="#0A0A0A">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mashharawi.com/zh/rebar-cutting-optimizer/">
+<meta property="og:title" content="钢筋下料优化计算器：12米定尺最少根数、最低损耗">
+<meta property="og:description" content="免费钢筋下料优化工具：输入或从 Excel 粘贴下料长度，得到 12 米定尺的切割方案、损耗率、可再用余料和各直径重量。在浏览器中运行，不上传数据。">
+<meta property="og:site_name" content="mashharawi.com">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="ar_SA">
+<meta property="og:image" content="https://mashharawi.com/og-brand.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="stylesheet" href="/assets/site.css?v=20261031">
+<link rel="stylesheet" href="/assets/cutopt/cutopt.css?v=20261119">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Inter:wght@200..500&display=swap">
+<style>html[lang="zh-Hans"] body,html[lang="zh-Hans"] h1,html[lang="zh-Hans"] h2,html[lang="zh-Hans"] h3{font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;font-stretch:normal;letter-spacing:0}html[lang="zh-Hans"] .c-hero__title{line-height:1.25}</style>
+<link rel="icon" href="/favicon.ico?v=20261024" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=20261024">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20261024">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png?v=20261024">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=20261024">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png?v=20261024">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20261024">
+<!-- Only what the page itself states: a free browser tool. No ratings, no counts. -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebApplication",
+ "name": "钢筋下料优化计算器",
+ "url": "https://mashharawi.com/zh/rebar-cutting-optimizer/",
+ "applicationCategory": "https://schema.org/BusinessApplication",
+ "operatingSystem": "Any modern browser",
+ "browserRequirements": "Requires JavaScript",
+ "inLanguage": [
+  "en",
+  "ar",
+  "zh-Hans"
+ ],
+ "isAccessibleForFree": true,
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "SAR"
+ },
+ "author": {
+  "@type": "Person",
+  "@id": "https://mashharawi.com/#person",
+  "name": "Omar Mashharawi"
+ }
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "inLanguage": "zh-Hans",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "如何降低钢筋下料损耗？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "把相同直径和牌号的下料件组合，使每根 12 米钢筋尽量用满。本工具一次性对整个项目搜索这些组合，并给出损耗率，您可以与现场目前的损耗对比。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "结果真的是最少吗？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "显示“已证明为最少根数”时是的：用料根数等于数学下限，不存在更少的方案。显示“启发式”时方案良好但未被证明，页面会给出最多可能多用的根数。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "可以从 Excel 粘贴钢筋表吗？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "可以。复制直径、长度（米）、根数及可选的牌号列后粘贴，计算前可逐行修改。文件不会离开您的电脑。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "什么是可再用余料？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "足够长、可用于其他构件的剩余钢筋。最小长度由您设定（默认 1 米），方案按长度和数量列出全部可再用余料，更短的计为废料。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "我输入的内容会被发送吗？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "不会。计算在浏览器中完成，不保存任何数据。WhatsApp 按钮会先征得您同意，再复制汇总并打开对话，是否发送由您决定。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "工具会给出价格吗？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "不会。它给出需订购的根数和吨数。如需报价，请发给我，我会回复 Al Rajhi Steel 的正式报价。"
+   }
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "中文",
+   "item": "https://mashharawi.com/zh/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "钢筋下料优化",
+   "item": "https://mashharawi.com/zh/rebar-cutting-optimizer/"
+  }
+ ]
+}
+</script>
+<script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/cdn-cgi/*"}}]},"eagerness":"moderate"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="c-header">
+  <a class="c-header__name" href="/zh/"><img class="c-header__mark" src="/assets/brand/mark-64.png" width="32" height="32" alt="">Omar Mashharawi · 钢筋</a>
+  <nav class="c-header__nav" aria-label="主菜单">
+    <a href="/zh/rebar/">钢筋供应</a>
+    <a href="/zh/rebar-cutting-bending/">切割与弯曲</a>
+    <a href="/zh/rebar-cutting-optimizer/" aria-current="page">下料优化</a>
+    <a href="/zh/rebar-weight-table/">重量表</a>
+    <a href="/zh/rebar-quotation-guide/">询价指南</a>
+    <a href="/tools/cutting-optimizer/" hreflang="en" lang="en" class="c-header__lang">English</a>
+    <a href="/ar/tools/cutting-optimizer/" hreflang="ar" lang="ar" class="c-header__lang">العربية</a>
+  </nav>
+  <button class="c-header__menu" type="button" aria-label="菜单" aria-expanded="false"><span></span><span></span></button>
+</header>
+
+<main id="main">
+  <section class="c-hero c-hero--full c-hero--short" aria-labelledby="co-h">
+    <img class="c-hero__img" src="/assets/img/rebar-bending-1600.webp" srcset="/assets/img/rebar-bending-800.webp 800w, /assets/img/rebar-bending-1600.webp 1600w, /assets/img/rebar-bending-2560.webp 2560w" sizes="100vw" width="1600" height="873" alt="" fetchpriority="high" decoding="async">
+    <div class="c-hero__shade"></div>
+    <div class="c-hero__body">
+      <div class="c-hero__text">
+        <p class="c-label">在线工具 &middot; 浏览器内运行 &middot; 免费</p>
+        <h1 class="c-hero__title" id="co-h">用最少的定尺钢筋完成下料。</h1>
+        <p class="c-hero__lead">填写所需的下料长度，工具会计算如何从 12&nbsp;米定尺钢筋中以最低损耗切出，说明方案是否已被证明为最少根数，并给出每种直径需要订购的根数和吨数。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="optimizer" class="sec c-after-hero">
+    <div class="wrap">
+      <div class="calc" id="cutopt">
+
+        <div class="co-panel co-input">
+          <p class="calc-lbl">定尺与切割</p>
+          <div class="co-set">
+            <label class="calc-field"><span>定尺长度，米</span><input id="coStock" type="text" inputmode="decimal" value="12"><small>沙特市场标准定尺为 12 米。</small></label>
+            <label class="calc-field"><span>锯缝，毫米</span><input id="coKerf" type="number" min="0" max="20" step="1" inputmode="numeric" value="0"><small>剪切机为 0；锯切约 3 毫米。</small></label>
+            <label class="calc-field"><span>每件加长余量，毫米</span><input id="coAllow" type="number" min="0" max="200" step="1" inputmode="numeric" value="0"><small>可选，每件增加的长度。</small></label>
+            <label class="calc-field"><span>可再用余料起，米</span><input id="coMinOff" type="text" inputmode="decimal" value="1"><small>更短的余料计为废料。</small></label>
+          </div>
+        </div>
+
+        <div class="co-panel co-input">
+          <p class="calc-lbl">下料单</p>
+          <table class="co-table">
+            <thead><tr><th scope="col">直径 mm</th><th scope="col">牌号</th><th scope="col">长度 m</th><th scope="col">根数</th><th scope="col"><span class="vh">删除</span></th></tr></thead>
+            <tbody id="coRows"></tbody>
+          </table>
+          <p class="calc-empty" id="coEmpty" hidden>添加所需下料长度，或从 Excel 粘贴。</p>
+          <p class="calc-hint">Al Rajhi Steel 规格：10、12、14、16、18、20、25、32 毫米。其他直径可在此计算，但不在我报价的规格范围内。</p>
+          <datalist id="coDiaList"></datalist>
+          <datalist id="coGradeList"><option value="Gr60"></option><option value="Gr80"></option></datalist>
+
+          <div class="co-actions">
+            <button type="button" class="calc-btn ghost" id="coAdd">添加一行</button>
+            <button type="button" class="calc-btn ghost grow" id="coExample">载入示例</button>
+            <button type="button" class="calc-btn ok" id="coRun">计算最优下料</button>
+          </div>
+          <p class="co-msg" id="coMsg" role="status" aria-live="polite"></p>
+
+          <details class="co-paste">
+            <summary>从 Excel 粘贴</summary>
+            <div>
+              <p>复制 <b>直径、长度（米）、根数</b> 三列，牌号可选，然后粘贴。大于 100 的长度按毫米读取。不会上传任何文件。</p>
+              <textarea id="coPaste" spellcheck="false" placeholder="16	3.45	120	Gr60
+12	2.875	300	Gr60"></textarea>
+              <button type="button" class="calc-btn" id="coPasteGo">导入</button>
+            </div>
+          </details>
+        </div>
+
+        <div class="co-panel" id="coOut" hidden>
+          <div class="co-report-head">
+            <h2>钢筋下料方案</h2>
+            <p class="co-meta">mashharawi.com &middot; <span id="coDate"></span></p>
+          </div>
+          <div class="co-status" id="coStatus"></div>
+          <dl class="co-figs">
+          <div>
+            <dt id="fBarsLbl">定尺钢筋根数</dt>
+            <dd><b id="fBars">0</b><span>根</span></dd>
+          </div>
+          <div>
+            <dt>利用率</dt>
+            <dd><b id="fUtil">0</b><span>%</span></dd>
+          </div>
+          <div>
+            <dt>损耗</dt>
+            <dd><b id="fWaste">0</b><span>%</span></dd>
+          </div>
+          <div>
+            <dt>需采购重量</dt>
+            <dd><b id="fWt">0</b><span>吨</span></dd>
+          </div>
+          </dl>
+          <p class="co-meta" id="coSet"></p>
+
+          <div class="co-scroll">
+            <table class="calc-table co-sum">
+              <caption class="vh">按直径和牌号汇总</caption>
+              <thead><tr><th scope="col">直径</th><th scope="col">牌号</th><th scope="col" class="num">件数</th><th scope="col" class="num">根数</th><th scope="col" class="num">需用 m</th><th scope="col" class="num">采购 m</th><th scope="col" class="num">损耗 m</th><th scope="col" class="num">损耗 %</th><th scope="col" class="num">可再用 m</th><th scope="col" class="num">重量 吨</th><th scope="col">结果</th></tr></thead>
+              <tbody id="coSum"></tbody>
+              <tfoot id="coSumFoot"></tfoot>
+            </table>
+          </div>
+
+          <h2 class="calc-lbl" style="margin-top:clamp(26px,3vw,38px)">下料方案</h2>
+          <div class="co-legend" aria-hidden="true"><span><i class="l-cut"></i>下料件</span><span><i class="l-re"></i>可再用余料</span><span><i class="l-scrap"></i>废料</span></div>
+          <div id="coPatterns"></div>
+
+          <div class="co-actions">
+            <button type="button" class="calc-btn ghost" id="coCsv">下载 CSV</button>
+            <button type="button" class="calc-btn ghost grow" id="coPrint">打印 / PDF</button>
+            <button type="button" class="calc-btn ok" id="coSend">通过 WhatsApp 发送方案</button>
+          </div>
+        </div>
+
+        <p class="calc-foot">重量为理论重量：0.006165 &times; d&sup2; 公斤/米，密度 7,850 公斤/立方米，与<a href="/zh/rebar-weight-table/">钢筋重量表</a>相同。本工具仅供规划参考，切割前请按批准的加工图核对长度；它不是报价。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="q-band" aria-labelledby="qb-h">
+    <div class="wrap">
+      <p class="q-eyebrow">钢筋供应 &middot; Al Rajhi Steel</p>
+      <h2 id="qb-h">把钢筋数量发来询价。</h2>
+      <p>把本方案中各直径的根数和吨数、牌号以及项目城市发给我，我会回复 Al Rajhi Steel（拉吉希钢铁）的正式钢筋报价，我在该公司担任部门主管。按指定长度切割须经确认，弯曲要求须在报价前确认。</p>
+      <ul class="q-facts">
+        <li>规格 10、12、14、16、18、20、25、32 毫米 &middot; 12 米定尺</li><li>Grade 60 与 Grade 80</li><li>可供应环氧涂层钢筋</li><li>按订购规格和牌号提供质保书（MTC）</li><li>按指定长度切割，须经确认</li><li>弯曲要求须在报价前确认</li><li>付款确认或信用证（LC）批准后安排供货，须符合公司流程、产品库存情况及约定的交货计划</li>
+      </ul>
+      <div class="q-actions">
+        <a class="q-btn q-btn--wa" href="https://wa.me/message/D6ABM7QFWVSPB1" target="_blank" rel="noopener">WhatsApp 询价</a>
+        <a class="q-btn q-btn--line" href="/zh/rebar/">供应详情</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec co-how" aria-labelledby="how-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="how-h">工作原理。</h2>
+      </div>
+      <div class="lead">
+        <p>所有长度换算为整数毫米，避免舍入误差。只有相同直径、相同牌号的下料件才会组合在一起。</p>
+        <p>每次切割消耗一个锯缝。一根钢筋切成 n 件需要 n 刀；如果最后一件正好到钢筋末端，则只需 n&minus;1 刀，工具按此计算。</p>
+        <p>工具用列生成法（Gilmore&ndash;Gomory）求解下料问题的线性松弛，取整为整根钢筋，同时运行三种快速启发式算法（顺序最佳填充、首次适应递减、最佳适应递减），保留用料最少的方案。</p>
+        <p>然后将方案与理论下限比较：取 Martello&ndash;Toth 下限与线性最优值向上取整中的较大者。两者相等时显示<b>已证明为最少根数</b>：不存在用料更少的方案，在单一定尺下这也是最低损耗。否则显示为启发式结果，并给出最大可能差距。工具绝不声称未经证明的最优解。</p>
+        <p>损耗是指已采购但未作为所需下料件交付的部分：锯缝、余量和余料。长度达到您设定值的余料列为可再用，更短的计为废料。</p>
+      </div>
+      <p class="note-back">相关页面：<a href="/zh/rebar-cutting-bending/">钢筋切割与弯曲</a>、<a href="/zh/rebar-weight-table/">钢筋重量表</a>、<a href="/tools/rebarplan/">RebarPlan</a>（桌面软件，含钢筋表、弯曲形状和料牌，支持中文）。</p>
+
+      <section class="faq rise" aria-labelledby="faq-h">
+        <h2 id="faq-h">常见问题</h2>
+        <details>
+          <summary>如何降低钢筋下料损耗？</summary>
+          <p>把相同直径和牌号的下料件组合，使每根 12 米钢筋尽量用满。本工具一次性对整个项目搜索这些组合，并给出损耗率，您可以与现场目前的损耗对比。</p>
+        </details>
+        <details>
+          <summary>结果真的是最少吗？</summary>
+          <p>显示“已证明为最少根数”时是的：用料根数等于数学下限，不存在更少的方案。显示“启发式”时方案良好但未被证明，页面会给出最多可能多用的根数。</p>
+        </details>
+        <details>
+          <summary>可以从 Excel 粘贴钢筋表吗？</summary>
+          <p>可以。复制直径、长度（米）、根数及可选的牌号列后粘贴，计算前可逐行修改。文件不会离开您的电脑。</p>
+        </details>
+        <details>
+          <summary>什么是可再用余料？</summary>
+          <p>足够长、可用于其他构件的剩余钢筋。最小长度由您设定（默认 1 米），方案按长度和数量列出全部可再用余料，更短的计为废料。</p>
+        </details>
+        <details>
+          <summary>我输入的内容会被发送吗？</summary>
+          <p>不会。计算在浏览器中完成，不保存任何数据。WhatsApp 按钮会先征得您同意，再复制汇总并打开对话，是否发送由您决定。</p>
+        </details>
+        <details>
+          <summary>工具会给出价格吗？</summary>
+          <p>不会。它给出需订购的根数和吨数。如需报价，请发给我，我会回复 Al Rajhi Steel 的正式报价。</p>
+        </details>
+      </section>
+    </div>
+  </section>
+</main>
+
+<footer class="c-footer">
+  <div class="c-footer__quote">
+    <p>沙特钢筋供应、切割加工与重量计算的中文资料。</p>
+    <a class="c-label" href="/zh/">全部中文页面 &rarr;</a>
+  </div>
+  <div class="c-footer__base">
+    <span>&copy; <span id="yr">2026</span> Omar Mashharawi</span>
+    <a href="mailto:info@mashharawi.com">info@mashharawi.com</a>
+    <a href="/about/">About</a>
+    <a href="/contact/">Contact</a>
+    <a href="/privacy/">Privacy</a>
+  </div>
+</footer>
+<script src="/assets/site.js?v=20261015" defer></script>
+<script src="/assets/cutopt/engine.js?v=20261119" defer></script>
+<script src="/assets/cutopt/app.js?v=20261119" defer></script>
+<script src="/assets/quote.js?v=20261019" defer></script>
+</body>
+</html>

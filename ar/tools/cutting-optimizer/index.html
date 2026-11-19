@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<script>document.documentElement.classList.add("js")</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>برنامج تحسين قص حديد التسليح: أقل عدد أسياخ وأقل هدر | عمر المشهراوي</title>
+<meta name="description" content="أداة مجانية لتحسين قص حديد التسليح: أدخل أو الصق أطوال القص واحصل على أنماط القص من أسياخ 12 م ونسبة الهدر والبواقي القابلة للاستخدام والوزن لكل قطر. تعمل في متصفحك.">
+<meta name="author" content="عمر المشهراوي">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+<link rel="canonical" href="https://mashharawi.com/ar/tools/cutting-optimizer/">
+<link rel="alternate" hreflang="en" href="https://mashharawi.com/tools/cutting-optimizer/">
+<link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/tools/cutting-optimizer/">
+<link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/rebar-cutting-optimizer/">
+<link rel="alternate" hreflang="x-default" href="https://mashharawi.com/tools/cutting-optimizer/">
+
+<meta name="theme-color" content="#0A0A0A">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mashharawi.com/ar/tools/cutting-optimizer/">
+<meta property="og:title" content="برنامج تحسين قص حديد التسليح: أقل عدد أسياخ وأقل هدر | عمر المشهراوي">
+<meta property="og:description" content="أداة مجانية لتحسين قص حديد التسليح: أدخل أو الصق أطوال القص واحصل على أنماط القص من أسياخ 12 م ونسبة الهدر والبواقي القابلة للاستخدام والوزن لكل قطر. تعمل في متصفحك.">
+<meta property="og:site_name" content="mashharawi.com">
+<meta property="og:locale" content="ar_SA">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta property="og:image" content="https://mashharawi.com/og-brand.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="stylesheet" href="/assets/site.css?v=20261031">
+<link rel="stylesheet" href="/assets/cutopt/cutopt.css?v=20261119">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@200;300;400;500&family=Inter:wght@200..500&display=swap">
+
+<link rel="icon" href="/favicon.ico?v=20261024" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=20261024">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20261024">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png?v=20261024">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=20261024">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png?v=20261024">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20261024">
+<!-- Only what the page itself states: a free browser tool. No ratings, no counts. -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebApplication",
+ "name": "برنامج تحسين قص حديد التسليح",
+ "url": "https://mashharawi.com/ar/tools/cutting-optimizer/",
+ "applicationCategory": "https://schema.org/BusinessApplication",
+ "operatingSystem": "Any modern browser",
+ "browserRequirements": "Requires JavaScript",
+ "inLanguage": [
+  "en",
+  "ar",
+  "zh-Hans"
+ ],
+ "isAccessibleForFree": true,
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "SAR"
+ },
+ "author": {
+  "@type": "Person",
+  "@id": "https://mashharawi.com/#person",
+  "name": "Omar Mashharawi"
+ }
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "inLanguage": "ar",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "كيف أقلل هدر قص حديد التسليح؟",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "بتجميع القطع من نفس القطر والدرجة بحيث يمتلئ كل سيخ 12 م بأكبر قدر ممكن. الأداة تبحث في هذه التجميعات للمشروع كاملاً دفعة واحدة وتعطيك نسبة الهدر، فتقارنها بما يضيع في الموقع اليوم."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "هل النتيجة فعلاً هي الأقل؟",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "إذا ظهر «أقل عدد مُثبَت» فنعم: عدد الأسياخ يساوي حداً أدنى رياضياً، فلا توجد خطة بعدد أقل. وإذا ظهرت «تقريبية» فالخطة جيدة لكنها غير مُثبَتة، وتعرض الأداة أكبر عدد أسياخ يمكن أن تزيد به على الحد الأدنى."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "هل أستطيع لصق جدول التفريد من الإكسل؟",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "نعم. انسخ أعمدة القطر والطول بالمتر والعدد والدرجة اختيارياً، والصقها. تستطيع تعديل أي بند قبل الحساب. والملف لا يغادر جهازك."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "ما هي البواقي القابلة للاستخدام؟",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "قطع متبقية طويلة بما يكفي لاستخدامها في عنصر آخر. تحدد أنت الحد الأدنى للطول (1 م افتراضياً)، والخطة تعرض كل البواقي القابلة للاستخدام بالطول والعدد، وما هو أقصر يُحسب سكراب."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "هل يُرسَل أي شيء أكتبه؟",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "لا. الحساب يتم في متصفحك ولا يُحفظ شيء. زر واتساب يسألك أولاً، ثم ينسخ الملخص ويفتح المحادثة، وأنت تقرر هل ترسله."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "هل تعطيني الأداة سعراً؟",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "لا. تعطيك عدد الأسياخ والأطنان المطلوبة. لعرض السعر أرسلها لي وأرد عليك بعرض سعر رسمي من الراجحي للحديد."
+   }
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "الرئيسية",
+   "item": "https://mashharawi.com/ar/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "الأدوات",
+   "item": "https://mashharawi.com/ar/tools/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "تحسين قص الحديد",
+   "item": "https://mashharawi.com/ar/tools/cutting-optimizer/"
+  }
+ ]
+}
+</script>
+<script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/cdn-cgi/*"}}]},"eagerness":"moderate"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">تخطَّ إلى المحتوى</a>
+
+<header class="c-header">
+  <a class="c-header__name" href="/ar/"><img class="c-header__mark" src="/assets/brand/mark-64.png" width="32" height="32" alt="">عمر المشهراوي</a>
+  <nav class="c-header__nav" aria-label="الرئيسية">
+    <a href="/ar/#about">نبذة</a>
+    <a href="/ar/#experience">الخبرة</a>
+    <a href="/ar/tools/" aria-current="page">الأدوات</a>
+    <a href="/ar/writing/">المقالات</a>
+    <a href="/ar/#contact">تواصل</a>
+    <a href="/tools/cutting-optimizer/" hreflang="en" lang="en" class="c-header__lang">English</a>
+    <a href="/zh/rebar-cutting-optimizer/" hreflang="zh-Hans" lang="zh-Hans" class="c-header__lang">中文</a>
+  </nav>
+  <button class="c-header__menu" type="button" aria-label="القائمة" aria-expanded="false"><span></span><span></span></button>
+</header>
+
+<main id="main">
+  <section class="c-hero c-hero--full c-hero--short" aria-labelledby="co-h">
+    <img class="c-hero__img" src="/assets/img/rebar-bending-1600.webp" srcset="/assets/img/rebar-bending-800.webp 800w, /assets/img/rebar-bending-1600.webp 1600w, /assets/img/rebar-bending-2560.webp 2560w" sizes="100vw" width="1600" height="873" alt="" fetchpriority="high" decoding="async">
+    <div class="c-hero__shade"></div>
+    <div class="c-hero__body">
+      <div class="c-hero__text">
+        <p class="c-label">الأدوات / تحسين القص &middot; في المتصفح &middot; مجاناً</p>
+        <h1 class="c-hero__title" id="co-h">اقطع مشروعك من أقل عدد أسياخ.</h1>
+        <p class="c-hero__lead">اكتب الأطوال التي تحتاجها، وتحسب الأداة أفضل طريقة لقصّها من أسياخ 12&nbsp;م بأقل هدر، وتخبرك هل الخطة مُثبَت أنها الأقل، وتعطيك عدد الأسياخ والأطنان المطلوبة لكل قطر.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="optimizer" class="sec c-after-hero">
+    <div class="wrap">
+      <div class="calc" id="cutopt">
+
+        <div class="co-panel co-input">
+          <p class="calc-lbl">السيخ وطريقة القص</p>
+          <div class="co-set">
+            <label class="calc-field"><span>طول السيخ، م</span><input id="coStock" type="text" inputmode="decimal" value="12"><small>12 م هو الطول القياسي في السوق السعودي.</small></label>
+            <label class="calc-field"><span>فاقد القص، مم</span><input id="coKerf" type="number" min="0" max="20" step="1" inputmode="numeric" value="0"><small>0 للقص بالمقص، وحوالي 3 مم للمنشار.</small></label>
+            <label class="calc-field"><span>سماحية لكل قطعة، مم</span><input id="coAllow" type="number" min="0" max="200" step="1" inputmode="numeric" value="0"><small>طول إضافي اختياري لكل قطعة.</small></label>
+            <label class="calc-field"><span>البواقي القابلة للاستخدام من، م</span><input id="coMinOff" type="text" inputmode="decimal" value="1"><small>ما هو أقصر يُحسب سكراب.</small></label>
+          </div>
+        </div>
+
+        <div class="co-panel co-input">
+          <p class="calc-lbl">جدول القص</p>
+          <table class="co-table">
+            <thead><tr><th scope="col">القطر مم</th><th scope="col">الدرجة</th><th scope="col">الطول م</th><th scope="col">العدد</th><th scope="col"><span class="vh">حذف</span></th></tr></thead>
+            <tbody id="coRows"></tbody>
+          </table>
+          <p class="calc-empty" id="coEmpty" hidden>أضف أطوال القص المطلوبة، أو الصقها من الإكسل.</p>
+          <p class="calc-hint">مقاسات الراجحي للحديد: 10، 12، 14، 16، 18، 20، 25، 32 مم. يمكن حساب أقطار أخرى هنا، لكنها خارج المقاسات التي أقدّم لها عروض أسعار.</p>
+          <datalist id="coDiaList"></datalist>
+          <datalist id="coGradeList"><option value="Gr60"></option><option value="Gr80"></option></datalist>
+
+          <div class="co-actions">
+            <button type="button" class="calc-btn ghost" id="coAdd">أضف بنداً</button>
+            <button type="button" class="calc-btn ghost grow" id="coExample">حمّل مثالاً</button>
+            <button type="button" class="calc-btn ok" id="coRun">احسب أفضل خطة قص</button>
+          </div>
+          <p class="co-msg" id="coMsg" role="status" aria-live="polite"></p>
+
+          <details class="co-paste">
+            <summary>الصق من الإكسل</summary>
+            <div>
+              <p>انسخ الأعمدة <b>القطر، الطول بالمتر، العدد</b>، والدرجة اختيارياً، ثم الصقها هنا. الأطوال الأكبر من 100 تُقرأ بالمليمتر. لا يُرفع أي ملف.</p>
+              <textarea id="coPaste" spellcheck="false" placeholder="16	3.45	120	Gr60
+12	2.875	300	Gr60"></textarea>
+              <button type="button" class="calc-btn" id="coPasteGo">استورد البنود</button>
+            </div>
+          </details>
+        </div>
+
+        <div class="co-panel" id="coOut" hidden>
+          <div class="co-report-head">
+            <h2>خطة قص حديد التسليح</h2>
+            <p class="co-meta">mashharawi.com &middot; <span id="coDate"></span></p>
+          </div>
+          <div class="co-status" id="coStatus"></div>
+          <dl class="co-figs">
+          <div>
+            <dt id="fBarsLbl">الأسياخ المطلوبة</dt>
+            <dd><b id="fBars">0</b><span>سيخ</span></dd>
+          </div>
+          <div>
+            <dt>نسبة الاستفادة</dt>
+            <dd><b id="fUtil">0</b><span>%</span></dd>
+          </div>
+          <div>
+            <dt>الهدر</dt>
+            <dd><b id="fWaste">0</b><span>%</span></dd>
+          </div>
+          <div>
+            <dt>الوزن المطلوب شراؤه</dt>
+            <dd><b id="fWt">0</b><span>طن</span></dd>
+          </div>
+          </dl>
+          <p class="co-meta" id="coSet"></p>
+
+          <div class="co-scroll">
+            <table class="calc-table co-sum">
+              <caption class="vh">الملخص حسب القطر والدرجة</caption>
+              <thead><tr><th scope="col">القطر</th><th scope="col">الدرجة</th><th scope="col" class="num">القطع</th><th scope="col" class="num">الأسياخ</th><th scope="col" class="num">المطلوب م</th><th scope="col" class="num">المشترى م</th><th scope="col" class="num">الهدر م</th><th scope="col" class="num">الهدر %</th><th scope="col" class="num">قابل للاستخدام م</th><th scope="col" class="num">الوزن طن</th><th scope="col">النتيجة</th></tr></thead>
+              <tbody id="coSum"></tbody>
+              <tfoot id="coSumFoot"></tfoot>
+            </table>
+          </div>
+
+          <h2 class="calc-lbl" style="margin-top:clamp(26px,3vw,38px)">أنماط القص</h2>
+          <div class="co-legend" aria-hidden="true"><span><i class="l-cut"></i>قطعة</span><span><i class="l-re"></i>بواقي قابلة للاستخدام</span><span><i class="l-scrap"></i>سكراب</span></div>
+          <div id="coPatterns"></div>
+
+          <div class="co-actions">
+            <button type="button" class="calc-btn ghost" id="coCsv">تنزيل CSV</button>
+            <button type="button" class="calc-btn ghost grow" id="coPrint">طباعة / PDF</button>
+            <button type="button" class="calc-btn ok" id="coSend">أرسل الخطة على واتساب</button>
+          </div>
+        </div>
+
+        <p class="calc-foot">الأوزان اسمية: 0.006165 &times; ق&sup2; كجم/م بكثافة 7,850 كجم/م&sup3;، وهي نفس معادلة <a href="/ar/tools/rebar-weight/">حاسبة وزن الحديد</a>. هذه أداة تخطيط: راجع الأطوال مع المخططات المعتمدة قبل القص. وهي ليست عرض سعر.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="q-band" aria-labelledby="qb-h">
+    <div class="wrap">
+      <p class="q-eyebrow">توريد حديد التسليح &middot; الراجحي للحديد</p>
+      <h2 id="qb-h">أرسل الأسياخ لعرض سعر.</h2>
+      <p>أرسل لي الأسياخ والأطنان لكل قطر من هذه الخطة مع الدرجة ومدينة المشروع، وأرجع لك بعرض سعر رسمي لحديد التسليح من الراجحي للحديد، حيث أعمل رئيس قسم. القص حسب الأطوال المحددة يخضع للتأكيد، ومتطلبات الثني يجب تأكيدها قبل عرض السعر.</p>
+      <ul class="q-facts">
+        <li>المقاسات 10، 12، 14، 16، 18، 20، 25، 32 مم &middot; طول 12 م</li><li>Grade 60 و Grade 80</li><li>يتوفر حديد تسليح مدهون بالإيبوكسي</li><li>شهادات المطحنة (MTC) للمقاسات والدرجة المطلوبة</li><li>القص حسب الأطوال المحددة، بعد التأكيد</li><li>تأكيد متطلبات الثني قبل عرض السعر</li><li>التوريد بعد تأكيد الدفع أو اعتماد الاعتماد المستندي (LC)، وفق إجراءات الشركة وتوفر المنتج وجدول التسليم المتفق عليه</li>
+      </ul>
+      <div class="q-actions">
+        <a class="q-btn q-btn--wa" href="https://wa.me/message/D6ABM7QFWVSPB1" target="_blank" rel="noopener">أرسل الكميات على واتساب</a>
+        <a class="q-btn q-btn--line" href="/ar/rebar/">تفاصيل التوريد</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec co-how" aria-labelledby="how-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="how-h">كيف تعمل الأداة.</h2>
+      </div>
+      <div class="lead">
+        <p>كل الأطوال تُحوَّل إلى مليمترات صحيحة، فلا يحدث انحراف في التقريب. ولا تُجمع قطعة إلا مع قطع من نفس القطر ونفس الدرجة.</p>
+        <p>كل قصة تستهلك فاقد القص. السيخ المقسوم إلى n قطعة يحتاج n قصة، أو n&minus;1 إذا انتهت آخر قطعة عند نهاية السيخ تماماً، والأداة تحسبها بهذه الطريقة.</p>
+        <p>تحل الأداة النموذج الخطي لمسألة قص المخزون بطريقة توليد الأعمدة (Gilmore&ndash;Gomory)، وتقرّبه إلى أسياخ كاملة، وتشغّل أيضاً ثلاث طرق سريعة (أفضل تعبئة متتالية، والتعبئة الأولى التنازلية، وأفضل تعبئة تنازلية)، وتختار الخطة الأقل أسياخاً.</p>
+        <p>ثم تقارن الخطة بحد أدنى نظري: الأكبر بين حد Martello&ndash;Toth والحل الخطي مقرّباً لأعلى. إذا تساويا تظهر النتيجة <b>أقل عدد مُثبَت</b>: لا توجد خطة بأسياخ أقل، ومع طول سيخ واحد هذا يعني أقل هدر ممكن أيضاً. وإلا تظهر كنتيجة تقريبية مع أكبر فرق ممكن. ولا تدّعي الأداة أبداً حلاً أمثل لم تُثبته.</p>
+        <p>الهدر هو كل ما اشتُري ولم يُسلَّم كقطعة مطلوبة: فاقد القص والسماحية والبواقي. البواقي التي طولها يساوي أو يزيد على الحد الذي تحدده تُعرض كقابلة للاستخدام، والأقصر منها سكراب.</p>
+      </div>
+      <p class="note-back">ذو صلة: <a href="/ar/tools/rebar-weight/">حاسبة وزن الحديد</a>، و<a href="/ar/tools/rebarplan/">RebarPlan</a> (برنامج مكتبي لجدول التفريد وأشكال الثني وملصقات الورشة)، و<a href="/ar/writing/">مقالات عن الحديد</a>.</p>
+
+      <section class="faq rise" aria-labelledby="faq-h">
+        <h2 id="faq-h">أسئلة شائعة</h2>
+        <details>
+          <summary>كيف أقلل هدر قص حديد التسليح؟</summary>
+          <p>بتجميع القطع من نفس القطر والدرجة بحيث يمتلئ كل سيخ 12 م بأكبر قدر ممكن. الأداة تبحث في هذه التجميعات للمشروع كاملاً دفعة واحدة وتعطيك نسبة الهدر، فتقارنها بما يضيع في الموقع اليوم.</p>
+        </details>
+        <details>
+          <summary>هل النتيجة فعلاً هي الأقل؟</summary>
+          <p>إذا ظهر «أقل عدد مُثبَت» فنعم: عدد الأسياخ يساوي حداً أدنى رياضياً، فلا توجد خطة بعدد أقل. وإذا ظهرت «تقريبية» فالخطة جيدة لكنها غير مُثبَتة، وتعرض الأداة أكبر عدد أسياخ يمكن أن تزيد به على الحد الأدنى.</p>
+        </details>
+        <details>
+          <summary>هل أستطيع لصق جدول التفريد من الإكسل؟</summary>
+          <p>نعم. انسخ أعمدة القطر والطول بالمتر والعدد والدرجة اختيارياً، والصقها. تستطيع تعديل أي بند قبل الحساب. والملف لا يغادر جهازك.</p>
+        </details>
+        <details>
+          <summary>ما هي البواقي القابلة للاستخدام؟</summary>
+          <p>قطع متبقية طويلة بما يكفي لاستخدامها في عنصر آخر. تحدد أنت الحد الأدنى للطول (1 م افتراضياً)، والخطة تعرض كل البواقي القابلة للاستخدام بالطول والعدد، وما هو أقصر يُحسب سكراب.</p>
+        </details>
+        <details>
+          <summary>هل يُرسَل أي شيء أكتبه؟</summary>
+          <p>لا. الحساب يتم في متصفحك ولا يُحفظ شيء. زر واتساب يسألك أولاً، ثم ينسخ الملخص ويفتح المحادثة، وأنت تقرر هل ترسله.</p>
+        </details>
+        <details>
+          <summary>هل تعطيني الأداة سعراً؟</summary>
+          <p>لا. تعطيك عدد الأسياخ والأطنان المطلوبة. لعرض السعر أرسلها لي وأرد عليك بعرض سعر رسمي من الراجحي للحديد.</p>
+        </details>
+      </section>
+    </div>
+  </section>
+</main>
+
+<footer class="c-footer">
+  <div class="c-footer__quote">
+    <p>ملاحظات عن الأوزان والسماحيات وما يصل إلى الفاتورة.</p>
+    <a class="c-label" href="/ar/writing/">كل المقالات ←</a>
+  </div>
+  <div class="c-footer__base">
+    <span>&copy; <span id="yr">2026</span> عمر المشهراوي</span>
+    <a href="mailto:info@mashharawi.com">info@mashharawi.com</a>
+    <a href="/ar/about/">نبذة</a>
+    <a href="/ar/contact/">تواصل</a>
+    <a href="/ar/privacy/">الخصوصية</a>
+  </div>
+</footer>
+<script src="/assets/site.js?v=20261015" defer></script>
+<script src="/assets/cutopt/engine.js?v=20261119" defer></script>
+<script src="/assets/cutopt/app.js?v=20261119" defer></script>
+<script src="/assets/quote.js?v=20261019" defer></script>
+</body>
+</html>

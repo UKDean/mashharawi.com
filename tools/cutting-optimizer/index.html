@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<script>document.documentElement.classList.add("js")</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Rebar Cutting Optimizer: Fewest 12 m Bars, Least Waste | Omar Mashharawi</title>
+<meta name="description" content="Free rebar cutting optimizer: paste your cut lengths and get cutting patterns from 12 m bars, waste %, reusable offcuts and weight per diameter, in your browser.">
+<meta name="author" content="Omar Mashharawi">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+<link rel="canonical" href="https://mashharawi.com/tools/cutting-optimizer/">
+<link rel="alternate" hreflang="en" href="https://mashharawi.com/tools/cutting-optimizer/">
+<link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/tools/cutting-optimizer/">
+<link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/rebar-cutting-optimizer/">
+<link rel="alternate" hreflang="x-default" href="https://mashharawi.com/tools/cutting-optimizer/">
+
+<meta name="theme-color" content="#0A0A0A">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mashharawi.com/tools/cutting-optimizer/">
+<meta property="og:title" content="Rebar Cutting Optimizer: Fewest 12 m Bars, Least Waste | Omar Mashharawi">
+<meta property="og:description" content="Free rebar cutting optimizer: paste your cut lengths and get cutting patterns from 12 m bars, waste %, reusable offcuts and weight per diameter, in your browser.">
+<meta property="og:site_name" content="mashharawi.com">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ar_SA">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta property="og:image" content="https://mashharawi.com/og-brand.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="stylesheet" href="/assets/site.css?v=20261031">
+<link rel="stylesheet" href="/assets/cutopt/cutopt.css?v=20261119">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200..500&display=swap">
+
+<link rel="icon" href="/favicon.ico?v=20261024" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=20261024">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20261024">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png?v=20261024">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=20261024">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png?v=20261024">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20261024">
+<!-- Only what the page itself states: a free browser tool. No ratings, no counts. -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebApplication",
+ "name": "Rebar Cutting Optimizer",
+ "url": "https://mashharawi.com/tools/cutting-optimizer/",
+ "applicationCategory": "https://schema.org/BusinessApplication",
+ "operatingSystem": "Any modern browser",
+ "browserRequirements": "Requires JavaScript",
+ "inLanguage": [
+  "en",
+  "ar",
+  "zh-Hans"
+ ],
+ "isAccessibleForFree": true,
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "SAR"
+ },
+ "author": {
+  "@type": "Person",
+  "@id": "https://mashharawi.com/#person",
+  "name": "Omar Mashharawi"
+ }
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "inLanguage": "en",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "How do I reduce rebar cutting waste?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Combine pieces of the same diameter and grade so each 12 m bar is filled as completely as possible. The optimizer searches those combinations for the whole job at once and reports the waste percentage, so you can compare it with what the site is losing today."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is the result really the minimum?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "When the page says proven minimum, yes: the number of bars equals a mathematical lower bound, so no plan can use fewer. When it says heuristic, the plan is good but not proven, and the page shows how many bars it could be above the minimum at most."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can I paste my bar bending schedule from Excel?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. Copy the columns diameter, length in metres, pieces and optionally grade, and paste them. You can correct any line before you calculate. The file never leaves your computer."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What are reusable offcuts?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Leftovers long enough to use on another element. You set the minimum length, 1 m by default; the plan lists every reusable offcut by length and count, and anything shorter is counted as scrap."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is anything I enter sent anywhere?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. The calculation runs in your browser and nothing is stored. The WhatsApp button asks first, then copies a summary and opens the chat; you decide whether to send it."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Does this give me a price?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. It gives the bars and tonnes to order. For a quotation, send them to me and I will reply with an official Al Rajhi Steel quotation."
+   }
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Home",
+   "item": "https://mashharawi.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Tools",
+   "item": "https://mashharawi.com/tools/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Rebar cutting optimizer",
+   "item": "https://mashharawi.com/tools/cutting-optimizer/"
+  }
+ ]
+}
+</script>
+<script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/cdn-cgi/*"}}]},"eagerness":"moderate"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="c-header">
+  <a class="c-header__name" href="/"><img class="c-header__mark" src="/assets/brand/mark-64.png" width="32" height="32" alt="">Omar Mashharawi</a>
+  <nav class="c-header__nav" aria-label="Main">
+    <a href="/#about">About</a>
+    <a href="/#experience">Experience</a>
+    <a href="/tools/" aria-current="page">Tools</a>
+    <a href="/writing/">Writing</a>
+    <a href="/#contact">Contact</a>
+    <a href="/ar/tools/cutting-optimizer/" hreflang="ar" lang="ar" class="c-header__lang">العربية</a>
+    <a href="/zh/rebar-cutting-optimizer/" hreflang="zh-Hans" lang="zh-Hans" class="c-header__lang">中文</a>
+  </nav>
+  <button class="c-header__menu" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+</header>
+
+<main id="main">
+  <section class="c-hero c-hero--full c-hero--short" aria-labelledby="co-h">
+    <img class="c-hero__img" src="/assets/img/rebar-bending-1600.webp" srcset="/assets/img/rebar-bending-800.webp 800w, /assets/img/rebar-bending-1600.webp 1600w, /assets/img/rebar-bending-2560.webp 2560w" sizes="100vw" width="1600" height="873" alt="" fetchpriority="high" decoding="async">
+    <div class="c-hero__shade"></div>
+    <div class="c-hero__body">
+      <div class="c-hero__text">
+        <p class="c-label">Tools / Cutting optimizer &middot; In the browser &middot; Free</p>
+        <h1 class="c-hero__title" id="co-h">Cut the job from the fewest bars.</h1>
+        <p class="c-hero__lead">List the lengths you need. The optimizer works out how to cut them from 12&nbsp;m stock bars with the least waste, tells you whether the plan is proven to be the minimum, and gives you the bars and tonnes to order for each diameter.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="optimizer" class="sec c-after-hero">
+    <div class="wrap">
+      <div class="calc" id="cutopt">
+
+        <div class="co-panel co-input">
+          <p class="calc-lbl">Stock and saw</p>
+          <div class="co-set">
+            <label class="calc-field"><span>Stock bar length, m</span><input id="coStock" type="text" inputmode="decimal" value="12"><small>12 m is the standard Saudi stock length.</small></label>
+            <label class="calc-field"><span>Kerf, mm</span><input id="coKerf" type="number" min="0" max="20" step="1" inputmode="numeric" value="0"><small>0 for shear cutting; about 3 mm for a saw.</small></label>
+            <label class="calc-field"><span>Allowance per piece, mm</span><input id="coAllow" type="number" min="0" max="200" step="1" inputmode="numeric" value="0"><small>Optional extra length on every piece.</small></label>
+            <label class="calc-field"><span>Reusable offcut from, m</span><input id="coMinOff" type="text" inputmode="decimal" value="1"><small>Shorter leftovers count as scrap.</small></label>
+          </div>
+        </div>
+
+        <div class="co-panel co-input">
+          <p class="calc-lbl">Cut list</p>
+          <table class="co-table">
+            <thead><tr><th scope="col">&#216; mm</th><th scope="col">Grade</th><th scope="col">Length m</th><th scope="col">Pieces</th><th scope="col"><span class="vh">Remove</span></th></tr></thead>
+            <tbody id="coRows"></tbody>
+          </table>
+          <p class="calc-empty" id="coEmpty" hidden>Add the cut lengths you need, or paste them from Excel.</p>
+          <p class="calc-hint">Al Rajhi Steel sizes: 10, 12, 14, 16, 18, 20, 25 and 32 mm. Other diameters can be calculated here but are outside the range I quote.</p>
+          <datalist id="coDiaList"></datalist>
+          <datalist id="coGradeList"><option value="Gr60"></option><option value="Gr80"></option></datalist>
+
+          <div class="co-actions">
+            <button type="button" class="calc-btn ghost" id="coAdd">Add line</button>
+            <button type="button" class="calc-btn ghost grow" id="coExample">Load example</button>
+            <button type="button" class="calc-btn ok" id="coRun">Optimise cutting</button>
+          </div>
+          <p class="co-msg" id="coMsg" role="status" aria-live="polite"></p>
+
+          <details class="co-paste">
+            <summary>Paste from Excel</summary>
+            <div>
+              <p>Copy the columns <b>diameter, length in metres, pieces</b> and, if you like, <b>grade</b>, then paste. Lengths above 100 are read as millimetres. Nothing is uploaded.</p>
+              <textarea id="coPaste" spellcheck="false" placeholder="16	3.45	120	Gr60
+12	2.875	300	Gr60"></textarea>
+              <button type="button" class="calc-btn" id="coPasteGo">Import lines</button>
+            </div>
+          </details>
+        </div>
+
+        <div class="co-panel" id="coOut" hidden>
+          <div class="co-report-head">
+            <h2>Rebar cutting plan</h2>
+            <p class="co-meta">mashharawi.com &middot; <span id="coDate"></span></p>
+          </div>
+          <div class="co-status" id="coStatus"></div>
+          <dl class="co-figs">
+          <div>
+            <dt id="fBarsLbl">Stock bars</dt>
+            <dd><b id="fBars">0</b><span>pcs</span></dd>
+          </div>
+          <div>
+            <dt>Utilisation</dt>
+            <dd><b id="fUtil">0</b><span>%</span></dd>
+          </div>
+          <div>
+            <dt>Waste</dt>
+            <dd><b id="fWaste">0</b><span>%</span></dd>
+          </div>
+          <div>
+            <dt>Weight to buy</dt>
+            <dd><b id="fWt">0</b><span>t</span></dd>
+          </div>
+          </dl>
+          <p class="co-meta" id="coSet"></p>
+
+          <div class="co-scroll">
+            <table class="calc-table co-sum">
+              <caption class="vh">Summary by diameter and grade</caption>
+              <thead><tr><th scope="col">&#216; mm</th><th scope="col">Grade</th><th scope="col" class="num">Pieces</th><th scope="col" class="num">Bars</th><th scope="col" class="num">Required m</th><th scope="col" class="num">Bought m</th><th scope="col" class="num">Waste m</th><th scope="col" class="num">Waste %</th><th scope="col" class="num">Reusable m</th><th scope="col" class="num">Weight t</th><th scope="col">Result</th></tr></thead>
+              <tbody id="coSum"></tbody>
+              <tfoot id="coSumFoot"></tfoot>
+            </table>
+          </div>
+
+          <h2 class="calc-lbl" style="margin-top:clamp(26px,3vw,38px)">Cutting patterns</h2>
+          <div class="co-legend" aria-hidden="true"><span><i class="l-cut"></i>Piece</span><span><i class="l-re"></i>Reusable offcut</span><span><i class="l-scrap"></i>Scrap</span></div>
+          <div id="coPatterns"></div>
+
+          <div class="co-actions">
+            <button type="button" class="calc-btn ghost" id="coCsv">Download CSV</button>
+            <button type="button" class="calc-btn ghost grow" id="coPrint">Print / PDF</button>
+            <button type="button" class="calc-btn ok" id="coSend">Send this plan on WhatsApp</button>
+          </div>
+        </div>
+
+        <p class="calc-foot">Weights are nominal: 0.006165 &times; d&sup2; kg/m at 7,850&nbsp;kg/m&sup3;, the same formula as the <a href="/tools/rebar-weight/">rebar weight calculator</a>. This is a planning aid: check lengths against your approved shop drawings before cutting. It is not a quotation.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="q-band" aria-labelledby="qb-h">
+    <div class="wrap">
+      <p class="q-eyebrow">Rebar supply &middot; Al Rajhi Steel</p>
+      <h2 id="qb-h">Send the bars for a quote.</h2>
+      <p>Send me the bars and tonnes per diameter from this plan, with the grade and project city, and I will come back with an official rebar quotation from Al Rajhi Steel, where I am a Section Head. Cutting to specified lengths is subject to confirmation, and any bending requirements must be confirmed before quotation.</p>
+      <ul class="q-facts">
+        <li>Sizes 10, 12, 14, 16, 18, 20, 25 and 32 mm &middot; 12 m bars</li><li>Grade 60 and Grade 80</li><li>Epoxy-coated rebar available</li><li>Mill test certificates (MTC) for the sizes and grade ordered</li><li>Cutting to specified lengths, subject to confirmation</li><li>Bending requirements confirmed before quotation</li><li>Supply after payment confirmation or LC approval, subject to company procedures, product availability and the agreed delivery schedule</li>
+      </ul>
+      <div class="q-actions">
+        <a class="q-btn q-btn--wa" href="https://wa.me/message/D6ABM7QFWVSPB1" target="_blank" rel="noopener">Send the quantities on WhatsApp</a>
+        <a class="q-btn q-btn--line" href="/rebar/">Supply details</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec co-how" aria-labelledby="how-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="how-h">How the optimizer works.</h2>
+      </div>
+      <div class="lead">
+        <p>Every length is converted to whole millimetres, so there is no rounding drift. Pieces are only combined with pieces of the same diameter and the same grade.</p>
+        <p>Each cut removes the kerf. A bar cut into n pieces needs n cuts, or n&minus;1 when the last piece ends exactly at the bar end, and the optimizer counts it that way.</p>
+        <p>It solves the linear relaxation of the cutting stock problem by column generation (Gilmore&ndash;Gomory), rounds that to whole bars, also runs three fast heuristics (sequential best-fill patterns, first fit decreasing and best fit decreasing), and keeps the plan with the fewest bars.</p>
+        <p>It then compares the plan with a lower bound: the larger of the Martello&ndash;Toth bound and the rounded-up linear optimum. When the two are equal, the result is marked <b>proven minimum</b>: no plan can use fewer bars, and with one stock length that is also the least waste. Otherwise it is marked as a heuristic result and shows the largest possible gap. It never claims an optimum it has not proved.</p>
+        <p>Waste is everything bought but not delivered as a required piece: kerf, any allowance, and offcuts. Offcuts at or above the length you set are listed as reusable; shorter ones are scrap.</p>
+      </div>
+      <p class="note-back">Related: <a href="/tools/rebar-weight/">rebar weight calculator</a>, <a href="/tools/rebarplan/">RebarPlan</a> (desktop app with bar bending schedule, shape codes and shop labels), <a href="/writing/">notes on rebar</a>.</p>
+
+      <section class="faq rise" aria-labelledby="faq-h">
+        <h2 id="faq-h">Common questions</h2>
+        <details>
+          <summary>How do I reduce rebar cutting waste?</summary>
+          <p>Combine pieces of the same diameter and grade so each 12 m bar is filled as completely as possible. The optimizer searches those combinations for the whole job at once and reports the waste percentage, so you can compare it with what the site is losing today.</p>
+        </details>
+        <details>
+          <summary>Is the result really the minimum?</summary>
+          <p>When the page says proven minimum, yes: the number of bars equals a mathematical lower bound, so no plan can use fewer. When it says heuristic, the plan is good but not proven, and the page shows how many bars it could be above the minimum at most.</p>
+        </details>
+        <details>
+          <summary>Can I paste my bar bending schedule from Excel?</summary>
+          <p>Yes. Copy the columns diameter, length in metres, pieces and optionally grade, and paste them. You can correct any line before you calculate. The file never leaves your computer.</p>
+        </details>
+        <details>
+          <summary>What are reusable offcuts?</summary>
+          <p>Leftovers long enough to use on another element. You set the minimum length, 1 m by default; the plan lists every reusable offcut by length and count, and anything shorter is counted as scrap.</p>
+        </details>
+        <details>
+          <summary>Is anything I enter sent anywhere?</summary>
+          <p>No. The calculation runs in your browser and nothing is stored. The WhatsApp button asks first, then copies a summary and opens the chat; you decide whether to send it.</p>
+        </details>
+        <details>
+          <summary>Does this give me a price?</summary>
+          <p>No. It gives the bars and tonnes to order. For a quotation, send them to me and I will reply with an official Al Rajhi Steel quotation.</p>
+        </details>
+      </section>
+    </div>
+  </section>
+</main>
+
+<footer class="c-footer">
+  <div class="c-footer__quote">
+    <p>Notes on weights, tolerances and what ends up on the invoice.</p>
+    <a class="c-label" href="/writing/">All writing &rarr;</a>
+  </div>
+  <div class="c-footer__base">
+    <span>&copy; <span id="yr">2026</span> Omar Mashharawi</span>
+    <a href="mailto:info@mashharawi.com">info@mashharawi.com</a>
+    <a href="/about/">About</a>
+    <a href="/contact/">Contact</a>
+    <a href="/privacy/">Privacy</a>
+  </div>
+</footer>
+<script src="/assets/site.js?v=20261015" defer></script>
+<script src="/assets/cutopt/engine.js?v=20261119" defer></script>
+<script src="/assets/cutopt/app.js?v=20261119" defer></script>
+<script src="/assets/quote.js?v=20261019" defer></script>
+</body>
+</html>

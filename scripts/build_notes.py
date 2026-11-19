@@ -20,6 +20,7 @@ PAIRS = [
     ("/tools/", "/ar/tools/", "0.9", "0.8"),
     ("/tools/rebar-weight/", "/ar/tools/rebar-weight/", "0.9", "0.8"),
     ("/tools/steel-sections/", "/ar/tools/steel-sections/", "0.9", "0.8"),
+    ("/tools/cutting-optimizer/", "/ar/tools/cutting-optimizer/", "0.9", "0.8"),
     ("/tools/rebarplan/", "/ar/tools/rebarplan/", "0.8", "0.7"),
     ("/tools/openpdfkit/", "/ar/tools/openpdfkit/", "0.8", "0.7"),
     # /tools/approvals/ and /contract-check/ are internal tools: noindex, kept live, left out of the sitemap.
@@ -40,12 +41,13 @@ SINGLES = [
 # gives the English page a Chinese page translates, so both carry hreflang
 # alternates; ZH_PAGES lists every Chinese page and its priority. Same rule:
 # a page not listed here disappears from the sitemap on the next build.
-ZH_TWINS = {"/rebar/": "/zh/rebar/"}
+ZH_TWINS = {"/rebar/": "/zh/rebar/", "/tools/cutting-optimizer/": "/zh/rebar-cutting-optimizer/"}
 ZH_PAGES = [
     ("/zh/", "0.8"),
     ("/zh/rebar/", "0.9"),
     ("/zh/rebar-cutting-bending/", "0.8"),
     ("/zh/rebar-weight-table/", "0.8"),
+    ("/zh/rebar-cutting-optimizer/", "0.8"),
     ("/zh/epoxy-coated-rebar/", "0.7"),
     ("/zh/rebar-quotation-guide/", "0.7"),
     ("/zh/hrb400-vs-astm-a615/", "0.8"),

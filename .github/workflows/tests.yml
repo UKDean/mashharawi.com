@@ -1,0 +1,21 @@
+name: Tests
+
+# Unit and algorithm tests for the in-browser engineering tools
+# (assets/cutopt/engine.js). Node's built-in test runner, no dependencies.
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test tests/*.test.js
