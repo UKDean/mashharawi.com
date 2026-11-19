@@ -38,6 +38,7 @@ For Chinese contractors working in Saudi Arabia: rebar supply, cutting to a bar 
 - [Document Approval Assistant](https://mashharawi.com/tools/approvals/): internal web tool for Al Rajhi Steel and Saudi Benaa staff that builds project approval, vendor registration, prequalification and technical submittal packages from the company certificate library: Arabic and English OCR, rule-based expiry checks, form filling, one ordered PDF with cover and index, review and approval workflow. Sign-in with a company email only
 - [OpenPDFKit](https://mashharawi.com/tools/openpdfkit/): offline desktop app to merge, split, compress, convert, protect and OCR PDFs; open source (AGPL-3.0)
 - [KAVRO](https://mashharawi.com/kavro/): QR code reader that reads codes from your photos on the device, shows where each one leads and flags look-alike links, payment codes, app links, Wi-Fi settings and risky downloads; never opens anything without asking. Coming soon to iPhone and Windows
+- [Help Center](https://mashharawi.com/help/): step-by-step guides, worked examples, formulas, FAQ and troubleshooting for the cutting optimizer, BBS Analyzer and steel weight verification; also in [Arabic](https://mashharawi.com/ar/help/) and [Simplified Chinese](https://mashharawi.com/zh/help/)
 - [All tools](https://mashharawi.com/tools/)
 
 ## Apps

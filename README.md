@@ -16,6 +16,7 @@ Static site, no build step for the pages themselves. Hand-written HTML, a shared
 | `tools/`, `ar/tools/` | Tools index and the in-browser calculators: `steel-sections`, `rebar-weight`, `cutting-optimizer`, `bbs-analyzer`, plus `openpdfkit` |
 | `assets/cutopt/` | Rebar cutting optimizer: `engine.js` (calculation only, no DOM, tested), `app.js` (page), `cutopt.css`. Chinese page at `zh/rebar-cutting-optimizer/` |
 | `assets/bbs/` | BBS Analyzer: `xlsx.js` (dependency-free read-only XLSX reader), `engine.js` (parsing, mapping, validation, weights, optimizer hand-off), `i18n.js` (EN/AR/ZH text), `app.js` (page), `bbs.css`. Chinese page at `zh/bbs-analyzer/`. See `docs/bbs-analyzer.md` |
+| `help/`, `ar/help/`, `zh/help/` | Help Center: index (getting started, tutorials, examples, formulas, FAQ, troubleshooting) and one guide per tool. Static HTML, styles in `assets/help/help.css`, no script |
 | `tests/` | Engine tests, run with `node --test tests/*.test.js` (Node 18+, no dependencies). The `Tests` workflow runs them on every PR |
 | `contract-check/` | Internal contract review tool |
 | `steelcalc/` | Support and privacy pages for the Steel Section Calculator iOS app, plus its screenshots in `shots/` |

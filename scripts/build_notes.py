@@ -22,6 +22,10 @@ PAIRS = [
     ("/tools/steel-sections/", "/ar/tools/steel-sections/", "0.9", "0.8"),
     ("/tools/cutting-optimizer/", "/ar/tools/cutting-optimizer/", "0.9", "0.8"),
     ("/tools/bbs-analyzer/", "/ar/tools/bbs-analyzer/", "0.9", "0.8"),
+    ("/help/", "/ar/help/", "0.7", "0.6"),
+    ("/help/cutting-optimizer/", "/ar/help/cutting-optimizer/", "0.6", "0.5"),
+    ("/help/bbs-analyzer/", "/ar/help/bbs-analyzer/", "0.6", "0.5"),
+    ("/help/steel-weight-verification/", "/ar/help/steel-weight-verification/", "0.6", "0.5"),
     ("/tools/rebarplan/", "/ar/tools/rebarplan/", "0.8", "0.7"),
     ("/tools/openpdfkit/", "/ar/tools/openpdfkit/", "0.8", "0.7"),
     # /tools/approvals/ and /contract-check/ are internal tools: noindex, kept live, left out of the sitemap.
@@ -42,7 +46,7 @@ SINGLES = [
 # gives the English page a Chinese page translates, so both carry hreflang
 # alternates; ZH_PAGES lists every Chinese page and its priority. Same rule:
 # a page not listed here disappears from the sitemap on the next build.
-ZH_TWINS = {"/rebar/": "/zh/rebar/", "/tools/cutting-optimizer/": "/zh/rebar-cutting-optimizer/", "/tools/bbs-analyzer/": "/zh/bbs-analyzer/"}
+ZH_TWINS = {"/rebar/": "/zh/rebar/", "/tools/cutting-optimizer/": "/zh/rebar-cutting-optimizer/", "/tools/bbs-analyzer/": "/zh/bbs-analyzer/", "/help/": "/zh/help/", "/help/cutting-optimizer/": "/zh/help/cutting-optimizer/", "/help/bbs-analyzer/": "/zh/help/bbs-analyzer/", "/help/steel-weight-verification/": "/zh/help/steel-weight-verification/"}
 ZH_PAGES = [
     ("/zh/", "0.8"),
     ("/zh/rebar/", "0.9"),
@@ -50,6 +54,10 @@ ZH_PAGES = [
     ("/zh/rebar-weight-table/", "0.8"),
     ("/zh/rebar-cutting-optimizer/", "0.8"),
     ("/zh/bbs-analyzer/", "0.8"),
+    ("/zh/help/", "0.6"),
+    ("/zh/help/cutting-optimizer/", "0.5"),
+    ("/zh/help/bbs-analyzer/", "0.5"),
+    ("/zh/help/steel-weight-verification/", "0.5"),
     ("/zh/epoxy-coated-rebar/", "0.7"),
     ("/zh/rebar-quotation-guide/", "0.7"),
     ("/zh/hrb400-vs-astm-a615/", "0.8"),

@@ -29,7 +29,7 @@
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="stylesheet" href="/assets/site.css?v=20261031">
-<link rel="stylesheet" href="/assets/cutopt/cutopt.css?v=20261119">
+<link rel="stylesheet" href="/assets/cutopt/cutopt.css?v=20261119h">
 <link rel="stylesheet" href="/assets/bbs/bbs.css?v=20261119d">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -182,6 +182,7 @@
   <section id="analyzer" class="sec c-after-hero">
     <div class="wrap">
       <div class="calc" id="bbs">
+        <p class="co-help"><a href="/zh/help/bbs-analyzer/" target="_blank" rel="noopener">使用指南（在新标签页打开）</a></p>
 
         <div class="co-panel b-input">
           <p class="calc-lbl">钢筋表</p>
@@ -222,7 +223,7 @@
 
         <div class="co-panel b-mapping" id="bMap" hidden>
           <p class="calc-lbl">列匹配</p>
-          <p class="calc-hint" style="margin-top:0">各列按表头名称匹配，请逐一核对；表中没有的列可留空。根数取自总根数列，或由 构件数 &times; 每件根数 得出。</p>
+          <p class="calc-hint" style="margin-top:0">各列按表头名称匹配，请逐一核对；表中没有的列可留空。根数取自总根数列，或由 构件数 &times; 每件根数 得出。 <a class="co-q" href="/zh/help/bbs-analyzer/#columns" target="_blank" rel="noopener">帮助</a></p>
           <div class="b-map-top">
             <label class="calc-field"><span>表头行</span><input id="bHdr" class="co-in" type="number" min="1" step="1" inputmode="numeric"></label>
             <label class="calc-field"><span>下料长度单位</span><select id="uLength" class="co-in"><option value="">—</option><option value="mm">毫米</option><option value="m">米</option></select></label>
@@ -257,7 +258,7 @@
                  <h2 class="calc-lbl b-h">按形状代码</h2><div class="co-scroll"><table class="calc-table b-tbl" id="tShape"></table></div></div>
           </div>
           <div id="bIssuesBox">
-            <h2 class="calc-lbl b-h">不计入计算的行</h2>
+            <h2 class="calc-lbl b-h">不计入计算的行 <a class="co-q" href="/zh/help/bbs-analyzer/#excluded" target="_blank" rel="noopener">为什么？</a></h2>
             <div class="co-scroll"><table class="calc-table b-issues" id="tIssues"></table></div>
           </div>
           <h2 class="calc-lbl b-h">使用的行</h2>
@@ -270,6 +271,7 @@
             <button type="button" class="calc-btn ok" id="bSend">发送到下料优化工具</button>
           </div>
           <p class="calc-hint" id="bSendNote"></p>
+          <p class="calc-hint"><a class="co-q" href="/zh/help/bbs-analyzer/#grades" target="_blank" rel="noopener">为什么？</a> · <a class="co-q" href="/zh/help/bbs-analyzer/#twelve-metres" target="_blank" rel="noopener">12 m</a> · <a class="co-q" href="/zh/help/bbs-analyzer/#send" target="_blank" rel="noopener">帮助</a></p>
           <p class="b-sendmsg" id="bSendMsg" role="status" aria-live="polite"></p>
         </div>
 

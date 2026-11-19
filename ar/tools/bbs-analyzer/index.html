@@ -29,7 +29,7 @@
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="stylesheet" href="/assets/site.css?v=20261031">
-<link rel="stylesheet" href="/assets/cutopt/cutopt.css?v=20261119">
+<link rel="stylesheet" href="/assets/cutopt/cutopt.css?v=20261119h">
 <link rel="stylesheet" href="/assets/bbs/bbs.css?v=20261119d">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -188,6 +188,7 @@
   <section id="analyzer" class="sec c-after-hero">
     <div class="wrap">
       <div class="calc" id="bbs">
+        <p class="co-help"><a href="/ar/help/bbs-analyzer/" target="_blank" rel="noopener">طريقة استخدام الأداة (يفتح الدليل في تبويب جديد)</a></p>
 
         <div class="co-panel b-input">
           <p class="calc-lbl">الجدول</p>
@@ -228,7 +229,7 @@
 
         <div class="co-panel b-mapping" id="bMap" hidden>
           <p class="calc-lbl">الأعمدة</p>
-          <p class="calc-hint" style="margin-top:0">تتم مطابقة الأعمدة حسب عناوينها. راجع كل عمود، وما لا يوجد في جدولك اتركه فارغاً. عدد الأسياخ يؤخذ من عمود الإجمالي، أو من عدد العناصر &times; العدد في كل عنصر.</p>
+          <p class="calc-hint" style="margin-top:0">تتم مطابقة الأعمدة حسب عناوينها. راجع كل عمود، وما لا يوجد في جدولك اتركه فارغاً. عدد الأسياخ يؤخذ من عمود الإجمالي، أو من عدد العناصر &times; العدد في كل عنصر. <a class="co-q" href="/ar/help/bbs-analyzer/#columns" target="_blank" rel="noopener">مساعدة</a></p>
           <div class="b-map-top">
             <label class="calc-field"><span>صف العناوين</span><input id="bHdr" class="co-in" type="number" min="1" step="1" inputmode="numeric"></label>
             <label class="calc-field"><span>وحدة طول القص</span><select id="uLength" class="co-in"><option value="">—</option><option value="mm">مم</option><option value="m">م</option></select></label>
@@ -263,7 +264,7 @@
                  <h2 class="calc-lbl b-h">حسب كود الشكل</h2><div class="co-scroll"><table class="calc-table b-tbl" id="tShape"></table></div></div>
           </div>
           <div id="bIssuesBox">
-            <h2 class="calc-lbl b-h">مستبعد من الحساب</h2>
+            <h2 class="calc-lbl b-h">مستبعد من الحساب <a class="co-q" href="/ar/help/bbs-analyzer/#excluded" target="_blank" rel="noopener">لماذا؟</a></h2>
             <div class="co-scroll"><table class="calc-table b-issues" id="tIssues"></table></div>
           </div>
           <h2 class="calc-lbl b-h">الصفوف المستخدمة</h2>
@@ -276,6 +277,7 @@
             <button type="button" class="calc-btn ok" id="bSend">أرسل إلى أداة تحسين القص</button>
           </div>
           <p class="calc-hint" id="bSendNote"></p>
+          <p class="calc-hint"><a class="co-q" href="/ar/help/bbs-analyzer/#grades" target="_blank" rel="noopener">لماذا؟</a> · <a class="co-q" href="/ar/help/bbs-analyzer/#twelve-metres" target="_blank" rel="noopener">12 m</a> · <a class="co-q" href="/ar/help/bbs-analyzer/#send" target="_blank" rel="noopener">مساعدة</a></p>
           <p class="b-sendmsg" id="bSendMsg" role="status" aria-live="polite"></p>
         </div>
 

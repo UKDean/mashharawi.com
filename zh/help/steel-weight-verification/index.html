@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" dir="ltr">
+<head>
+<meta charset="utf-8">
+<script>document.documentElement.classList.add("js")</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>钢筋重量核对使用指南：试样与理论重量比较及实例</title>
+<meta name="description" content="钢筋重量核对指南：钢筋试样测量、理论重量、百分比偏差、多个试样、合并偏差及其局限。">
+<meta name="author" content="Omar Mashharawi">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+<link rel="canonical" href="https://mashharawi.com/zh/help/steel-weight-verification/">
+<link rel="alternate" hreflang="en" href="https://mashharawi.com/help/steel-weight-verification/">
+<link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/help/steel-weight-verification/">
+<link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/help/steel-weight-verification/">
+<link rel="alternate" hreflang="x-default" href="https://mashharawi.com/help/steel-weight-verification/">
+
+<meta name="theme-color" content="#0A0A0A">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mashharawi.com/zh/help/steel-weight-verification/">
+<meta property="og:title" content="钢筋重量核对使用指南：试样与理论重量比较及实例">
+<meta property="og:description" content="钢筋重量核对指南：钢筋试样测量、理论重量、百分比偏差、多个试样、合并偏差及其局限。">
+<meta property="og:site_name" content="mashharawi.com">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="ar_SA">
+<meta property="og:image" content="https://mashharawi.com/og-brand.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="stylesheet" href="/assets/site.css?v=20261031">
+<link rel="stylesheet" href="/assets/cutopt/cutopt.css?v=20261119h">
+<link rel="stylesheet" href="/assets/help/help.css?v=20261119a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Inter:wght@200..500&display=swap">
+<style>html[lang="zh-Hans"] body,html[lang="zh-Hans"] h1,html[lang="zh-Hans"] h2,html[lang="zh-Hans"] h3{font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;font-stretch:normal;letter-spacing:0}</style>
+<link rel="icon" href="/favicon.ico?v=20261024" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=20261024">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20261024">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png?v=20261024">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=20261024">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png?v=20261024">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20261024">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "TechArticle",
+ "headline": "钢筋重量核对：使用指南",
+ "url": "https://mashharawi.com/zh/help/steel-weight-verification/",
+ "inLanguage": "zh-Hans",
+ "description": "钢筋重量核对指南：钢筋试样测量、理论重量、百分比偏差、多个试样、合并偏差及其局限。",
+ "about": {
+  "@type": "WebApplication",
+  "name": "钢筋重量核对",
+  "url": "https://mashharawi.com/zh/steel-weight-verification/"
+ },
+ "author": {
+  "@type": "Person",
+  "@id": "https://mashharawi.com/#person",
+  "name": "Omar Mashharawi"
+ }
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "中文首页",
+   "item": "https://mashharawi.com/zh/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "帮助中心",
+   "item": "https://mashharawi.com/zh/help/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "钢筋重量核对",
+   "item": "https://mashharawi.com/zh/help/steel-weight-verification/"
+  }
+ ]
+}
+</script>
+<script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/cdn-cgi/*"}}]},"eagerness":"moderate"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="c-header c-header--solid">
+  <a class="c-header__name" href="/zh/"><img class="c-header__mark" src="/assets/brand/mark-64.png" width="32" height="32" alt="">Omar Mashharawi · 钢筋</a>
+  <nav class="c-header__nav" aria-label="主菜单">
+    <a href="/zh/rebar/">钢筋供应</a>
+    <a href="/zh/rebar-cutting-optimizer/">下料优化</a>
+    <a href="/zh/bbs-analyzer/">钢筋表分析</a>
+    <a href="/zh/help/" aria-current="page">帮助</a>
+    <a href="/help/steel-weight-verification/" hreflang="en" lang="en" class="c-header__lang">English</a>
+    <a href="/ar/help/steel-weight-verification/" hreflang="ar" lang="ar" class="c-header__lang">العربية</a>
+  </nav>
+  <button class="c-header__menu" type="button" aria-label="菜单" aria-expanded="false"><span></span><span></span></button>
+</header>
+
+<main id="main">
+  <section class="sec c-tool h-page" aria-labelledby="h-title">
+    <div class="wrap">
+      <div class="h-crumbs" role="navigation" aria-label="页面路径"><a href="/zh/">中文首页</a> <span aria-hidden="true">›</span> <a href="/zh/help/">帮助中心</a> <span aria-hidden="true">›</span> <span aria-current="page">钢筋重量核对</span></div>
+      <div class="h-head">
+        <p class="c-label">帮助中心</p>
+        <h1 class="c-tool__title" id="h-title">钢筋重量核对：使用指南</h1>
+        <p class="h-lead">如何将钢筋试样的实测重量与理论重量比较，以及如何恰当地解读偏差。</p>
+        <a class="calc-btn ok h-open" href="/zh/steel-weight-verification/">打开工具</a>
+      </div>
+      <div class="h-grid">
+        <div class="h-toc" role="navigation" aria-label="本页内容">
+          <p class="calc-lbl">本页内容</p>
+          <ol><li><a href="#what">工具用途</a></li><li><a href="#when">使用时机</a></li><li><a href="#steps">操作步骤</a></li><li><a href="#example">计算实例</a></li><li><a href="#results">结果解读</a></li><li><a href="#compliance">为什么偏差本身不能证明不合格</a></li><li><a href="#mistakes">常见错误</a></li><li><a href="#limits">局限</a></li><li><a href="#related">相关</a></li></ol>
+        </div>
+        <article class="h-body">
+<h2 id="what">工具用途</h2>
+<p>它根据试样的直径、长度和根数计算理论（公称）重量，并与试样实际重量比较：差值（公斤）和偏差（%）。它不判定钢材是否合格。</p>
+<h2 id="when">使用时机</h2>
+<ul><li>工地或仓库的到货检验。</li><li>讨论发票前，将到货与理论重量对比。</li><li>比较同一批次的多个试样。</li></ul>
+<h2 id="steps">操作步骤</h2>
+<h3 id="measure">1. 测量试样</h3>
+<ol><li>切取一段平直钢筋，两端切平。</li><li>用卷尺或钢尺测量长度（尽量精确到毫米）。</li><li>用经过校准的秤称重；小试样请使用分度值细的秤。</li><li>也可以多根一起称重，记下根数即可。</li></ol>
+<h3 id="units">2. 输入数值</h3>
+<ul><li><b>直径：</b>点选规格（10–32 毫米）或输入其他值；其他规格标为非标准。</li><li><b>牌号：</b>仅供记录。Grade 60 与 Grade 80 的理论重量相同。</li><li><b>试样长度：</b>输入数字并选择<b>毫米</b>或<b>米</b>。工具保留您的单位，绝不猜测；1000 毫米与 1 米相同。接受不超过 12 米的任何正长度。</li><li><b>称重根数</b>和<b>实测总重量（公斤）</b>，小数用小数点。</li><li><b>编号</b>和<b>备注</b>可选。</li></ul>
+<h3 id="tolerance">3. 输入您的范围（可选）</h3>
+<p>如果规范或合同规定了重量范围，请输入下限（零或负数，例如 −4）和上限（零或正数）。每个试样会显示在范围内或超出范围。这只是与您的数值比较。工具没有内置限值，也不作合格判定。</p>
+<h3 id="add">4. 添加试样</h3>
+<p>输入时即显示结果。点击<b>添加试样</b>保存到本次核对的表格中，然后输入下一个。</p>
+<h2 id="example">计算实例</h2>
+<div class="h-ex"><p class="h-ex-t">单个试样</p><p>16 毫米，三根 1.000 米，实测 4.600 公斤。</p>
+<ol><li>每米重量 = 0.006165 × 16² = 1.57824 公斤/米。</li><li>理论重量 = 1.57824 × 1.000 × 3 = 4.73472 公斤。</li><li>差值 = 4.600 − 4.73472 = −0.13472 公斤。</li><li>偏差 = −0.13472 ÷ 4.73472 × 100 = <b>−2.85%</b>：试样比理论轻。</li></ol></div>
+<div class="h-ex"><p class="h-ex-t">多个试样</p><div class="h-scroll"><table class="h-table"><thead><tr><th scope="col">试样</th><th scope="col">直径</th><th scope="col">长度 × 根数</th><th scope="col">理论 kg</th><th scope="col">实测 kg</th><th scope="col">单个试样偏差</th></tr></thead><tbody><tr><td>A</td><td>16</td><td>1.000 米 × 2</td><td>3.15648</td><td>3.10</td><td>−1.79%</td></tr><tr><td>B</td><td>16</td><td>0.500 米 × 1</td><td>0.78912</td><td>0.80</td><td>+1.38%</td></tr><tr><td>C</td><td>16</td><td>2.000 米 × 1</td><td>3.15648</td><td>3.20</td><td>+1.38%</td></tr><tr><td>D</td><td>25</td><td>1.000 米 × 1</td><td>3.853125</td><td>3.80</td><td>−1.38%</td></tr></tbody></table></div>
+<p>16 毫米合并：（7.100 − 7.10208）÷ 7.10208 × 100 = <b>−0.03%</b>，各试样在 −1.79% 至 +1.38% 之间。25 毫米单独列出。总质量：理论 10.955 公斤，实测 10.900 公斤；不对 16 和 25 毫米给出单一百分比。</p></div>
+<h2 id="results">结果解读</h2>
+<ul><li><b>偏差符号。</b>正值：比理论重；负值：比理论轻。</li><li><b>单个试样偏差</b>属于一个试样。<b>合并偏差</b>把同一直径的所有试样视为一次合并称重，旁边显示最低和最高试样，不掩盖单个结果；它不是百分比的平均值。</li><li>全部试样的<b>总质量</b>只以公斤给出，不同直径绝不合并为一个百分比。</li><li><b>输入检查。</b>差值超过 25% 时显示中性提示，请您重新检查单位、根数和直径；这不是验收限值。</li><li>只有在您输入范围时，才会显示<b>在您输入的范围内 / 超出范围</b>。</li></ul>
+<h2 id="compliance">为什么偏差本身不能证明不合格</h2>
+<p>验收取决于适用标准和合同：试样数量、取样方法、试样长度、测量和称重精度以及适用的限值。用卷尺和工地秤称一次无法下结论。结果是理论比较，不是质保书（MTC），不是实验室试验，也不是证书。请用它来决定是否索取质保书或进行正式试验。</p>
+<h2 id="mistakes">常见错误</h2>
+<ul><li>选择了“米”却输入毫米（或相反）：“输入检查”通常会提示。</li><li>称了多根却把根数输入为 1。</li><li>端部弯曲或不平，使测得的长度偏长或偏短。</li><li>小试样使用分度值过粗的秤。</li><li>把偏差当作合格或不合格。</li></ul>
+<h2 id="limits">局限</h2>
+<ul><li>仅为理论重量，按 0.006165 × d² 计算。</li><li>没有内置允许偏差或标准。</li><li>本次核对不会保存；请下载 CSV 或打印。</li><li>精度取决于您的测量和秤。</li></ul>
+<h2 id="related">相关</h2>
+<ul><li><a href="/zh/rebar-weight-table/">钢筋重量表</a>。</li><li><a href="/zh/help/#formulas">公式</a>。</li></ul>
+          <p class="note-back"><a href="/zh/help/">← 全部帮助主题</a> · <a href="/zh/help/#tool-guides">工具指南</a></p>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="c-footer">
+  <div class="c-footer__quote">
+    <p>沙特钢筋供应、切割加工与重量计算的中文资料。</p>
+    <a class="c-label" href="/zh/">全部中文页面 &rarr;</a>
+  </div>
+  <div class="c-footer__base">
+    <span>&copy; <span id="yr">2026</span> Omar Mashharawi</span>
+    <a href="mailto:info@mashharawi.com">info@mashharawi.com</a>
+    <a href="/about/">About</a>
+    <a href="/contact/">Contact</a>
+    <a href="/privacy/">Privacy</a>
+  </div>
+</footer>
+<script src="/assets/site.js?v=20261015" defer></script>
+</body>
+</html>

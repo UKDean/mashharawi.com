@@ -29,7 +29,7 @@
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="stylesheet" href="/assets/site.css?v=20261031">
-<link rel="stylesheet" href="/assets/cutopt/cutopt.css?v=20261119">
+<link rel="stylesheet" href="/assets/cutopt/cutopt.css?v=20261119h">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200..500&display=swap">
@@ -187,14 +187,15 @@
   <section id="optimizer" class="sec c-after-hero">
     <div class="wrap">
       <div class="calc" id="cutopt">
+        <p class="co-help"><a href="/help/cutting-optimizer/" target="_blank" rel="noopener">How to use this tool (guide opens in a new tab)</a></p>
 
         <div class="co-panel co-input">
           <p class="calc-lbl">Stock and saw</p>
           <div class="co-set">
             <label class="calc-field"><span>Stock bar length, m</span><input id="coStock" type="text" inputmode="decimal" value="12"><small>12 m is the standard Saudi stock length.</small></label>
-            <label class="calc-field"><span>Kerf, mm</span><input id="coKerf" type="number" min="0" max="20" step="1" inputmode="numeric" value="0"><small>0 for shear cutting; about 3 mm for a saw.</small></label>
+            <label class="calc-field"><span>Kerf, mm</span><input id="coKerf" type="number" min="0" max="20" step="1" inputmode="numeric" value="0"><small>0 for shear cutting; about 3 mm for a saw. <a class="co-q" href="/help/cutting-optimizer/#settings" target="_blank" rel="noopener">Help</a></small></label>
             <label class="calc-field"><span>Allowance per piece, mm</span><input id="coAllow" type="number" min="0" max="200" step="1" inputmode="numeric" value="0"><small>Optional extra length on every piece.</small></label>
-            <label class="calc-field"><span>Reusable offcut from, m</span><input id="coMinOff" type="text" inputmode="decimal" value="1"><small>Shorter leftovers count as scrap.</small></label>
+            <label class="calc-field"><span>Reusable offcut from, m</span><input id="coMinOff" type="text" inputmode="decimal" value="1"><small>Shorter leftovers count as scrap. <a class="co-q" href="/help/cutting-optimizer/#settings" target="_blank" rel="noopener">Help</a></small></label>
           </div>
         </div>
 
@@ -219,7 +220,7 @@
           <details class="co-paste">
             <summary>Paste from Excel</summary>
             <div>
-              <p>Copy the columns <b>diameter, length in metres, pieces</b> and, if you like, <b>grade</b>, then paste. Lengths above 100 are read as millimetres. Nothing is uploaded.</p>
+              <p>Copy the columns <b>diameter, length in metres, pieces</b> and, if you like, <b>grade</b>, then paste. Lengths above 100 are read as millimetres. Nothing is uploaded. <a class="co-q" href="/help/cutting-optimizer/#paste" target="_blank" rel="noopener">Help</a></p>
               <textarea id="coPaste" spellcheck="false" placeholder="16	3.45	120	Gr60
 12	2.875	300	Gr60"></textarea>
               <button type="button" class="calc-btn" id="coPasteGo">Import lines</button>

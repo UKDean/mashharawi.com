@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<script>document.documentElement.classList.add("js")</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>How to Use the BBS Analyzer: Excel/CSV Bar Bending Schedules | Omar Mashharawi</title>
+<meta name="description" content="Guide to the BBS Analyzer: import XLSX or CSV, map columns, fix invalid rows, the 12 m rule, missing grades, results and sending to the cutting optimizer.">
+<meta name="author" content="Omar Mashharawi">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+<link rel="canonical" href="https://mashharawi.com/help/bbs-analyzer/">
+<link rel="alternate" hreflang="en" href="https://mashharawi.com/help/bbs-analyzer/">
+<link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/help/bbs-analyzer/">
+<link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/help/bbs-analyzer/">
+<link rel="alternate" hreflang="x-default" href="https://mashharawi.com/help/bbs-analyzer/">
+
+<meta name="theme-color" content="#0A0A0A">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mashharawi.com/help/bbs-analyzer/">
+<meta property="og:title" content="How to Use the BBS Analyzer: Excel/CSV Bar Bending Schedules | Omar Mashharawi">
+<meta property="og:description" content="Guide to the BBS Analyzer: import XLSX or CSV, map columns, fix invalid rows, the 12 m rule, missing grades, results and sending to the cutting optimizer.">
+<meta property="og:site_name" content="mashharawi.com">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ar_SA">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta property="og:image" content="https://mashharawi.com/og-brand.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="stylesheet" href="/assets/site.css?v=20261031">
+<link rel="stylesheet" href="/assets/cutopt/cutopt.css?v=20261119h">
+<link rel="stylesheet" href="/assets/help/help.css?v=20261119a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200..500&display=swap">
+
+<link rel="icon" href="/favicon.ico?v=20261024" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=20261024">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20261024">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png?v=20261024">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=20261024">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png?v=20261024">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20261024">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "TechArticle",
+ "headline": "BBS Analyzer: guide",
+ "url": "https://mashharawi.com/help/bbs-analyzer/",
+ "inLanguage": "en",
+ "description": "Guide to the BBS Analyzer: import XLSX or CSV, map columns, fix invalid rows, the 12 m rule, missing grades, results and sending to the cutting optimizer.",
+ "about": {
+  "@type": "WebApplication",
+  "name": "BBS Analyzer",
+  "url": "https://mashharawi.com/tools/bbs-analyzer/"
+ },
+ "author": {
+  "@type": "Person",
+  "@id": "https://mashharawi.com/#person",
+  "name": "Omar Mashharawi"
+ }
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Home",
+   "item": "https://mashharawi.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Help Center",
+   "item": "https://mashharawi.com/help/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "BBS Analyzer",
+   "item": "https://mashharawi.com/help/bbs-analyzer/"
+  }
+ ]
+}
+</script>
+<script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/cdn-cgi/*"}}]},"eagerness":"moderate"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="c-header c-header--solid">
+  <a class="c-header__name" href="/"><img class="c-header__mark" src="/assets/brand/mark-64.png" width="32" height="32" alt="">Omar Mashharawi</a>
+  <nav class="c-header__nav" aria-label="Main">
+    <a href="/#about">About</a>
+    <a href="/#experience">Experience</a>
+    <a href="/tools/">Tools</a>
+    <a href="/help/" aria-current="page">Help</a>
+    <a href="/writing/">Writing</a>
+    <a href="/#contact">Contact</a>
+    <a href="/ar/help/bbs-analyzer/" hreflang="ar" lang="ar" class="c-header__lang">العربية</a>
+    <a href="/zh/help/bbs-analyzer/" hreflang="zh-Hans" lang="zh-Hans" class="c-header__lang">中文</a>
+  </nav>
+  <button class="c-header__menu" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+</header>
+
+<main id="main">
+  <section class="sec c-tool h-page" aria-labelledby="h-title">
+    <div class="wrap">
+      <div class="h-crumbs" role="navigation" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">›</span> <a href="/help/">Help Center</a> <span aria-hidden="true">›</span> <span aria-current="page">BBS Analyzer</span></div>
+      <div class="h-head">
+        <p class="c-label">Help Center</p>
+        <h1 class="c-tool__title" id="h-title">BBS Analyzer: guide</h1>
+        <p class="h-lead">How to turn a bar bending schedule into checked quantities and theoretical weights, and send the cut lengths to the cutting optimizer.</p>
+        <a class="calc-btn ok h-open" href="/tools/bbs-analyzer/">Open the tool</a>
+      </div>
+      <div class="h-grid">
+        <div class="h-toc" role="navigation" aria-label="On this page">
+          <p class="calc-lbl">On this page</p>
+          <ol><li><a href="#what">What the tool does</a></li><li><a href="#when">When to use it</a></li><li><a href="#steps">Step by step</a></li><li><a href="#example">Worked example</a></li><li><a href="#results">Reading the results</a></li><li><a href="#mistakes">Common mistakes</a></li><li><a href="#limits">Limitations</a></li><li><a href="#related">Related</a></li></ol>
+        </div>
+        <article class="h-body">
+<h2 id="what">What the tool does</h2>
+<p>The analyzer reads a bar bending schedule (BBS), recognises its columns, checks every row, and totals bars, length and theoretical weight by diameter, grade and shape. It never fills in missing engineering data: a row it cannot read is excluded and listed with the reason.</p>
+<h2 id="when">When to use it</h2>
+<ul><li>To check a BBS from a consultant or subcontractor before ordering.</li><li>To get tonnes per diameter and grade for a quotation request.</li><li>To prepare the cut lengths for the cutting optimizer.</li></ul>
+<h2 id="steps">Step by step</h2>
+<h3 id="import">1. Open the schedule</h3>
+<ul><li><b>Excel .xlsx</b> (also .xlsm; macros are never run). Choose the sheet if the workbook has several. Old .xls files must be saved as .xlsx or CSV first.</li><li><b>CSV or TSV.</b> Comma, semicolon or tab separated.</li><li><b>Paste from Excel.</b> Select the schedule including its header row, copy, paste.</li><li><b>Enter by hand.</b> Member, bar mark, diameter, grade, shape code, cut length in mm and total bars.</li></ul>
+<p>Limits: 25 MB per file, 100,000 rows. Nothing is uploaded.</p>
+<h3 id="columns">2. Check the columns</h3>
+<p>The analyzer looks for the header in the first 30 rows and matches columns by name in English, Arabic or Chinese (Bar mark, Dia, Cut length, No. of members, رقم السيخ, القطر, 钢筋编号, 下料长度…). Check every field and change any that is wrong.</p>
+<ul><li><b>Required:</b> diameter, cut length, and the number of bars: either a total column, or “no. of members” and “no. in each” together.</li><li><b>Optional:</b> bar mark, member, grade, shape code, and the sheet’s own total length and weight, which are used only to cross-check.</li><li><b>Cut length unit:</b> read from the header, for example “Cut length (mm)”. If the header does not say, you must choose mm or m; the tool does not guess.</li><li><b>Header row:</b> change it if the title rows confuse the detection.</li></ul>
+<h3 id="interpretation">3. How values are read</h3>
+<div class="h-scroll"><table class="h-table"><thead><tr><th scope="col">Field</th><th scope="col">Accepted</th><th scope="col">Not accepted</th></tr></thead><tbody><tr><td>Diameter</td><td>16, T16, Y16, H16, Ø16, 16mm (4–60 mm)</td><td>#5 (US bar size), text</td></tr><tr><td>Cut length</td><td>Plain decimals with a dot, in the chosen unit</td><td>2,350 (comma), values that only fit the other unit, above 12,000 mm</td></tr><tr><td>Bars</td><td>Whole numbers ≥ 1; or members × bars in each</td><td>Fractions, zero, a total that contradicts members × each</td></tr><tr><td>Grade</td><td>Gr60, Grade 60, A615 Gr.60 are one grade; other text kept as written</td><td>Never assumed when empty</td></tr><tr><td>Shape code</td><td>Kept as written</td><td>Not used to compute lengths</td></tr><tr><td>Weight</td><td>0.006165 × d² × cut length × bars (theoretical)</td><td>Sheet weights are only compared, never used</td></tr></tbody></table></div>
+<h3 id="excluded">4. Fix excluded rows</h3>
+<p>Excluded rows are listed with row number, bar mark, diameter, cut length, bars and the reason. Correct the spreadsheet and load it again. Title, note and subtotal lines are excluded as “not a bar line”, which is expected.</p>
+<h3 id="twelve-metres">Why bars over 12 m are excluded</h3>
+<p>A cut length above 12,000 mm cannot be cut from one 12 m stock bar. The analyzer excludes it from every total and from the optimizer hand-off, and shows its bars, length and theoretical weight separately so nothing is hidden. 12,000 mm itself is included. The decision is made on the value exactly as written: 12,000.001 mm is excluded.</p>
+<h3 id="grades">Why a missing grade must be chosen by you</h3>
+<p>Grade 60 and Grade 80 are different products. Rows without a grade stay in the analysis as “no grade” but are not sent to the optimizer. If you know the grade, enter it in the third group, read which rows it applies to, tick the confirmation and press Assign grade. It applies to all rows without a grade and is marked as assigned by you. The tool never assumes a grade.</p>
+<h3 id="send">5. Send to the Cutting Optimizer</h3>
+<p>Press <b>Send to Cutting Optimizer</b>. Valid rows are grouped by diameter, grade and cut length (rounded to the millimetre) and the optimizer opens in a new tab with them. Review the lines there and press Optimise; nothing runs by itself. Your schedule stays unchanged in the analyzer tab.</p>
+<h2 id="example">Worked example</h2>
+<div class="h-ex"><p class="h-ex-t">Villa footings and columns (the sample schedule)</p><p>Press <b>Load sample schedule</b>. The header is on row 3; the cut length header says (mm), so the unit is set automatically.</p>
+<div class="h-scroll"><table class="h-table"><thead><tr><th scope="col">Group</th><th scope="col">Rows</th><th scope="col">Result</th></tr></thead><tbody><tr><td>Included in the analysis</td><td>9</td><td>860 bars · 1,859.60 m · 2.080 t</td></tr><tr><td>Excluded from the calculation</td><td>3</td><td>Row 12: length “2,875” (comma) · Row 13: 12,500 mm, exceeds the 12 m stock bar limit (4 bars, 50 m, 0.193 t shown apart) · Row 15: the “Total” line</td></tr><tr><td>Included, not sent to the optimizer</td><td>1</td><td>Row 14: no grade, 20 bars</td></tr></tbody></table></div>
+<p>By diameter: 10 mm 320 bars 292.0 kg · 12 mm 308 bars 686.1 kg · 16 mm 184 bars 729.1 kg · 20 mm 48 bars 372.9 kg. Warnings: bar mark 06 in member B1 repeats on rows 9 and 10 with identical data (review), Gr60 is also written “Grade 60”, and two rows have a sheet weight more than 1% from the theoretical weight.</p>
+<p>Sending to the optimizer transfers 7 grouped lines; the no-grade row is held back. With kerf 0 and reusable offcuts from 1 m, the optimizer needs 160 bars of 12 m (2.209 t), proven minimum.</p></div>
+<h2 id="results">Reading the results</h2>
+<ul><li><b>Three groups</b> tell you exactly where every row went: included, excluded with a reason, or included but held back from the optimizer.</li><li><b>Warnings</b> need review but do not change the totals: repeated bar marks (checked within each member; without a member column they cannot be told apart), several grades, grade spellings, non-standard diameters, formula values, and sheet weights or lengths that disagree.</li><li><b>Tables</b> by diameter, by diameter and grade, by grade and by shape add up to the same totals.</li><li><b>Download CSV</b> exports the used rows, the summary and the excluded rows; <b>Print / PDF</b> prints the report.</li></ul>
+<h2 id="mistakes">Common mistakes</h2>
+<ul><li>Leaving the cut length unit to chance: always check the unit the analyzer shows.</li><li>Mapping “Total length” as cut length: cut length is the length of one bar.</li><li>Expecting bars over 12 m to be cut: they are excluded by design.</li><li>Assigning a grade “to make the rows go through” when the drawing does not say: ask the designer instead.</li><li>Saving the workbook without recalculating: formula cells use the value Excel saved, and those rows are marked.</li></ul>
+<h2 id="limits">Limitations</h2>
+<ul><li>.xls (old format), .xlsb and .ods are not supported; the reader supports the tested .xlsx structures.</li><li>Cut lengths are not calculated from shape dimensions.</li><li>Weights are theoretical estimates, not certified quantities.</li><li>One grade at a time can be assigned to all rows without a grade; different grades per row must be corrected in the sheet.</li></ul>
+<h2 id="related">Related</h2>
+<ul><li><a href="/tools/cutting-optimizer/">Cutting Optimizer</a> and its <a href="/help/cutting-optimizer/">guide</a>.</li><li><a href="/tools/rebarplan/">RebarPlan</a> (desktop app that writes bar bending schedules).</li><li><a href="/help/#troubleshooting">Troubleshooting</a>.</li></ul>
+          <p class="note-back"><a href="/help/">← All help topics</a> · <a href="/help/#tool-guides">Tool guides</a></p>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="c-footer">
+  <div class="c-footer__quote">
+    <p>Notes on weights, tolerances and what ends up on the invoice.</p>
+    <a class="c-label" href="/writing/">All writing &rarr;</a>
+  </div>
+  <div class="c-footer__base">
+    <span>&copy; <span id="yr">2026</span> Omar Mashharawi</span>
+    <a href="mailto:info@mashharawi.com">info@mashharawi.com</a>
+    <a href="/about/">About</a>
+    <a href="/contact/">Contact</a>
+    <a href="/privacy/">Privacy</a>
+  </div>
+</footer>
+<script src="/assets/site.js?v=20261015" defer></script>
+</body>
+</html>

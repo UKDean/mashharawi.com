@@ -29,7 +29,7 @@
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="stylesheet" href="/assets/site.css?v=20261031">
-<link rel="stylesheet" href="/assets/cutopt/cutopt.css?v=20261119">
+<link rel="stylesheet" href="/assets/cutopt/cutopt.css?v=20261119h">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Inter:wght@200..500&display=swap">
@@ -181,14 +181,15 @@
   <section id="optimizer" class="sec c-after-hero">
     <div class="wrap">
       <div class="calc" id="cutopt">
+        <p class="co-help"><a href="/zh/help/cutting-optimizer/" target="_blank" rel="noopener">使用指南（在新标签页打开）</a></p>
 
         <div class="co-panel co-input">
           <p class="calc-lbl">定尺与切割</p>
           <div class="co-set">
             <label class="calc-field"><span>定尺长度，米</span><input id="coStock" type="text" inputmode="decimal" value="12"><small>沙特市场标准定尺为 12 米。</small></label>
-            <label class="calc-field"><span>锯缝，毫米</span><input id="coKerf" type="number" min="0" max="20" step="1" inputmode="numeric" value="0"><small>剪切机为 0；锯切约 3 毫米。</small></label>
+            <label class="calc-field"><span>锯缝，毫米</span><input id="coKerf" type="number" min="0" max="20" step="1" inputmode="numeric" value="0"><small>剪切机为 0；锯切约 3 毫米。 <a class="co-q" href="/zh/help/cutting-optimizer/#settings" target="_blank" rel="noopener">帮助</a></small></label>
             <label class="calc-field"><span>每件加长余量，毫米</span><input id="coAllow" type="number" min="0" max="200" step="1" inputmode="numeric" value="0"><small>可选，每件增加的长度。</small></label>
-            <label class="calc-field"><span>可再用余料起，米</span><input id="coMinOff" type="text" inputmode="decimal" value="1"><small>更短的余料计为废料。</small></label>
+            <label class="calc-field"><span>可再用余料起，米</span><input id="coMinOff" type="text" inputmode="decimal" value="1"><small>更短的余料计为废料。 <a class="co-q" href="/zh/help/cutting-optimizer/#settings" target="_blank" rel="noopener">帮助</a></small></label>
           </div>
         </div>
 
@@ -213,7 +214,7 @@
           <details class="co-paste">
             <summary>从 Excel 粘贴</summary>
             <div>
-              <p>复制 <b>直径、长度（米）、根数</b> 三列，牌号可选，然后粘贴。大于 100 的长度按毫米读取。不会上传任何文件。</p>
+              <p>复制 <b>直径、长度（米）、根数</b> 三列，牌号可选，然后粘贴。大于 100 的长度按毫米读取。不会上传任何文件。 <a class="co-q" href="/zh/help/cutting-optimizer/#paste" target="_blank" rel="noopener">帮助</a></p>
               <textarea id="coPaste" spellcheck="false" placeholder="16	3.45	120	Gr60
 12	2.875	300	Gr60"></textarea>
               <button type="button" class="calc-btn" id="coPasteGo">导入</button>
