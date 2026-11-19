@@ -19,10 +19,8 @@ const LANG = { en: ['en', 'ltr'], ar: ['ar', 'rtl'], zh: ['zh-Hans', 'ltr'] };
 const read = (url) => fs.readFileSync(path.join(ROOT, url, 'index.html'), 'utf8');
 const main = (html) => (html.match(/<main[\s\S]*?<\/main>/) || [''])[0];
 const text = (html) => html.replace(/<script[\s\S]*?<\/script>/g, '').replace(/<[^>]+>/g, ' ').replace(/&[a-z#0-9]+;/g, ' ');
-// The weight verification tool is in PR #15; until that is merged its tool
-// pages are not in this branch. Links to them are expected and listed here.
-const PENDING = new Set(['/tools/steel-weight-verification/', '/ar/tools/steel-weight-verification/', '/zh/steel-weight-verification/']);
-
+// Every link target must exist in this branch: no pending pages.
+const PENDING = new Set();
 const pages = [];
 for (const l of Object.keys(PREFIX)) for (const s of SLUGS) pages.push({ l, s, url: PREFIX[l] + s });
 
@@ -109,13 +107,14 @@ test('every internal link and anchor in the help pages resolves', () => {
     for (const [, frag] of h.matchAll(/href="#([^"]+)"/g)) if (!h.includes(`id="${frag}"`)) missing.push(p.url + ' -> #' + frag);
   }
   assert.deepEqual(missing, []);
-  assert.deepEqual([...pendingSeen].sort(), [...PENDING].sort());   // only the PR #15 tool URLs are pending
+  assert.equal(pendingSeen.size, 0);
 });
 
 test('Help links inside the tools: right language, new tab, existing anchors', () => {
   const tools = [
     ['tools/cutting-optimizer', '/help/cutting-optimizer/'], ['ar/tools/cutting-optimizer', '/ar/help/cutting-optimizer/'], ['zh/rebar-cutting-optimizer', '/zh/help/cutting-optimizer/'],
-    ['tools/bbs-analyzer', '/help/bbs-analyzer/'], ['ar/tools/bbs-analyzer', '/ar/help/bbs-analyzer/'], ['zh/bbs-analyzer', '/zh/help/bbs-analyzer/']];
+    ['tools/bbs-analyzer', '/help/bbs-analyzer/'], ['ar/tools/bbs-analyzer', '/ar/help/bbs-analyzer/'], ['zh/bbs-analyzer', '/zh/help/bbs-analyzer/'],
+    ['tools/steel-weight-verification', '/help/steel-weight-verification/'], ['ar/tools/steel-weight-verification', '/ar/help/steel-weight-verification/'], ['zh/steel-weight-verification', '/zh/help/steel-weight-verification/']];
   for (const [t, guide] of tools) {
     const h = read(t);
     const links = [...h.matchAll(/<a (?:class="co-q" )?href="([^"]*\/help\/[^"]*)" target="_blank" rel="noopener">/g)].map(m => m[1]);

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<script>document.documentElement.classList.add("js")</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Rebar Weight Check: Measured vs Theoretical Weight | Omar Mashharawi</title>
+<meta name="description" content="Free rebar weight verification: compare the measured weight of a bar sample with its nominal weight (0.006165 × d² kg/m) and see the deviation in kg and %.">
+<meta name="author" content="Omar Mashharawi">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+<link rel="canonical" href="https://mashharawi.com/tools/steel-weight-verification/">
+<link rel="alternate" hreflang="en" href="https://mashharawi.com/tools/steel-weight-verification/">
+<link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/tools/steel-weight-verification/">
+<link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/steel-weight-verification/">
+<link rel="alternate" hreflang="x-default" href="https://mashharawi.com/tools/steel-weight-verification/">
+
+<meta name="theme-color" content="#0A0A0A">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mashharawi.com/tools/steel-weight-verification/">
+<meta property="og:title" content="Rebar Weight Check: Measured vs Theoretical Weight | Omar Mashharawi">
+<meta property="og:description" content="Free rebar weight verification: compare the measured weight of a bar sample with its nominal weight (0.006165 × d² kg/m) and see the deviation in kg and %.">
+<meta property="og:site_name" content="mashharawi.com">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ar_SA">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta property="og:image" content="https://mashharawi.com/og-brand.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="stylesheet" href="/assets/site.css?v=20261031">
+<link rel="stylesheet" href="/assets/cutopt/cutopt.css?v=20261119h">
+<link rel="stylesheet" href="/assets/swv/swv.css?v=20261119b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200..500&display=swap">
+
+<link rel="icon" href="/favicon.ico?v=20261024" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=20261024">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20261024">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png?v=20261024">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=20261024">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png?v=20261024">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20261024">
+<!-- Only what the page itself states: a free browser tool. No ratings, no counts. -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebApplication",
+ "name": "Steel Weight Verification",
+ "url": "https://mashharawi.com/tools/steel-weight-verification/",
+ "applicationCategory": "https://schema.org/BusinessApplication",
+ "operatingSystem": "Any modern browser",
+ "browserRequirements": "Requires JavaScript",
+ "inLanguage": [
+  "en",
+  "ar",
+  "zh-Hans"
+ ],
+ "isAccessibleForFree": true,
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "SAR"
+ },
+ "author": {
+  "@type": "Person",
+  "@id": "https://mashharawi.com/#person",
+  "name": "Omar Mashharawi"
+ }
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "inLanguage": "en",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "How do I check the weight of a rebar sample?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Cut a bar to a measured length, weigh it, and enter the diameter, length, number of bars and measured weight. The tool calculates the nominal weight as 0.006165 × d² kg/m × length × bars and gives the difference in kg and the deviation in percent."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What does a negative deviation mean?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The sample weighs less than its nominal weight. A positive deviation means it weighs more. Deviation % = (measured − theoretical) ÷ theoretical × 100."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Does the tool say whether the steel passes?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. It has no built-in acceptance limits and does not certify steel. You can enter the range from your specification or contract, and the tool shows only whether each deviation is inside that range."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is the nominal weight different for Grade 60 and Grade 80?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. Nominal weight per metre comes from the nominal diameter and the density of steel, so it is the same for both grades. The grade field is for your records."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can I compare several samples?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. Add as many samples as you need. The table shows each one, and samples of the same diameter are also combined, with the lowest and highest deviation shown beside the combined value."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is anything I enter saved or sent?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. The calculation runs in your browser, nothing is stored, and no account is needed. The WhatsApp button asks first, then copies the summary and opens the chat; you decide whether to send it."
+   }
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Home",
+   "item": "https://mashharawi.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Tools",
+   "item": "https://mashharawi.com/tools/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Steel weight verification",
+   "item": "https://mashharawi.com/tools/steel-weight-verification/"
+  }
+ ]
+}
+</script>
+<script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/cdn-cgi/*"}}]},"eagerness":"moderate"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="c-header">
+  <a class="c-header__name" href="/"><img class="c-header__mark" src="/assets/brand/mark-64.png" width="32" height="32" alt="">Omar Mashharawi</a>
+  <nav class="c-header__nav" aria-label="Main">
+    <a href="/#about">About</a>
+    <a href="/#experience">Experience</a>
+    <a href="/tools/" aria-current="page">Tools</a>
+    <a href="/writing/">Writing</a>
+    <a href="/#contact">Contact</a>
+    <a href="/ar/tools/steel-weight-verification/" hreflang="ar" lang="ar" class="c-header__lang">العربية</a>
+    <a href="/zh/steel-weight-verification/" hreflang="zh-Hans" lang="zh-Hans" class="c-header__lang">中文</a>
+  </nav>
+  <button class="c-header__menu" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+</header>
+
+<main id="main">
+  <section class="c-hero c-hero--full c-hero--short" aria-labelledby="s-h">
+    <img class="c-hero__img" src="/assets/img/rebar-bundle-1600.webp" srcset="/assets/img/rebar-bundle-800.webp 800w, /assets/img/rebar-bundle-1600.webp 1600w, /assets/img/rebar-bundle-2560.webp 2560w" sizes="100vw" width="1600" height="893" alt="" fetchpriority="high" decoding="async">
+    <div class="c-hero__shade"></div>
+    <div class="c-hero__body">
+      <div class="c-hero__text">
+        <p class="c-label">Tools / Weight verification &middot; In the browser &middot; Free</p>
+        <h1 class="c-hero__title" id="s-h">Weigh a sample. See how far it is from nominal.</h1>
+        <p class="c-hero__lead">Enter the diameter, the sample length, the number of bars and what they weighed. The tool works out the theoretical weight, the difference and the deviation in percent, and compares it with a range only if you enter one.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="verify" class="sec c-after-hero">
+    <div class="wrap">
+      <div class="calc" id="swv">
+        <p class="co-help"><a href="/help/steel-weight-verification/" target="_blank" rel="noopener">How to use this tool (guide opens in a new tab)</a></p>
+
+        <div class="co-panel s-input">
+          <p class="calc-lbl">Sample</p>
+          <div class="calc-chips" role="group" aria-label="Diameter, mm"><button type="button" class="calc-chip s-chip" data-d="10" aria-pressed="false">10</button><button type="button" class="calc-chip s-chip" data-d="12" aria-pressed="false">12</button><button type="button" class="calc-chip s-chip" data-d="14" aria-pressed="false">14</button><button type="button" class="calc-chip s-chip" data-d="16" aria-pressed="false">16</button><button type="button" class="calc-chip s-chip" data-d="18" aria-pressed="false">18</button><button type="button" class="calc-chip s-chip" data-d="20" aria-pressed="false">20</button><button type="button" class="calc-chip s-chip" data-d="25" aria-pressed="false">25</button><button type="button" class="calc-chip s-chip" data-d="32" aria-pressed="false">32</button></div>
+          <p class="calc-hint">Al Rajhi Steel sizes. Another value can be typed and is marked non-standard. <a class="co-q" href="/help/steel-weight-verification/#measure" target="_blank" rel="noopener">Help</a></p>
+          <div class="s-form">
+            <label class="calc-field wide"><span>Sample or batch reference</span><input id="sRef" class="co-in" type="text" maxlength="60" placeholder="e.g. Heat 2311-A / sample 1"></label>
+            <label class="calc-field"><span>Diameter, mm</span><input id="sDia" class="co-in" type="text" inputmode="decimal" list="sDiaList" autocomplete="off"></label>
+            <label class="calc-field"><span>Grade (informational)</span><input id="sGrade" class="co-in" type="text" maxlength="20" list="sGradeList" autocomplete="off"></label>
+            <label class="calc-field"><span>Sample length</span><span class="s-len"><input id="sLen" class="co-in" type="text" inputmode="decimal" autocomplete="off"><select id="sUnit" class="co-in"><option value="mm">mm</option><option value="m">m</option></select></span></label>
+            <label class="calc-field"><span>Number of bars weighed</span><input id="sBars" class="co-in" type="text" inputmode="numeric" value="1" autocomplete="off"></label>
+            <label class="calc-field wide"><span>Measured total weight, kg</span><input id="sKg" class="co-in" type="text" inputmode="decimal" autocomplete="off"></label>
+            <label class="calc-field full"><span>Notes (optional)</span><input id="sNotes" class="co-in" type="text" maxlength="300"></label>
+          </div>
+          <datalist id="sDiaList"><option value="10"></option><option value="12"></option><option value="14"></option><option value="16"></option><option value="18"></option><option value="20"></option><option value="25"></option><option value="32"></option></datalist>
+          <datalist id="sGradeList"><option value="Gr60"></option><option value="Gr80"></option></datalist>
+          <div class="co-actions">
+            <button type="button" class="calc-btn ghost grow" id="sReset">Clear form</button>
+            <button type="button" class="calc-btn ok" id="sAdd">Add sample</button>
+          </div>
+          <p class="co-msg" id="sMsg" role="status" aria-live="polite"></p>
+        </div>
+
+        <div class="co-panel s-tol-panel">
+          <p class="calc-lbl">Your acceptance range (optional)</p>
+          <div class="s-tol">
+            <label class="calc-field"><span>Lower limit, %</span><input id="tLo" class="co-in" type="text" inputmode="decimal" placeholder="-" autocomplete="off"></label>
+            <label class="calc-field"><span>Upper limit, %</span><input id="tUp" class="co-in" type="text" inputmode="decimal" placeholder="+" autocomplete="off"></label>
+            <p>Leave empty for no comparison. No limit is built in: enter the range from your specification or contract. The tool then only says whether each deviation lies inside it; it does not judge compliance. <a class="co-q" href="/help/steel-weight-verification/#tolerance" target="_blank" rel="noopener">Help</a></p>
+          </div>
+          <p class="co-msg" id="tMsg" role="status" aria-live="polite"></p>
+        </div>
+
+        <div class="co-panel" id="sOut" hidden>
+          <p class="calc-lbl">This sample <a class="co-q" href="/help/steel-weight-verification/#results" target="_blank" rel="noopener">Help</a></p>
+          <dl class="co-figs">
+            <div><dt>Theoretical weight</dt><dd><b id="rTheo">0</b><span>kg</span></dd></div>
+            <div><dt>Measured weight</dt><dd><b id="rAct">0</b><span>kg</span></dd></div>
+            <div><dt>Difference</dt><dd><b id="rDiff">0</b><span>kg</span></dd></div>
+            <div><dt>Deviation</dt><dd><b id="rDev">0</b><span>%</span></dd><small id="rDevNote" class="calc-hint"></small></div>
+          </dl>
+          <div class="s-sub"><span>Nominal: <b id="rUw"></b></span><span>Theoretical per bar: <b id="rPerBar"></b></span><span>Measured: <b id="rActM"></b></span></div>
+          <div class="s-cmp" aria-hidden="true">
+            <div class="s-cmp-row"><span>Theoretical</span><span class="s-cmp-trk"><i id="barTheo"></i></span><b id="barTheoV"></b></div>
+            <div class="s-cmp-row act"><span>Measured</span><span class="s-cmp-trk"><i id="barAct"></i></span><b id="barActV"></b></div>
+          </div>
+          <p class="calc-lbl" style="margin-top:22px">Deviation from theoretical</p>
+          <div class="s-gauge" aria-hidden="true"><span class="axis"></span><span class="band" id="gBand" hidden></span><span class="zero"></span><span class="mark" id="gMark"></span></div>
+          <div class="s-gauge-lbl" aria-hidden="true"><span>&minus;30%</span><span>&minus;15%</span><span>0</span><span>+15%</span><span>+30%</span></div>
+          <p class="s-formula" id="rFormula"></p>
+          <p class="s-range" id="rRange"></p>
+          <ul class="s-warn" id="rWarn" hidden></ul>
+        </div>
+
+        <div class="co-panel">
+          <div class="s-report-head"><h2>Rebar weight check</h2><p class="co-meta">mashharawi.com &middot; <span id="sDate"></span></p></div>
+          <p class="calc-lbl">Samples in this session</p>
+          <p class="calc-empty" id="sEmpty">No samples yet. Enter one above and press Add sample.</p>
+          <div id="sSession" hidden>
+            <div class="co-scroll"><table class="calc-table s-tbl" id="tS"></table></div>
+            <h2 class="calc-lbl" style="margin-top:22px">Pooled by nominal diameter</h2>
+            <div class="co-scroll"><table class="calc-table s-tbl" id="tD"></table></div>
+            <p class="calc-hint" id="sPooledNote"></p>
+            <p class="s-totals" id="sTotals"></p>
+            <p class="calc-hint" id="sNoComb" hidden></p>
+            <div class="co-actions s-actions">
+              <button type="button" class="calc-btn ghost" id="sCsv">Download CSV</button>
+              <button type="button" class="calc-btn ghost" id="sPrint">Print / PDF</button>
+              <button type="button" class="calc-btn ghost" id="sCopy">Copy summary</button>
+              <button type="button" class="calc-btn ghost grow" id="sClear">Clear session</button>
+              <button type="button" class="calc-btn ok" id="sWa">Send summary on WhatsApp</button>
+            </div>
+            <label class="calc-field s-actions" style="margin-top:12px"><span>Summary to copy</span><textarea id="sSum" class="s-sum" readonly></textarea></label>
+          </div>
+          <p class="s-disclaim"><b>Theoretical comparison only.</b> The nominal weight is 0.006165 &times; d&sup2; kg/m from the nominal diameter, the same for Grade 60 and Grade 80. The result is not a mill test certificate (MTC), not a laboratory test and not a certification of steel quality, and a deviation on its own does not prove non-compliance. Acceptance depends on the governing standard and the contract, and on how the sample was cut, measured and weighed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="q-band" aria-labelledby="qb-h">
+    <div class="wrap">
+      <p class="q-eyebrow">Rebar supply &middot; Al Rajhi Steel</p>
+      <h2 id="qb-h">Need rebar for the project?</h2>
+      <p>Send me the sizes, grade, tonnes and project city, and I will come back with an official rebar quotation from Al Rajhi Steel, where I work in sales. Cutting to specified lengths is subject to confirmation, and any bending requirements must be confirmed before quotation.</p>
+      <ul class="q-facts">
+        <li>Sizes 10, 12, 14, 16, 18, 20, 25 and 32 mm &middot; 12 m bars</li><li>Grade 60 and Grade 80</li><li>Epoxy-coated rebar available</li><li>Mill test certificates (MTC) for the sizes and grade ordered</li><li>Cutting to specified lengths, subject to confirmation</li><li>Bending requirements confirmed before quotation</li><li>Supply after payment confirmation or LC approval, subject to company procedures, product availability and the agreed delivery schedule</li>
+      </ul>
+      <div class="q-actions">
+        <a class="q-btn q-btn--wa" href="https://wa.me/message/D6ABM7QFWVSPB1" target="_blank" rel="noopener">Send the quantities on WhatsApp</a>
+        <a class="q-btn q-btn--line" href="/rebar/">Supply details</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec co-how" aria-labelledby="how-h">
+    <div class="wrap">
+      <div class="sec-head"><h2 id="how-h">How the check works.</h2></div>
+      <div class="lead">
+        <p>Nominal unit weight = 0.006165 &times; d&sup2; kg/m, with d the nominal diameter in mm. It is the same constant used by the <a href="/tools/cutting-optimizer/">cutting optimizer</a> and the <a href="/tools/bbs-analyzer/">BBS Analyzer</a>. It depends on the diameter only: Grade 60 and Grade 80 bars have the same nominal weight per metre.</p>
+        <p>Theoretical weight = unit weight &times; sample length in metres &times; number of bars. Difference = measured &minus; theoretical. Deviation % = (measured &minus; theoretical) &divide; theoretical &times; 100: positive when the sample is heavier than nominal, negative when it is lighter.</p>
+        <p>Everything is calculated from the values as entered and rounded only on screen. Lengths and weights must use a dot for decimals; a comma is refused because 2,5 and 2,500 are ambiguous. Any positive length is accepted in the unit you choose, which is never changed or guessed; the only length limit is one 12&nbsp;m stock bar (12,000&nbsp;mm). A difference over 25% shows an input-check note asking you to re-check the unit, bars and diameter; it is not an acceptance limit.</p>
+        <p>No acceptance limit is built in. If you enter a range from your own specification or contract, each sample is shown as inside or outside that range, and that is all: it is a comparison with your numbers, not a compliance decision.</p>
+        <p>Several samples can be compared in one session. Samples of the same nominal diameter are also pooled: (sum measured &minus; sum theoretical) &divide; sum theoretical &times; 100, shown next to the lowest and highest individual sample deviation so no single result is hidden. Across different diameters only the total masses are added; no combined percentage is ever calculated.</p>
+      </div>
+      <p class="note-back">Related: <a href="/tools/rebar-weight/">rebar weight calculator</a>, <a href="/tools/bbs-analyzer/">BBS Analyzer</a>, <a href="/tools/cutting-optimizer/">cutting optimizer</a>, <a href="/writing/weight-tolerance/">why weight tolerance is a commercial term</a>.</p>
+      <section class="faq rise" aria-labelledby="faq-h">
+        <h2 id="faq-h">Common questions</h2>
+        <details>
+          <summary>How do I check the weight of a rebar sample?</summary>
+          <p>Cut a bar to a measured length, weigh it, and enter the diameter, length, number of bars and measured weight. The tool calculates the nominal weight as 0.006165 × d² kg/m × length × bars and gives the difference in kg and the deviation in percent.</p>
+        </details>
+        <details>
+          <summary>What does a negative deviation mean?</summary>
+          <p>The sample weighs less than its nominal weight. A positive deviation means it weighs more. Deviation % = (measured − theoretical) ÷ theoretical × 100.</p>
+        </details>
+        <details>
+          <summary>Does the tool say whether the steel passes?</summary>
+          <p>No. It has no built-in acceptance limits and does not certify steel. You can enter the range from your specification or contract, and the tool shows only whether each deviation is inside that range.</p>
+        </details>
+        <details>
+          <summary>Is the nominal weight different for Grade 60 and Grade 80?</summary>
+          <p>No. Nominal weight per metre comes from the nominal diameter and the density of steel, so it is the same for both grades. The grade field is for your records.</p>
+        </details>
+        <details>
+          <summary>Can I compare several samples?</summary>
+          <p>Yes. Add as many samples as you need. The table shows each one, and samples of the same diameter are also combined, with the lowest and highest deviation shown beside the combined value.</p>
+        </details>
+        <details>
+          <summary>Is anything I enter saved or sent?</summary>
+          <p>No. The calculation runs in your browser, nothing is stored, and no account is needed. The WhatsApp button asks first, then copies the summary and opens the chat; you decide whether to send it.</p>
+        </details>
+      </section>
+    </div>
+  </section>
+</main>
+
+<footer class="c-footer">
+  <div class="c-footer__quote">
+    <p>Notes on weights, tolerances and what ends up on the invoice.</p>
+    <a class="c-label" href="/writing/">All writing &rarr;</a>
+  </div>
+  <div class="c-footer__base">
+    <span>&copy; <span id="yr">2026</span> Omar Mashharawi</span>
+    <a href="mailto:info@mashharawi.com">info@mashharawi.com</a>
+    <a href="/about/">About</a>
+    <a href="/contact/">Contact</a>
+    <a href="/privacy/">Privacy</a>
+  </div>
+</footer>
+<script src="/assets/site.js?v=20261015" defer></script>
+<script src="/assets/swv/engine.js?v=20261119b" defer></script>
+<script src="/assets/swv/i18n.js?v=20261119b" defer></script>
+<script src="/assets/swv/app.js?v=20261119b" defer></script>
+<script src="/assets/quote.js?v=20261019" defer></script>
+</body>
+</html>

@@ -39,18 +39,17 @@ and the tests depend on them.
 
 ## In-tool help
 
-The Cutting Optimizer and BBS Analyzer pages (all three languages) have:
+The Cutting Optimizer, BBS Analyzer and Steel Weight Verification pages (all
+three languages) have:
 
 - a "How to use this tool" link at the top of the calculator;
-- small "?" links beside the fields that need explaining (saw kerf, reusable
-  offcut, paste format; column mapping, excluded rows, missing grade, 12 m
-  rule, sending to the optimizer).
+- small "Help" links beside the parts that need explaining: saw kerf, reusable
+  offcut and paste format (optimizer); column mapping, excluded rows, missing
+  grade, 12 m rule and sending to the optimizer (BBS); measuring the sample,
+  the acceptance range and reading the results (weight verification).
 
 All of them open the guide **in the same language, in a new tab**, so the
-work in the tool is not lost. The Steel Weight Verification tool is in PR #15;
-its in-tool help links will be added after that PR is merged. Until then the
-links from the help pages to `/tools/steel-weight-verification/` (and the AR and
-ZH equivalents) are the only expected missing targets.
+work in the tool is not lost.
 
 ## Numbers
 
