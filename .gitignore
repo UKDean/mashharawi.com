@@ -14,3 +14,6 @@ health-report.md
 
 # Website team working files (plans, reports). Never published.
 .site-team/
+
+# Python bytecode
+__pycache__/
