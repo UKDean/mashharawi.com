@@ -194,6 +194,126 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://mashharawi.com/help/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/help/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/help/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/help/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/help/"/>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mashharawi.com/ar/help/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/help/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/help/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/help/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/help/"/>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mashharawi.com/zh/help/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/help/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/help/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/help/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/help/"/>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mashharawi.com/help/cutting-optimizer/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/help/cutting-optimizer/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/help/cutting-optimizer/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/help/cutting-optimizer/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/help/cutting-optimizer/"/>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mashharawi.com/ar/help/cutting-optimizer/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/help/cutting-optimizer/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/help/cutting-optimizer/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/help/cutting-optimizer/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/help/cutting-optimizer/"/>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://mashharawi.com/zh/help/cutting-optimizer/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/help/cutting-optimizer/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/help/cutting-optimizer/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/help/cutting-optimizer/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/help/cutting-optimizer/"/>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://mashharawi.com/help/bbs-analyzer/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/help/bbs-analyzer/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/help/bbs-analyzer/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/help/bbs-analyzer/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/help/bbs-analyzer/"/>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mashharawi.com/ar/help/bbs-analyzer/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/help/bbs-analyzer/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/help/bbs-analyzer/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/help/bbs-analyzer/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/help/bbs-analyzer/"/>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://mashharawi.com/zh/help/bbs-analyzer/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/help/bbs-analyzer/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/help/bbs-analyzer/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/help/bbs-analyzer/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/help/bbs-analyzer/"/>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://mashharawi.com/help/steel-weight-verification/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/help/steel-weight-verification/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/help/steel-weight-verification/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/help/steel-weight-verification/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/help/steel-weight-verification/"/>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mashharawi.com/ar/help/steel-weight-verification/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/help/steel-weight-verification/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/help/steel-weight-verification/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/help/steel-weight-verification/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/help/steel-weight-verification/"/>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://mashharawi.com/zh/help/steel-weight-verification/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/help/steel-weight-verification/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/help/steel-weight-verification/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/help/steel-weight-verification/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/help/steel-weight-verification/"/>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://mashharawi.com/tools/rebarplan/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/tools/rebarplan/"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/tools/rebarplan/"/>
