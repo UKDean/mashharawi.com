@@ -29,7 +29,7 @@
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="stylesheet" href="/assets/site.css?v=20261031">
-<link rel="stylesheet" href="/assets/cutopt/cutopt.css?v=20261119">
+<link rel="stylesheet" href="/assets/cutopt/cutopt.css?v=20261119h">
 <link rel="stylesheet" href="/assets/swv/swv.css?v=20261119b">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -188,11 +188,12 @@
   <section id="verify" class="sec c-after-hero">
     <div class="wrap">
       <div class="calc" id="swv">
+        <p class="co-help"><a href="/help/steel-weight-verification/" target="_blank" rel="noopener">How to use this tool (guide opens in a new tab)</a></p>
 
         <div class="co-panel s-input">
           <p class="calc-lbl">Sample</p>
           <div class="calc-chips" role="group" aria-label="Diameter, mm"><button type="button" class="calc-chip s-chip" data-d="10" aria-pressed="false">10</button><button type="button" class="calc-chip s-chip" data-d="12" aria-pressed="false">12</button><button type="button" class="calc-chip s-chip" data-d="14" aria-pressed="false">14</button><button type="button" class="calc-chip s-chip" data-d="16" aria-pressed="false">16</button><button type="button" class="calc-chip s-chip" data-d="18" aria-pressed="false">18</button><button type="button" class="calc-chip s-chip" data-d="20" aria-pressed="false">20</button><button type="button" class="calc-chip s-chip" data-d="25" aria-pressed="false">25</button><button type="button" class="calc-chip s-chip" data-d="32" aria-pressed="false">32</button></div>
-          <p class="calc-hint">Al Rajhi Steel sizes. Another value can be typed and is marked non-standard.</p>
+          <p class="calc-hint">Al Rajhi Steel sizes. Another value can be typed and is marked non-standard. <a class="co-q" href="/help/steel-weight-verification/#measure" target="_blank" rel="noopener">Help</a></p>
           <div class="s-form">
             <label class="calc-field wide"><span>Sample or batch reference</span><input id="sRef" class="co-in" type="text" maxlength="60" placeholder="e.g. Heat 2311-A / sample 1"></label>
             <label class="calc-field"><span>Diameter, mm</span><input id="sDia" class="co-in" type="text" inputmode="decimal" list="sDiaList" autocomplete="off"></label>
@@ -216,13 +217,13 @@
           <div class="s-tol">
             <label class="calc-field"><span>Lower limit, %</span><input id="tLo" class="co-in" type="text" inputmode="decimal" placeholder="-" autocomplete="off"></label>
             <label class="calc-field"><span>Upper limit, %</span><input id="tUp" class="co-in" type="text" inputmode="decimal" placeholder="+" autocomplete="off"></label>
-            <p>Leave empty for no comparison. No limit is built in: enter the range from your specification or contract. The tool then only says whether each deviation lies inside it; it does not judge compliance.</p>
+            <p>Leave empty for no comparison. No limit is built in: enter the range from your specification or contract. The tool then only says whether each deviation lies inside it; it does not judge compliance. <a class="co-q" href="/help/steel-weight-verification/#tolerance" target="_blank" rel="noopener">Help</a></p>
           </div>
           <p class="co-msg" id="tMsg" role="status" aria-live="polite"></p>
         </div>
 
         <div class="co-panel" id="sOut" hidden>
-          <p class="calc-lbl">This sample</p>
+          <p class="calc-lbl">This sample <a class="co-q" href="/help/steel-weight-verification/#results" target="_blank" rel="noopener">Help</a></p>
           <dl class="co-figs">
             <div><dt>Theoretical weight</dt><dd><b id="rTheo">0</b><span>kg</span></dd></div>
             <div><dt>Measured weight</dt><dd><b id="rAct">0</b><span>kg</span></dd></div>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" dir="ltr">
+<head>
+<meta charset="utf-8">
+<script>document.documentElement.classList.add("js")</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>钢筋表（BBS）分析工具使用指南：Excel 和 CSV</title>
+<meta name="description" content="钢筋表分析工具指南：导入 XLSX、XLSM、CSV、TSV 或 TXT、列匹配、修正无效行、12 米规则、缺少牌号、结果解读，以及发送到下料优化。">
+<meta name="author" content="Omar Mashharawi">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+<link rel="canonical" href="https://mashharawi.com/zh/help/bbs-analyzer/">
+<link rel="alternate" hreflang="en" href="https://mashharawi.com/help/bbs-analyzer/">
+<link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/help/bbs-analyzer/">
+<link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/help/bbs-analyzer/">
+<link rel="alternate" hreflang="x-default" href="https://mashharawi.com/help/bbs-analyzer/">
+
+<meta name="theme-color" content="#0A0A0A">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mashharawi.com/zh/help/bbs-analyzer/">
+<meta property="og:title" content="钢筋表（BBS）分析工具使用指南：Excel 和 CSV">
+<meta property="og:description" content="钢筋表分析工具指南：导入 XLSX、XLSM、CSV、TSV 或 TXT、列匹配、修正无效行、12 米规则、缺少牌号、结果解读，以及发送到下料优化。">
+<meta property="og:site_name" content="mashharawi.com">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="ar_SA">
+<meta property="og:image" content="https://mashharawi.com/og-brand.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="stylesheet" href="/assets/site.css?v=20261031">
+<link rel="stylesheet" href="/assets/cutopt/cutopt.css?v=20261119h">
+<link rel="stylesheet" href="/assets/help/help.css?v=20261119a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Inter:wght@200..500&display=swap">
+<style>html[lang="zh-Hans"] body,html[lang="zh-Hans"] h1,html[lang="zh-Hans"] h2,html[lang="zh-Hans"] h3{font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;font-stretch:normal;letter-spacing:0}</style>
+<link rel="icon" href="/favicon.ico?v=20261024" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=20261024">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20261024">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png?v=20261024">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=20261024">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png?v=20261024">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20261024">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "TechArticle",
+ "headline": "钢筋表分析工具：使用指南",
+ "url": "https://mashharawi.com/zh/help/bbs-analyzer/",
+ "inLanguage": "zh-Hans",
+ "description": "钢筋表分析工具指南：导入 XLSX、XLSM、CSV、TSV 或 TXT、列匹配、修正无效行、12 米规则、缺少牌号、结果解读，以及发送到下料优化。",
+ "about": {
+  "@type": "WebApplication",
+  "name": "钢筋表分析工具",
+  "url": "https://mashharawi.com/zh/bbs-analyzer/"
+ },
+ "author": {
+  "@type": "Person",
+  "@id": "https://mashharawi.com/#person",
+  "name": "Omar Mashharawi"
+ }
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "中文首页",
+   "item": "https://mashharawi.com/zh/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "帮助中心",
+   "item": "https://mashharawi.com/zh/help/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "钢筋表分析工具",
+   "item": "https://mashharawi.com/zh/help/bbs-analyzer/"
+  }
+ ]
+}
+</script>
+<script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/cdn-cgi/*"}}]},"eagerness":"moderate"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="c-header c-header--solid">
+  <a class="c-header__name" href="/zh/"><img class="c-header__mark" src="/assets/brand/mark-64.png" width="32" height="32" alt="">Omar Mashharawi · 钢筋</a>
+  <nav class="c-header__nav" aria-label="主菜单">
+    <a href="/zh/rebar/">钢筋供应</a>
+    <a href="/zh/rebar-cutting-optimizer/">下料优化</a>
+    <a href="/zh/bbs-analyzer/">钢筋表分析</a>
+    <a href="/zh/steel-weight-verification/">重量核对</a>
+    <a href="/zh/help/" aria-current="page">帮助</a>
+    <a href="/help/bbs-analyzer/" hreflang="en" lang="en" class="c-header__lang">English</a>
+    <a href="/ar/help/bbs-analyzer/" hreflang="ar" lang="ar" class="c-header__lang">العربية</a>
+  </nav>
+  <button class="c-header__menu" type="button" aria-label="菜单" aria-expanded="false"><span></span><span></span></button>
+</header>
+
+<main id="main">
+  <section class="sec c-tool h-page" aria-labelledby="h-title">
+    <div class="wrap">
+      <div class="h-crumbs" role="navigation" aria-label="页面路径"><a href="/zh/">中文首页</a> <span aria-hidden="true">›</span> <a href="/zh/help/">帮助中心</a> <span aria-hidden="true">›</span> <span aria-current="page">钢筋表分析工具</span></div>
+      <div class="h-head">
+        <p class="c-label">帮助中心</p>
+        <h1 class="c-tool__title" id="h-title">钢筋表分析工具：使用指南</h1>
+        <p class="h-lead">如何把钢筋下料表转换为经过核对的数量和理论重量，并把下料长度发送到下料优化工具。</p>
+        <a class="calc-btn ok h-open" href="/zh/bbs-analyzer/">打开工具</a>
+      </div>
+      <div class="h-grid">
+        <div class="h-toc" role="navigation" aria-label="本页内容">
+          <p class="calc-lbl">本页内容</p>
+          <ol><li><a href="#what">工具用途</a></li><li><a href="#when">使用时机</a></li><li><a href="#privacy">隐私：文件只留在您的浏览器中</a></li><li><a href="#steps">操作步骤</a></li><li><a href="#example">计算实例</a></li><li><a href="#results">结果解读</a></li><li><a href="#mistakes">常见错误</a></li><li><a href="#limits">局限</a></li><li><a href="#related">相关</a></li></ol>
+        </div>
+        <article class="h-body">
+<h2 id="what">工具用途</h2>
+<p>工具读取钢筋下料表（BBS），识别各列，逐行核对，并按直径、牌号和形状汇总根数、长度和理论重量。它绝不补全缺失的工程数据：无法读取的行会被排除并列出原因。</p>
+<h2 id="when">使用时机</h2>
+<ul><li>订货前核对顾问或分包商提供的钢筋表。</li><li>为询价获取各直径和牌号的吨数。</li><li>为下料优化准备下料长度。</li></ul>
+<h2 id="privacy">隐私：文件只留在您的浏览器中</h2>
+<ul><li><b>本地处理。</b>文件由页面在您自己的浏览器中打开和分析。</li><li><b>不上传。</b>文件内容绝不会发送到网站服务器或任何其他地方。</li><li><b>不保存。</b>网站不保留文件，工具也不会把它存在您的浏览器中供以后使用。无需注册账号。</li><li><b>关闭标签页即结束本次会话。</b>关闭标签页后，文件、分析结果和您输入的内容都会消失。下次请重新打开文件。</li></ul>
+<p><b>发送到下料优化工具</b>会把汇总后的下料长度放在新标签页地址的“#”号之后传递，浏览器不会把这部分发送到服务器；下料优化工具读取后会把它从地址中删除。<b>下载 CSV</b> 和<b>打印 / PDF</b> 也都在您的浏览器中生成。</p>
+<h2 id="steps">操作步骤</h2>
+<h3 id="import">1. 打开钢筋表</h3>
+<p>选择文件、拖放到框中、从 Excel 粘贴区域，或手动输入各行。以下是工具实际能读取的格式：</p>
+<div class="h-scroll"><table class="h-table"><thead><tr><th scope="col">格式</th><th scope="col">读取方式</th><th scope="col">说明</th></tr></thead><tbody><tr><td><b>XLSX</b>（Excel 工作簿）</td><td>工具内置的工作簿读取器</td><td>工作簿有多个工作表时请选择。公式单元格使用 Excel 最后保存的值，并会标出这些行。</td></tr><tr><td><b>XLSM</b>（启用宏的工作簿）</td><td>同一个工作簿读取器</td><td>已用 Microsoft Excel 保存的工作簿（含宏和不含宏）测试。宏绝不打开、绝不运行。</td></tr><tr><td><b>CSV</b></td><td>文本，自动识别逗号、分号或制表符</td><td>钢筋表含中文或阿拉伯文时，请在 Excel 中另存为 <b>CSV UTF-8</b>；用 Windows 旧编码保存的“CSV”无法正确读取。</td></tr><tr><td><b>TSV</b></td><td>文本，制表符分隔</td><td></td></tr><tr><td><b>TXT</b></td><td>文本，与 CSV 相同（逗号、分号或制表符）</td><td>Excel 的“文本文件（制表符分隔）”和“Unicode 文本”均可。</td></tr><tr><td><b>从 Excel 粘贴</b></td><td>剪贴板中的制表符分隔文本</td><td>选中包括表头行在内的钢筋表，复制后粘贴。</td></tr><tr><td><b>手动输入</b></td><td>固定列</td><td>构件、钢筋编号、直径、牌号、形状代码、下料长度（毫米）和总根数。</td></tr><tr><td><b>XLS、XLSB、ODS</b></td><td>不支持</td><td>会被拒绝并给出提示。请另存为 .xlsx 或 CSV 后打开。</td></tr></tbody></table></div>
+<p>文件选择框列出 .xlsx、.xlsm、.csv、.tsv 和 .txt。通过“所有文件”选择或拖放到框中的文件，会按文件名和内容检查：.xls、.xlsb 和 .ods 会被拒绝并提示；其他文件名只有确实是文本时才按文本读取。改了扩展名的工作簿会被拒绝，不会显示成一堆乱码行。</p>
+<h3 id="file-limits">文件大小与行数限制</h3>
+<div class="h-scroll"><table class="h-table"><thead><tr><th scope="col">限制</th><th scope="col">数值</th><th scope="col">结果</th></tr></thead><tbody><tr><td>文件大小（任何格式）</td><td>25 MB</td><td>读取前检查。更大的文件会被拒绝：请只将钢筋表工作表另存为 CSV。</td></tr><tr><td>行数：CSV、TSV、TXT、粘贴文本</td><td>100,000 个数据行</td><td>超过即拒绝。请拆分钢筋表后分批分析。</td></tr><tr><td>行数：XLSX、XLSM</td><td>工作表的前 100,000 行</td><td>只读取这些行，并给出提示；此时合计只包括这些行，请拆分钢筋表。</td></tr><tr><td>列数：XLSX、XLSM</td><td>200</td><td>第 200 列之后的列不读取。</td></tr><tr><td>工作簿</td><td>50 个工作表；有密码保护或损坏的文件会被拒绝</td><td>请把钢筋表工作表重新另存为 .xlsx 或 CSV。</td></tr></tbody></table></div>
+<h3 id="columns">2. 核对列匹配</h3>
+<p>工具在前 30 行中查找表头，并按中文、英文或阿拉伯文名称匹配各列（钢筋编号、直径、下料长度、构件数、Bar mark、Dia、رقم السيخ 等）。请逐一核对，并修改任何错误的字段。</p>
+<ul><li><b>必填：</b>直径、下料长度和根数：可以是总根数列，也可以是“构件数”和“每件根数”两列。</li><li><b>可选：</b>钢筋编号、构件、牌号、形状代码，以及表中自带的总长度和重量（仅用于核对）。</li><li><b>下料长度单位：</b>从表头读取，例如“下料长度(毫米)”。表头未注明时必须选择毫米或米，工具不会猜测。</li><li><b>表头行：</b>如果标题行干扰识别，可以修改。</li></ul>
+<h3 id="interpretation">3. 数值如何读取</h3>
+<div class="h-scroll"><table class="h-table"><thead><tr><th scope="col">字段</th><th scope="col">接受</th><th scope="col">不接受</th></tr></thead><tbody><tr><td>直径</td><td>16、T16、Y16、H16、Ø16、16mm（4–60 毫米）</td><td>#5（美制规格）、文字</td></tr><tr><td>下料长度</td><td>用小数点的普通数字，按所选单位</td><td>2,350（逗号）、只适合另一单位的数值、超过 12,000 毫米</td></tr><tr><td>根数</td><td>≥ 1 的整数；或 构件数 × 每件根数</td><td>小数、零、与 构件数 × 每件根数 矛盾的总数</td></tr><tr><td>牌号</td><td>Gr60、Grade 60、A615 Gr.60 视为同一牌号；其他文字按原样保留</td><td>为空时绝不默认</td></tr><tr><td>形状代码</td><td>按原样保留</td><td>不用于计算长度</td></tr><tr><td>重量</td><td>0.006165 × d² × 下料长度 × 根数（理论值）</td><td>表中重量只用于比较，不参与计算</td></tr></tbody></table></div>
+<h3 id="excluded">4. 修正被排除的行</h3>
+<p>被排除的行会列出行号、钢筋编号、直径、下料长度、根数和原因。请在表格中修正后重新载入。标题、备注和小计行会作为“不是钢筋行”被排除，这是正常的。</p>
+<h3 id="twelve-metres">为什么超过 12 米的钢筋被排除</h3>
+<p>超过 12,000 毫米的下料长度无法从一根 12 米定尺钢筋切出。工具会把它从所有合计和下料优化中排除，并单独显示其根数、长度和理论重量，不隐藏任何内容。12,000 毫米本身计入。判断按原始输入值进行：12,000.001 毫米会被排除。</p>
+<h3 id="grades">为什么缺少的牌号必须由您选择</h3>
+<p>Grade 60 和 Grade 80 是不同产品。无牌号的行以“无牌号”保留在分析中，但不会发送到下料优化。如果您知道牌号，请在第三组中输入，查看它将应用到哪些行，勾选确认，再点击“指定牌号”。它会应用到所有无牌号的行，并标注为由您指定。工具绝不默认牌号。</p>
+<h3 id="send">5. 发送到下料优化</h3>
+<p>点击<b>发送到下料优化工具</b>。有效行按直径、牌号和下料长度（四舍五入到毫米）合并，下料优化工具在新标签页中打开。请在那里核对各行后点击计算；不会自动运行。原钢筋表在分析工具标签页中保持不变。</p>
+<h2 id="example">计算实例</h2>
+<div class="h-ex"><p class="h-ex-t">别墅基础和柱（示例钢筋表）</p><p>点击<b>载入示例钢筋表</b>。表头在第 3 行；下料长度表头注明了（毫米），单位自动设定。</p>
+<div class="h-scroll"><table class="h-table"><thead><tr><th scope="col">分组</th><th scope="col">行数</th><th scope="col">结果</th></tr></thead><tbody><tr><td>计入分析</td><td>9</td><td>860 根 · 1,859.60 米 · 2.080 吨</td></tr><tr><td>不计入计算</td><td>3</td><td>第 12 行：长度“2,875”（逗号）· 第 13 行：12,500 毫米，超过 12 米定尺限制（4 根、50 米、0.193 吨单独显示）· 第 15 行：“合计”行</td></tr><tr><td>计入分析，但不发送到下料优化</td><td>1</td><td>第 14 行：无牌号，20 根</td></tr></tbody></table></div>
+<p>按直径：10 毫米 320 根 292.0 公斤 · 12 毫米 308 根 686.1 公斤 · 16 毫米 184 根 729.1 公斤 · 20 毫米 48 根 372.9 公斤。警告：构件 B1 中的钢筋编号 06 在第 9、10 行重复且数据相同（需核对），Gr60 也写作“Grade 60”，有两行表中重量与理论重量相差超过 1%。</p>
+<p>发送到下料优化时传递 7 行合并数据，无牌号的行暂不发送。锯缝为 0、可再用余料起 1 米时，下料优化需要 160 根 12 米钢筋（2.209 吨），已证明为最少。</p></div>
+<h2 id="results">结果解读</h2>
+<ul><li><b>三组结果</b>说明每一行的去向：计入分析、带原因不计入，或计入分析但暂不发送到下料优化。</li><li><b>警告</b>需要核对，但不改变合计：重复的钢筋编号（在每个构件内核对；没有构件列时无法区分）、多个牌号、牌号写法不一、非标准直径、来自公式的数值，以及表中重量或长度不一致。</li><li>按直径、按直径和牌号、按牌号、按形状的<b>各表</b>合计相同。</li><li><b>下载 CSV</b>导出使用的行、汇总和被排除的行；<b>打印 / PDF</b>打印报告。</li></ul>
+<h2 id="mistakes">常见错误</h2>
+<ul><li>不检查下料长度单位：请始终核对工具显示的单位。</li><li>把“总长度”匹配为下料长度：下料长度是单根钢筋的长度。</li><li>以为超过 12 米的钢筋会被切割：它们按设计被排除。</li><li>在图纸未注明时为了“让行通过”而指定牌号：请先询问设计方。</li><li>保存工作簿前未重新计算：公式单元格使用 Excel 保存的值，这些行会被标记。</li></ul>
+<h2 id="limits">局限</h2>
+<ul><li>不支持旧版 .xls、.xlsb 和 .ods；参见<a href="#import">格式</a>和<a href="#file-limits">限制</a>。</li><li>不根据形状尺寸计算下料长度。</li><li>重量为理论估算，不是认证数量。</li><li>只能为所有无牌号的行统一指定一个牌号；各行牌号不同时须在表格中修正。</li></ul>
+<h2 id="related">相关</h2>
+<ul><li><a href="/zh/rebar-cutting-optimizer/">钢筋下料优化</a>及其<a href="/zh/help/cutting-optimizer/">指南</a>。</li><li><a href="/tools/rebarplan/">RebarPlan</a>（编制钢筋表的桌面软件，支持中文）。</li><li><a href="/zh/help/#troubleshooting">故障排除</a>。</li></ul>
+          <p class="note-back"><a href="/zh/help/">← 全部帮助主题</a> · <a href="/zh/help/#tool-guides">工具指南</a></p>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="c-footer">
+  <div class="c-footer__quote">
+    <p>沙特钢筋供应、切割加工与重量计算的中文资料。</p>
+    <a class="c-label" href="/zh/">全部中文页面 &rarr;</a>
+  </div>
+  <div class="c-footer__base">
+    <span>&copy; <span id="yr">2026</span> Omar Mashharawi</span>
+    <a href="mailto:info@mashharawi.com">info@mashharawi.com</a>
+    <a href="/about/">About</a>
+    <a href="/contact/">Contact</a>
+    <a href="/privacy/">Privacy</a>
+  </div>
+</footer>
+<script src="/assets/site.js?v=20261015" defer></script>
+</body>
+</html>

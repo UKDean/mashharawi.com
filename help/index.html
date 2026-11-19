@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<script>document.documentElement.classList.add("js")</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Help Center: How to Use the Rebar Tools | Omar Mashharawi</title>
+<meta name="description" content="Step-by-step guides for the rebar cutting optimizer, BBS Analyzer and steel weight verification: worked examples, formulas, FAQ and troubleshooting.">
+<meta name="author" content="Omar Mashharawi">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+<link rel="canonical" href="https://mashharawi.com/help/">
+<link rel="alternate" hreflang="en" href="https://mashharawi.com/help/">
+<link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/help/">
+<link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/help/">
+<link rel="alternate" hreflang="x-default" href="https://mashharawi.com/help/">
+
+<meta name="theme-color" content="#0A0A0A">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mashharawi.com/help/">
+<meta property="og:title" content="Help Center: How to Use the Rebar Tools | Omar Mashharawi">
+<meta property="og:description" content="Step-by-step guides for the rebar cutting optimizer, BBS Analyzer and steel weight verification: worked examples, formulas, FAQ and troubleshooting.">
+<meta property="og:site_name" content="mashharawi.com">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ar_SA">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta property="og:image" content="https://mashharawi.com/og-brand.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="stylesheet" href="/assets/site.css?v=20261031">
+<link rel="stylesheet" href="/assets/cutopt/cutopt.css?v=20261119h">
+<link rel="stylesheet" href="/assets/help/help.css?v=20261119a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200..500&display=swap">
+
+<link rel="icon" href="/favicon.ico?v=20261024" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=20261024">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20261024">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png?v=20261024">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=20261024">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png?v=20261024">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20261024">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Help Center",
+ "url": "https://mashharawi.com/help/",
+ "inLanguage": "en",
+ "description": "Step-by-step guides for the rebar cutting optimizer, BBS Analyzer and steel weight verification: worked examples, formulas, FAQ and troubleshooting."
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Home",
+   "item": "https://mashharawi.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Help Center",
+   "item": "https://mashharawi.com/help/"
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "inLanguage": "en",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Do I need an account?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. The tools work immediately, without registration."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is my file or data uploaded?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. Everything is calculated in your browser. Nothing is sent to a server or stored, and it is gone when you close the page."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why are the weights called theoretical?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "They come from the nominal diameter and the formula 0.006165 × d² kg/m. Delivered steel is weighed and falls within the tolerance of the governing standard, so invoiced weight can differ."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why 12 m?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "It is the standard stock bar length in Saudi Arabia. The BBS Analyzer excludes any cut length above 12,000 mm because it cannot be cut from one stock bar. In the optimizer you can change the stock length."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Do the tools give prices or quotations?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. They give quantities and weights. For a quotation, send the quantities to me and I reply with an official Al Rajhi Steel quotation."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Does the weight check tell me whether the steel passes?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. It compares measured with nominal weight. It shows inside or outside only for a range you enter yourself, and it is not an MTC, a laboratory test or a certification."
+   }
+  }
+ ]
+}
+</script>
+<script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/cdn-cgi/*"}}]},"eagerness":"moderate"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="c-header c-header--solid">
+  <a class="c-header__name" href="/"><img class="c-header__mark" src="/assets/brand/mark-64.png" width="32" height="32" alt="">Omar Mashharawi</a>
+  <nav class="c-header__nav" aria-label="Main">
+    <a href="/#about">About</a>
+    <a href="/#experience">Experience</a>
+    <a href="/tools/">Tools</a>
+    <a href="/help/" aria-current="page">Help</a>
+    <a href="/writing/">Writing</a>
+    <a href="/#contact">Contact</a>
+    <a href="/ar/help/" hreflang="ar" lang="ar" class="c-header__lang">العربية</a>
+    <a href="/zh/help/" hreflang="zh-Hans" lang="zh-Hans" class="c-header__lang">中文</a>
+  </nav>
+  <button class="c-header__menu" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+</header>
+
+<main id="main">
+  <section class="sec c-tool h-page" aria-labelledby="h-title">
+    <div class="wrap">
+      <div class="h-crumbs" role="navigation" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">›</span> <span aria-current="page">Help Center</span></div>
+      <div class="h-head">
+        <p class="c-label">Help Center</p>
+        <h1 class="c-tool__title" id="h-title">Help Center</h1>
+        <p class="h-lead">Practical guides for the free rebar tools on this site: what each tool does, when to use it, how to use it step by step, worked examples with real numbers, the formulas behind the results, and what to do when something does not look right.</p>
+        
+      </div>
+      <div class="h-grid">
+        <div class="h-toc" role="navigation" aria-label="On this page">
+          <p class="calc-lbl">On this page</p>
+          <ol><li><a href="#getting-started">Getting started</a></li><li><a href="#tool-guides">Tool guides</a></li><li><a href="#tutorials">Step-by-step tutorials</a></li><li><a href="#examples">Practical examples</a></li><li><a href="#formulas">Engineering formulas</a></li><li><a href="#faq">Frequently asked questions</a></li><li><a href="#troubleshooting">Troubleshooting</a></li></ol>
+        </div>
+        <article class="h-body">
+<h2 id="getting-started">Getting started</h2>
+<p>There are three tools for reinforcing steel. They run in your browser: nothing you enter or open is uploaded or stored, and you do not need an account. Close the page and the data is gone.</p>
+<div class="h-scroll"><table class="h-table"><thead><tr><th scope="col">If you want to…</th><th scope="col">Use</th><th scope="col">Guide</th></tr></thead><tbody><tr><td>Turn a bar bending schedule (Excel or CSV) into checked quantities and weights</td><td><a href="/tools/bbs-analyzer/">BBS Analyzer</a></td><td><a href="/help/bbs-analyzer/">Guide</a></td></tr><tr><td>Find how many 12 m bars to buy and how to cut them with the least waste</td><td><a href="/tools/cutting-optimizer/">Cutting Optimizer</a></td><td><a href="/help/cutting-optimizer/">Guide</a></td></tr><tr><td>Compare the measured weight of a bar sample with its nominal weight</td><td><a href="/tools/steel-weight-verification/">Steel Weight Verification</a></td><td><a href="/help/steel-weight-verification/">Guide</a></td></tr></tbody></table></div>
+<ul><li><b>Language.</b> Every page has an English, Arabic and Chinese version. Use the language links at the top of any page; you stay on the same guide or tool.</li><li><b>Units.</b> Diameters are in millimetres. Lengths are typed in the unit each field asks for (or the one you choose). Weights are in kilograms or tonnes.</li><li><b>Decimals.</b> Use a dot: 2.35, not 2,35. A comma is refused because 2,350 could mean 2.35 or 2350.</li><li><b>Stock length.</b> The standard stock bar length in Saudi Arabia is 12 m, and the tools assume it unless you change it in the optimizer.</li><li><b>Weights are nominal.</b> All three tools use 0.006165 × d² kg/m. They are theoretical weights for planning and checking, not weighed or certified quantities.</li></ul>
+<h2 id="tool-guides">Tool guides</h2>
+<div class="h-cards"><a class="h-card" href="/help/cutting-optimizer/"><b>Rebar Cutting Optimizer</b><span>Stock length, kerf, reusable offcuts, cutting patterns, waste and what “proven minimum” means.</span></a><a class="h-card" href="/help/bbs-analyzer/"><b>BBS Analyzer</b><span>Excel and CSV import, column mapping, validation, the 12 m rule, missing grades and sending lengths to the optimizer.</span></a><a class="h-card" href="/help/steel-weight-verification/"><b>Steel Weight Verification</b><span>Measuring a sample, theoretical weight, deviation, several samples and pooled deviation.</span></a></div>
+<h2 id="tutorials">Step-by-step tutorials</h2>
+<h3 id="tutorial-bbs-to-cutting">Tutorial 1: from a BBS spreadsheet to a cutting plan</h3>
+<ol><li>Open the <a href="/tools/bbs-analyzer/">BBS Analyzer</a> and choose your .xlsx, .xlsm, .csv, .tsv or .txt file (or paste the range from Excel).</li><li>Check the <b>Columns</b> panel: the header row, and that diameter, cut length and number of bars point at the right columns. If the cut length header has no unit, choose mm or m.</li><li>Press <b>Analyse</b>. Read the three groups: included, excluded from the calculation, and included but not sent to the optimizer.</li><li>Fix what the excluded list shows in your spreadsheet if needed, and load it again. Rows over 12 m stay excluded on purpose.</li><li>If some rows have no grade and you know it, assign it in the third group and tick the confirmation.</li><li>Press <b>Send to Cutting Optimizer</b>. The optimizer opens in a new tab with the lines grouped by diameter, grade and cut length; your schedule stays in the first tab.</li><li>In the optimizer, check the lines, set kerf and reusable offcut length, and press <b>Optimise cutting</b>.</li></ol>
+<h3 id="tutorial-cutting-by-hand">Tutorial 2: a cutting plan without a spreadsheet</h3>
+<ol><li>Open the <a href="/tools/cutting-optimizer/">Cutting Optimizer</a>. Leave the stock length at 12 m.</li><li>Set kerf to 0 for shear cutting, or about 3 mm for a saw. Set “reusable offcut from” to the shortest piece your site will actually reuse, for example 1 m.</li><li>Type one line per diameter, grade and cut length: Ø mm, grade, length in metres, pieces.</li><li>Press <b>Optimise cutting</b>, then read the status line, the four figures and the patterns.</li><li>Use <b>Print / PDF</b> for the workshop and <b>Download CSV</b> for your records.</li></ol>
+<h3 id="tutorial-weight-check">Tutorial 3: checking delivered bars by weight</h3>
+<ol><li>Cut a straight sample from each bar, square at both ends, and measure its length.</li><li>Weigh the samples on a calibrated scale.</li><li>Open <a href="/tools/steel-weight-verification/">Steel Weight Verification</a>, enter diameter, length (choose mm or m), number of bars and the measured weight, and press <b>Add sample</b>.</li><li>Repeat for each sample. If your specification or contract gives a weight range, enter it as the lower and upper limit.</li><li>Read each sample’s deviation, the pooled deviation per diameter, and keep the CSV or printed report.</li></ol>
+<h2 id="examples">Practical examples</h2>
+<ul><li><b>Cutting:</b> 96 × 2.35 m, 64 × 3.60 m and 40 × 4.25 m of 16 mm Gr60 need 55 bars of 12 m (proven minimum), 1.042 t, 5.15% waste. <a href="/help/cutting-optimizer/#example">Worked example</a>.</li><li><b>BBS:</b> a villa footings and columns schedule gives 860 bars, 1,859.60 m and 2.080 t; one 12.5 m line is excluded and one line without a grade is held back from the optimizer. <a href="/help/bbs-analyzer/#example">Worked example</a>.</li><li><b>Weight check:</b> three 1 m bars of 16 mm weighing 4.600 kg against a theoretical 4.735 kg: −0.135 kg, −2.85%. <a href="/help/steel-weight-verification/#example">Worked example</a>.</li></ul>
+<h2 id="formulas">Engineering formulas</h2>
+<p>The three tools use the same nominal unit weight, from the nominal diameter d in millimetres:</p>
+<p class="h-note"><b>Unit weight</b> = 0.006165 × d² kg/m &nbsp;·&nbsp; <b>Weight</b> = unit weight × length (m) × number of bars</p>
+<div class="h-scroll"><table class="h-table"><thead><tr><th scope="col">Ø mm</th><th scope="col">kg/m</th><th scope="col">kg per 12 m bar</th><th scope="col">Bars per tonne (12 m)</th></tr></thead><tbody><tr><td>10</td><td>0.617</td><td>7.40</td><td>135.2</td></tr><tr><td>12</td><td>0.888</td><td>10.65</td><td>93.9</td></tr><tr><td>14</td><td>1.208</td><td>14.50</td><td>69.0</td></tr><tr><td>16</td><td>1.578</td><td>18.94</td><td>52.8</td></tr><tr><td>18</td><td>1.997</td><td>23.97</td><td>41.7</td></tr><tr><td>20</td><td>2.466</td><td>29.59</td><td>33.8</td></tr><tr><td>25</td><td>3.853</td><td>46.24</td><td>21.6</td></tr><tr><td>32</td><td>6.313</td><td>75.76</td><td>13.2</td></tr></tbody></table></div>
+<ul><li><b>Grade does not change the nominal weight.</b> Grade 60 and Grade 80 bars of the same diameter have the same kg/m.</li><li><b>Deviation %</b> = (measured − theoretical) ÷ theoretical × 100. Positive: heavier than nominal. Negative: lighter.</li><li><b>Pooled deviation</b> for samples of one diameter = (Σ measured − Σ theoretical) ÷ Σ theoretical × 100. It is not the average of the sample percentages.</li><li><b>Kerf.</b> A bar cut into n pieces needs n cuts, or n − 1 when the last piece ends exactly at the bar end. Each cut removes the kerf.</li><li><b>Waste</b> = bought length − required length (kerf, allowance and offcuts). <b>Utilisation</b> = required ÷ bought.</li><li><b>Total length</b> in a BBS = cut length × number of bars; number of bars = total column, or no. of members × no. in each.</li></ul>
+<p class="h-note">The separate <a href="/tools/rebar-weight/">rebar weight calculator</a> computes with the full density expression (π/4 × 7,850 ÷ 10⁶ = 0.0061654…). The difference from 0.006165 is about 0.007%.</p>
+<h2 id="faq">Frequently asked questions</h2>
+<div class="faq h-faq"><details><summary>Do I need an account?</summary><p>No. The tools work immediately, without registration.</p></details><details><summary>Is my file or data uploaded?</summary><p>No. Everything is calculated in your browser. Nothing is sent to a server or stored, and it is gone when you close the page.</p></details><details><summary>Why are the weights called theoretical?</summary><p>They come from the nominal diameter and the formula 0.006165 × d² kg/m. Delivered steel is weighed and falls within the tolerance of the governing standard, so invoiced weight can differ.</p></details><details><summary>Why 12 m?</summary><p>It is the standard stock bar length in Saudi Arabia. The BBS Analyzer excludes any cut length above 12,000 mm because it cannot be cut from one stock bar. In the optimizer you can change the stock length.</p></details><details><summary>Do the tools give prices or quotations?</summary><p>No. They give quantities and weights. For a quotation, send the quantities to me and I reply with an official Al Rajhi Steel quotation.</p></details><details><summary>Does the weight check tell me whether the steel passes?</summary><p>No. It compares measured with nominal weight. It shows inside or outside only for a range you enter yourself, and it is not an MTC, a laboratory test or a certification.</p></details></div>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<div class="h-scroll"><table class="h-table"><thead><tr><th scope="col">What you see</th><th scope="col">Why</th><th scope="col">What to do</th></tr></thead><tbody><tr><td>“Use a dot for decimals” or a length is refused for a comma</td><td>A comma is ambiguous (2,350 = 2.35 or 2350?)</td><td>Type 2.35 or 2350 in the right unit. In Excel, format the column as a plain number before copying.</td></tr><tr><td>BBS Analyzer asks for the cut length unit</td><td>The header does not say mm or m, and the tool does not guess</td><td>Choose mm or m in the Columns panel, or add “(mm)” to the header in your sheet.</td></tr><tr><td>A row is excluded: “Cut length exceeds the 12 m stock bar limit.”</td><td>The length is above 12,000 mm</td><td>This is intended. Split the bar with laps in the design, or order it as a special length outside the tool.</td></tr><tr><td>Rows are not sent to the optimizer</td><td>They have no grade</td><td>Assign a grade in the third group and tick the confirmation, or add the grade in the sheet.</td></tr><tr><td>The file is refused</td><td>Saved as .xls, .xlsb or .ods; password-protected or damaged; over 25 MB; or a workbook renamed to .csv</td><td>Save the schedule sheet from Excel as .xlsx or CSV UTF-8 and open that. See the <a href="/help/bbs-analyzer/#import">supported formats</a>.</td></tr><tr><td>Arabic or Chinese headers are not recognised in a CSV</td><td>The CSV was saved in an old Windows code page</td><td>Save it from Excel as CSV UTF-8, or open the .xlsx instead.</td></tr><tr><td>Nothing opens when sending to the optimizer or WhatsApp</td><td>The browser blocked a new tab</td><td>Allow pop-ups for mashharawi.com, or use the link shown under the button.</td></tr><tr><td>Optimizer says “Good plan, not proven minimum”</td><td>The plan could not be proven optimal for this job</td><td>Use it: it is valid. The gap shown is the most it could be above the minimum.</td></tr><tr><td>Weight check shows an “Input check” note</td><td>The difference is over 25%, usually a typing slip</td><td>Re-check the length unit, the number of bars and the diameter.</td></tr></tbody></table></div>
+          
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="c-footer">
+  <div class="c-footer__quote">
+    <p>Notes on weights, tolerances and what ends up on the invoice.</p>
+    <a class="c-label" href="/writing/">All writing &rarr;</a>
+  </div>
+  <div class="c-footer__base">
+    <span>&copy; <span id="yr">2026</span> Omar Mashharawi</span>
+    <a href="mailto:info@mashharawi.com">info@mashharawi.com</a>
+    <a href="/about/">About</a>
+    <a href="/contact/">Contact</a>
+    <a href="/privacy/">Privacy</a>
+  </div>
+</footer>
+<script src="/assets/site.js?v=20261015" defer></script>
+</body>
+</html>

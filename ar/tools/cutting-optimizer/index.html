@@ -29,7 +29,7 @@
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="stylesheet" href="/assets/site.css?v=20261031">
-<link rel="stylesheet" href="/assets/cutopt/cutopt.css?v=20261119">
+<link rel="stylesheet" href="/assets/cutopt/cutopt.css?v=20261119h">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@200;300;400;500&family=Inter:wght@200..500&display=swap">
@@ -187,14 +187,15 @@
   <section id="optimizer" class="sec c-after-hero">
     <div class="wrap">
       <div class="calc" id="cutopt">
+        <p class="co-help"><a href="/ar/help/cutting-optimizer/" target="_blank" rel="noopener">طريقة استخدام الأداة (يفتح الدليل في تبويب جديد)</a></p>
 
         <div class="co-panel co-input">
           <p class="calc-lbl">السيخ وطريقة القص</p>
           <div class="co-set">
             <label class="calc-field"><span>طول السيخ، م</span><input id="coStock" type="text" inputmode="decimal" value="12"><small>12 م هو الطول القياسي في السوق السعودي.</small></label>
-            <label class="calc-field"><span>فاقد القص، مم</span><input id="coKerf" type="number" min="0" max="20" step="1" inputmode="numeric" value="0"><small>0 للقص بالمقص، وحوالي 3 مم للمنشار.</small></label>
+            <label class="calc-field"><span>فاقد القص، مم</span><input id="coKerf" type="number" min="0" max="20" step="1" inputmode="numeric" value="0"><small>0 للقص بالمقص، وحوالي 3 مم للمنشار. <a class="co-q" href="/ar/help/cutting-optimizer/#settings" target="_blank" rel="noopener">مساعدة</a></small></label>
             <label class="calc-field"><span>سماحية لكل قطعة، مم</span><input id="coAllow" type="number" min="0" max="200" step="1" inputmode="numeric" value="0"><small>طول إضافي اختياري لكل قطعة.</small></label>
-            <label class="calc-field"><span>البواقي القابلة للاستخدام من، م</span><input id="coMinOff" type="text" inputmode="decimal" value="1"><small>ما هو أقصر يُحسب سكراب.</small></label>
+            <label class="calc-field"><span>البواقي القابلة للاستخدام من، م</span><input id="coMinOff" type="text" inputmode="decimal" value="1"><small>ما هو أقصر يُحسب سكراب. <a class="co-q" href="/ar/help/cutting-optimizer/#settings" target="_blank" rel="noopener">مساعدة</a></small></label>
           </div>
         </div>
 
@@ -219,7 +220,7 @@
           <details class="co-paste">
             <summary>الصق من الإكسل</summary>
             <div>
-              <p>انسخ الأعمدة <b>القطر، الطول بالمتر، العدد</b>، والدرجة اختيارياً، ثم الصقها هنا. الأطوال الأكبر من 100 تُقرأ بالمليمتر. لا يُرفع أي ملف.</p>
+              <p>انسخ الأعمدة <b>القطر، الطول بالمتر، العدد</b>، والدرجة اختيارياً، ثم الصقها هنا. الأطوال الأكبر من 100 تُقرأ بالمليمتر. لا يُرفع أي ملف. <a class="co-q" href="/ar/help/cutting-optimizer/#paste" target="_blank" rel="noopener">مساعدة</a></p>
               <textarea id="coPaste" spellcheck="false" placeholder="16	3.45	120	Gr60
 12	2.875	300	Gr60"></textarea>
               <button type="button" class="calc-btn" id="coPasteGo">استورد البنود</button>

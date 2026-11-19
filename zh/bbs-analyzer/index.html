@@ -29,8 +29,8 @@
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="stylesheet" href="/assets/site.css?v=20261031">
-<link rel="stylesheet" href="/assets/cutopt/cutopt.css?v=20261119">
-<link rel="stylesheet" href="/assets/bbs/bbs.css?v=20261119d">
+<link rel="stylesheet" href="/assets/cutopt/cutopt.css?v=20261119h">
+<link rel="stylesheet" href="/assets/bbs/bbs.css?v=20261120a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Inter:wght@200..500&display=swap">
@@ -89,7 +89,7 @@
    "name": "支持哪些文件？",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Excel .xlsx（以及 .xlsm，不运行宏）、CSV 或 TSV、从 Excel 粘贴的区域，或手动输入的行。旧版 .xls 需先另存为 .xlsx 或 CSV。"
+    "text": "Excel .xlsx 和 .xlsm（宏绝不打开、绝不运行）；以逗号、分号或制表符分隔的 CSV、TSV 和 .txt 文本文件；从 Excel 粘贴的区域；或手动输入的行。文件最大 25 MB。不支持旧版 .xls、.xlsb 和 .ods：请先另存为 .xlsx 或 CSV。"
    }
   },
   {
@@ -182,14 +182,15 @@
   <section id="analyzer" class="sec c-after-hero">
     <div class="wrap">
       <div class="calc" id="bbs">
+        <p class="co-help"><a href="/zh/help/bbs-analyzer/" target="_blank" rel="noopener">使用指南（在新标签页打开）</a></p>
 
         <div class="co-panel b-input">
           <p class="calc-lbl">钢筋表</p>
           <div class="b-in">
             <label class="b-drop" id="bDrop">
-              <input id="bFile" type="file" accept=".xlsx,.xlsm,.csv,.tsv,.txt,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
-              <b>选择 .xlsx 或 .csv 文件</b>
-              <small>或拖放到这里。仅在本浏览器中读取，不上传任何内容。</small>
+              <input id="bFile" type="file" accept=".xlsx,.xlsm,.csv,.tsv,.txt,text/csv,text/tab-separated-values,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel.sheet.macroEnabled.12">
+              <b>选择 .xlsx、.xlsm、.csv、.tsv 或 .txt 文件</b>
+              <small>或拖放到这里（最大 25 MB）。仅在本浏览器中读取，不上传任何内容。</small>
             </label>
             <div class="b-side">
               <button type="button" class="calc-btn ghost" id="bSample">载入示例钢筋表</button>
@@ -222,7 +223,7 @@
 
         <div class="co-panel b-mapping" id="bMap" hidden>
           <p class="calc-lbl">列匹配</p>
-          <p class="calc-hint" style="margin-top:0">各列按表头名称匹配，请逐一核对；表中没有的列可留空。根数取自总根数列，或由 构件数 &times; 每件根数 得出。</p>
+          <p class="calc-hint" style="margin-top:0">各列按表头名称匹配，请逐一核对；表中没有的列可留空。根数取自总根数列，或由 构件数 &times; 每件根数 得出。 <a class="co-q" href="/zh/help/bbs-analyzer/#columns" target="_blank" rel="noopener">帮助</a></p>
           <div class="b-map-top">
             <label class="calc-field"><span>表头行</span><input id="bHdr" class="co-in" type="number" min="1" step="1" inputmode="numeric"></label>
             <label class="calc-field"><span>下料长度单位</span><select id="uLength" class="co-in"><option value="">—</option><option value="mm">毫米</option><option value="m">米</option></select></label>
@@ -257,7 +258,7 @@
                  <h2 class="calc-lbl b-h">按形状代码</h2><div class="co-scroll"><table class="calc-table b-tbl" id="tShape"></table></div></div>
           </div>
           <div id="bIssuesBox">
-            <h2 class="calc-lbl b-h">不计入计算的行</h2>
+            <h2 class="calc-lbl b-h">不计入计算的行 <a class="co-q" href="/zh/help/bbs-analyzer/#excluded" target="_blank" rel="noopener">为什么？</a></h2>
             <div class="co-scroll"><table class="calc-table b-issues" id="tIssues"></table></div>
           </div>
           <h2 class="calc-lbl b-h">使用的行</h2>
@@ -270,6 +271,7 @@
             <button type="button" class="calc-btn ok" id="bSend">发送到下料优化工具</button>
           </div>
           <p class="calc-hint" id="bSendNote"></p>
+          <p class="calc-hint"><a class="co-q" href="/zh/help/bbs-analyzer/#grades" target="_blank" rel="noopener">为什么？</a> · <a class="co-q" href="/zh/help/bbs-analyzer/#twelve-metres" target="_blank" rel="noopener">12 m</a> · <a class="co-q" href="/zh/help/bbs-analyzer/#send" target="_blank" rel="noopener">帮助</a></p>
           <p class="b-sendmsg" id="bSendMsg" role="status" aria-live="polite"></p>
         </div>
 
@@ -312,7 +314,7 @@
         </details>
         <details>
           <summary>支持哪些文件？</summary>
-          <p>Excel .xlsx（以及 .xlsm，不运行宏）、CSV 或 TSV、从 Excel 粘贴的区域，或手动输入的行。旧版 .xls 需先另存为 .xlsx 或 CSV。</p>
+          <p>Excel .xlsx 和 .xlsm（宏绝不打开、绝不运行）；以逗号、分号或制表符分隔的 CSV、TSV 和 .txt 文本文件；从 Excel 粘贴的区域；或手动输入的行。文件最大 25 MB。不支持旧版 .xls、.xlsb 和 .ods：请先另存为 .xlsx 或 CSV。</p>
         </details>
         <details>
           <summary>我的钢筋表会被上传吗？</summary>
@@ -349,10 +351,10 @@
   </div>
 </footer>
 <script src="/assets/site.js?v=20261015" defer></script>
-<script src="/assets/bbs/xlsx.js?v=20261119d" defer></script>
-<script src="/assets/bbs/engine.js?v=20261119d" defer></script>
-<script src="/assets/bbs/i18n.js?v=20261119d" defer></script>
-<script src="/assets/bbs/app.js?v=20261119d" defer></script>
+<script src="/assets/bbs/xlsx.js?v=20261120a" defer></script>
+<script src="/assets/bbs/engine.js?v=20261120a" defer></script>
+<script src="/assets/bbs/i18n.js?v=20261120a" defer></script>
+<script src="/assets/bbs/app.js?v=20261120a" defer></script>
 <script src="/assets/quote.js?v=20261019" defer></script>
 </body>
 </html>

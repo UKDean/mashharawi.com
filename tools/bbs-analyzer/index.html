@@ -29,8 +29,8 @@
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="stylesheet" href="/assets/site.css?v=20261031">
-<link rel="stylesheet" href="/assets/cutopt/cutopt.css?v=20261119">
-<link rel="stylesheet" href="/assets/bbs/bbs.css?v=20261119d">
+<link rel="stylesheet" href="/assets/cutopt/cutopt.css?v=20261119h">
+<link rel="stylesheet" href="/assets/bbs/bbs.css?v=20261120a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200..500&display=swap">
@@ -89,7 +89,7 @@
    "name": "Which file types can I use?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Excel .xlsx (and .xlsm, without running macros), CSV or TSV, a range pasted from Excel, or lines typed by hand. Old .xls files need to be saved as .xlsx or CSV first."
+    "text": "Excel .xlsx and .xlsm (macros are never opened or run), CSV, TSV and .txt text files separated by commas, semicolons or tabs, a range pasted from Excel, or lines typed by hand. Files up to 25 MB. Old .xls, .xlsb and .ods files are not supported: save them as .xlsx or CSV first."
    }
   },
   {
@@ -188,14 +188,15 @@
   <section id="analyzer" class="sec c-after-hero">
     <div class="wrap">
       <div class="calc" id="bbs">
+        <p class="co-help"><a href="/help/bbs-analyzer/" target="_blank" rel="noopener">How to use this tool (guide opens in a new tab)</a></p>
 
         <div class="co-panel b-input">
           <p class="calc-lbl">Schedule</p>
           <div class="b-in">
             <label class="b-drop" id="bDrop">
-              <input id="bFile" type="file" accept=".xlsx,.xlsm,.csv,.tsv,.txt,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
-              <b>Choose an .xlsx or .csv file</b>
-              <small>or drop it here. Read in this browser only; nothing is uploaded.</small>
+              <input id="bFile" type="file" accept=".xlsx,.xlsm,.csv,.tsv,.txt,text/csv,text/tab-separated-values,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel.sheet.macroEnabled.12">
+              <b>Choose an .xlsx, .xlsm, .csv, .tsv or .txt file</b>
+              <small>or drop it here (up to 25 MB). Read in this browser only; nothing is uploaded.</small>
             </label>
             <div class="b-side">
               <button type="button" class="calc-btn ghost" id="bSample">Load sample schedule</button>
@@ -228,7 +229,7 @@
 
         <div class="co-panel b-mapping" id="bMap" hidden>
           <p class="calc-lbl">Columns</p>
-          <p class="calc-hint" style="margin-top:0">Columns are matched by their header names. Check each one; anything not in your sheet can stay empty. Bars come from a total column, or from members &times; bars in each.</p>
+          <p class="calc-hint" style="margin-top:0">Columns are matched by their header names. Check each one; anything not in your sheet can stay empty. Bars come from a total column, or from members &times; bars in each. <a class="co-q" href="/help/bbs-analyzer/#columns" target="_blank" rel="noopener">Help</a></p>
           <div class="b-map-top">
             <label class="calc-field"><span>Header row</span><input id="bHdr" class="co-in" type="number" min="1" step="1" inputmode="numeric"></label>
             <label class="calc-field"><span>Cut length unit</span><select id="uLength" class="co-in"><option value="">—</option><option value="mm">mm</option><option value="m">m</option></select></label>
@@ -263,7 +264,7 @@
                  <h2 class="calc-lbl b-h">By shape code</h2><div class="co-scroll"><table class="calc-table b-tbl" id="tShape"></table></div></div>
           </div>
           <div id="bIssuesBox">
-            <h2 class="calc-lbl b-h">Excluded from the calculation</h2>
+            <h2 class="calc-lbl b-h">Excluded from the calculation <a class="co-q" href="/help/bbs-analyzer/#excluded" target="_blank" rel="noopener">Why?</a></h2>
             <div class="co-scroll"><table class="calc-table b-issues" id="tIssues"></table></div>
           </div>
           <h2 class="calc-lbl b-h">Rows used</h2>
@@ -276,6 +277,7 @@
             <button type="button" class="calc-btn ok" id="bSend">Send to Cutting Optimizer</button>
           </div>
           <p class="calc-hint" id="bSendNote"></p>
+          <p class="calc-hint"><a class="co-q" href="/help/bbs-analyzer/#grades" target="_blank" rel="noopener">Why?</a> · <a class="co-q" href="/help/bbs-analyzer/#twelve-metres" target="_blank" rel="noopener">12 m</a> · <a class="co-q" href="/help/bbs-analyzer/#send" target="_blank" rel="noopener">Help</a></p>
           <p class="b-sendmsg" id="bSendMsg" role="status" aria-live="polite"></p>
         </div>
 
@@ -318,7 +320,7 @@
         </details>
         <details>
           <summary>Which file types can I use?</summary>
-          <p>Excel .xlsx (and .xlsm, without running macros), CSV or TSV, a range pasted from Excel, or lines typed by hand. Old .xls files need to be saved as .xlsx or CSV first.</p>
+          <p>Excel .xlsx and .xlsm (macros are never opened or run), CSV, TSV and .txt text files separated by commas, semicolons or tabs, a range pasted from Excel, or lines typed by hand. Files up to 25 MB. Old .xls, .xlsb and .ods files are not supported: save them as .xlsx or CSV first.</p>
         </details>
         <details>
           <summary>Is my schedule uploaded?</summary>
@@ -355,10 +357,10 @@
   </div>
 </footer>
 <script src="/assets/site.js?v=20261015" defer></script>
-<script src="/assets/bbs/xlsx.js?v=20261119d" defer></script>
-<script src="/assets/bbs/engine.js?v=20261119d" defer></script>
-<script src="/assets/bbs/i18n.js?v=20261119d" defer></script>
-<script src="/assets/bbs/app.js?v=20261119d" defer></script>
+<script src="/assets/bbs/xlsx.js?v=20261120a" defer></script>
+<script src="/assets/bbs/engine.js?v=20261120a" defer></script>
+<script src="/assets/bbs/i18n.js?v=20261120a" defer></script>
+<script src="/assets/bbs/app.js?v=20261120a" defer></script>
 <script src="/assets/quote.js?v=20261019" defer></script>
 </body>
 </html>

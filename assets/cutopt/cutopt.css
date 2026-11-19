@@ -105,3 +105,11 @@ tr.co-bad .co-in{border-color:#B3261E;background:#FBEDEC}
 }
 .co-report-head{display:none}
 .co-report-head h2{margin:0 0 4px;font-size:16pt}
+
+/* Help links inside the tools (cutting optimizer, BBS Analyzer). They open the
+   guide in a new tab so nothing typed in the tool is lost. */
+.co-help{margin:0;padding:10px clamp(20px,2.6vw,30px);border-bottom:1px solid var(--line);font-family:var(--mono);font-size:12px;display:flex;gap:6px;align-items:center}
+.co-help a,.co-q{color:var(--ink);border-bottom:1px solid var(--hot)}
+.co-help a::before{content:"?";display:inline-grid;place-items:center;inline-size:18px;block-size:18px;margin-inline-end:8px;border:1px solid var(--edge);border-radius:50%;font-size:11px}
+.co-q{font-family:var(--mono);font-size:10.5px;white-space:nowrap}
+@media print{.co-help{display:none}}

@@ -27,7 +27,9 @@ None added. SheetJS was considered and rejected. It is several hundred kB, its n
 
 ## Input and mapping
 
-- **Inputs:** `.xlsx` / `.xlsm`, CSV / TSV, a range pasted from Excel, or manual lines.
+- **Inputs:** `.xlsx` and `.xlsm` (workbook reader; tested with Excel-saved macro workbooks, macros never opened), CSV, TSV and `.txt` (delimited text: comma, semicolon or tab detected; UTF-8, or UTF-16 with a byte-order mark), a range pasted from Excel, or manual lines.
+- **File picker vs. reading:** the `accept` attribute lists `.xlsx, .xlsm, .csv, .tsv, .txt`. Files chosen with "All files" or dropped are routed by name and content in `app.js`: `.xls`, `.xlsb` and `.ods`/`.fods` are refused with their own message; `.xlsx`/`.xlsm` go to the workbook reader; any other name is read as text only if its first 4 KB are not a ZIP or OLE file and contain no zero byte (a UTF-16 byte-order mark is allowed). A workbook with another name is refused, never parsed as text.
+- **Not supported:** `.xls`, `.xlsb`, `.ods`. A CSV saved in a Windows code page (not UTF-8) loses Arabic and Chinese text, so headers in those languages are not recognised; save as CSV UTF-8.
 - **Workbooks:** you choose the sheet.
 - **Header detection:** the analyzer scans the first 30 rows for a header with diameter, cut length and a quantity. The quantity is either a total column, or "no. of members" and "no. in each" together.
 - **Column names:** recognised in English, Arabic and Chinese. Every field can be remapped by hand, and the header row can be changed.
@@ -84,7 +86,8 @@ The results always show three groups:
 - **No network or storage:** the file is read with FileReader in the tab. No `fetch`, upload, storage API, analytics or account is involved; a test scans the code for these.
 - **Untrusted content:** cell text is written with `textContent` only.
 - **No macros or DTDs:** macros are never opened. XML containing a DTD or entity declarations is refused.
-- **Size limits:** 25 MB per file, 60 MB inflated per part (enforced while inflating, so a zip bomb that lies about its size is also stopped), 100,000 rows and 200 columns.
+- **Size limits:** 25 MB per file of any format (checked before reading), 60 MB inflated per part and 120 MB per workbook (enforced while inflating, so a zip bomb that lies about its size is also stopped), 2,000 ZIP entries, 50 sheets, 200 columns.
+- **Row limit, two behaviours:** text (CSV, TSV, TXT, paste) with more than 100,000 data rows is refused (`tooManyRows`). A workbook sheet is read up to its first 100,000 rows and the user is told the rest was not read (`sheetTruncated`); the totals then cover only those rows. The Help Center states both.
 - **ZIP integrity:**
   - The central directory and local headers are bounds-checked.
   - Local headers must match the central directory: name, flags, method, CRC and sizes.
