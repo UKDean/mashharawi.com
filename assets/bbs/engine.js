@@ -216,6 +216,35 @@
 
   function round3(x) { return Math.round(x * 1000) / 1000; }
 
+  /* ---- the 12 m decision, made on the value as written ------------------- */
+  /* Is the cut length strictly greater than STOCK_MM? Decided before any
+     rounding, and for text exactly, digit by digit, so neither floating point
+     nor display rounding can move a row across the line:
+       "12000" mm and "12" m       -> not over (included)
+       "12000.0001" mm, "12.0000001" m, "12000.000000001" mm -> over
+     The decimal text is shifted three places for metres instead of being
+     multiplied. Numbers from .xlsx cells are compared as numbers: the value
+     Excel stored is the value compared, before any rounding here. Also
+     returns the exact millimetre value as text for display. */
+  function lengthDecision(raw, n, unit) {
+    var str = typeof raw === 'string' ? raw.trim() : null;
+    if (str != null && /^\+?(\d+(\.\d*)?|\.\d+)$/.test(str)) {
+      var t = str.replace(/^\+/, '');
+      var dot = t.indexOf('.');
+      var ip = dot < 0 ? t : t.slice(0, dot), fp = dot < 0 ? '' : t.slice(dot + 1);
+      if (unit === 'm') { fp = fp + '000'; ip = ip + fp.slice(0, 3); fp = fp.slice(3); }
+      ip = ip.replace(/^0+(?=\d)/, '') || '0';
+      fp = fp.replace(/0+$/, '');
+      var over = ip.length > 5 || (ip.length === 5 && ip > '12000') || (ip === '12000' && fp.length > 0);
+      return { over: over, exactMm: unit === 'm' ? n * 1000 : n, text: ip + (fp ? '.' + fp : '') };
+    }
+    var mm = unit === 'm' ? n * 1000 : n;
+    // n * 1000 can only round onto 12000 from below when n <= 12 exactly,
+    // so for numbers this comparison is safe in both units
+    var overN = unit === 'm' ? n > STOCK_MM / 1000 : n > STOCK_MM;
+    return { over: overN, exactMm: mm, text: String(mm) };
+  }
+
   /* ---- analysis ---------------------------------------------------------- */
   /* opts: { headerRow, mapping, units: { length, totalLength, weight },
              formulaCells (Set of "r,c"), errorCells (Set),
@@ -271,11 +300,14 @@
       if (!lv.ok) errs.push(lv.why === 'missing' ? 'lenMissing' : lv.why === 'comma' ? 'lenComma' : 'lenInvalid');
       else if (lv.n <= 0) errs.push('lenNotPositive');
       else {
-        lengthMm = round3(units.length === 'm' ? lv.n * 1000 : lv.n);
+        var dec = lengthDecision(get('length'), lv.n, units.length);
         // values that only make sense in the other unit: refuse, do not convert
         if (units.length === 'm' && lv.n > 100) errs.push('unitLooksMm');
         else if (units.length === 'mm' && lv.n < 20) errs.push('unitLooksM');
-        else if (lengthMm > STOCK_MM) errs.push('overStock');
+        else if (dec.over) errs.push('overStock');
+        // round only after the decision; an excluded row keeps its exact value
+        lengthMm = dec.over ? dec.exactMm : round3(dec.exactMm);
+        var lengthExactText = dec.text;
       }
 
       var qty = null, qv = null, nm = null, ne = null;
@@ -299,7 +331,7 @@
         issues.push({
           row: rowNo, codes: errs, mark: mark, member: member, raw: rawOf(cells),
           // the values as read, for the excluded-rows table; null when unreadable
-          diameter: dv.ok ? dv.n : null, lengthMm: lengthMm, qty: qty,
+          diameter: dv.ok ? dv.n : null, lengthMm: lengthMm, lengthExact: lengthMm != null ? lengthExactText : null, qty: qty,
           diameterText: text(get('diameter')), lengthText: text(get('length')), qtyText: map.qty != null ? text(get('qty')) : ''
         });
         continue;
@@ -337,7 +369,7 @@
 
       rows.push({
         row: rowNo, mark: mark, member: member, diameter: dv.n, grade: grade.label, gradeKey: grade.key, gradeRaw: grade.raw,
-        shape: shape, lengthMm: lengthMm, qty: qty, unitWeight: uw, totalLengthM: totLenM, weightKg: wt, warnings: warns, gradeAssigned: assigned
+        shape: shape, lengthMm: lengthMm, withinStock: true, qty: qty, unitWeight: uw, totalLengthM: totLenM, weightKg: wt, warnings: warns, gradeAssigned: assigned
       });
     }
 
@@ -452,7 +484,9 @@
     rows.forEach(function (x) {
       // defensive: analyze() already excludes these, but nothing over the
       // stock length and nothing without a grade may ever leave this function
-      if (!(x.lengthMm <= STOCK_MM)) { tooLong.push(x.row); return; }
+      // same strict rule as analyze(): only rows decided within the stock
+      // length, and whose value is not above it, may be sent
+      if (x.withinStock !== true || !(x.lengthMm <= STOCK_MM)) { tooLong.push(x.row); return; }
       if (!x.gradeKey) { noGrade.rows.push(x.row); noGrade.bars += x.qty; return; }
       var mm = Math.round(x.lengthMm);
       if (Math.abs(mm - x.lengthMm) > 1e-9) rounded++;
@@ -491,7 +525,7 @@
   return {
     parseDelimited: parseDelimited, detectDelimiter: detectDelimiter, detectHeader: detectHeader, matchField: matchField,
     headerUnit: headerUnit, analyze: analyze, buildTransfer: buildTransfer, encodeTransfer: encodeTransfer,
-    unitWeight: unitWeight, normGrade: normGrade, readDiameter: readDiameter, readNumber: readNumber,
+    unitWeight: unitWeight, normGrade: normGrade, lengthDecision: lengthDecision, readDiameter: readDiameter, readNumber: readNumber,
     csvCell: csvCell, toCsv: toCsv, FIELD_NAMES: FIELD_NAMES, STANDARD_DIAS: STANDARD_DIAS, LIMITS: LIMITS, STOCK_MM: STOCK_MM
   };
 });

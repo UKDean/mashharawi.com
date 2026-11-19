@@ -10,6 +10,12 @@
    What it reads: sheet names, then for one sheet at a time every cell's
    value: shared strings, inline strings, numbers, booleans, formula results.
 
+   Scope: this is a purpose-built reader for the structures Excel and common
+   writers produce for a plain worksheet, tested against those. It is not a
+   full OOXML implementation, and checkXml() is a lightweight well-formedness
+   scanner, not a standards-compliant XML parser. Anything outside that scope
+   is refused or read as empty cells, which the analyzer then reports.
+
    What it never does:
    - evaluate a formula. A formula cell returns the value Excel saved with
      the file (the cached result) and is flagged { formula: true }, so the

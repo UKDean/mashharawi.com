@@ -13,6 +13,14 @@ Pages: `/tools/bbs-analyzer/` (EN), `/ar/tools/bbs-analyzer/` (AR, RTL), `/zh/bb
 | `assets/bbs/bbs.css` | Styles on top of `site.css` and `assets/cutopt/cutopt.css`. |
 | `assets/cutopt/app.js` | Optimizer side of the hand-off (`fromAnalyzer`). The optimizer engine is unchanged. |
 
+## XLSX reader: scope and limits
+
+The reader is a small purpose-built reader, **not a full implementation of the Excel file format and not a standards-compliant XML parser**:
+- **What it handles:** the structures Excel and common writers produce for a plain worksheet, and only those are tested. That means shared strings (including rich-text runs), inline strings, numbers, booleans, error values, cached formula results, several sheets, stored or deflated entries, and data descriptors. The fixtures come from openpyxl plus hand-built files.
+- **The XML check is a lightweight scanner.** It confirms balanced tags, one root element and no stray `<`, and it refuses DTDs and entity declarations. It does not validate against the OOXML schemas, does not handle namespaces beyond reading prefixed names, and does not expand entities other than the five XML built-ins and numeric references.
+- **Ignored on purpose:** merged cells, hidden rows and columns, number formats (dates and percentages arrive as raw numbers), data validation, tables, pivot caches, comments, external links, charts and macros. Strict Open XML, `.xlsb`, `.xls` and `.ods` files are not supported.
+- **Unexpected structures are refused, not guessed:** a file using anything outside this scope is refused with a message, or yields empty cells that the row checks then report. The user can always save the sheet as CSV.
+
 ## Dependencies
 
 None added. SheetJS was considered and rejected. It is several hundred kB, its npm package is no longer updated, and the tool needs only cell values. The built-in reader is about 250 lines. Old `.xls` (BIFF) files are not supported; the page asks for `.xlsx` or CSV.
@@ -27,10 +35,11 @@ None added. SheetJS was considered and rejected. It is several hundred kB, its n
 
 ## Validation (never guesses)
 
+
 **A row is excluded, with a reason, when:**
 - the diameter is missing, unreadable, outside 4–60 mm, or a US `#` size;
 - the length is missing, not a number, zero or negative, or written with a comma (ambiguous);
-- **the cut length is above 12,000 mm** (one 12 m stock bar). The reason shown is "Cut length exceeds the 12 m stock bar limit." 12,000 mm is included and 12,000.001 mm is excluded (lengths are held to 0.001 mm). These rows are in no total or summary and never reach the optimizer; their bars, length and theoretical weight are shown separately;
+- **the cut length is above 12,000 mm** (one 12 m stock bar). The reason shown is "Cut length exceeds the 12 m stock bar limit." The decision is made on the value as written, before any rounding. Text is compared digit by digit (metres are shifted three decimal places, not multiplied), so 12,000 mm and 12 m are included while 12,000.0001 mm and 12.0000001 m are excluded. Numbers from `.xlsx` cells are compared as stored. Included rows are rounded to 0.001 mm only after the decision; excluded rows keep their exact value for display. These rows are in no total or summary and never reach the optimizer; their bars, length and theoretical weight are shown separately;
 - the value only fits the other unit: more than 100 in a metres column, or less than 20 in a millimetres column;
 - the number of bars is missing, not a whole number, or outside 1–1,000,000;
 - members × bars in each contradicts the total;
@@ -49,7 +58,11 @@ None added. SheetJS was considered and rejected. It is several hundred kB, its n
 The results always show three groups:
 1. **Included in the analysis.** These rows make up every total.
 2. **Excluded from the calculation.** Each row is listed with its row number, mark, diameter, cut length, bars and reason. Over-length quantities are shown apart from the totals.
-3. **Included, but not sent to the cutting optimizer.** These are rows with no grade. Grade 60 or 80 is never assumed. The user can explicitly assign a grade to these rows; the assignment is shown as theirs, and only then are the rows sent.
+3. **Included, but not sent to the cutting optimizer.** These are rows with no grade. Grade 60 or 80 is never assumed. The user can assign one grade to **all** of these rows at once:
+   - The page states that the grade applies to all of them and lists their row numbers and bars.
+   - The Assign button stays disabled until the user ticks a confirmation naming the grade, and changing the grade clears the tick.
+   - Each affected row is marked "grade assigned by you", and the assignment can be removed.
+   - There is no per-row assignment; different grades per row are corrected in the schedule.
 
 ## Arithmetic
 

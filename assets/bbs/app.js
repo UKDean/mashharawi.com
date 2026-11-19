@@ -37,6 +37,8 @@
   function fmt(n, dp) { return isFinite(n) ? n.toLocaleString('en-US', { minimumFractionDigits: dp, maximumFractionDigits: dp }) : '0'; }
   function say(text, kind) { var m = $('bMsg'); m.textContent = text || ''; m.className = 'co-msg' + (kind ? ' ' + kind : ''); }
   function cellText(v) { return v == null ? '' : String(v); }
+  // the exact millimetre value as decided, with thousands separators and no rounding
+  function exactMm(t) { var p = String(t).split('.'); return p[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',') + (p[1] ? '.' + p[1] : ''); }
 
   /* ---- loading data ------------------------------------------------------ */
   function loadGrid(grid, source, extra) {
@@ -301,7 +303,7 @@
     }));
     table('tIssues', [T.th.row, T.th.mark, T.th.dia, T.th2.cut, T.th2.qty, T.th.problem], res.issues.map(function (x) {
       return [String(x.row), x.mark, x.diameter != null ? String(x.diameter) : x.diameterText,
-        x.lengthMm != null ? fmt(x.lengthMm, x.lengthMm % 1 ? 3 : 0) + ' mm' : x.lengthText,
+        x.lengthExact != null ? exactMm(x.lengthExact) + ' mm' : x.lengthText,
         x.qty != null ? fmt(x.qty, 0) : x.qtyText,
         x.codes.map(function (c) { return T.issue[c] || c; }).join(' · ')];
     }));
@@ -336,6 +338,11 @@
     var assigned = res.rows.filter(function (x) { return x.gradeAssigned; }).length;
     var c3 = card('noopt', T.groups.noOpt, n.rows ? [T.groups.noOptText(fmt(n.rows, 0), fmt(n.bars, 0))] : [assigned ? T.warn.gradeAssigned({ count: assigned, grade: res.rows.filter(function (x) { return x.gradeAssigned; })[0].grade }) : T.groups.none]);
     if (n.rows || assigned) {
+      /* One grade for ALL rows without a grade. The page says so, lists the
+         rows, and the button stays disabled until the user ticks a
+         confirmation. Nothing is assigned by default or by typing alone. */
+      var missingRows = res.rows.filter(function (x) { return !x.gradeKey || x.gradeAssigned; });
+      var list = missingRows.map(function (x) { return x.row; });
       var f = el('div', 'b-assign');
       var lab = el('label', 'calc-field');
       lab.appendChild(el('span', null, T.assign.label));
@@ -345,9 +352,23 @@
       inp.value = state.assignGrade || '';
       lab.appendChild(inp);
       f.appendChild(lab);
-      var go = el('button', 'calc-btn', T.assign.apply); go.type = 'button';
+      c3.appendChild(el('p', 'b-scope', T.assign.scope(list.length, fmt(missingRows.reduce(function (a, x) { return a + x.qty; }, 0), 0), list.slice(0, 40).join(', ') + (list.length > 40 ? ' …' : ''))));
+      var ok = el('label', 'b-confirm');
+      var cb = el('input'); cb.type = 'checkbox'; cb.id = 'bAssignOk';
+      ok.appendChild(cb);
+      var okText = el('span', null, T.assign.confirm(list.length));
+      ok.appendChild(okText);
+      var go = el('button', 'calc-btn', T.assign.apply); go.type = 'button'; go.id = 'bAssignGo';
+      function sync() {
+        var v = inp.value.trim();
+        go.disabled = !(cb.checked && v && E.normGrade(v).key);
+        okText.textContent = T.assign.confirm(list.length, v ? E.normGrade(v).label : '');
+      }
+      inp.addEventListener('input', function () { cb.checked = false; sync(); });   // a new grade needs a new confirmation
+      cb.addEventListener('change', sync);
       go.addEventListener('click', function () {
         var v = inp.value.trim();
+        if (!cb.checked) { say(T.assign.needConfirm, 'warn'); return; }
         if (!v || !E.normGrade(v).key) { say(T.assign.empty, 'warn'); inp.focus(); return; }
         state.assignGrade = v; analyse();
       });
@@ -358,7 +379,9 @@
         f.appendChild(clr);
       }
       c3.appendChild(f);
+      c3.appendChild(ok);
       c3.appendChild(el('p', 'calc-hint', T.assign.help));
+      sync();
     }
   }
 

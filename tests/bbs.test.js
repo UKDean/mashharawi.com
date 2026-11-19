@@ -366,7 +366,7 @@ test('12 m rule: 12,000 mm included; 12,000.001 mm, 12,500 and 13,000 mm exclude
   // the same boundary in metres
   const m = run([['Dia', 'Length (m)', 'Qty'], [16, 12, 1], [16, '12.000001', 1], [16, 12.5, 1]]);
   assert.deepEqual(m.rows.map(x => x.lengthMm), [12000]);
-  assert.deepEqual(m.issues.map(i => i.lengthMm), [12000.001, 12500]);
+  assert.deepEqual(m.issues.map(i => i.lengthExact), ['12000.001', '12500']);   // exact text, no float noise
 });
 
 test('excluded over-length rows change no total and no summary', () => {
@@ -382,13 +382,16 @@ test('excluded over-length rows change no total and no summary', () => {
 });
 
 test('over-length rows can never reach the optimizer, even if forced into the transfer', () => {
-  const forged = [{ row: 9, diameter: 16, grade: 'Gr60', gradeKey: 'GR60', lengthMm: 12000.4, qty: 3 },
-                  { row: 10, diameter: 16, grade: 'Gr60', gradeKey: 'GR60', lengthMm: 13000, qty: 3 },
-                  { row: 11, diameter: 16, grade: 'Gr60', gradeKey: 'GR60', lengthMm: NaN, qty: 3 },
-                  { row: 12, diameter: 16, grade: 'Gr60', gradeKey: 'GR60', lengthMm: 12000, qty: 1 }];
+  const ok = { diameter: 16, grade: 'Gr60', gradeKey: 'GR60', qty: 1, withinStock: true };
+  const forged = [Object.assign({}, ok, { row: 9, lengthMm: 12000.4 }),                    // flag forged, value over
+                  Object.assign({}, ok, { row: 10, lengthMm: 13000 }),
+                  Object.assign({}, ok, { row: 11, lengthMm: NaN }),
+                  Object.assign({}, ok, { row: 12, lengthMm: 12000, withinStock: undefined }), // never decided
+                  Object.assign({}, ok, { row: 13, lengthMm: 12000.0000001 }),
+                  Object.assign({}, ok, { row: 14, lengthMm: 12000 })];
   const t = E.buildTransfer(forged);
   assert.deepEqual(t.items, [[16, 'Gr60', 12000, 1]]);
-  assert.deepEqual(t.tooLong, [9, 10, 11]);
+  assert.deepEqual(t.tooLong, [9, 10, 11, 12, 13]);
 });
 
 test('missing grade: kept in the analysis, never sent, never assumed; explicit assignment only', () => {
@@ -457,4 +460,47 @@ test('one nominal weight formula: analyzer and optimizer agree for every diamete
     const o = CutOpt.optimize({ stockLength: 12000, kerf: 0, items: [{ diameter: d, grade: 'Gr60', length: 12000, qty: 7 }, { diameter: d, grade: 'Gr60', length: 4000, qty: 9 }] });
     near(o.groups[0].weightRequiredKg, a.summary.totals.weightKg, 1e-9, 'd=' + d);
   }
+});
+
+/* ==== final corrections: strict boundary on unrounded input ============== */
+
+test('strict 12 m boundary: decided on the value as written, before rounding', () => {
+  const cases = [
+    ['mm', '12000', true], ['mm', '12000.0001', false], ['mm', '12000.001', false], ['mm', '12000.000000000001', false],
+    ['mm', '11999.9999', true], ['mm', 12000, true], ['mm', 12000.0001, false],
+    ['m', '12', true], ['m', '12.000', true], ['m', '12.0000001', false], ['m', '12.0000000000001', false],
+    ['m', 12, true], ['m', 12.0000001, false]];
+  for (const [unit, v, included] of cases) {
+    const r = run([['Mark', 'Dia', 'Grade', `Cut length (${unit})`, 'Qty'], ['x', 16, 'Gr60', v, 2]]);
+    assert.equal(r.rows.length, included ? 1 : 0, `${v} ${unit}`);
+    if (!included) {
+      assert.deepEqual(r.issues[0].codes, ['overStock'], `${v} ${unit}`);
+      assert.equal(r.summary.totals.bars, 0);
+      assert.equal(r.excluded.overStock.bars, 2);
+      assert.deepEqual(E.buildTransfer(r.rows).items, []);
+    } else {
+      assert.ok(r.rows[0].lengthMm <= 12000);
+      assert.equal(E.buildTransfer(r.rows).items.length, 1);
+    }
+  }
+});
+
+test('excluded rows keep their exact length for display; rounding happens only for included rows', () => {
+  const r = run([['Mark', 'Dia', 'Grade', 'Cut length (mm)', 'Qty'], ['a', 16, 'Gr60', '12000.0001', 1], ['b', 16, 'Gr60', '2350.0004', 1]]);
+  assert.equal(r.issues[0].lengthExact, '12000.0001');
+  assert.equal(r.rows[0].lengthMm, 2350);                          // rounded to 0.001 mm after the decision
+  const m = run([['Dia', 'Grade', 'Length (m)', 'Qty'], [16, 'Gr60', '12.0000001', 1]]);
+  assert.equal(m.issues[0].lengthExact, '12000.0001');
+});
+
+test('grade assignment needs an explicit, confirmed choice in the page', () => {
+  const src = fs.readFileSync(path.join(__dirname, '..', 'assets', 'bbs', 'app.js'), 'utf8');
+  assert.match(src, /go\.disabled = !\(cb\.checked && v && E\.normGrade\(v\)\.key\)/);   // disabled until confirmed
+  assert.match(src, /cb\.checked = false; sync\(\)/);                                    // a new grade needs a new tick
+  assert.match(src, /if \(!cb\.checked\) \{ say\(T\.assign\.needConfirm/);
+  for (const l of ['en', 'ar', 'zh']) {
+    assert.match(TXT[l].assign.scope(3, '12', '4, 5, 9'), /4, 5, 9/);
+    assert.ok(TXT[l].assign.confirm(3, 'Gr60').includes('Gr60'));
+  }
+  assert.match(TXT.en.assign.scope(3, '12', '4'), /ALL 3 rows/);
 });
