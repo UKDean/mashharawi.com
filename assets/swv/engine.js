@@ -40,6 +40,24 @@
     if (!/^[+-]?(\d+(\.\d*)?|\.\d+)$/.test(s)) return { ok: false, why: 'invalid' };
     return { ok: true, n: Number(s) };
   }
+  /* Strictly longer than LIMITS.lengthMaxMm (12,000 mm)? For typed text the
+     decimal digits are compared exactly (metres are shifted three places, not
+     multiplied), so 12.000001 m and 12000.001 mm are over and 12 m and
+     12000 mm are not, whatever floating point would round them to. */
+  function overStock(raw, n, unit) {
+    var str = typeof raw === 'string' ? raw.trim().replace(/^\+/, '') : null;
+    if (str != null && /^(\d+(\.\d*)?|\.\d+)$/.test(str)) {
+      var dot = str.indexOf('.');
+      var ip = dot < 0 ? str : str.slice(0, dot), fp = dot < 0 ? '' : str.slice(dot + 1);
+      if (unit === 'm') { fp = fp + '000'; ip = ip + fp.slice(0, 3); fp = fp.slice(3); }
+      ip = ip.replace(/^0+(?=\d)/, '') || '0';
+      fp = fp.replace(/0+$/, '');
+      var lim = String(LIMITS.lengthMaxMm);
+      return ip.length > lim.length || (ip.length === lim.length && ip > lim) || (ip === lim && fp.length > 0);
+    }
+    return unit === 'm' ? n > LIMITS.lengthMaxMm / 1000 : n > LIMITS.lengthMaxMm;
+  }
+
   function clean(v, max) { return String(v == null ? '' : v).replace(/[\u0000-\u001f\u007f]/g, ' ').trim().slice(0, max); }
 
   /* input: { ref, diameter, grade, length, lengthUnit ('mm'|'m'), bars,
@@ -59,13 +77,11 @@
     if (!l.ok) errors.push(l.why === 'missing' ? 'lenMissing' : l.why === 'comma' ? 'lenComma' : 'lenInvalid');
     else if (l.n <= 0) errors.push('lenNotPositive');
     else if (unit === 'm' || unit === 'mm') {
-      // a value that only fits the other unit is refused, never converted
-      if (unit === 'm' && l.n > 30) errors.push('unitLooksMm');
-      else if (unit === 'mm' && l.n < 20) errors.push('unitLooksM');
-      else {
-        lengthMm = unit === 'm' ? l.n * 1000 : l.n;
-        if (lengthMm > LIMITS.lengthMaxMm) errors.push('lenOverStock');
-      }
+      // Any positive length in the unit the user chose. The unit is never
+      // inferred or changed. The only limit is one 12 m stock bar, decided
+      // on the value as typed (see overStock), before any rounding.
+      lengthMm = unit === 'm' ? l.n * 1000 : l.n;
+      if (overStock(input.length, l.n, unit)) errors.push('lenOverStock');
     }
 
     var b = readNumber(input.bars);
@@ -90,7 +106,7 @@
     // a gap over 25% almost always means a typing slip (unit, bar count or
     // diameter). It asks the user to re-check the inputs; it says nothing
     // about the steel and is not an acceptance limit.
-    if (Math.abs(dev) > 25) warnings.push('largeDeviation');
+    if (Math.abs(dev) > 25) warnings.push('inputCheck');
 
     return {
       ok: true, errors: errors, warnings: warnings,
@@ -168,8 +184,9 @@
   function toCsv(table) { return '﻿' + table.map(function (r) { return r.map(csvCell).join(','); }).join('\r\n'); }
 
   function csvTable(samples, tol) {
-    var rows = [['Reference', 'Diameter mm', 'Grade (informational)', 'Length mm', 'Bars', 'Unit weight kg/m', 'Theoretical kg', 'Actual kg',
-      'Difference kg', 'Deviation %', 'Within entered range', 'Notes']];
+    var rows = [['Individual samples'],
+      ['Reference', 'Diameter mm', 'Grade (informational)', 'Length mm', 'Bars', 'Unit weight kg/m', 'Theoretical kg', 'Measured kg',
+      'Difference kg', 'Sample deviation %', 'Within entered range', 'Notes']];
     samples.forEach(function (s) {
       var c = compare(s.deviationPct, tol);
       rows.push([s.ref, s.diameter, s.grade, s.lengthMm, s.bars, s.unitWeight.toFixed(6), s.theoreticalKg.toFixed(4), s.actualKg,
@@ -177,15 +194,19 @@
     });
     var sum = summarise(samples);
     rows.push([]);
-    rows.push(['By diameter', 'Diameter mm', 'Samples', 'Bars', 'Length m', 'Theoretical kg', 'Actual kg', 'Difference kg', 'Combined deviation %', 'Lowest %', 'Highest %']);
+    rows.push(['Pooled by nominal diameter: (sum measured - sum theoretical) / sum theoretical x 100, same diameter only']);
+    rows.push(['', 'Diameter mm', 'Samples', 'Bars', 'Length m', 'Theoretical kg', 'Measured kg', 'Difference kg', 'Pooled deviation %', 'Lowest sample deviation %', 'Highest sample deviation %']);
     sum.byDiameter.forEach(function (g) {
       rows.push(['', g.diameter, g.samples, g.bars, g.lengthM.toFixed(3), g.theoreticalKg.toFixed(4), g.actualKg.toFixed(4), g.differenceKg.toFixed(4),
         g.deviationPct.toFixed(3), g.minDev.toFixed(3), g.maxDev.toFixed(3)]);
     });
     rows.push([]);
+    var t = sum.totals;
+    rows.push(['Total masses, all samples (no combined deviation across different diameters)', '', t.samples, '', '', t.theoreticalKg.toFixed(4), t.actualKg.toFixed(4), t.differenceKg.toFixed(4)]);
+    rows.push([]);
     if (tol) rows.push(['Entered range %', tol.lower == null ? '' : tol.lower, tol.upper == null ? '' : tol.upper, 'Comparison with the entered range only, not a compliance decision']);
     rows.push(['Formula', 'Unit weight = 0.006165 x d^2 kg/m (nominal; same for Grade 60 and Grade 80). Deviation % = (actual - theoretical) / theoretical x 100']);
-    rows.push(['Note', 'Theoretical comparison only. Not a mill test certificate (MTC), not a laboratory test and not a certification of steel quality. mashharawi.com']);
+    rows.push(['Note', 'Theoretical comparison only. Not a mill test certificate (MTC). Not a laboratory test. Not a certification of steel quality. A deviation alone does not prove non-compliance. mashharawi.com']);
     return rows;
   }
 

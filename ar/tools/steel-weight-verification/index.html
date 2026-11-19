@@ -30,7 +30,7 @@
 
 <link rel="stylesheet" href="/assets/site.css?v=20261031">
 <link rel="stylesheet" href="/assets/cutopt/cutopt.css?v=20261119">
-<link rel="stylesheet" href="/assets/swv/swv.css?v=20261119a">
+<link rel="stylesheet" href="/assets/swv/swv.css?v=20261119b">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@200;300;400;500&family=Inter:wght@200..500&display=swap">
@@ -248,8 +248,9 @@
           <p class="calc-empty" id="sEmpty">لا توجد عينات بعد. أدخل عينة بالأعلى واضغط «أضف العينة».</p>
           <div id="sSession" hidden>
             <div class="co-scroll"><table class="calc-table s-tbl" id="tS"></table></div>
-            <h2 class="calc-lbl" style="margin-top:22px">حسب القطر</h2>
+            <h2 class="calc-lbl" style="margin-top:22px">المجمّع حسب القطر الاسمي</h2>
             <div class="co-scroll"><table class="calc-table s-tbl" id="tD"></table></div>
+            <p class="calc-hint" id="sPooledNote"></p>
             <p class="s-totals" id="sTotals"></p>
             <p class="calc-hint" id="sNoComb" hidden></p>
             <div class="co-actions s-actions">
@@ -288,9 +289,9 @@
       <div class="lead">
         <p>الوزن الاسمي للمتر = 0.006165 &times; ق&sup2; كجم/م، حيث ق القطر الاسمي بالمليمتر. هو نفس الثابت المستخدم في <a href="/ar/tools/cutting-optimizer/">أداة تحسين القص</a> و<a href="/ar/tools/bbs-analyzer/">محلل جدول التفريد</a>. يعتمد على القطر فقط: أسياخ Grade 60 وGrade 80 لها نفس الوزن الاسمي للمتر.</p>
         <p>الوزن النظري = وزن المتر &times; طول العينة بالمتر &times; عدد الأسياخ. الفرق = المقاس &minus; النظري. الانحراف ٪ = (المقاس &minus; النظري) &divide; النظري &times; 100: موجب إذا كانت العينة أثقل من الاسمي، وسالب إذا كانت أخف.</p>
-        <p>كل الحسابات من القيم كما أُدخلت، والتقريب للعرض فقط. الكسور تُكتب بالنقطة، والفاصلة مرفوضة لأن 2,5 و2,500 تحتمل معنيين. والقيمة التي لا تناسب إلا وحدة الطول الأخرى تُرفض ولا تُحوَّل.</p>
+        <p>كل الحسابات من القيم كما أُدخلت، والتقريب للعرض فقط. الكسور تُكتب بالنقطة، والفاصلة مرفوضة لأن 2,5 و2,500 تحتمل معنيين. يُقبل أي طول موجب بالوحدة التي تختارها، ولا تُغيَّر الوحدة ولا تُخمَّن؛ والحد الوحيد للطول سيخ قياسي واحد 12&nbsp;م (12,000&nbsp;مم). وإذا زاد الفرق على 25٪ تظهر ملاحظة «تحقق من الإدخال» تطلب مراجعة الوحدة والعدد والقطر، وهي ليست حد قبول.</p>
         <p>لا يوجد حد قبول مدمج في الأداة. إذا أدخلت نطاقاً من مواصفتك أو عقدك، تظهر كل عينة داخل النطاق أو خارجه، وهذا كل شيء: مقارنة بأرقامك أنت، وليست حكماً بالمطابقة.</p>
-        <p>يمكن مقارنة عدة عينات في جلسة واحدة. العينات بنفس القطر تُجمَع أيضاً في انحراف مجمّع، يظهر بجانبه أقل وأعلى انحراف فردي حتى لا تختفي أي نتيجة. ولا تُجمع الأقطار المختلفة أبداً في نسبة واحدة.</p>
+        <p>يمكن مقارنة عدة عينات في جلسة واحدة. العينات بنفس القطر الاسمي تُجمَع أيضاً: (مجموع المقاس &minus; مجموع النظري) &divide; مجموع النظري &times; 100، ويظهر بجانبه أدنى وأعلى انحراف لعينة منفردة حتى لا تختفي أي نتيجة. وبين الأقطار المختلفة تُجمع الكتل فقط، ولا تُحسب نسبة مجمّعة أبداً.</p>
       </div>
       <p class="note-back">ذو صلة: <a href="/ar/tools/rebar-weight/">حاسبة وزن الحديد</a>، و<a href="/ar/tools/bbs-analyzer/">محلل جدول التفريد</a>، و<a href="/ar/tools/cutting-optimizer/">أداة تحسين القص</a>، و<a href="/writing/weight-tolerance/">لماذا سماحية الوزن شرط تجاري (بالإنجليزية)</a>.</p>
       <section class="faq rise" aria-labelledby="faq-h">
@@ -338,9 +339,9 @@
   </div>
 </footer>
 <script src="/assets/site.js?v=20261015" defer></script>
-<script src="/assets/swv/engine.js?v=20261119a" defer></script>
-<script src="/assets/swv/i18n.js?v=20261119a" defer></script>
-<script src="/assets/swv/app.js?v=20261119a" defer></script>
+<script src="/assets/swv/engine.js?v=20261119b" defer></script>
+<script src="/assets/swv/i18n.js?v=20261119b" defer></script>
+<script src="/assets/swv/app.js?v=20261119b" defer></script>
 <script src="/assets/quote.js?v=20261019" defer></script>
 </body>
 </html>

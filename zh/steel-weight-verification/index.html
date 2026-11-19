@@ -30,7 +30,7 @@
 
 <link rel="stylesheet" href="/assets/site.css?v=20261031">
 <link rel="stylesheet" href="/assets/cutopt/cutopt.css?v=20261119">
-<link rel="stylesheet" href="/assets/swv/swv.css?v=20261119a">
+<link rel="stylesheet" href="/assets/swv/swv.css?v=20261119b">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Inter:wght@200..500&display=swap">
@@ -243,8 +243,9 @@
           <p class="calc-empty" id="sEmpty">还没有试样。请在上方输入并点击“添加试样”。</p>
           <div id="sSession" hidden>
             <div class="co-scroll"><table class="calc-table s-tbl" id="tS"></table></div>
-            <h2 class="calc-lbl" style="margin-top:22px">按直径</h2>
+            <h2 class="calc-lbl" style="margin-top:22px">按公称直径合并</h2>
             <div class="co-scroll"><table class="calc-table s-tbl" id="tD"></table></div>
+            <p class="calc-hint" id="sPooledNote"></p>
             <p class="s-totals" id="sTotals"></p>
             <p class="calc-hint" id="sNoComb" hidden></p>
             <div class="co-actions s-actions">
@@ -283,9 +284,9 @@
       <div class="lead">
         <p>每米理论重量 = 0.006165 &times; d&sup2; 公斤/米，d 为公称直径（毫米）。与<a href="/zh/rebar-cutting-optimizer/">钢筋下料优化</a>和<a href="/zh/bbs-analyzer/">钢筋表分析工具</a>使用相同系数。它只与直径有关：Grade 60 与 Grade 80 钢筋每米理论重量相同。</p>
         <p>理论重量 = 每米重量 &times; 试样长度（米）&times; 根数。差值 = 实测 &minus; 理论。偏差 % = （实测 &minus; 理论）&divide; 理论 &times; 100：试样比理论重为正，比理论轻为负。</p>
-        <p>所有计算均按输入原值进行，仅在显示时四舍五入。小数请用小数点；逗号会被拒绝，因为 2,5 和 2,500 有歧义。只在另一种长度单位下才合理的数值会被拒绝，而不是换算。</p>
+        <p>所有计算均按输入原值进行，仅在显示时四舍五入。小数请用小数点；逗号会被拒绝，因为 2,5 和 2,500 有歧义。按您选择的单位接受任何正长度，单位不会被更改或猜测；长度的唯一限制是一根 12&nbsp;米定尺（12,000&nbsp;毫米）。差值超过 25% 时会显示“输入检查”提示，请您重新检查单位、根数和直径；这不是验收限值。</p>
         <p>工具没有内置验收限值。如果您输入自己规范或合同中的范围，每个试样会显示在范围内或范围外，仅此而已：这是与您的数值比较，不是合格判定。</p>
-        <p>一次可比较多个试样。相同直径的试样还会合并计算偏差，并在旁边显示单个试样的最低和最高偏差，不会掩盖任何结果。不同直径绝不合并为一个百分比。</p>
+        <p>一次可比较多个试样。相同公称直径的试样还会合并：（实测合计 &minus; 理论合计）&divide; 理论合计 &times; 100，旁边显示单个试样的最低和最高偏差，不会掩盖任何结果。不同直径之间只汇总总质量，绝不计算合并百分比。</p>
       </div>
       <p class="note-back">相关页面：<a href="/zh/rebar-weight-table/">钢筋重量表</a>、<a href="/zh/bbs-analyzer/">钢筋表分析</a>、<a href="/zh/rebar-cutting-optimizer/">钢筋下料优化</a>。</p>
       <section class="faq rise" aria-labelledby="faq-h">
@@ -333,9 +334,9 @@
   </div>
 </footer>
 <script src="/assets/site.js?v=20261015" defer></script>
-<script src="/assets/swv/engine.js?v=20261119a" defer></script>
-<script src="/assets/swv/i18n.js?v=20261119a" defer></script>
-<script src="/assets/swv/app.js?v=20261119a" defer></script>
+<script src="/assets/swv/engine.js?v=20261119b" defer></script>
+<script src="/assets/swv/i18n.js?v=20261119b" defer></script>
+<script src="/assets/swv/app.js?v=20261119b" defer></script>
 <script src="/assets/quote.js?v=20261019" defer></script>
 </body>
 </html>

@@ -30,7 +30,7 @@
 
 <link rel="stylesheet" href="/assets/site.css?v=20261031">
 <link rel="stylesheet" href="/assets/cutopt/cutopt.css?v=20261119">
-<link rel="stylesheet" href="/assets/swv/swv.css?v=20261119a">
+<link rel="stylesheet" href="/assets/swv/swv.css?v=20261119b">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200..500&display=swap">
@@ -248,8 +248,9 @@
           <p class="calc-empty" id="sEmpty">No samples yet. Enter one above and press Add sample.</p>
           <div id="sSession" hidden>
             <div class="co-scroll"><table class="calc-table s-tbl" id="tS"></table></div>
-            <h2 class="calc-lbl" style="margin-top:22px">By diameter</h2>
+            <h2 class="calc-lbl" style="margin-top:22px">Pooled by nominal diameter</h2>
             <div class="co-scroll"><table class="calc-table s-tbl" id="tD"></table></div>
+            <p class="calc-hint" id="sPooledNote"></p>
             <p class="s-totals" id="sTotals"></p>
             <p class="calc-hint" id="sNoComb" hidden></p>
             <div class="co-actions s-actions">
@@ -288,9 +289,9 @@
       <div class="lead">
         <p>Nominal unit weight = 0.006165 &times; d&sup2; kg/m, with d the nominal diameter in mm. It is the same constant used by the <a href="/tools/cutting-optimizer/">cutting optimizer</a> and the <a href="/tools/bbs-analyzer/">BBS Analyzer</a>. It depends on the diameter only: Grade 60 and Grade 80 bars have the same nominal weight per metre.</p>
         <p>Theoretical weight = unit weight &times; sample length in metres &times; number of bars. Difference = measured &minus; theoretical. Deviation % = (measured &minus; theoretical) &divide; theoretical &times; 100: positive when the sample is heavier than nominal, negative when it is lighter.</p>
-        <p>Everything is calculated from the values as entered and rounded only on screen. Lengths and weights must use a dot for decimals; a comma is refused because 2,5 and 2,500 are ambiguous. A value that only fits the other length unit is refused, not converted.</p>
+        <p>Everything is calculated from the values as entered and rounded only on screen. Lengths and weights must use a dot for decimals; a comma is refused because 2,5 and 2,500 are ambiguous. Any positive length is accepted in the unit you choose, which is never changed or guessed; the only length limit is one 12&nbsp;m stock bar (12,000&nbsp;mm). A difference over 25% shows an input-check note asking you to re-check the unit, bars and diameter; it is not an acceptance limit.</p>
         <p>No acceptance limit is built in. If you enter a range from your own specification or contract, each sample is shown as inside or outside that range, and that is all: it is a comparison with your numbers, not a compliance decision.</p>
-        <p>Several samples can be compared in one session. Samples of the same diameter are also pooled into a combined deviation, shown next to the lowest and highest individual deviation so no single result is hidden. Different diameters are never combined into one percentage.</p>
+        <p>Several samples can be compared in one session. Samples of the same nominal diameter are also pooled: (sum measured &minus; sum theoretical) &divide; sum theoretical &times; 100, shown next to the lowest and highest individual sample deviation so no single result is hidden. Across different diameters only the total masses are added; no combined percentage is ever calculated.</p>
       </div>
       <p class="note-back">Related: <a href="/tools/rebar-weight/">rebar weight calculator</a>, <a href="/tools/bbs-analyzer/">BBS Analyzer</a>, <a href="/tools/cutting-optimizer/">cutting optimizer</a>, <a href="/writing/weight-tolerance/">why weight tolerance is a commercial term</a>.</p>
       <section class="faq rise" aria-labelledby="faq-h">
@@ -338,9 +339,9 @@
   </div>
 </footer>
 <script src="/assets/site.js?v=20261015" defer></script>
-<script src="/assets/swv/engine.js?v=20261119a" defer></script>
-<script src="/assets/swv/i18n.js?v=20261119a" defer></script>
-<script src="/assets/swv/app.js?v=20261119a" defer></script>
+<script src="/assets/swv/engine.js?v=20261119b" defer></script>
+<script src="/assets/swv/i18n.js?v=20261119b" defer></script>
+<script src="/assets/swv/app.js?v=20261119b" defer></script>
 <script src="/assets/quote.js?v=20261019" defer></script>
 </body>
 </html>

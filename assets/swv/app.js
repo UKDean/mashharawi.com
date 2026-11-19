@@ -81,7 +81,8 @@
     rr.textContent = v ? v + ' · ' + T.rangeNote(tol.lower, tol.upper) : T.noRange;
     rr.className = 's-range' + (v === T.outside ? ' out' : v === T.inside ? ' in' : '');
     var w = $('rWarn'); w.textContent = '';
-    s.warnings.forEach(function (c) { w.appendChild(el('li', c === 'largeDeviation' ? 'hot' : '', T.warn[c])); });
+    // notes about the input, styled neutrally: never as a verdict on the steel
+    s.warnings.forEach(function (c) { w.appendChild(el('li', 'note', T.warn[c])); });
     w.hidden = !s.warnings.length;
     return s;
   }
@@ -169,8 +170,9 @@
       return tr;
     }), 1);
     var t = sum.totals;
-    $('sTotals').textContent = T.totals(t.samples, fmt(t.theoreticalKg, 3), fmt(t.actualKg, 3), sign(t.differenceKg, 3)) +
-      (t.deviationPct == null ? '' : ' · ' + sign(t.deviationPct, 2) + '%');
+    // masses only: the per-diameter table above carries the pooled deviation
+    $('sTotals').textContent = T.totals(t.samples, fmt(t.theoreticalKg, 3), fmt(t.actualKg, 3), sign(t.differenceKg, 3));
+    $('sPooledNote').textContent = T.pooledNote;
     $('sNoComb').hidden = t.diameters < 2;
     $('sNoComb').textContent = T.noCombined;
     $('sSum').value = summaryText();
@@ -178,7 +180,7 @@
   }
 
   function summaryText() {
-    var lines = [T.sumHead];
+    var lines = [T.sumHead, T.sumSamples];
     session.forEach(function (s) {
       var v = E.compare(s.deviationPct, tol);
       lines.push(T.sumLine(s, {
@@ -186,6 +188,13 @@
         cmp: v == null ? '' : (v === 'inside' ? T.inside : T.outside)
       }));
     });
+    var sum = E.summarise(session);
+    lines.push(T.sumPooled);
+    sum.byDiameter.forEach(function (g) {
+      lines.push(T.poolLine(g, { dev: sign(g.deviationPct, 2), low: sign(g.minDev, 2), high: sign(g.maxDev, 2) }));
+    });
+    var t = sum.totals;
+    lines.push(T.sumTotals(t.samples, fmt(t.theoreticalKg, 3), fmt(t.actualKg, 3), sign(t.differenceKg, 3)));
     if (tol) lines.push(T.rangeLine(tol.lower, tol.upper));
     lines.push(T.sumFoot);
     return lines.join('\n');

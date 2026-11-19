@@ -77,7 +77,7 @@ test('zero, negative and invalid inputs are refused with a reason', () => {
     [{ diameter: '' }, 'diaMissing'], [{ diameter: 'T16' }, 'diaInvalid'], [{ diameter: '70' }, 'diaRange'], [{ diameter: '0' }, 'diaRange'],
     [{ lengthUnit: 'cm' }, 'unit'], [{ length: '' }, 'lenMissing'], [{ length: '1,5', lengthUnit: 'm' }, 'lenComma'], [{ length: 'abc' }, 'lenInvalid'],
     [{ length: '0' }, 'lenNotPositive'], [{ length: '-500' }, 'lenNotPositive'], [{ length: '13000' }, 'lenOverStock'],
-    [{ length: '500', lengthUnit: 'm' }, 'unitLooksMm'], [{ length: '1.5', lengthUnit: 'mm' }, 'unitLooksM'],
+    [{ length: '500', lengthUnit: 'm' }, 'lenOverStock'], [{ length: '12000.001' }, 'lenOverStock'],
     [{ bars: '' }, 'barsMissing'], [{ bars: 'x' }, 'barsInvalid'], [{ bars: '1.5' }, 'barsFraction'], [{ bars: '0' }, 'barsRange'], [{ bars: '1001' }, 'barsRange'],
     [{ actualKg: '' }, 'kgMissing'], [{ actualKg: '1,6' }, 'kgComma'], [{ actualKg: '1e2' }, 'kgInvalid'], [{ actualKg: '0' }, 'kgNotPositive'],
     [{ actualKg: '-1' }, 'kgNotPositive'], [{ actualKg: '100001' }, 'kgRange']];
@@ -95,8 +95,8 @@ test('non-standard sizes are calculated and marked; very large gaps ask for a re
   assert.equal(r.sample.standardSize, false);
   assert.ok(r.sample.warnings.includes('nonStandard'));
   near(r.sample.unitWeight, 0.006165 * 484, 1e-12);
-  assert.ok(ev({ actualKg: '2.5' }).sample.warnings.includes('largeDeviation'));
-  assert.ok(!ev({ actualKg: '1.6' }).sample.warnings.includes('largeDeviation'));
+  assert.ok(ev({ actualKg: '2.5' }).sample.warnings.includes('inputCheck'));
+  assert.ok(!ev({ actualKg: '1.6' }).sample.warnings.includes('inputCheck'));
 });
 
 test('grade is informational and never changes the nominal weight', () => {
@@ -132,7 +132,8 @@ test('no built-in limit: without a range a sample is never classified', () => {
   // no verdict words and no standard limits in the code; the only mention of
   // compliance is the CSV note saying the comparison is NOT a compliance decision
   assert.doesNotMatch(src, /\bcompliant\b|non-compliant|\bpass(es|ed)?\b|\bfail(s|ed)?\b|ASTM|A615/i);
-  assert.deepEqual(src.match(/complian\w*/gi), ['compliance']);
+  assert.deepEqual(src.match(/complian\w*/gi), ['compliance', 'compliance']);   // 'not a compliance decision', 'does not prove non-compliance'
+  assert.match(src, /does not prove non-compliance/);
   assert.match(src, /not a compliance decision/);
   for (const l of ['en', 'ar', 'zh']) {
     const all = JSON.stringify(TXT[l], (k, v) => typeof v === 'function' ? v.toString() : v);
@@ -163,8 +164,9 @@ test('multiple samples: pooled only within a diameter, extremes kept, no cross-d
 test('CSV export: header, values, injection-safe text, statement', () => {
   const s = [ev({ ref: '=HYPERLINK("x")', notes: '+cmd', actualKg: '1.6' }).sample, ev({ ref: 'B', diameter: '12', actualKg: '0.9' }).sample];
   const table = S.csvTable(s, { lower: -5, upper: 5 });
-  assert.equal(table[0][0], 'Reference');
-  assert.equal(table[1][0], '=HYPERLINK("x")');                          // raw in the table...
+  assert.equal(table[0][0], 'Individual samples');
+  assert.equal(table[1][0], 'Reference');
+  assert.equal(table[2][0], '=HYPERLINK("x")');                          // raw in the table...
   const csv = S.toCsv(table);
   assert.ok(csv.startsWith('﻿'));
   assert.match(csv, /"'=HYPERLINK\(""x""\)"/);                           // ...neutralised in the file
@@ -202,4 +204,100 @@ test('privacy: no network, storage or HTML-injection APIs', () => {
   }
   const app = fs.readFileSync(path.join(__dirname, '..', 'assets', 'swv', 'app.js'), 'utf8');
   assert.match(app, /if \(!window\.confirm\(T\.confirmWa\)\) return;\s*copy/);  // WhatsApp only after confirmation
+});
+
+/* ==== review corrections ================================================= */
+
+test('length: any positive value in the chosen unit; only above 12,000 mm is refused', () => {
+  const ok = [['12', 'mm', 12], ['19', 'mm', 19], ['20', 'mm', 20], ['30', 'mm', 30], ['12', 'm', 12000], ['12000', 'mm', 12000],
+              ['0.012', 'm', 12], ['35', 'mm', 35], ['0.5', 'mm', 0.5], ['11.999999', 'm', 11999.999]];
+  for (const [v, u, mm] of ok) {
+    const r = ev({ length: v, lengthUnit: u });
+    assert.equal(r.ok, true, `${v} ${u}: ${r.errors}`);
+    near(r.sample.lengthMm, mm, 1e-9, `${v} ${u}`);
+    assert.equal(r.sample.lengthUnit, u);                                   // the unit is kept as chosen
+    near(r.sample.theoreticalKg, 1.57824 * mm / 1000, 1e-12);
+  }
+  for (const [v, u] of [['12.000001', 'm'], ['12000.001', 'mm'], ['12000.0000001', 'mm'], ['13', 'm'], ['30', 'm'], [12.000001, 'm'], [12000.001, 'mm']]) {
+    assert.deepEqual(ev({ length: v, lengthUnit: u }).errors, ['lenOverStock'], `${v} ${u}`);
+  }
+  // the same number means different lengths in the two units: never re-interpreted
+  assert.equal(ev({ length: '20', lengthUnit: 'm' }).ok, false);
+  assert.equal(ev({ length: '20', lengthUnit: 'mm' }).sample.lengthMm, 20);
+  for (const l of ['en', 'ar', 'zh']) { assert.equal(TXT[l].err.unitLooksMm, undefined); assert.equal(TXT[l].err.unitLooksM, undefined); }
+});
+
+test('pooled deviation: (sum measured - sum theoretical) / sum theoretical, same diameter only', () => {
+  // three 12 mm samples of different lengths, worked by hand
+  const s = [ev({ diameter: '12', length: '1000', bars: '2', actualKg: '1.80' }), ev({ diameter: '12', length: '0.5', lengthUnit: 'm', bars: '1', actualKg: '0.43' }),
+             ev({ diameter: '12', length: '2000', bars: '1', actualKg: '1.79' }), ev({ diameter: '25', length: '1000', bars: '1', actualKg: '3.70' })].map(r => r.sample);
+  const theo12 = 0.88776 * (2 + 0.5 + 2), act12 = 1.80 + 0.43 + 1.79;
+  const g = S.summarise(s).byDiameter.find(x => x.diameter === 12);
+  near(g.deviationPct, (act12 - theo12) / theo12 * 100, 1e-10);
+  // not the average of the individual deviations
+  const avg = s.slice(0, 3).reduce((a, x) => a + x.deviationPct, 0) / 3;
+  assert.ok(Math.abs(g.deviationPct - avg) > 1e-3);
+  near(g.minDev, Math.min(...s.slice(0, 3).map(x => x.deviationPct)), 1e-12);
+  near(g.maxDev, Math.max(...s.slice(0, 3).map(x => x.deviationPct)), 1e-12);
+  const sum = S.summarise(s);
+  assert.equal(sum.totals.deviationPct, null);
+  near(sum.totals.theoreticalKg, theo12 + 3.853125, 1e-12);
+  near(sum.totals.actualKg, act12 + 3.70, 1e-12);
+});
+
+test('CSV distinguishes sample, pooled and total, and carries every disclaimer', () => {
+  const s = [ev({ ref: 'A', actualKg: '1.6' }), ev({ ref: 'B', actualKg: '1.5' }), ev({ ref: 'C', diameter: '12', actualKg: '0.9' })].map(r => r.sample);
+  const csv = S.toCsv(S.csvTable(s, null));
+  assert.match(csv, /Sample deviation %/);
+  assert.match(csv, /Pooled by nominal diameter: \(sum measured - sum theoretical\) \/ sum theoretical x 100, same diameter only/);
+  assert.match(csv, /Pooled deviation %,Lowest sample deviation %,Highest sample deviation %/);
+  assert.match(csv, /Total masses, all samples \(no combined deviation across different diameters\)/);
+  const table = S.csvTable(s, null);
+  const totalRow = table.find(r => /^Total masses/.test(r[0]));
+  assert.equal(totalRow.length, 8);                                             // masses only, no % column
+  near(Number(totalRow[5]), 1.57824 * 2 + 0.88776, 1e-4);
+  for (const re of [/Theoretical comparison only/, /Not a mill test certificate \(MTC\)/, /Not a laboratory test/, /Not a certification/, /A deviation alone does not prove non-compliance/])
+    assert.match(csv, re);
+});
+
+test('every output carries the five statements, in every language', () => {
+  const page = l => fs.readFileSync(path.join(__dirname, '..', { en: 'tools', ar: 'ar/tools', zh: 'zh' }[l], 'steel-weight-verification', 'index.html'), 'utf8');
+  const need = {
+    en: [/theoretical comparison/i, /MTC/, /not a laboratory test/, /not a certification/, /deviation (alone|on its own) does not prove non-compliance/],
+    ar: [/مقارنة نظرية/, /MTC/, /فحص مختبر/, /شهادة/, /الانحراف وحده لا يثبت عدم المطابقة/],
+    zh: [/理论比较/, /MTC/, /实验室试验/, /证书/, /偏差本身不能证明不合格/] };
+  for (const l of ['en', 'ar', 'zh']) {
+    for (const re of need[l]) {
+      assert.match(TXT[l].sumFoot, re, l + ' summary/WhatsApp ' + re);         // copy and WhatsApp use the same text
+      const disclaim = (page(l).match(/<p class="s-disclaim">([\s\S]*?)<\/p>/) || [])[1];
+      assert.match(disclaim, re, l + ' page/print ' + re);                      // the printed report keeps this block
+    }
+  }
+  const css = fs.readFileSync(path.join(__dirname, '..', 'assets', 'swv', 'swv.css'), 'utf8');
+  const printBlock = css.slice(css.indexOf('@media print'));
+  assert.doesNotMatch(printBlock, /s-disclaim/);                                 // never hidden when printing
+});
+
+test('the 25% note is an input check in every language, never a verdict', () => {
+  for (const l of ['en', 'ar', 'zh']) {
+    const t = TXT[l].warn.inputCheck;
+    assert.match(t, /25/);
+    assert.match(t, { en: /not an acceptance limit/, ar: /ليس حد قبول/, zh: /不是验收限值/ }[l]);
+    assert.match(t, { en: /Input check/, ar: /تحقق من الإدخال/, zh: /输入检查/ }[l]);
+    assert.equal(TXT[l].warn.largeDeviation, undefined);
+  }
+  const app = fs.readFileSync(path.join(__dirname, '..', 'assets', 'swv', 'app.js'), 'utf8');
+  assert.match(app, /el\('li', 'note', T\.warn\[c\]\)/);                         // neutral style, not amber or red
+  const css = fs.readFileSync(path.join(__dirname, '..', 'assets', 'swv', 'swv.css'), 'utf8');
+  assert.match(css, /\.s-warn li\.note\{color:var\(--lead\)\}/);
+});
+
+test('summary text lists samples, pooled lines and total masses separately', () => {
+  for (const l of ['en', 'ar', 'zh']) {
+    const T = TXT[l];
+    assert.ok(T.sumSamples && T.sumPooled);
+    const line = T.poolLine({ diameter: 16, samples: 2 }, { dev: '-1.47', low: '-2.85', high: '+2.65' });
+    assert.match(line, /-1\.47/); assert.match(line, /-2\.85/); assert.match(line, /\+2\.65/);
+    assert.doesNotMatch(T.sumTotals(3, '9.297', '9.320', '+0.023'), /%[^)]*$/);   // no percentage on the totals line
+  }
 });

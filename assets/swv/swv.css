@@ -33,7 +33,7 @@ select.co-in{appearance:auto}
 .s-range.in{border-color:#2E7D32}
 .s-range.out{border-color:var(--hot)}
 .s-warn{margin:12px 0 0;padding-inline-start:18px;font-size:.92em;color:var(--lead)}
-.s-warn li.hot{color:var(--hot-ink)}
+.s-warn li.note{color:var(--lead)}  /* input notes: deliberately not amber/red, they are not verdicts */
 
 .s-tbl{min-inline-size:860px;font-size:12px}
 .s-tbl td.neg{color:#3A6684}.s-tbl td.pos{color:var(--hot-ink)}
