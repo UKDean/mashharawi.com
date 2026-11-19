@@ -1,85 +1,462 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Page not found | Omar Mashharawi</title>
-<meta name="description" content="This page does not exist.">
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#0B0B0A">
-
+<title>404 | الصفحة غير موجودة — Omar Mashharawi</title>
+<meta name="description" content="This page does not exist.">
+<meta name="theme-color" content="#0b1220">
 <!-- Cloudflare Pages serves this file, with a 404 status, for any path that
-     does not exist, so every URL here is absolute. The steel-mill scene is
-     drawn by /assets/notfound.js on a canvas; without it the static SVG 404
-     and the copy below are the whole page. -->
-<link rel="stylesheet" href="/assets/site.css?v=20261031">
-<link rel="stylesheet" href="/assets/notfound.css?v=20261119">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200..500&display=swap">
-
+     does not exist, so every URL here is absolute. Self-contained: styles
+     and the SVG animation are inline, no external scripts. -->
 <link rel="icon" href="/favicon.ico?v=20261024" sizes="any">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=20261024">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20261024">
-<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png?v=20261024">
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=20261024">
-<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png?v=20261024">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20261024">
-<script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/cdn-cgi/*"}}]},"eagerness":"moderate"}]}</script>
+<style>
+  :root{
+    --bg:#0b1220; --bg2:#101a2e; --ink:#e7edf5; --muted:#93a1b5;
+    --amber:#f5a524; --amber2:#ffcf6b; --steel:#5b6672; --line:rgba(120,170,255,.07);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{min-height:100%}
+  body{
+    font-family:"Segoe UI","Noto Kufi Arabic","Noto Sans Arabic",Tahoma,system-ui,sans-serif;
+    color:var(--ink);
+    background:
+      radial-gradient(1200px 600px at 50% 0%, #17264a 0%, transparent 60%),
+      linear-gradient(var(--line) 1px, transparent 1px) 0 0/32px 32px,
+      linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 0/32px 32px,
+      var(--bg);
+    display:flex;flex-direction:column;align-items:center;
+    padding:12px 16px 40px;overflow-x:hidden;
+  }
+  .scene-wrap{width:100%;max-width:1100px;position:relative}
+  svg#scene{width:100%;height:auto;display:block;overflow:visible}
+  svg#scene.shake{animation:shake .45s ease}
+  @keyframes shake{
+    0%,100%{transform:translate(0,0)}
+    20%{transform:translate(-4px,2px)} 40%{transform:translate(4px,-2px)}
+    60%{transform:translate(-3px,1px)} 80%{transform:translate(2px,0)}
+  }
+  .blink{animation:blink 1.2s steps(2,start) infinite}
+  @keyframes blink{to{visibility:hidden}}
+  #rigStir{cursor:pointer}
+
+  .content{
+    width:100%;max-width:1000px;display:grid;grid-template-columns:1.4fr 1fr;
+    gap:28px;align-items:start;margin-top:4px;
+  }
+  .kicker{
+    display:inline-flex;gap:10px;align-items:center;font-size:.8rem;letter-spacing:.06em;
+    color:var(--amber);background:rgba(245,165,36,.1);border:1px solid rgba(245,165,36,.35);
+    padding:6px 12px;border-radius:999px;font-weight:600
+  }
+  h1{font-size:clamp(1.7rem,4vw,2.6rem);line-height:1.25;margin:14px 0 10px;font-weight:800}
+  h1 span{color:var(--amber)}
+  p.lead{color:#c3cede;font-size:1.05rem;line-height:1.9;max-width:56ch}
+  .i18n{margin-top:12px;color:var(--muted);font-size:.92rem;line-height:1.8}
+  .i18n div{direction:ltr;text-align:right}
+  .i18n a{color:#cbd5e1}
+  .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+  .btn{
+    font:inherit;font-weight:700;font-size:1rem;border-radius:12px;padding:12px 20px;
+    text-decoration:none;cursor:pointer;border:1px solid transparent;transition:transform .15s, background .2s, box-shadow .2s;
+    display:inline-flex;align-items:center;gap:8px
+  }
+  .btn:active{transform:translateY(1px)}
+  .btn-amber{
+    background:repeating-linear-gradient(-45deg,#f5a524 0 14px,#f0b23f 14px 28px);
+    color:#1a1205;box-shadow:0 8px 24px -8px rgba(245,165,36,.6)
+  }
+  .btn-amber:hover{box-shadow:0 10px 30px -6px rgba(245,165,36,.8)}
+  .btn-ghost{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.18);color:var(--ink)}
+  .btn-ghost:hover{background:rgba(255,255,255,.09)}
+  .btn-wa{background:#1fa855;color:#fff}
+  .btn-wa:hover{background:#22b85d}
+  .status{min-height:1.8em;margin-top:14px;color:var(--amber2);font-weight:600;transition:opacity .3s}
+  .btn:focus-visible{outline:3px solid #fff;outline-offset:3px}
+
+  /* بطاقة جدول تفريد الحديد */
+  .bbs{
+    background:linear-gradient(180deg,#f7f3e8,#efe8d6);color:#1d2430;border-radius:10px;
+    padding:16px 18px 14px;position:relative;box-shadow:0 18px 40px -18px rgba(0,0,0,.7);
+    transform:rotate(-1.2deg);font-size:.92rem;border:1px solid #d8cfb8;margin-top:10px
+  }
+  .bbs::before{ /* ثقب البطاقة وسلك الربط */
+    content:"";position:absolute;top:12px;left:14px;width:12px;height:12px;border-radius:50%;
+    background:var(--bg);box-shadow:inset 0 0 0 2px #bfb59c
+  }
+  .bbs h3{font-size:.95rem;margin-bottom:10px;display:flex;justify-content:space-between;gap:8px;padding-left:24px}
+  .bbs h3 small{font-weight:600;color:#7a6f55;direction:ltr}
+  .bbs table{width:100%;border-collapse:collapse}
+  .bbs td{padding:6px 4px;border-top:1px dashed #cbbf9f}
+  .bbs td:first-child{color:#6b6250;width:46%}
+  .bbs td:last-child{font-weight:700;font-variant-numeric:tabular-nums}
+  .bbs .ltr{direction:ltr;unicode-bidi:isolate}
+  .stamp{
+    position:absolute;bottom:-12px;right:18px;transform:rotate(-8deg);background:#f3eddf;
+    border:2px solid #c0392b;color:#c0392b;font-weight:800;font-size:.75rem;padding:2px 8px;border-radius:6px;
+    opacity:.85;letter-spacing:.05em
+  }
+  .qty-bump{animation:bump .5s ease}
+  @keyframes bump{50%{transform:scale(1.35);color:#1f9d55}}
+
+  @media (max-width:820px){
+    .content{grid-template-columns:1fr}
+    .bbs{max-width:420px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+  }
+</style>
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
 
-<header class="c-header">
-  <a class="c-header__name" href="/"><img class="c-header__mark" src="/assets/brand/mark-64.png" width="32" height="32" alt="">Omar Mashharawi</a>
-  <nav class="c-header__nav" aria-label="Main">
-    <a href="/#about">About</a>
-    <a href="/#experience">Experience</a>
-    <a href="/tools/">Tools</a>
-    <a href="/writing/">Writing</a>
-    <a href="/#contact">Contact</a>
-    <a href="/ar/" hreflang="ar" lang="ar" class="c-header__lang">العربية</a>
-    <a href="/zh/" hreflang="zh-Hans" lang="zh-Hans" class="c-header__lang">中文</a>
-  </nav>
-  <button class="c-header__menu" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
-</header>
+<div class="scene-wrap">
+<svg id="scene" viewBox="0 -118 1200 718" role="img" aria-label="رافعة برجية تحاول تركيب الصفر المصنوع من كانة حديد تسليح بين رقمين 4 من حديد التسليح المثني">
+  <defs>
+    <pattern id="caution" width="24" height="10" patternUnits="userSpaceOnUse" patternTransform="skewX(-35)">
+      <rect width="12" height="10" fill="#f5a524"/><rect x="12" width="12" height="10" fill="#151515"/>
+    </pattern>
+    <linearGradient id="beam" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffcf6b" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#ffcf6b" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="concrete" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8d96a3"/><stop offset="1" stop-color="#6a7380"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#ff4d4d" stop-opacity=".9"/><stop offset="1" stop-color="#ff4d4d" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
 
-<main id="main" class="nf">
-  <section class="nf-hero" aria-labelledby="nf-h">
-    <div class="nf-stage">
-      <svg class="nf-fallback" viewBox="0 0 220 100" aria-hidden="true" focusable="false">
-        <g fill="none" stroke-width="6">
-          <path stroke="#8F8D88" d="M58.8 6V94M62 9.2L19.6 67.6M16.4 64.4H75.6M79.6 10H140.4M79.6 90H140.4M85.2 4.4V95.6M134.8 4.4V95.6M185.2 6V94M188.4 9.2L146 67.6M142.8 64.4H202"/>
-          <path stroke="#3A3936" stroke-dasharray="1.2 3" d="M58.8 6V94M62 9.2L19.6 67.6M16.4 64.4H75.6M79.6 10H140.4M79.6 90H140.4M85.2 4.4V95.6M134.8 4.4V95.6M185.2 6V94M188.4 9.2L146 67.6M142.8 64.4H202"/>
-        </g>
-      </svg>
+  <!-- ضوء كشاف الرافعة -->
+  <polygon id="beamCone" points="632,2 658,2 800,540 490,540" fill="url(#beam)"/>
+
+  <!-- مبنى تحت الإنشاء -->
+  <g id="building"></g>
+
+  <!-- الأرض وشريط التحذير -->
+  <rect x="0" y="540" width="1200" height="8" fill="url(#caution)"/>
+  <rect x="0" y="548" width="1200" height="52" fill="#121a29"/>
+  <g fill="#3a4250" id="spacers">
+    <rect x="484" y="532" width="22" height="8" rx="2"/>
+    <rect x="854" y="532" width="22" height="8" rx="2"/>
+  </g>
+
+  <!-- الأرقام 4 (حديد مثني) -->
+  <g id="four1"></g>
+  <g id="four2" transform="translate(370 0)"></g>
+
+  <!-- علامات التثبيت للصفر بعد التركيب -->
+  <g id="zeroSpacers" opacity="0" fill="#3a4250">
+    <rect x="590" y="532" width="22" height="8" rx="2"/><rect x="678" y="532" width="22" height="8" rx="2"/>
+  </g>
+
+  <!-- الرافعة البرجية -->
+  <g id="crane" transform="translate(0 -140)" stroke="#f5a524" stroke-width="3" fill="none" stroke-linejoin="round"></g>
+
+  <!-- السلك والخطاف -->
+  <line id="cable" x1="645" y1="0" x2="645" y2="60" stroke="#cbd5e1" stroke-width="2"/>
+  <line id="sling1" stroke="#9aa5b4" stroke-width="2"/>
+  <line id="sling2" stroke="#9aa5b4" stroke-width="2"/>
+  <g id="hook">
+    <rect x="-13" y="-26" width="26" height="20" rx="3" fill="#f5a524"/>
+    <rect x="-13" y="-19" width="26" height="5" fill="#151515" opacity=".6"/>
+    <path d="M0 -6 L0 5 Q0 15 10 12" stroke="#d1d9e2" stroke-width="4" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- الصفر = كانة (stirrup) بخطافات 135° -->
+  <g id="rigStir" tabindex="0" role="button" aria-label="ركّب الصفر">
+    <g id="zero"></g>
+    <!-- بطاقة الحديد -->
+    <g id="tag" transform="translate(112 270)">
+      <line x1="0" y1="0" x2="0" y2="14" stroke="#9aa5b4" stroke-width="1.5"/>
+      <g transform="rotate(8)">
+        <rect x="-26" y="14" width="52" height="30" rx="4" fill="#f5a524"/>
+        <text x="0" y="27" text-anchor="middle" font-size="9" font-weight="700" fill="#1a1205" font-family="monospace">Ø32·Gr60</text>
+        <text x="0" y="39" text-anchor="middle" font-size="10" font-weight="800" fill="#1a1205" font-family="monospace">#404</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- الشرر -->
+  <g id="sparks"></g>
+</svg>
+</div>
+
+<section class="content">
+  <div>
+    <span class="kicker"><span>ERROR 404</span>·<span lang="zh">页面未找到</span>·<span>الصفحة غير موجودة</span></span>
+    <h1>هذه الصفحة <span>لم تُصَبّ بعد!</span></h1>
+    <p class="lead">يبدو أن الرابط الذي تبحث عنه خرج من المخطط قبل التنفيذ — ربما نُقل أو حُذف. الرافعة ما زالت تحاول تركيب القطعة الناقصة… ساعدها 👇</p>
+
+    <div class="actions">
+      <button class="btn btn-amber" id="dropBtn" type="button">🏗️ ركّب القطعة الناقصة</button>
+      <a class="btn btn-ghost" href="/ar/">العودة للرئيسية</a>
+      <a class="btn btn-wa" href="https://wa.me/966500590063" target="_blank" rel="noopener">واتساب</a>
     </div>
+    <div class="status" id="status" aria-live="polite"></div>
 
-    <div class="nf-copy">
-      <h1 id="nf-h"><span class="nf-code c-label">404</span><span class="nf-title">PAGE NOT FOUND</span></h1>
-      <p class="nf-lead">This page is missing from the production line.</p>
-      <p class="nf-sub">Don&rsquo;t worry, our steel production is still running at full capacity.</p>
-      <a class="c-btn nf-btn" href="/">BACK TO HOMEPAGE <span aria-hidden="true">&rarr;</span></a>
-      <p class="nf-alt">
-        <a class="c-link" href="/ar/" hreflang="ar" lang="ar" dir="rtl">العودة إلى الصفحة الرئيسية</a>
-        <a class="c-link" href="/zh/" hreflang="zh-Hans" lang="zh-Hans">返回首页</a>
-      </p>
-      <p class="nf-tagline c-label">BUILT ON STRENGTH. ENGINEERED TO LAST.</p>
+    <div class="i18n">
+      <div lang="en">This page hasn’t been poured yet — <a href="/">back to the homepage</a>.</div>
+      <div lang="zh" dir="ltr">此页面尚未浇筑 — <a href="/zh/">返回首页</a>。</div>
     </div>
-  </section>
-</main>
-
-<footer class="c-footer">
-  <div class="c-footer__base">
-    <span>&copy; <span id="yr">2026</span> Omar Mashharawi</span>
-    <a href="mailto:info@mashharawi.com">info@mashharawi.com</a>
-    <a href="/about/">About</a>
-    <a href="/contact/">Contact</a>
-    <a href="/privacy/">Privacy</a>
   </div>
-</footer>
-<script src="/assets/site.js?v=20261015" defer></script>
-<script src="/assets/notfound.js?v=20261119" defer></script>
+
+  <aside class="bbs" aria-label="جدول تفريد الحديد">
+    <h3>جدول تفريد الحديد <small>BBS · Sheet 404</small></h3>
+    <table>
+      <tr><td>رقم القطعة</td><td class="ltr">#404</td></tr>
+      <tr><td>القطر</td><td class="ltr">Ø32 mm</td></tr>
+      <tr><td>الرتبة</td><td class="ltr">ASTM A615 Gr60</td></tr>
+      <tr><td>الشكل</td><td>كانة بخطاف 135°</td></tr>
+      <tr><td>الموقع</td><td>صفحة غير موجودة</td></tr>
+      <tr><td>الكمية المركّبة</td><td id="qty" class="ltr">0</td></tr>
+    </table>
+    <span class="stamp" id="stamp">NOT FOUND</span>
+  </aside>
+</section>
+
+<script>
+(() => {
+  const NS = "http://www.w3.org/2000/svg";
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const $ = s => document.querySelector(s);
+  const el = (tag, attrs = {}, parent) => {
+    const n = document.createElementNS(NS, tag);
+    for (const k in attrs) n.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(n);
+    return n;
+  };
+
+  /* ===== قضيب حديد تسليح مضلّع يُرسم كأنه يُثنى ===== */
+  function rebar(parent, d, delay = 0, dur = 1100) {
+    const g = el("g", {}, parent);
+    el("path", { d, stroke: "rgba(0,0,0,.45)", "stroke-width": 14, fill: "none",
+      "stroke-linecap": "round", "stroke-linejoin": "round", transform: "translate(3 5)" }, g);
+    el("path", { d, stroke: "#5f6b78", "stroke-width": 14, fill: "none",
+      "stroke-linecap": "round", "stroke-linejoin": "round" }, g);
+    el("path", { d, stroke: "#2b323b", "stroke-width": 14, fill: "none",
+      "stroke-dasharray": "2.5 8" }, g);                      // الأضلاع العرضية
+    el("path", { d, stroke: "#dbe4ee", "stroke-width": 3, fill: "none", opacity: .35,
+      "stroke-linecap": "round", "stroke-linejoin": "round", transform: "translate(-2 -2)" }, g);
+
+    // كشف تدريجي عبر قناع (يحاكي ماكينة الثني)
+    const id = "m" + Math.random().toString(36).slice(2, 8);
+    const defs = $("#scene defs");
+    const mask = el("mask", { id, maskUnits: "userSpaceOnUse", x: -200, y: -300, width: 1600, height: 1100 }, defs);
+    const mp = el("path", { d, stroke: "#fff", "stroke-width": 26, fill: "none",
+      "stroke-linecap": "round", "stroke-linejoin": "round" }, mask);
+    g.setAttribute("mask", `url(#${id})`);
+    if (!reduce) {
+      const len = mp.getTotalLength() + 2;
+      mp.style.strokeDasharray = len;
+      mp.style.strokeDashoffset = len;
+      mp.animate([{ strokeDashoffset: len }, { strokeDashoffset: 0 }],
+        { duration: dur, delay, easing: "cubic-bezier(.6,.05,.3,1)", fill: "forwards" });
+    }
+    return g;
+  }
+  function tie(parent, x, y, delay) {
+    const g = el("g", { stroke: "#cfd6de", "stroke-width": 2.2, "stroke-linecap": "round", opacity: reduce ? 1 : 0 }, parent);
+    el("path", { d: `M${x-7} ${y-7} L${x+7} ${y+7} M${x+7} ${y-7} L${x-7} ${y+7}` }, g);
+    if (!reduce) g.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 300, delay, fill: "forwards" });
+  }
+
+  /* ===== الرقم 4: قضيب مائل مثني + قضيب قائم بقدم ===== */
+  function four(parent, delay) {
+    rebar(parent, "M470 225 L382 418 Q376 432 392 432 L545 432", delay);
+    rebar(parent, "M495 250 L495 508 Q495 525 512 525 L540 525", delay + 450);
+    tie(parent, 495, 432, delay + 1300);
+  }
+  four($("#four1"), 200);
+  four($("#four2"), 1100);
+
+  /* ===== الصفر: كانة بخطافين 135° ===== */
+  const ZERO = "M60 46 L20 8 Q14 1 26 0 L118 0 Q140 0 140 22 L140 268 Q140 290 118 290 L22 290 Q0 290 0 268 L0 18 Q0 6 9 14 L46 58";
+  rebar($("#zero"), ZERO, 650, 1500);
+
+  /* ===== مبنى تحت الإنشاء ===== */
+  (function building() {
+    const b = $("#building");
+    const slabs = [528, 428, 328, 228];
+    const cols = [52, 170, 288];
+    // سقالات
+    const sc = el("g", { stroke: "#2c3a55", "stroke-width": 2 }, b);
+    for (let y = 540; y > 220; y -= 50) el("line", { x1: 30, y1: y, x2: 30, y2: y - 50 }, sc), el("line", { x1: 12, y1: y, x2: 12, y2: y - 50 }, sc), el("line", { x1: 12, y1: y, x2: 30, y2: y - 50 }, sc), el("line", { x1: 8, y1: y - 50, x2: 34, y2: y - 50 }, sc);
+    slabs.forEach((y, i) => {
+      el("rect", { x: 40, y, width: 280, height: 12, fill: "url(#concrete)" }, b);
+      if (i < slabs.length - 1) {
+        cols.forEach(x => el("rect", { x, y: slabs[i + 1] + 12, width: 20, height: y - slabs[i + 1] - 12, fill: "#7b8491" }, b));
+        // نوافذ مضاءة عشوائياً
+        for (let k = 0; k < 2; k++) {
+          const wx = 86 + k * 118, lit = Math.random() > .5;
+          el("rect", { x: wx, y: slabs[i + 1] + 34, width: 52, height: 40, rx: 2,
+            fill: lit ? "rgba(255,207,107,.18)" : "rgba(255,255,255,.03)", stroke: "#26324a" }, b);
+        }
+      }
+    });
+    // أشاير الأعمدة (starter bars) في الطابق الأعلى
+    const st = el("g", { stroke: "#7c8794", "stroke-width": 3.5, "stroke-linecap": "round" }, b);
+    cols.forEach(x => {
+      [x + 3, x + 10, x + 17].forEach(px => el("line", { x1: px, y1: 228, x2: px, y2: 160 }, st));
+      [205, 185].forEach(y => el("rect", { x: x - 1, y, width: 22, height: 4, fill: "none", stroke: "#9aa5b4", "stroke-width": 2 }, b));
+    });
+    // قالب خشبي
+    el("rect", { x: 160, y: 172, width: 42, height: 56, fill: "#8a5a2b", opacity: .85 }, b);
+    el("line", { x1: 160, y1: 186, x2: 202, y2: 186, stroke: "#6b4420", "stroke-width": 2 }, b);
+    el("line", { x1: 160, y1: 206, x2: 202, y2: 206, stroke: "#6b4420", "stroke-width": 2 }, b);
+  })();
+
+  /* ===== الرافعة البرجية (هيكل شبكي) ===== */
+  (function crane() {
+    const c = $("#crane");
+    const L = (x1, y1, x2, y2, w) => el("line", { x1, y1, x2, y2, ...(w ? { "stroke-width": w } : {}) }, c);
+    // الصاري
+    L(1045, 680, 1045, 128); L(1075, 680, 1075, 128);
+    for (let y = 680, s = 0; y > 140; y -= 30, s ^= 1) L(s ? 1045 : 1075, y, s ? 1075 : 1045, y - 30, 1.6), L(1045, y, 1075, y, 1.2);
+    el("rect", { x: 1030, y: 672, width: 60, height: 10, fill: "#3a4250", stroke: "none" }, c);
+    // الذراع
+    L(540, 110, 1075, 110); L(560, 128, 1075, 128); L(540, 110, 560, 128);
+    for (let x = 560, s = 0; x < 1075; x += 28, s ^= 1) L(x, s ? 110 : 128, Math.min(x + 28, 1075), s ? 128 : 110, 1.4);
+    // الذراع الخلفي والثقل
+    L(1075, 110, 1185, 110); L(1075, 124, 1185, 124);
+    for (let x = 1075, s = 0; x < 1185; x += 22, s ^= 1) L(x, s ? 110 : 124, x + 22, s ? 124 : 110, 1.4);
+    el("rect", { x: 1132, y: 124, width: 50, height: 40, rx: 2, fill: "#3a4250", stroke: "#f5a524" }, c);
+    const t = el("text", { x: 1157, y: 148, "text-anchor": "middle", "font-size": 8, fill: "#f5a524", stroke: "none",
+      "font-family": "monospace", "font-weight": 700 }, c); t.textContent = "MASHHARAWI";
+    // القمة والحبال
+    L(1060, 46, 1045, 110); L(1060, 46, 1075, 110);
+    L(1060, 46, 560, 110, 1.2); L(1060, 46, 1185, 110, 1.2);
+    // الكابينة
+    el("rect", { x: 1077, y: 129, width: 30, height: 26, rx: 3, fill: "#f5a524", stroke: "none" }, c);
+    el("rect", { x: 1093, y: 133, width: 11, height: 12, rx: 1, fill: "#9ed0ff", opacity: .7, stroke: "none" }, c);
+    // العربة
+    el("rect", { x: 628, y: 128, width: 34, height: 11, rx: 2, fill: "#f5a524", stroke: "none" }, c);
+    el("circle", { cx: 635, cy: 128, r: 3, fill: "#151515", stroke: "none" }, c);
+    el("circle", { cx: 655, cy: 128, r: 3, fill: "#151515", stroke: "none" }, c);
+    // ضوء التحذير
+    el("circle", { cx: 1060, cy: 42, r: 14, fill: "url(#glow)", stroke: "none", class: "blink" }, c);
+    el("circle", { cx: 1060, cy: 42, r: 3.5, fill: "#ff4d4d", stroke: "none", class: "blink" }, c);
+  })();
+
+  /* ===== محرك الحركة: تأرجح، إنزال، شرر ===== */
+  const rig = $("#rigStir"), hook = $("#hook"), cable = $("#cable"),
+        s1 = $("#sling1"), s2 = $("#sling2"), sparksG = $("#sparks"),
+        btn = $("#dropBtn"), status = $("#status"), qty = $("#qty"), stamp = $("#stamp");
+  const X0 = 575, YP = 230, CX = 645, PIVOT = { x: 70, y: -80 };   // نقطة الخطاف محلياً
+  let state = "hang", off = -102, ang = 0, hookY = null, slings = 1, tween = null, placedCount = 0;
+  const hangOff = t => -102 + (reduce ? 0 : 12 * Math.sin(t * 1.1));
+  const hangAng = t => (reduce ? 0 : 3.5 * Math.sin(t * 1.6));
+
+  const ease = {
+    io: t => t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2,
+    bounce: t => { const n = 7.5625, d = 2.75;
+      if (t < 1 / d) return n * t * t; if (t < 2 / d) return n * (t -= 1.5 / d) * t + .75;
+      if (t < 2.5 / d) return n * (t -= 2.25 / d) * t + .9375; return n * (t -= 2.625 / d) * t + .984375; }
+  };
+  function animate(from, to, dur, fn, done) {
+    tween = { from, to, dur, fn, done, start: performance.now() };
+  }
+  function rot(px, py, cx, cy, a) {
+    const r = a * Math.PI / 180, c = Math.cos(r), s = Math.sin(r);
+    return [cx + (px - cx) * c - (py - cy) * s, cy + (px - cx) * s + (py - cy) * c];
+  }
+  function draw() {
+    const oy = YP + off;
+    rig.setAttribute("transform", `translate(${X0} ${oy}) rotate(${ang} ${PIVOT.x} ${PIVOT.y})`);
+    const hp = { x: CX, y: oy + PIVOT.y };
+    const hy = hookY ?? hp.y;
+    hook.setAttribute("transform", `translate(${CX} ${hy})`);
+    cable.setAttribute("y2", hy - 26);
+    const [ax, ay] = rot(X0 + 12, oy + 6, hp.x, hp.y, ang);
+    const [bx, by] = rot(X0 + 128, oy + 6, hp.x, hp.y, ang);
+    [[s1, ax, ay], [s2, bx, by]].forEach(([l, x, y]) => {
+      l.setAttribute("x1", CX); l.setAttribute("y1", hy + 10);
+      l.setAttribute("x2", x); l.setAttribute("y2", y);
+      l.setAttribute("opacity", slings);
+    });
+  }
+
+  const parts = [];
+  function burst(x, y, n = 26) {
+    if (reduce) return;
+    for (let i = 0; i < n; i++) {
+      const c = el("circle", { r: 1.2 + Math.random() * 1.8, fill: Math.random() > .4 ? "#ffd166" : "#ff8c42" }, sparksG);
+      parts.push({ c, x, y, vx: (Math.random() - .5) * 7, vy: -2 - Math.random() * 6, life: 40 + Math.random() * 35, age: 0 });
+    }
+  }
+
+  function loop(now) {
+    const t = now / 1000;
+    if (tween) {
+      const k = Math.min(1, (now - tween.start) / tween.dur);
+      tween.fn(k);
+      if (k >= 1) { const d = tween.done; tween = null; d && d(); }
+    } else if (state === "hang") { off = hangOff(t); ang = hangAng(t); }
+    for (let i = parts.length - 1; i >= 0; i--) {
+      const p = parts[i]; p.age++; p.vy += .28; p.x += p.vx; p.y += p.vy;
+      if (p.y > 538) { p.y = 538; p.vy *= -.35; p.vx *= .7; }
+      p.c.setAttribute("cx", p.x); p.c.setAttribute("cy", p.y);
+      p.c.setAttribute("opacity", Math.max(0, 1 - p.age / p.life));
+      if (p.age > p.life) { p.c.remove(); parts.splice(i, 1); }
+    }
+    draw();
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+
+  const say = msg => { status.style.opacity = 0; setTimeout(() => { status.textContent = msg; status.style.opacity = 1; }, 150); };
+
+  function drop() {
+    if (state !== "hang") return;
+    state = "drop";
+    btn.disabled = true;
+    const o0 = off, a0 = ang;
+    say("⬇️ إنزال القطعة… انتبه أسفل الحمولة!");
+    animate(0, 1, reduce ? 1 : 1300, k => {
+      off = o0 + (0 - o0) * ease.bounce(k);
+      ang = a0 * (1 - ease.io(Math.min(1, k * 1.6)));
+    }, () => {
+      state = "placed";
+      const sc = $("#scene"); sc.classList.remove("shake"); void sc.offsetWidth; sc.classList.add("shake");
+      burst(X0 + 6, 532); burst(X0 + 134, 532); burst(CX, 534, 14);
+      $("#zeroSpacers").setAttribute("opacity", 1);
+      placedCount++;
+      qty.textContent = placedCount; qty.classList.remove("qty-bump"); void qty.offsetWidth; qty.classList.add("qty-bump");
+      stamp.textContent = "STILL NOT FOUND";
+      say("✔ تم تركيب الكانة بنجاح… لكن الصفحة ما زالت غير موجودة 😅 جرّب العودة للرئيسية.");
+      // فك الحبال ورفع الخطاف
+      const h0 = YP + PIVOT.y;
+      animate(0, 1, reduce ? 1 : 900, k => { slings = 1 - k; hookY = h0 + (36 - h0) * ease.io(k); }, () => {
+        btn.disabled = false; btn.textContent = "🔁 ارفعها وجرّب مرة ثانية";
+      });
+    });
+  }
+
+  function lift() {
+    if (state !== "placed") return;
+    state = "lift"; btn.disabled = true;
+    $("#zeroSpacers").setAttribute("opacity", 0);
+    say("⬆️ ربط الحبال ورفع القطعة…");
+    const h0 = hookY, target = YP + PIVOT.y;
+    animate(0, 1, reduce ? 1 : 700, k => { hookY = h0 + (target - h0) * ease.io(k); slings = k; }, () => {
+      hookY = null;
+      const now = performance.now() / 1000 + 1.3;
+      const tgt = hangOff(now), tga = hangAng(now);
+      animate(0, 1, reduce ? 1 : 1300, k => { const e = ease.io(k); off = tgt * e; ang = tga * e; }, () => {
+        state = "hang"; btn.disabled = false; btn.textContent = "🏗️ ركّب القطعة الناقصة"; say("");
+      });
+    });
+  }
+
+  const act = () => state === "hang" ? drop() : lift();
+  btn.addEventListener("click", act);
+  rig.addEventListener("click", act);
+  rig.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); act(); } });
+})();
+</script>
 </body>
 </html>
