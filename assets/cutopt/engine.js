@@ -28,7 +28,9 @@
    engine solves the linear relaxation by column generation (Gilmore and
    Gomory), rounds it to whole bars, also runs three quick heuristics, and
    keeps the best plan. It then compares that plan with a lower bound: the
-   larger of Martello and Toth's L2 and the rounded-up LP optimum. When the bar count
+   larger of Martello and Toth's L2 and an LP dual (Farley) bound that is
+   certified in exact integer arithmetic, so it is valid even when the LP
+   stops early or floating point drifts (see certifiedBound). When the bar count
    equals the bound, the plan is PROVEN to use the minimum number of bars,
    and with one stock length that also means the minimum total waste. When it
    does not, the plan is reported as heuristic with the gap to the bound. The
@@ -55,7 +57,8 @@
     qtyMax: 100000,                          // per line
     piecesMax: 200000,                       // per job
     bfdMaxPieces: 6000,                      // best fit is O(n * bars); skipped above this
-    lpMaxIter: 400                           // column generation iterations per group
+    lpMaxIter: 400,                          // column generation iterations per group
+    lpTimeMs: 1500                           // and a time budget per group; the bound stays valid if either stops it
   };
 
   function massPerMetre(d) { return K_MASS * d * d; }
@@ -72,7 +75,10 @@
       stock: input.stockLength,
       kerf: input.kerf || 0,
       allowance: input.allowance || 0,
-      minOffcut: input.minOffcut || 0
+      minOffcut: input.minOffcut || 0,
+      // testing hooks: force an early stop of the LP. Not exposed in the page.
+      lpMaxIter: isInt(input._lpMaxIter) && input._lpMaxIter >= 0 ? input._lpMaxIter : LIMITS.lpMaxIter,
+      lpTimeMs: isInt(input._lpTimeMs) && input._lpTimeMs >= 0 ? input._lpTimeMs : LIMITS.lpTimeMs
     };
     if (!isInt(s.stock) || s.stock < LIMITS.stockMin || s.stock > LIMITS.stockMax) errors.push({ code: 'stock' });
     if (!isInt(s.kerf) || s.kerf < 0 || s.kerf > LIMITS.kerfMax) errors.push({ code: 'kerf' });
@@ -260,10 +266,10 @@
     return { pat: pat, value: val };
   }
 
-  function lpRelaxation(types, C, maxIter) {
+  function lpRelaxation(types, C, maxIter, deadline) {
     var m = types.length;
     var d = types.map(function (t) { return t.n; });
-    // basis: column vectors, cost, and pattern (null for a surplus column)
+    // basis: pattern (null for a surplus column), cost, Binv rows, xB
     var basis = [], Binv = [], xB = [];
     for (var i = 0; i < m; i++) {
       var k = Math.min(Math.floor(C / types[i].w), d[i]);
@@ -273,11 +279,11 @@
       Binv.push(row);
       xB.push(d[i] / k);
     }
-    var EPS = 1e-9, z = 0, maxVal = Infinity, iter = 0, converged = false;
+    var EPS = 1e-9, iter = 0, stop = 'iterations', y = null;
     for (; iter < maxIter; iter++) {
-      var y = new Array(m).fill(0);
+      if (deadline && Date.now() > deadline) { stop = 'time'; break; }
+      y = new Array(m).fill(0);
       for (var r = 0; r < m; r++) if (basis[r].cost) for (var c = 0; c < m; c++) y[c] += Binv[r][c];
-      z = 0; for (r = 0; r < m; r++) z += basis[r].cost * xB[r];
 
       var enter = null;
       for (i = 0; i < m; i++) if (y[i] < -EPS) {         // a surplus column prices out
@@ -286,8 +292,7 @@
       }
       if (!enter) {
         var kn = knapsackValue(types, y, C);
-        maxVal = kn.value;
-        if (kn.value <= 1 + EPS) { converged = true; break; }
+        if (kn.value <= 1 + EPS) { stop = 'converged'; break; }
         enter = { col: kn.pat, cost: 1, pat: kn.pat };
       }
       var u = new Array(m).fill(0);
@@ -297,11 +302,11 @@
         var ratio = xB[r] / u[r];
         if (ratio < best - 1e-12) { best = ratio; lr = r; }
       }
-      if (lr < 0) break;                                  // cannot happen with a bounded LP
+      if (lr < 0) { stop = 'numerical'; break; }          // no pivot row: stop, the bound below is still valid
       var piv = u[lr];
       for (c = 0; c < m; c++) Binv[lr][c] /= piv;
       xB[lr] /= piv;
-      for (r = 0; r < m; r++) if (r !== lr && Math.abs(u[r]) > 0) {
+      for (r = 0; r < m; r++) if (r !== lr && u[r] !== 0) {
         var f = u[r];
         for (c = 0; c < m; c++) Binv[r][c] -= f * Binv[lr][c];
         xB[r] -= f * xB[lr];
@@ -309,12 +314,62 @@
       }
       basis[lr] = { pat: enter.pat, cost: enter.cost };
     }
-    // Farley: for any dual y, z / max(1, max y.a) <= LP optimum. When the LP
-    // has converged max y.a <= 1 (within EPS) and this is the LP optimum.
-    var bound = isFinite(maxVal) ? z / Math.max(1, maxVal) : 0;
+    if (!y) {                                              // limit hit before the first duals
+      y = new Array(m).fill(0);
+      for (r = 0; r < m; r++) if (basis[r].cost) for (c = 0; c < m; c++) y[c] += Binv[r][c];
+    }
     var x = [];
     for (r = 0; r < m; r++) if (basis[r].cost && basis[r].pat && xB[r] > EPS) x.push({ pat: basis[r].pat, value: xB[r] });
-    return { x: x, bound: Math.max(0, Math.ceil(bound - 1e-6)), converged: converged };
+    return { x: x, bound: certifiedBound(types, C, y), iterations: iter, stop: stop };
+  }
+
+  /* A lower bound on the number of bars that does not depend on the simplex
+     having converged, nor on floating point being exact.
+
+     LP duality: for ANY vector y >= 0, if V = max over feasible patterns a of
+     y.a, then y / V is feasible for the dual LP, so
+         LP optimum >= (y.d) / V      (Farley's bound)
+     and the number of bars, an integer >= LP optimum, is >= ceil(y.d / V).
+     Patterns may be restricted to a_i <= d_i: any cutting plan can drop
+     surplus pieces, so this restricted LP is still a relaxation.
+
+     To make that exact, the simplex duals are only used as a guide: they are
+     clipped to >= 0, scaled so the largest is 1e9 and floored to integers Y.
+     Flooring keeps Y >= 0, so the bound stays valid for Y. Then V is found by
+     an integer knapsack and N = Y.d by integer sums, both below 2^53, so the
+     doubles hold them exactly, and ceil(N / V) is taken in integers. If any
+     quantity would leave the exact integer range, no LP bound is claimed. */
+  var SCALE = 1e9;
+  function certifiedBound(types, C, y) {
+    var m = types.length, top = 0, i;
+    for (i = 0; i < m; i++) if (y[i] > top) top = y[i];
+    if (!(top > 0) || !isFinite(top)) return 0;
+    var Y = new Array(m);
+    for (i = 0; i < m; i++) Y[i] = y[i] > 0 ? Math.floor(y[i] / top * SCALE) : 0;
+    var N = 0;
+    for (i = 0; i < m; i++) N += Y[i] * types[i].n;
+    if (!Number.isSafeInteger(N) || N === 0) return 0;
+    // integer bounded knapsack: V = max Y.a with sum(w.a) <= C, a_i <= min(d_i, C / w_i)
+    var best = new Float64Array(C + 1);
+    for (i = 0; i < m; i++) {
+      if (!Y[i]) continue;
+      var c = Math.min(types[i].n, Math.floor(C / types[i].w)), k = 1;
+      while (c > 0) {
+        var take = Math.min(k, c), W = take * types[i].w, V = take * Y[i];
+        for (var cap = C; cap >= W; cap--) {
+          var cand = best[cap - W] + V;
+          if (cand > best[cap]) best[cap] = cand;
+        }
+        c -= take; k *= 2;
+      }
+    }
+    var Vmax = best[C];
+    if (!Number.isSafeInteger(Vmax) || Vmax <= 0) return 0;
+    // ceil(N / Vmax) in exact integer arithmetic
+    var q = Math.floor(N / Vmax);
+    while (q * Vmax < N) q++;
+    while (q > 0 && (q - 1) * Vmax >= N) q--;
+    return q;
   }
 
   /* Round the LP down, trim any over-production, and finish the remaining
@@ -367,8 +422,9 @@
       return { len: L, piece: piece, w: piece + s.kerf, n: g.demand[L] };
     });
     var nPieces = types.reduce(function (a, t) { return a + t.n; }, 0);
-    var lp = lpRelaxation(types, C, LIMITS.lpMaxIter);
-    var lb = Math.max(lowerBound(types, C), lp.bound);
+    var lp = lpRelaxation(types, C, s.lpMaxIter, Date.now() + s.lpTimeMs);
+    var l2 = lowerBound(types, C);
+    var lb = Math.max(l2, lp.bound);
 
     var tries = [
       { name: 'lp', plan: lpRounding(types, C, lp) },
@@ -389,6 +445,10 @@
     out.grade = g.grade;
     out.lines = g.lines;
     out.lowerBound = lb;
+    out.boundL2 = l2;
+    out.boundLP = lp.bound;
+    out.lpStop = lp.stop;
+    out.lpIterations = lp.iterations;
     out.optimal = out.bars === lb;
     out.gap = out.bars - lb;
     out.pieces = nPieces;
@@ -492,7 +552,8 @@
     t.utilisationPct = t.purchasedLength ? t.requiredLength / t.purchasedLength * 100 : 0;
     t.allOptimal = groups.every(function (g) { return g.optimal; });
 
-    return { ok: true, settings: n.settings, groups: groups, totals: t };
+    var pub = { stock: n.settings.stock, kerf: n.settings.kerf, allowance: n.settings.allowance, minOffcut: n.settings.minOffcut };
+    return { ok: true, settings: pub, groups: groups, totals: t };
   }
 
   /* Metres as typed (string or number, comma or dot) to integer mm. */
@@ -509,6 +570,6 @@
     metresToMm: metresToMm,
     lowerBound: lowerBound,
     LIMITS: LIMITS,
-    _internal: { bestPattern: bestPattern, sequential: sequential, firstFit: firstFit, bestFit: bestFit }
+    _internal: { certifiedBound: certifiedBound, lpRelaxation: lpRelaxation, bestPattern: bestPattern, sequential: sequential, firstFit: firstFit, bestFit: bestFit }
   };
 });

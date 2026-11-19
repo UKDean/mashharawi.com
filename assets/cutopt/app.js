@@ -19,7 +19,9 @@
   var LANG = (document.documentElement.getAttribute('lang') || 'en').toLowerCase();
   var L = LANG.indexOf('ar') === 0 ? 'ar' : (LANG.indexOf('zh') === 0 ? 'zh' : 'en');
   var WA = 'https://wa.me/message/D6ABM7QFWVSPB1';
-  var DIAS = [8, 10, 12, 14, 16, 18, 20, 22, 25, 28, 32];
+  // Suggestions only: Al Rajhi Steel's straight rebar range. Other diameters
+  // can still be typed and calculated, but are not offered in the list.
+  var DIAS = [10, 12, 14, 16, 18, 20, 25, 32];
 
   var T = {
     en: {
@@ -52,7 +54,7 @@
       },
       line: 'Line', note: 'Nominal weights: 0.006165 × d² kg/m. A planning aid, not a shop drawing or a quotation.',
       reportTitle: 'Rebar cutting plan', settings: 'Settings', stockLbl: 'Stock', kerfLbl: 'Kerf', allowLbl: 'Allowance', minOffLbl: 'Reusable from',
-      waHello: 'Hello Omar, here is a rebar cutting plan. Please send a quotation:', waGrade: 'Grade', waCity: 'Project city:', waCompany: 'Company:', waNeedCut: 'Cutting / bending service needed? '
+      waHello: 'Hello Omar, here is a rebar cutting plan. Please send a quotation:', waGrade: 'Grade', waCity: 'Project city:', waCompany: 'Company:', waNeedCut: 'Cut to length needed? (bending shapes are confirmed before pricing) '
     },
     ar: {
       dia: 'القطر مم', grade: 'الدرجة', len: 'الطول م', qty: 'العدد', remove: 'حذف البند',
@@ -84,7 +86,7 @@
       },
       line: 'البند', note: 'أوزان اسمية: ٠٫٠٠٦١٦٥ × ق² كجم/م. أداة تخطيط، وليست مخطط ورشة ولا عرض سعر.',
       reportTitle: 'خطة قص حديد التسليح', settings: 'الإعدادات', stockLbl: 'طول السيخ', kerfLbl: 'فاقد القص', allowLbl: 'السماحية', minOffLbl: 'البواقي القابلة للاستخدام من',
-      waHello: 'السلام عليكم أستاذ عمر، هذه خطة قص حديد، أرجو عرض سعر:', waGrade: 'الدرجة', waCity: 'مدينة المشروع:', waCompany: 'الشركة:', waNeedCut: 'هل تحتاج خدمة القص والثني؟ '
+      waHello: 'السلام عليكم أستاذ عمر، هذه خطة قص حديد، أرجو عرض سعر:', waGrade: 'الدرجة', waCity: 'مدينة المشروع:', waCompany: 'الشركة:', waNeedCut: 'هل تحتاج قصاً حسب المقاسات؟ (أشكال الثني تُؤكَّد قبل التسعير) '
     },
     zh: {
       dia: '直径 mm', grade: '牌号', len: '长度 m', qty: '根数', remove: '删除此行',
@@ -116,7 +118,7 @@
       },
       line: '第', note: '理论重量：0.006165 × d² 公斤/米。仅供规划参考，不是加工图，也不是报价。',
       reportTitle: '钢筋下料方案', settings: '参数', stockLbl: '定尺', kerfLbl: '锯缝', allowLbl: '余量', minOffLbl: '可再用余料起',
-      waHello: 'Omar 您好，这是钢筋下料方案，请报价：', waGrade: '牌号', waCity: '项目城市：', waCompany: '公司：', waNeedCut: '是否需要切割/弯曲加工？'
+      waHello: 'Omar 您好，这是钢筋下料方案，请报价：', waGrade: '牌号', waCity: '项目城市：', waCompany: '公司：', waNeedCut: '是否需要按尺寸切割？（弯曲形状须在报价前确认）'
     }
   }[L];
 
