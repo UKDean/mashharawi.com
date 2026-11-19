@@ -46,15 +46,15 @@
       pasteOk: function (n, bad) { return n + ' line' + (n === 1 ? '' : 's') + ' imported' + (bad ? ', ' + bad + ' skipped (check diameter, length and pieces)' : '') + '. Check them below.'; },
       pasteNone: 'No usable lines. Use columns: diameter, length in metres, pieces, and optionally grade.',
       errors: {
-        stock: 'Stock length must be between 1 and 30 m.', kerf: 'Kerf must be 0 to 20 mm.',
-        allowance: 'Allowance must be 0 to 200 mm.', minOffcut: 'Reusable offcut length must be between 0 and the stock length.',
+        stock: 'Stock length must be between 1 and 30 m.', kerf: 'Kerf must be a whole number from 0 to 20 mm.',
+        allowance: 'Allowance must be a whole number from 0 to 200 mm.', minOffcut: 'Reusable offcut length must be between 0 and the stock length.',
         diameter: 'Diameter must be between 4 and 60 mm', length: 'Enter a length in metres', qty: 'Pieces must be a whole number from 1 to 100,000',
         tooLong: 'This piece is longer than the stock bar', tooMany: 'Too many pieces for one run (limit 200,000).',
         empty: 'Add at least one line.'
       },
-      line: 'Line', note: 'Nominal weights: 0.006165 × d² kg/m. A planning aid, not a shop drawing or a quotation.',
+      line: function (n) { return 'Line ' + n; }, note: 'Nominal weights: 0.006165 × d² kg/m. A planning aid, not a shop drawing or a quotation.',
       reportTitle: 'Rebar cutting plan', settings: 'Settings', stockLbl: 'Stock', kerfLbl: 'Kerf', allowLbl: 'Allowance', minOffLbl: 'Reusable from',
-      waHello: 'Hello Omar, here is a rebar cutting plan. Please send a quotation:', waGrade: 'Grade', waCity: 'Project city:', waCompany: 'Company:', waNeedCut: 'Cut to length needed? (bending shapes are confirmed before pricing) '
+      waHello: 'Hello Omar, here is a rebar cutting plan. Please send a quotation:', waGrade: 'Grade', waCity: 'Project city:', waCompany: 'Company:', waNeedCut: 'Cutting to specified lengths needed? (subject to confirmation; bending requirements confirmed before quotation) '
     },
     ar: {
       dia: 'القطر مم', grade: 'الدرجة', len: 'الطول م', qty: 'العدد', remove: 'حذف البند',
@@ -75,18 +75,18 @@
       csv: 'تنزيل CSV', print: 'طباعة / PDF', send: 'أرسل الخطة على واتساب',
       confirmSend: 'سيتم نسخ ملخص خطة القص وفتح محادثة واتساب مع عمر مشهراوي (مبيعات حديد الراجحي). لن يُرسَل شيء إلا إذا لصقته وأرسلته بنفسك. هل تريد المتابعة؟',
       copied: 'تم نسخ الملخص، الصقه في المحادثة.',
-      pasteOk: function (n, bad) { return 'تم استيراد ' + n + ' بند' + (bad ? '، وتم تجاهل ' + bad + ' (تحقق من القطر والطول والعدد)' : '') + '. راجعها في الجدول.'; },
+      pasteOk: function (n, bad) { return 'عدد البنود المستوردة: ' + n + (bad ? '، وتم تجاهل ' + bad + ' (تحقق من القطر والطول والعدد)' : '') + '. راجعها في الجدول.'; },
       pasteNone: 'لا توجد بنود صالحة. الأعمدة المطلوبة: القطر، الطول بالمتر، العدد، والدرجة اختيارياً.',
       errors: {
-        stock: 'طول السيخ يجب أن يكون بين ١ و٣٠ م.', kerf: 'فاقد القص يجب أن يكون من ٠ إلى ٢٠ مم.',
-        allowance: 'سماحية القص يجب أن تكون من ٠ إلى ٢٠٠ مم.', minOffcut: 'طول البواقي القابلة للاستخدام يجب أن يكون بين ٠ وطول السيخ.',
+        stock: 'طول السيخ يجب أن يكون بين ١ و٣٠ م.', kerf: 'فاقد القص يجب أن يكون رقماً صحيحاً من ٠ إلى ٢٠ مم.',
+        allowance: 'السماحية يجب أن تكون رقماً صحيحاً من ٠ إلى ٢٠٠ مم.', minOffcut: 'طول البواقي القابلة للاستخدام يجب أن يكون بين ٠ وطول السيخ.',
         diameter: 'القطر يجب أن يكون بين ٤ و٦٠ مم', length: 'أدخل الطول بالمتر', qty: 'العدد يجب أن يكون رقماً صحيحاً من ١ إلى ١٠٠٬٠٠٠',
         tooLong: 'هذه القطعة أطول من السيخ', tooMany: 'عدد القطع كبير جداً لحساب واحد (الحد ٢٠٠٬٠٠٠).',
         empty: 'أضف بنداً واحداً على الأقل.'
       },
-      line: 'البند', note: 'أوزان اسمية: ٠٫٠٠٦١٦٥ × ق² كجم/م. أداة تخطيط، وليست مخطط ورشة ولا عرض سعر.',
+      line: function (n) { return 'البند ' + n; }, note: 'أوزان اسمية: ٠٫٠٠٦١٦٥ × ق² كجم/م. أداة تخطيط، وليست مخطط ورشة ولا عرض سعر.',
       reportTitle: 'خطة قص حديد التسليح', settings: 'الإعدادات', stockLbl: 'طول السيخ', kerfLbl: 'فاقد القص', allowLbl: 'السماحية', minOffLbl: 'البواقي القابلة للاستخدام من',
-      waHello: 'السلام عليكم أستاذ عمر، هذه خطة قص حديد، أرجو عرض سعر:', waGrade: 'الدرجة', waCity: 'مدينة المشروع:', waCompany: 'الشركة:', waNeedCut: 'هل تحتاج قصاً حسب المقاسات؟ (أشكال الثني تُؤكَّد قبل التسعير) '
+      waHello: 'السلام عليكم أستاذ عمر، هذه خطة قص حديد، أرجو عرض سعر:', waGrade: 'الدرجة', waCity: 'مدينة المشروع:', waCompany: 'الشركة:', waNeedCut: 'هل تحتاج القص حسب الأطوال المحددة؟ (يخضع للتأكيد، ومتطلبات الثني تُؤكَّد قبل عرض السعر) '
     },
     zh: {
       dia: '直径 mm', grade: '牌号', len: '长度 m', qty: '根数', remove: '删除此行',
@@ -110,15 +110,15 @@
       pasteOk: function (n, bad) { return '已导入 ' + n + ' 行' + (bad ? '，跳过 ' + bad + ' 行（请检查直径、长度和根数）' : '') + '。请在下表核对。'; },
       pasteNone: '没有可用的行。列顺序：直径、长度（米）、根数，牌号可选。',
       errors: {
-        stock: '定尺长度须在 1 到 30 米之间。', kerf: '锯缝须为 0 到 20 毫米。',
-        allowance: '加长余量须为 0 到 200 毫米。', minOffcut: '可再用余料长度须在 0 与定尺长度之间。',
+        stock: '定尺长度须在 1 到 30 米之间。', kerf: '锯缝须为 0 到 20 的整数毫米。',
+        allowance: '加长余量须为 0 到 200 的整数毫米。', minOffcut: '可再用余料长度须在 0 与定尺长度之间。',
         diameter: '直径须在 4 到 60 毫米之间', length: '请输入长度（米）', qty: '根数须为 1 到 100,000 的整数',
         tooLong: '该下料长度超过定尺长度', tooMany: '单次计算件数过多（上限 200,000）。',
         empty: '请至少添加一行。'
       },
-      line: '第', note: '理论重量：0.006165 × d² 公斤/米。仅供规划参考，不是加工图，也不是报价。',
+      line: function (n) { return '第 ' + n + ' 行'; }, note: '理论重量：0.006165 × d² 公斤/米。仅供规划参考，不是加工图，也不是报价。',
       reportTitle: '钢筋下料方案', settings: '参数', stockLbl: '定尺', kerfLbl: '锯缝', allowLbl: '余量', minOffLbl: '可再用余料起',
-      waHello: 'Omar 您好，这是钢筋下料方案，请报价：', waGrade: '牌号', waCity: '项目城市：', waCompany: '公司：', waNeedCut: '是否需要按尺寸切割？（弯曲形状须在报价前确认）'
+      waHello: 'Omar 您好，这是钢筋下料方案，请报价：', waGrade: '牌号', waCity: '项目城市：', waCompany: '公司：', waNeedCut: '是否需要按指定长度切割？（须经确认；弯曲要求须在报价前确认）'
     }
   }[L];
 
@@ -245,8 +245,10 @@
   function settings() {
     return {
       stockLength: CutOpt.metresToMm($('coStock').value),
-      kerf: Math.round(Number($('coKerf').value || 0)),
-      allowance: Math.round(Number($('coAllow').value || 0)),
+      // not rounded: a decimal or text here is rejected by the engine with a
+      // message, instead of being silently changed
+      kerf: Number($('coKerf').value || 0),
+      allowance: Number($('coAllow').value || 0),
       minOffcut: CutOpt.metresToMm($('coMinOff').value || '0')
     };
   }
@@ -262,7 +264,7 @@
     if (!res.ok) {
       var trs = rowsEl.querySelectorAll('tr');
       var msgs = res.errors.slice(0, 4).map(function (e) {
-        if (e.line != null) { if (trs[e.line]) trs[e.line].classList.add('co-bad'); return T.line + ' ' + (e.line + 1) + ': ' + T.errors[e.code]; }
+        if (e.line != null) { if (trs[e.line]) trs[e.line].classList.add('co-bad'); return T.line(e.line + 1) + (L === 'zh' ? '：' : ': ') + T.errors[e.code]; }
         return T.errors[e.code];
       });
       say(msgs.join(' · '), true);
