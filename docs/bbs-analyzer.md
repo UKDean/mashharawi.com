@@ -29,7 +29,8 @@ None added. SheetJS was considered and rejected. It is several hundred kB, its n
 
 **A row is excluded, with a reason, when:**
 - the diameter is missing, unreadable, outside 4–60 mm, or a US `#` size;
-- the length is missing, not a number, zero or negative, longer than 100 m, or written with a comma (ambiguous);
+- the length is missing, not a number, zero or negative, or written with a comma (ambiguous);
+- **the cut length is above 12,000 mm** (one 12 m stock bar). The reason shown is "Cut length exceeds the 12 m stock bar limit." 12,000 mm is included and 12,000.001 mm is excluded (lengths are held to 0.001 mm). These rows are in no total or summary and never reach the optimizer; their bars, length and theoretical weight are shown separately;
 - the value only fits the other unit: more than 100 in a metres column, or less than 20 in a millimetres column;
 - the number of bars is missing, not a whole number, or outside 1–1,000,000;
 - members × bars in each contradicts the total;
@@ -37,12 +38,18 @@ None added. SheetJS was considered and rejected. It is several hundred kB, its n
 - it has neither a diameter nor a length (titles, notes, subtotals).
 
 **A warning is shown, and the row is still counted, when:**
-- a bar mark repeats (scoped by member when there is a member column), with a separate warning when the repeated rows conflict;
+- a bar mark repeats within the same member, when there is a member column (the same mark in another member is normal). Identical and conflicting repeats get different warnings, both marked "review needed". Without a member column, a separate warning says uniqueness cannot be established. Rows and quantities are always kept;
 - there is more than one grade, a grade is missing, or one grade is written in several ways;
 - a diameter is non-standard;
-- a bar is longer than 12 m;
 - a value comes from a formula (Excel's saved result is used; no formula is run);
 - the sheet's own weight or total length differs from the theoretical value (only checked when that column's unit is known).
+
+## Three row groups
+
+The results always show three groups:
+1. **Included in the analysis.** These rows make up every total.
+2. **Excluded from the calculation.** Each row is listed with its row number, mark, diameter, cut length, bars and reason. Over-length quantities are shown apart from the totals.
+3. **Included, but not sent to the cutting optimizer.** These are rows with no grade. Grade 60 or 80 is never assumed. The user can explicitly assign a grade to these rows; the assignment is shown as theirs, and only then are the rows sent.
 
 ## Arithmetic
 
@@ -50,12 +57,12 @@ None added. SheetJS was considered and rejected. It is several hundred kB, its n
 - Total length: `cut length × bars`.
 - Weight: `unit weight × total length`.
 - Lengths are stored in mm, rounded to 0.001 mm to remove conversion noise. Totals are summed unrounded and rounded only for display.
-- The cutting optimizer uses π/4 × 7850 / 10⁶ = 0.0061654…, which differs by 0.006 %. Each tool shows its own formula.
+- The cutting optimizer uses the same 0.006165 × d² constant, and a regression test compares the two tools for every diameter.
 
 ## Hand-off to the cutting optimizer
 
 1. Valid rows are grouped by (diameter, normalised grade, length rounded to whole mm), and the bars are summed. Diameters and grades are never merged.
-2. Rows longer than 12 m are left out and counted. Lengths changed by rounding are counted. Both counts are shown before sending.
+2. Rows over 12 m are already excluded by the analysis, and the transfer refuses any row over 12,000 mm again as a second check. Rows without a grade are held back, and their count and bars are shown. Lengths changed by rounding are counted.
 3. The payload is `{v:1, items:[[d, grade, mm, qty], …]}` as base64url in the URL fragment (`#bbs=`). Fragments are never sent to the server, and nothing is stored.
 4. The optimizer opens in a new tab, so the original schedule stays in the analyzer tab. The optimizer validates every item and rejects the whole payload if any item is invalid. It then removes the fragment from the address bar and history, fills the cut list, and waits for the user to review it and press Optimise. The stock length stays at its 12 m default.
 
@@ -65,7 +72,14 @@ None added. SheetJS was considered and rejected. It is several hundred kB, its n
 - **Untrusted content:** cell text is written with `textContent` only.
 - **No macros or DTDs:** macros are never opened. XML containing a DTD or entity declarations is refused.
 - **Size limits:** 25 MB per file, 60 MB inflated per part (enforced while inflating, so a zip bomb that lies about its size is also stopped), 100,000 rows and 200 columns.
-- **Refused formats:** ZIP64, encrypted and split archives are refused with a message.
+- **ZIP integrity:**
+  - The central directory and local headers are bounds-checked.
+  - Local headers must match the central directory: name, flags, method, CRC and sizes.
+  - Refused: duplicate names, overlapping entries, ZIP64, encryption, split archives, unknown flags, and any method other than stored or deflate.
+  - Every part is checked against its CRC-32 and its declared size; inflation stops as soon as it passes that size.
+  - Total inflated data is capped at 120 MB, and entries at 2,000.
+- **Relationship targets:** a sheet must be a part under `xl/`. External targets, URI schemes, backslashes and `..` that would leave `xl/` are refused.
+- **XML:** each part is checked for well-formedness (balanced tags, one root, no stray `<`); a truncated or edited part is refused. A cell reference that appears twice is refused; a shared-string index out of range is treated as an error cell.
 - **CSV export:** cells starting with `= + - @ |` (other than plain numbers) are prefixed with `'`.
 
 ## Accounts
@@ -74,4 +88,4 @@ Not implemented. The tool works without signing in. State is kept in one `state`
 
 ## Tests
 
-`node --test tests/*.test.js`: `tests/bbs.test.js` (29 tests). The workbook fixtures in `tests/fixtures/bbs/` were written by openpyxl, plus hand-built hostile files. The expected totals in `expected.json` were computed independently in Python with decimal arithmetic.
+`node --test tests/*.test.js`: `tests/bbs.test.js` (37 tests). The workbook fixtures in `tests/fixtures/bbs/` were written by openpyxl, plus hand-built hostile files. The expected totals in `expected.json` were computed independently in Python with decimal arithmetic.
