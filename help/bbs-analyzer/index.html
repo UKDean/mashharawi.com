@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>How to Use the BBS Analyzer: Excel/CSV Bar Bending Schedules | Omar Mashharawi</title>
-<meta name="description" content="Guide to the BBS Analyzer: import XLSX or CSV, map columns, fix invalid rows, the 12 m rule, missing grades, results and sending to the cutting optimizer.">
+<meta name="description" content="Guide to the BBS Analyzer: import XLSX, XLSM, CSV, TSV or TXT, map columns, fix invalid rows, the 12 m rule, missing grades, results and sending to the cutting optimizer.">
 <meta name="author" content="Omar Mashharawi">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 
@@ -20,7 +20,7 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://mashharawi.com/help/bbs-analyzer/">
 <meta property="og:title" content="How to Use the BBS Analyzer: Excel/CSV Bar Bending Schedules | Omar Mashharawi">
-<meta property="og:description" content="Guide to the BBS Analyzer: import XLSX or CSV, map columns, fix invalid rows, the 12 m rule, missing grades, results and sending to the cutting optimizer.">
+<meta property="og:description" content="Guide to the BBS Analyzer: import XLSX, XLSM, CSV, TSV or TXT, map columns, fix invalid rows, the 12 m rule, missing grades, results and sending to the cutting optimizer.">
 <meta property="og:site_name" content="mashharawi.com">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="ar_SA">
@@ -49,7 +49,7 @@
  "headline": "BBS Analyzer: guide",
  "url": "https://mashharawi.com/help/bbs-analyzer/",
  "inLanguage": "en",
- "description": "Guide to the BBS Analyzer: import XLSX or CSV, map columns, fix invalid rows, the 12 m rule, missing grades, results and sending to the cutting optimizer.",
+ "description": "Guide to the BBS Analyzer: import XLSX, XLSM, CSV, TSV or TXT, map columns, fix invalid rows, the 12 m rule, missing grades, results and sending to the cutting optimizer.",
  "about": {
   "@type": "WebApplication",
   "name": "BBS Analyzer",
@@ -121,17 +121,23 @@
       <div class="h-grid">
         <div class="h-toc" role="navigation" aria-label="On this page">
           <p class="calc-lbl">On this page</p>
-          <ol><li><a href="#what">What the tool does</a></li><li><a href="#when">When to use it</a></li><li><a href="#steps">Step by step</a></li><li><a href="#example">Worked example</a></li><li><a href="#results">Reading the results</a></li><li><a href="#mistakes">Common mistakes</a></li><li><a href="#limits">Limitations</a></li><li><a href="#related">Related</a></li></ol>
+          <ol><li><a href="#what">What the tool does</a></li><li><a href="#when">When to use it</a></li><li><a href="#privacy">Privacy: your file stays in your browser</a></li><li><a href="#steps">Step by step</a></li><li><a href="#example">Worked example</a></li><li><a href="#results">Reading the results</a></li><li><a href="#mistakes">Common mistakes</a></li><li><a href="#limits">Limitations</a></li><li><a href="#related">Related</a></li></ol>
         </div>
         <article class="h-body">
 <h2 id="what">What the tool does</h2>
 <p>The analyzer reads a bar bending schedule (BBS), recognises its columns, checks every row, and totals bars, length and theoretical weight by diameter, grade and shape. It never fills in missing engineering data: a row it cannot read is excluded and listed with the reason.</p>
 <h2 id="when">When to use it</h2>
 <ul><li>To check a BBS from a consultant or subcontractor before ordering.</li><li>To get tonnes per diameter and grade for a quotation request.</li><li>To prepare the cut lengths for the cutting optimizer.</li></ul>
+<h2 id="privacy">Privacy: your file stays in your browser</h2>
+<ul><li><b>Processed locally.</b> The file is opened and analysed by the page in your own browser.</li><li><b>Not uploaded.</b> The contents of the file are never sent to the website’s server or anywhere else.</li><li><b>Not stored.</b> The website does not keep the file, and the tool does not save it in your browser for later. No account is needed.</li><li><b>Closing the tab ends the session.</b> The file, the analysis and anything you typed are gone when you close the tab. Open the file again next time.</li></ul>
+<p><b>Send to Cutting Optimizer</b> passes the grouped cut lengths to the new tab inside the page address, after the “#” sign, which browsers do not send to the server; the optimizer removes it from the address once it has read it. <b>Download CSV</b> and <b>Print / PDF</b> are created in your browser too.</p>
 <h2 id="steps">Step by step</h2>
 <h3 id="import">1. Open the schedule</h3>
-<ul><li><b>Excel .xlsx</b> (also .xlsm; macros are never run). Choose the sheet if the workbook has several. Old .xls files must be saved as .xlsx or CSV first.</li><li><b>CSV or TSV.</b> Comma, semicolon or tab separated.</li><li><b>Paste from Excel.</b> Select the schedule including its header row, copy, paste.</li><li><b>Enter by hand.</b> Member, bar mark, diameter, grade, shape code, cut length in mm and total bars.</li></ul>
-<p>Limits: 25 MB per file, 100,000 rows. Nothing is uploaded.</p>
+<p>Choose a file, drop it on the box, paste a range from Excel, or type the lines by hand. These are the formats the analyzer actually reads:</p>
+<div class="h-scroll"><table class="h-table"><thead><tr><th scope="col">Format</th><th scope="col">How it is read</th><th scope="col">Notes</th></tr></thead><tbody><tr><td><b>XLSX</b> (Excel workbook)</td><td>Built-in workbook reader</td><td>Pick the sheet if there are several. Formula cells use the value Excel last saved, and those rows are marked.</td></tr><tr><td><b>XLSM</b> (macro-enabled workbook)</td><td>Same workbook reader</td><td>Tested with workbooks saved by Microsoft Excel, with and without macros. Macros are never opened or run.</td></tr><tr><td><b>CSV</b></td><td>Text; comma, semicolon or tab detected automatically</td><td>If the schedule has Arabic or Chinese text, save it from Excel as <b>CSV UTF-8</b>; an older “CSV” saved in a Windows code page is not read correctly.</td></tr><tr><td><b>TSV</b></td><td>Text, tab separated</td><td></td></tr><tr><td><b>TXT</b></td><td>Text, read like CSV (comma, semicolon or tab)</td><td>Excel “Text (Tab delimited)” and “Unicode Text” both work.</td></tr><tr><td><b>Paste from Excel</b></td><td>Tab-separated text from the clipboard</td><td>Select the schedule including its header row, copy, paste.</td></tr><tr><td><b>Manual entry</b></td><td>Fixed columns</td><td>Member, bar mark, diameter, grade, shape code, cut length in mm and total bars.</td></tr><tr><td><b>XLS, XLSB, ODS</b></td><td>Not supported</td><td>Refused with a message. Save the sheet as .xlsx or CSV and open that.</td></tr></tbody></table></div>
+<p>The file picker lists .xlsx, .xlsm, .csv, .tsv and .txt. A file chosen with “All files”, or dropped on the box, is checked by name and by content: .xls, .xlsb and .ods are refused with a message, and any other name is read as text only if it really is text. A workbook given another name is refused, never shown as rows of noise.</p>
+<h3 id="file-limits">File and row limits</h3>
+<div class="h-scroll"><table class="h-table"><thead><tr><th scope="col">Limit</th><th scope="col">Value</th><th scope="col">What happens</th></tr></thead><tbody><tr><td>File size, any format</td><td>25 MB</td><td>Checked before the file is read. A larger file is refused: save only the schedule sheet as CSV.</td></tr><tr><td>Rows: CSV, TSV, TXT, pasted text</td><td>100,000 data rows</td><td>More rows are refused. Split the schedule and analyse it in parts.</td></tr><tr><td>Rows: XLSX, XLSM</td><td>First 100,000 rows of the sheet</td><td>Only those rows are read and a message says so; the totals then cover only those rows, so split the schedule.</td></tr><tr><td>Columns: XLSX, XLSM</td><td>200</td><td>Columns after the 200th are not read.</td></tr><tr><td>Workbooks</td><td>50 sheets; password-protected or damaged files refused</td><td>Save the schedule sheet as .xlsx again, or as CSV.</td></tr></tbody></table></div>
 <h3 id="columns">2. Check the columns</h3>
 <p>The analyzer looks for the header in the first 30 rows and matches columns by name in English, Arabic or Chinese (Bar mark, Dia, Cut length, No. of members, رقم السيخ, القطر, 钢筋编号, 下料长度…). Check every field and change any that is wrong.</p>
 <ul><li><b>Required:</b> diameter, cut length, and the number of bars: either a total column, or “no. of members” and “no. in each” together.</li><li><b>Optional:</b> bar mark, member, grade, shape code, and the sheet’s own total length and weight, which are used only to cross-check.</li><li><b>Cut length unit:</b> read from the header, for example “Cut length (mm)”. If the header does not say, you must choose mm or m; the tool does not guess.</li><li><b>Header row:</b> change it if the title rows confuse the detection.</li></ul>
@@ -155,7 +161,7 @@
 <h2 id="mistakes">Common mistakes</h2>
 <ul><li>Leaving the cut length unit to chance: always check the unit the analyzer shows.</li><li>Mapping “Total length” as cut length: cut length is the length of one bar.</li><li>Expecting bars over 12 m to be cut: they are excluded by design.</li><li>Assigning a grade “to make the rows go through” when the drawing does not say: ask the designer instead.</li><li>Saving the workbook without recalculating: formula cells use the value Excel saved, and those rows are marked.</li></ul>
 <h2 id="limits">Limitations</h2>
-<ul><li>.xls (old format), .xlsb and .ods are not supported; the reader supports the tested .xlsx structures.</li><li>Cut lengths are not calculated from shape dimensions.</li><li>Weights are theoretical estimates, not certified quantities.</li><li>One grade at a time can be assigned to all rows without a grade; different grades per row must be corrected in the sheet.</li></ul>
+<ul><li>Old .xls, .xlsb and .ods files are not supported; see <a href="#import">formats</a> and <a href="#file-limits">limits</a>.</li><li>Cut lengths are not calculated from shape dimensions.</li><li>Weights are theoretical estimates, not certified quantities.</li><li>One grade at a time can be assigned to all rows without a grade; different grades per row must be corrected in the sheet.</li></ul>
 <h2 id="related">Related</h2>
 <ul><li><a href="/tools/cutting-optimizer/">Cutting Optimizer</a> and its <a href="/help/cutting-optimizer/">guide</a>.</li><li><a href="/tools/rebarplan/">RebarPlan</a> (desktop app that writes bar bending schedules).</li><li><a href="/help/#troubleshooting">Troubleshooting</a>.</li></ul>
           <p class="note-back"><a href="/help/">← All help topics</a> · <a href="/help/#tool-guides">Tool guides</a></p>

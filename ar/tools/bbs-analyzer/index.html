@@ -30,7 +30,7 @@
 
 <link rel="stylesheet" href="/assets/site.css?v=20261031">
 <link rel="stylesheet" href="/assets/cutopt/cutopt.css?v=20261119h">
-<link rel="stylesheet" href="/assets/bbs/bbs.css?v=20261119d">
+<link rel="stylesheet" href="/assets/bbs/bbs.css?v=20261120a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@200;300;400;500&family=Inter:wght@200..500&display=swap">
@@ -89,7 +89,7 @@
    "name": "ما أنواع الملفات المدعومة؟",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "ملفات إكسل ‎.xlsx (و‎.xlsm بدون تشغيل الماكرو)، وCSV أو TSV، ونص ملصوق من الإكسل، أو بنود تكتبها يدوياً. ملفات ‎.xls القديمة تحتاج حفظها بصيغة ‎.xlsx أو CSV أولاً."
+    "text": "ملفات إكسل ‎.xlsx و‎.xlsm (لا تُفتح الماكرو ولا تُشغَّل أبداً)، وملفات النص CSV وTSV و‎.txt المفصولة بفاصلة أو فاصلة منقوطة أو Tab، ونص ملصوق من الإكسل، أو بنود تكتبها يدوياً. حجم الملف حتى 25 ميجابايت. ملفات ‎.xls القديمة و‎.xlsb و‎.ods غير مدعومة: احفظها بصيغة ‎.xlsx أو CSV أولاً."
    }
   },
   {
@@ -194,9 +194,9 @@
           <p class="calc-lbl">الجدول</p>
           <div class="b-in">
             <label class="b-drop" id="bDrop">
-              <input id="bFile" type="file" accept=".xlsx,.xlsm,.csv,.tsv,.txt,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
-              <b>اختر ملف ‎.xlsx أو ‎.csv</b>
-              <small>أو اسحبه هنا. يُقرأ داخل هذا المتصفح فقط، ولا يُرفع أي شيء.</small>
+              <input id="bFile" type="file" accept=".xlsx,.xlsm,.csv,.tsv,.txt,text/csv,text/tab-separated-values,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel.sheet.macroEnabled.12">
+              <b>اختر ملف ‎.xlsx أو ‎.xlsm أو ‎.csv أو ‎.tsv أو ‎.txt</b>
+              <small>أو اسحبه هنا (حتى 25 ميجابايت). يُقرأ داخل هذا المتصفح فقط، ولا يُرفع أي شيء.</small>
             </label>
             <div class="b-side">
               <button type="button" class="calc-btn ghost" id="bSample">حمّل جدول مثال</button>
@@ -320,7 +320,7 @@
         </details>
         <details>
           <summary>ما أنواع الملفات المدعومة؟</summary>
-          <p>ملفات إكسل ‎.xlsx (و‎.xlsm بدون تشغيل الماكرو)، وCSV أو TSV، ونص ملصوق من الإكسل، أو بنود تكتبها يدوياً. ملفات ‎.xls القديمة تحتاج حفظها بصيغة ‎.xlsx أو CSV أولاً.</p>
+          <p>ملفات إكسل ‎.xlsx و‎.xlsm (لا تُفتح الماكرو ولا تُشغَّل أبداً)، وملفات النص CSV وTSV و‎.txt المفصولة بفاصلة أو فاصلة منقوطة أو Tab، ونص ملصوق من الإكسل، أو بنود تكتبها يدوياً. حجم الملف حتى 25 ميجابايت. ملفات ‎.xls القديمة و‎.xlsb و‎.ods غير مدعومة: احفظها بصيغة ‎.xlsx أو CSV أولاً.</p>
         </details>
         <details>
           <summary>هل يتم رفع جدولي؟</summary>
@@ -357,10 +357,10 @@
   </div>
 </footer>
 <script src="/assets/site.js?v=20261015" defer></script>
-<script src="/assets/bbs/xlsx.js?v=20261119d" defer></script>
-<script src="/assets/bbs/engine.js?v=20261119d" defer></script>
-<script src="/assets/bbs/i18n.js?v=20261119d" defer></script>
-<script src="/assets/bbs/app.js?v=20261119d" defer></script>
+<script src="/assets/bbs/xlsx.js?v=20261120a" defer></script>
+<script src="/assets/bbs/engine.js?v=20261120a" defer></script>
+<script src="/assets/bbs/i18n.js?v=20261120a" defer></script>
+<script src="/assets/bbs/app.js?v=20261120a" defer></script>
 <script src="/assets/quote.js?v=20261019" defer></script>
 </body>
 </html>

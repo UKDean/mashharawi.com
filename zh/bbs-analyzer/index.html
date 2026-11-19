@@ -30,7 +30,7 @@
 
 <link rel="stylesheet" href="/assets/site.css?v=20261031">
 <link rel="stylesheet" href="/assets/cutopt/cutopt.css?v=20261119h">
-<link rel="stylesheet" href="/assets/bbs/bbs.css?v=20261119d">
+<link rel="stylesheet" href="/assets/bbs/bbs.css?v=20261120a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Inter:wght@200..500&display=swap">
@@ -89,7 +89,7 @@
    "name": "支持哪些文件？",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Excel .xlsx（以及 .xlsm，不运行宏）、CSV 或 TSV、从 Excel 粘贴的区域，或手动输入的行。旧版 .xls 需先另存为 .xlsx 或 CSV。"
+    "text": "Excel .xlsx 和 .xlsm（宏绝不打开、绝不运行）；以逗号、分号或制表符分隔的 CSV、TSV 和 .txt 文本文件；从 Excel 粘贴的区域；或手动输入的行。文件最大 25 MB。不支持旧版 .xls、.xlsb 和 .ods：请先另存为 .xlsx 或 CSV。"
    }
   },
   {
@@ -188,9 +188,9 @@
           <p class="calc-lbl">钢筋表</p>
           <div class="b-in">
             <label class="b-drop" id="bDrop">
-              <input id="bFile" type="file" accept=".xlsx,.xlsm,.csv,.tsv,.txt,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
-              <b>选择 .xlsx 或 .csv 文件</b>
-              <small>或拖放到这里。仅在本浏览器中读取，不上传任何内容。</small>
+              <input id="bFile" type="file" accept=".xlsx,.xlsm,.csv,.tsv,.txt,text/csv,text/tab-separated-values,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel.sheet.macroEnabled.12">
+              <b>选择 .xlsx、.xlsm、.csv、.tsv 或 .txt 文件</b>
+              <small>或拖放到这里（最大 25 MB）。仅在本浏览器中读取，不上传任何内容。</small>
             </label>
             <div class="b-side">
               <button type="button" class="calc-btn ghost" id="bSample">载入示例钢筋表</button>
@@ -314,7 +314,7 @@
         </details>
         <details>
           <summary>支持哪些文件？</summary>
-          <p>Excel .xlsx（以及 .xlsm，不运行宏）、CSV 或 TSV、从 Excel 粘贴的区域，或手动输入的行。旧版 .xls 需先另存为 .xlsx 或 CSV。</p>
+          <p>Excel .xlsx 和 .xlsm（宏绝不打开、绝不运行）；以逗号、分号或制表符分隔的 CSV、TSV 和 .txt 文本文件；从 Excel 粘贴的区域；或手动输入的行。文件最大 25 MB。不支持旧版 .xls、.xlsb 和 .ods：请先另存为 .xlsx 或 CSV。</p>
         </details>
         <details>
           <summary>我的钢筋表会被上传吗？</summary>
@@ -351,10 +351,10 @@
   </div>
 </footer>
 <script src="/assets/site.js?v=20261015" defer></script>
-<script src="/assets/bbs/xlsx.js?v=20261119d" defer></script>
-<script src="/assets/bbs/engine.js?v=20261119d" defer></script>
-<script src="/assets/bbs/i18n.js?v=20261119d" defer></script>
-<script src="/assets/bbs/app.js?v=20261119d" defer></script>
+<script src="/assets/bbs/xlsx.js?v=20261120a" defer></script>
+<script src="/assets/bbs/engine.js?v=20261120a" defer></script>
+<script src="/assets/bbs/i18n.js?v=20261120a" defer></script>
+<script src="/assets/bbs/app.js?v=20261120a" defer></script>
 <script src="/assets/quote.js?v=20261019" defer></script>
 </body>
 </html>

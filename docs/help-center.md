@@ -29,7 +29,7 @@ read the results (`#results`), common mistakes (`#mistakes`), limitations
 (`#limits`) and related links (`#related`). Tool-specific anchors:
 
 - Cutting Optimizer: `#settings`, `#cut-list`, `#paste`, `#run`
-- BBS Analyzer: `#import`, `#columns`, `#interpretation`, `#excluded`,
+- BBS Analyzer: `#privacy`, `#import` (formats), `#file-limits`, `#columns`, `#interpretation`, `#excluded`,
   `#twelve-metres`, `#grades`, `#send`
 - Steel Weight Verification: `#measure`, `#units`, `#tolerance`, `#add`,
   `#compliance`
@@ -64,7 +64,8 @@ and an example no longer matches, the test fails.
 and direction, canonical and hreflang reciprocity, header language switching,
 no mixed languages, required sections and anchors, every internal link and
 anchor, the in-tool help links, no extra scripts or tracking, the example
-numbers, the formula table, and the sitemap entries.
+numbers, the formula table, the sitemap entries, and that the BBS formats, limits
+and privacy statements match the file input, the upload text and the code.
 
 ## Sitemap
 

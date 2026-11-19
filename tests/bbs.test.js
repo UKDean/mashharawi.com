@@ -504,3 +504,25 @@ test('grade assignment needs an explicit, confirmed choice in the page', () => {
   }
   assert.match(TXT.en.assign.scope(3, '12', '4'), /ALL 3 rows/);
 });
+
+/* ---- XLSM: macro-enabled workbooks are read like .xlsx, macros never opened */
+test('xlsm: a workbook saved by Microsoft Excel with a VBA project is read', async () => {
+  const buf = fs.readFileSync(path.join(FX, 'excel-macro.xlsm'));
+  assert.ok(buf.includes(Buffer.from('xl/vbaProject.bin')), 'fixture has a macro part');
+  const wb = await X.open(buf);
+  assert.deepEqual(wb.sheets, ['Sheet1', 'Sheet2', 'Sheet3']);
+  const s = await wb.readSheet(0);
+  assert.deepEqual(s.rows, [['This is a macro workbook']]);
+});
+
+test('xlsm: the sample schedule as .xlsm gives the same totals as the CSV sample', async () => {
+  const buf = fs.readFileSync(path.join(FX, 'sample.xlsm'));
+  assert.ok(buf.includes(Buffer.from('[Content_Types].xml')));
+  const wb = await X.open(buf);
+  const r = run((await wb.readSheet(0)).rows);
+  const c = run(JSON.parse(JSON.stringify(TXT.en.sample)));
+  assert.equal(r.summary.totals.bars, 860);
+  assert.equal(r.summary.totals.lengthM.toFixed(2), '1859.60');
+  assert.equal((r.summary.totals.weightKg / 1000).toFixed(3), '2.080');
+  assert.deepEqual([r.summary.totals.bars, r.summary.totals.weightKg.toFixed(6)], [c.summary.totals.bars, c.summary.totals.weightKg.toFixed(6)]);
+});

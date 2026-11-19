@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>钢筋表（BBS）分析工具使用指南：Excel 和 CSV</title>
-<meta name="description" content="钢筋表分析工具指南：导入 XLSX 或 CSV、列匹配、修正无效行、12 米规则、缺少牌号、结果解读，以及发送到下料优化。">
+<meta name="description" content="钢筋表分析工具指南：导入 XLSX、XLSM、CSV、TSV 或 TXT、列匹配、修正无效行、12 米规则、缺少牌号、结果解读，以及发送到下料优化。">
 <meta name="author" content="Omar Mashharawi">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 
@@ -20,7 +20,7 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://mashharawi.com/zh/help/bbs-analyzer/">
 <meta property="og:title" content="钢筋表（BBS）分析工具使用指南：Excel 和 CSV">
-<meta property="og:description" content="钢筋表分析工具指南：导入 XLSX 或 CSV、列匹配、修正无效行、12 米规则、缺少牌号、结果解读，以及发送到下料优化。">
+<meta property="og:description" content="钢筋表分析工具指南：导入 XLSX、XLSM、CSV、TSV 或 TXT、列匹配、修正无效行、12 米规则、缺少牌号、结果解读，以及发送到下料优化。">
 <meta property="og:site_name" content="mashharawi.com">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:locale:alternate" content="en_US">
@@ -49,7 +49,7 @@
  "headline": "钢筋表分析工具：使用指南",
  "url": "https://mashharawi.com/zh/help/bbs-analyzer/",
  "inLanguage": "zh-Hans",
- "description": "钢筋表分析工具指南：导入 XLSX 或 CSV、列匹配、修正无效行、12 米规则、缺少牌号、结果解读，以及发送到下料优化。",
+ "description": "钢筋表分析工具指南：导入 XLSX、XLSM、CSV、TSV 或 TXT、列匹配、修正无效行、12 米规则、缺少牌号、结果解读，以及发送到下料优化。",
  "about": {
   "@type": "WebApplication",
   "name": "钢筋表分析工具",
@@ -120,17 +120,23 @@
       <div class="h-grid">
         <div class="h-toc" role="navigation" aria-label="本页内容">
           <p class="calc-lbl">本页内容</p>
-          <ol><li><a href="#what">工具用途</a></li><li><a href="#when">使用时机</a></li><li><a href="#steps">操作步骤</a></li><li><a href="#example">计算实例</a></li><li><a href="#results">结果解读</a></li><li><a href="#mistakes">常见错误</a></li><li><a href="#limits">局限</a></li><li><a href="#related">相关</a></li></ol>
+          <ol><li><a href="#what">工具用途</a></li><li><a href="#when">使用时机</a></li><li><a href="#privacy">隐私：文件只留在您的浏览器中</a></li><li><a href="#steps">操作步骤</a></li><li><a href="#example">计算实例</a></li><li><a href="#results">结果解读</a></li><li><a href="#mistakes">常见错误</a></li><li><a href="#limits">局限</a></li><li><a href="#related">相关</a></li></ol>
         </div>
         <article class="h-body">
 <h2 id="what">工具用途</h2>
 <p>工具读取钢筋下料表（BBS），识别各列，逐行核对，并按直径、牌号和形状汇总根数、长度和理论重量。它绝不补全缺失的工程数据：无法读取的行会被排除并列出原因。</p>
 <h2 id="when">使用时机</h2>
 <ul><li>订货前核对顾问或分包商提供的钢筋表。</li><li>为询价获取各直径和牌号的吨数。</li><li>为下料优化准备下料长度。</li></ul>
+<h2 id="privacy">隐私：文件只留在您的浏览器中</h2>
+<ul><li><b>本地处理。</b>文件由页面在您自己的浏览器中打开和分析。</li><li><b>不上传。</b>文件内容绝不会发送到网站服务器或任何其他地方。</li><li><b>不保存。</b>网站不保留文件，工具也不会把它存在您的浏览器中供以后使用。无需注册账号。</li><li><b>关闭标签页即结束本次会话。</b>关闭标签页后，文件、分析结果和您输入的内容都会消失。下次请重新打开文件。</li></ul>
+<p><b>发送到下料优化工具</b>会把汇总后的下料长度放在新标签页地址的“#”号之后传递，浏览器不会把这部分发送到服务器；下料优化工具读取后会把它从地址中删除。<b>下载 CSV</b> 和<b>打印 / PDF</b> 也都在您的浏览器中生成。</p>
 <h2 id="steps">操作步骤</h2>
 <h3 id="import">1. 打开钢筋表</h3>
-<ul><li><b>Excel .xlsx</b>（也支持 .xlsm，宏绝不运行）。工作簿有多个工作表时请选择。旧版 .xls 需先另存为 .xlsx 或 CSV。</li><li><b>CSV 或 TSV</b>，以逗号、分号或制表符分隔。</li><li><b>从 Excel 粘贴。</b>选中包括表头行在内的钢筋表，复制后粘贴。</li><li><b>手动输入。</b>构件、钢筋编号、直径、牌号、形状代码、下料长度（毫米）和总根数。</li></ul>
-<p>限制：每个文件 25 MB，100,000 行。不上传任何内容。</p>
+<p>选择文件、拖放到框中、从 Excel 粘贴区域，或手动输入各行。以下是工具实际能读取的格式：</p>
+<div class="h-scroll"><table class="h-table"><thead><tr><th scope="col">格式</th><th scope="col">读取方式</th><th scope="col">说明</th></tr></thead><tbody><tr><td><b>XLSX</b>（Excel 工作簿）</td><td>工具内置的工作簿读取器</td><td>工作簿有多个工作表时请选择。公式单元格使用 Excel 最后保存的值，并会标出这些行。</td></tr><tr><td><b>XLSM</b>（启用宏的工作簿）</td><td>同一个工作簿读取器</td><td>已用 Microsoft Excel 保存的工作簿（含宏和不含宏）测试。宏绝不打开、绝不运行。</td></tr><tr><td><b>CSV</b></td><td>文本，自动识别逗号、分号或制表符</td><td>钢筋表含中文或阿拉伯文时，请在 Excel 中另存为 <b>CSV UTF-8</b>；用 Windows 旧编码保存的“CSV”无法正确读取。</td></tr><tr><td><b>TSV</b></td><td>文本，制表符分隔</td><td></td></tr><tr><td><b>TXT</b></td><td>文本，与 CSV 相同（逗号、分号或制表符）</td><td>Excel 的“文本文件（制表符分隔）”和“Unicode 文本”均可。</td></tr><tr><td><b>从 Excel 粘贴</b></td><td>剪贴板中的制表符分隔文本</td><td>选中包括表头行在内的钢筋表，复制后粘贴。</td></tr><tr><td><b>手动输入</b></td><td>固定列</td><td>构件、钢筋编号、直径、牌号、形状代码、下料长度（毫米）和总根数。</td></tr><tr><td><b>XLS、XLSB、ODS</b></td><td>不支持</td><td>会被拒绝并给出提示。请另存为 .xlsx 或 CSV 后打开。</td></tr></tbody></table></div>
+<p>文件选择框列出 .xlsx、.xlsm、.csv、.tsv 和 .txt。通过“所有文件”选择或拖放到框中的文件，会按文件名和内容检查：.xls、.xlsb 和 .ods 会被拒绝并提示；其他文件名只有确实是文本时才按文本读取。改了扩展名的工作簿会被拒绝，不会显示成一堆乱码行。</p>
+<h3 id="file-limits">文件大小与行数限制</h3>
+<div class="h-scroll"><table class="h-table"><thead><tr><th scope="col">限制</th><th scope="col">数值</th><th scope="col">结果</th></tr></thead><tbody><tr><td>文件大小（任何格式）</td><td>25 MB</td><td>读取前检查。更大的文件会被拒绝：请只将钢筋表工作表另存为 CSV。</td></tr><tr><td>行数：CSV、TSV、TXT、粘贴文本</td><td>100,000 个数据行</td><td>超过即拒绝。请拆分钢筋表后分批分析。</td></tr><tr><td>行数：XLSX、XLSM</td><td>工作表的前 100,000 行</td><td>只读取这些行，并给出提示；此时合计只包括这些行，请拆分钢筋表。</td></tr><tr><td>列数：XLSX、XLSM</td><td>200</td><td>第 200 列之后的列不读取。</td></tr><tr><td>工作簿</td><td>50 个工作表；有密码保护或损坏的文件会被拒绝</td><td>请把钢筋表工作表重新另存为 .xlsx 或 CSV。</td></tr></tbody></table></div>
 <h3 id="columns">2. 核对列匹配</h3>
 <p>工具在前 30 行中查找表头，并按中文、英文或阿拉伯文名称匹配各列（钢筋编号、直径、下料长度、构件数、Bar mark、Dia、رقم السيخ 等）。请逐一核对，并修改任何错误的字段。</p>
 <ul><li><b>必填：</b>直径、下料长度和根数：可以是总根数列，也可以是“构件数”和“每件根数”两列。</li><li><b>可选：</b>钢筋编号、构件、牌号、形状代码，以及表中自带的总长度和重量（仅用于核对）。</li><li><b>下料长度单位：</b>从表头读取，例如“下料长度(毫米)”。表头未注明时必须选择毫米或米，工具不会猜测。</li><li><b>表头行：</b>如果标题行干扰识别，可以修改。</li></ul>
@@ -154,7 +160,7 @@
 <h2 id="mistakes">常见错误</h2>
 <ul><li>不检查下料长度单位：请始终核对工具显示的单位。</li><li>把“总长度”匹配为下料长度：下料长度是单根钢筋的长度。</li><li>以为超过 12 米的钢筋会被切割：它们按设计被排除。</li><li>在图纸未注明时为了“让行通过”而指定牌号：请先询问设计方。</li><li>保存工作簿前未重新计算：公式单元格使用 Excel 保存的值，这些行会被标记。</li></ul>
 <h2 id="limits">局限</h2>
-<ul><li>不支持旧版 .xls、.xlsb 和 .ods；读取器支持经过测试的 .xlsx 结构。</li><li>不根据形状尺寸计算下料长度。</li><li>重量为理论估算，不是认证数量。</li><li>只能为所有无牌号的行统一指定一个牌号；各行牌号不同时须在表格中修正。</li></ul>
+<ul><li>不支持旧版 .xls、.xlsb 和 .ods；参见<a href="#import">格式</a>和<a href="#file-limits">限制</a>。</li><li>不根据形状尺寸计算下料长度。</li><li>重量为理论估算，不是认证数量。</li><li>只能为所有无牌号的行统一指定一个牌号；各行牌号不同时须在表格中修正。</li></ul>
 <h2 id="related">相关</h2>
 <ul><li><a href="/zh/rebar-cutting-optimizer/">钢筋下料优化</a>及其<a href="/zh/help/cutting-optimizer/">指南</a>。</li><li><a href="/tools/rebarplan/">RebarPlan</a>（编制钢筋表的桌面软件，支持中文）。</li><li><a href="/zh/help/#troubleshooting">故障排除</a>。</li></ul>
           <p class="note-back"><a href="/zh/help/">← 全部帮助主题</a> · <a href="/zh/help/#tool-guides">工具指南</a></p>

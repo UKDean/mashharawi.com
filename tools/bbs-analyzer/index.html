@@ -30,7 +30,7 @@
 
 <link rel="stylesheet" href="/assets/site.css?v=20261031">
 <link rel="stylesheet" href="/assets/cutopt/cutopt.css?v=20261119h">
-<link rel="stylesheet" href="/assets/bbs/bbs.css?v=20261119d">
+<link rel="stylesheet" href="/assets/bbs/bbs.css?v=20261120a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200..500&display=swap">
@@ -89,7 +89,7 @@
    "name": "Which file types can I use?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Excel .xlsx (and .xlsm, without running macros), CSV or TSV, a range pasted from Excel, or lines typed by hand. Old .xls files need to be saved as .xlsx or CSV first."
+    "text": "Excel .xlsx and .xlsm (macros are never opened or run), CSV, TSV and .txt text files separated by commas, semicolons or tabs, a range pasted from Excel, or lines typed by hand. Files up to 25 MB. Old .xls, .xlsb and .ods files are not supported: save them as .xlsx or CSV first."
    }
   },
   {
@@ -194,9 +194,9 @@
           <p class="calc-lbl">Schedule</p>
           <div class="b-in">
             <label class="b-drop" id="bDrop">
-              <input id="bFile" type="file" accept=".xlsx,.xlsm,.csv,.tsv,.txt,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
-              <b>Choose an .xlsx or .csv file</b>
-              <small>or drop it here. Read in this browser only; nothing is uploaded.</small>
+              <input id="bFile" type="file" accept=".xlsx,.xlsm,.csv,.tsv,.txt,text/csv,text/tab-separated-values,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel.sheet.macroEnabled.12">
+              <b>Choose an .xlsx, .xlsm, .csv, .tsv or .txt file</b>
+              <small>or drop it here (up to 25 MB). Read in this browser only; nothing is uploaded.</small>
             </label>
             <div class="b-side">
               <button type="button" class="calc-btn ghost" id="bSample">Load sample schedule</button>
@@ -320,7 +320,7 @@
         </details>
         <details>
           <summary>Which file types can I use?</summary>
-          <p>Excel .xlsx (and .xlsm, without running macros), CSV or TSV, a range pasted from Excel, or lines typed by hand. Old .xls files need to be saved as .xlsx or CSV first.</p>
+          <p>Excel .xlsx and .xlsm (macros are never opened or run), CSV, TSV and .txt text files separated by commas, semicolons or tabs, a range pasted from Excel, or lines typed by hand. Files up to 25 MB. Old .xls, .xlsb and .ods files are not supported: save them as .xlsx or CSV first.</p>
         </details>
         <details>
           <summary>Is my schedule uploaded?</summary>
@@ -357,10 +357,10 @@
   </div>
 </footer>
 <script src="/assets/site.js?v=20261015" defer></script>
-<script src="/assets/bbs/xlsx.js?v=20261119d" defer></script>
-<script src="/assets/bbs/engine.js?v=20261119d" defer></script>
-<script src="/assets/bbs/i18n.js?v=20261119d" defer></script>
-<script src="/assets/bbs/app.js?v=20261119d" defer></script>
+<script src="/assets/bbs/xlsx.js?v=20261120a" defer></script>
+<script src="/assets/bbs/engine.js?v=20261120a" defer></script>
+<script src="/assets/bbs/i18n.js?v=20261120a" defer></script>
+<script src="/assets/bbs/app.js?v=20261120a" defer></script>
 <script src="/assets/quote.js?v=20261019" defer></script>
 </body>
 </html>

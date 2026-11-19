@@ -83,26 +83,45 @@
     var name = file.name || 'file';
     var lower = name.toLowerCase();
     $('bSheetWrap').hidden = true;
+    // formats that look like spreadsheets but are not read: refuse them by name
     if (/\.xls$/.test(lower)) { say(T.msg.xlsx.xls, 'warn'); return; }
+    if (/\.xlsb$/.test(lower)) { say(T.msg.xlsx.xlsb, 'warn'); return; }
+    if (/\.(ods|fods)$/.test(lower)) { say(T.msg.xlsx.ods, 'warn'); return; }
     if (file.size > window.BbsXlsx.LIMITS.fileBytes) { say(T.msg.xlsx.tooLarge, 'warn'); return; }
     say(T.msg.reading);
     var fr = new FileReader();
-    if (/\.(xlsx|xlsm)$/.test(lower)) {
-      fr.onload = function () {
-        window.BbsXlsx.open(fr.result).then(function (wb) {
-          var sel = $('bSheet');
-          sel.textContent = '';
-          wb.sheets.forEach(function (n, i) { var o = el('option', null, n); o.value = i; sel.appendChild(o); });
-          $('bSheetWrap').hidden = wb.sheets.length < 2;
-          sel.onchange = function () { openSheet(wb, +sel.value, name); };
-          openSheet(wb, 0, name);
-        }).catch(xlsxFail);
+    if (!/\.(xlsx|xlsm)$/.test(lower)) {
+      // any other name is read as delimited text, but only if it is text: a
+      // ZIP (xlsx, xlsb, ods) or OLE (xls) file with another name is refused
+      // instead of being shown as rows of binary noise
+      var head = new FileReader();
+      head.onload = function () {
+        var b = new Uint8Array(head.result);
+        var zip = b.length >= 4 && b[0] === 0x50 && b[1] === 0x4b && (b[2] === 3 || b[2] === 5 || b[2] === 7) && (b[3] === 4 || b[3] === 6 || b[3] === 8);
+        var ole = b.length >= 8 && b[0] === 0xd0 && b[1] === 0xcf && b[2] === 0x11 && b[3] === 0xe0 && b[4] === 0xa1 && b[5] === 0xb1 && b[6] === 0x1a && b[7] === 0xe1;
+        // zero bytes mean binary, except in UTF-16 text with a byte-order mark
+        // (Excel's "Unicode Text"), which readAsText decodes from the mark
+        var utf16 = b.length >= 2 && ((b[0] === 0xff && b[1] === 0xfe) || (b[0] === 0xfe && b[1] === 0xff));
+        var nul = false; if (!utf16) for (var i = 0; i < b.length; i++) if (b[i] === 0) { nul = true; break; }
+        if (zip || ole || nul) { say(T.msg.xlsx.binary, 'warn'); return; }
+        fr.onload = function () { loadGrid(E.parseDelimited(fr.result), name); };
+        fr.readAsText(file);
       };
-      fr.readAsArrayBuffer(file);
-    } else {
-      fr.onload = function () { loadGrid(E.parseDelimited(fr.result), name); };
-      fr.readAsText(file);
+      head.readAsArrayBuffer(file.slice(0, 4096));
+      return;
     }
+    // .xlsx and .xlsm: the workbook reader (macros are never opened)
+    fr.onload = function () {
+      window.BbsXlsx.open(fr.result).then(function (wb) {
+        var sel = $('bSheet');
+        sel.textContent = '';
+        wb.sheets.forEach(function (n, i) { var o = el('option', null, n); o.value = i; sel.appendChild(o); });
+        $('bSheetWrap').hidden = wb.sheets.length < 2;
+        sel.onchange = function () { openSheet(wb, +sel.value, name); };
+        openSheet(wb, 0, name);
+      }).catch(xlsxFail);
+    };
+    fr.readAsArrayBuffer(file);
   }
   function openSheet(wb, i, name) {
     say(T.msg.reading);

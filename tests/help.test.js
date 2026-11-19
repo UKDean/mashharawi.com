@@ -193,3 +193,67 @@ test('sitemap lists the 12 help URLs with reciprocal alternates', () => {
     for (const l of Object.keys(PREFIX)) assert.ok(block.includes(`href="${SITE + PREFIX[l] + p.s}"`), `${p.url} alt ${l}`);
   }
 });
+
+/* ---- BBS: formats, limits and privacy match the code ------------------- */
+const BBSX = require('../assets/bbs/xlsx.js');
+const BBS_TOOL = { en: 'tools/bbs-analyzer', ar: 'ar/tools/bbs-analyzer', zh: 'zh/bbs-analyzer' };
+
+test('BBS: the file picker, the upload text and the guide list the same formats', () => {
+  for (const l of Object.keys(PREFIX)) {
+    const tool = read(BBS_TOOL[l]);
+    const accept = tool.match(/<input id="bFile" type="file" accept="([^"]+)">/)[1].split(',');
+    const exts = accept.filter(a => a.startsWith('.'));
+    assert.deepEqual(exts, ['.xlsx', '.xlsm', '.csv', '.tsv', '.txt'], l);
+    for (const bad of ['.xls', '.xlsb', '.ods', 'application/vnd.ms-excel', 'text/plain']) assert.ok(!accept.includes(bad), l + ' accepts ' + bad);
+    const drop = tool.match(/<label class="b-drop"[\s\S]*?<b>([^<]+)<\/b>\s*<small>([^<]+)<\/small>/);
+    for (const e of exts) assert.ok(drop[1].includes(e), `${l} upload text lacks ${e}`);
+    assert.ok(/25/.test(drop[2]), l + ' upload text shows the size limit');
+    const faq = text(tool);
+    for (const e of exts.concat(['.xls', '.xlsb', '.ods'])) assert.ok(faq.includes(e), `${l} tool FAQ ${e}`);
+    const g = read(PREFIX[l] + 'bbs-analyzer/'), body = text(main(g));
+    for (const f of ['XLSX', 'XLSM', 'CSV', 'TSV', 'TXT', 'XLS', 'XLSB', 'ODS', 'CSV UTF-8']) assert.ok(body.includes(f), `${l} guide ${f}`);
+    for (const e of exts) assert.ok(body.includes(e), `${l} guide picker sentence ${e}`);
+    assert.ok(g.includes('id="file-limits"') && g.includes('id="privacy"'), l + ' anchors');
+  }
+});
+
+test('BBS: the limits in the guides are the limits in the code', () => {
+  assert.equal(BBSX.LIMITS.fileBytes, 25 * 1024 * 1024);
+  assert.equal(BBSX.LIMITS.rows, 100000);
+  assert.equal(BBS.LIMITS.rows, 100000);
+  assert.equal(BBSX.LIMITS.cols, 200);
+  assert.equal(BBSX.LIMITS.sheets, 50);
+  const app = fs.readFileSync(path.join(ROOT, 'assets/bbs/app.js'), 'utf8');
+  assert.ok(app.includes('file.size > window.BbsXlsx.LIMITS.fileBytes'), 'size checked for every file before reading');
+  for (const l of Object.keys(PREFIX)) {
+    const lim = (read(PREFIX[l] + 'bbs-analyzer/').match(/id="file-limits"[\s\S]*?<\/table>/) || [''])[0];
+    for (const n of ['25', '100,000', '200', '50']) assert.ok(text(lim).includes(n), `${l} limit ${n}`);
+  }
+  // 100,000 data rows of text are analysed, one more is refused
+  const rows = n => E => { const g = [['Dia (mm)', 'Cut length (mm)', 'Total No.']]; for (let i = 0; i < n; i++) g.push([16, 2350, 1]); return g; };
+  const go = g => { const d = BBS.detectHeader(g); return BBS.analyze(g, { headerRow: d.headerRow, mapping: d.mapping, units: d.units }); };
+  assert.equal(go(rows(100000)()).summary.totals.bars, 100000);
+  assert.equal(go(rows(100001)()).error, 'tooManyRows');
+});
+
+test('BBS: unsupported formats get their own message in every language', () => {
+  const app = fs.readFileSync(path.join(ROOT, 'assets/bbs/app.js'), 'utf8');
+  assert.ok(app.includes("/\\.xls$/.test(lower)") && app.includes("/\\.xlsb$/.test(lower)") && app.includes("/\\.(ods|fods)$/.test(lower)"));
+  assert.ok(/0x50 && b\[1\] === 0x4b/.test(app) && /0xd0 && b\[1\] === 0xcf/.test(app), 'ZIP and OLE files are not read as text');
+  for (const l of ['en', 'ar', 'zh']) for (const k of ['xls', 'xlsb', 'ods', 'binary', 'tooLarge']) assert.ok(BBST[l].msg.xlsx[k], `${l} msg ${k}`);
+});
+
+test('BBS: privacy statements are true of the code', () => {
+  for (const f of ['assets/bbs/app.js', 'assets/bbs/engine.js', 'assets/bbs/xlsx.js', 'assets/bbs/i18n.js']) {
+    const src = fs.readFileSync(path.join(ROOT, f), 'utf8');
+    assert.doesNotMatch(src, /\bfetch\(|XMLHttpRequest|sendBeacon|WebSocket|EventSource|localStorage|sessionStorage|indexedDB|document\.cookie|caches\./, f);
+  }
+  const app = fs.readFileSync(path.join(ROOT, 'assets/bbs/app.js'), 'utf8');
+  assert.ok(app.includes("OPT_URL + '#bbs='"), 'hand-off travels after # only');
+  for (const l of ['en', 'ar', 'zh']) assert.doesNotMatch(read(BBS_TOOL[l]), /<form\b/, l + ' no form posts');
+  const words = { en: ['locally', 'Not uploaded', 'Not stored', 'Closing the tab'], ar: ['محلية', 'لا يُرفع', 'لا يُحفظ', 'إغلاق التبويب'], zh: ['本地处理', '不上传', '不保存', '关闭标签页'] };
+  for (const l of Object.keys(words)) {
+    const sec = (read(PREFIX[l] + 'bbs-analyzer/').match(/<h2 id="privacy">[\s\S]*?<h2 /) || [''])[0];
+    for (const w of words[l]) assert.ok(text(sec).includes(w), `${l} privacy: ${w}`);
+  }
+});
