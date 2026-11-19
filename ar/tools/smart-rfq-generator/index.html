@@ -123,7 +123,7 @@
 
   <section class="sec c-after-hero" aria-labelledby="r-h">
     <div class="wrap">
-      <div class="r-intro r-no-print"><p><b>ما هذه الأداة.</b> نموذج يحوّل احتياجك إلى طلب عرض سعر منظم لحديد التسليح من الراجحي للحديد. لا تسعّر شيئاً، ولا تحجز كميات، وليست أمر شراء.</p><p><b>الخصوصية.</b> كل شيء يبقى في هذا التبويب من متصفحك. لا يُرفع شيء ولا يُحفظ؛ وإغلاق التبويب أو تحديثه يمسح النموذج. لا يخرج الطلب إلا عندما ترسله أنت من واتساب أو بريدك.</p></div>
+      <div class="r-intro r-no-print"><p><b>ما هذه الأداة.</b> نموذج يحوّل احتياجك إلى طلب عرض سعر منظم لحديد التسليح من الراجحي للحديد. لا تسعّر شيئاً، ولا تحجز كميات، وليست أمر شراء.</p><p><b>الخصوصية.</b> أثناء تعبئة الطلب ومعاينته يبقى كل شيء في هذا التبويب من متصفحك: لا يُرفع شيء إلى هذا الموقع ولا يُحفظ، وإغلاق التبويب أو تحديثه يمسح النموذج. وعند الضغط على <b>فتح في واتساب</b> أو <b>فتح في البريد</b> يُمرَّر نص الطلب إلى ذلك التطبيق، ويتولاه التطبيق من تلك اللحظة.</p></div>
       <noscript><p class="r-noscript">هذه الأداة تحتاج إلى JavaScript. لا يُرسل أي شيء تكتبه.</p></noscript>
       <div class="calc rfq" id="rfq" data-lang="ar">
         <p class="cd-help r-no-print"><a href="/ar/help/smart-rfq-generator/" target="_blank" rel="noopener">طريقة استخدام منشئ الطلب (يفتح الدليل في تبويب جديد)</a></p>
@@ -163,13 +163,14 @@
             <div class="r-share__btns">
               <button type="button" class="calc-btn ghost" id="rPrint">طباعة / حفظ PDF</button>
               <button type="button" class="calc-btn ghost" id="rCopy">نسخ نص الطلب</button>
-              <button type="button" class="calc-btn ok" id="rWa">فتح في واتساب</button>
+              <button type="button" class="calc-btn ok" id="rWa" aria-describedby="rLen">فتح في واتساب</button>
               <button type="button" class="calc-btn ok" id="rMail">فتح في البريد</button>
             </div>
-            <p class="r-sendto">يفتح واتساب والبريد موجَّهين إلى جهة مبيعات الراجحي للحديد (واتساب ‎+966500590063، ‏omar.mashharawi@rajhisteel.com). لا يُرسل شيء حتى تضغط إرسال هناك.</p>
+            <p class="r-sendto">زرّا «فتح في واتساب» و«فتح في البريد» يمرّران نص الطلب إلى ذلك التطبيق، موجَّهاً إلى جهة مبيعات الراجحي للحديد (واتساب ‎+966500590063، ‏omar.mashharawi@rajhisteel.com). من تلك اللحظة يصبح النص في واتساب أو تطبيق بريدك، ويصل إلى فريق المبيعات عندما تضغط «إرسال» هناك. أما النسخ فيضع النص في حافظة جهازك.</p>
             <p class="co-msg" id="rMsg" role="status" aria-live="polite"></p>
             <label class="r-textlbl" for="rText">النص الذي سيُنسخ أو يُرسل</label>
-            <textarea id="rText" class="co-in r-text" readonly rows="10" autocomplete="off"></textarea>
+            <textarea id="rText" class="co-in r-text" readonly rows="10" autocomplete="off" aria-describedby="rLen"></textarea>
+            <p class="r-len" id="rLen"></p>
           </div>
         </div>
       </div>

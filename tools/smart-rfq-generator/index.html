@@ -123,7 +123,7 @@
 
   <section class="sec c-after-hero" aria-labelledby="r-h">
     <div class="wrap">
-      <div class="r-intro r-no-print"><p><b>What this is.</b> A form that turns your requirements into a structured request for quotation for Al Rajhi Steel reinforcing steel. It does not price anything, does not reserve stock and is not an order.</p><p><b>Privacy.</b> Everything stays in this browser tab. Nothing is uploaded or saved; closing or refreshing the tab clears the form. Your RFQ leaves only when you send it from your own WhatsApp or email.</p></div>
+      <div class="r-intro r-no-print"><p><b>What this is.</b> A form that turns your requirements into a structured request for quotation for Al Rajhi Steel reinforcing steel. It does not price anything, does not reserve stock and is not an order.</p><p><b>Privacy.</b> While you fill in and preview the RFQ, everything stays in this browser tab: nothing is uploaded to this website or saved, and closing or refreshing the tab clears the form. When you press <b>Open in WhatsApp</b> or <b>Open in email</b>, the RFQ text is passed to that application, which handles it from then on.</p></div>
       <noscript><p class="r-noscript">This tool needs JavaScript. Nothing you type is sent anywhere.</p></noscript>
       <div class="calc rfq" id="rfq" data-lang="en">
         <p class="cd-help r-no-print"><a href="/help/smart-rfq-generator/" target="_blank" rel="noopener">How to use the RFQ generator (guide opens in a new tab)</a></p>
@@ -163,13 +163,14 @@
             <div class="r-share__btns">
               <button type="button" class="calc-btn ghost" id="rPrint">Print / Save as PDF</button>
               <button type="button" class="calc-btn ghost" id="rCopy">Copy RFQ text</button>
-              <button type="button" class="calc-btn ok" id="rWa">Open in WhatsApp</button>
+              <button type="button" class="calc-btn ok" id="rWa" aria-describedby="rLen">Open in WhatsApp</button>
               <button type="button" class="calc-btn ok" id="rMail">Open in email</button>
             </div>
-            <p class="r-sendto">WhatsApp and email open addressed to the Al Rajhi Steel sales contact (WhatsApp +966500590063, omar.mashharawi@rajhisteel.com). Nothing is sent until you press send there.</p>
+            <p class="r-sendto">Open in WhatsApp and Open in email pass the RFQ text to that application, addressed to the Al Rajhi Steel sales contact (WhatsApp +966500590063, omar.mashharawi@rajhisteel.com). From that moment the text is in WhatsApp or your email application; it reaches the sales team when you press Send there. Copy puts the text on your device’s clipboard.</p>
             <p class="co-msg" id="rMsg" role="status" aria-live="polite"></p>
             <label class="r-textlbl" for="rText">Text that will be copied or sent</label>
-            <textarea id="rText" class="co-in r-text" readonly rows="10" autocomplete="off"></textarea>
+            <textarea id="rText" class="co-in r-text" readonly rows="10" autocomplete="off" aria-describedby="rLen"></textarea>
+            <p class="r-len" id="rLen"></p>
           </div>
         </div>
       </div>

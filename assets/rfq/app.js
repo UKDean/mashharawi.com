@@ -302,6 +302,9 @@
     if (!ref) ref = R.makeRef(date, randomBytes());
     buildPreview(state, v, date);
     $('rText').value = R.buildText(state, v, T, ref, date);
+    var n = $('rText').value.length;
+    $('rLen').textContent = T.waCount(n, R.WA_TEXT_MAX);
+    $('rLen').classList.toggle('r-len--over', n > R.WA_TEXT_MAX);
     previewed = JSON.stringify(state);
     doc.hidden = false; share.hidden = false;
     $('rReviewed').checked = false;
@@ -312,19 +315,24 @@
   });
 
   /* ---- export and share ----------------------------------------------------------- */
-  var msgTimer;
-  function say(t) { msg.textContent = t; clearTimeout(msgTimer); if (t) msgTimer = setTimeout(function () { msg.textContent = ''; }, 6000); }
+  // messages stay until the next action: instructions such as “paste it” must not disappear
+  function say(t) { msg.textContent = t; }
   function ready(needReview) {
     if (previewed === null) return false;
     if (JSON.stringify(collect()) !== previewed) { say(T.stale); return false; }
     if (needReview && !$('rReviewed').checked) { say(T.reviewFirst); $('rReviewed').focus(); return false; }
     return true;
   }
+  // Copies the complete RFQ text; done(true) only when the copy succeeded.
+  // If both clipboard routes fail, the text is left selected in the box so
+  // the user can copy it by hand.
   function copyText(text, done) {
+    var ta = $('rText');
     var fallback = function () {
-      var ta = $('rText'); ta.focus(); ta.select();
+      ta.focus(); ta.select();
       var ok = false;
       try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+      if (!ok) { ta.focus(); ta.select(); }
       done(ok);
     };
     if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(function () { done(true); }, fallback);
@@ -333,12 +341,16 @@
   $('rPrint').addEventListener('click', function () { if (ready(false)) window.print(); });
   $('rCopy').addEventListener('click', function () {
     if (!ready(false)) return;
-    copyText($('rText').value, function (ok) { say(ok ? T.copied : T.copyFail); });
+    copyText($('rText').value, function (ok) { say(ok ? T.copied : T.copySelect); });
   });
   $('rWa').addEventListener('click', function () {
     if (!ready(true)) return;
-    var url = R.waUrl($('rText').value);
-    if (!url) { say(T.waLong); return; }
+    var text = $('rText').value, url = R.waUrl(text);
+    if (!url) {
+      // too long: never open WhatsApp with a cut message; copy the whole text instead
+      copyText(text, function (ok) { say(ok ? T.waLong(text.length, R.WA_TEXT_MAX) : T.copySelect); });
+      return;
+    }
     var w = window.open(url, '_blank', 'noopener');
     if (w) { try { w.opener = null; } catch (e) { /* ignore */ } }
   });
@@ -347,10 +359,12 @@
     var state = collect(), subject = T.subject(ref, String(state.project.name).trim()), text = $('rText').value;
     var url = R.mailtoUrl(subject, text);
     if (url) { window.location.href = url; return; }
-    // too long for a mailto link: copy the full text, open the email with a short note
+    // too long for a mailto link: copy the complete text first, and open the
+    // email (with a note to paste) only if the copy succeeded
     copyText(text, function (ok) {
-      say(ok ? T.mailLong : T.copyFail);
-      window.location.href = R.shortMailto(subject, T.mailLong + '\n\n' + ref);
+      if (!ok) { say(T.copySelect); return; }
+      say(T.mailLong);
+      window.location.href = R.shortMailto(subject, T.mailBody(ref));
     });
   });
 

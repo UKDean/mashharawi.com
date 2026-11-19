@@ -242,7 +242,7 @@ test('privacy and safety: no storage, no network, no form submission, no HTML in
   // the only places customer data can leave: the two links the user opens
   assert.equal((app.match(/window\.open\(/g) || []).length, 1);
   assert.equal((app.match(/window\.location\.href = /g) || []).length, 2);
-  assert.ok(/if \(!ready\(true\)\) return;\s*var url = R\.waUrl/.test(app), 'WhatsApp needs the review tick');
+  assert.ok(/\$\('rWa'\)\.addEventListener\('click', function \(\) \{\s*if \(!ready\(true\)\) return;/.test(app), 'WhatsApp needs the review tick');
   assert.ok(/\$\('rMail'\)\.addEventListener\('click', function \(\) \{\s*if \(!ready\(true\)\) return;/.test(app), 'email needs the review tick');
   for (const u of Object.values(PAGES)) {
     const h = read(u);
@@ -260,4 +260,58 @@ test('privacy and safety: no storage, no network, no form submission, no HTML in
   const css = fs.readFileSync(path.join(ROOT, 'assets/rfq/rfq.css'), 'utf8');
   assert.match(css, /@media print\{[\s\S]*\.r-no-print[^}]*display:none!important/);
   assert.match(css, /@media print\{[\s\S]*\.c-header,\.c-footer/);
+});
+
+/* ---- long RFQs: WhatsApp and email fallbacks ---------------------------------------- */
+const longRfq = n => base(s => {
+  s.customer = { company: 'شركة المقاولات المتحدة', contact: 'علي حسن', phone: '+966 50 123 4567', email: 'ali@acme.sa', country: 'السعودية', city: 'الرياض' };
+  s.project = { name: 'برج الأعمال', location: 'الرياض', site: 'حي الملقا', date: '2026-12-20', schedule: 'multiple', notes: '' };
+  s.lines = Array.from({ length: n }, (_, i) => ({ type: ['standard', 'epoxy', 'cold8'][i % 3], dia: ['16', '20', '8'][i % 3], grade: ['60', '80', '40'][i % 3],
+    qty: String(5 + i), date: '2027-01-' + String(10 + (i % 18)).padStart(2, '0'), notes: 'ملاحظة للبند ' + (i + 1) }));
+});
+
+test('long Arabic and Chinese RFQs: never a cut WhatsApp message, email falls back to copy', () => {
+  for (const [l, n] of [['ar', 30], ['ar', 50], ['zh', 50]]) {
+    const st = longRfq(n), v = R.validate(st, TODAY);
+    assert.equal(v.ok, true);
+    const t = R.buildText(st, v, T[l], 'RFQ-20261120-ABCDE', TODAY);
+    assert.ok(t.length > R.WA_TEXT_MAX, `${l} ${n} lines: ${t.length} characters`);
+    assert.equal(R.waUrl(t), null, 'no WhatsApp link for a text over the limit');
+    assert.equal(R.mailtoUrl(T[l].subject('RFQ-20261120-ABCDE', st.project.name), t), null);
+    assert.ok(t.endsWith(T[l].disclaimer), 'the complete text, with the disclaimer, is what gets copied');
+    assert.match(T[l].waLong(t.length, R.WA_TEXT_MAX), new RegExp(t.length.toLocaleString('en').replace(',', ',')));
+  }
+  for (const [l, n] of [['ar', 10], ['zh', 30]]) {
+    const st = longRfq(n), v = R.validate(st, TODAY), t = R.buildText(st, v, T[l], 'RFQ-1', TODAY);
+    assert.ok(t.length <= R.WA_TEXT_MAX && R.waUrl(t), `${l} ${n} lines fits WhatsApp`);
+    assert.equal(decodeURIComponent(R.waUrl(t).split('?text=')[1]), t, 'the whole text, not a part');
+  }
+  for (const l of ['en', 'ar', 'zh']) {
+    assert.ok(T[l].mailBody('RFQ-1').includes('RFQ-1'));
+    assert.ok(R.shortMailto('s', T[l].mailBody('RFQ-1')).length < R.MAIL_MAX);
+    assert.match(T[l].waCount(4842, 4000), /4,842/);
+    assert.ok(T[l].copySelect && T[l].mailLong);
+  }
+  const app = fs.readFileSync(path.join(ROOT, 'assets/rfq/app.js'), 'utf8');
+  const wa = app.slice(app.indexOf("$('rWa').addEventListener"), app.indexOf("$('rMail').addEventListener"));
+  const tooLong = wa.slice(wa.indexOf('if (!url) {'), wa.indexOf('return;\n    }') + 7);
+  assert.ok(tooLong.includes('copyText(text') && !tooLong.includes('window.open'), 'too long: copy, never open WhatsApp');
+  const mail = app.slice(app.indexOf("$('rMail').addEventListener"), app.indexOf('/* ---- clear'));
+  const fb = mail.slice(mail.indexOf('copyText(text, function (ok) {'));
+  assert.ok(fb.indexOf("if (!ok) { say(T.copySelect); return; }") >= 0 && fb.indexOf("if (!ok)") < fb.indexOf('window.location.href'), 'email opens only after a successful copy');
+  assert.match(app, /function say\(t\) \{ msg\.textContent = t; \}/, 'instructions are not cleared by a timer');
+});
+
+test('privacy wording: the RFQ text leaves when WhatsApp or email is opened, not only on Send', () => {
+  const old = /leave the browser only|leaves only when you send|nothing is sent until you press send|لا يخرج الطلب إلا|لا تخرج بياناتك من المتصفح إلا|لا يُرسل شيء حتى تضغط إرسال|只有您从自己的 WhatsApp 或邮箱发送时|才会离开浏览器|在您按下发送之前，不会发送任何内容/i;
+  const want = { en: [/is passed to your email application/, /even before you press Send/, /clipboard/], ar: [/يُمرَّر نص الطلب/, /حتى قبل أن تضغط «إرسال»/, /حافظة/],
+    zh: [/传给/, /即使您尚未按下发送/, /剪贴板/] };
+  for (const l of Object.keys(PAGES)) {
+    const tool = read(PAGES[l]), guide = read(HELP[l]);
+    assert.doesNotMatch(tool + guide, old, l);
+    const priv = guide.slice(guide.indexOf('id="privacy"'), guide.indexOf('id="mistakes"'));
+    for (const re of want[l]) assert.match(priv, re, `${l} guide privacy ${re}`);
+    assert.match(tool, l === 'en' ? /the RFQ text is passed to that application/ : l === 'ar' ? /يُمرَّر نص الطلب إلى ذلك التطبيق/ : /询价文本会传给该应用/);
+    assert.ok(guide.includes('4,000'), l + ' guide states the WhatsApp limit');
+  }
 });

@@ -118,7 +118,7 @@
 
   <section class="sec c-after-hero" aria-labelledby="r-h">
     <div class="wrap">
-      <div class="r-intro r-no-print"><p><b>工具用途。</b>把您的需求整理成向 Al Rajhi Steel 采购钢筋的规范询价单。不计算价格、不预留库存，也不是订单。</p><p><b>隐私。</b>所有内容只保留在当前浏览器标签页中，不上传、不保存；关闭或刷新标签页即清空表单。只有您从自己的 WhatsApp 或邮箱发送时，询价单才会发出。</p></div>
+      <div class="r-intro r-no-print"><p><b>工具用途。</b>把您的需求整理成向 Al Rajhi Steel 采购钢筋的规范询价单。不计算价格、不预留库存，也不是订单。</p><p><b>隐私。</b>填写和预览询价单时，所有内容只保留在当前浏览器标签页中：不上传到本网站、不保存，关闭或刷新标签页即清空表单。当您点击<b>在 WhatsApp 中打开</b>或<b>在邮件中打开</b>时，询价文本会传给该应用，此后由该应用处理。</p></div>
       <noscript><p class="r-noscript">本工具需要 JavaScript。您输入的内容不会发送到任何地方。</p></noscript>
       <div class="calc rfq" id="rfq" data-lang="zh">
         <p class="cd-help r-no-print"><a href="/zh/help/smart-rfq-generator/" target="_blank" rel="noopener">询价单工具使用指南（在新标签页打开）</a></p>
@@ -158,13 +158,14 @@
             <div class="r-share__btns">
               <button type="button" class="calc-btn ghost" id="rPrint">打印 / 保存为 PDF</button>
               <button type="button" class="calc-btn ghost" id="rCopy">复制询价文本</button>
-              <button type="button" class="calc-btn ok" id="rWa">在 WhatsApp 中打开</button>
+              <button type="button" class="calc-btn ok" id="rWa" aria-describedby="rLen">在 WhatsApp 中打开</button>
               <button type="button" class="calc-btn ok" id="rMail">在邮件中打开</button>
             </div>
-            <p class="r-sendto">WhatsApp 和邮件将以 Al Rajhi Steel 销售联系人（WhatsApp +966500590063，omar.mashharawi@rajhisteel.com）为收件人打开。在您按下发送之前，不会发送任何内容。</p>
+            <p class="r-sendto">“在 WhatsApp 中打开”和“在邮件中打开”会把询价文本传给该应用，收件人为 Al Rajhi Steel 销售联系人（WhatsApp +966500590063，omar.mashharawi@rajhisteel.com）。从那一刻起，文本已在 WhatsApp 或您的邮件应用中；您在其中按下发送后，才会送达销售团队。复制则会把文本放到您设备的剪贴板中。</p>
             <p class="co-msg" id="rMsg" role="status" aria-live="polite"></p>
             <label class="r-textlbl" for="rText">将被复制或发送的文本</label>
-            <textarea id="rText" class="co-in r-text" readonly rows="10" autocomplete="off"></textarea>
+            <textarea id="rText" class="co-in r-text" readonly rows="10" autocomplete="off" aria-describedby="rLen"></textarea>
+            <p class="r-len" id="rLen"></p>
           </div>
         </div>
       </div>

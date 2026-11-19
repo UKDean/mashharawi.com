@@ -132,3 +132,5 @@ textarea.r-in{min-height:84px;resize:vertical}
   .r-doc__table tr,.r-doc__disclaimer,.r-doc__two{break-inside:avoid}
   .r-doc__scroll{overflow:visible!important}
 }
+.r-len{margin:0;font-family:var(--mono);font-size:12px;color:var(--scale)}
+.r-len--over{color:var(--ink);padding:6px 10px;border-inline-start:3px solid #c0392b}
