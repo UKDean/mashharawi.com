@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<script>document.documentElement.classList.add("js")</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>BBS Analyzer: Rebar Quantities and Weights from Excel or CSV | Omar Mashharawi</title>
+<meta name="description" content="Free bar bending schedule analyzer: open an Excel or CSV BBS, check it, and get bars, length and theoretical weight by diameter, grade and shape. In your browser.">
+<meta name="author" content="Omar Mashharawi">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+<link rel="canonical" href="https://mashharawi.com/tools/bbs-analyzer/">
+<link rel="alternate" hreflang="en" href="https://mashharawi.com/tools/bbs-analyzer/">
+<link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/tools/bbs-analyzer/">
+<link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/bbs-analyzer/">
+<link rel="alternate" hreflang="x-default" href="https://mashharawi.com/tools/bbs-analyzer/">
+
+<meta name="theme-color" content="#0A0A0A">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mashharawi.com/tools/bbs-analyzer/">
+<meta property="og:title" content="BBS Analyzer: Rebar Quantities and Weights from Excel or CSV | Omar Mashharawi">
+<meta property="og:description" content="Free bar bending schedule analyzer: open an Excel or CSV BBS, check it, and get bars, length and theoretical weight by diameter, grade and shape. In your browser.">
+<meta property="og:site_name" content="mashharawi.com">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ar_SA">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta property="og:image" content="https://mashharawi.com/og-brand.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="stylesheet" href="/assets/site.css?v=20261031">
+<link rel="stylesheet" href="/assets/cutopt/cutopt.css?v=20261119">
+<link rel="stylesheet" href="/assets/bbs/bbs.css?v=20261119d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200..500&display=swap">
+
+<link rel="icon" href="/favicon.ico?v=20261024" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=20261024">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20261024">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png?v=20261024">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=20261024">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png?v=20261024">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20261024">
+<!-- Only what the page itself states: a free browser tool. No ratings, no counts. -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebApplication",
+ "name": "BBS Analyzer",
+ "url": "https://mashharawi.com/tools/bbs-analyzer/",
+ "applicationCategory": "https://schema.org/BusinessApplication",
+ "operatingSystem": "Any modern browser",
+ "browserRequirements": "Requires JavaScript",
+ "inLanguage": [
+  "en",
+  "ar",
+  "zh-Hans"
+ ],
+ "isAccessibleForFree": true,
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "SAR"
+ },
+ "author": {
+  "@type": "Person",
+  "@id": "https://mashharawi.com/#person",
+  "name": "Omar Mashharawi"
+ }
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "inLanguage": "en",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "How is the weight of a bar bending schedule calculated?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "For each row: 0.006165 × d² kg/m × cut length in metres × number of bars. A 16 mm bar is 1.578 kg/m, so 96 bars of 2.35 m weigh about 356 kg. The analyzer adds these up by diameter, grade and shape. The result is a theoretical weight, not a weighed quantity."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Which file types can I use?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Excel .xlsx (and .xlsm, without running macros), CSV or TSV, a range pasted from Excel, or lines typed by hand. Old .xls files need to be saved as .xlsx or CSV first."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is my schedule uploaded?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. The file is read in your browser and nothing is sent or stored. Close the page and it is gone. No account is needed."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What if my columns have different names?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Pick the right column for each field in the mapping. Only diameter, cut length and number of bars are required. If the length header has no unit, choose mm or m."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why was a row excluded?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The excluded rows list gives the reason for each: a missing or unreadable diameter, length or number of bars, a value that does not fit the unit, a cut length above 12 m (one stock bar), or a total that contradicts members × bars in each. The tool does not fill in missing engineering data."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can I optimise cutting from the schedule?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. Send to Cutting Optimizer opens the optimizer with the cut lengths grouped by diameter and grade. Check the lines there, then run it. Rows over 12 m are excluded from the analysis and never sent, and rows without a grade are sent only after you assign one."
+   }
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Home",
+   "item": "https://mashharawi.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Tools",
+   "item": "https://mashharawi.com/tools/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "BBS Analyzer",
+   "item": "https://mashharawi.com/tools/bbs-analyzer/"
+  }
+ ]
+}
+</script>
+<script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/cdn-cgi/*"}}]},"eagerness":"moderate"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="c-header">
+  <a class="c-header__name" href="/"><img class="c-header__mark" src="/assets/brand/mark-64.png" width="32" height="32" alt="">Omar Mashharawi</a>
+  <nav class="c-header__nav" aria-label="Main">
+    <a href="/#about">About</a>
+    <a href="/#experience">Experience</a>
+    <a href="/tools/" aria-current="page">Tools</a>
+    <a href="/writing/">Writing</a>
+    <a href="/#contact">Contact</a>
+    <a href="/ar/tools/bbs-analyzer/" hreflang="ar" lang="ar" class="c-header__lang">العربية</a>
+    <a href="/zh/bbs-analyzer/" hreflang="zh-Hans" lang="zh-Hans" class="c-header__lang">中文</a>
+  </nav>
+  <button class="c-header__menu" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+</header>
+
+<main id="main">
+  <section class="c-hero c-hero--full c-hero--short" aria-labelledby="b-h">
+    <img class="c-hero__img" src="/assets/img/rebar-yard-1600.webp" srcset="/assets/img/rebar-yard-800.webp 800w, /assets/img/rebar-yard-1600.webp 1600w, /assets/img/rebar-yard-2560.webp 2560w" sizes="100vw" width="1600" height="873" alt="" fetchpriority="high" decoding="async">
+    <div class="c-hero__shade"></div>
+    <div class="c-hero__body">
+      <div class="c-hero__text">
+        <p class="c-label">Tools / BBS Analyzer &middot; In the browser &middot; Free</p>
+        <h1 class="c-hero__title" id="b-h">Check a bar bending schedule in seconds.</h1>
+        <p class="c-hero__lead">Open the schedule as Excel or CSV, or paste it. The analyzer finds the columns, flags anything it cannot read with confidence, and totals bars, length and theoretical weight by diameter, grade and shape. Then send the cut lengths to the cutting optimizer.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="analyzer" class="sec c-after-hero">
+    <div class="wrap">
+      <div class="calc" id="bbs">
+
+        <div class="co-panel b-input">
+          <p class="calc-lbl">Schedule</p>
+          <div class="b-in">
+            <label class="b-drop" id="bDrop">
+              <input id="bFile" type="file" accept=".xlsx,.xlsm,.csv,.tsv,.txt,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+              <b>Choose an .xlsx or .csv file</b>
+              <small>or drop it here. Read in this browser only; nothing is uploaded.</small>
+            </label>
+            <div class="b-side">
+              <button type="button" class="calc-btn ghost" id="bSample">Load sample schedule</button>
+              <details class="co-paste" style="margin-top:0">
+                <summary>Paste from Excel</summary>
+                <div>
+                  <p>Select the schedule in Excel, including the header row, copy it and paste here.</p>
+                  <textarea id="bPaste" spellcheck="false"></textarea>
+                  <button type="button" class="calc-btn" id="bPasteGo">Read pasted range</button>
+                </div>
+              </details>
+            </div>
+          </div>
+          <label class="calc-field b-sheet" id="bSheetWrap" hidden><span>Sheet</span><select id="bSheet" class="co-in"></select></label>
+
+          <details class="b-manual">
+            <summary>Enter by hand</summary>
+            <div>
+              <table class="co-table b-man"><thead><tr><th scope="col">Member</th><th scope="col">Bar mark</th><th scope="col">&#216; mm</th><th scope="col">Grade</th><th scope="col">Shape code</th><th scope="col">Cut length mm</th><th scope="col">Total bars</th><th scope="col"><span class="vh">&times;</span></th></tr></thead><tbody id="bManRows"></tbody></table>
+              <datalist id="bDiaList"></datalist>
+              <datalist id="bGradeList"><option value="Gr60"></option><option value="Gr80"></option></datalist>
+              <div class="co-actions">
+                <button type="button" class="calc-btn ghost grow" id="bManAdd">Add line</button>
+                <button type="button" class="calc-btn" id="bManGo">Analyse these lines</button>
+              </div>
+            </div>
+          </details>
+          <p class="co-msg" id="bMsg" role="status" aria-live="polite"></p>
+        </div>
+
+        <div class="co-panel b-mapping" id="bMap" hidden>
+          <p class="calc-lbl">Columns</p>
+          <p class="calc-hint" style="margin-top:0">Columns are matched by their header names. Check each one; anything not in your sheet can stay empty. Bars come from a total column, or from members &times; bars in each.</p>
+          <div class="b-map-top">
+            <label class="calc-field"><span>Header row</span><input id="bHdr" class="co-in" type="number" min="1" step="1" inputmode="numeric"></label>
+            <label class="calc-field"><span>Cut length unit</span><select id="uLength" class="co-in"><option value="">—</option><option value="mm">mm</option><option value="m">m</option></select></label>
+            <label class="calc-field"><span>Total length unit</span><select id="uTotalLength" class="co-in"><option value="">—</option><option value="mm">mm</option><option value="m">m</option></select></label>
+            <label class="calc-field"><span>Weight unit</span><select id="uWeight" class="co-in"><option value="">—</option><option value="kg">kg</option><option value="t">t</option></select></label>
+            <button type="button" class="calc-btn ok" id="bAnalyze">Analyse</button>
+          </div>
+          <div class="b-fields" id="bFields"></div>
+          <div class="b-preview-wrap"><table class="b-preview"><tbody id="bPreview"></tbody></table></div>
+        </div>
+
+        <div class="co-panel" id="bOut" hidden>
+          <p class="calc-lbl">Result</p>
+          <p class="b-src" id="bSrc"></p>
+          <dl class="co-figs">
+          <div><dt>Bars</dt><dd><b id="fBars">0</b><span>pcs</span></dd></div>
+          <div><dt>Theoretical weight</dt><dd><b id="fWt">0</b><span>t</span></dd></div>
+          <div><dt>Total length</dt><dd><b id="fLen">0</b><span>m</span></dd></div>
+          <div><dt>Rows</dt><dd><b id="fRows">0</b><span></span></dd></div>
+          </dl>
+          <div class="b-groups" id="bGroups"></div>
+          <div class="b-notes">
+            <div class="b-box warn" id="bWarnBox"><h3>Warnings</h3><ul id="bWarn"></ul></div>
+            <div class="b-box"><h3>Assumptions</h3><ul id="bAssume"></ul></div>
+          </div>
+
+          <h2 class="calc-lbl b-h">By diameter</h2>
+          <div class="co-scroll"><table class="calc-table b-tbl" id="tDia"></table></div>
+          <div class="b-grid2">
+            <div><h2 class="calc-lbl b-h">By diameter and grade</h2><div class="co-scroll"><table class="calc-table b-tbl" id="tDiaGrade"></table></div></div>
+            <div><h2 class="calc-lbl b-h">By grade</h2><div class="co-scroll"><table class="calc-table b-tbl" id="tGrade"></table></div>
+                 <h2 class="calc-lbl b-h">By shape code</h2><div class="co-scroll"><table class="calc-table b-tbl" id="tShape"></table></div></div>
+          </div>
+          <div id="bIssuesBox">
+            <h2 class="calc-lbl b-h">Excluded from the calculation</h2>
+            <div class="co-scroll"><table class="calc-table b-issues" id="tIssues"></table></div>
+          </div>
+          <h2 class="calc-lbl b-h">Rows used</h2>
+          <div class="co-scroll"><table class="calc-table b-rows" id="tRows"></table></div>
+          <button type="button" class="calc-btn ghost co-showall" id="bMore" hidden></button>
+
+          <div class="co-actions b-actions">
+            <button type="button" class="calc-btn ghost" id="bCsv">Download CSV</button>
+            <button type="button" class="calc-btn ghost grow" id="bPrint">Print / PDF</button>
+            <button type="button" class="calc-btn ok" id="bSend">Send to Cutting Optimizer</button>
+          </div>
+          <p class="calc-hint" id="bSendNote"></p>
+          <p class="b-sendmsg" id="bSendMsg" role="status" aria-live="polite"></p>
+        </div>
+
+        <p class="calc-foot">Theoretical weights: 0.006165 &times; d&sup2; kg/m. Estimates for planning and checking, not weighed or certified quantities. Mill deliveries fall within the tolerance of the governing standard.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="q-band" aria-labelledby="qb-h">
+    <div class="wrap">
+      <p class="q-eyebrow">Rebar supply &middot; Al Rajhi Steel</p>
+      <h2 id="qb-h">Send the totals for a quote.</h2>
+      <p>Send me the tonnes per diameter and grade from this analysis with the project city, and I will come back with an official rebar quotation from Al Rajhi Steel, where I work in sales. Cutting to specified lengths is subject to confirmation, and any bending requirements must be confirmed before quotation.</p>
+      <ul class="q-facts">
+        <li>Sizes 10, 12, 14, 16, 18, 20, 25 and 32 mm &middot; 12 m bars</li><li>Grade 60 and Grade 80</li><li>Epoxy-coated rebar available</li><li>Mill test certificates (MTC) for the sizes and grade ordered</li><li>Cutting to specified lengths, subject to confirmation</li><li>Bending requirements confirmed before quotation</li><li>Supply after payment confirmation or LC approval, subject to company procedures, product availability and the agreed delivery schedule</li>
+      </ul>
+      <div class="q-actions">
+        <a class="q-btn q-btn--wa" href="https://wa.me/message/D6ABM7QFWVSPB1" target="_blank" rel="noopener">Send the quantities on WhatsApp</a>
+        <a class="q-btn q-btn--line" href="/rebar/">Supply details</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec co-how" aria-labelledby="how-h">
+    <div class="wrap">
+      <div class="sec-head"><h2 id="how-h">How it reads a schedule.</h2></div>
+      <div class="lead">
+        <p>The file is read in your browser. Excel workbooks are opened by a small built-in reader: values only. Formulas are never run; where a cell holds a formula, the value Excel saved is used and the row is marked. Macros are never opened.</p>
+        <p>Columns are recognised by name in English, Arabic and Chinese (Bar mark, Dia, Cut length, No. of members, رقم السيخ, القطر, 钢筋编号, 下料长度 and so on). You can change any of them. The length unit comes from the header, for example &ldquo;Cut length (mm)&rdquo;; if the header does not say, you choose it. The tool never guesses.</p>
+        <p>Every row is checked. Rows with a missing or unreadable diameter, length or number of bars are excluded and listed with the reason, never filled in. A length written with a comma (2,875) is refused because it could mean 2.875 or 2875. Values that only make sense in the other unit are refused, not converted.</p>
+        <p>Any cut length above 12,000&nbsp;mm, one 12&nbsp;m stock bar, is excluded from every total and listed with the reason &ldquo;Cut length exceeds the 12 m stock bar limit&rdquo;; 12,000&nbsp;mm itself is included. Repeated bar marks (checked within each member; without a member column they cannot be told apart), grades written in different ways, non-standard diameters, and weights in the sheet that differ from the theoretical weight are reported as warnings for review. Nothing is deleted.</p>
+        <p>Send to Cutting Optimizer groups the valid rows by diameter, grade and cut length and opens the optimizer in a new tab with them, for you to review. Diameters and grades are never merged. Rows with no grade stay in the analysis but are not sent until you assign a grade yourself; Grade 60 or 80 is never assumed. Your schedule stays here unchanged.</p>
+      </div>
+      <p class="note-back">Related: <a href="/tools/cutting-optimizer/">rebar cutting optimizer</a>, <a href="/tools/rebar-weight/">rebar weight calculator</a>, <a href="/tools/rebarplan/">RebarPlan</a> (desktop app that writes bar bending schedules).</p>
+      <section class="faq rise" aria-labelledby="faq-h">
+        <h2 id="faq-h">Common questions</h2>
+        <details>
+          <summary>How is the weight of a bar bending schedule calculated?</summary>
+          <p>For each row: 0.006165 × d² kg/m × cut length in metres × number of bars. A 16 mm bar is 1.578 kg/m, so 96 bars of 2.35 m weigh about 356 kg. The analyzer adds these up by diameter, grade and shape. The result is a theoretical weight, not a weighed quantity.</p>
+        </details>
+        <details>
+          <summary>Which file types can I use?</summary>
+          <p>Excel .xlsx (and .xlsm, without running macros), CSV or TSV, a range pasted from Excel, or lines typed by hand. Old .xls files need to be saved as .xlsx or CSV first.</p>
+        </details>
+        <details>
+          <summary>Is my schedule uploaded?</summary>
+          <p>No. The file is read in your browser and nothing is sent or stored. Close the page and it is gone. No account is needed.</p>
+        </details>
+        <details>
+          <summary>What if my columns have different names?</summary>
+          <p>Pick the right column for each field in the mapping. Only diameter, cut length and number of bars are required. If the length header has no unit, choose mm or m.</p>
+        </details>
+        <details>
+          <summary>Why was a row excluded?</summary>
+          <p>The excluded rows list gives the reason for each: a missing or unreadable diameter, length or number of bars, a value that does not fit the unit, a cut length above 12 m (one stock bar), or a total that contradicts members × bars in each. The tool does not fill in missing engineering data.</p>
+        </details>
+        <details>
+          <summary>Can I optimise cutting from the schedule?</summary>
+          <p>Yes. Send to Cutting Optimizer opens the optimizer with the cut lengths grouped by diameter and grade. Check the lines there, then run it. Rows over 12 m are excluded from the analysis and never sent, and rows without a grade are sent only after you assign one.</p>
+        </details>
+      </section>
+    </div>
+  </section>
+</main>
+
+<footer class="c-footer">
+  <div class="c-footer__quote">
+    <p>Notes on weights, tolerances and what ends up on the invoice.</p>
+    <a class="c-label" href="/writing/">All writing &rarr;</a>
+  </div>
+  <div class="c-footer__base">
+    <span>&copy; <span id="yr">2026</span> Omar Mashharawi</span>
+    <a href="mailto:info@mashharawi.com">info@mashharawi.com</a>
+    <a href="/about/">About</a>
+    <a href="/contact/">Contact</a>
+    <a href="/privacy/">Privacy</a>
+  </div>
+</footer>
+<script src="/assets/site.js?v=20261015" defer></script>
+<script src="/assets/bbs/xlsx.js?v=20261119d" defer></script>
+<script src="/assets/bbs/engine.js?v=20261119d" defer></script>
+<script src="/assets/bbs/i18n.js?v=20261119d" defer></script>
+<script src="/assets/bbs/app.js?v=20261119d" defer></script>
+<script src="/assets/quote.js?v=20261019" defer></script>
+</body>
+</html>

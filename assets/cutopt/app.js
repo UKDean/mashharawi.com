@@ -54,6 +54,8 @@
       },
       line: function (n) { return 'Line ' + n; }, note: 'Nominal weights: 0.006165 × d² kg/m. A planning aid, not a shop drawing or a quotation.',
       reportTitle: 'Rebar cutting plan', settings: 'Settings', stockLbl: 'Stock', kerfLbl: 'Kerf', allowLbl: 'Allowance', minOffLbl: 'Reusable from',
+      bbsOk: function (n) { return n + ' line' + (n === 1 ? '' : 's') + ' received from the BBS Analyzer (grouped by diameter, grade and cut length). Check them, set the stock length and kerf, then press Optimise.'; },
+      bbsBad: 'The lines from the BBS Analyzer could not be read. Send them again from the analyzer.',
       waHello: 'Hello Omar, here is a rebar cutting plan. Please send a quotation:', waGrade: 'Grade', waCity: 'Project city:', waCompany: 'Company:', waNeedCut: 'Cutting to specified lengths needed? (subject to confirmation; bending requirements confirmed before quotation) '
     },
     ar: {
@@ -86,6 +88,8 @@
       },
       line: function (n) { return 'البند ' + n; }, note: 'أوزان اسمية: ٠٫٠٠٦١٦٥ × ق² كجم/م. أداة تخطيط، وليست مخطط ورشة ولا عرض سعر.',
       reportTitle: 'خطة قص حديد التسليح', settings: 'الإعدادات', stockLbl: 'طول السيخ', kerfLbl: 'فاقد القص', allowLbl: 'السماحية', minOffLbl: 'البواقي القابلة للاستخدام من',
+      bbsOk: function (n) { return 'وصل ' + n + ' بنداً من محلل جدول التفريد (مجمّعة حسب القطر والدرجة وطول القص). راجعها، وحدد طول السيخ وفاقد القص، ثم اضغط احسب.'; },
+      bbsBad: 'تعذّرت قراءة البنود القادمة من محلل جدول التفريد. أرسلها مرة أخرى من المحلل.',
       waHello: 'السلام عليكم أستاذ عمر، هذه خطة قص حديد، أرجو عرض سعر:', waGrade: 'الدرجة', waCity: 'مدينة المشروع:', waCompany: 'الشركة:', waNeedCut: 'هل تحتاج القص حسب الأطوال المحددة؟ (يخضع للتأكيد، ومتطلبات الثني تُؤكَّد قبل عرض السعر) '
     },
     zh: {
@@ -118,6 +122,8 @@
       },
       line: function (n) { return '第 ' + n + ' 行'; }, note: '理论重量：0.006165 × d² 公斤/米。仅供规划参考，不是加工图，也不是报价。',
       reportTitle: '钢筋下料方案', settings: '参数', stockLbl: '定尺', kerfLbl: '锯缝', allowLbl: '余量', minOffLbl: '可再用余料起',
+      bbsOk: function (n) { return '已从钢筋表分析工具收到 ' + n + ' 行（按直径、牌号和下料长度合并）。请核对，设置定尺长度和锯缝，然后点击计算。'; },
+      bbsBad: '无法读取来自钢筋表分析工具的数据。请从分析工具重新发送。',
       waHello: 'Omar 您好，这是钢筋下料方案，请报价：', waGrade: '牌号', waCity: '项目城市：', waCompany: '公司：', waNeedCut: '是否需要按指定长度切割？（须经确认；弯曲要求须在报价前确认）'
     }
   }[L];
@@ -461,8 +467,43 @@
     window.open(WA, '_blank', 'noopener');
   });
 
+  /* ---- lines sent from the BBS Analyzer ------------------------------------ */
+  /* The analyzer opens this page with #bbs=<base64url JSON> in the address.
+     The fragment never reaches the server. It is treated as untrusted input:
+     every value is checked, nothing runs automatically, and the fragment is
+     removed from the address bar (and history) as soon as it has been read.
+     The visitor reviews the lines and presses Optimise themselves. */
+  function fromAnalyzer() {
+    var h = location.hash || '';
+    if (h.indexOf('#bbs=') !== 0) return false;
+    try { history.replaceState(null, '', location.pathname + location.search); } catch (e) { /* ignore */ }
+    var items = null;
+    try {
+      var b64 = h.slice(5).replace(/-/g, '+').replace(/_/g, '/');
+      if (b64.length > 400000) throw new Error('size');
+      while (b64.length % 4) b64 += '=';
+      var bin = atob(b64), bytes = new Uint8Array(bin.length);
+      for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+      var data = JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(bytes));
+      if (!data || data.v !== 1 || !Array.isArray(data.items) || data.items.length > 2000) throw new Error('format');
+      items = data.items.filter(function (it) {
+        return Array.isArray(it) && it.length === 4 &&
+          typeof it[0] === 'number' && it[0] >= 4 && it[0] <= 60 &&
+          typeof it[1] === 'string' && it[1].length <= 20 &&
+          typeof it[2] === 'number' && Math.floor(it[2]) === it[2] && it[2] > 0 && it[2] <= 30000 &&
+          typeof it[3] === 'number' && Math.floor(it[3]) === it[3] && it[3] >= 1 && it[3] <= 100000;
+      });
+      if (items.length !== data.items.length) throw new Error('values');
+    } catch (e) { say(T.bbsBad, true); return false; }
+    if (!items.length) return false;
+    rowsEl.textContent = '';
+    items.forEach(function (it) { addRow({ diameter: it[0], grade: it[1], length: String(it[2] / 1000), qty: it[3] }); });
+    say(T.bbsOk(items.length));
+    return true;
+  }
+
   /* ---- start ------------------------------------------------------------- */
   var dl = $('coDiaList');
   DIAS.forEach(function (d) { var o = document.createElement('option'); o.value = d; dl.appendChild(o); });
-  addRow({ diameter: 16, grade: 'Gr60' });
+  if (!fromAnalyzer()) addRow({ diameter: 16, grade: 'Gr60' });
 })();
