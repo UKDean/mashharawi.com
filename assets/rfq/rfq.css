@@ -1,0 +1,134 @@
+/* Smart RFQ Generator. Uses the site variables and the shared .calc,
+   .calc-btn, .calc-table, .co-in components; no framework. Includes the
+   print stylesheet: only the RFQ document is printed. */
+.r-intro{max-width:72ch;color:var(--lead);margin:0 0 22px}
+.r-intro p{margin:0 0 10px}
+.r-noscript{padding:14px 18px;border:1px solid var(--edge);color:var(--ink)}
+html:not(.js) .rfq{display:none}
+.cd-help{margin:0;padding:10px clamp(20px,2.6vw,30px);border-bottom:1px solid var(--line);font-family:var(--mono);font-size:12px;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.cd-help a,.cd-q{color:var(--ink);border-bottom:1px solid var(--hot);text-decoration:none}
+.cd-help a::before{content:"?";display:inline-grid;place-items:center;inline-size:18px;block-size:18px;margin-inline-end:8px;border:1px solid var(--edge);border-radius:50%;font-size:11px}
+.cd-q{font-family:var(--mono);font-size:10.5px;white-space:nowrap;letter-spacing:0;text-transform:none;font-weight:400;margin-inline-start:8px}
+
+.r-layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;align-items:start}
+.r-form{min-width:0;border-inline-end:1px solid var(--line)}
+.r-reqnote{margin:0;padding:12px clamp(20px,2.6vw,30px) 0;font-family:var(--mono);font-size:11.5px;color:var(--scale)}
+.r-sec{margin:0;border:0;border-bottom:1px solid var(--line);padding:clamp(18px,2.4vw,26px) clamp(20px,2.6vw,30px);min-width:0}
+.r-sec>legend{float:left;width:100%;padding:0;margin:0 0 16px;font-family:var(--display);font-weight:600;font-size:clamp(18px,1.7vw,21px);color:var(--ink)}
+[dir="rtl"] .r-sec>legend{float:right}
+.r-sec>legend+*{clear:both}
+.r-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,230px),1fr));gap:14px 18px}
+.r-wide{grid-column:1/-1}
+.r-field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.r-field label,.r-group legend{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--lead)}
+.r-req{color:var(--hot-ink,var(--hot))}
+.r-in{width:100%;box-sizing:border-box;min-height:44px}
+textarea.r-in{min-height:84px;resize:vertical}
+.r-in[aria-invalid="true"]{border-color:#c0392b;box-shadow:inset 3px 0 0 #c0392b}
+[dir="rtl"] .r-in[aria-invalid="true"]{box-shadow:inset -3px 0 0 #c0392b}
+.r-in:disabled{opacity:.75}
+.r-err{margin:0;font-family:var(--mono);font-size:11.5px;color:#e5533d;line-height:1.4}
+.r-hint{margin:0;font-size:13px;color:var(--scale)}
+.r-group{border:0;margin:0;padding:0;min-width:0;grid-column:1/-1}
+.r-group legend{padding:0;margin-bottom:8px}
+.r-radios{display:flex;flex-wrap:wrap;gap:8px 18px}
+.r-radio{display:inline-flex;gap:8px;align-items:center;min-height:36px;cursor:pointer;color:var(--ink);font-size:15.5px}
+.r-radio input,.r-check input{inline-size:18px;block-size:18px;accent-color:var(--hot);margin:0}
+.r-products{margin:0 0 16px;max-width:80ch;color:var(--lead);font-size:15px;line-height:1.6}
+.r-lines{list-style:none;margin:0 0 14px;padding:0;display:grid;gap:12px;counter-reset:none}
+.r-line{border:1px solid var(--line);background:var(--sunk);padding:14px 16px}
+.r-line__head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}
+.r-line__title{margin:0;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--scale);font-weight:500}
+.r-line__head .calc-btn{padding:7px 12px;font-size:11.5px}
+.r-line__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,150px),1fr));gap:12px 14px}
+.r-line .r-type{grid-column:span 2}
+.r-line__notes{grid-column:1/-1}
+.r-line__spec{margin:10px 0 0;font-family:var(--mono);font-size:12px;color:var(--scale)}
+.r-line__spec b{color:var(--ink);font-weight:500}
+.r-note{margin:8px 0 0;font-size:13.5px;color:var(--lead);padding-inline-start:10px;border-inline-start:2px solid var(--hot)}
+.r-cnotes{margin:16px 0 0;padding-inline-start:18px;color:var(--lead);font-size:14.5px;line-height:1.6}
+
+.r-summary{position:sticky;top:84px;padding:clamp(18px,2.4vw,26px) 22px;min-width:0}
+.r-sumfig{margin:8px 0 14px}
+.r-sumfig dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--scale);margin-top:10px}
+.r-sumfig dd{margin:3px 0 0;font-family:var(--display);font-size:22px;color:var(--ink);font-variant-numeric:tabular-nums}
+.r-break{width:100%;font-size:13px}
+.r-break td{padding:6px 4px}
+.r-num{text-align:end;font-variant-numeric:tabular-nums;white-space:nowrap}
+.r-muted{margin:10px 0 0;font-size:13px;color:var(--scale)}
+.r-warn{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:8px}
+.r-warn li{font-size:13px;line-height:1.45;color:var(--ink);padding:8px 10px;border-inline-start:3px solid var(--hot);background:var(--line-2)}
+
+.r-review{padding:clamp(18px,2.4vw,28px) clamp(20px,2.6vw,30px);border-top:1px solid var(--line)}
+.r-review__h{margin:0 0 14px;font-size:clamp(18px,1.7vw,21px)}
+.r-review__bar{display:flex;gap:10px;flex-wrap:wrap}
+.r-errsum{margin-top:16px;padding:14px 16px;border:1px solid #c0392b;color:var(--ink)}
+.r-errsum:focus{outline:2px solid var(--ink);outline-offset:2px}
+.r-errsum p{margin:0 0 8px;font-weight:600}
+.r-errsum ul{margin:0;padding-inline-start:18px}
+.r-errsum a{color:var(--ink)}
+.r-share{margin-top:18px;display:grid;gap:12px}
+.r-check{display:flex;gap:10px;align-items:center;color:var(--ink);cursor:pointer}
+.r-share__btns{display:flex;gap:10px;flex-wrap:wrap}
+.r-is-stale .r-share__btns .calc-btn{opacity:.5}
+.r-stale{margin:0;padding:8px 12px;border-inline-start:3px solid #c0392b;color:var(--ink)}
+.r-sendto{margin:0;font-size:13.5px;color:var(--scale)}
+.r-textlbl{font-family:var(--mono);font-size:11.5px;color:var(--lead)}
+.r-text{width:100%;box-sizing:border-box;font-family:var(--mono);font-size:12.5px;line-height:1.5;min-height:180px}
+
+/* the RFQ document: light paper look in every theme, so the screen preview
+   matches what prints */
+.r-doc{margin-top:20px;background:#fff;color:#111;padding:clamp(18px,3vw,36px);border:1px solid var(--line);font-family:Arial,"Noto Sans SC","PingFang SC","Microsoft YaHei","IBM Plex Sans Arabic",Tahoma,sans-serif;font-size:14px;line-height:1.5}
+.r-doc:focus{outline:2px solid var(--hot);outline-offset:3px}
+.r-doc *{color:#111}
+.r-doc h3,.r-doc h4{font-family:inherit;font-stretch:normal;letter-spacing:0}
+.r-doc__head{border-bottom:2px solid #111;padding-bottom:10px;margin-bottom:14px}
+.r-doc__title{margin:0 0 6px;font-size:21px}
+.r-doc__meta{margin:0;font-size:13.5px}
+.r-ref{font-family:ui-monospace,Menlo,Consolas,monospace}
+.r-doc bdi{unicode-bidi:isolate}
+.r-doc__small{margin:4px 0 0;font-size:12px;color:#555!important}
+.r-doc h4{margin:16px 0 6px;font-size:14px;text-transform:uppercase;letter-spacing:.06em}
+.r-doc__two{display:grid;grid-template-columns:1fr 1fr;gap:6px 28px}
+.r-doc__dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:3px 12px;margin:0}
+.r-doc__dl dt{color:#555!important}
+.r-doc__dl dd{margin:0;overflow-wrap:anywhere}
+.r-doc__scroll{overflow-x:auto}
+.r-doc__table{width:100%;border-collapse:collapse;font-size:13px;background:#fff}
+.r-doc__table tr{background:#fff}
+.r-doc__table th,.r-doc__table td{border:1px solid #999;padding:5px 7px;text-align:start;vertical-align:top;overflow-wrap:anywhere}
+.r-doc__table thead th{background:#eee}
+.r-doc__table tfoot th,.r-doc__table tfoot td{font-weight:700;background:#f6f6f6}
+.r-doc__table .r-num{text-align:end}
+.r-doc__flag{font-size:12px}
+.r-doc__sub{margin:10px 0 4px;font-weight:600}
+.r-doc__break,.r-doc__cn{margin:0;padding-inline-start:18px}
+.r-doc__notes{white-space:pre-wrap;margin:0;overflow-wrap:anywhere}
+.r-doc__disclaimer{margin:16px 0 0;padding:10px 12px;border:1px solid #111;font-size:12.5px}
+.r-doc__foot{margin:12px 0 0;font-size:11px;color:#555!important;text-align:end}
+.r-about ul{padding-inline-start:20px}
+
+@media (max-width:900px){
+  .r-layout{grid-template-columns:minmax(0,1fr)}
+  .r-form{border-inline-end:0}
+  .r-summary{position:static;border-top:1px solid var(--line)}
+}
+@media (max-width:620px){
+  .r-doc__two{grid-template-columns:1fr}
+  .r-line .r-type{grid-column:1/-1}
+  .r-share__btns .calc-btn,.r-review__bar .calc-btn{flex:1 1 100%}
+}
+
+/* print: the RFQ document only */
+@media print{
+  @page{size:A4;margin:14mm}
+  html,body{background:#fff!important;color:#111!important}
+  .c-header,.c-footer,.skip,.r-no-print,.q-band,.sec.r-no-print{display:none!important}
+  .sec,.wrap,.calc,.rfq,.r-review{padding:0!important;margin:0!important;border:0!important;background:none!important;max-width:none!important}
+  .r-doc{display:block!important;border:0;padding:0;margin:0;font-size:11pt}
+  .r-doc[hidden]{display:none!important}
+  .r-doc__table{font-size:9.5pt}
+  .r-doc__table thead{display:table-header-group}
+  .r-doc__table tr,.r-doc__disclaimer,.r-doc__two{break-inside:avoid}
+  .r-doc__scroll{overflow:visible!important}
+}

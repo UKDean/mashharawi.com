@@ -29,6 +29,8 @@ PAIRS = [
     ("/help/steel-weight-verification/", "/ar/help/steel-weight-verification/", "0.6", "0.5"),
     ("/tools/construction-dictionary/", "/ar/tools/construction-dictionary/", "0.8", "0.7"),
     ("/help/construction-dictionary/", "/ar/help/construction-dictionary/", "0.6", "0.5"),
+    ("/tools/smart-rfq-generator/", "/ar/tools/smart-rfq-generator/", "0.8", "0.7"),
+    ("/help/smart-rfq-generator/", "/ar/help/smart-rfq-generator/", "0.6", "0.5"),
     ("/tools/rebarplan/", "/ar/tools/rebarplan/", "0.8", "0.7"),
     ("/tools/openpdfkit/", "/ar/tools/openpdfkit/", "0.8", "0.7"),
     # /tools/approvals/ and /contract-check/ are internal tools: noindex, kept live, left out of the sitemap.
@@ -49,7 +51,7 @@ SINGLES = [
 # gives the English page a Chinese page translates, so both carry hreflang
 # alternates; ZH_PAGES lists every Chinese page and its priority. Same rule:
 # a page not listed here disappears from the sitemap on the next build.
-ZH_TWINS = {"/rebar/": "/zh/rebar/", "/tools/cutting-optimizer/": "/zh/rebar-cutting-optimizer/", "/tools/bbs-analyzer/": "/zh/bbs-analyzer/", "/tools/steel-weight-verification/": "/zh/steel-weight-verification/", "/help/": "/zh/help/", "/help/cutting-optimizer/": "/zh/help/cutting-optimizer/", "/help/bbs-analyzer/": "/zh/help/bbs-analyzer/", "/help/steel-weight-verification/": "/zh/help/steel-weight-verification/", "/tools/construction-dictionary/": "/zh/tools/construction-dictionary/", "/help/construction-dictionary/": "/zh/help/construction-dictionary/"}
+ZH_TWINS = {"/rebar/": "/zh/rebar/", "/tools/cutting-optimizer/": "/zh/rebar-cutting-optimizer/", "/tools/bbs-analyzer/": "/zh/bbs-analyzer/", "/tools/steel-weight-verification/": "/zh/steel-weight-verification/", "/help/": "/zh/help/", "/help/cutting-optimizer/": "/zh/help/cutting-optimizer/", "/help/bbs-analyzer/": "/zh/help/bbs-analyzer/", "/help/steel-weight-verification/": "/zh/help/steel-weight-verification/", "/tools/construction-dictionary/": "/zh/tools/construction-dictionary/", "/help/construction-dictionary/": "/zh/help/construction-dictionary/", "/tools/smart-rfq-generator/": "/zh/tools/smart-rfq-generator/", "/help/smart-rfq-generator/": "/zh/help/smart-rfq-generator/"}
 ZH_PAGES = [
     ("/zh/", "0.8"),
     ("/zh/rebar/", "0.9"),
@@ -64,6 +66,8 @@ ZH_PAGES = [
     ("/zh/help/steel-weight-verification/", "0.5"),
     ("/zh/tools/construction-dictionary/", "0.7"),
     ("/zh/help/construction-dictionary/", "0.5"),
+    ("/zh/tools/smart-rfq-generator/", "0.7"),
+    ("/zh/help/smart-rfq-generator/", "0.5"),
     ("/zh/epoxy-coated-rebar/", "0.7"),
     ("/zh/rebar-quotation-guide/", "0.7"),
     ("/zh/hrb400-vs-astm-a615/", "0.8"),

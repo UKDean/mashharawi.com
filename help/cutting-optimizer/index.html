@@ -30,7 +30,7 @@
 
 <link rel="stylesheet" href="/assets/site.css?v=20261031">
 <link rel="stylesheet" href="/assets/cutopt/cutopt.css?v=20261119h">
-<link rel="stylesheet" href="/assets/help/help.css?v=20261119a">
+<link rel="stylesheet" href="/assets/help/help.css?v=20261120a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200..500&display=swap">
@@ -139,7 +139,7 @@
 <p>Press <b>Optimise cutting</b>. If a line is wrong, it is outlined and the message says why (for example a piece longer than the stock bar).</p>
 <h2 id="example">Worked example</h2>
 <div class="h-ex"><p class="h-ex-t">16 mm Gr60 for footings</p><p>Settings: stock 12 m, kerf 0, allowance 0, reusable from 1 m. Cut list: 96 × 2.35 m, 64 × 3.60 m, 40 × 4.25 m.</p>
-<div class="h-scroll"><table class="h-table"><thead><tr><th scope="col">Bars</th><th scope="col">Pattern (m)</th><th scope="col">Offcut</th></tr></thead><tbody><tr><td>32 ×</td><td>4.25 + 3.60 + 3.60</td><td>0.55 m scrap</td></tr><tr><td>18 ×</td><td>2.35 + 2.35 + 2.35 + 2.35 + 2.35</td><td>0.25 m scrap</td></tr><tr><td>4 ×</td><td>4.25 + 4.25 + 2.35</td><td>1.15 m reusable</td></tr><tr><td>1 ×</td><td>2.35 + 2.35</td><td>7.30 m reusable</td></tr></tbody></table></div>
+<div class="h-scroll" tabindex="0" role="region" aria-label="Bars · Pattern (m) · Offcut"><table class="h-table"><thead><tr><th scope="col">Bars</th><th scope="col">Pattern (m)</th><th scope="col">Offcut</th></tr></thead><tbody><tr><td>32 ×</td><td>4.25 + 3.60 + 3.60</td><td>0.55 m scrap</td></tr><tr><td>18 ×</td><td>2.35 + 2.35 + 2.35 + 2.35 + 2.35</td><td>0.25 m scrap</td></tr><tr><td>4 ×</td><td>4.25 + 4.25 + 2.35</td><td>1.15 m reusable</td></tr><tr><td>1 ×</td><td>2.35 + 2.35</td><td>7.30 m reusable</td></tr></tbody></table></div>
 <p>Result: <b>55 bars</b> of 12 m, <b>proven minimum</b>. Required 626 m, bought 660 m, waste 34 m (<b>5.15%</b>), of which 11.90 m are reusable offcuts (4 × 1.15 m and 1 × 7.30 m) and 22.10 m scrap. Utilisation 94.85%. Weight to buy: 660 m × 1.578 kg/m = <b>1.042 t</b>.</p></div>
 <h2 id="results">Reading the results</h2>
 <ul><li><b>Status line.</b> “Proven minimum number of bars” means the plan uses as many bars as a mathematical lower bound, so no plan can use fewer; with one stock length that is also the least waste. “Good plan, not proven minimum” means the plan is valid but the tool could not prove it is the best; the number shown is the most it could be above the minimum.</li><li><b>Stock bars, utilisation, waste, weight to buy.</b> Totals for all diameters. Weight is nominal (0.006165 × d²).</li><li><b>Summary table.</b> One line per diameter and grade, with its own result.</li><li><b>Cutting patterns.</b> “32 ×” means 32 bars are cut the same way. Blue blocks are the pieces, a thin amber sliver is kerf, and the end block is the offcut: light amber if reusable, hatched if scrap.</li><li><b>Waste</b> includes kerf, allowance and every offcut. Reusable offcuts are listed separately because you may use them elsewhere.</li></ul>
