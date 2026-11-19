@@ -10,9 +10,9 @@
 
    Units. Everything inside is integer millimetres. Lengths arrive in mm and
    leave in mm, so there is no floating point drift on large jobs. Masses are
-   computed at the very end from the nominal formula used across the site:
+   computed at the very end from the nominal formula:
 
-       m = pi/4 * d^2 * 7850 / 1e6  kg/m        (about 0.006165 * d^2)
+       m = 0.006165 * d^2  kg/m   (the same constant as the BBS Analyzer)
 
    Kerf. Every cut removes `kerf` mm. A bar cut into n pieces needs n cuts if
    something is left over and n - 1 if the last piece ends exactly at the bar
@@ -46,8 +46,10 @@
 })(typeof self !== 'undefined' ? self : this, function () {
   'use strict';
 
-  var RHO = 7850;                            // kg/m3
-  var K_MASS = Math.PI / 4 * RHO / 1e6;      // kg/m per mm^2 of d^2
+  // Nominal mass per metre, the constant used site-wide for rebar tools:
+  // 0.006165 x d^2 kg/m (pi/4 x 7850 / 1e6 = 0.0061654, rounded as in the
+  // brief). The BBS Analyzer uses the same constant, so both tools agree.
+  var K_MASS = 0.006165;                     // kg/m per mm^2 of d^2
 
   var LIMITS = {
     stockMin: 1000, stockMax: 30000,         // mm

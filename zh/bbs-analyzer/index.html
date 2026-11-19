@@ -30,7 +30,7 @@
 
 <link rel="stylesheet" href="/assets/site.css?v=20261031">
 <link rel="stylesheet" href="/assets/cutopt/cutopt.css?v=20261119">
-<link rel="stylesheet" href="/assets/bbs/bbs.css?v=20261119b">
+<link rel="stylesheet" href="/assets/bbs/bbs.css?v=20261119c">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Inter:wght@200..500&display=swap">
@@ -113,7 +113,7 @@
    "name": "为什么有行被排除？",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "排除列表会写明每行的原因：直径、长度或根数缺失或无法读取，数值与单位不符，或总根数与 构件数 × 每件根数 矛盾。工具不会补全缺失的工程数据。"
+    "text": "排除列表会写明每行的原因：直径、长度或根数缺失或无法读取，数值与单位不符，下料长度超过 12 米（一根定尺），或总根数与 构件数 × 每件根数 矛盾。工具不会补全缺失的工程数据。"
    }
   },
   {
@@ -121,7 +121,7 @@
    "name": "可以根据钢筋表优化下料吗？",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "可以。“发送到下料优化工具”会按直径和牌号合并下料长度并打开优化工具。请先在那里核对，然后计算。超过 12 米的钢筋不会发送，并会列出。"
+    "text": "可以。“发送到下料优化工具”会按直径和牌号合并下料长度并打开优化工具。请先在那里核对，然后计算。超过 12 米的行不计入分析且绝不发送，无牌号的行须由您指定牌号后才会发送。"
    }
   }
  ]
@@ -243,6 +243,7 @@
           <div><dt>总长度</dt><dd><b id="fLen">0</b><span>米</span></dd></div>
           <div><dt>行</dt><dd><b id="fRows">0</b><span></span></dd></div>
           </dl>
+          <div class="b-groups" id="bGroups"></div>
           <div class="b-notes">
             <div class="b-box warn" id="bWarnBox"><h3>警告</h3><ul id="bWarn"></ul></div>
             <div class="b-box"><h3>计算前提</h3><ul id="bAssume"></ul></div>
@@ -256,7 +257,7 @@
                  <h2 class="calc-lbl b-h">按形状代码</h2><div class="co-scroll"><table class="calc-table b-tbl" id="tShape"></table></div></div>
           </div>
           <div id="bIssuesBox">
-            <h2 class="calc-lbl b-h">排除的行</h2>
+            <h2 class="calc-lbl b-h">不计入计算的行</h2>
             <div class="co-scroll"><table class="calc-table b-issues" id="tIssues"></table></div>
           </div>
           <h2 class="calc-lbl b-h">使用的行</h2>
@@ -281,7 +282,7 @@
     <div class="wrap">
       <p class="q-eyebrow">钢筋供应 &middot; Al Rajhi Steel</p>
       <h2 id="qb-h">把汇总数量发来询价。</h2>
-      <p>把本次分析中各直径、牌号的吨数以及项目城市发给我，我会回复 Al Rajhi Steel（拉吉希钢铁）的正式钢筋报价，我在该公司担任部门主管。按指定长度切割须经确认，弯曲要求须在报价前确认。</p>
+      <p>把本次分析中各直径、牌号的吨数以及项目城市发给我，我会回复 Al Rajhi Steel（拉吉希钢铁）的正式钢筋报价，我在该公司从事销售工作。按指定长度切割须经确认，弯曲要求须在报价前确认。</p>
       <ul class="q-facts">
         <li>规格 10、12、14、16、18、20、25、32 毫米 &middot; 12 米定尺</li><li>Grade 60 与 Grade 80</li><li>可供应环氧涂层钢筋</li><li>按订购规格和牌号提供质保书（MTC）</li><li>按指定长度切割，须经确认</li><li>弯曲要求须在报价前确认</li><li>付款确认或信用证（LC）批准后安排供货，须符合公司流程、产品库存情况及约定的交货计划</li>
       </ul>
@@ -299,8 +300,8 @@
         <p>文件在您的浏览器中读取。Excel 工作簿由内置的小型读取器打开，只读取数值。绝不运行公式；含公式的单元格使用文件中保存的结果，并标记该行。绝不打开宏。</p>
         <p>按英文、阿拉伯文和中文表头识别各列（钢筋编号、直径、下料长度、构件数、Bar mark、Dia、رقم السيخ 等），任何一列都可手动更改。长度单位取自表头，例如“下料长度(毫米)”；表头未注明时由您选择。工具从不猜测。</p>
         <p>逐行核对。缺少或无法读取直径、长度或根数的行会被排除并列出原因，绝不自动补全。带逗号的长度（2,875）会被拒绝，因为它可能表示 2.875 或 2875。只在另一种单位下才合理的数值会被拒绝，而不是换算。</p>
-        <p>重复的钢筋编号、不同写法的牌号、非标准直径、超过 12&nbsp;米的钢筋，以及表中重量与理论重量不一致的情况，都会作为警告列出。</p>
-        <p>“发送到下料优化工具”会按直径、牌号和下料长度合并有效行，并在新标签页打开下料优化工具供您核对。直径和牌号绝不合并，原钢筋表保留在此页不变。</p>
+        <p>下料长度超过 12,000&nbsp;毫米（一根 12&nbsp;米定尺）的行不计入任何合计，并以“下料长度超过 12 米定尺限制”列出；12,000&nbsp;毫米本身计入。重复的钢筋编号（在每个构件内核对；没有构件列时无法区分）、不同写法的牌号、非标准直径，以及表中重量与理论重量不一致的情况，都会作为警告列出供核对，不删除任何内容。</p>
+        <p>“发送到下料优化工具”会按直径、牌号和下料长度合并有效行，并在新标签页打开下料优化工具供您核对。直径和牌号绝不合并。无牌号的行保留在分析中，但在您自行指定牌号前不会发送；绝不默认为 Grade 60 或 80。原钢筋表保留在此页不变。</p>
       </div>
       <p class="note-back">相关页面：<a href="/zh/rebar-cutting-optimizer/">钢筋下料优化</a>、<a href="/zh/rebar-weight-table/">钢筋重量表</a>、<a href="/zh/rebar-cutting-bending/">钢筋切割与弯曲</a>、<a href="/tools/rebarplan/">RebarPlan</a>（编制钢筋表的桌面软件）。</p>
       <section class="faq rise" aria-labelledby="faq-h">
@@ -323,11 +324,11 @@
         </details>
         <details>
           <summary>为什么有行被排除？</summary>
-          <p>排除列表会写明每行的原因：直径、长度或根数缺失或无法读取，数值与单位不符，或总根数与 构件数 × 每件根数 矛盾。工具不会补全缺失的工程数据。</p>
+          <p>排除列表会写明每行的原因：直径、长度或根数缺失或无法读取，数值与单位不符，下料长度超过 12 米（一根定尺），或总根数与 构件数 × 每件根数 矛盾。工具不会补全缺失的工程数据。</p>
         </details>
         <details>
           <summary>可以根据钢筋表优化下料吗？</summary>
-          <p>可以。“发送到下料优化工具”会按直径和牌号合并下料长度并打开优化工具。请先在那里核对，然后计算。超过 12 米的钢筋不会发送，并会列出。</p>
+          <p>可以。“发送到下料优化工具”会按直径和牌号合并下料长度并打开优化工具。请先在那里核对，然后计算。超过 12 米的行不计入分析且绝不发送，无牌号的行须由您指定牌号后才会发送。</p>
         </details>
       </section>
     </div>
@@ -348,10 +349,10 @@
   </div>
 </footer>
 <script src="/assets/site.js?v=20261015" defer></script>
-<script src="/assets/bbs/xlsx.js?v=20261119b" defer></script>
-<script src="/assets/bbs/engine.js?v=20261119b" defer></script>
-<script src="/assets/bbs/i18n.js?v=20261119b" defer></script>
-<script src="/assets/bbs/app.js?v=20261119b" defer></script>
+<script src="/assets/bbs/xlsx.js?v=20261119c" defer></script>
+<script src="/assets/bbs/engine.js?v=20261119c" defer></script>
+<script src="/assets/bbs/i18n.js?v=20261119c" defer></script>
+<script src="/assets/bbs/app.js?v=20261119c" defer></script>
 <script src="/assets/quote.js?v=20261019" defer></script>
 </body>
 </html>

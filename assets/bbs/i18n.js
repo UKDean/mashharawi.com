@@ -31,7 +31,11 @@
         dtd: 'The workbook contains XML features this tool refuses for safety.', noSheets: 'No worksheet found in this workbook.',
         corrupt: 'The file is damaged or not a valid .xlsx file.', method: 'The workbook uses an unsupported compression method. Save it as CSV.',
         noInflate: 'This browser cannot open .xlsx files. Use a current Chrome, Edge, Safari or Firefox, or save the sheet as CSV.',
-        multiDisk: 'Split archives are not supported.', xls: 'Old .xls files are not supported. Save the sheet as .xlsx or CSV.', other: 'The file could not be read.'
+        multiDisk: 'Split archives are not supported.', xls: 'Old .xls files are not supported. Save the sheet as .xlsx or CSV.', other: 'The file could not be read.',
+        duplicate: 'The file contains the same part twice. It was refused as unsafe.', mismatch: 'The file\'s internal headers do not agree. It was refused as damaged or tampered.',
+        crc: 'A checksum inside the file does not match its contents. The file is damaged.', sizeMismatch: 'A part of the file is not the size it declares. It was refused as damaged or unsafe.',
+        rels: 'The workbook points to a sheet outside the file or to an external address. It was refused for safety.', xml: 'A sheet inside the workbook is not valid XML (damaged or edited outside Excel).',
+        unsupported: 'The workbook uses a ZIP feature this tool does not support. Save it as .xlsx again from Excel, or as CSV.'
       },
       cfg: {
         missingColumns: function (f) { return 'Required column not set: ' + f.join(', ') + '. Pick it in the mapping above.'; },
@@ -48,20 +52,21 @@
       unreadable: 'Not a bar line (no diameter and no length)', cellError: 'Spreadsheet error value in a used cell',
       diaMissing: 'Diameter missing', diaInvalid: 'Diameter not readable or outside 4–60 mm', diaImperial: 'US bar number (#), not millimetres',
       lenMissing: 'Length missing', lenInvalid: 'Length not a number', lenComma: 'Length has a comma: ambiguous decimal or thousands separator',
-      lenNotPositive: 'Length zero or negative', lenTooLong: 'Length over 100 m', unitLooksMm: 'Value too large for metres: check the unit',
+      lenNotPositive: 'Length zero or negative', overStock: 'Cut length exceeds the 12 m stock bar limit.', unitLooksMm: 'Value too large for metres: check the unit',
       unitLooksM: 'Value too small for millimetres: check the unit',
       qtyMissing: 'Number of bars missing', qtyInvalid: 'Number of bars not valid', qtyFraction: 'Number of bars is not a whole number',
       qtyFactors: 'Members or bars per member missing or not whole numbers', qtyMismatch: 'Total bars ≠ members × bars per member'
     },
     warn: {
-      dupMark: function (w) { return 'Bar mark ' + w.mark + (w.member ? ' (' + w.member + ')' : '') + ' repeats on rows ' + w.rows.join(', ') + ' with the same data. All rows are counted: check it is not entered twice.'; },
-      dupMarkConflict: function (w) { return 'Bar mark ' + w.mark + (w.member ? ' (' + w.member + ')' : '') + ' repeats on rows ' + w.rows.join(', ') + ' with DIFFERENT diameter, grade, shape or length. All rows are counted: check the schedule.'; },
+      dupMark: function (w) { return 'Review needed: bar mark ' + w.mark + (w.scoped ? ' in member ' + (w.member || '(blank)') : '') + ' appears on rows ' + w.rows.join(', ') + ' with identical data. All rows and quantities are kept and counted; delete the repeat in your schedule if it was entered twice.'; },
+      dupMarkConflict: function (w) { return 'Review needed: bar mark ' + w.mark + (w.scoped ? ' in member ' + (w.member || '(blank)') : '') + ' appears on rows ' + w.rows.join(', ') + ' with DIFFERENT diameter, grade, shape or length. All rows and quantities are kept and counted until you correct the schedule.'; },
+      dupNoMember: 'There is no member column, so repeated bar marks cannot be told apart: the same mark may be correct in different members. Repeats are listed for review, not removed.',
+      gradeAssigned: function (w) { return 'You assigned ' + w.grade + ' to ' + w.count + ' rows that had no grade in the schedule.'; },
       multiGrade: function (w) { return 'More than one grade in this schedule: ' + w.grades.join(', ') + '. Grades are kept apart everywhere.'; },
       gradePartlyMissing: function (w) { return w.count + ' rows have no grade. They are shown as "no grade", not assigned one.'; },
       gradeAllMissing: 'No grade in this schedule. Weights do not depend on grade, but state it when you order.',
       gradeSpellings: function (w) { return 'The same grade is written in different ways: ' + w.spellings.join(' / ') + '. They were treated as one grade.'; },
       diaNonStandard: function (w) { return 'Non-standard diameter: ' + w.diameters.join(', ') + ' mm. Calculated, but check the drawing.'; },
-      overStock: function (w) { return w.count + ' rows are longer than a 12 m bar. They need laps or a special length and are not sent to the cutting optimizer.'; },
       formula: function (w) { return w.count + ' rows take values from formulas. The value Excel saved was used; no formula was run. Recalculate and save in Excel if in doubt.'; },
       weightDiff: function (w) { return 'On ' + w.count + ' rows the weight in the sheet differs from the theoretical weight by more than 1%.'; },
       weightUnitUnknown: 'The weight column has no unit in its header, so it was not cross-checked.',
@@ -71,15 +76,26 @@
     assume: [
       'Theoretical weight = 0.006165 × d² kg/m × cut length × number of bars. These are nominal estimates, not weighed or certified quantities.',
       'Cut lengths are taken as given in the schedule. Bend deductions, laps and wastage are not added.',
+      'Any cut length above 12,000 mm (one 12 m stock bar) is excluded from every total and from the cutting optimizer. 12,000 mm itself is included.',
       'Nothing was uploaded: the file was read in this browser and is gone when you close the page.'
     ],
     lenUnitFrom: function (u, how) { return 'Cut length read in ' + u + (how === 'header' ? ' (from the column header).' : ' (chosen by you).'); },
     figs: ['Bars', 'Theoretical weight', 'Total length', 'Rows used'], figU: ['pcs', 't', 'm', ''],
     rowsUsed: function (ok, bad, blank) { return ok + ' used · ' + bad + ' excluded · ' + blank + ' blank'; },
-    th: { dia: 'Ø mm', grade: 'Grade', shape: 'Shape', bars: 'Bars', len: 'Length m', kgm: 'kg/m', kg: 'Weight kg', share: 'Share', row: 'Row', mark: 'Mark', member: 'Member', cut: 'Cut mm', problem: 'Problem', data: 'Cells', warn: 'Notes' },
+    th: { dia: 'Ø mm', grade: 'Grade', shape: 'Shape', bars: 'Bars', len: 'Length m', kgm: 'kg/m', kg: 'Weight kg', share: 'Share', row: 'Row', mark: 'Mark', member: 'Member', cut: 'Cut mm', problem: 'Reason', data: 'Cells', warn: 'Notes' },
+    groups: {
+      included: 'Included in the analysis', excluded: 'Excluded from the calculation', noOpt: 'Included, but not sent to the cutting optimizer',
+      includedText: function (r, b, t) { return r + ' rows · ' + b + ' bars · ' + t + ' t. These rows make up every total on this page.'; },
+      excludedText: function (r) { return r + ' rows could not be used. They are listed below with the reason, and none of their values is in any total.'; },
+      overText: function (r, b, m, t, nq) { return 'Of these, ' + r + ' rows are longer than 12 m: ' + b + ' bars, ' + m + ' m, ' + t + ' t theoretical, shown here only and not counted' + (nq ? ' (' + nq + ' of them with no readable quantity)' : '') + '.'; },
+      noOptText: function (r, b) { return r + ' rows (' + b + ' bars) have no grade. They are in the totals above as "no grade", but cannot be sent to the cutting optimizer until you assign a grade. Grade 60 or 80 is never assumed.'; },
+      none: 'None.'
+    },
+    assign: { label: 'Grade for rows without one', apply: 'Assign grade', clear: 'Remove assigned grade', empty: 'Enter or pick a grade first.', help: 'Applies only to rows with no grade. It is shown as assigned by you.' },
+    th2: { cut: 'Cut length', qty: 'Bars' },
     noGrade: 'no grade', noShape: '—', showAll: function (n) { return 'Show all ' + n.toLocaleString('en-US') + ' rows'; },
-    sendNote: function (n, r, l) { return n + ' lines (grouped by diameter, grade and cut length) will be sent' + (r ? '; ' + r + ' lengths rounded to the nearest mm' : '') + (l ? '; ' + l + ' rows over 12 m left out' : '') + '.'; },
-    warnCodes: { diaNonStandard: 'non-standard Ø', formula: 'formula', gradeMissing: 'no grade', overStock: '> 12 m', weightDiff: 'weight ≠ sheet', totalLengthDiff: 'length ≠ sheet', dupMark: 'repeated mark', dupMarkConflict: 'mark conflict' },
+    sendNote: function (n, r, gr, gb) { return n + ' lines (grouped by diameter, grade and cut length) will be sent' + (r ? '; ' + r + ' lengths rounded to the nearest mm' : '') + (gr ? '; ' + gr + ' rows (' + gb + ' bars) without a grade are held back' : '') + '. Rows over 12 m are never sent.'; },
+    warnCodes: { diaNonStandard: 'non-standard Ø', formula: 'formula', gradeMissing: 'no grade: not sent to optimizer', gradeAssigned: 'grade assigned by you', weightDiff: 'weight ≠ sheet', totalLengthDiff: 'length ≠ sheet', dupMark: 'repeated mark: review', dupMarkConflict: 'mark conflict: review' },
     sample: [
       ['Project: Villa B-12 · Footings and columns (sample data)'],
       [],
@@ -93,6 +109,8 @@
       ['B1', '06', 'T12', 'Gr60', '51', 1950, 4, 30, 120, 210.4],
       ['S1', '07', 'T12', 'Gr80', '00', 5850, 1, 48, 48, 249.33],
       ['S1', '08', 'T12', 'Gr80', '00', '2,875', 1, 60, 60, ''],
+      ['S1', '09', 'T25', 'Gr80', '00', 12500, 1, 4, 4, ''],
+      ['S1', '10', 'T12', '', '00', 1200, 1, 20, 20, ''],
       ['', 'Total', '', '', '', '', '', '', '', 2064.21]
     ]
   };
@@ -119,7 +137,11 @@
         dtd: 'الملف يحتوي على مكونات XML ترفضها الأداة لأسباب أمنية.', noSheets: 'لا توجد ورقة عمل في هذا الملف.',
         corrupt: 'الملف تالف أو ليس ملف ‎.xlsx صالحاً.', method: 'الملف مضغوط بطريقة غير مدعومة. احفظه CSV.',
         noInflate: 'هذا المتصفح لا يفتح ملفات ‎.xlsx. استخدم نسخة حديثة من كروم أو إيدج أو سفاري أو فايرفوكس، أو احفظ الورقة CSV.',
-        multiDisk: 'الملفات المقسّمة غير مدعومة.', xls: 'ملفات ‎.xls القديمة غير مدعومة. احفظ الورقة بصيغة ‎.xlsx أو CSV.', other: 'تعذّرت قراءة الملف.'
+        multiDisk: 'الملفات المقسّمة غير مدعومة.', xls: 'ملفات ‎.xls القديمة غير مدعومة. احفظ الورقة بصيغة ‎.xlsx أو CSV.', other: 'تعذّرت قراءة الملف.',
+        duplicate: 'الملف يحتوي على نفس الجزء مرتين، فتم رفضه لأنه غير آمن.', mismatch: 'الترويسات الداخلية للملف غير متطابقة، فتم رفضه لأنه تالف أو معدّل.',
+        crc: 'رمز التحقق داخل الملف لا يطابق محتواه. الملف تالف.', sizeMismatch: 'جزء من الملف حجمه لا يطابق الحجم المعلن، فتم رفضه لأنه تالف أو غير آمن.',
+        rels: 'الملف يشير إلى ورقة خارجه أو إلى عنوان خارجي، فتم رفضه لأسباب أمنية.', xml: 'إحدى أوراق الملف ليست XML صالحاً (تالفة أو معدّلة خارج الإكسل).',
+        unsupported: 'الملف يستخدم خاصية ZIP غير مدعومة. احفظه مرة أخرى من الإكسل بصيغة ‎.xlsx أو CSV.'
       },
       cfg: {
         missingColumns: function (f) { return 'عمود مطلوب غير محدد: ' + f.join('، ') + '. اختره في جدول المطابقة بالأعلى.'; },
@@ -136,20 +158,21 @@
       unreadable: 'ليس بند حديد (لا قطر ولا طول)', cellError: 'قيمة خطأ من الإكسل في خلية مستخدمة',
       diaMissing: 'القطر غير موجود', diaInvalid: 'القطر غير مقروء أو خارج 4–60 مم', diaImperial: 'رقم مقاس أمريكي (#) وليس بالمليمتر',
       lenMissing: 'الطول غير موجود', lenInvalid: 'الطول ليس رقماً', lenComma: 'الطول فيه فاصلة: لا يُعرف هل هي فاصلة عشرية أم فاصل آلاف',
-      lenNotPositive: 'الطول صفر أو سالب', lenTooLong: 'الطول أكثر من 100 م', unitLooksMm: 'القيمة كبيرة جداً على المتر: تحقق من الوحدة',
+      lenNotPositive: 'الطول صفر أو سالب', overStock: 'طول القص يتجاوز حد السيخ القياسي 12 م.', unitLooksMm: 'القيمة كبيرة جداً على المتر: تحقق من الوحدة',
       unitLooksM: 'القيمة صغيرة جداً على المليمتر: تحقق من الوحدة',
       qtyMissing: 'عدد الأسياخ غير موجود', qtyInvalid: 'عدد الأسياخ غير صالح', qtyFraction: 'عدد الأسياخ ليس رقماً صحيحاً',
       qtyFactors: 'عدد العناصر أو العدد في كل عنصر غير موجود أو ليس رقماً صحيحاً', qtyMismatch: 'إجمالي الأسياخ لا يساوي عدد العناصر × العدد في كل عنصر'
     },
     warn: {
-      dupMark: function (w) { return 'رقم السيخ ' + w.mark + (w.member ? ' (' + w.member + ')' : '') + ' مكرر في الصفوف ' + w.rows.join('، ') + ' بنفس البيانات. كل الصفوف محسوبة: تأكد أنه غير مُدخل مرتين.'; },
-      dupMarkConflict: function (w) { return 'رقم السيخ ' + w.mark + (w.member ? ' (' + w.member + ')' : '') + ' مكرر في الصفوف ' + w.rows.join('، ') + ' بقطر أو درجة أو شكل أو طول مختلف. كل الصفوف محسوبة: راجع الجدول.'; },
+      dupMark: function (w) { return 'يحتاج مراجعة: رقم السيخ ' + w.mark + (w.scoped ? ' في العنصر ' + (w.member || '(فارغ)') : '') + ' موجود في الصفوف ' + w.rows.join('، ') + ' بنفس البيانات. كل الصفوف والكميات محفوظة ومحسوبة؛ احذف التكرار من جدولك إذا كان مُدخلاً مرتين.'; },
+      dupMarkConflict: function (w) { return 'يحتاج مراجعة: رقم السيخ ' + w.mark + (w.scoped ? ' في العنصر ' + (w.member || '(فارغ)') : '') + ' موجود في الصفوف ' + w.rows.join('، ') + ' بقطر أو درجة أو شكل أو طول مختلف. كل الصفوف والكميات محفوظة ومحسوبة إلى أن تصحح الجدول.'; },
+      dupNoMember: 'لا يوجد عمود للعنصر، لذلك لا يمكن التمييز بين أرقام الأسياخ المكررة: قد يكون نفس الرقم صحيحاً في عناصر مختلفة. التكرارات معروضة للمراجعة ولم تُحذف.',
+      gradeAssigned: function (w) { return 'أنت حددت الدرجة ' + w.grade + ' لعدد ' + w.count + ' صفاً لم تكن لها درجة في الجدول.'; },
       multiGrade: function (w) { return 'في الجدول أكثر من درجة: ' + w.grades.join('، ') + '. الدرجات منفصلة في كل الحسابات.'; },
       gradePartlyMissing: function (w) { return w.count + ' صفاً بدون درجة. تظهر "بدون درجة" ولا تُنسب لها درجة.'; },
       gradeAllMissing: 'لا توجد درجة في هذا الجدول. الوزن لا يعتمد على الدرجة، لكن حددها عند الطلب.',
       gradeSpellings: function (w) { return 'نفس الدرجة مكتوبة بأشكال مختلفة: ' + w.spellings.join(' / ') + '. عوملت كدرجة واحدة.'; },
       diaNonStandard: function (w) { return 'قطر غير قياسي: ' + w.diameters.join('، ') + ' مم. تم حسابه، لكن راجع المخطط.'; },
-      overStock: function (w) { return w.count + ' صفاً أطول من سيخ 12 م. تحتاج وصلات أو طولاً خاصاً، ولا تُرسل لأداة تحسين القص.'; },
       formula: function (w) { return w.count + ' صفاً قيمها من معادلات. استُخدمت القيمة المحفوظة في الملف ولم تُشغّل أي معادلة. أعد الحساب واحفظ في الإكسل إذا كان عندك شك.'; },
       weightDiff: function (w) { return 'في ' + w.count + ' صفاً الوزن المكتوب في الجدول يختلف عن الوزن النظري بأكثر من 1٪.'; },
       weightUnitUnknown: 'عمود الوزن لا يذكر الوحدة في عنوانه، لذلك لم تتم مطابقته.',
@@ -159,15 +182,26 @@
     assume: [
       'الوزن النظري = 0.006165 × ق² كجم/م × طول القص × عدد الأسياخ. هذه تقديرات اسمية، وليست أوزاناً موزونة أو معتمدة.',
       'أطوال القص مأخوذة كما هي في الجدول. لا تُضاف خصومات الثني ولا الوصلات ولا الهدر.',
+      'أي طول قص أكبر من 12,000 مم (سيخ قياسي واحد 12 م) يُستبعد من كل الإجماليات ومن أداة تحسين القص. طول 12,000 مم نفسه محسوب.',
       'لم يتم رفع أي شيء: الملف قُرئ داخل هذا المتصفح ويختفي عند إغلاق الصفحة.'
     ],
     lenUnitFrom: function (u, how) { return 'طول القص مقروء بوحدة ' + u + (how === 'header' ? ' (من عنوان العمود).' : ' (حسب اختيارك).'); },
     figs: ['الأسياخ', 'الوزن النظري', 'الطول الكلي', 'الصفوف المستخدمة'], figU: ['سيخ', 'طن', 'م', ''],
     rowsUsed: function (ok, bad, blank) { return ok + ' مستخدم · ' + bad + ' مستبعد · ' + blank + ' فارغ'; },
-    th: { dia: 'القطر مم', grade: 'الدرجة', shape: 'الشكل', bars: 'الأسياخ', len: 'الطول م', kgm: 'كجم/م', kg: 'الوزن كجم', share: 'النسبة', row: 'الصف', mark: 'الرقم', member: 'العنصر', cut: 'القص مم', problem: 'المشكلة', data: 'الخلايا', warn: 'ملاحظات' },
+    th: { dia: 'القطر مم', grade: 'الدرجة', shape: 'الشكل', bars: 'الأسياخ', len: 'الطول م', kgm: 'كجم/م', kg: 'الوزن كجم', share: 'النسبة', row: 'الصف', mark: 'الرقم', member: 'العنصر', cut: 'القص مم', problem: 'السبب', data: 'الخلايا', warn: 'ملاحظات' },
+    groups: {
+      included: 'داخل التحليل', excluded: 'مستبعد من الحساب', noOpt: 'داخل التحليل، لكن لا يُرسل لأداة تحسين القص',
+      includedText: function (r, b, t) { return r + ' صفاً · ' + b + ' سيخ · ' + t + ' طن. هذه الصفوف هي كل ما في إجماليات الصفحة.'; },
+      excludedText: function (r) { return r + ' صفاً لا يمكن استخدامها. معروضة بالأسفل مع السبب، ولا تدخل أي قيمة منها في أي إجمالي.'; },
+      overText: function (r, b, m, t, nq) { return 'منها ' + r + ' صفاً أطول من 12 م: ' + b + ' سيخ، ' + m + ' م، ' + t + ' طن نظرياً، معروضة هنا فقط وغير محسوبة' + (nq ? ' (' + nq + ' منها بدون عدد مقروء)' : '') + '.'; },
+      noOptText: function (r, b) { return r + ' صفاً (' + b + ' سيخ) بدون درجة. محسوبة في الإجماليات أعلاه تحت «بدون درجة»، لكن لا يمكن إرسالها لأداة تحسين القص إلا بعد أن تحدد الدرجة. لا تُفترض Grade 60 أو 80 أبداً.'; },
+      none: 'لا يوجد.'
+    },
+    assign: { label: 'الدرجة للصفوف التي بدون درجة', apply: 'حدد الدرجة', clear: 'أزل الدرجة المحددة', empty: 'اكتب الدرجة أو اخترها أولاً.', help: 'تُطبَّق فقط على الصفوف التي بدون درجة، وتظهر على أنها محددة منك.' },
+    th2: { cut: 'طول القص', qty: 'الأسياخ' },
     noGrade: 'بدون درجة', noShape: '—', showAll: function (n) { return 'اعرض كل الصفوف (' + n.toLocaleString('en-US') + ')'; },
-    sendNote: function (n, r, l) { return 'سيتم إرسال ' + n + ' بنداً (مجمّعة حسب القطر والدرجة وطول القص)' + (r ? '؛ تم تقريب ' + r + ' طولاً لأقرب مم' : '') + (l ? '؛ واستُبعد ' + l + ' صفاً أطول من 12 م' : '') + '.'; },
-    warnCodes: { diaNonStandard: 'قطر غير قياسي', formula: 'معادلة', gradeMissing: 'بدون درجة', overStock: '> 12 م', weightDiff: 'الوزن ≠ الجدول', totalLengthDiff: 'الطول ≠ الجدول', dupMark: 'رقم مكرر', dupMarkConflict: 'تعارض في الرقم' },
+    sendNote: function (n, r, gr, gb) { return 'سيتم إرسال ' + n + ' بنداً (مجمّعة حسب القطر والدرجة وطول القص)' + (r ? '؛ تم تقريب ' + r + ' طولاً لأقرب مم' : '') + (gr ? '؛ ولن يُرسل ' + gr + ' صفاً (' + gb + ' سيخ) بدون درجة' : '') + '. الصفوف الأطول من 12 م لا تُرسل أبداً.'; },
+    warnCodes: { diaNonStandard: 'قطر غير قياسي', formula: 'معادلة', gradeMissing: 'بدون درجة: لا يُرسل للقص', gradeAssigned: 'درجة محددة منك', weightDiff: 'الوزن ≠ الجدول', totalLengthDiff: 'الطول ≠ الجدول', dupMark: 'رقم مكرر: للمراجعة', dupMarkConflict: 'تعارض في الرقم: للمراجعة' },
     sample: [
       ['المشروع: فيلا B-12 · القواعد والأعمدة (بيانات مثال)'],
       [],
@@ -181,6 +215,8 @@
       ['B1', '06', 'T12', 'Gr60', '51', 1950, 4, 30, 120, 210.4],
       ['S1', '07', 'T12', 'Gr80', '00', 5850, 1, 48, 48, 249.33],
       ['S1', '08', 'T12', 'Gr80', '00', '2,875', 1, 60, 60, ''],
+      ['S1', '09', 'T25', 'Gr80', '00', 12500, 1, 4, 4, ''],
+      ['S1', '10', 'T12', '', '00', 1200, 1, 20, 20, ''],
       ['', 'الإجمالي', '', '', '', '', '', '', '', 2064.21]
     ]
   };
@@ -207,7 +243,11 @@
         dtd: '工作簿包含出于安全原因被拒绝的 XML 内容。', noSheets: '该工作簿中没有工作表。',
         corrupt: '文件已损坏或不是有效的 .xlsx 文件。', method: '工作簿使用了不支持的压缩方式。请另存为 CSV。',
         noInflate: '此浏览器无法打开 .xlsx 文件。请使用新版 Chrome、Edge、Safari 或 Firefox，或另存为 CSV。',
-        multiDisk: '不支持分卷压缩文件。', xls: '不支持旧版 .xls 文件。请另存为 .xlsx 或 CSV。', other: '无法读取该文件。'
+        multiDisk: '不支持分卷压缩文件。', xls: '不支持旧版 .xls 文件。请另存为 .xlsx 或 CSV。', other: '无法读取该文件。',
+        duplicate: '文件中同一部件出现两次，出于安全原因已拒绝。', mismatch: '文件内部头信息不一致，已作为损坏或被篡改的文件拒绝。',
+        crc: '文件内部校验和与内容不符，文件已损坏。', sizeMismatch: '文件某部分的实际大小与声明不符，已作为损坏或不安全的文件拒绝。',
+        rels: '工作簿指向文件外部的工作表或外部地址，出于安全原因已拒绝。', xml: '工作簿中的某个工作表不是有效的 XML（已损坏或在 Excel 外被修改）。',
+        unsupported: '工作簿使用了本工具不支持的 ZIP 功能。请在 Excel 中重新另存为 .xlsx，或另存为 CSV。'
       },
       cfg: {
         missingColumns: function (f) { return '未设置必填列：' + f.join('、') + '。请在上方的列匹配中选择。'; },
@@ -224,20 +264,21 @@
       unreadable: '不是钢筋行（没有直径和长度）', cellError: '所用单元格含有表格错误值',
       diaMissing: '缺少直径', diaInvalid: '直径无法读取或超出 4–60 毫米', diaImperial: '美制钢筋号（#），不是毫米',
       lenMissing: '缺少长度', lenInvalid: '长度不是数字', lenComma: '长度含逗号：无法判断是小数点还是千位分隔符',
-      lenNotPositive: '长度为零或负数', lenTooLong: '长度超过 100 米', unitLooksMm: '数值对“米”来说过大：请检查单位',
+      lenNotPositive: '长度为零或负数', overStock: '下料长度超过 12 米定尺限制。', unitLooksMm: '数值对“米”来说过大：请检查单位',
       unitLooksM: '数值对“毫米”来说过小：请检查单位',
       qtyMissing: '缺少根数', qtyInvalid: '根数无效', qtyFraction: '根数不是整数',
       qtyFactors: '构件数或每件根数缺失或不是整数', qtyMismatch: '总根数 ≠ 构件数 × 每件根数'
     },
     warn: {
-      dupMark: function (w) { return '钢筋编号 ' + w.mark + (w.member ? '（' + w.member + '）' : '') + ' 在第 ' + w.rows.join('、') + ' 行重复，数据相同。所有行均已计入：请确认没有重复录入。'; },
-      dupMarkConflict: function (w) { return '钢筋编号 ' + w.mark + (w.member ? '（' + w.member + '）' : '') + ' 在第 ' + w.rows.join('、') + ' 行重复，但直径、牌号、形状或长度不同。所有行均已计入：请核对钢筋表。'; },
+      dupMark: function (w) { return '需要核对：钢筋编号 ' + w.mark + (w.scoped ? '（构件 ' + (w.member || '空') + '）' : '') + ' 出现在第 ' + w.rows.join('、') + ' 行，数据相同。所有行和数量均保留并计入；如属重复录入，请在钢筋表中删除。'; },
+      dupMarkConflict: function (w) { return '需要核对：钢筋编号 ' + w.mark + (w.scoped ? '（构件 ' + (w.member || '空') + '）' : '') + ' 出现在第 ' + w.rows.join('、') + ' 行，但直径、牌号、形状或长度不同。在您修改钢筋表之前，所有行和数量均保留并计入。'; },
+      dupNoMember: '没有构件列，因此无法区分重复的钢筋编号：同一编号在不同构件中可能是正确的。重复项仅列出供核对，未被删除。',
+      gradeAssigned: function (w) { return '您为钢筋表中 ' + w.count + ' 行无牌号的数据指定了牌号 ' + w.grade + '。'; },
       multiGrade: function (w) { return '本表包含多个牌号：' + w.grades.join('、') + '。各牌号始终分开计算。'; },
       gradePartlyMissing: function (w) { return w.count + ' 行没有牌号，显示为“无牌号”，不会被指定牌号。'; },
       gradeAllMissing: '本表没有牌号。重量与牌号无关，但订货时请注明。',
       gradeSpellings: function (w) { return '同一牌号有不同写法：' + w.spellings.join(' / ') + '，已视为同一牌号。'; },
       diaNonStandard: function (w) { return '非标准直径：' + w.diameters.join('、') + ' 毫米。已计算，请核对图纸。'; },
-      overStock: function (w) { return w.count + ' 行长度超过 12 米定尺，需要搭接或特殊长度，不会发送到下料优化工具。'; },
       formula: function (w) { return w.count + ' 行的数值来自公式。使用了文件中保存的结果，未运行任何公式。如有疑问，请在 Excel 中重新计算并保存。'; },
       weightDiff: function (w) { return '有 ' + w.count + ' 行表中重量与理论重量相差超过 1%。'; },
       weightUnitUnknown: '重量列的表头未注明单位，因此未作核对。',
@@ -247,15 +288,26 @@
     assume: [
       '理论重量 = 0.006165 × d² 公斤/米 × 下料长度 × 根数。这是理论估算值，不是称重或认证数量。',
       '下料长度按钢筋表原值计算，未另加弯曲扣减、搭接或损耗。',
+      '下料长度超过 12,000 毫米（一根 12 米定尺）的行不计入任何合计，也不发送到下料优化工具。12,000 毫米本身计入。',
       '没有上传任何内容：文件在本浏览器中读取，关闭页面即消失。'
     ],
     lenUnitFrom: function (u, how) { return '下料长度单位：' + u + (how === 'header' ? '（来自表头）。' : '（由您选择）。'); },
     figs: ['根数', '理论重量', '总长度', '使用的行'], figU: ['根', '吨', '米', ''],
     rowsUsed: function (ok, bad, blank) { return '使用 ' + ok + ' · 排除 ' + bad + ' · 空行 ' + blank; },
-    th: { dia: '直径 mm', grade: '牌号', shape: '形状', bars: '根数', len: '长度 m', kgm: 'kg/m', kg: '重量 kg', share: '占比', row: '行', mark: '编号', member: '构件', cut: '下料 mm', problem: '问题', data: '单元格', warn: '备注' },
+    th: { dia: '直径 mm', grade: '牌号', shape: '形状', bars: '根数', len: '长度 m', kgm: 'kg/m', kg: '重量 kg', share: '占比', row: '行', mark: '编号', member: '构件', cut: '下料 mm', problem: '原因', data: '单元格', warn: '备注' },
+    groups: {
+      included: '计入分析', excluded: '不计入计算', noOpt: '计入分析，但不发送到下料优化工具',
+      includedText: function (r, b, t) { return r + ' 行 · ' + b + ' 根 · ' + t + ' 吨。本页所有合计均来自这些行。'; },
+      excludedText: function (r) { return r + ' 行无法使用，已在下方列出原因，其数值不计入任何合计。'; },
+      overText: function (r, b, m, t, nq) { return '其中 ' + r + ' 行超过 12 米：' + b + ' 根、' + m + ' 米、理论重量 ' + t + ' 吨，仅在此显示，不计入合计' + (nq ? '（其中 ' + nq + ' 行根数无法读取）' : '') + '。'; },
+      noOptText: function (r, b) { return r + ' 行（' + b + ' 根）没有牌号。它们以“无牌号”计入上方合计，但在您指定牌号之前不能发送到下料优化工具。绝不默认为 Grade 60 或 80。'; },
+      none: '无。'
+    },
+    assign: { label: '为无牌号的行指定牌号', apply: '指定牌号', clear: '取消指定的牌号', empty: '请先输入或选择牌号。', help: '只作用于没有牌号的行，并标注为由您指定。' },
+    th2: { cut: '下料长度', qty: '根数' },
     noGrade: '无牌号', noShape: '—', showAll: function (n) { return '显示全部 ' + n.toLocaleString('en-US') + ' 行'; },
-    sendNote: function (n, r, l) { return '将发送 ' + n + ' 行（按直径、牌号和下料长度合并）' + (r ? '；' + r + ' 个长度四舍五入到毫米' : '') + (l ? '；' + l + ' 行超过 12 米未发送' : '') + '。'; },
-    warnCodes: { diaNonStandard: '非标直径', formula: '公式', gradeMissing: '无牌号', overStock: '> 12 米', weightDiff: '重量 ≠ 表中', totalLengthDiff: '长度 ≠ 表中', dupMark: '编号重复', dupMarkConflict: '编号冲突' },
+    sendNote: function (n, r, gr, gb) { return '将发送 ' + n + ' 行（按直径、牌号和下料长度合并）' + (r ? '；' + r + ' 个长度四舍五入到毫米' : '') + (gr ? '；' + gr + ' 行（' + gb + ' 根）无牌号，暂不发送' : '') + '。超过 12 米的行绝不发送。'; },
+    warnCodes: { diaNonStandard: '非标直径', formula: '公式', gradeMissing: '无牌号：不发送', gradeAssigned: '牌号由您指定', weightDiff: '重量 ≠ 表中', totalLengthDiff: '长度 ≠ 表中', dupMark: '编号重复：需核对', dupMarkConflict: '编号冲突：需核对' },
     sample: [
       ['项目：B-12 别墅 · 基础与柱（示例数据）'],
       [],
@@ -269,6 +321,8 @@
       ['B1', '06', 'T12', 'Gr60', '51', 1950, 4, 30, 120, 210.4],
       ['S1', '07', 'T12', 'Gr80', '00', 5850, 1, 48, 48, 249.33],
       ['S1', '08', 'T12', 'Gr80', '00', '2,875', 1, 60, 60, ''],
+      ['S1', '09', 'T25', 'Gr80', '00', 12500, 1, 4, 4, ''],
+      ['S1', '10', 'T12', '', '00', 1200, 1, 20, 20, ''],
       ['', '合计', '', '', '', '', '', '', '', 2064.21]
     ]
   };

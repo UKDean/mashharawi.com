@@ -30,7 +30,7 @@
 
 <link rel="stylesheet" href="/assets/site.css?v=20261031">
 <link rel="stylesheet" href="/assets/cutopt/cutopt.css?v=20261119">
-<link rel="stylesheet" href="/assets/bbs/bbs.css?v=20261119b">
+<link rel="stylesheet" href="/assets/bbs/bbs.css?v=20261119c">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200..500&display=swap">
@@ -113,7 +113,7 @@
    "name": "Why was a row excluded?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "The excluded rows list gives the reason for each: a missing or unreadable diameter, length or number of bars, a value that does not fit the unit, or a total that contradicts members × bars in each. The tool does not fill in missing engineering data."
+    "text": "The excluded rows list gives the reason for each: a missing or unreadable diameter, length or number of bars, a value that does not fit the unit, a cut length above 12 m (one stock bar), or a total that contradicts members × bars in each. The tool does not fill in missing engineering data."
    }
   },
   {
@@ -121,7 +121,7 @@
    "name": "Can I optimise cutting from the schedule?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Yes. Send to Cutting Optimizer opens the optimizer with the cut lengths grouped by diameter and grade. Check the lines there, then run it. Bars longer than 12 m are left out and listed."
+    "text": "Yes. Send to Cutting Optimizer opens the optimizer with the cut lengths grouped by diameter and grade. Check the lines there, then run it. Rows over 12 m are excluded from the analysis and never sent, and rows without a grade are sent only after you assign one."
    }
   }
  ]
@@ -249,6 +249,7 @@
           <div><dt>Total length</dt><dd><b id="fLen">0</b><span>m</span></dd></div>
           <div><dt>Rows</dt><dd><b id="fRows">0</b><span></span></dd></div>
           </dl>
+          <div class="b-groups" id="bGroups"></div>
           <div class="b-notes">
             <div class="b-box warn" id="bWarnBox"><h3>Warnings</h3><ul id="bWarn"></ul></div>
             <div class="b-box"><h3>Assumptions</h3><ul id="bAssume"></ul></div>
@@ -262,7 +263,7 @@
                  <h2 class="calc-lbl b-h">By shape code</h2><div class="co-scroll"><table class="calc-table b-tbl" id="tShape"></table></div></div>
           </div>
           <div id="bIssuesBox">
-            <h2 class="calc-lbl b-h">Excluded rows</h2>
+            <h2 class="calc-lbl b-h">Excluded from the calculation</h2>
             <div class="co-scroll"><table class="calc-table b-issues" id="tIssues"></table></div>
           </div>
           <h2 class="calc-lbl b-h">Rows used</h2>
@@ -287,7 +288,7 @@
     <div class="wrap">
       <p class="q-eyebrow">Rebar supply &middot; Al Rajhi Steel</p>
       <h2 id="qb-h">Send the totals for a quote.</h2>
-      <p>Send me the tonnes per diameter and grade from this analysis with the project city, and I will come back with an official rebar quotation from Al Rajhi Steel, where I am a Section Head. Cutting to specified lengths is subject to confirmation, and any bending requirements must be confirmed before quotation.</p>
+      <p>Send me the tonnes per diameter and grade from this analysis with the project city, and I will come back with an official rebar quotation from Al Rajhi Steel, where I work in sales. Cutting to specified lengths is subject to confirmation, and any bending requirements must be confirmed before quotation.</p>
       <ul class="q-facts">
         <li>Sizes 10, 12, 14, 16, 18, 20, 25 and 32 mm &middot; 12 m bars</li><li>Grade 60 and Grade 80</li><li>Epoxy-coated rebar available</li><li>Mill test certificates (MTC) for the sizes and grade ordered</li><li>Cutting to specified lengths, subject to confirmation</li><li>Bending requirements confirmed before quotation</li><li>Supply after payment confirmation or LC approval, subject to company procedures, product availability and the agreed delivery schedule</li>
       </ul>
@@ -305,8 +306,8 @@
         <p>The file is read in your browser. Excel workbooks are opened by a small built-in reader: values only. Formulas are never run; where a cell holds a formula, the value Excel saved is used and the row is marked. Macros are never opened.</p>
         <p>Columns are recognised by name in English, Arabic and Chinese (Bar mark, Dia, Cut length, No. of members, رقم السيخ, القطر, 钢筋编号, 下料长度 and so on). You can change any of them. The length unit comes from the header, for example &ldquo;Cut length (mm)&rdquo;; if the header does not say, you choose it. The tool never guesses.</p>
         <p>Every row is checked. Rows with a missing or unreadable diameter, length or number of bars are excluded and listed with the reason, never filled in. A length written with a comma (2,875) is refused because it could mean 2.875 or 2875. Values that only make sense in the other unit are refused, not converted.</p>
-        <p>Repeated bar marks, grades written in different ways, non-standard diameters, bars longer than 12&nbsp;m, and weights in the sheet that differ from the theoretical weight are reported as warnings.</p>
-        <p>Send to Cutting Optimizer groups the valid rows by diameter, grade and cut length and opens the optimizer in a new tab with them, for you to review. Diameters and grades are never merged, and your schedule stays here unchanged.</p>
+        <p>Any cut length above 12,000&nbsp;mm, one 12&nbsp;m stock bar, is excluded from every total and listed with the reason &ldquo;Cut length exceeds the 12 m stock bar limit&rdquo;; 12,000&nbsp;mm itself is included. Repeated bar marks (checked within each member; without a member column they cannot be told apart), grades written in different ways, non-standard diameters, and weights in the sheet that differ from the theoretical weight are reported as warnings for review. Nothing is deleted.</p>
+        <p>Send to Cutting Optimizer groups the valid rows by diameter, grade and cut length and opens the optimizer in a new tab with them, for you to review. Diameters and grades are never merged. Rows with no grade stay in the analysis but are not sent until you assign a grade yourself; Grade 60 or 80 is never assumed. Your schedule stays here unchanged.</p>
       </div>
       <p class="note-back">Related: <a href="/tools/cutting-optimizer/">rebar cutting optimizer</a>, <a href="/tools/rebar-weight/">rebar weight calculator</a>, <a href="/tools/rebarplan/">RebarPlan</a> (desktop app that writes bar bending schedules).</p>
       <section class="faq rise" aria-labelledby="faq-h">
@@ -329,11 +330,11 @@
         </details>
         <details>
           <summary>Why was a row excluded?</summary>
-          <p>The excluded rows list gives the reason for each: a missing or unreadable diameter, length or number of bars, a value that does not fit the unit, or a total that contradicts members × bars in each. The tool does not fill in missing engineering data.</p>
+          <p>The excluded rows list gives the reason for each: a missing or unreadable diameter, length or number of bars, a value that does not fit the unit, a cut length above 12 m (one stock bar), or a total that contradicts members × bars in each. The tool does not fill in missing engineering data.</p>
         </details>
         <details>
           <summary>Can I optimise cutting from the schedule?</summary>
-          <p>Yes. Send to Cutting Optimizer opens the optimizer with the cut lengths grouped by diameter and grade. Check the lines there, then run it. Bars longer than 12 m are left out and listed.</p>
+          <p>Yes. Send to Cutting Optimizer opens the optimizer with the cut lengths grouped by diameter and grade. Check the lines there, then run it. Rows over 12 m are excluded from the analysis and never sent, and rows without a grade are sent only after you assign one.</p>
         </details>
       </section>
     </div>
@@ -354,10 +355,10 @@
   </div>
 </footer>
 <script src="/assets/site.js?v=20261015" defer></script>
-<script src="/assets/bbs/xlsx.js?v=20261119b" defer></script>
-<script src="/assets/bbs/engine.js?v=20261119b" defer></script>
-<script src="/assets/bbs/i18n.js?v=20261119b" defer></script>
-<script src="/assets/bbs/app.js?v=20261119b" defer></script>
+<script src="/assets/bbs/xlsx.js?v=20261119c" defer></script>
+<script src="/assets/bbs/engine.js?v=20261119c" defer></script>
+<script src="/assets/bbs/i18n.js?v=20261119c" defer></script>
+<script src="/assets/bbs/app.js?v=20261119c" defer></script>
 <script src="/assets/quote.js?v=20261019" defer></script>
 </body>
 </html>

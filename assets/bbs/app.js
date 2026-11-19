@@ -30,7 +30,7 @@
   var MAX_TRANSFER = 2000;
   var ROW_PAGE = 300;
 
-  var state = { grid: null, source: '', formulaCells: new Set(), errorCells: new Set(), headerRow: -1, mapping: {}, units: {}, unitHow: null, result: null };
+  var state = { grid: null, source: '', formulaCells: new Set(), errorCells: new Set(), headerRow: -1, mapping: {}, units: {}, unitHow: null, assignGrade: '', result: null };
 
   function $(id) { return document.getElementById(id); }
   function el(tag, cls, txt) { var e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }
@@ -50,6 +50,7 @@
     state.formulaCells = extra.formulaCells || new Set();
     state.errorCells = extra.errorCells || new Set();
     state.result = null;
+    state.assignGrade = '';                 // a grade assigned to one schedule never carries over
     $('bOut').hidden = true;
 
     var det = E.detectHeader(grid);
@@ -244,7 +245,8 @@
     var res = E.analyze(state.grid, {
       headerRow: state.headerRow, mapping: state.mapping,
       units: { length: state.units.length || null, totalLength: state.units.totalLength || null, weight: state.units.weight || null },
-      formulaCells: state.formulaCells, errorCells: state.errorCells
+      formulaCells: state.formulaCells, errorCells: state.errorCells,
+      assignGrade: state.assignGrade || null
     });
     if (!res.ok) {
       var c = T.msg.cfg;
@@ -297,14 +299,67 @@
     table('tShape', [T.th.shape, T.th.bars, T.th.kg, T.th.share], res.summary.byShape.map(function (x) {
       return [x.label || T.noShape, fmt(x.bars, 0), fmt(x.weightKg, 1), fmt(t.weightKg ? x.weightKg / t.weightKg * 100 : 0, 1) + '%'];
     }));
-    table('tIssues', [T.th.row, T.th.mark, T.th.problem, T.th.data], res.issues.map(function (x) {
-      return [String(x.row), x.mark, x.codes.map(function (c) { return T.issue[c] || c; }).join(' · '), x.raw.filter(Boolean).join(' | ')];
+    table('tIssues', [T.th.row, T.th.mark, T.th.dia, T.th2.cut, T.th2.qty, T.th.problem], res.issues.map(function (x) {
+      return [String(x.row), x.mark, x.diameter != null ? String(x.diameter) : x.diameterText,
+        x.lengthMm != null ? fmt(x.lengthMm, x.lengthMm % 1 ? 3 : 0) + ' mm' : x.lengthText,
+        x.qty != null ? fmt(x.qty, 0) : x.qtyText,
+        x.codes.map(function (c) { return T.issue[c] || c; }).join(' · ')];
     }));
     $('bIssuesBox').hidden = !res.issues.length;
     renderRows(res.rows, ROW_PAGE);
+    renderGroups(res);
 
-    var tr = E.buildTransfer(res.rows, 12000);
-    $('bSendNote').textContent = T.sendNote(tr.items.length, tr.rounded, tr.tooLong.length);
+    var tr = E.buildTransfer(res.rows);
+    $('bSendNote').textContent = T.sendNote(tr.items.length, tr.rounded, tr.noGrade.rows.length, fmt(tr.noGrade.bars, 0));
+    $('bSend').disabled = !tr.items.length;
+  }
+
+  /* The three groups every row falls into, so it is always clear why a row
+     is or is not counted, and why it may not reach the optimizer. */
+  function renderGroups(res) {
+    var box = $('bGroups'), t = res.summary.totals;
+    box.textContent = '';
+    function card(cls, title, lines) {
+      var c = el('section', 'b-group ' + cls);
+      c.appendChild(el('h3', null, title));
+      lines.forEach(function (l) { if (l) c.appendChild(typeof l === 'string' ? el('p', null, l) : l); });
+      box.appendChild(c);
+      return c;
+    }
+    card('in', T.groups.included, [T.groups.includedText(fmt(res.rows.length, 0), fmt(t.bars, 0), fmt(t.weightKg / 1000, 3))]);
+    var o = res.excluded.overStock;
+    card('out', T.groups.excluded, res.excluded.rows ? [
+      T.groups.excludedText(fmt(res.excluded.rows, 0)),
+      o.rows ? T.groups.overText(fmt(o.rows, 0), fmt(o.bars, 0), fmt(o.lengthM, 2), fmt(o.weightKg / 1000, 3), o.rowsWithoutQty) : null
+    ] : [T.groups.none]);
+    var n = res.notForOptimizer;
+    var assigned = res.rows.filter(function (x) { return x.gradeAssigned; }).length;
+    var c3 = card('noopt', T.groups.noOpt, n.rows ? [T.groups.noOptText(fmt(n.rows, 0), fmt(n.bars, 0))] : [assigned ? T.warn.gradeAssigned({ count: assigned, grade: res.rows.filter(function (x) { return x.gradeAssigned; })[0].grade }) : T.groups.none]);
+    if (n.rows || assigned) {
+      var f = el('div', 'b-assign');
+      var lab = el('label', 'calc-field');
+      lab.appendChild(el('span', null, T.assign.label));
+      var inp = el('input', 'co-in');
+      inp.type = 'text'; inp.maxLength = 20; inp.id = 'bAssign';
+      inp.setAttribute('list', 'bGradeList');
+      inp.value = state.assignGrade || '';
+      lab.appendChild(inp);
+      f.appendChild(lab);
+      var go = el('button', 'calc-btn', T.assign.apply); go.type = 'button';
+      go.addEventListener('click', function () {
+        var v = inp.value.trim();
+        if (!v || !E.normGrade(v).key) { say(T.assign.empty, 'warn'); inp.focus(); return; }
+        state.assignGrade = v; analyse();
+      });
+      f.appendChild(go);
+      if (assigned) {
+        var clr = el('button', 'calc-btn ghost', T.assign.clear); clr.type = 'button';
+        clr.addEventListener('click', function () { state.assignGrade = ''; analyse(); });
+        f.appendChild(clr);
+      }
+      c3.appendChild(f);
+      c3.appendChild(el('p', 'calc-hint', T.assign.help));
+    }
   }
 
   function table(id, head, rows, foot) {
@@ -361,10 +416,17 @@
     res.summary.byDiameter.forEach(function (x) { tbl.push(['', '', '', x.label, '', '', '', x.bars, '', x.lengthM.toFixed(3), x.weightKg.toFixed(3)]); });
     tbl.push(['Total', '', '', '', '', '', '', res.summary.totals.bars, '', res.summary.totals.lengthM.toFixed(3), res.summary.totals.weightKg.toFixed(3)]);
     tbl.push([]);
-    tbl.push(['Excluded rows']);
-    res.issues.forEach(function (x) { tbl.push([x.row, '', x.mark, x.codes.join(' ')].concat(x.raw)); });
+    tbl.push(['Excluded rows (not in any total above)']);
+    tbl.push(['Row', 'Member', 'Bar mark', 'Diameter mm', 'Cut length mm', 'Bars', 'Reason codes', 'Reason']);
+    res.issues.forEach(function (x) {
+      tbl.push([x.row, x.member || '', x.mark, x.diameter != null ? x.diameter : x.diameterText, x.lengthMm != null ? x.lengthMm : x.lengthText,
+        x.qty != null ? x.qty : x.qtyText, x.codes.join(' '), x.codes.map(function (c) { return window.BbsText.en.issue[c] || c; }).join(' / ')]);
+    });
+    var ov = res.excluded.overStock;
+    if (ov.rows) tbl.push(['Over 12 m (excluded)', '', '', '', '', ov.bars, '', 'rows ' + ov.rows + ', ' + ov.lengthM.toFixed(3) + ' m, ' + ov.weightKg.toFixed(3) + ' kg theoretical, not in totals']);
+    if (res.notForOptimizer.rows) tbl.push(['No grade (in totals, not sent to optimizer)', '', '', '', '', res.notForOptimizer.bars, '', 'rows ' + res.notForOptimizer.rows]);
     tbl.push([]);
-    tbl.push(['Note', 'Theoretical weights: 0.006165 x d^2 kg/m. Estimates, not certified quantities. mashharawi.com']);
+    tbl.push(['Note', 'Theoretical weights: 0.006165 x d^2 kg/m. Estimates, not certified quantities. Cut lengths above 12000 mm are excluded. mashharawi.com']);
     var blob = new Blob([E.toCsv(tbl)], { type: 'text/csv;charset=utf-8' });
     var a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
@@ -377,7 +439,7 @@
   /* ---- hand-off to the cutting optimizer --------------------------------- */
   $('bSend').addEventListener('click', function () {
     var res = state.result; if (!res) return;
-    var tr = E.buildTransfer(res.rows, 12000);
+    var tr = E.buildTransfer(res.rows);
     if (!tr.items.length) { say(T.msg.nothingToSend, 'warn'); return; }
     if (tr.items.length > MAX_TRANSFER) { say(T.msg.tooBig, 'warn'); return; }
     var url = OPT_URL + '#bbs=' + E.encodeTransfer(tr.items);

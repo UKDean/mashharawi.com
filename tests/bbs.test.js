@@ -61,11 +61,13 @@ test('the sample schedule gives identical results in all three languages', () =>
   const r = ['en', 'ar', 'zh'].map(l => run(TXT[l].sample));
   r.forEach(x => assert.equal(x.ok, true));
   for (const k of ['bars', 'lengthM', 'weightKg']) { assert.equal(r[1].summary.totals[k], r[0].summary.totals[k]); assert.equal(r[2].summary.totals[k], r[0].summary.totals[k]); }
-  // independently: 840 bars, 1835.6 m, 2058.73 kg
-  assert.equal(r[0].summary.totals.bars, 840);
-  near(r[0].summary.totals.lengthM, 1835.6, 1e-9);
-  near(r[0].summary.totals.weightKg, 0.006165 * (256 * 462 + 400 * 151.2 + 100 * 473.6 + 144 * 748.8), 1e-9);
-  assert.deepEqual(r[0].issues.map(i => i.codes[0]), ['lenComma', 'unreadable']);
+  // independently: 860 bars, 1859.6 m; the 12.5 m line is excluded, the no-grade line counted
+  assert.equal(r[0].summary.totals.bars, 860);
+  near(r[0].summary.totals.lengthM, 1859.6, 1e-9);
+  near(r[0].summary.totals.weightKg, 0.006165 * (256 * 462 + 400 * 151.2 + 100 * 473.6 + 144 * 772.8), 1e-9);
+  assert.deepEqual(r[0].issues.map(i => i.codes[0]), ['lenComma', 'overStock', 'unreadable']);
+  assert.equal(r[0].excluded.overStock.bars, 4);
+  assert.deepEqual(r[0].notForOptimizer, { rows: 1, bars: 20 });
 });
 
 test('length unit is never guessed: no unit in header and none chosen stops the analysis', () => {
@@ -126,13 +128,13 @@ test('invalid data is excluded with a reason and never filled in', () => {
   const g = [['Mark', 'Dia', 'Length (mm)', 'Qty'],
     ['a', '', 2000, 1], ['b', '#5', 2000, 1], ['c', 70, 2000, 1], ['d', 'T16', '', 1], ['e', 16, 'abc', 1],
     ['f', 16, '2,350', 1], ['g', 16, -100, 1], ['h', 16, 0, 1], ['i', 16, 2000, 0], ['j', 16, 2000, 2.5],
-    ['k', 16, 2000, ''], ['l', 16, 200000, 1], ['m', 16, 2000, 'ten'], ['n', 16, 2000, 4]];
+    ['k', 16, 2000, ''], ['l', 16, 12500, 1], ['m', 16, 2000, 'ten'], ['n', 16, 2000, 4]];
   const r = run(g);
   assert.equal(r.rows.length, 1);
   assert.equal(r.rows[0].mark, 'n');
   assert.deepEqual(r.issues.map(i => i.mark + ':' + i.codes.join('+')), [
     'a:diaMissing', 'b:diaImperial', 'c:diaInvalid', 'd:lenMissing', 'e:lenInvalid', 'f:lenComma', 'g:lenNotPositive',
-    'h:lenNotPositive', 'i:qtyInvalid', 'j:qtyFraction', 'k:qtyMissing', 'l:lenTooLong', 'm:qtyInvalid']);
+    'h:lenNotPositive', 'i:qtyInvalid', 'j:qtyFraction', 'k:qtyMissing', 'l:overStock', 'm:qtyInvalid']);
 });
 
 test('formula-looking text is data, never evaluated', () => {
@@ -170,13 +172,13 @@ test('multiple diameters: totals by diameter add up to the grand total', () => {
   assert.equal(r.summary.byDiameter.reduce((a, x) => a + x.bars, 0), r.summary.totals.bars);
 });
 
-test('non-standard diameters, long bars and sheet weights are warned about', () => {
-  const g = [['Dia', 'Length (mm)', 'Qty', 'Weight (kg)'], [17, 1000, 1, ''], [16, 13000, 1, 20.517], [16, 1000, 10, 20]];
+test('non-standard diameters and sheet weights are warned about', () => {
+  const g = [['Dia', 'Length (mm)', 'Qty', 'Weight (kg)'], [17, 1000, 1, ''], [16, 12000, 1, 18.939], [16, 1000, 10, 20]];
   const r = run(g);
   const codes = r.warnings.map(w => w.code);
-  assert.ok(codes.includes('diaNonStandard') && codes.includes('overStock') && codes.includes('weightDiff'));
+  assert.ok(codes.includes('diaNonStandard') && codes.includes('weightDiff'));
   assert.deepEqual(r.rows[2].warnings, ['weightDiff']);
-  assert.deepEqual(r.rows[1].warnings, ['overStock']);   // 13 m x 1.57824 = 20.517 kg: matches
+  assert.deepEqual(r.rows[1].warnings, []);              // 12 m x 1.57824 = 18.939 kg: matches
 });
 
 /* ---- XLSX ------------------------------------------------------------- */
@@ -228,7 +230,7 @@ test('XLSX: formulas give their saved value and are flagged; errors and blanks a
 test('XLSX: hostile and unsupported files are refused with a reason', async () => {
   await rejects('dtd.xlsx', 'dtd');
   await rejects('bomb-declared.xlsx', 'partTooLarge');
-  await rejects('bomb-lying.xlsx', 'partTooLarge');
+  await rejects('bomb-lying.xlsx', 'sizeMismatch');
   await rejects('encrypted.xlsx', 'encrypted');
   await rejects('not-a-zip.xlsx', 'notZip');
   await assert.rejects(X.open(new Uint8Array(30 * 1024 * 1024)), e => e.code === 'tooLarge');
@@ -263,11 +265,12 @@ test('large CSV: 100,000 rows analysed, the row limit enforced beyond that', () 
 test('transfer groups by diameter, grade and length, never across them, and feeds the optimizer', () => {
   const g = [['Mark', 'Dia', 'Grade', 'Length (mm)', 'Qty'],
     ['a', 16, 'Gr60', 2350, 10], ['b', 16, 'Gr60', 2350, 5], ['c', 16, 'Gr80', 2350, 7], ['d', 20, 'Gr60', 2350, 3],
-    ['e', 16, 'Gr60', 13000, 2], ['f', 12, '', 1000.4, 4]];
+    ['e', 16, 'Gr60', 13000, 2], ['f', 12, '', 1000, 4], ['g', 12, 'Gr60', 999.6, 4]];
   const r = run(g);
-  const t = E.buildTransfer(r.rows, 12000);
-  assert.deepEqual(t.items, [[12, '', 1000, 4], [16, 'Gr60', 2350, 15], [16, 'Gr80', 2350, 7], [20, 'Gr60', 2350, 3]]);
-  assert.deepEqual(t.tooLong, [6]);
+  const t = E.buildTransfer(r.rows);
+  assert.deepEqual(t.items, [[12, 'Gr60', 1000, 4], [16, 'Gr60', 2350, 15], [16, 'Gr80', 2350, 7], [20, 'Gr60', 2350, 3]]);
+  assert.deepEqual(t.tooLong, []);                                     // row e never got this far
+  assert.deepEqual(t.noGrade, { rows: [7], bars: 4 });                 // row f held back
   assert.equal(t.rounded, 1);
   // round trip through the URL fragment format the optimizer reads
   const payload = E.encodeTransfer(t.items);
@@ -281,7 +284,7 @@ test('transfer groups by diameter, grade and length, never across them, and feed
   assert.equal(res.groups.length, 4);
   // the original rows are untouched
   assert.equal(r.rows.length, 6);
-  assert.equal(r.rows[5].lengthMm, 1000.4);
+  assert.equal(r.rows[5].lengthMm, 999.6);
 });
 
 test('transfer payload with Arabic and Chinese grade text survives encoding', () => {
@@ -310,7 +313,8 @@ test('English, Arabic and Chinese have the same interface keys', () => {
   assert.deepEqual(shape(TXT.zh), shape(TXT.en));
   for (const l of ['en', 'ar', 'zh']) {
     for (const k of Object.keys(TXT.en.issue)) assert.ok(TXT[l].issue[k], l + ' issue ' + k);
-    assert.equal(TXT[l].assume.length, 3);
+    assert.equal(TXT[l].assume.length, 4);
+    assert.match(TXT[l].assume[2], /12,000/);
     assert.match(TXT[l].assume[0], /0\.006165/);
   }
 });
@@ -347,4 +351,110 @@ test('CSV export neutralises formula injection', () => {
   assert.equal(E.csvCell(-12.5), '-12.5');
   assert.equal(E.csvCell('a,b'), '"a,b"');
   assert.ok(E.toCsv([['x']]).startsWith('﻿'));
+});
+
+/* ==== review corrections: 12 m rule, grades, duplicates, XLSX, formula ==== */
+
+test('12 m rule: 12,000 mm included; 12,000.001 mm, 12,500 and 13,000 mm excluded', () => {
+  const g = [['Mark', 'Dia', 'Grade', 'Cut length (mm)', 'Qty'],
+    ['a', 16, 'Gr60', 12000, 2], ['b', 16, 'Gr60', 12000.001, 3], ['c', 16, 'Gr60', 12500, 4], ['d', 16, 'Gr60', 13000, 5]];
+  const r = run(g);
+  assert.deepEqual(r.rows.map(x => x.mark), ['a']);
+  assert.deepEqual(r.issues.map(i => [i.mark, i.codes, i.diameter, i.lengthMm, i.qty]), [
+    ['b', ['overStock'], 16, 12000.001, 3], ['c', ['overStock'], 16, 12500, 4], ['d', ['overStock'], 16, 13000, 5]]);
+  assert.equal(TXT.en.issue.overStock, 'Cut length exceeds the 12 m stock bar limit.');
+  // the same boundary in metres
+  const m = run([['Dia', 'Length (m)', 'Qty'], [16, 12, 1], [16, '12.000001', 1], [16, 12.5, 1]]);
+  assert.deepEqual(m.rows.map(x => x.lengthMm), [12000]);
+  assert.deepEqual(m.issues.map(i => i.lengthMm), [12000.001, 12500]);
+});
+
+test('excluded over-length rows change no total and no summary', () => {
+  const base = [['Member', 'Mark', 'Dia', 'Grade', 'Shape', 'Cut length (mm)', 'Qty'],
+    ['B1', '1', 16, 'Gr60', '21', 2350, 10], ['B1', '2', 20, 'Gr80', '00', 3150, 6], ['C1', '3', 12, 'Gr60', '51', 1200, 40]];
+  const withOver = base.concat([['C1', '4', 16, 'Gr60', '21', 12500, 50], ['C1', '5', 25, 'Gr80', '99', 13000, 7], ['C1', '6', 32, 'NEW', 'Z', 12000.5, 3]]);
+  const a = run(base), b = run(withOver);
+  assert.deepEqual(b.summary, a.summary);             // totals, by diameter, grade, shape, diameter+grade
+  assert.deepEqual(b.rows, a.rows);
+  assert.deepEqual(b.excluded.overStock, { rows: 3, bars: 60, lengthM: 625 + 91 + 36.0015, weightKg: b.excluded.overStock.weightKg, rowsWithoutQty: 0 });
+  near(b.excluded.overStock.weightKg, 0.006165 * (256 * 625 + 625 * 91 + 1024 * 36.0015), 1e-9);
+  assert.deepEqual(E.buildTransfer(b.rows), E.buildTransfer(a.rows));
+});
+
+test('over-length rows can never reach the optimizer, even if forced into the transfer', () => {
+  const forged = [{ row: 9, diameter: 16, grade: 'Gr60', gradeKey: 'GR60', lengthMm: 12000.4, qty: 3 },
+                  { row: 10, diameter: 16, grade: 'Gr60', gradeKey: 'GR60', lengthMm: 13000, qty: 3 },
+                  { row: 11, diameter: 16, grade: 'Gr60', gradeKey: 'GR60', lengthMm: NaN, qty: 3 },
+                  { row: 12, diameter: 16, grade: 'Gr60', gradeKey: 'GR60', lengthMm: 12000, qty: 1 }];
+  const t = E.buildTransfer(forged);
+  assert.deepEqual(t.items, [[16, 'Gr60', 12000, 1]]);
+  assert.deepEqual(t.tooLong, [9, 10, 11]);
+});
+
+test('missing grade: kept in the analysis, never sent, never assumed; explicit assignment only', () => {
+  const g = [['Mark', 'Dia', 'Grade', 'Cut length (mm)', 'Qty'], ['a', 16, '', 2000, 5], ['b', 16, 'Gr60', 2000, 2], ['c', 12, '  ', 1000, 3]];
+  const r = run(g);
+  assert.equal(r.summary.totals.bars, 10);
+  assert.deepEqual(r.notForOptimizer, { rows: 2, bars: 8 });
+  assert.ok(r.rows.filter(x => !x.gradeKey).every(x => x.warnings.includes('gradeMissing')));
+  const t = E.buildTransfer(r.rows);
+  assert.deepEqual(t.items, [[16, 'Gr60', 2000, 2]]);
+  assert.deepEqual(t.noGrade, { rows: [2, 4], bars: 8 });
+  assert.ok(t.items.every(i => i[1] !== ''));
+  // an explicit choice by the user, recorded as such
+  const a = run(g, { assignGrade: 'grade 80' });
+  assert.deepEqual(a.notForOptimizer, { rows: 0, bars: 0 });
+  assert.deepEqual(a.rows.map(x => [x.mark, x.grade, x.gradeAssigned]), [['a', 'Gr80', true], ['b', 'Gr60', false], ['c', 'Gr80', true]]);
+  assert.ok(a.warnings.some(w => w.code === 'gradeAssigned' && w.count === 2 && w.grade === 'Gr80'));
+  assert.deepEqual(E.buildTransfer(a.rows).items, [[12, 'Gr80', 1000, 3], [16, 'Gr60', 2000, 2], [16, 'Gr80', 2000, 5]]);
+  // a blank assignment assigns nothing
+  assert.deepEqual(run(g, { assignGrade: '  ' }).notForOptimizer, { rows: 2, bars: 8 });
+});
+
+test('duplicates: same mark in different members is fine; no member column is flagged; nothing is dropped', () => {
+  const withMember = run([['Member', 'Mark', 'Dia', 'Cut length (mm)', 'Qty'], ['B1', '01', 16, 2000, 4], ['B2', '01', 20, 3000, 2]]);
+  assert.equal(withMember.warnings.filter(w => /^dup/.test(w.code)).length, 0);
+  const noMember = run([['Mark', 'Dia', 'Cut length (mm)', 'Qty'], ['01', 16, 2000, 4], ['01', 20, 3000, 2], ['02', 16, 1000, 1]]);
+  const codes = noMember.warnings.map(w => w.code);
+  assert.ok(codes.includes('dupNoMember'));
+  const c = noMember.warnings.find(w => w.code === 'dupMarkConflict');
+  assert.deepEqual([c.scoped, c.member, c.rows], [false, null, [2, 3]]);
+  assert.equal(noMember.summary.totals.bars, 7);
+  assert.match(TXT.en.warn.dupMarkConflict(c), /Review needed/);
+  assert.doesNotMatch(TXT.en.warn.dupMarkConflict(c), /member/);
+  assert.match(TXT.en.warn.dupNoMember, /cannot be told apart/);
+});
+
+test('XLSX hardening: every hostile fixture is refused with its own reason', async () => {
+  const cases = { 'bad-crc.xlsx': 'crc', 'truncated-local.xlsx': 'corrupt', 'bad-offset.xlsx': 'corrupt', 'duplicate-entry.xlsx': 'duplicate',
+    'external-rel.xlsx': 'rels', 'traversal-rel.xlsx': 'rels', 'malformed-xml.xlsx': 'xml', 'size-mismatch.xlsx': 'sizeMismatch',
+    'method-mismatch.xlsx': 'mismatch' };
+  for (const [f, code] of Object.entries(cases)) await rejects(f, code);
+  for (const lang of ['en', 'ar', 'zh']) for (const code of new Set(Object.values(cases))) assert.ok(TXT[lang].msg.xlsx[code], lang + ' ' + code);
+  // the minimal valid file built the same way is accepted, so the refusals are about the defect
+  const { s } = await sheet('valid-minimal.xlsx');
+  assert.equal(run(s.rows).summary.totals.bars, 4);
+});
+
+test('XLSX helpers: CRC-32, relationship targets, XML well-formedness', () => {
+  const I = X._internal;
+  assert.equal(I.crc32(new TextEncoder().encode('123456789')), 0xcbf43926);
+  assert.equal(I.resolveTarget('worksheets/sheet1.xml'), 'xl/worksheets/sheet1.xml');
+  assert.equal(I.resolveTarget('/xl/worksheets/sheet2.xml'), 'xl/worksheets/sheet2.xml');
+  assert.equal(I.resolveTarget('worksheets/../worksheets/s.xml'), 'xl/worksheets/s.xml');
+  for (const bad of ['../../etc/passwd.xml', '/etc/x.xml', 'https://x.example/s.xml', 'file:///c:/s.xml', 'worksheets\\s.xml', 'worksheets//s.xml', 'worksheets/s.bin', '../docProps/app.xml'])
+    assert.equal(I.resolveTarget(bad), null, bad);
+  I.checkXml('<?xml version="1.0"?><a x="1"><b/><c>t &amp; u</c><!-- c --></a>', 't');
+  for (const bad of ['<a><b></a>', '<a></a><b/>', '<a>1 < 2</a>', '<a', '<a><b></b>'])
+    assert.throws(() => I.checkXml(bad, 't'), e => e.code === 'xml', bad);
+});
+
+test('one nominal weight formula: analyzer and optimizer agree for every diameter', () => {
+  for (const d of [8, 10, 12, 14, 16, 18, 20, 22, 25, 28, 32, 40]) {
+    assert.equal(CutOpt.massPerMetre(d), E.unitWeight(d));
+    near(E.unitWeight(d), 0.006165 * d * d, 0);
+    const a = run([['Dia', 'Grade', 'Cut length (mm)', 'Qty'], [d, 'Gr60', 12000, 7], [d, 'Gr60', 4000, 9]]);
+    const o = CutOpt.optimize({ stockLength: 12000, kerf: 0, items: [{ diameter: d, grade: 'Gr60', length: 12000, qty: 7 }, { diameter: d, grade: 'Gr60', length: 4000, qty: 9 }] });
+    near(o.groups[0].weightRequiredKg, a.summary.totals.weightKg, 1e-9, 'd=' + d);
+  }
 });

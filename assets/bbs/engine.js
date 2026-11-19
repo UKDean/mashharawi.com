@@ -28,7 +28,11 @@
 
   var KG_PER_M_PER_MM2 = 0.006165;
   var STANDARD_DIAS = [6, 8, 10, 12, 14, 16, 18, 20, 22, 25, 28, 32, 36, 40, 50];
-  var LIMITS = { rows: 100000, lengthMaxMm: 100000, qtyMax: 1000000, dMin: 4, dMax: 60, headerScan: 30, text: 60 };
+  // STOCK_MM: business rule. A cut length above one 12 m stock bar cannot be
+  // cut from it, so the row is excluded from every total and from the
+  // optimizer hand-off. 12,000 mm itself is valid.
+  var STOCK_MM = 12000;
+  var LIMITS = { rows: 100000, qtyMax: 1000000, dMin: 4, dMax: 60, headerScan: 30, text: 60, stockMm: STOCK_MM };
 
   function unitWeight(d) { return KG_PER_M_PER_MM2 * d * d; }
 
@@ -214,7 +218,8 @@
 
   /* ---- analysis ---------------------------------------------------------- */
   /* opts: { headerRow, mapping, units: { length, totalLength, weight },
-             formulaCells (Set of "r,c"), errorCells (Set) }
+             formulaCells (Set of "r,c"), errorCells (Set),
+             assignGrade: grade the user chose for rows that have none }
      Returns { ok, error?, rows: valid rows, issues, warnings, summary } */
   function analyze(grid, opts) {
     opts = opts || {};
@@ -270,7 +275,7 @@
         // values that only make sense in the other unit: refuse, do not convert
         if (units.length === 'm' && lv.n > 100) errs.push('unitLooksMm');
         else if (units.length === 'mm' && lv.n < 20) errs.push('unitLooksM');
-        else if (lengthMm > LIMITS.lengthMaxMm) errs.push('lenTooLong');
+        else if (lengthMm > STOCK_MM) errs.push('overStock');
       }
 
       var qty = null, qv = null, nm = null, ne = null;
@@ -290,12 +295,25 @@
       }
       if (qty != null && qty > LIMITS.qtyMax) errs.push('qtyInvalid');
 
-      if (errs.length) { issues.push({ row: rowNo, codes: errs, mark: mark, raw: rawOf(cells) }); continue; }
+      if (errs.length) {
+        issues.push({
+          row: rowNo, codes: errs, mark: mark, member: member, raw: rawOf(cells),
+          // the values as read, for the excluded-rows table; null when unreadable
+          diameter: dv.ok ? dv.n : null, lengthMm: lengthMm, qty: qty,
+          diameterText: text(get('diameter')), lengthText: text(get('length')), qtyText: map.qty != null ? text(get('qty')) : ''
+        });
+        continue;
+      }
 
       if (!dv.standard) warns.push('diaNonStandard');
       if (fromFormula) { warns.push('formula'); formulaRows++; }
+      // a grade the user assigned explicitly to rows that have none
+      var assigned = false;
+      if (!grade.key && opts.assignGrade) {
+        var ag = normGrade(opts.assignGrade);
+        if (ag.key) { grade = { key: ag.key, label: ag.label, raw: '' }; assigned = true; warns.push('gradeAssigned'); }
+      }
       if (map.grade != null && !grade.key) warns.push('gradeMissing');   // per row only when the sheet has a grade column
-      if (lengthMm > 12000) warns.push('overStock');
 
       var uw = unitWeight(dv.n);
       var totLenM = lengthMm * qty / 1000;
@@ -319,16 +337,20 @@
 
       rows.push({
         row: rowNo, mark: mark, member: member, diameter: dv.n, grade: grade.label, gradeKey: grade.key, gradeRaw: grade.raw,
-        shape: shape, lengthMm: lengthMm, qty: qty, unitWeight: uw, totalLengthM: totLenM, weightKg: wt, warnings: warns
+        shape: shape, lengthMm: lengthMm, qty: qty, unitWeight: uw, totalLengthM: totLenM, weightKg: wt, warnings: warns, gradeAssigned: assigned
       });
     }
 
     var warnings = [];
-    // duplicate bar marks (within the same member, when a member column exists)
+    // Repeated bar marks. With a member column, a mark is compared only with
+    // the same mark in the same member: the same mark in another member is
+    // normal. Without one, uniqueness cannot be established, which is said
+    // plainly. Repeats are flagged for review; every row and quantity stays.
+    var hasMember = map.member != null;
     var seen = {};
     rows.forEach(function (x) {
       if (!x.mark) return;
-      var k = (x.member ? x.member.toUpperCase() + '|' : '') + x.mark.toUpperCase();
+      var k = (hasMember ? x.member.toUpperCase() + '|' : '') + x.mark.toUpperCase();
       (seen[k] = seen[k] || []).push(x);
     });
     Object.keys(seen).forEach(function (k) {
@@ -338,14 +360,15 @@
       var conflict = g.some(function (x) { return sig(x) !== sig(g[0]); });
       var code = conflict ? 'dupMarkConflict' : 'dupMark';
       g.forEach(function (x) { if (x.warnings.indexOf(code) < 0) x.warnings.push(code); });
-      warnings.push({ code: code, mark: g[0].mark, member: g[0].member, rows: g.map(function (x) { return x.row; }) });
+      warnings.push({ code: code, mark: g[0].mark, member: hasMember ? g[0].member : null, scoped: hasMember, rows: g.map(function (x) { return x.row; }) });
     });
+    if (map.mark != null && !hasMember && rows.some(function (x) { return x.mark; })) warnings.push({ code: 'dupNoMember' });
     // grade consistency
     var gradeKeys = {}, spellings = {};
     rows.forEach(function (x) {
       if (!x.gradeKey) return;
       gradeKeys[x.gradeKey] = true;
-      (spellings[x.gradeKey] = spellings[x.gradeKey] || {})[x.gradeRaw] = true;
+      if (!x.gradeAssigned) (spellings[x.gradeKey] = spellings[x.gradeKey] || {})[x.gradeRaw] = true;
     });
     var nGrades = Object.keys(gradeKeys).length;
     var noGrade = rows.filter(function (x) { return !x.gradeKey; }).length;
@@ -358,8 +381,8 @@
     });
     var nonStd = uniq(rows.filter(function (x) { return x.warnings.indexOf('diaNonStandard') >= 0; }).map(function (x) { return x.diameter; }));
     if (nonStd.length) warnings.push({ code: 'diaNonStandard', diameters: nonStd });
-    var over = rows.filter(function (x) { return x.lengthMm > 12000; });
-    if (over.length) warnings.push({ code: 'overStock', count: over.length });
+    var assignedRows = rows.filter(function (x) { return x.gradeAssigned; });
+    if (assignedRows.length) warnings.push({ code: 'gradeAssigned', count: assignedRows.length, grade: assignedRows[0].grade });
     if (formulaRows) warnings.push({ code: 'formula', count: formulaRows });
     var wd = rows.filter(function (x) { return x.warnings.indexOf('weightDiff') >= 0; }).length;
     if (wd) warnings.push({ code: 'weightDiff', count: wd });
@@ -368,7 +391,23 @@
     if (tld) warnings.push({ code: 'totalLengthDiff', count: tld });
     if (map.qty == null) warnings.push({ code: 'qtyFromFactors' });
 
-    return { ok: true, rows: rows, issues: issues, warnings: warnings, blankRows: blank, summary: summarise(rows) };
+    // Over-length rows: counted apart, never in the totals above.
+    var over = { rows: 0, bars: 0, lengthM: 0, weightKg: 0, rowsWithoutQty: 0 };
+    issues.forEach(function (x) {
+      if (x.codes.indexOf('overStock') < 0) return;
+      over.rows++;
+      if (x.diameter != null && x.qty != null) {
+        over.bars += x.qty;
+        over.lengthM += x.lengthMm * x.qty / 1000;
+        over.weightKg += unitWeight(x.diameter) * x.lengthMm * x.qty / 1000;
+      } else over.rowsWithoutQty++;
+    });
+    var noGrade = rows.filter(function (x) { return !x.gradeKey; });
+    return {
+      ok: true, rows: rows, issues: issues, warnings: warnings, blankRows: blank, summary: summarise(rows),
+      excluded: { rows: issues.length, overStock: over },
+      notForOptimizer: { rows: noGrade.length, bars: noGrade.reduce(function (a, x) { return a + x.qty; }, 0) }
+    };
   }
 
   function rawOf(cells) {
@@ -405,22 +444,26 @@
   /* ---- hand-off to the cutting optimizer --------------------------------- */
   /* Groups valid rows by diameter, grade and cut length (whole millimetres)
      and adds up the bars. Different diameters or grades are never merged.
-     Lengths are rounded to the millimetre the optimizer works in; rows that
-     move by rounding, or are longer than the stock bar, are reported. */
-  function buildTransfer(rows, stockMm) {
-    stockMm = stockMm || 12000;
-    var groups = {}, order = [], rounded = 0, tooLong = [];
+     Rows without a grade are held back until the user assigns one (it is
+     never assumed). Lengths are rounded to the millimetre the optimizer works
+     in, and the number of rows that moved is reported. */
+  function buildTransfer(rows) {
+    var groups = {}, order = [], rounded = 0, tooLong = [], noGrade = { rows: [], bars: 0 };
     rows.forEach(function (x) {
+      // defensive: analyze() already excludes these, but nothing over the
+      // stock length and nothing without a grade may ever leave this function
+      if (!(x.lengthMm <= STOCK_MM)) { tooLong.push(x.row); return; }
+      if (!x.gradeKey) { noGrade.rows.push(x.row); noGrade.bars += x.qty; return; }
       var mm = Math.round(x.lengthMm);
       if (Math.abs(mm - x.lengthMm) > 1e-9) rounded++;
-      if (mm > stockMm) { tooLong.push(x.row); return; }
+      if (mm > STOCK_MM) { tooLong.push(x.row); return; }
       var k = x.diameter + '|' + x.gradeKey + '|' + mm;
       if (!groups[k]) { groups[k] = [x.diameter, x.grade.slice(0, 20), mm, 0]; order.push(k); }
       groups[k][3] += x.qty;
     });
     var items = order.map(function (k) { return groups[k]; });
     items.sort(function (a, b) { return a[0] - b[0] || (a[1] < b[1] ? -1 : a[1] > b[1] ? 1 : 0) || b[2] - a[2]; });
-    return { items: items, rounded: rounded, tooLong: tooLong };
+    return { items: items, rounded: rounded, tooLong: tooLong, noGrade: noGrade };
   }
 
   // URL-fragment payload: never sent to the server, never stored. base64url
@@ -449,6 +492,6 @@
     parseDelimited: parseDelimited, detectDelimiter: detectDelimiter, detectHeader: detectHeader, matchField: matchField,
     headerUnit: headerUnit, analyze: analyze, buildTransfer: buildTransfer, encodeTransfer: encodeTransfer,
     unitWeight: unitWeight, normGrade: normGrade, readDiameter: readDiameter, readNumber: readNumber,
-    csvCell: csvCell, toCsv: toCsv, FIELD_NAMES: FIELD_NAMES, STANDARD_DIAS: STANDARD_DIAS, LIMITS: LIMITS
+    csvCell: csvCell, toCsv: toCsv, FIELD_NAMES: FIELD_NAMES, STANDARD_DIAS: STANDARD_DIAS, LIMITS: LIMITS, STOCK_MM: STOCK_MM
   };
 });

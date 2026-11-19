@@ -7,7 +7,7 @@ Code: `assets/cutopt/engine.js` (all arithmetic), `assets/cutopt/app.js` (UI, th
 
 Input: stock bar length (default 12 m), kerf (mm), optional allowance per piece (mm), reusable-offcut threshold (m), and a cut list of diameter, grade, length and pieces. Lines can be typed or pasted from Excel (diameter, length m, pieces, grade).
 
-Output per diameter and grade: number of stock bars, cutting patterns with counts, required / purchased / waste length, waste % and utilisation %, kerf and allowance loss, reusable offcuts by length and count, and nominal weight (0.006165 x d² kg/m, the same formula as the rebar weight calculator). Report: print / PDF, CSV (formula-injection safe), and a WhatsApp summary that asks for confirmation first.
+Output per diameter and grade: number of stock bars, cutting patterns with counts, required / purchased / waste length, waste % and utilisation %, kerf and allowance loss, reusable offcuts by length and count, and nominal weight (0.006165 × d² kg/m, the same constant as the BBS Analyzer). Report: print / PDF, CSV (formula-injection safe), and a WhatsApp summary that asks for confirmation first.
 
 ## Algorithm
 
