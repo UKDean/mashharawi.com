@@ -127,3 +127,6 @@ th { background: var(--surface); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
+/* Long URLs (store links) wrap instead of widening the page on phones. */
+.doc p, .doc li, .doc td, .doc a { overflow-wrap: anywhere; }
