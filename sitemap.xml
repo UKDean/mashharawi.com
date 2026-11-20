@@ -53,6 +53,7 @@
     <loc>https://mashharawi.com/tools/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/tools/"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/tools/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/tools/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/tools/"/>
     <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
@@ -62,10 +63,20 @@
     <loc>https://mashharawi.com/ar/tools/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/tools/"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/tools/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/tools/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/tools/"/>
     <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mashharawi.com/zh/tools/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/tools/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/tools/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/tools/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/tools/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mashharawi.com/tools/rebar-weight/</loc>
@@ -555,6 +566,60 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/kavro/terms/"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/kavro/terms/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/kavro/terms/"/>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://mashharawi.com/kavro/privacy-choices/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/kavro/privacy-choices/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/kavro/privacy-choices/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/kavro/privacy-choices/"/>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://mashharawi.com/ar/kavro/privacy-choices/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/kavro/privacy-choices/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/kavro/privacy-choices/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/kavro/privacy-choices/"/>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://mashharawi.com/kavro/cookies/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/kavro/cookies/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/kavro/cookies/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/kavro/cookies/"/>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://mashharawi.com/ar/kavro/cookies/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/kavro/cookies/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/kavro/cookies/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/kavro/cookies/"/>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://mashharawi.com/kavro/disclaimer/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/kavro/disclaimer/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/kavro/disclaimer/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/kavro/disclaimer/"/>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://mashharawi.com/ar/kavro/disclaimer/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/kavro/disclaimer/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/kavro/disclaimer/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/kavro/disclaimer/"/>
     <lastmod>2026-11-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>

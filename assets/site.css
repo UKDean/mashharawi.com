@@ -1315,7 +1315,9 @@ header{view-transition-name:site-header}
 html[lang="ar"] .c-header__name{font:400 clamp(19px,1.9vw,24px) var(--f-ar-display)}
 .c-header .c-header__nav{display:flex;align-items:center;gap:34px;position:static;background:none;border:0;font:400 13px var(--f-body);color:var(--fg-2)}
 html[lang="ar"] .c-header .c-header__nav{font:400 15px var(--f-ar-body)}
-.c-header__nav a{display:inline;padding:0;font:inherit;letter-spacing:0;text-transform:none;color:inherit;text-decoration:none;border:0}
+.c-header__nav a{display:inline;padding:0;font:inherit;letter-spacing:0;text-transform:none;color:inherit;text-decoration:none;border:0;white-space:nowrap}
+/* Tablets: the full menu still shows, so tighten the spacing instead of letting it overflow. */
+@media (min-width:761px) and (max-width:1100px){.c-header{gap:20px}.c-header .c-header__nav{gap:clamp(14px,2vw,22px)}}
 .c-header__nav a::after{content:none}
 .c-header__nav a:hover{color:var(--fg)}
 .c-header__nav [aria-current="page"]{color:var(--fg);border-bottom:1px solid var(--fg);padding-bottom:2px}
@@ -1329,6 +1331,12 @@ html[lang="ar"] .c-header__nav .c-header__lang{font:400 13px var(--f-body)}
   .c-header .c-header__nav{display:none}
   .c-header__menu{display:flex}
   .c-header.is-open .c-header__nav{display:flex;flex-direction:column;align-items:flex-start;gap:22px;position:fixed;inset:0;z-index:1;background:var(--bg);padding:96px var(--pad-x);font-size:22px}
+}
+/* The Chinese menu is the longest: below 820px it does not fit beside the name, so use the menu button. */
+@media (min-width:761px) and (max-width:819px){
+  html[lang="zh-Hans"] .c-header .c-header__nav{display:none}
+  html[lang="zh-Hans"] .c-header__menu{display:flex}
+  html[lang="zh-Hans"] .c-header.is-open .c-header__nav{display:flex;flex-direction:column;align-items:flex-start;gap:22px;position:fixed;inset:0;z-index:1;background:var(--bg);padding:96px var(--pad-x);font-size:22px}
 }
 
 /* ---------- hero ---------- */
