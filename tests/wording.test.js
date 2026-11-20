@@ -158,4 +158,68 @@ test('every supply list (q-facts) carries the approved supply line for its langu
   assert.ok(lists >= 30, `expected the supply list on many pages, found ${lists}`);
 });
 
-module.exports = { findDeliveryClaims };
+// ---------- Chinese cutting service: always subject to confirmation ----------
+// A sentence that offers cutting (可按…切割, 我们可以按…切割, 提供…切割,
+// 按所需尺寸切割 …) must carry 须经确认 / 经确认后 in the same sentence.
+// Questions (吗/？/是否) and general advice that does not offer the service
+// (钢厂按单切割, 按下料单在工厂切割可以减少涂层损伤) are not offers.
+const ZH_CUT_OFFER = /(?:可按|可以按|我们可以按|可提供|提供|支持)[^。；，？]{0,14}(?:切割|切好)|按(?:所需|指定)?(?:尺寸|长度)切(?:割|好)/;
+const ZH_CONFIRMED = /须经确认|经确认后|须经过确认/;
+function findUnconditionalCuttingZh(text) {
+  const hits = [];
+  text.split('\n').forEach((line, i) => {
+    for (const unit of line.split(/[。！\n<>"]/)) {
+      if (!ZH_CUT_OFFER.test(unit)) continue;
+      if (/[？?]|吗|是否/.test(unit)) continue;
+      if (!ZH_CONFIRMED.test(unit)) hits.push({ line: i + 1, match: unit.trim().slice(0, 60) });
+    }
+  });
+  return hits;
+}
+const ZH_CUT_FLAG = [
+  '10–32 毫米，12 米定尺，可按钢筋下料单切割，可提供环氧涂层钢筋。',
+  '"description": "10–32毫米钢筋，12米定尺，Grade 60 / Grade 80，可按下料单切割，可提供环氧涂层钢筋"',
+  '我们可以按您的钢筋下料单或所需长度切割钢筋，规格 10–32 毫米。',
+  '<div><dt>切割</dt><dd>按所需尺寸切割（可按钢筋下料单）</dd></div>',
+  '可以按钢筋下料单在工厂切割，减少现场切割造成的涂层损伤。',
+  '提供按尺寸切割和环氧涂层。',
+  '把钢筋下料单（BBS）发给钢厂，按尺寸切割、按编号打捆送到现场。',
+];
+const ZH_CUT_OK = [
+  '10–32 毫米，12 米定尺，可按钢筋下料单切割（须经确认），可提供环氧涂层钢筋。',
+  '<div><dt>切割</dt><dd>按所需尺寸切割（可按钢筋下料单），须经确认</dd></div>',
+  '把钢筋下料单（BBS）发给钢厂，经确认后按尺寸切割、按编号打捆送到现场。',
+  '<li>按指定长度切割，须经确认</li>', '可以，按指定长度切割须经确认。',
+  '环氧涂层钢筋可以切割吗？', '<li><strong>加工要求：</strong>是否需要按尺寸切割，是否需要环氧涂层。</li>',
+  '按钢筋下料单在工厂切割，可以减少现场切割造成的涂层损伤。', '建议由项目的钢筋工程师出具下料单，钢厂按单切割。',
+  '<li>按钢筋下料单（BBS）切割和弯曲。</li>', '沙特钢筋供应、切割加工与重量计算的中文资料。',
+];
+
+test('Chinese cutting check flags unconditional offers and accepts confirmed ones, questions and advice', () => {
+  assert.deepEqual(ZH_CUT_FLAG.filter((s) => findUnconditionalCuttingZh(s).length === 0), [], 'offers not flagged');
+  assert.deepEqual(ZH_CUT_OK.filter((s) => findUnconditionalCuttingZh(s).length > 0), [], 'wrongly flagged');
+});
+
+test('every Chinese offer of cutting on the site, in articles and in scheduled posts is subject to confirmation', () => {
+  const hits = FILES.filter((f) => /\.(html|md|txt|xml|json|js|py)$/.test(f))
+    .flatMap((f) => findUnconditionalCuttingZh(fs.readFileSync(path.join(ROOT, f), 'utf8')).map((h) => `${f}:${h.line}: ${h.match}`));
+  assert.deepEqual(hits, []);
+});
+
+// ---------- English supply page metadata ----------
+test('rebar page description, Open Graph and JSON-LD carry the same short supply terms', () => {
+  const t = fs.readFileSync(path.join(ROOT, 'rebar/index.html'), 'utf8');
+  const meta = (t.match(/<meta name="description" content="([^"]+)"/) || [])[1];
+  const og = (t.match(/<meta property="og:description" content="([^"]+)"/) || [])[1];
+  const ld = [...t.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+    .map((m) => JSON.parse(m[1])).find((d) => d['@type'] === 'WebPage' || d.url === 'https://mashharawi.com/rebar/');
+  assert.ok(meta && og && ld, 'description, og:description and JSON-LD WebPage present');
+  assert.equal(og, meta);
+  assert.equal(ld.description, meta);
+  for (const c of ['payment confirmation or LC approval', 'company procedures', 'product availability', 'the agreed delivery schedule']) {
+    assert.ok(meta.includes(c), `description lacks "${c}"`);
+  }
+  assert.ok(meta.length <= 170, `description is ${meta.length} characters`);
+});
+
+module.exports = { findDeliveryClaims, findUnconditionalCuttingZh };
