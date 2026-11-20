@@ -39,6 +39,9 @@ PAIRS = [
     ("/kavro/open-source/", "/ar/kavro/open-source/", "0.4", "0.3"),
     ("/kavro/privacy/", "/ar/kavro/privacy/", "0.3", "0.3"),
     ("/kavro/terms/", "/ar/kavro/terms/", "0.3", "0.3"),
+    ("/kavro/privacy-choices/", "/ar/kavro/privacy-choices/", "0.3", "0.3"),
+    ("/kavro/cookies/", "/ar/kavro/cookies/", "0.3", "0.3"),
+    ("/kavro/disclaimer/", "/ar/kavro/disclaimer/", "0.3", "0.3"),
     ("/about/", "/ar/about/", "0.7", "0.6"),
     ("/contact/", "/ar/contact/", "0.5", "0.4"),
     ("/privacy/", "/ar/privacy/", "0.3", "0.3"),
@@ -51,12 +54,13 @@ SINGLES = [
 # gives the English page a Chinese page translates, so both carry hreflang
 # alternates; ZH_PAGES lists every Chinese page and its priority. Same rule:
 # a page not listed here disappears from the sitemap on the next build.
-ZH_TWINS = {"/rebar/": "/zh/rebar/", "/tools/cutting-optimizer/": "/zh/rebar-cutting-optimizer/", "/tools/bbs-analyzer/": "/zh/bbs-analyzer/", "/tools/steel-weight-verification/": "/zh/steel-weight-verification/", "/help/": "/zh/help/", "/help/cutting-optimizer/": "/zh/help/cutting-optimizer/", "/help/bbs-analyzer/": "/zh/help/bbs-analyzer/", "/help/steel-weight-verification/": "/zh/help/steel-weight-verification/", "/tools/construction-dictionary/": "/zh/tools/construction-dictionary/", "/help/construction-dictionary/": "/zh/help/construction-dictionary/", "/tools/smart-rfq-generator/": "/zh/tools/smart-rfq-generator/", "/help/smart-rfq-generator/": "/zh/help/smart-rfq-generator/"}
+ZH_TWINS = {"/rebar/": "/zh/rebar/", "/tools/": "/zh/tools/", "/tools/cutting-optimizer/": "/zh/rebar-cutting-optimizer/", "/tools/bbs-analyzer/": "/zh/bbs-analyzer/", "/tools/steel-weight-verification/": "/zh/steel-weight-verification/", "/help/": "/zh/help/", "/help/cutting-optimizer/": "/zh/help/cutting-optimizer/", "/help/bbs-analyzer/": "/zh/help/bbs-analyzer/", "/help/steel-weight-verification/": "/zh/help/steel-weight-verification/", "/tools/construction-dictionary/": "/zh/tools/construction-dictionary/", "/help/construction-dictionary/": "/zh/help/construction-dictionary/", "/tools/smart-rfq-generator/": "/zh/tools/smart-rfq-generator/", "/help/smart-rfq-generator/": "/zh/help/smart-rfq-generator/"}
 ZH_PAGES = [
     ("/zh/", "0.8"),
     ("/zh/rebar/", "0.9"),
     ("/zh/rebar-cutting-bending/", "0.8"),
     ("/zh/rebar-weight-table/", "0.8"),
+    ("/zh/tools/", "0.7"),
     ("/zh/rebar-cutting-optimizer/", "0.8"),
     ("/zh/bbs-analyzer/", "0.8"),
     ("/zh/steel-weight-verification/", "0.7"),
@@ -196,7 +200,7 @@ def shell(lang, d, title, desc, canon, body, head="", robots=None, fonts=None, o
 <meta property="og:image" content="{og_image or (SITE + '/og-noir' + ('-ar' if lang == 'ar' else '') + '.jpg')}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="alternate" type="application/rss+xml" title="{AUTHOR} notes" href="{SITE}/feed.xml">
-<link rel="stylesheet" href="/assets/site.css?v=20261031">
+<link rel="stylesheet" href="/assets/site.css?v=20261120">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 {f}
