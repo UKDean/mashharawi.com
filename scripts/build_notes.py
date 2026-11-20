@@ -135,7 +135,7 @@ def quote_band(lang):
       <h2 id="qb-h">تحتاج حديد تسليح لمشروعك؟</h2>
       <p>أنا رئيس قسم في الراجحي للحديد. أرسل لي المقاسات والكميات أو جدول التفريد، وأرجع لك بعرض سعر.</p>
       <ul class="q-facts">
-        <li>10 إلى 32 مم · طول 12 م</li><li>Grade 60 و Grade 80</li><li>قص حسب الطلب</li><li>دهان إيبوكسي</li><li>شهادات المطحنة للمقاسات والدرجة المطلوبة</li><li>تسليم فوري بعد الدفع أو الاعتماد البنكي وفق إجراءات الشركة</li><li>الرياض · جدة · القصيم · الطائف</li><li>شحن لجميع مناطق المملكة</li>
+        <li>المقاسات 10، 12، 14، 16، 18، 20، 25، 32 مم &middot; طول 12 م</li><li>Grade 60 و Grade 80</li><li>يتوفر حديد تسليح مدهون بالإيبوكسي</li><li>شهادات المطحنة (MTC) للمقاسات والدرجة المطلوبة</li><li>القص حسب الأطوال المحددة، بعد التأكيد</li><li>تأكيد متطلبات الثني قبل عرض السعر</li><li>التوريد بعد تأكيد الدفع أو اعتماد الاعتماد المستندي (LC)، وفق إجراءات الشركة وتوفر المنتج وجدول التسليم المتفق عليه</li>
       </ul>
       <div class="q-actions">
         <a class="q-btn q-btn--wa" href="https://wa.me/message/D6ABM7QFWVSPB1" target="_blank" rel="noopener">تواصل على واتساب</a>
@@ -150,7 +150,7 @@ def quote_band(lang):
       <h2 id="qb-h">Need reinforcing steel for a project?</h2>
       <p>I am a Section Head at Al Rajhi Steel. Send me the sizes and quantities, or the bar bending schedule, and I will come back with a quotation.</p>
       <ul class="q-facts">
-        <li>10 to 32 mm · 12 m bars</li><li>Grade 60 and Grade 80</li><li>Cut to length</li><li>Epoxy coating</li><li>Mill test certificates for the sizes and grade ordered</li><li>Immediate delivery after payment or LC, subject to company procedures</li><li>Riyadh · Jeddah · Qassim · Taif</li><li>Shipping across Saudi Arabia</li>
+        <li>Sizes 10, 12, 14, 16, 18, 20, 25 and 32 mm &middot; 12 m bars</li><li>Grade 60 and Grade 80</li><li>Epoxy-coated rebar available</li><li>Mill test certificates (MTC) for the sizes and grade ordered</li><li>Cutting to specified lengths, subject to confirmation</li><li>Bending requirements confirmed before quotation</li><li>Supply after payment confirmation or LC approval, subject to company procedures, product availability and the agreed delivery schedule</li>
       </ul>
       <div class="q-actions">
         <a class="q-btn q-btn--wa" href="https://wa.me/message/D6ABM7QFWVSPB1" target="_blank" rel="noopener">Message on WhatsApp</a>
