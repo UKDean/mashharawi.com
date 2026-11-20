@@ -1536,3 +1536,12 @@ html[lang="ar"] .q-spec dt{font:400 14px var(--f-ar-body);letter-spacing:0;text-
 .q-fab:hover{background:#17623D;color:#fff}
 .q-fab:focus-visible{outline:2px solid #fff;outline-offset:2px}
 @media print{.q-fab,.q-band,#cQuote{display:none!important}}
+
+/* ---------- tools box at the end of a note ---------- */
+.note-tools{margin-top:clamp(40px,5vw,64px);max-width:860px}
+.note-tools h2{margin:0;font:300 var(--t-h3) var(--f-display);color:var(--fg)}
+html[lang="ar"] .note-tools h2{font:400 26px/1.4 var(--f-ar-display)}
+.note-tools__sub{margin:6px 0 18px;color:var(--fg-3);font:300 15px/1.6 var(--f-body)}
+html[lang="ar"] .note-tools__sub{font:300 15px/1.8 var(--f-ar-body)}
+.note-tools .c-row__num{font-size:16px;padding-top:6px}
+@media print{.note-tools{display:none}}

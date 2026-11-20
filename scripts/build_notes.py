@@ -200,7 +200,7 @@ def shell(lang, d, title, desc, canon, body, head="", robots=None, fonts=None, o
 <meta property="og:image" content="{og_image or (SITE + '/og-noir' + ('-ar' if lang == 'ar' else '') + '.jpg')}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="alternate" type="application/rss+xml" title="{AUTHOR} notes" href="{SITE}/feed.xml">
-<link rel="stylesheet" href="/assets/site.css?v=20261120">
+<link rel="stylesheet" href="/assets/site.css?v=20261120b">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 {f}
@@ -246,6 +246,87 @@ def jstr(s):
     return '"' + s.replace("\\", "\\\\").replace('"', '\\"') + '"'
 
 
+# Tools box at the end of every note: the two tools that fit the subject best,
+# then the RFQ generator, so a reader who came from search can act on it.
+_TOOLS = {
+    "rfq": ("smart-rfq-generator", "engineers",
+            ("Smart RFQ generator", "Prepare a clear rebar request for quotation, then print it or send it."),
+            ("منشئ طلب عرض السعر", "جهّز طلب عرض سعر حديد تسليح واضحاً، ثم اطبعه أو أرسله.")),
+    "weight": ("rebar-weight", None,
+               ("Reinforcing steel weight", "Diameter to kilos per metre, per bar and per tonne."),
+               ("وزن حديد التسليح", "من القطر إلى الكيلو للمتر والسيخ والطن.")),
+    "verify": ("steel-weight-verification", "macro",
+               ("Steel weight verification", "Compare a weighed sample with its nominal weight, in kg and %."),
+               ("التحقق من وزن الحديد", "قارن وزن عينة الحديد المقاس بوزنها الاسمي، بالكيلو والنسبة.")),
+    "bbs": ("bbs-analyzer", "columns",
+            ("BBS Analyzer", "Open a bar bending schedule from Excel or CSV: bars, length and weight by diameter."),
+            ("محلل جدول التفريد", "افتح جدول التفريد من إكسل أو CSV: الأعداد والأطوال والأوزان حسب القطر.")),
+    "cut": ("cutting-optimizer", "sparks",
+            ("Rebar cutting optimizer", "Cutting patterns from 12 m bars, the waste and the tonnes to order."),
+            ("تحسين قص حديد التسليح", "خطة القص من أسياخ 12 م، ونسبة الهالك، والطن المطلوب لكل قطر.")),
+    "sections": ("steel-sections", None,
+                 ("Steel section weight", "182 sizes of IPE, HEA, HEB, UPN and angles, plus pipe and tube."),
+                 ("أوزان المقاطع الحديدية", "182 مقاساً من IPE وHEA وHEB وUPN والزوايا، ومعها المواسير.")),
+    "dict": ("construction-dictionary", "rebar-site",
+             ("Construction dictionary", "189 site terms in English, Arabic and Chinese, with short definitions."),
+             ("قاموس مصطلحات البناء", "189 مصطلحاً للموقع بالعربية والإنجليزية والصينية، مع تعريف مختصر.")),
+}
+_TOOL_WORDS = {
+    "weight": r"وزن|أوزان|الطن|طن|أسياخ|weight|tonne|tolerance",
+    "verify": r"تفاوت|هامش|سماحية|tolerance|weigh|ميزان",
+    "bbs": r"تفريد|BBS|bar bending schedule|bending schedule",
+    "cut": r"طول القص|القص|هالك|cut length|cutting|waste|offcut",
+    "sections": r"IPE|HEA|HEB|UPN|كمرات|مقاطع|sections?",
+    "dict": r"مصطلح|terminolog|中文|بالصينية|Chinese",
+}
+_LEGACY_IMG = {"rebar-weight": ("/assets/img/rebar-bundle-800.webp", 800, 447),
+               "steel-sections": ("/assets/img/rebar-yard-800.webp", 800, 436)}
+
+
+_STOCK_SIZE = {"engineers": (1400, 933), "sparks": (1400, 1050), "columns": (800, 583),
+               "macro": (1400, 933), "rebar-site": (900, 720)}
+
+
+def _stock_img(name):
+    w, h = _STOCK_SIZE[name]
+    widths = [x for x in (320, 480, 640, 800)
+              if os.path.exists(os.path.join(ROOT, "assets", "img", "stock", f"{name}-{x}w.webp"))]
+    srcset = ", ".join([f"/assets/img/stock/{name}-{x}w.webp {x}w" for x in widths] + [f"/assets/img/stock/{name}.webp {w}w"])
+    return f'<img src="/assets/img/stock/{name}-640w.webp" srcset="{srcset}" sizes="(max-width:760px) 84px, 168px" width="{w}" height="{h}" alt="" loading="lazy" decoding="async">'
+
+
+def tools_box(n):
+    text = " ".join([n["title"], n["summary"], n["slug"], re.sub(r"<[^>]+>", " ", n["body"])])
+    score = {k: len(re.findall(p, text, re.I)) for k, p in _TOOL_WORDS.items()}
+    picks = [k for k, s in sorted(score.items(), key=lambda kv: -kv[1]) if s > 0][:2]
+    for k in ("weight", "bbs"):
+        if len(picks) < 2 and k not in picks:
+            picks.append(k)
+    picks.append("rfq")
+    ar = n["lang"] == "ar"
+    base = "/ar/tools/" if ar else "/tools/"
+    rows = []
+    for i, k in enumerate(picks, 1):
+        slug, img, en, arx = _TOOLS[k]
+        title, desc = arx if ar else en
+        if img:
+            pic = _stock_img(img)
+        else:
+            src, w, h = _LEGACY_IMG[slug]
+            pic = f'<img src="{src}" width="{w}" height="{h}" alt="" loading="lazy" decoding="async">'
+        rows.append(f'          <a class="c-row" href="{base}{slug}/">\n'
+                    f'            <span class="c-row__num" aria-hidden="true">0{i}</span>\n'
+                    f'            <span><span class="c-row__title">{title}</span><span class="c-row__desc">{desc}</span></span>\n'
+                    f'            <span class="c-row__thumb">{pic}</span>\n'
+                    f'          </a>')
+    head = "أدوات مجانية لهذا الموضوع" if ar else "Free tools for this topic"
+    sub = ("تعمل داخل المتصفح، بلا تسجيل، ولا يُحفظ أي شيء تدخله." if ar
+           else "They run in your browser, with no sign-up, and keep nothing you enter.")
+    return (f'      <section class="note-tools" aria-labelledby="nt-h">\n'
+            f'        <h2 id="nt-h">{head}</h2>\n        <p class="note-tools__sub">{sub}</p>\n'
+            f'        <div class="c-rows">\n' + "\n".join(rows) + '\n        </div>\n      </section>\n')
+
+
 def note_page(n):
     e = html.escape
     label = "مقال" if n["lang"] == "ar" else "Note"
@@ -277,7 +358,7 @@ def note_page(n):
       <div class="prose c-prose">
 {n['body']}
       </div>
-      <p class="note-back"><a href="{'/ar/writing/' if n['lang'] == 'ar' else '/writing/'}">{'&rarr;' if n['lang'] == 'ar' else '&larr;'} {alln}</a></p>
+{tools_box(n)}      <p class="note-back"><a href="{'/ar/writing/' if n['lang'] == 'ar' else '/writing/'}">{'&rarr;' if n['lang'] == 'ar' else '&larr;'} {alln}</a></p>
     </div>
   </article>"""
     # Add the author suffix only while the full title fits Google's ~65 characters.

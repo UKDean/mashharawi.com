@@ -118,3 +118,18 @@ test('help indexes no longer say there are three tools', () => {
   const bad = { '/help/': /three tools for/i, '/ar/help/': /ثلاث أدوات/, '/zh/help/': /三个钢筋工具/ };
   for (const [u, re] of Object.entries(bad)) assert.doesNotMatch(read(u), re, u);
 });
+
+test('every article ends with a tools box that links the RFQ generator in its own language', () => {
+  const arts = PAGES.filter((u) => /^\/(ar\/)?writing\/[^/]+\/$/.test(u) || /^\/writing\/[^/]+\/$/.test(u));
+  assert.ok(arts.length >= 8, `found ${arts.length} articles`);
+  for (const u of arts) {
+    const h = read(u);
+    const box = (h.match(/<section class="note-tools"[\s\S]*?<\/section>/) || [''])[0];
+    assert.ok(box, `${u}: no tools box`);
+    const ar = /<html lang="ar"/.test(h);
+    assert.ok(box.includes(`href="${ar ? '/ar' : ''}/tools/smart-rfq-generator/"`), `${u}: RFQ link missing or wrong language`);
+    const links = [...box.matchAll(/href="([^"]+)"/g)].map((m) => m[1]);
+    assert.equal(links.length, 3, `${u}: expected 3 tools`);
+    for (const l of links) assert.ok(PAGES.includes(l), `${u}: ${l} does not exist`);
+  }
+});
