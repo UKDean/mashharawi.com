@@ -1,0 +1,58 @@
+name: External links
+
+# Every Sunday at 11:00 Riyadh (08:00 UTC): check every external link in the
+# site's HTML and notes with lychee (github.com/lycheeverse/lychee). Internal
+# links are checked on every PR by tests/seo.test.js; this job covers the
+# outside world (standards bodies, articles, app stores) that can move or die.
+#
+# Social and messaging sites that block bots (LinkedIn, X, WhatsApp, WeChat)
+# are excluded: they answer 999/403 to crawlers even when the link is fine.
+# A failure opens (or updates) one issue labelled "external-links", which
+# closes itself on the next clean run.
+on:
+  schedule:
+    - cron: '0 8 * * 0'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check external links
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          fail: false
+          output: ./lychee-report.md
+          args: >-
+            --no-progress
+            --scheme https --scheme http
+            --exclude-path motion --exclude-path tests --exclude-path node_modules
+            --exclude 'linkedin\.com' --exclude '(^|\.)x\.com' --exclude 'twitter\.com'
+            --exclude 'wa\.me' --exclude 'wechat\.com' --exclude 'mashharawi\.com'
+            --exclude 'fonts\.(googleapis|gstatic)\.com'
+            --max-retries 3 --timeout 30
+            './**/*.html' './notes/**/*.md'
+
+      - name: Open or update the issue
+        if: steps.lychee.outputs.exit_code != 0
+        run: |
+          gh label create external-links --color D93F0B --description "Weekly external link check" 2>/dev/null || true
+          n=$(gh issue list --label external-links --state open --json number -q '.[0].number')
+          if [ -n "$n" ]; then gh issue comment "$n" --body-file lychee-report.md
+          else gh issue create --title "Broken external links" --label external-links --body-file lychee-report.md; fi
+
+      - name: Close the issue when clean
+        if: steps.lychee.outputs.exit_code == 0
+        run: |
+          for n in $(gh issue list --label external-links --state open --json number -q '.[].number'); do
+            gh issue close "$n" --comment "All external links fine on $(date -u +%F)."
+          done
