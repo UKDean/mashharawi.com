@@ -1,0 +1,31 @@
+name: Lighthouse
+
+# Performance, accessibility, best practices and SEO scores for the key
+# pages on every pull request that touches HTML, CSS or JS. Runs Lighthouse
+# against the repository files served locally (no deploy needed), uploads the
+# full reports as an artifact and to temporary public storage (links appear in
+# the job log), and warns on low scores without blocking the merge.
+on:
+  pull_request:
+    paths:
+      - '**.html'
+      - 'assets/**'
+      - 'lighthouserc.json'
+      - '.github/workflows/lighthouse.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Lighthouse on key pages
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          configPath: ./lighthouserc.json
+          uploadArtifacts: true
+          temporaryPublicStorage: true

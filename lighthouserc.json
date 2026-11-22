@@ -1,0 +1,28 @@
+{
+  "ci": {
+    "collect": {
+      "staticDistDir": ".",
+      "numberOfRuns": 1,
+      "url": [
+        "http://localhost/index.html",
+        "http://localhost/ar/index.html",
+        "http://localhost/zh/index.html",
+        "http://localhost/rebar/index.html",
+        "http://localhost/ar/rebar/index.html",
+        "http://localhost/zh/rebar/index.html",
+        "http://localhost/ar/rebar/riyadh/index.html",
+        "http://localhost/tools/rebar-weight/index.html",
+        "http://localhost/writing/rebar-weight-table/index.html"
+      ],
+      "settings": { "preset": "desktop" }
+    },
+    "assert": {
+      "assertions": {
+        "categories:performance": ["warn", { "minScore": 0.85 }],
+        "categories:accessibility": ["warn", { "minScore": 0.9 }],
+        "categories:best-practices": ["warn", { "minScore": 0.9 }],
+        "categories:seo": ["warn", { "minScore": 0.95 }]
+      }
+    }
+  }
+}
