@@ -17,6 +17,8 @@ NOTES, OUT = os.path.join(ROOT, "notes"), os.path.join(ROOT, "writing")
 PAIRS = [
     ("/", "/ar/", "1.0", "0.9"),
     ("/rebar/", "/ar/rebar/", "0.9", "0.9"),
+    ("/rebar/riyadh/", "/ar/rebar/riyadh/", "0.8", "0.8"),
+    ("/rebar/jeddah/", "/ar/rebar/jeddah/", "0.8", "0.8"),
     ("/tools/", "/ar/tools/", "0.9", "0.8"),
     ("/tools/rebar-weight/", "/ar/tools/rebar-weight/", "0.9", "0.8"),
     ("/tools/steel-sections/", "/ar/tools/steel-sections/", "0.9", "0.8"),
@@ -54,7 +56,7 @@ SINGLES = [
 # gives the English page a Chinese page translates, so both carry hreflang
 # alternates; ZH_PAGES lists every Chinese page and its priority. Same rule:
 # a page not listed here disappears from the sitemap on the next build.
-ZH_TWINS = {"/rebar/": "/zh/rebar/", "/tools/": "/zh/tools/", "/tools/cutting-optimizer/": "/zh/rebar-cutting-optimizer/", "/tools/bbs-analyzer/": "/zh/bbs-analyzer/", "/tools/steel-weight-verification/": "/zh/steel-weight-verification/", "/help/": "/zh/help/", "/help/cutting-optimizer/": "/zh/help/cutting-optimizer/", "/help/bbs-analyzer/": "/zh/help/bbs-analyzer/", "/help/steel-weight-verification/": "/zh/help/steel-weight-verification/", "/tools/construction-dictionary/": "/zh/tools/construction-dictionary/", "/help/construction-dictionary/": "/zh/help/construction-dictionary/", "/tools/smart-rfq-generator/": "/zh/tools/smart-rfq-generator/", "/help/smart-rfq-generator/": "/zh/help/smart-rfq-generator/"}
+ZH_TWINS = {"/": "/zh/", "/rebar/": "/zh/rebar/", "/tools/": "/zh/tools/", "/tools/cutting-optimizer/": "/zh/rebar-cutting-optimizer/", "/tools/bbs-analyzer/": "/zh/bbs-analyzer/", "/tools/steel-weight-verification/": "/zh/steel-weight-verification/", "/help/": "/zh/help/", "/help/cutting-optimizer/": "/zh/help/cutting-optimizer/", "/help/bbs-analyzer/": "/zh/help/bbs-analyzer/", "/help/steel-weight-verification/": "/zh/help/steel-weight-verification/", "/tools/construction-dictionary/": "/zh/tools/construction-dictionary/", "/help/construction-dictionary/": "/zh/help/construction-dictionary/", "/tools/smart-rfq-generator/": "/zh/tools/smart-rfq-generator/", "/help/smart-rfq-generator/": "/zh/help/smart-rfq-generator/"}
 ZH_PAGES = [
     ("/zh/", "0.8"),
     ("/zh/rebar/", "0.9"),
