@@ -5,6 +5,10 @@ name: Lighthouse
 # against the repository files served locally (no deploy needed), uploads the
 # full reports as an artifact and to temporary public storage (links appear in
 # the job log), and warns on low scores without blocking the merge.
+#
+# The robots-txt audit is off: robots.txt carries a Content-Signal line
+# (contentsignals.org) that Lighthouse does not know and calls invalid;
+# Google and Bing ignore unknown lines, so it is a false alarm.
 on:
   pull_request:
     paths:
