@@ -781,7 +781,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/writing/"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/writing/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/writing/"/>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -790,9 +790,15 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://mashharawi.com/writing/"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/writing/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mashharawi.com/writing/"/>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mashharawi.com/writing/slab-tonnage-by-area/</loc>
+    <lastmod>2026-11-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mashharawi.com/writing/villa-rebar-tonnage/</loc>
