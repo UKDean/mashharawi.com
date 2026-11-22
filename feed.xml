@@ -6,7 +6,7 @@
     <atom:link href="https://mashharawi.com/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Notes on commercial steel, software and automation.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 22 Nov 2026 05:29:53 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 22 Nov 2026 05:35:39 +0000</lastBuildDate>
     <item>
       <title>كم طن حديد تحتاج الفيلا أو العمارة؟ تقدير حسب المساحة وعدد الأدوار</title>
       <link>https://mashharawi.com/writing/villa-rebar-tonnage/</link>
@@ -57,18 +57,18 @@
       <description>متر كمرة IPE 300 يزن 42.2 كجم (507 كجم لطول 12 م)، وHEA 300 يزن 88.3 كجم وHEB 300 يزن 117 كجم. جدول وزن المتر لكمرات IPE وHEA وHEB.</description>
     </item>
     <item>
-      <title>كم سيخ حديد في الطن؟ جدول كل الأقطار 8–32 مم وحاسبة مباشرة</title>
+      <title>عدد الأسياخ في الطن: جدول أسياخ الحديد لكل قطر 8–32 مم</title>
       <link>https://mashharawi.com/writing/bars-per-tonne/</link>
       <guid isPermaLink="true">https://mashharawi.com/writing/bars-per-tonne/</guid>
       <pubDate>Fri, 16 Oct 2026 09:00:00 +0000</pubDate>
-      <description>طن حديد 12 مم بطول 12 م فيه حوالي 94 سيخاً. باقي الأقطار بطول 12 و6 م في جدول واحد، مع طريقة تحويل طلبيتك من أطنان إلى أسياخ وحاسبة تحسبها لك مباشرة.</description>
+      <description>عدد أسياخ الحديد في الطن: قطر 12 بطول 12 م حوالي 94 سيخاً، وقطر 16 حوالي 53. جدول لكل الأقطار بطول 12 و6 م، مع حاسبة تحوّل الأطنان إلى أسياخ.</description>
     </item>
     <item>
-      <title>جدول أوزان حديد التسليح: وزن المتر والسيخ 12 م لكل الأقطار</title>
+      <title>جدول أوزان حديد التسليح: وزن المتر الطولي والسيخ لكل قطر</title>
       <link>https://mashharawi.com/writing/rebar-weight-table/</link>
       <guid isPermaLink="true">https://mashharawi.com/writing/rebar-weight-table/</guid>
       <pubDate>Fri, 09 Oct 2026 09:00:00 +0000</pubDate>
-      <description>متر حديد 12 مم يزن 0.888 كجم، و16 مم يزن 1.578 كجم. جدول وزن المتر والسيخ 12 م وعدد الأسياخ في الطن ومساحة المقطع للأقطار 8 إلى 32 مم مع المعادلة.</description>
+      <description>أوزان الحديد: وزن المتر الطولي حديد 12 هو 0.888 كجم، ووزن السيخ 12 بطول 12 م هو 10.65 كجم. جدول وزن حديد التسليح لكل الأقطار 8–32 مم مع المعادلة.</description>
     </item>
     <item>
       <title>Weight tolerance is a commercial term, not a technical one</title>
