@@ -6,27 +6,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Free Rebar and Steel Tools and Calculators | Omar Mashharawi</title>
-<meta name="description" content="Free tools for rebar and steel: rebar and steel section weight calculators, RebarPlan for bar bending schedules and cutting plans, and offline PDF tools.">
+<meta name="description" content="Free rebar tools: weight calculators, cutting optimizer, BBS analyzer, weight verification, a construction dictionary and an RFQ generator, plus desktop apps.">
 <meta name="author" content="Omar Mashharawi">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 
 <link rel="canonical" href="https://mashharawi.com/tools/">
 <link rel="alternate" hreflang="en" href="https://mashharawi.com/tools/">
 <link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/tools/">
+<link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/tools/">
 <link rel="alternate" hreflang="x-default" href="https://mashharawi.com/tools/">
 
 <meta name="theme-color" content="#0A0A0A">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mashharawi.com/tools/">
 <meta property="og:title" content="Free Rebar and Steel Tools and Calculators | Omar Mashharawi">
-<meta property="og:description" content="Free tools for rebar and steel: rebar and steel section weight calculators, RebarPlan for bar bending schedules and cutting plans, and offline PDF tools.">
+<meta property="og:description" content="Free rebar tools: weight calculators, cutting optimizer, BBS analyzer, weight verification, a construction dictionary and an RFQ generator, plus desktop apps.">
 <meta property="og:site_name" content="mashharawi.com">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="ar_SA">
+<meta property="og:locale:alternate" content="zh_CN">
 <meta property="og:image" content="https://mashharawi.com/og-brand.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="stylesheet" href="/assets/site.css?v=20261031">
+<link rel="stylesheet" href="/assets/site.css?v=20261120b">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200..500&display=swap">
@@ -133,7 +135,7 @@
     <a href="/writing/">Writing</a>
     <a href="/#contact">Contact</a>
     <a href="/ar/tools/" hreflang="ar" lang="ar" class="c-header__lang">العربية</a>
-    <a href="/zh/" hreflang="zh-Hans" lang="zh-Hans" class="c-header__lang">中文</a>
+    <a href="/zh/tools/" hreflang="zh-Hans" lang="zh-Hans" class="c-header__lang">中文</a>
   </nav>
   <button class="c-header__menu" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
 </header>
@@ -146,7 +148,7 @@
           <p class="c-label">Tools</p>
           <h1 class="c-tool__title" id="t-h">Tools.</h1>
         </div>
-        <p class="c-tool__lead">Tools I built because the work needed them. The two weight calculators run in this page and keep nothing; RebarPlan and OpenPDFKit are desktop apps that keep your files on your own machine; KAVRO is an app on its way to iPhone and Windows; the last two are internal tools for the Al Rajhi Steel team. The public tools are free, and none of them ask for an account.</p>
+        <p class="c-tool__lead">Tools I built because the work needed them. The two weight calculators, the cutting optimizer, the BBS analyzer, the weight verification, the construction dictionary and the RFQ generator run in this page and keep nothing; RebarPlan and OpenPDFKit are desktop apps that keep your files on your own machine; KAVRO is an app on its way to iPhone and Windows; the last two are internal tools for the Al Rajhi Steel team. The public tools are free, and none of them ask for an account. New to them? The <a href="/help/">Help Center</a> has step-by-step guides with worked examples.</p>
       </div>
 
       <div class="c-rows">
@@ -162,32 +164,62 @@
           <span class="c-row__desc">182 sizes across IPE, HEA, HEB, UPN, angles, bars and flats, plus pipe and tube from entered dimensions. Computed from each section's own geometry, with the commercial band around the nominal figure.</span></span>
           <span class="c-row__thumb"><img src="/assets/img/rebar-yard-800.webp" width="800" height="436" alt="" loading="lazy" decoding="async"></span>
         </a>
-        <a class="c-row" href="/tools/rebarplan/">
+        <a class="c-row" href="/tools/cutting-optimizer/">
           <span class="c-row__num" aria-hidden="true">III</span>
+          <span><span class="c-label c-row__meta">In the browser · New</span><span class="c-row__title">Rebar cutting optimizer</span>
+          <span class="c-row__desc">Paste a cut list and get the cutting patterns from 12&nbsp;m bars, the waste, the reusable offcuts and the tonnes to order per diameter. Says when a plan is proven to use the fewest bars.</span></span>
+          <span class="c-row__thumb"><img src="/assets/img/stock/sparks-640w.webp" srcset="/assets/img/stock/sparks-320w.webp 320w, /assets/img/stock/sparks-480w.webp 480w, /assets/img/stock/sparks-640w.webp 640w, /assets/img/stock/sparks-800w.webp 800w, /assets/img/stock/sparks.webp 1400w" sizes="(max-width:760px) 90vw, 320px" width="1400" height="1050" alt="" loading="lazy" decoding="async"></span>
+        </a>
+        <a class="c-row" href="/tools/bbs-analyzer/">
+          <span class="c-row__num" aria-hidden="true">IV</span>
+          <span><span class="c-label c-row__meta">In the browser · New</span><span class="c-row__title">BBS Analyzer</span>
+          <span class="c-row__desc">Open a bar bending schedule from Excel or CSV and get bars, length and theoretical weight by diameter, grade and shape, with every unreadable row listed. Sends the cut lengths to the cutting optimizer.</span></span>
+          <span class="c-row__thumb"><img src="/assets/img/stock/columns-640w.webp" srcset="/assets/img/stock/columns-320w.webp 320w, /assets/img/stock/columns-480w.webp 480w, /assets/img/stock/columns-640w.webp 640w, /assets/img/stock/columns.webp 800w" sizes="(max-width:760px) 90vw, 320px" width="800" height="583" alt="" loading="lazy" decoding="async"></span>
+        </a>
+        <a class="c-row" href="/tools/steel-weight-verification/">
+          <span class="c-row__num" aria-hidden="true">V</span>
+          <span><span class="c-label c-row__meta">In the browser · New</span><span class="c-row__title">Steel weight verification</span>
+          <span class="c-row__desc">Weigh a rebar sample and compare it with its nominal weight: difference in kg and deviation in %, for one sample or a whole session. Compares with your own range only if you enter one; it does not certify steel.</span></span>
+          <span class="c-row__thumb"><img src="/assets/img/stock/macro-640w.webp" srcset="/assets/img/stock/macro-320w.webp 320w, /assets/img/stock/macro-480w.webp 480w, /assets/img/stock/macro-640w.webp 640w, /assets/img/stock/macro-800w.webp 800w, /assets/img/stock/macro.webp 1400w" sizes="(max-width:760px) 90vw, 320px" width="1400" height="933" alt="" loading="lazy" decoding="async"></span>
+        </a>
+        <a class="c-row" href="/tools/construction-dictionary/">
+          <span class="c-row__num" aria-hidden="true">VI</span>
+          <span><span class="c-label c-row__meta">In the browser · New</span><span class="c-row__title">Construction dictionary</span>
+          <span class="c-row__desc">189 terms for rebar, concrete, site work, procurement, QA/QC, logistics and safety in English, Arabic and Chinese. Search in any language, read a short definition and copy the three terms.</span></span>
+          <span class="c-row__thumb"><img src="/assets/img/stock/rebar-site-640w.webp" srcset="/assets/img/stock/rebar-site-320w.webp 320w, /assets/img/stock/rebar-site-480w.webp 480w, /assets/img/stock/rebar-site-640w.webp 640w, /assets/img/stock/rebar-site.webp 900w" sizes="(max-width:760px) 90vw, 320px" width="900" height="720" alt="" loading="lazy" decoding="async"></span>
+        </a>
+        <a class="c-row" href="/tools/smart-rfq-generator/">
+          <span class="c-row__num" aria-hidden="true">VII</span>
+          <span><span class="c-label c-row__meta">In the browser · New</span><span class="c-row__title">Smart RFQ generator</span>
+          <span class="c-row__desc">Prepare a request for quotation for reinforcing steel: products, diameters, grades and tonnes, with a summary and a printable RFQ to send yourself. No prices, nothing stored.</span></span>
+          <span class="c-row__thumb"><img src="/assets/img/stock/engineers-640w.webp" srcset="/assets/img/stock/engineers-320w.webp 320w, /assets/img/stock/engineers-480w.webp 480w, /assets/img/stock/engineers-640w.webp 640w, /assets/img/stock/engineers-800w.webp 800w, /assets/img/stock/engineers.webp 1400w" sizes="(max-width:760px) 90vw, 320px" width="1400" height="933" alt="" loading="lazy" decoding="async"></span>
+        </a>
+        <a class="c-row" href="/tools/rebarplan/">
+          <span class="c-row__num" aria-hidden="true">VIII</span>
           <span><span class="c-label c-row__meta">Desktop app · Windows and Mac</span><span class="c-row__title c-latin">RebarPlan</span>
           <span class="c-row__desc">Bar bending schedule and cutting plan in one program: cut lengths to BS 8666 or ACI / SBC 304, weight per diameter, and the fewest 12&nbsp;m bars to cut the job from. Arabic, English and Chinese; free and open source.</span></span>
           <span class="c-row__thumb"><img src="/assets/img/rebar-bending-800.webp" width="800" height="436" alt="" loading="lazy" decoding="async"></span>
         </a>
         <a class="c-row" href="/tools/openpdfkit/">
-          <span class="c-row__num" aria-hidden="true">IV</span>
+          <span class="c-row__num" aria-hidden="true">IX</span>
           <span><span class="c-label c-row__meta">Desktop app</span><span class="c-row__title c-latin">OpenPDFKit</span>
           <span class="c-row__desc">Thirteen everyday PDF tools, merge to OCR, running entirely offline on Windows and macOS. Open source, and nothing is uploaded anywhere.</span></span>
           <span></span>
         </a>
         <a class="c-row" href="/kavro/">
-          <span class="c-row__num" aria-hidden="true">V</span>
+          <span class="c-row__num" aria-hidden="true">X</span>
           <span><span class="c-label c-row__meta">App · Coming soon to iPhone and Windows</span><span class="c-row__title c-latin">KAVRO</span>
           <span class="c-row__desc">Know before you open. Reads QR codes from your photos, shows where each one leads, flags look-alike links, payment codes and risky downloads, and never opens anything without asking. Images stay on your device.</span></span>
           <span></span>
         </a>
         <a class="c-row" href="/tools/approvals/">
-          <span class="c-row__num" aria-hidden="true">VI</span>
+          <span class="c-row__num" aria-hidden="true">XI</span>
           <span><span class="c-label c-row__meta">Internal web tool · Al Rajhi Steel</span><span class="c-row__title c-latin">Document Approval Assistant</span>
           <span class="c-row__desc">Project approval and vendor registration packages from the company's certificate library: Arabic and English OCR, expiry checks, form filling and one ordered PDF. Company staff only.</span></span>
           <span class="c-row__thumb"><img src="/assets/img/rebar-bundle-800.webp" width="800" height="436" alt="" loading="lazy" decoding="async"></span>
         </a>
         <a class="c-row" href="/contract-check/">
-          <span class="c-row__num" aria-hidden="true">VII</span>
+          <span class="c-row__num" aria-hidden="true">XII</span>
           <span><span class="c-label c-row__meta">Internal tool · Sales team</span><span class="c-row__title">Contract Risk Checker</span>
           <span class="c-row__desc">Extracts a customer's contract or PO text in the browser and prepares a ready-to-paste analysis against our standard commercial terms, for your own ChatGPT or Claude account. Arabic interface and report.</span></span>
           <span></span>
@@ -204,7 +236,7 @@
       <h2 id="qb-h">Need reinforcing steel for a project?</h2>
       <p>I am a Section Head at Al Rajhi Steel. Send me the sizes and quantities, or the bar bending schedule, and I will come back with a quotation.</p>
       <ul class="q-facts">
-        <li>10 to 32 mm · 12 m bars</li><li>Grade 60 and Grade 80</li><li>Cut to length</li><li>Epoxy coating</li><li>Mill test certificates for the sizes and grade ordered</li><li>Immediate delivery after payment or LC, subject to company procedures</li><li>Riyadh · Jeddah · Qassim · Taif</li><li>Shipping across Saudi Arabia</li>
+        <li>Sizes 10, 12, 14, 16, 18, 20, 25 and 32 mm &middot; 12 m bars</li><li>Grade 60 and Grade 80</li><li>Epoxy-coated rebar available</li><li>Mill test certificates (MTC) for the sizes and grade ordered</li><li>Cutting to specified lengths, subject to confirmation</li><li>Bending requirements confirmed before quotation</li><li>Supply after payment confirmation or LC approval, subject to company procedures, product availability and the agreed delivery schedule</li>
       </ul>
       <div class="q-actions">
         <a class="q-btn q-btn--wa" href="https://wa.me/message/D6ABM7QFWVSPB1" target="_blank" rel="noopener">Message on WhatsApp</a>

@@ -1,0 +1,58 @@
+/* mashharawi.com, Steel Weight Verification. Builds on site.css (.calc*) and
+   the cutting optimizer's cutopt.css (.co-*), like the BBS Analyzer. */
+#swv [hidden]{display:none!important}
+.s-form{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:16px}
+.s-form .wide{grid-column:span 2}
+.s-form .full{grid-column:1 / -1}
+.s-len{display:flex;gap:6px}
+.s-len input{flex:1;min-inline-size:0}
+.s-len select{inline-size:78px;flex:0 0 auto}
+select.co-in{appearance:auto}
+.s-tol{display:grid;grid-template-columns:1fr 1fr 2fr;gap:14px;align-items:end;margin-top:6px}
+.s-tol p{margin:0;font-size:.88em;color:var(--scale);line-height:1.5}
+
+.s-cmp{margin-top:18px;display:grid;gap:8px}
+.s-cmp-row{display:grid;grid-template-columns:150px 1fr 110px;gap:10px;align-items:center;font-family:var(--mono);font-size:12px;color:var(--lead)}
+.s-cmp-trk{block-size:14px;background:var(--line)}
+.s-cmp-trk i{display:block;block-size:100%;background:#3A6684}
+.s-cmp-row.act .s-cmp-trk i{background:var(--hot)}
+.s-cmp-row b{font-weight:500;color:var(--ink);text-align:end}
+
+.s-gauge{position:relative;margin:26px 0 8px;block-size:34px}
+.s-gauge .axis{position:absolute;inset-inline:0;inset-block-start:16px;block-size:2px;background:var(--edge)}
+.s-gauge .zero{position:absolute;inset-inline-start:50%;inset-block-start:6px;inline-size:2px;block-size:22px;background:var(--ink)}
+.s-gauge .band{position:absolute;inset-block-start:10px;block-size:14px;background:rgba(46,125,50,.25);border:1px solid #2E7D32}
+.s-gauge .mark{position:absolute;inset-block-start:4px;inline-size:12px;block-size:26px;margin-inline-start:-6px;background:var(--hot);transition:inset-inline-start .25s}
+.s-gauge .mark.clip{outline:2px dashed var(--ink)}
+.s-gauge-lbl{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10.5px;color:var(--scale);direction:ltr}
+
+.s-sub{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:12px;font-family:var(--mono);font-size:12px;color:var(--lead)}
+.s-sub b{font-weight:500;color:var(--ink)}
+.s-formula{margin:12px 0 0;font-family:var(--mono);font-size:11.5px;color:var(--scale);direction:ltr;text-align:start;overflow-wrap:anywhere}
+.s-range{margin:14px 0 0;padding:10px 12px;background:var(--mill);border-inline-start:4px solid var(--edge);font-size:.92em;color:var(--lead)}
+.s-range.in{border-color:#2E7D32}
+.s-range.out{border-color:var(--hot)}
+.s-warn{margin:12px 0 0;padding-inline-start:18px;font-size:.92em;color:var(--lead)}
+.s-warn li.note{color:var(--lead)}  /* input notes: deliberately not amber/red, they are not verdicts */
+
+.s-tbl{min-inline-size:860px;font-size:12px}
+.s-tbl td.neg{color:#3A6684}.s-tbl td.pos{color:var(--hot-ink)}
+.s-tbl td.in{color:#2E7D32}.s-tbl td.out{color:var(--hot-ink)}
+.s-totals{margin:12px 0 0;font-family:var(--mono);font-size:12px;color:var(--ink)}
+.s-sum{inline-size:100%;min-block-size:110px;margin-top:12px;font-family:var(--mono);font-size:12px;color:var(--ink);background:var(--sunk);border:1px solid var(--edge);padding:10px;resize:vertical}
+.s-disclaim{margin:16px 0 0;padding:12px 14px;border:1px solid var(--line);background:var(--mill);font-size:.9em;line-height:1.55;color:var(--lead)}
+.s-disclaim b{color:var(--ink)}
+.s-report-head{display:none}
+
+@media (max-width:900px){
+  .s-form{grid-template-columns:1fr 1fr}
+  .s-tol{grid-template-columns:1fr 1fr}
+  .s-tol p{grid-column:1 / -1}
+  .s-cmp-row{grid-template-columns:110px 1fr 90px}
+}
+@media print{
+  .s-input,.s-actions,.s-tol-panel,.co-how,.q-band,.q-fab,.c-hero,.faq,.calc-x,.s-sum{display:none!important}
+  .s-report-head{display:block!important}
+  .s-tbl{min-inline-size:0;font-size:8pt}
+  .s-cmp-trk i,.s-gauge .mark{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+}

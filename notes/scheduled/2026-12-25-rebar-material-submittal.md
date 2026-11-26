@@ -111,4 +111,4 @@ Once the submittal is ready, a supplier can quote quickly if you send:
 - Straight 12 m bars or cut to length, and any epoxy-coated items.
 - The delivery city and the required date.
 
-Al Rajhi Steel makes reinforcing steel at mills in Riyadh and Jeddah: 10, 12, 14, 16, 18, 20, 25 and 32 mm, Grade 60 and Grade 80, in 12 m bars or cut to length, with epoxy coating and all test certificates available, shipped to every region of Saudi Arabia. See the [rebar supply page](/rebar/) for details.
+Al Rajhi Steel makes reinforcing steel at mills in Riyadh and Jeddah: 10, 12, 14, 16, 18, 20, 25 and 32 mm, Grade 60 and Grade 80, in 12 m bars or cut to specified lengths subject to confirmation, with epoxy-coated rebar available and mill test certificates for the sizes and grade ordered, shipped to every region of Saudi Arabia. See the [rebar supply page](/rebar/) for details.

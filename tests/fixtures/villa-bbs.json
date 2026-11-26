@@ -1,0 +1,21 @@
+{
+  "_note": "Test fixture shaped like a two-storey villa schedule: footings, columns, beams, slab. Invented quantities for testing only, not a real project.",
+  "settings": { "stockLength": 12000, "kerf": 3, "allowance": 0, "minOffcut": 1000 },
+  "items": [
+    { "diameter": 16, "grade": "Gr60", "length": 2350, "qty": 96 },
+    { "diameter": 16, "grade": "Gr60", "length": 1850, "qty": 72 },
+    { "diameter": 16, "grade": "Gr60", "length": 3600, "qty": 64 },
+    { "diameter": 16, "grade": "Gr60", "length": 4250, "qty": 40 },
+    { "diameter": 12, "grade": "Gr60", "length": 1950, "qty": 220 },
+    { "diameter": 12, "grade": "Gr60", "length": 5850, "qty": 48 },
+    { "diameter": 12, "grade": "Gr60", "length": 7300, "qty": 36 },
+    { "diameter": 12, "grade": "Gr60", "length": 11400, "qty": 24 },
+    { "diameter": 10, "grade": "Gr60", "length": 1480, "qty": 640 },
+    { "diameter": 10, "grade": "Gr60", "length": 1120, "qty": 380 },
+    { "diameter": 20, "grade": "Gr60", "length": 6450, "qty": 28 },
+    { "diameter": 20, "grade": "Gr60", "length": 8900, "qty": 16 },
+    { "diameter": 20, "grade": "Gr60", "length": 3150, "qty": 44 },
+    { "diameter": 25, "grade": "Gr60", "length": 4650, "qty": 32 },
+    { "diameter": 25, "grade": "Gr60", "length": 3950, "qty": 24 }
+  ]
+}

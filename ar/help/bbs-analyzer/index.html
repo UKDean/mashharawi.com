@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<script>document.documentElement.classList.add("js")</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>طريقة استخدام محلل جدول التفريد BBS من إكسل وCSV | عمر المشهراوي</title>
+<meta name="description" content="دليل محلل جدول التفريد: استيراد XLSX أو XLSM أو CSV أو TSV أو TXT، ومطابقة الأعمدة، وتصحيح الصفوف، وقاعدة 12 م، والدرجة الناقصة، والنتائج، والإرسال لأداة القص.">
+<meta name="author" content="عمر المشهراوي">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+<link rel="canonical" href="https://mashharawi.com/ar/help/bbs-analyzer/">
+<link rel="alternate" hreflang="en" href="https://mashharawi.com/help/bbs-analyzer/">
+<link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/help/bbs-analyzer/">
+<link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/help/bbs-analyzer/">
+<link rel="alternate" hreflang="x-default" href="https://mashharawi.com/help/bbs-analyzer/">
+
+<meta name="theme-color" content="#0A0A0A">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mashharawi.com/ar/help/bbs-analyzer/">
+<meta property="og:title" content="طريقة استخدام محلل جدول التفريد BBS من إكسل وCSV | عمر المشهراوي">
+<meta property="og:description" content="دليل محلل جدول التفريد: استيراد XLSX أو XLSM أو CSV أو TSV أو TXT، ومطابقة الأعمدة، وتصحيح الصفوف، وقاعدة 12 م، والدرجة الناقصة، والنتائج، والإرسال لأداة القص.">
+<meta property="og:site_name" content="mashharawi.com">
+<meta property="og:locale" content="ar_SA">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta property="og:image" content="https://mashharawi.com/og-brand.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="stylesheet" href="/assets/site.css?v=20261120b">
+<link rel="stylesheet" href="/assets/cutopt/cutopt.css?v=20261119h">
+<link rel="stylesheet" href="/assets/help/help.css?v=20261120a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@200;300;400;500&family=Inter:wght@200..500&display=swap">
+
+<link rel="icon" href="/favicon.ico?v=20261024" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=20261024">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20261024">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png?v=20261024">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=20261024">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png?v=20261024">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20261024">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "TechArticle",
+ "headline": "محلل جدول التفريد: الدليل",
+ "url": "https://mashharawi.com/ar/help/bbs-analyzer/",
+ "inLanguage": "ar",
+ "description": "دليل محلل جدول التفريد: استيراد XLSX أو XLSM أو CSV أو TSV أو TXT، ومطابقة الأعمدة، وتصحيح الصفوف، وقاعدة 12 م، والدرجة الناقصة، والنتائج، والإرسال لأداة القص.",
+ "about": {
+  "@type": "WebApplication",
+  "name": "محلل جدول التفريد",
+  "url": "https://mashharawi.com/ar/tools/bbs-analyzer/"
+ },
+ "author": {
+  "@type": "Person",
+  "@id": "https://mashharawi.com/#person",
+  "name": "Omar Mashharawi"
+ }
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "الرئيسية",
+   "item": "https://mashharawi.com/ar/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "مركز المساعدة",
+   "item": "https://mashharawi.com/ar/help/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "محلل جدول التفريد",
+   "item": "https://mashharawi.com/ar/help/bbs-analyzer/"
+  }
+ ]
+}
+</script>
+<script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/cdn-cgi/*"}}]},"eagerness":"moderate"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">تخطَّ إلى المحتوى</a>
+
+<header class="c-header c-header--solid">
+  <a class="c-header__name" href="/ar/"><img class="c-header__mark" src="/assets/brand/mark-64.png" width="32" height="32" alt="">عمر المشهراوي</a>
+  <nav class="c-header__nav" aria-label="الرئيسية">
+    <a href="/ar/#about">نبذة</a>
+    <a href="/ar/#experience">الخبرة</a>
+    <a href="/ar/tools/">الأدوات</a>
+    <a href="/ar/help/" aria-current="page">المساعدة</a>
+    <a href="/ar/writing/">المقالات</a>
+    <a href="/ar/#contact">تواصل</a>
+    <a href="/help/bbs-analyzer/" hreflang="en" lang="en" class="c-header__lang">English</a>
+    <a href="/zh/help/bbs-analyzer/" hreflang="zh-Hans" lang="zh-Hans" class="c-header__lang">中文</a>
+  </nav>
+  <button class="c-header__menu" type="button" aria-label="القائمة" aria-expanded="false"><span></span><span></span></button>
+</header>
+
+<main id="main">
+  <section class="sec c-tool h-page" aria-labelledby="h-title">
+    <div class="wrap">
+      <div class="h-crumbs" role="navigation" aria-label="مسار التصفح"><a href="/ar/">الرئيسية</a> <span aria-hidden="true">›</span> <a href="/ar/help/">مركز المساعدة</a> <span aria-hidden="true">›</span> <span aria-current="page">محلل جدول التفريد</span></div>
+      <div class="h-head">
+        <p class="c-label">مركز المساعدة</p>
+        <h1 class="c-tool__title" id="h-title">محلل جدول التفريد: الدليل</h1>
+        <p class="h-lead">كيف تحوّل جدول التفريد إلى كميات وأوزان نظرية مراجَعة، وترسل أطوال القص لأداة تحسين القص.</p>
+        <a class="calc-btn ok h-open" href="/ar/tools/bbs-analyzer/">افتح الأداة</a>
+      </div>
+      <div class="h-grid">
+        <div class="h-toc" role="navigation" aria-label="في هذه الصفحة">
+          <p class="calc-lbl">في هذه الصفحة</p>
+          <ol><li><a href="#what">ماذا تفعل الأداة</a></li><li><a href="#when">متى تستخدمها</a></li><li><a href="#privacy">الخصوصية: ملفك يبقى في متصفحك</a></li><li><a href="#steps">خطوة بخطوة</a></li><li><a href="#example">مثال محلول</a></li><li><a href="#results">قراءة النتائج</a></li><li><a href="#mistakes">أخطاء شائعة</a></li><li><a href="#limits">حدود الأداة</a></li><li><a href="#related">ذو صلة</a></li></ol>
+        </div>
+        <article class="h-body">
+<h2 id="what">ماذا تفعل الأداة</h2>
+<p>يقرأ المحلل جدول التفريد (BBS)، ويتعرّف على أعمدته، ويفحص كل صف، ويجمع الأسياخ والطول والوزن النظري حسب القطر والدرجة والشكل. لا يكمل أبداً بيانات هندسية ناقصة: الصف الذي لا يمكن قراءته يُستبعد ويُعرض مع السبب.</p>
+<h2 id="when">متى تستخدمها</h2>
+<ul><li>لمراجعة جدول تفريد من الاستشاري أو مقاول الباطن قبل الطلب.</li><li>لمعرفة الأطنان لكل قطر ودرجة لطلب عرض سعر.</li><li>لتجهيز أطوال القص لأداة تحسين القص.</li></ul>
+<h2 id="privacy">الخصوصية: ملفك يبقى في متصفحك</h2>
+<ul><li><b>المعالجة محلية.</b> الملف يُفتح ويُحلَّل داخل الصفحة في متصفحك أنت.</li><li><b>لا يُرفع.</b> محتوى الملف لا يُرسل أبداً إلى سيرفر الموقع ولا إلى أي جهة أخرى.</li><li><b>لا يُحفظ.</b> الموقع لا يحتفظ بالملف، والأداة لا تحفظه في متصفحك لاستخدامه لاحقاً. ولا تحتاج حساباً.</li><li><b>إغلاق التبويب ينهي الجلسة.</b> الملف والتحليل وكل ما كتبته يختفي عند إغلاق التبويب. افتح الملف من جديد في المرة القادمة.</li></ul>
+<p>زر <b>أرسل إلى أداة تحسين القص</b> ينقل أطوال القص المجمّعة إلى التبويب الجديد داخل عنوان الصفحة بعد علامة «#»، وهذا الجزء لا يرسله المتصفح إلى السيرفر، وأداة القص تحذفه من العنوان بعد قراءته. و<b>تنزيل CSV</b> و<b>طباعة / PDF</b> يتمّان داخل متصفحك أيضاً.</p>
+<h2 id="steps">خطوة بخطوة</h2>
+<h3 id="import">1. افتح الجدول</h3>
+<p>اختر ملفاً، أو اسحبه إلى المربع، أو الصق الجدول من الإكسل، أو اكتب البنود يدوياً. هذه هي الصيغ التي يقرؤها المحلل فعلاً:</p>
+<div class="h-scroll" tabindex="0" role="region" aria-label="الصيغة · طريقة القراءة · ملاحظات"><table class="h-table"><thead><tr><th scope="col">الصيغة</th><th scope="col">طريقة القراءة</th><th scope="col">ملاحظات</th></tr></thead><tbody><tr><td><b>XLSX</b> (ملف إكسل)</td><td>قارئ ملفات الإكسل المدمج في الأداة</td><td>اختر الورقة إذا كان الملف فيه أكثر من ورقة. خلايا المعادلات تُقرأ بالقيمة التي حفظها الإكسل آخر مرة، وتُعلَّم صفوفها.</td></tr><tr><td><b>XLSM</b> (ملف إكسل بماكرو)</td><td>نفس قارئ ملفات الإكسل</td><td>تم اختباره على ملفات حفظها Microsoft Excel، بماكرو وبدون ماكرو. الماكرو لا يُفتح ولا يُشغَّل أبداً.</td></tr><tr><td><b>CSV</b></td><td>نص، ويُكتشف الفاصل تلقائياً (فاصلة أو فاصلة منقوطة أو Tab)</td><td>إذا كان في الجدول نص عربي أو صيني فاحفظه من الإكسل بصيغة <b>CSV UTF-8</b>؛ ملف «CSV» القديم المحفوظ بترميز ويندوز لا يُقرأ بشكل صحيح.</td></tr><tr><td><b>TSV</b></td><td>نص مفصول بـ Tab</td><td></td></tr><tr><td><b>TXT</b></td><td>نص، يُقرأ مثل CSV (فاصلة أو فاصلة منقوطة أو Tab)</td><td>صيغتا الإكسل «نص (مفصول بـ Tab)» و«نص Unicode» تعملان.</td></tr><tr><td><b>اللصق من الإكسل</b></td><td>نص مفصول بـ Tab من الحافظة</td><td>حدد الجدول مع صف العناوين، ثم انسخ والصق.</td></tr><tr><td><b>الإدخال اليدوي</b></td><td>أعمدة ثابتة</td><td>العنصر، ورقم السيخ، والقطر، والدرجة، وكود الشكل، وطول القص بالمم، وإجمالي الأسياخ.</td></tr><tr><td><b>XLS وXLSB وODS</b></td><td>غير مدعومة</td><td>تُرفض برسالة توضيحية. احفظ الورقة بصيغة ‎.xlsx أو CSV وافتحها.</td></tr></tbody></table></div>
+<p>نافذة اختيار الملفات تعرض ‎.xlsx و‎.xlsm و‎.csv و‎.tsv و‎.txt. الملف الذي تختاره بخيار «كل الملفات» أو تسحبه إلى المربع يُفحص باسمه ومحتواه: ‎.xls و‎.xlsb و‎.ods تُرفض برسالة، وأي اسم آخر يُقرأ كنص فقط إذا كان نصاً فعلاً. ملف الإكسل الذي غُيّر اسمه يُرفض ولا يُعرض كصفوف من رموز غير مفهومة.</p>
+<h3 id="file-limits">حدود حجم الملف وعدد الصفوف</h3>
+<div class="h-scroll" tabindex="0" role="region" aria-label="الحد · القيمة · ماذا يحدث"><table class="h-table"><thead><tr><th scope="col">الحد</th><th scope="col">القيمة</th><th scope="col">ماذا يحدث</th></tr></thead><tbody><tr><td>حجم الملف، لأي صيغة</td><td>25 ميجابايت</td><td>يُفحص قبل قراءة الملف. الملف الأكبر يُرفض: احفظ ورقة الجدول فقط بصيغة CSV.</td></tr><tr><td>الصفوف: CSV وTSV وTXT والنص الملصوق</td><td>100,000 صف بيانات</td><td>إذا زادت تُرفض. قسّم الجدول وحلله على أجزاء.</td></tr><tr><td>الصفوف: XLSX وXLSM</td><td>أول 100,000 صف من الورقة</td><td>تُقرأ هذه الصفوف فقط وتظهر رسالة بذلك، والإجماليات عندها تشمل هذه الصفوف فقط، لذلك قسّم الجدول.</td></tr><tr><td>الأعمدة: XLSX وXLSM</td><td>200</td><td>الأعمدة بعد العمود 200 لا تُقرأ.</td></tr><tr><td>ملفات الإكسل</td><td>50 ورقة؛ والملفات المحمية بكلمة مرور أو التالفة تُرفض</td><td>احفظ ورقة الجدول مرة أخرى بصيغة ‎.xlsx أو CSV.</td></tr></tbody></table></div>
+<h3 id="columns">2. راجع الأعمدة</h3>
+<p>يبحث المحلل عن صف العناوين في أول 30 صفاً، ويطابق الأعمدة بأسمائها بالعربية أو الإنجليزية أو الصينية (رقم السيخ، القطر، طول القص، عدد العناصر، Bar mark، Dia، 钢筋编号، 下料长度…). راجع كل حقل وغيّر أي حقل خاطئ.</p>
+<ul><li><b>المطلوب:</b> القطر، وطول القص، وعدد الأسياخ: إما عمود إجمالي، أو «عدد العناصر» و«العدد في كل عنصر» معاً.</li><li><b>اختياري:</b> رقم السيخ، والعنصر، والدرجة، وكود الشكل، والطول الكلي والوزن المكتوبان في الجدول، ويُستخدمان للمطابقة فقط.</li><li><b>وحدة طول القص:</b> تُقرأ من العنوان، مثل «طول القص (مم)». إذا لم يذكرها العنوان يجب أن تختار مم أو م، والأداة لا تخمّن.</li><li><b>صف العناوين:</b> غيّره إذا كانت صفوف العنوان تربك التعرّف.</li></ul>
+<h3 id="interpretation">3. كيف تُقرأ القيم</h3>
+<div class="h-scroll" tabindex="0" role="region" aria-label="الحقل · مقبول · غير مقبول"><table class="h-table"><thead><tr><th scope="col">الحقل</th><th scope="col">مقبول</th><th scope="col">غير مقبول</th></tr></thead><tbody><tr><td>القطر</td><td>16، T16، Y16، H16، Ø16، 16mm (من 4 إلى 60 مم)</td><td>#5 (مقاس أمريكي)، نص</td></tr><tr><td>طول القص</td><td>أرقام عشرية بالنقطة، بالوحدة المختارة</td><td>2,350 (فاصلة)، قيم لا تناسب إلا الوحدة الأخرى، أكبر من 12,000 مم</td></tr><tr><td>الأسياخ</td><td>أرقام صحيحة ≥ 1؛ أو عدد العناصر × العدد في كل عنصر</td><td>كسور، صفر، إجمالي يناقض العناصر × العدد</td></tr><tr><td>الدرجة</td><td>Gr60 وGrade 60 وA615 Gr.60 درجة واحدة؛ وأي نص آخر يبقى كما هو</td><td>لا تُفترض أبداً إذا كانت فارغة</td></tr><tr><td>كود الشكل</td><td>يبقى كما هو مكتوب</td><td>لا يُستخدم لحساب الأطوال</td></tr><tr><td>الوزن</td><td>0.006165 × ق² × طول القص × عدد الأسياخ (نظري)</td><td>أوزان الجدول تُقارن فقط ولا تُستخدم</td></tr></tbody></table></div>
+<h3 id="excluded">4. صحّح الصفوف المستبعدة</h3>
+<p>الصفوف المستبعدة معروضة برقم الصف ورقم السيخ والقطر وطول القص والعدد والسبب. صحّح الجدول وحمّله مرة أخرى. صفوف العناوين والملاحظات والمجاميع تُستبعد كـ«ليس بند حديد»، وهذا متوقع.</p>
+<h3 id="twelve-metres">لماذا تُستبعد الأسياخ الأطول من 12 م</h3>
+<p>طول القص الأكبر من 12,000 مم لا يمكن قصه من سيخ قياسي واحد 12 م. المحلل يستبعده من كل الإجماليات ومن الإرسال لأداة القص، ويعرض أسياخه وطوله ووزنه النظري لحالها حتى لا يختفي شيء. طول 12,000 مم نفسه محسوب، والقرار يُتخذ على القيمة كما هي مكتوبة: 12,000.001 مم مستبعد.</p>
+<h3 id="grades">لماذا يجب أن تحدد الدرجة الناقصة بنفسك</h3>
+<p>Grade 60 وGrade 80 منتجان مختلفان. الصفوف التي بدون درجة تبقى في التحليل تحت «بدون درجة» لكنها لا تُرسل لأداة القص. إذا كنت تعرف الدرجة، أدخلها في المجموعة الثالثة، واقرأ الصفوف التي ستنطبق عليها، وضع علامة التأكيد، واضغط «حدد الدرجة». تُطبَّق على كل الصفوف التي بدون درجة وتظهر على أنها محددة منك. الأداة لا تفترض الدرجة أبداً.</p>
+<h3 id="send">5. أرسل إلى أداة تحسين القص</h3>
+<p>اضغط <b>أرسل إلى أداة تحسين القص</b>. تُجمَّع الصفوف الصالحة حسب القطر والدرجة وطول القص (مقرّباً لأقرب مليمتر)، وتُفتح أداة القص في تبويب جديد بها. راجع البنود هناك واضغط الحساب؛ لا يعمل شيء تلقائياً، ويبقى جدولك كما هو في تبويب المحلل.</p>
+<h2 id="example">مثال محلول</h2>
+<div class="h-ex"><p class="h-ex-t">قواعد وأعمدة فيلا (جدول المثال)</p><p>اضغط <b>حمّل جدول مثال</b>. صف العناوين هو الصف 3، وعنوان طول القص فيه (مم)، فتُحدَّد الوحدة تلقائياً.</p>
+<div class="h-scroll" tabindex="0" role="region" aria-label="المجموعة · الصفوف · النتيجة"><table class="h-table"><thead><tr><th scope="col">المجموعة</th><th scope="col">الصفوف</th><th scope="col">النتيجة</th></tr></thead><tbody><tr><td>داخل التحليل</td><td>9</td><td>860 سيخاً · 1,859.60 م · 2.080 طن</td></tr><tr><td>مستبعد من الحساب</td><td>3</td><td>الصف 12: طول «2,875» (فاصلة) · الصف 13: ‏12,500 مم يتجاوز حد السيخ القياسي 12 م (4 أسياخ، 50 م، 0.193 طن معروضة لحالها) · الصف 15: سطر «الإجمالي»</td></tr><tr><td>داخل التحليل، لا يُرسل لأداة القص</td><td>1</td><td>الصف 14: بدون درجة، 20 سيخاً</td></tr></tbody></table></div>
+<p>حسب القطر: 10 مم 320 سيخاً 292.0 كجم · 12 مم 308 أسياخ 686.1 كجم · 16 مم 184 سيخاً 729.1 كجم · 20 مم 48 سيخاً 372.9 كجم. التنبيهات: رقم السيخ 06 في العنصر B1 مكرر في الصفين 9 و10 بنفس البيانات (للمراجعة)، وGr60 مكتوبة أيضاً «Grade 60»، وفي صفين الوزن المكتوب يختلف عن النظري بأكثر من 1٪.</p>
+<p>الإرسال لأداة القص ينقل 7 بنود مجمّعة، ويُحجز صف «بدون درجة». بفاقد قص 0 وبواقٍ قابلة للاستخدام من 1 م، تحتاج أداة القص 160 سيخاً 12 م (2.209 طن)، أقل عدد مُثبَت.</p></div>
+<h2 id="results">قراءة النتائج</h2>
+<ul><li><b>المجموعات الثلاث</b> تبيّن أين ذهب كل صف: داخل التحليل، أو مستبعد مع السبب، أو داخل التحليل لكن محجوز عن أداة القص.</li><li><b>التنبيهات</b> تحتاج مراجعة لكنها لا تغيّر الإجماليات: أرقام أسياخ مكررة (تُفحص داخل كل عنصر، وبدون عمود للعنصر لا يمكن التمييز بينها)، وأكثر من درجة، وتعدد كتابة الدرجة، وأقطار غير قياسية، وقيم من معادلات، وأوزان أو أطوال في الجدول لا تتطابق.</li><li><b>الجداول</b> حسب القطر، وحسب القطر والدرجة، وحسب الدرجة، وحسب الشكل، كلها تعطي نفس الإجماليات.</li><li><b>تنزيل CSV</b> يصدّر الصفوف المستخدمة والملخص والصفوف المستبعدة، و<b>طباعة / PDF</b> يطبع التقرير.</li></ul>
+<h2 id="mistakes">أخطاء شائعة</h2>
+<ul><li>ترك وحدة طول القص للصدفة: تحقق دائماً من الوحدة التي يعرضها المحلل.</li><li>تحديد «الطول الكلي» كطول قص: طول القص هو طول السيخ الواحد.</li><li>توقع أن تُقص الأسياخ الأطول من 12 م: هي مستبعدة عن قصد.</li><li>تحديد درجة «لتمرير الصفوف» والمخطط لا يذكرها: اسأل المصمم.</li><li>حفظ ملف الإكسل بدون إعادة حساب: خلايا المعادلات تأخذ القيمة المحفوظة، وتُعلَّم هذه الصفوف.</li></ul>
+<h2 id="limits">حدود الأداة</h2>
+<ul><li>ملفات ‎.xls القديمة و‎.xlsb و‎.ods غير مدعومة؛ راجع <a href="#import">الصيغ</a> و<a href="#file-limits">الحدود</a>.</li><li>أطوال القص لا تُحسب من أبعاد الشكل.</li><li>الأوزان تقديرات نظرية وليست كميات معتمدة.</li><li>تُحدَّد درجة واحدة لكل الصفوف التي بدون درجة؛ الدرجات المختلفة لكل صف تُصحَّح في الجدول.</li></ul>
+<h2 id="related">ذو صلة</h2>
+<ul><li><a href="/ar/tools/cutting-optimizer/">أداة تحسين القص</a> و<a href="/ar/help/cutting-optimizer/">دليلها</a>.</li><li><a href="/ar/tools/rebarplan/">RebarPlan</a> (برنامج مكتبي لإعداد جداول التفريد).</li><li><a href="/ar/help/#troubleshooting">حل المشكلات</a>.</li></ul>
+          <p class="note-back"><a href="/ar/help/">← كل موضوعات المساعدة</a> · <a href="/ar/help/#tool-guides">أدلة الأدوات</a></p>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="c-footer">
+  <div class="c-footer__quote">
+    <p>ملاحظات عن الأوزان والسماحيات وما يصل إلى الفاتورة.</p>
+    <a class="c-label" href="/ar/writing/">كل المقالات ←</a>
+  </div>
+  <div class="c-footer__base">
+    <span>&copy; <span id="yr">2026</span> عمر المشهراوي</span>
+    <a href="mailto:info@mashharawi.com">info@mashharawi.com</a>
+    <a href="/ar/about/">نبذة</a>
+    <a href="/ar/contact/">تواصل</a>
+    <a href="/ar/privacy/">الخصوصية</a>
+  </div>
+</footer>
+<script src="/assets/site.js?v=20261015" defer></script>
+</body>
+</html>

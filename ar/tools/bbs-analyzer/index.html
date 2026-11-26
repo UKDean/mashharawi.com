@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<script>document.documentElement.classList.add("js")</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>محلل جدول التفريد BBS: كميات وأوزان حديد التسليح من الإكسل | عمر المشهراوي</title>
+<meta name="description" content="أداة مجانية لتحليل جدول تفريد الحديد: افتح ملف إكسل أو CSV، وراجعه، واحصل على عدد الأسياخ والطول والوزن النظري لكل قطر ودرجة وشكل. داخل متصفحك.">
+<meta name="author" content="عمر المشهراوي">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+<link rel="canonical" href="https://mashharawi.com/ar/tools/bbs-analyzer/">
+<link rel="alternate" hreflang="en" href="https://mashharawi.com/tools/bbs-analyzer/">
+<link rel="alternate" hreflang="ar" href="https://mashharawi.com/ar/tools/bbs-analyzer/">
+<link rel="alternate" hreflang="zh-Hans" href="https://mashharawi.com/zh/bbs-analyzer/">
+<link rel="alternate" hreflang="x-default" href="https://mashharawi.com/tools/bbs-analyzer/">
+
+<meta name="theme-color" content="#0A0A0A">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mashharawi.com/ar/tools/bbs-analyzer/">
+<meta property="og:title" content="محلل جدول التفريد BBS: كميات وأوزان حديد التسليح من الإكسل | عمر المشهراوي">
+<meta property="og:description" content="أداة مجانية لتحليل جدول تفريد الحديد: افتح ملف إكسل أو CSV، وراجعه، واحصل على عدد الأسياخ والطول والوزن النظري لكل قطر ودرجة وشكل. داخل متصفحك.">
+<meta property="og:site_name" content="mashharawi.com">
+<meta property="og:locale" content="ar_SA">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta property="og:image" content="https://mashharawi.com/og-brand.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="stylesheet" href="/assets/site.css?v=20261120b">
+<link rel="stylesheet" href="/assets/cutopt/cutopt.css?v=20261119h">
+<link rel="stylesheet" href="/assets/bbs/bbs.css?v=20261120a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@200;300;400;500&family=Inter:wght@200..500&display=swap">
+
+<link rel="icon" href="/favicon.ico?v=20261024" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=20261024">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20261024">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png?v=20261024">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=20261024">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png?v=20261024">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20261024">
+<!-- Only what the page itself states: a free browser tool. No ratings, no counts. -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebApplication",
+ "name": "محلل جدول التفريد BBS",
+ "url": "https://mashharawi.com/ar/tools/bbs-analyzer/",
+ "applicationCategory": "https://schema.org/BusinessApplication",
+ "operatingSystem": "Any modern browser",
+ "browserRequirements": "Requires JavaScript",
+ "inLanguage": [
+  "en",
+  "ar",
+  "zh-Hans"
+ ],
+ "isAccessibleForFree": true,
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "SAR"
+ },
+ "author": {
+  "@type": "Person",
+  "@id": "https://mashharawi.com/#person",
+  "name": "Omar Mashharawi"
+ }
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "inLanguage": "ar",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "كيف يُحسب وزن جدول التفريد؟",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "لكل صف: 0.006165 × ق² كجم/م × طول القص بالمتر × عدد الأسياخ. سيخ 16 مم وزنه 1.578 كجم/م، فـ 96 سيخاً بطول 2.35 م تزن حوالي 356 كجم. المحلل يجمع هذه الأوزان حسب القطر والدرجة والشكل. النتيجة وزن نظري وليست كمية موزونة."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "ما أنواع الملفات المدعومة؟",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "ملفات إكسل ‎.xlsx و‎.xlsm (لا تُفتح الماكرو ولا تُشغَّل أبداً)، وملفات النص CSV وTSV و‎.txt المفصولة بفاصلة أو فاصلة منقوطة أو Tab، ونص ملصوق من الإكسل، أو بنود تكتبها يدوياً. حجم الملف حتى 25 ميجابايت. ملفات ‎.xls القديمة و‎.xlsb و‎.ods غير مدعومة: احفظها بصيغة ‎.xlsx أو CSV أولاً."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "هل يتم رفع جدولي؟",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "لا. الملف يُقرأ داخل متصفحك ولا يُرسل أو يُحفظ أي شيء، ويختفي عند إغلاق الصفحة. ولا تحتاج حساباً."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "ماذا لو كانت أسماء الأعمدة مختلفة؟",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "اختر العمود الصحيح لكل حقل في جدول المطابقة. المطلوب فقط القطر وطول القص وعدد الأسياخ. وإذا كان عنوان الطول بدون وحدة فاختر مم أو م."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "لماذا تم استبعاد صف؟",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "قائمة الصفوف المستبعدة تذكر السبب لكل صف: قطر أو طول أو عدد غير موجود أو غير مقروء، أو قيمة لا تناسب الوحدة، أو طول قص أكبر من 12 م (سيخ قياسي واحد)، أو إجمالي يناقض عدد العناصر × العدد في كل عنصر. الأداة لا تكمل البيانات الهندسية الناقصة."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "هل أستطيع حساب خطة القص من الجدول؟",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "نعم. زر «أرسل إلى أداة تحسين القص» يفتح الأداة بأطوال القص مجمّعة حسب القطر والدرجة. راجع البنود هناك ثم احسب. الصفوف الأطول من 12 م مستبعدة من التحليل ولا تُرسل أبداً، والصفوف التي بدون درجة لا تُرسل إلا بعد أن تحددها."
+   }
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "الرئيسية",
+   "item": "https://mashharawi.com/ar/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "الأدوات",
+   "item": "https://mashharawi.com/ar/tools/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "محلل جدول التفريد",
+   "item": "https://mashharawi.com/ar/tools/bbs-analyzer/"
+  }
+ ]
+}
+</script>
+<script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/cdn-cgi/*"}}]},"eagerness":"moderate"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">تخطَّ إلى المحتوى</a>
+
+<header class="c-header">
+  <a class="c-header__name" href="/ar/"><img class="c-header__mark" src="/assets/brand/mark-64.png" width="32" height="32" alt="">عمر المشهراوي</a>
+  <nav class="c-header__nav" aria-label="الرئيسية">
+    <a href="/ar/#about">نبذة</a>
+    <a href="/ar/#experience">الخبرة</a>
+    <a href="/ar/tools/" aria-current="page">الأدوات</a>
+    <a href="/ar/writing/">المقالات</a>
+    <a href="/ar/#contact">تواصل</a>
+    <a href="/tools/bbs-analyzer/" hreflang="en" lang="en" class="c-header__lang">English</a>
+    <a href="/zh/bbs-analyzer/" hreflang="zh-Hans" lang="zh-Hans" class="c-header__lang">中文</a>
+  </nav>
+  <button class="c-header__menu" type="button" aria-label="القائمة" aria-expanded="false"><span></span><span></span></button>
+</header>
+
+<main id="main">
+  <section class="c-hero c-hero--full c-hero--short" aria-labelledby="b-h">
+    <img class="c-hero__img" src="/assets/img/rebar-yard-1600.webp" srcset="/assets/img/rebar-yard-800.webp 800w, /assets/img/rebar-yard-1600.webp 1600w, /assets/img/rebar-yard-2560.webp 2560w" sizes="100vw" width="1600" height="873" alt="" fetchpriority="high" decoding="async">
+    <div class="c-hero__shade"></div>
+    <div class="c-hero__body">
+      <div class="c-hero__text">
+        <p class="c-label">الأدوات / محلل جدول التفريد &middot; في المتصفح &middot; مجاناً</p>
+        <h1 class="c-hero__title" id="b-h">راجع جدول التفريد في ثوانٍ.</h1>
+        <p class="c-hero__lead">افتح الجدول كملف إكسل أو CSV، أو الصقه. المحلل يتعرّف على الأعمدة، وينبهك لأي شيء لا يستطيع قراءته بثقة، ويجمع الأسياخ والطول والوزن النظري حسب القطر والدرجة والشكل. ثم أرسل أطوال القص لأداة تحسين القص.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="analyzer" class="sec c-after-hero">
+    <div class="wrap">
+      <div class="calc" id="bbs">
+        <p class="co-help"><a href="/ar/help/bbs-analyzer/" target="_blank" rel="noopener">طريقة استخدام الأداة (يفتح الدليل في تبويب جديد)</a></p>
+
+        <div class="co-panel b-input">
+          <p class="calc-lbl">الجدول</p>
+          <div class="b-in">
+            <label class="b-drop" id="bDrop">
+              <input id="bFile" type="file" accept=".xlsx,.xlsm,.csv,.tsv,.txt,text/csv,text/tab-separated-values,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel.sheet.macroEnabled.12">
+              <b>اختر ملف ‎.xlsx أو ‎.xlsm أو ‎.csv أو ‎.tsv أو ‎.txt</b>
+              <small>أو اسحبه هنا (حتى 25 ميجابايت). يُقرأ داخل هذا المتصفح فقط، ولا يُرفع أي شيء.</small>
+            </label>
+            <div class="b-side">
+              <button type="button" class="calc-btn ghost" id="bSample">حمّل جدول مثال</button>
+              <details class="co-paste" style="margin-top:0">
+                <summary>الصق من الإكسل</summary>
+                <div>
+                  <p>حدد الجدول في الإكسل مع صف العناوين، وانسخه، والصقه هنا.</p>
+                  <textarea id="bPaste" spellcheck="false"></textarea>
+                  <button type="button" class="calc-btn" id="bPasteGo">اقرأ النص الملصوق</button>
+                </div>
+              </details>
+            </div>
+          </div>
+          <label class="calc-field b-sheet" id="bSheetWrap" hidden><span>الورقة</span><select id="bSheet" class="co-in"></select></label>
+
+          <details class="b-manual">
+            <summary>إدخال يدوي</summary>
+            <div>
+              <table class="co-table b-man"><thead><tr><th scope="col">العنصر</th><th scope="col">رقم السيخ</th><th scope="col">القطر مم</th><th scope="col">الدرجة</th><th scope="col">كود الشكل</th><th scope="col">طول القص مم</th><th scope="col">إجمالي الأسياخ</th><th scope="col"><span class="vh">&times;</span></th></tr></thead><tbody id="bManRows"></tbody></table>
+              <datalist id="bDiaList"></datalist>
+              <datalist id="bGradeList"><option value="Gr60"></option><option value="Gr80"></option></datalist>
+              <div class="co-actions">
+                <button type="button" class="calc-btn ghost grow" id="bManAdd">أضف بنداً</button>
+                <button type="button" class="calc-btn" id="bManGo">حلّل هذه البنود</button>
+              </div>
+            </div>
+          </details>
+          <p class="co-msg" id="bMsg" role="status" aria-live="polite"></p>
+        </div>
+
+        <div class="co-panel b-mapping" id="bMap" hidden>
+          <p class="calc-lbl">الأعمدة</p>
+          <p class="calc-hint" style="margin-top:0">تتم مطابقة الأعمدة حسب عناوينها. راجع كل عمود، وما لا يوجد في جدولك اتركه فارغاً. عدد الأسياخ يؤخذ من عمود الإجمالي، أو من عدد العناصر &times; العدد في كل عنصر. <a class="co-q" href="/ar/help/bbs-analyzer/#columns" target="_blank" rel="noopener">مساعدة</a></p>
+          <div class="b-map-top">
+            <label class="calc-field"><span>صف العناوين</span><input id="bHdr" class="co-in" type="number" min="1" step="1" inputmode="numeric"></label>
+            <label class="calc-field"><span>وحدة طول القص</span><select id="uLength" class="co-in"><option value="">—</option><option value="mm">مم</option><option value="m">م</option></select></label>
+            <label class="calc-field"><span>وحدة الطول الكلي</span><select id="uTotalLength" class="co-in"><option value="">—</option><option value="mm">مم</option><option value="m">م</option></select></label>
+            <label class="calc-field"><span>وحدة الوزن</span><select id="uWeight" class="co-in"><option value="">—</option><option value="kg">كجم</option><option value="t">طن</option></select></label>
+            <button type="button" class="calc-btn ok" id="bAnalyze">حلّل</button>
+          </div>
+          <div class="b-fields" id="bFields"></div>
+          <div class="b-preview-wrap"><table class="b-preview"><tbody id="bPreview"></tbody></table></div>
+        </div>
+
+        <div class="co-panel" id="bOut" hidden>
+          <p class="calc-lbl">النتيجة</p>
+          <p class="b-src" id="bSrc"></p>
+          <dl class="co-figs">
+          <div><dt>الأسياخ</dt><dd><b id="fBars">0</b><span>سيخ</span></dd></div>
+          <div><dt>الوزن النظري</dt><dd><b id="fWt">0</b><span>طن</span></dd></div>
+          <div><dt>الطول الكلي</dt><dd><b id="fLen">0</b><span>م</span></dd></div>
+          <div><dt>الصفوف</dt><dd><b id="fRows">0</b><span></span></dd></div>
+          </dl>
+          <div class="b-groups" id="bGroups"></div>
+          <div class="b-notes">
+            <div class="b-box warn" id="bWarnBox"><h3>تنبيهات</h3><ul id="bWarn"></ul></div>
+            <div class="b-box"><h3>الافتراضات</h3><ul id="bAssume"></ul></div>
+          </div>
+
+          <h2 class="calc-lbl b-h">حسب القطر</h2>
+          <div class="co-scroll"><table class="calc-table b-tbl" id="tDia"></table></div>
+          <div class="b-grid2">
+            <div><h2 class="calc-lbl b-h">حسب القطر والدرجة</h2><div class="co-scroll"><table class="calc-table b-tbl" id="tDiaGrade"></table></div></div>
+            <div><h2 class="calc-lbl b-h">حسب الدرجة</h2><div class="co-scroll"><table class="calc-table b-tbl" id="tGrade"></table></div>
+                 <h2 class="calc-lbl b-h">حسب كود الشكل</h2><div class="co-scroll"><table class="calc-table b-tbl" id="tShape"></table></div></div>
+          </div>
+          <div id="bIssuesBox">
+            <h2 class="calc-lbl b-h">مستبعد من الحساب <a class="co-q" href="/ar/help/bbs-analyzer/#excluded" target="_blank" rel="noopener">لماذا؟</a></h2>
+            <div class="co-scroll"><table class="calc-table b-issues" id="tIssues"></table></div>
+          </div>
+          <h2 class="calc-lbl b-h">الصفوف المستخدمة</h2>
+          <div class="co-scroll"><table class="calc-table b-rows" id="tRows"></table></div>
+          <button type="button" class="calc-btn ghost co-showall" id="bMore" hidden></button>
+
+          <div class="co-actions b-actions">
+            <button type="button" class="calc-btn ghost" id="bCsv">تنزيل CSV</button>
+            <button type="button" class="calc-btn ghost grow" id="bPrint">طباعة / PDF</button>
+            <button type="button" class="calc-btn ok" id="bSend">أرسل إلى أداة تحسين القص</button>
+          </div>
+          <p class="calc-hint" id="bSendNote"></p>
+          <p class="calc-hint"><a class="co-q" href="/ar/help/bbs-analyzer/#grades" target="_blank" rel="noopener">لماذا؟</a> · <a class="co-q" href="/ar/help/bbs-analyzer/#twelve-metres" target="_blank" rel="noopener">12 m</a> · <a class="co-q" href="/ar/help/bbs-analyzer/#send" target="_blank" rel="noopener">مساعدة</a></p>
+          <p class="b-sendmsg" id="bSendMsg" role="status" aria-live="polite"></p>
+        </div>
+
+        <p class="calc-foot">الأوزان نظرية: 0.006165 &times; ق&sup2; كجم/م. تقديرات للتخطيط والمراجعة، وليست كميات موزونة أو معتمدة. توريد المصنع يقع ضمن سماحية المواصفة المعتمدة.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="q-band" aria-labelledby="qb-h">
+    <div class="wrap">
+      <p class="q-eyebrow">توريد حديد التسليح &middot; الراجحي للحديد</p>
+      <h2 id="qb-h">أرسل الإجماليات لعرض سعر.</h2>
+      <p>أرسل لي الأطنان لكل قطر ودرجة من هذا التحليل مع مدينة المشروع، وأرجع لك بعرض سعر رسمي لحديد التسليح من الراجحي للحديد، حيث أعمل في المبيعات. القص حسب الأطوال المحددة يخضع للتأكيد، ومتطلبات الثني يجب تأكيدها قبل عرض السعر.</p>
+      <ul class="q-facts">
+        <li>المقاسات 10، 12، 14، 16، 18، 20، 25، 32 مم &middot; طول 12 م</li><li>Grade 60 و Grade 80</li><li>يتوفر حديد تسليح مدهون بالإيبوكسي</li><li>شهادات المطحنة (MTC) للمقاسات والدرجة المطلوبة</li><li>القص حسب الأطوال المحددة، بعد التأكيد</li><li>تأكيد متطلبات الثني قبل عرض السعر</li><li>التوريد بعد تأكيد الدفع أو اعتماد الاعتماد المستندي (LC)، وفق إجراءات الشركة وتوفر المنتج وجدول التسليم المتفق عليه</li>
+      </ul>
+      <div class="q-actions">
+        <a class="q-btn q-btn--wa" href="https://wa.me/message/D6ABM7QFWVSPB1" target="_blank" rel="noopener">أرسل الكميات على واتساب</a>
+        <a class="q-btn q-btn--line" href="/ar/rebar/">تفاصيل التوريد</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec co-how" aria-labelledby="how-h">
+    <div class="wrap">
+      <div class="sec-head"><h2 id="how-h">كيف يقرأ المحلل الجدول.</h2></div>
+      <div class="lead">
+        <p>الملف يُقرأ داخل متصفحك. ملفات الإكسل تُفتح بقارئ صغير مدمج يقرأ القيم فقط. لا تُشغَّل أي معادلة؛ إذا كانت الخلية فيها معادلة تُستخدم القيمة المحفوظة في الملف ويُعلَّم الصف. ولا تُفتح الماكرو أبداً.</p>
+        <p>يتعرّف المحلل على الأعمدة من أسمائها بالعربية والإنجليزية والصينية (رقم السيخ، القطر، طول القص، عدد العناصر، Bar mark، Dia، 钢筋编号، 下料长度 وغيرها)، وتستطيع تغيير أي عمود. وحدة الطول تؤخذ من العنوان مثل «طول القص (مم)»، وإذا لم يذكرها العنوان تختارها أنت. الأداة لا تخمّن أبداً.</p>
+        <p>كل صف يتم فحصه. الصفوف التي ينقصها القطر أو الطول أو العدد أو لا يمكن قراءتها تُستبعد وتُعرض مع السبب، ولا تُكمَّل من عندنا. الطول المكتوب بفاصلة (2,875) يُرفض لأنه قد يعني 2.875 أو 2875. والقيم التي لا تناسب إلا الوحدة الأخرى تُرفض ولا تُحوَّل.</p>
+        <p>أي طول قص أكبر من 12,000&nbsp;مم (سيخ قياسي واحد 12&nbsp;م) يُستبعد من كل الإجماليات ويظهر مع السبب «طول القص يتجاوز حد السيخ القياسي 12 م»، وطول 12,000&nbsp;مم نفسه محسوب. وتظهر كتنبيهات للمراجعة: أرقام الأسياخ المكررة (تُفحص داخل كل عنصر، وبدون عمود للعنصر لا يمكن التمييز بينها)، والدرجات المكتوبة بأشكال مختلفة، والأقطار غير القياسية، والأوزان المكتوبة في الجدول التي تختلف عن الوزن النظري. لا يُحذف أي شيء.</p>
+        <p>زر «أرسل إلى أداة تحسين القص» يجمّع الصفوف الصالحة حسب القطر والدرجة وطول القص، ويفتح أداة القص في تبويب جديد لتراجعها. لا تُدمج الأقطار أو الدرجات أبداً. الصفوف التي بدون درجة تبقى في التحليل لكنها لا تُرسل إلا بعد أن تحدد الدرجة بنفسك، ولا تُفترض Grade 60 أو 80 أبداً. ويبقى جدولك هنا كما هو.</p>
+      </div>
+      <p class="note-back">ذو صلة: <a href="/ar/tools/cutting-optimizer/">أداة تحسين قص الحديد</a>، و<a href="/ar/tools/rebar-weight/">حاسبة وزن الحديد</a>، و<a href="/ar/tools/rebarplan/">RebarPlan</a> (برنامج مكتبي لإعداد جداول التفريد).</p>
+      <section class="faq rise" aria-labelledby="faq-h">
+        <h2 id="faq-h">أسئلة شائعة</h2>
+        <details>
+          <summary>كيف يُحسب وزن جدول التفريد؟</summary>
+          <p>لكل صف: 0.006165 × ق² كجم/م × طول القص بالمتر × عدد الأسياخ. سيخ 16 مم وزنه 1.578 كجم/م، فـ 96 سيخاً بطول 2.35 م تزن حوالي 356 كجم. المحلل يجمع هذه الأوزان حسب القطر والدرجة والشكل. النتيجة وزن نظري وليست كمية موزونة.</p>
+        </details>
+        <details>
+          <summary>ما أنواع الملفات المدعومة؟</summary>
+          <p>ملفات إكسل ‎.xlsx و‎.xlsm (لا تُفتح الماكرو ولا تُشغَّل أبداً)، وملفات النص CSV وTSV و‎.txt المفصولة بفاصلة أو فاصلة منقوطة أو Tab، ونص ملصوق من الإكسل، أو بنود تكتبها يدوياً. حجم الملف حتى 25 ميجابايت. ملفات ‎.xls القديمة و‎.xlsb و‎.ods غير مدعومة: احفظها بصيغة ‎.xlsx أو CSV أولاً.</p>
+        </details>
+        <details>
+          <summary>هل يتم رفع جدولي؟</summary>
+          <p>لا. الملف يُقرأ داخل متصفحك ولا يُرسل أو يُحفظ أي شيء، ويختفي عند إغلاق الصفحة. ولا تحتاج حساباً.</p>
+        </details>
+        <details>
+          <summary>ماذا لو كانت أسماء الأعمدة مختلفة؟</summary>
+          <p>اختر العمود الصحيح لكل حقل في جدول المطابقة. المطلوب فقط القطر وطول القص وعدد الأسياخ. وإذا كان عنوان الطول بدون وحدة فاختر مم أو م.</p>
+        </details>
+        <details>
+          <summary>لماذا تم استبعاد صف؟</summary>
+          <p>قائمة الصفوف المستبعدة تذكر السبب لكل صف: قطر أو طول أو عدد غير موجود أو غير مقروء، أو قيمة لا تناسب الوحدة، أو طول قص أكبر من 12 م (سيخ قياسي واحد)، أو إجمالي يناقض عدد العناصر × العدد في كل عنصر. الأداة لا تكمل البيانات الهندسية الناقصة.</p>
+        </details>
+        <details>
+          <summary>هل أستطيع حساب خطة القص من الجدول؟</summary>
+          <p>نعم. زر «أرسل إلى أداة تحسين القص» يفتح الأداة بأطوال القص مجمّعة حسب القطر والدرجة. راجع البنود هناك ثم احسب. الصفوف الأطول من 12 م مستبعدة من التحليل ولا تُرسل أبداً، والصفوف التي بدون درجة لا تُرسل إلا بعد أن تحددها.</p>
+        </details>
+      </section>
+    </div>
+  </section>
+</main>
+
+<footer class="c-footer">
+  <div class="c-footer__quote">
+    <p>ملاحظات عن الأوزان والسماحيات وما يصل إلى الفاتورة.</p>
+    <a class="c-label" href="/ar/writing/">كل المقالات ←</a>
+  </div>
+  <div class="c-footer__base">
+    <span>&copy; <span id="yr">2026</span> عمر المشهراوي</span>
+    <a href="mailto:info@mashharawi.com">info@mashharawi.com</a>
+    <a href="/ar/about/">نبذة</a>
+    <a href="/ar/contact/">تواصل</a>
+    <a href="/ar/privacy/">الخصوصية</a>
+  </div>
+</footer>
+<script src="/assets/site.js?v=20261015" defer></script>
+<script src="/assets/bbs/xlsx.js?v=20261120a" defer></script>
+<script src="/assets/bbs/engine.js?v=20261120a" defer></script>
+<script src="/assets/bbs/i18n.js?v=20261120a" defer></script>
+<script src="/assets/bbs/app.js?v=20261120a" defer></script>
+<script src="/assets/quote.js?v=20261019" defer></script>
+</body>
+</html>

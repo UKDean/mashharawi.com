@@ -17,9 +17,22 @@ NOTES, OUT = os.path.join(ROOT, "notes"), os.path.join(ROOT, "writing")
 PAIRS = [
     ("/", "/ar/", "1.0", "0.9"),
     ("/rebar/", "/ar/rebar/", "0.9", "0.9"),
+    ("/rebar/riyadh/", "/ar/rebar/riyadh/", "0.8", "0.8"),
+    ("/rebar/jeddah/", "/ar/rebar/jeddah/", "0.8", "0.8"),
     ("/tools/", "/ar/tools/", "0.9", "0.8"),
     ("/tools/rebar-weight/", "/ar/tools/rebar-weight/", "0.9", "0.8"),
     ("/tools/steel-sections/", "/ar/tools/steel-sections/", "0.9", "0.8"),
+    ("/tools/cutting-optimizer/", "/ar/tools/cutting-optimizer/", "0.9", "0.8"),
+    ("/tools/bbs-analyzer/", "/ar/tools/bbs-analyzer/", "0.9", "0.8"),
+    ("/tools/steel-weight-verification/", "/ar/tools/steel-weight-verification/", "0.8", "0.7"),
+    ("/help/", "/ar/help/", "0.7", "0.6"),
+    ("/help/cutting-optimizer/", "/ar/help/cutting-optimizer/", "0.6", "0.5"),
+    ("/help/bbs-analyzer/", "/ar/help/bbs-analyzer/", "0.6", "0.5"),
+    ("/help/steel-weight-verification/", "/ar/help/steel-weight-verification/", "0.6", "0.5"),
+    ("/tools/construction-dictionary/", "/ar/tools/construction-dictionary/", "0.8", "0.7"),
+    ("/help/construction-dictionary/", "/ar/help/construction-dictionary/", "0.6", "0.5"),
+    ("/tools/smart-rfq-generator/", "/ar/tools/smart-rfq-generator/", "0.8", "0.7"),
+    ("/help/smart-rfq-generator/", "/ar/help/smart-rfq-generator/", "0.6", "0.5"),
     ("/tools/rebarplan/", "/ar/tools/rebarplan/", "0.8", "0.7"),
     ("/tools/openpdfkit/", "/ar/tools/openpdfkit/", "0.8", "0.7"),
     # /tools/approvals/ and /contract-check/ are internal tools: noindex, kept live, left out of the sitemap.
@@ -28,6 +41,9 @@ PAIRS = [
     ("/kavro/open-source/", "/ar/kavro/open-source/", "0.4", "0.3"),
     ("/kavro/privacy/", "/ar/kavro/privacy/", "0.3", "0.3"),
     ("/kavro/terms/", "/ar/kavro/terms/", "0.3", "0.3"),
+    ("/kavro/privacy-choices/", "/ar/kavro/privacy-choices/", "0.3", "0.3"),
+    ("/kavro/cookies/", "/ar/kavro/cookies/", "0.3", "0.3"),
+    ("/kavro/disclaimer/", "/ar/kavro/disclaimer/", "0.3", "0.3"),
     ("/about/", "/ar/about/", "0.7", "0.6"),
     ("/contact/", "/ar/contact/", "0.5", "0.4"),
     ("/privacy/", "/ar/privacy/", "0.3", "0.3"),
@@ -40,12 +56,24 @@ SINGLES = [
 # gives the English page a Chinese page translates, so both carry hreflang
 # alternates; ZH_PAGES lists every Chinese page and its priority. Same rule:
 # a page not listed here disappears from the sitemap on the next build.
-ZH_TWINS = {"/rebar/": "/zh/rebar/"}
+ZH_TWINS = {"/": "/zh/", "/rebar/": "/zh/rebar/", "/tools/": "/zh/tools/", "/tools/cutting-optimizer/": "/zh/rebar-cutting-optimizer/", "/tools/bbs-analyzer/": "/zh/bbs-analyzer/", "/tools/steel-weight-verification/": "/zh/steel-weight-verification/", "/help/": "/zh/help/", "/help/cutting-optimizer/": "/zh/help/cutting-optimizer/", "/help/bbs-analyzer/": "/zh/help/bbs-analyzer/", "/help/steel-weight-verification/": "/zh/help/steel-weight-verification/", "/tools/construction-dictionary/": "/zh/tools/construction-dictionary/", "/help/construction-dictionary/": "/zh/help/construction-dictionary/", "/tools/smart-rfq-generator/": "/zh/tools/smart-rfq-generator/", "/help/smart-rfq-generator/": "/zh/help/smart-rfq-generator/"}
 ZH_PAGES = [
     ("/zh/", "0.8"),
     ("/zh/rebar/", "0.9"),
     ("/zh/rebar-cutting-bending/", "0.8"),
     ("/zh/rebar-weight-table/", "0.8"),
+    ("/zh/tools/", "0.7"),
+    ("/zh/rebar-cutting-optimizer/", "0.8"),
+    ("/zh/bbs-analyzer/", "0.8"),
+    ("/zh/steel-weight-verification/", "0.7"),
+    ("/zh/help/", "0.6"),
+    ("/zh/help/cutting-optimizer/", "0.5"),
+    ("/zh/help/bbs-analyzer/", "0.5"),
+    ("/zh/help/steel-weight-verification/", "0.5"),
+    ("/zh/tools/construction-dictionary/", "0.7"),
+    ("/zh/help/construction-dictionary/", "0.5"),
+    ("/zh/tools/smart-rfq-generator/", "0.7"),
+    ("/zh/help/smart-rfq-generator/", "0.5"),
     ("/zh/epoxy-coated-rebar/", "0.7"),
     ("/zh/rebar-quotation-guide/", "0.7"),
     ("/zh/hrb400-vs-astm-a615/", "0.8"),
@@ -110,7 +138,7 @@ def quote_band(lang):
       <h2 id="qb-h">تحتاج حديد تسليح لمشروعك؟</h2>
       <p>أنا رئيس قسم في الراجحي للحديد. أرسل لي المقاسات والكميات أو جدول التفريد، وأرجع لك بعرض سعر.</p>
       <ul class="q-facts">
-        <li>10 إلى 32 مم · طول 12 م</li><li>Grade 60 و Grade 80</li><li>قص حسب الطلب</li><li>دهان إيبوكسي</li><li>شهادات المطحنة للمقاسات والدرجة المطلوبة</li><li>تسليم فوري بعد الدفع أو الاعتماد البنكي وفق إجراءات الشركة</li><li>الرياض · جدة · القصيم · الطائف</li><li>شحن لجميع مناطق المملكة</li>
+        <li>المقاسات 10، 12، 14، 16، 18، 20، 25، 32 مم &middot; طول 12 م</li><li>Grade 60 و Grade 80</li><li>يتوفر حديد تسليح مدهون بالإيبوكسي</li><li>شهادات المطحنة (MTC) للمقاسات والدرجة المطلوبة</li><li>القص حسب الأطوال المحددة، بعد التأكيد</li><li>تأكيد متطلبات الثني قبل عرض السعر</li><li>التوريد بعد تأكيد الدفع أو اعتماد الاعتماد المستندي (LC)، وفق إجراءات الشركة وتوفر المنتج وجدول التسليم المتفق عليه</li>
       </ul>
       <div class="q-actions">
         <a class="q-btn q-btn--wa" href="https://wa.me/message/D6ABM7QFWVSPB1" target="_blank" rel="noopener">تواصل على واتساب</a>
@@ -125,7 +153,7 @@ def quote_band(lang):
       <h2 id="qb-h">Need reinforcing steel for a project?</h2>
       <p>I am a Section Head at Al Rajhi Steel. Send me the sizes and quantities, or the bar bending schedule, and I will come back with a quotation.</p>
       <ul class="q-facts">
-        <li>10 to 32 mm · 12 m bars</li><li>Grade 60 and Grade 80</li><li>Cut to length</li><li>Epoxy coating</li><li>Mill test certificates for the sizes and grade ordered</li><li>Immediate delivery after payment or LC, subject to company procedures</li><li>Riyadh · Jeddah · Qassim · Taif</li><li>Shipping across Saudi Arabia</li>
+        <li>Sizes 10, 12, 14, 16, 18, 20, 25 and 32 mm &middot; 12 m bars</li><li>Grade 60 and Grade 80</li><li>Epoxy-coated rebar available</li><li>Mill test certificates (MTC) for the sizes and grade ordered</li><li>Cutting to specified lengths, subject to confirmation</li><li>Bending requirements confirmed before quotation</li><li>Supply after payment confirmation or LC approval, subject to company procedures, product availability and the agreed delivery schedule</li>
       </ul>
       <div class="q-actions">
         <a class="q-btn q-btn--wa" href="https://wa.me/message/D6ABM7QFWVSPB1" target="_blank" rel="noopener">Message on WhatsApp</a>
@@ -175,7 +203,7 @@ def shell(lang, d, title, desc, canon, body, head="", robots=None, fonts=None, o
 <meta property="og:image" content="{og_image or (SITE + '/og-noir' + ('-ar' if lang == 'ar' else '') + '.jpg')}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="alternate" type="application/rss+xml" title="{AUTHOR} notes" href="{SITE}/feed.xml">
-<link rel="stylesheet" href="/assets/site.css?v=20261031">
+<link rel="stylesheet" href="/assets/site.css?v=20261120b">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 {f}
@@ -221,6 +249,87 @@ def jstr(s):
     return '"' + s.replace("\\", "\\\\").replace('"', '\\"') + '"'
 
 
+# Tools box at the end of every note: the two tools that fit the subject best,
+# then the RFQ generator, so a reader who came from search can act on it.
+_TOOLS = {
+    "rfq": ("smart-rfq-generator", "engineers",
+            ("Smart RFQ generator", "Prepare a clear rebar request for quotation, then print it or send it."),
+            ("منشئ طلب عرض السعر", "جهّز طلب عرض سعر حديد تسليح واضحاً، ثم اطبعه أو أرسله.")),
+    "weight": ("rebar-weight", None,
+               ("Reinforcing steel weight", "Diameter to kilos per metre, per bar and per tonne."),
+               ("وزن حديد التسليح", "من القطر إلى الكيلو للمتر والسيخ والطن.")),
+    "verify": ("steel-weight-verification", "macro",
+               ("Steel weight verification", "Compare a weighed sample with its nominal weight, in kg and %."),
+               ("التحقق من وزن الحديد", "قارن وزن عينة الحديد المقاس بوزنها الاسمي، بالكيلو والنسبة.")),
+    "bbs": ("bbs-analyzer", "columns",
+            ("BBS Analyzer", "Open a bar bending schedule from Excel or CSV: bars, length and weight by diameter."),
+            ("محلل جدول التفريد", "افتح جدول التفريد من إكسل أو CSV: الأعداد والأطوال والأوزان حسب القطر.")),
+    "cut": ("cutting-optimizer", "sparks",
+            ("Rebar cutting optimizer", "Cutting patterns from 12 m bars, the waste and the tonnes to order."),
+            ("تحسين قص حديد التسليح", "خطة القص من أسياخ 12 م، ونسبة الهالك، والطن المطلوب لكل قطر.")),
+    "sections": ("steel-sections", None,
+                 ("Steel section weight", "182 sizes of IPE, HEA, HEB, UPN and angles, plus pipe and tube."),
+                 ("أوزان المقاطع الحديدية", "182 مقاساً من IPE وHEA وHEB وUPN والزوايا، ومعها المواسير.")),
+    "dict": ("construction-dictionary", "rebar-site",
+             ("Construction dictionary", "189 site terms in English, Arabic and Chinese, with short definitions."),
+             ("قاموس مصطلحات البناء", "189 مصطلحاً للموقع بالعربية والإنجليزية والصينية، مع تعريف مختصر.")),
+}
+_TOOL_WORDS = {
+    "weight": r"وزن|أوزان|الطن|طن|أسياخ|weight|tonne|tolerance",
+    "verify": r"تفاوت|هامش|سماحية|tolerance|weigh|ميزان",
+    "bbs": r"تفريد|BBS|bar bending schedule|bending schedule",
+    "cut": r"طول القص|القص|هالك|cut length|cutting|waste|offcut",
+    "sections": r"IPE|HEA|HEB|UPN|كمرات|مقاطع|sections?",
+    "dict": r"مصطلح|terminolog|中文|بالصينية|Chinese",
+}
+_LEGACY_IMG = {"rebar-weight": ("/assets/img/rebar-bundle-800.webp", 800, 447),
+               "steel-sections": ("/assets/img/rebar-yard-800.webp", 800, 436)}
+
+
+_STOCK_SIZE = {"engineers": (1400, 933), "sparks": (1400, 1050), "columns": (800, 583),
+               "macro": (1400, 933), "rebar-site": (900, 720)}
+
+
+def _stock_img(name):
+    w, h = _STOCK_SIZE[name]
+    widths = [x for x in (320, 480, 640, 800)
+              if os.path.exists(os.path.join(ROOT, "assets", "img", "stock", f"{name}-{x}w.webp"))]
+    srcset = ", ".join([f"/assets/img/stock/{name}-{x}w.webp {x}w" for x in widths] + [f"/assets/img/stock/{name}.webp {w}w"])
+    return f'<img src="/assets/img/stock/{name}-640w.webp" srcset="{srcset}" sizes="(max-width:760px) 84px, 168px" width="{w}" height="{h}" alt="" loading="lazy" decoding="async">'
+
+
+def tools_box(n):
+    text = " ".join([n["title"], n["summary"], n["slug"], re.sub(r"<[^>]+>", " ", n["body"])])
+    score = {k: len(re.findall(p, text, re.I)) for k, p in _TOOL_WORDS.items()}
+    picks = [k for k, s in sorted(score.items(), key=lambda kv: -kv[1]) if s > 0][:2]
+    for k in ("weight", "bbs"):
+        if len(picks) < 2 and k not in picks:
+            picks.append(k)
+    picks.append("rfq")
+    ar = n["lang"] == "ar"
+    base = "/ar/tools/" if ar else "/tools/"
+    rows = []
+    for i, k in enumerate(picks, 1):
+        slug, img, en, arx = _TOOLS[k]
+        title, desc = arx if ar else en
+        if img:
+            pic = _stock_img(img)
+        else:
+            src, w, h = _LEGACY_IMG[slug]
+            pic = f'<img src="{src}" width="{w}" height="{h}" alt="" loading="lazy" decoding="async">'
+        rows.append(f'          <a class="c-row" href="{base}{slug}/">\n'
+                    f'            <span class="c-row__num" aria-hidden="true">0{i}</span>\n'
+                    f'            <span><span class="c-row__title">{title}</span><span class="c-row__desc">{desc}</span></span>\n'
+                    f'            <span class="c-row__thumb">{pic}</span>\n'
+                    f'          </a>')
+    head = "أدوات مجانية لهذا الموضوع" if ar else "Free tools for this topic"
+    sub = ("تعمل داخل المتصفح، بلا تسجيل، ولا يُحفظ أي شيء تدخله." if ar
+           else "They run in your browser, with no sign-up, and keep nothing you enter.")
+    return (f'      <section class="note-tools" aria-labelledby="nt-h">\n'
+            f'        <h2 id="nt-h">{head}</h2>\n        <p class="note-tools__sub">{sub}</p>\n'
+            f'        <div class="c-rows">\n' + "\n".join(rows) + '\n        </div>\n      </section>\n')
+
+
 def note_page(n):
     e = html.escape
     label = "مقال" if n["lang"] == "ar" else "Note"
@@ -252,7 +361,7 @@ def note_page(n):
       <div class="prose c-prose">
 {n['body']}
       </div>
-      <p class="note-back"><a href="{'/ar/writing/' if n['lang'] == 'ar' else '/writing/'}">{'&rarr;' if n['lang'] == 'ar' else '&larr;'} {alln}</a></p>
+{tools_box(n)}      <p class="note-back"><a href="{'/ar/writing/' if n['lang'] == 'ar' else '/writing/'}">{'&rarr;' if n['lang'] == 'ar' else '&larr;'} {alln}</a></p>
     </div>
   </article>"""
     # Add the author suffix only while the full title fits Google's ~65 characters.

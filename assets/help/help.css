@@ -1,0 +1,43 @@
+/* mashharawi.com, Help Center. Static pages, no script of their own. Uses
+   the site's tokens; logical properties so the Arabic pages mirror. */
+.h-page{padding-top:clamp(28px,4vw,56px)}
+.h-crumbs{font-family:var(--mono);font-size:11.5px;color:var(--scale);margin-bottom:18px}
+.h-crumbs a{color:var(--scale);border-bottom:1px solid var(--line)}
+.h-crumbs a:hover{color:var(--ink)}
+.h-head{max-inline-size:820px}
+.h-lead{font-size:1.08em;line-height:1.6;color:var(--lead);margin:12px 0 0}
+.h-open{display:inline-block;margin-top:18px;text-decoration:none}
+.h-grid{display:grid;grid-template-columns:230px minmax(0,1fr);gap:clamp(24px,4vw,56px);margin-top:clamp(28px,4vw,48px);align-items:start}
+.h-toc{position:sticky;inset-block-start:90px;border-inline-start:2px solid var(--line);padding-inline-start:14px}
+.h-toc ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.h-toc a{font-size:.92em;color:var(--lead);text-decoration:none}
+.h-toc a:hover{color:var(--ink)}
+.h-body{min-width:0;max-inline-size:820px;line-height:1.65;color:var(--lead)}
+.h-body h2{margin:clamp(34px,4vw,48px) 0 12px;font-size:clamp(22px,2.4vw,28px);color:var(--ink);scroll-margin-top:90px}
+.h-body h2:first-child{margin-top:0}
+.h-body h3{margin:26px 0 8px;font-size:1.08em;color:var(--ink);scroll-margin-top:90px}
+.h-body p,.h-body li{max-inline-size:72ch}
+.h-body ol,.h-body ul{padding-inline-start:22px}
+.h-body li{margin-bottom:6px}
+.h-body a{color:var(--ink);border-bottom:1px solid var(--line)}
+.h-body a:hover{border-color:var(--hot)}
+.h-note{padding:12px 14px;background:var(--mill);border-inline-start:4px solid var(--blued);font-size:.95em}
+.h-scroll{overflow-x:auto;margin:12px 0 16px}
+.h-scroll:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.h-table{border-collapse:collapse;inline-size:100%;font-size:.92em;min-inline-size:520px}
+.h-table th,.h-table td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:start;vertical-align:top}
+.h-table th{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--scale);font-weight:400;border-bottom-color:var(--ink)}
+.h-ex{margin:16px 0;padding:16px 18px;border:1px solid var(--line);background:var(--sheet);border-block-start:3px solid var(--hot)}
+.h-ex-t{margin:0 0 8px!important;font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+.h-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:12px 0}
+.h-card{display:flex;flex-direction:column;gap:6px;padding:16px;border:1px solid var(--line)!important;background:var(--sheet);text-decoration:none}
+.h-card:hover{border-color:var(--ink)!important}
+.h-card b{color:var(--ink)}
+.h-card span{font-size:.9em;color:var(--lead)}
+.h-faq details{border-bottom:1px solid var(--line)}
+@media (max-width:900px){
+  .h-grid{grid-template-columns:minmax(0,1fr)}
+  .h-toc{position:static}
+  .h-cards{grid-template-columns:1fr}
+}
+@media print{.h-toc,.h-open{display:none!important}.h-grid{display:block}}

@@ -6,7 +6,21 @@
     <atom:link href="https://mashharawi.com/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Notes on commercial steel, software and automation.</description>
     <language>en</language>
-    <lastBuildDate>Thu, 19 Nov 2026 08:18:30 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 25 Nov 2026 16:59:14 +0000</lastBuildDate>
+    <item>
+      <title>حديد Grade 60 أم Grade 80؟ الفرق ومتى تستخدم كل درجة</title>
+      <link>https://mashharawi.com/writing/grade-60-vs-grade-80/</link>
+      <guid isPermaLink="true">https://mashharawi.com/writing/grade-60-vs-grade-80/</guid>
+      <pubDate>Wed, 25 Nov 2026 09:00:00 +0000</pubDate>
+      <description>ما معنى Grade 60 وGrade 80 في حديد التسليح، والفرق بينهما في الخضوع والشد والاستطالة والثني، ومتى يختار المصمم الدرجة الأعلى، ولماذا لا يجوز تبديلها في الموقع.</description>
+    </item>
+    <item>
+      <title>كم طن حديد يحتاج السقف 100 متر؟ جدول من 80 إلى 400 متر مربع</title>
+      <link>https://mashharawi.com/writing/slab-tonnage-by-area/</link>
+      <guid isPermaLink="true">https://mashharawi.com/writing/slab-tonnage-by-area/</guid>
+      <pubDate>Sun, 22 Nov 2026 09:00:00 +0000</pubDate>
+      <description>جدول سريع لطنّية حديد السقف المصمت حسب المساحة، من 80 إلى 400 م²، محسوب من قطر الحديد والمسافات بين الأسياخ، مع ما لا يشمله الجدول ومتى تحتاج حساباً دقيقاً.</description>
+    </item>
     <item>
       <title>كم طن حديد تحتاج الفيلا أو العمارة؟ تقدير حسب المساحة وعدد الأدوار</title>
       <link>https://mashharawi.com/writing/villa-rebar-tonnage/</link>
@@ -19,7 +33,7 @@
       <link>https://mashharawi.com/writing/rebar-price-adjustment/</link>
       <guid isPermaLink="true">https://mashharawi.com/writing/rebar-price-adjustment/</guid>
       <pubDate>Tue, 17 Nov 2026 09:00:00 +0000</pubDate>
-      <description>أسعار حديد التسليح ارتفعت أكثر من 700 ريال للطن بين يناير ومايو 2026. ما الذي تقوله المادة 113 المعدّلة من اللائحة التنفيذية لنظام المنافسات عن تعديل الأسعار، وشرط الـ 3%، والمستندات التي يجب أن تحفظها من يوم شراء الحديد.</description>
+      <description>ارتفع سعر حديد التسليح أكثر من 700 ريال للطن بين يناير ومايو 2026. ماذا تقول المادة 113 المعدّلة عن تعديل الأسعار وشرط الـ 3%، وما المستندات التي تحفظها.</description>
     </item>
     <item>
       <title>اختبار الثني في المصنع والثني في الموقع: رقمان مختلفان لا تخلط بينهما</title>
@@ -57,18 +71,18 @@
       <description>متر كمرة IPE 300 يزن 42.2 كجم (507 كجم لطول 12 م)، وHEA 300 يزن 88.3 كجم وHEB 300 يزن 117 كجم. جدول وزن المتر لكمرات IPE وHEA وHEB.</description>
     </item>
     <item>
-      <title>كم سيخ حديد في الطن؟ جدول عدد الأسياخ لكل قطر من 8 إلى 32 مم</title>
+      <title>عدد الأسياخ في الطن: جدول أسياخ الحديد لكل قطر 8–32 مم</title>
       <link>https://mashharawi.com/writing/bars-per-tonne/</link>
       <guid isPermaLink="true">https://mashharawi.com/writing/bars-per-tonne/</guid>
       <pubDate>Fri, 16 Oct 2026 09:00:00 +0000</pubDate>
-      <description>الطن من حديد 12 مم فيه حوالي 94 سيخاً، ومن 14 مم حوالي 69، ومن 16 مم حوالي 53 سيخاً بطول 12 م. جدول لكل الأقطار بطول 12 م و6 م مع طريقة التحويل.</description>
+      <description>عدد أسياخ الحديد في الطن: قطر 12 بطول 12 م حوالي 94 سيخاً، وقطر 16 حوالي 53. جدول لكل الأقطار بطول 12 و6 م، مع حاسبة تحوّل الأطنان إلى أسياخ.</description>
     </item>
     <item>
-      <title>جدول أوزان حديد التسليح: وزن المتر والسيخ 12 م لكل الأقطار</title>
+      <title>جدول أوزان حديد التسليح: وزن المتر الطولي والسيخ لكل قطر</title>
       <link>https://mashharawi.com/writing/rebar-weight-table/</link>
       <guid isPermaLink="true">https://mashharawi.com/writing/rebar-weight-table/</guid>
       <pubDate>Fri, 09 Oct 2026 09:00:00 +0000</pubDate>
-      <description>متر حديد 12 مم يزن 0.888 كجم، و16 مم يزن 1.578 كجم. جدول وزن المتر والسيخ 12 م وعدد الأسياخ في الطن ومساحة المقطع للأقطار 8 إلى 32 مم مع المعادلة.</description>
+      <description>أوزان الحديد: وزن المتر الطولي حديد 12 هو 0.888 كجم، ووزن السيخ 12 بطول 12 م هو 10.65 كجم. جدول وزن حديد التسليح لكل الأقطار 8–32 مم مع المعادلة.</description>
     </item>
     <item>
       <title>Weight tolerance is a commercial term, not a technical one</title>

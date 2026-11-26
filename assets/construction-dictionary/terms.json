@@ -1,0 +1,6480 @@
+{
+ "version": "2026-11-20",
+ "languages": [
+  "en",
+  "ar",
+  "zh"
+ ],
+ "categories": [
+  {
+   "id": "rebar",
+   "name": {
+    "en": "Reinforcing Steel",
+    "ar": "حديد التسليح",
+    "zh": "钢筋"
+   }
+  },
+  {
+   "id": "concrete",
+   "name": {
+    "en": "Concrete",
+    "ar": "الخرسانة",
+    "zh": "混凝土"
+   }
+  },
+  {
+   "id": "structural",
+   "name": {
+    "en": "Structural Engineering",
+    "ar": "الهندسة الإنشائية",
+    "zh": "结构工程"
+   }
+  },
+  {
+   "id": "civil",
+   "name": {
+    "en": "Civil Engineering",
+    "ar": "الهندسة المدنية",
+    "zh": "土木工程"
+   }
+  },
+  {
+   "id": "site",
+   "name": {
+    "en": "Construction Site",
+    "ar": "موقع الإنشاء",
+    "zh": "施工现场"
+   }
+  },
+  {
+   "id": "procurement",
+   "name": {
+    "en": "Procurement",
+    "ar": "المشتريات",
+    "zh": "采购"
+   }
+  },
+  {
+   "id": "qaqc",
+   "name": {
+    "en": "Quality Control (QA/QC)",
+    "ar": "ضبط الجودة (QA/QC)",
+    "zh": "质量控制（QA/QC）"
+   }
+  },
+  {
+   "id": "logistics",
+   "name": {
+    "en": "Logistics",
+    "ar": "النقل والإمداد",
+    "zh": "物流"
+   }
+  },
+  {
+   "id": "drawings",
+   "name": {
+    "en": "Drawings and Specifications",
+    "ar": "المخططات والمواصفات",
+    "zh": "图纸与规范"
+   }
+  },
+  {
+   "id": "safety",
+   "name": {
+    "en": "Health and Safety",
+    "ar": "الصحة والسلامة",
+    "zh": "健康与安全"
+   }
+  }
+ ],
+ "terms": [
+  {
+   "id": "reinforcing-steel",
+   "category": "rebar",
+   "term": {
+    "en": "Reinforcing steel",
+    "ar": "حديد التسليح",
+    "zh": "钢筋"
+   },
+   "definition": {
+    "en": "Steel bars placed in concrete to carry tensile forces that concrete alone cannot resist. Supplied mostly as deformed bars in straight lengths or as fabricated (cut and bent) bars.",
+    "ar": "أسياخ من الصلب توضع داخل الخرسانة لتتحمل قوى الشد التي لا تستطيع الخرسانة وحدها مقاومتها. تُورَّد غالباً أسياخاً محززة بأطوال مستقيمة أو مقصوصة ومثنية حسب الجداول.",
+    "zh": "置于混凝土中、用于承受混凝土本身无法抵抗的拉力的钢材。通常以带肋钢筋直条供货，或按图加工（切断、弯曲）后供货。"
+   },
+   "synonyms": {
+    "en": [
+     "rebar",
+     "reinforcing bar",
+     "reinforcement",
+     "steel reinforcement"
+    ],
+    "ar": [
+     "صلب التسليح",
+     "فولاذ التسليح",
+     "أسياخ التسليح"
+    ],
+    "zh": [
+     "建筑钢筋",
+     "混凝土用钢筋"
+    ]
+   },
+   "related": [
+    "deformed-bar",
+    "plain-bar",
+    "reinforced-concrete",
+    "grade",
+    "stock-length"
+   ],
+   "abbreviation": "Rebar",
+   "example": {
+    "en": "The contractor ordered 120 t of reinforcing steel for the raft foundation.",
+    "ar": "طلب المقاول 120 طناً من حديد التسليح للبشة.",
+    "zh": "承包商为筏板基础订购了120吨钢筋。"
+   },
+   "notes": {
+    "en": "“حديد” on its own is common site shorthand in Arabic, but it means any iron or steel, so it is not listed as a synonym.",
+    "ar": "كلمة «حديد» وحدها اختصار شائع في المواقع، لكنها تعني أي حديد أو صلب، لذلك لم تُدرج كمرادف.",
+    "zh": "阿拉伯语工地常单说“حديد”，但它泛指任何钢铁，因此未列为同义词。"
+   }
+  },
+  {
+   "id": "deformed-bar",
+   "category": "rebar",
+   "term": {
+    "en": "Deformed bar",
+    "ar": "سيخ محزز",
+    "zh": "带肋钢筋"
+   },
+   "definition": {
+    "en": "A reinforcing bar with ribs (deformations) rolled onto its surface to improve bond with concrete. The standard product for structural reinforcement.",
+    "ar": "سيخ تسليح على سطحه نتوءات (تحزيزات) تتشكل أثناء الدرفلة لتحسين التماسك مع الخرسانة. وهو المنتج المعتاد لتسليح العناصر الإنشائية.",
+    "zh": "表面轧有横肋的钢筋，用于提高与混凝土的粘结力，是结构配筋的常用产品。"
+   },
+   "synonyms": {
+    "en": [
+     "ribbed bar",
+     "deformed rebar"
+    ],
+    "ar": [
+     "حديد محزز",
+     "حديد مضلّع",
+     "أسياخ محززة"
+    ],
+    "zh": [
+     "螺纹钢",
+     "变形钢筋"
+    ]
+   },
+   "related": [
+    "reinforcing-steel",
+    "plain-bar",
+    "rib",
+    "bond"
+   ]
+  },
+  {
+   "id": "plain-bar",
+   "category": "rebar",
+   "term": {
+    "en": "Plain bar",
+    "ar": "سيخ أملس",
+    "zh": "光圆钢筋"
+   },
+   "definition": {
+    "en": "A round bar with a smooth surface and no ribs. Its bond with concrete is lower than that of a deformed bar, so its use in structural members is limited.",
+    "ar": "سيخ دائري المقطع سطحه أملس بلا نتوءات. تماسكه مع الخرسانة أقل من السيخ المحزز، لذلك يقل استخدامه في العناصر الإنشائية.",
+    "zh": "表面光滑、无横肋的圆钢筋。与混凝土的粘结力低于带肋钢筋，在结构构件中的使用受到限制。"
+   },
+   "synonyms": {
+    "en": [
+     "smooth bar",
+     "plain round bar"
+    ],
+    "ar": [
+     "حديد أملس"
+    ],
+    "zh": [
+     "光圆钢",
+     "圆钢"
+    ]
+   },
+   "related": [
+    "deformed-bar",
+    "bond"
+   ]
+  },
+  {
+   "id": "yield-strength",
+   "category": "rebar",
+   "term": {
+    "en": "Yield strength",
+    "ar": "مقاومة الخضوع",
+    "zh": "屈服强度"
+   },
+   "definition": {
+    "en": "The stress at which steel begins to deform plastically, so that it does not return to its original length when the load is removed. Reinforcement grades are defined mainly by their minimum yield strength.",
+    "ar": "الإجهاد الذي يبدأ عنده الصلب في التشوه اللدن، فلا يعود إلى طوله الأصلي بعد إزالة الحمل. تُعرَّف درجات حديد التسليح أساساً بالحد الأدنى لمقاومة الخضوع.",
+    "zh": "钢材开始产生塑性变形、卸载后不能恢复原长时的应力。钢筋牌号主要按最小屈服强度划分。"
+   },
+   "synonyms": {
+    "en": [
+     "yield stress",
+     "yield point",
+     "fy"
+    ],
+    "ar": [
+     "إجهاد الخضوع",
+     "حد الخضوع"
+    ],
+    "zh": [
+     "屈服点",
+     "屈服应力"
+    ]
+   },
+   "related": [
+    "tensile-strength",
+    "elongation",
+    "grade",
+    "tensile-test"
+   ],
+   "notes": {
+    "en": "Grade 60 under ASTM A615 means a minimum yield strength of 60,000 psi (420 MPa).",
+    "ar": "الدرجة Grade 60 في المواصفة ASTM A615 تعني حداً أدنى لمقاومة الخضوع قدره 60,000 رطل/بوصة² (420 ميجاباسكال).",
+    "zh": "ASTM A615 中的 Grade 60 表示最小屈服强度为 60,000 psi（420 MPa）。"
+   }
+  },
+  {
+   "id": "tensile-strength",
+   "category": "rebar",
+   "term": {
+    "en": "Tensile strength",
+    "ar": "مقاومة الشد",
+    "zh": "抗拉强度"
+   },
+   "definition": {
+    "en": "The maximum stress a steel specimen withstands in a tensile test before it breaks. It is reported in the mill test certificate together with the yield strength.",
+    "ar": "أقصى إجهاد تتحمله عينة الصلب في اختبار الشد قبل أن تنكسر. يُذكر في شهادة اختبار المصنع مع مقاومة الخضوع.",
+    "zh": "钢材试样在拉伸试验中断裂前所能承受的最大应力，与屈服强度一起列于质量证明书中。"
+   },
+   "synonyms": {
+    "en": [
+     "ultimate tensile strength",
+     "UTS",
+     "fu"
+    ],
+    "ar": [
+     "مقاومة الشد القصوى",
+     "إجهاد الشد الأقصى"
+    ],
+    "zh": [
+     "极限抗拉强度"
+    ]
+   },
+   "related": [
+    "yield-strength",
+    "elongation",
+    "tensile-test",
+    "mill-test-certificate"
+   ]
+  },
+  {
+   "id": "elongation",
+   "category": "rebar",
+   "term": {
+    "en": "Elongation",
+    "ar": "الاستطالة",
+    "zh": "伸长率"
+   },
+   "definition": {
+    "en": "The permanent increase in gauge length of a tensile test specimen after fracture, expressed as a percentage of the original gauge length. It measures the ductility of the steel.",
+    "ar": "الزيادة الدائمة في طول القياس لعينة اختبار الشد بعد كسرها، معبَّراً عنها كنسبة مئوية من طول القياس الأصلي. وهي مقياس لمطيلية الصلب.",
+    "zh": "拉伸试样断裂后标距的永久增长量，以原标距的百分比表示，用于衡量钢材的延性。"
+   },
+   "synonyms": {
+    "en": [
+     "elongation at fracture",
+     "percentage elongation"
+    ],
+    "ar": [
+     "نسبة الاستطالة"
+    ],
+    "zh": [
+     "断后伸长率"
+    ]
+   },
+   "related": [
+    "tensile-test",
+    "yield-strength",
+    "tensile-strength"
+   ]
+  },
+  {
+   "id": "nominal-diameter",
+   "category": "rebar",
+   "term": {
+    "en": "Nominal diameter",
+    "ar": "القطر الاسمي",
+    "zh": "公称直径"
+   },
+   "definition": {
+    "en": "The diameter by which a bar is named and ordered, for example 16 mm. Because of the ribs, a deformed bar has no single measurable diameter; its unit weight and area are based on the nominal diameter.",
+    "ar": "القطر الذي يُسمّى به السيخ ويُطلب، مثل 16 مم. بسبب النتوءات لا يوجد للسيخ المحزز قطر واحد يمكن قياسه، ويُحسب وزنه لكل متر ومساحة مقطعه على أساس القطر الاسمي.",
+    "zh": "钢筋命名和订货所用的直径，例如16毫米。带肋钢筋因有横肋没有单一可测直径，其每米重量和截面积均按公称直径计算。"
+   },
+   "synonyms": {
+    "en": [
+     "bar size",
+     "bar diameter",
+     "dia"
+    ],
+    "ar": [
+     "مقاس السيخ",
+     "قطر السيخ"
+    ],
+    "zh": [
+     "钢筋直径",
+     "规格"
+    ]
+   },
+   "related": [
+    "unit-weight",
+    "deformed-bar"
+   ],
+   "abbreviation": "Ø"
+  },
+  {
+   "id": "unit-weight",
+   "category": "rebar",
+   "term": {
+    "en": "Unit weight",
+    "ar": "الوزن لكل متر طولي",
+    "zh": "每米理论重量"
+   },
+   "definition": {
+    "en": "The theoretical mass of one metre of bar, calculated from the nominal diameter and the density of steel (7,850 kg/m³): 0.006165 × d² kg/m, with d in millimetres. For 16 mm this is 1.578 kg/m.",
+    "ar": "الكتلة النظرية لمتر واحد من السيخ، تُحسب من القطر الاسمي وكثافة الصلب (7,850 كجم/م³): ‎0.006165 × ق² كجم/م، حيث ق بالمليمتر. لقطر 16 مم تساوي 1.578 كجم/م.",
+    "zh": "每米钢筋的理论质量，由公称直径和钢材密度（7,850 kg/m³）计算：0.006165 × d² 公斤/米，d 以毫米计。16 毫米钢筋为 1.578 公斤/米。"
+   },
+   "synonyms": {
+    "en": [
+     "mass per metre",
+     "nominal mass",
+     "weight per metre",
+     "kg/m"
+    ],
+    "ar": [
+     "الوزن الاسمي",
+     "وزن المتر",
+     "الكتلة لكل متر"
+    ],
+    "zh": [
+     "每米重量",
+     "米重",
+     "单位重量"
+    ]
+   },
+   "related": [
+    "nominal-diameter",
+    "mass-tolerance",
+    "theoretical-weight"
+   ]
+  },
+  {
+   "id": "theoretical-weight",
+   "category": "rebar",
+   "term": {
+    "en": "Theoretical weight",
+    "ar": "الوزن النظري",
+    "zh": "理论重量"
+   },
+   "definition": {
+    "en": "Weight calculated from nominal dimensions (unit weight × length × number of bars) rather than measured on a scale. Used for quantities, quotations and invoicing where agreed.",
+    "ar": "وزن يُحسب من الأبعاد الاسمية (الوزن لكل متر × الطول × عدد الأسياخ) بدلاً من وزنه على الميزان. يُستخدم في الكميات وعروض الأسعار والفوترة عند الاتفاق عليه.",
+    "zh": "按公称尺寸计算（每米理论重量 × 长度 × 根数）而非过磅得出的重量，用于工程量、报价以及双方约定的结算。"
+   },
+   "synonyms": {
+    "en": [
+     "calculated weight",
+     "nominal weight"
+    ],
+    "ar": [
+     "الوزن المحسوب"
+    ],
+    "zh": [
+     "计算重量"
+    ]
+   },
+   "related": [
+    "unit-weight",
+    "actual-weight",
+    "mass-tolerance"
+   ]
+  },
+  {
+   "id": "actual-weight",
+   "category": "rebar",
+   "term": {
+    "en": "Actual weight",
+    "ar": "الوزن الفعلي",
+    "zh": "实际重量"
+   },
+   "definition": {
+    "en": "The weight of bars measured on a calibrated scale or weighbridge. The permitted variation from the nominal (theoretical) mass is defined by the applicable product standard or the contract; the measured result has to be compared with that tolerance before it can be said to comply. A measured weight does not by itself show compliance.",
+    "ar": "وزن الأسياخ المقاس على ميزان أو قبان معاير. التفاوت المسموح عن الكتلة الاسمية (النظرية) تحدده مواصفة المنتج المعمول بها أو العقد، ويجب مقارنة النتيجة المقاسة بذلك التفاوت قبل الحكم بالمطابقة. فالوزن المقاس وحده لا يثبت المطابقة.",
+    "zh": "用经校准的秤或地磅称得的钢筋重量。与公称（理论）质量之间的允许偏差由适用的产品标准或合同规定；只有将实测结果与该允许偏差比较后，才能判断是否符合。实测重量本身并不说明符合要求。"
+   },
+   "synonyms": {
+    "en": [
+     "weighed weight",
+     "scale weight",
+     "measured weight"
+    ],
+    "ar": [
+     "الوزن المقاس",
+     "الوزن بالميزان"
+    ],
+    "zh": [
+     "实测重量",
+     "过磅重量"
+    ]
+   },
+   "related": [
+    "theoretical-weight",
+    "weighbridge",
+    "mass-tolerance",
+    "calibration"
+   ]
+  },
+  {
+   "id": "grade",
+   "category": "rebar",
+   "term": {
+    "en": "Steel grade",
+    "ar": "درجة حديد التسليح",
+    "zh": "钢筋牌号"
+   },
+   "definition": {
+    "en": "The designation that a product standard gives to a class of reinforcing steel, defined mainly by its specified minimum yield strength and, depending on the standard, by tensile, ductility and chemical requirements. Examples: Grade 60 (Gr60) and Grade 80 (Gr80) in ASTM A615, HRB400 in GB/T 1499.2. A grade has meaning only within its own standard; different grades are different products and must not be substituted without approval.",
+    "ar": "التسمية التي تعطيها مواصفة المنتج لفئة من حديد التسليح، وتتحدد أساساً بالحد الأدنى المحدد لمقاومة الخضوع، وبحسب المواصفة بمتطلبات الشد والمطيلية والتركيب الكيميائي. أمثلة: Grade 60 ‏(Gr60) وGrade 80 ‏(Gr80) في ASTM A615، وHRB400 في GB/T 1499.2. الدرجة لها معنى داخل مواصفتها فقط، والدرجات المختلفة منتجات مختلفة ولا يجوز إحلال إحداها مكان الأخرى دون اعتماد.",
+    "zh": "产品标准对一类钢筋给出的标识，主要按规定的最小屈服强度划分，并视标准而定包括抗拉、延性和化学成分要求。例如 ASTM A615 的 Grade 60（Gr60）和 Grade 80（Gr80），GB/T 1499.2 的 HRB400。牌号只在其所属标准内有意义；不同牌号是不同产品，未经批准不得互相替代。"
+   },
+   "synonyms": {
+    "en": [
+     "rebar grade",
+     "strength grade"
+    ],
+    "ar": [
+     "درجة الصلب",
+     "رتبة حديد التسليح"
+    ],
+    "zh": [
+     "钢筋级别",
+     "强度级别"
+    ]
+   },
+   "related": [
+    "yield-strength",
+    "astm-a615",
+    "mill-test-certificate"
+   ]
+  },
+  {
+   "id": "astm-a615",
+   "category": "rebar",
+   "term": {
+    "en": "ASTM A615",
+    "ar": "المواصفة ASTM A615",
+    "zh": "ASTM A615 标准"
+   },
+   "definition": {
+    "en": "ASTM standard specification for deformed and plain carbon-steel bars for concrete reinforcement. It sets grades, chemical and mechanical requirements, deformations, marking and permitted variation in mass.",
+    "ar": "مواصفة ASTM القياسية لأسياخ الصلب الكربوني المحززة والملساء لتسليح الخرسانة. تحدد الدرجات والمتطلبات الكيميائية والميكانيكية والتحزيزات والعلامات والتفاوت المسموح في الكتلة.",
+    "zh": "ASTM 关于混凝土用碳素钢带肋和光圆钢筋的标准规范，规定牌号、化学和力学性能、横肋、标志及允许重量偏差。"
+   },
+   "synonyms": {
+    "en": [
+     "A615",
+     "ASTM A615/A615M"
+    ],
+    "ar": [
+     "مواصفة A615"
+    ],
+    "zh": [
+     "A615"
+    ]
+   },
+   "related": [
+    "grade",
+    "specification",
+    "mill-test-certificate"
+   ]
+  },
+  {
+   "id": "mill-test-certificate",
+   "category": "rebar",
+   "term": {
+    "en": "Mill test certificate",
+    "ar": "شهادة اختبار المصنع",
+    "zh": "质量证明书"
+   },
+   "definition": {
+    "en": "A document issued by the steel producer for a delivered lot, stating the heat number, grade, sizes and the results of chemical analysis and mechanical tests. It is part of the material submittal and links the steel to its tests.",
+    "ar": "وثيقة يصدرها مصنع الحديد للدفعة الموردة، تذكر رقم الصبة والدرجة والمقاسات ونتائج التحليل الكيميائي والاختبارات الميكانيكية. وهي جزء من اعتماد المواد وتربط الحديد باختباراته.",
+    "zh": "钢厂为所交付批次出具的文件，载明炉号、牌号、规格以及化学成分和力学性能试验结果。它是材料报审的一部分，将钢材与其检验结果对应起来。"
+   },
+   "synonyms": {
+    "en": [
+     "mill certificate",
+     "material test certificate",
+     "test certificate",
+     "mill test report",
+     "MTR"
+    ],
+    "ar": [
+     "شهادة المطحنة",
+     "شهادة المصنع",
+     "شهادة الجودة"
+    ],
+    "zh": [
+     "材质证明书",
+     "质保书",
+     "材质单",
+     "出厂合格证"
+    ]
+   },
+   "related": [
+    "heat-number",
+    "traceability",
+    "material-submittal",
+    "tensile-test"
+   ],
+   "abbreviation": "MTC",
+   "notes": {
+    "en": "Often issued as an EN 10204 type 3.1 inspection certificate.",
+    "ar": "غالباً ما تصدر كشهادة فحص من النوع 3.1 وفق EN 10204.",
+    "zh": "通常按 EN 10204 3.1 型检验证书出具。"
+   }
+  },
+  {
+   "id": "heat-number",
+   "category": "rebar",
+   "term": {
+    "en": "Heat number",
+    "ar": "رقم الصبة",
+    "zh": "炉号"
+   },
+   "definition": {
+    "en": "The identification number of one melt (heat) of steel in the furnace. It appears on bundle tags and on the mill test certificate and is the key to traceability.",
+    "ar": "رقم تعريف صهرة واحدة من الصلب في الفرن. يظهر على بطاقات الربطات وفي شهادة اختبار المصنع، وهو أساس التتبع.",
+    "zh": "炉中一次熔炼钢水的识别号，标在钢筋捆牌和质量证明书上，是追溯性的关键。"
+   },
+   "synonyms": {
+    "en": [
+     "heat no.",
+     "cast number",
+     "melt number"
+    ],
+    "ar": [
+     "رقم الصهرة",
+     "رقم الصهر"
+    ],
+    "zh": [
+     "熔炼号"
+    ]
+   },
+   "related": [
+    "mill-test-certificate",
+    "traceability",
+    "bundle-tag",
+    "batch-number"
+   ],
+   "review": [
+    "ar"
+   ]
+  },
+  {
+   "id": "bar-mark",
+   "category": "rebar",
+   "term": {
+    "en": "Bar mark",
+    "ar": "رقم السيخ",
+    "zh": "钢筋编号"
+   },
+   "definition": {
+    "en": "The reference given to each bar type in a bar bending schedule and on the drawing, so that bars can be cut, bundled, labelled and fixed in the right place.",
+    "ar": "الرمز المعطى لكل نوع سيخ في جدول التفريد وعلى المخطط، حتى يُقص ويُحزم ويُعلَّم ويُركَّب في مكانه الصحيح.",
+    "zh": "钢筋下料表和图纸中给每种钢筋的编号，用于切断、打捆、挂牌和在正确位置绑扎。"
+   },
+   "synonyms": {
+    "en": [
+     "bar reference",
+     "mark number"
+    ],
+    "ar": [
+     "علامة السيخ",
+     "رمز السيخ"
+    ],
+    "zh": [
+     "钢筋号",
+     "编号"
+    ]
+   },
+   "related": [
+    "bar-bending-schedule",
+    "shape-code",
+    "bundle-tag"
+   ]
+  },
+  {
+   "id": "cut-length",
+   "category": "rebar",
+   "term": {
+    "en": "Cut length",
+    "ar": "طول القص",
+    "zh": "下料长度"
+   },
+   "definition": {
+    "en": "The straight length of bar that must be cut to make one bent bar, after allowing for the bends. It is the length used for weight and for cutting optimization.",
+    "ar": "الطول المستقيم الذي يجب قصه من السيخ لتشكيل سيخ مثني واحد، بعد احتساب الثنيات. وهو الطول المستخدم لحساب الوزن ولتحسين القص.",
+    "zh": "加工一根弯曲钢筋所需切断的直条长度（已考虑弯曲影响），用于计算重量和优化下料。"
+   },
+   "synonyms": {
+    "en": [
+     "cutting length",
+     "developed length"
+    ],
+    "ar": [
+     "الطول المفرود",
+     "طول التفريد"
+    ],
+    "zh": [
+     "下料尺寸",
+     "展开长度"
+    ]
+   },
+   "related": [
+    "bar-bending-schedule",
+    "shape-code",
+    "stock-length",
+    "offcut"
+   ]
+  },
+  {
+   "id": "stock-length",
+   "category": "rebar",
+   "term": {
+    "en": "Stock length",
+    "ar": "الطول القياسي",
+    "zh": "定尺长度"
+   },
+   "definition": {
+    "en": "The standard length in which straight bars are produced and sold, commonly 12 m. Bars longer than the stock length need splices.",
+    "ar": "الطول المعتاد الذي تُنتج وتُباع به الأسياخ المستقيمة، وغالباً 12 م. الأسياخ الأطول منه تحتاج إلى وصلات.",
+    "zh": "直条钢筋生产和销售的标准长度，常见为12米。长于定尺的钢筋需要连接。"
+   },
+   "synonyms": {
+    "en": [
+     "standard length",
+     "mill length",
+     "12 m bar"
+    ],
+    "ar": [
+     "طول السيخ",
+     "السيخ 12 م"
+    ],
+    "zh": [
+     "定尺",
+     "标准长度"
+    ]
+   },
+   "related": [
+    "cut-length",
+    "lap-splice",
+    "offcut"
+   ]
+  },
+  {
+   "id": "offcut",
+   "category": "rebar",
+   "term": {
+    "en": "Offcut",
+    "ar": "الفضلة",
+    "zh": "余料"
+   },
+   "definition": {
+    "en": "The piece of bar left over after cutting the required lengths from a stock bar. Long offcuts can be reused; short ones become scrap.",
+    "ar": "الجزء المتبقي من السيخ بعد قص الأطوال المطلوبة منه. الفضلات الطويلة يمكن إعادة استخدامها، والقصيرة تصبح خردة.",
+    "zh": "从定尺钢筋上切下所需长度后剩下的部分。较长的余料可再利用，较短的成为废料。"
+   },
+   "synonyms": {
+    "en": [
+     "cutting waste",
+     "remnant",
+     "scrap"
+    ],
+    "ar": [
+     "الهالك",
+     "بواقي القص",
+     "الخردة"
+    ],
+    "zh": [
+     "料头",
+     "下脚料",
+     "边角料"
+    ]
+   },
+   "related": [
+    "cut-length",
+    "stock-length",
+    "cutting-optimization"
+   ]
+  },
+  {
+   "id": "cutting-optimization",
+   "category": "rebar",
+   "term": {
+    "en": "Cutting optimization",
+    "ar": "تحسين القص",
+    "zh": "下料优化"
+   },
+   "definition": {
+    "en": "Planning which required lengths to cut from each stock bar so that the number of bars bought and the waste are as small as possible.",
+    "ar": "تخطيط الأطوال المطلوبة التي تُقص من كل سيخ قياسي بحيث يكون عدد الأسياخ المشتراة والهالك أقل ما يمكن.",
+    "zh": "规划每根定尺钢筋切出哪些所需长度，使采购根数和损耗尽可能少。"
+   },
+   "synonyms": {
+    "en": [
+     "cutting plan",
+     "nesting",
+     "bar cutting optimisation"
+    ],
+    "ar": [
+     "خطة القص",
+     "تقليل الهالك"
+    ],
+    "zh": [
+     "套裁",
+     "优化下料"
+    ]
+   },
+   "related": [
+    "cut-length",
+    "offcut",
+    "stock-length"
+   ]
+  },
+  {
+   "id": "shape-code",
+   "category": "rebar",
+   "term": {
+    "en": "Shape code",
+    "ar": "كود الشكل",
+    "zh": "形状代码"
+   },
+   "definition": {
+    "en": "A standard code that describes the bent shape of a bar in a bar bending schedule, for example a straight bar, an L-bar or a closed link. Codes come from a schedule standard such as BS 8666.",
+    "ar": "رمز قياسي يصف شكل ثني السيخ في جدول التفريد، مثل السيخ المستقيم أو السيخ على شكل L أو الكانة المغلقة. تأتي الرموز من مواصفة للجداول مثل BS 8666.",
+    "zh": "钢筋下料表中描述钢筋弯曲形状的标准代码，例如直筋、L形筋或封闭箍筋。代码来自 BS 8666 等表格标准。"
+   },
+   "synonyms": {
+    "en": [
+     "bending shape code",
+     "shape"
+    ],
+    "ar": [
+     "رمز الشكل",
+     "شكل الثني"
+    ],
+    "zh": [
+     "弯曲形状代码",
+     "形状编号"
+    ]
+   },
+   "related": [
+    "bar-bending-schedule",
+    "bar-mark",
+    "bending"
+   ]
+  },
+  {
+   "id": "bending",
+   "category": "rebar",
+   "term": {
+    "en": "Bar bending",
+    "ar": "ثني الحديد",
+    "zh": "钢筋弯曲"
+   },
+   "definition": {
+    "en": "Forming a bar to the shape and dimensions in the schedule on a bending machine, around a mandrel of the required diameter.",
+    "ar": "تشكيل السيخ بالشكل والأبعاد المحددة في الجدول على ماكينة الثني، حول محور بالقطر المطلوب.",
+    "zh": "在弯曲机上围绕规定直径的弯心，将钢筋加工成表中规定的形状和尺寸。"
+   },
+   "synonyms": {
+    "en": [
+     "cut and bend",
+     "rebar fabrication",
+     "bending work"
+    ],
+    "ar": [
+     "تشكيل الحديد",
+     "القص والثني",
+     "تفصيل الحديد"
+    ],
+    "zh": [
+     "钢筋加工",
+     "弯折"
+    ]
+   },
+   "related": [
+    "bend-diameter",
+    "shape-code",
+    "hook",
+    "bar-bending-schedule"
+   ]
+  },
+  {
+   "id": "bend-diameter",
+   "category": "rebar",
+   "term": {
+    "en": "Bend diameter",
+    "ar": "قطر الثني",
+    "zh": "弯曲直径"
+   },
+   "definition": {
+    "en": "The inside diameter of a bend in a fabricated bar, expressed as a multiple of the bar diameter. The minimum value is set by the design code or the schedule standard used (for example ACI 318 or BS 8666) and depends on bar size and use. In the workshop the bend is formed around a mandrel (former) of the matching diameter; the mandrel diameter for a bend test is a separate value set by the product standard.",
+    "ar": "القطر الداخلي للثنية في السيخ المشكَّل، ويُعبَّر عنه كمضاعف لقطر السيخ. يحدد حده الأدنى كود التصميم أو مواصفة الجداول المستخدمة (مثل ACI 318 أو BS 8666)، ويعتمد على قطر السيخ واستخدامه. في الورشة تُشكَّل الثنية حول محور (مسمار ثني) بالقطر المناسب؛ أما قطر المحور في اختبار الثني فقيمة مستقلة تحددها مواصفة المنتج.",
+    "zh": "加工钢筋弯折处的内径，以钢筋直径的倍数表示。最小值由所用设计规范或钢筋表标准（如 ACI 318 或 BS 8666）规定，并取决于钢筋直径和用途。车间加工时围绕相应直径的弯心成型；弯曲试验所用的弯心直径则是产品标准另行规定的数值。"
+   },
+   "synonyms": {
+    "en": [
+     "inside bend diameter",
+     "internal bend diameter"
+    ],
+    "ar": [
+     "القطر الداخلي للثنية"
+    ],
+    "zh": [
+     "弯弧内直径"
+    ]
+   },
+   "related": [
+    "bending",
+    "bend-test",
+    "hook"
+   ]
+  },
+  {
+   "id": "rib",
+   "category": "rebar",
+   "term": {
+    "en": "Rib",
+    "ar": "النتوء",
+    "zh": "横肋"
+   },
+   "definition": {
+    "en": "A raised ridge on the surface of a deformed bar. The height, spacing and angle of the ribs are specified in the product standard because they govern bond.",
+    "ar": "بروز على سطح السيخ المحزز. يحدد ارتفاع النتوءات والمسافة بينها وزاويتها في مواصفة المنتج لأنها تتحكم في التماسك.",
+    "zh": "带肋钢筋表面凸起的肋。横肋的高度、间距和角度在产品标准中规定，因为它们决定粘结性能。"
+   },
+   "synonyms": {
+    "en": [
+     "deformation",
+     "lug",
+     "transverse rib"
+    ],
+    "ar": [
+     "التحزيز",
+     "الضلع",
+     "البروز"
+    ],
+    "zh": [
+     "肋",
+     "月牙肋"
+    ]
+   },
+   "related": [
+    "deformed-bar",
+    "bond"
+   ],
+   "review": [
+    "ar"
+   ]
+  },
+  {
+   "id": "carbon-equivalent",
+   "category": "rebar",
+   "term": {
+    "en": "Carbon equivalent",
+    "ar": "مكافئ الكربون",
+    "zh": "碳当量"
+   },
+   "definition": {
+    "en": "A value calculated from the chemical composition of steel (carbon plus weighted amounts of manganese and other alloying elements) and used as an indicator of weldability, in particular the risk of hardening and cracking next to the weld. Standards use different formulas, for example the IIW formula or the one in ASTM A706, and any maximum value is set by the product standard or the specification. A lower value generally means fewer welding precautions, but weldability also depends on the welding procedure.",
+    "ar": "قيمة تُحسب من التركيب الكيميائي للصلب (الكربون مضافاً إليه نسب موزونة من المنغنيز وعناصر السبك الأخرى)، وتُستخدم مؤشراً لقابلية اللحام، وخاصة لخطر التصلد والتشقق بجوار اللحام. تستخدم المواصفات معادلات مختلفة، مثل معادلة IIW أو المعادلة الواردة في ASTM A706، وأي حد أقصى تحدده مواصفة المنتج أو مواصفات المشروع. القيمة الأقل تعني عادة احتياطات لحام أقل، لكن قابلية اللحام تعتمد أيضاً على إجراء اللحام.",
+    "zh": "由钢材化学成分（碳加上按权重计入的锰及其他合金元素）计算得出的数值，用作可焊性指标，尤其反映焊缝附近淬硬和开裂的风险。不同标准采用不同公式，例如 IIW 公式或 ASTM A706 中的公式，最大值（如有）由产品标准或项目规范规定。数值越低通常焊接预防措施越少，但可焊性还取决于焊接工艺。"
+   },
+   "synonyms": {
+    "en": [
+     "CEV",
+     "CE value"
+    ],
+    "ar": [
+     "المكافئ الكربوني"
+    ],
+    "zh": [
+     "CEV"
+    ]
+   },
+   "related": [
+    "mill-test-certificate",
+    "weldable"
+   ],
+   "abbreviation": "CE"
+  },
+  {
+   "id": "weldable",
+   "category": "rebar",
+   "term": {
+    "en": "Weldable reinforcing steel",
+    "ar": "حديد تسليح قابل للحام",
+    "zh": "可焊钢筋"
+   },
+   "definition": {
+    "en": "Reinforcing steel made to a standard that limits its chemical composition, usually through a maximum carbon equivalent, so that it can be welded with a qualified procedure; ASTM A706 is an example. Whether other bars may be welded, and how, depends on the welding code and the project specification (for reinforcing steel in the United States, AWS D1.4).",
+    "ar": "حديد تسليح مصنَّع وفق مواصفة تحد من تركيبه الكيميائي، غالباً بحد أقصى لمكافئ الكربون، حتى يمكن لحامه بإجراء لحام معتمد؛ ومثال ذلك ASTM A706. أما إمكانية لحام الأسياخ الأخرى وطريقته فتحددهما مواصفة اللحام ومواصفات المشروع (لحديد التسليح في الولايات المتحدة: AWS D1.4).",
+    "zh": "按限制化学成分（通常规定碳当量上限）的标准生产、可按合格焊接工艺焊接的钢筋，例如 ASTM A706。其他钢筋能否焊接以及如何焊接，取决于焊接规范和项目规范（美国钢筋焊接按 AWS D1.4）。"
+   },
+   "synonyms": {
+    "en": [
+     "A706 rebar",
+     "weldable rebar"
+    ],
+    "ar": [
+     "أسياخ تسليح قابلة للحام"
+    ],
+    "zh": [
+     "可焊接钢筋"
+    ]
+   },
+   "related": [
+    "carbon-equivalent",
+    "mechanical-coupler"
+   ]
+  },
+  {
+   "id": "mechanical-coupler",
+   "category": "rebar",
+   "term": {
+    "en": "Mechanical coupler",
+    "ar": "وصلة ميكانيكية",
+    "zh": "钢筋机械连接接头"
+   },
+   "definition": {
+    "en": "A sleeve or threaded device that joins two bars end to end and transfers the force between them, used instead of a lap splice where space is limited or bars are large.",
+    "ar": "جلبة أو قطعة ملولبة تربط سيخين طرفاً لطرف وتنقل القوة بينهما، وتُستخدم بدلاً من وصلة التراكب عند ضيق المساحة أو كبر الأقطار.",
+    "zh": "将两根钢筋端对端连接并传递力的套筒或螺纹装置，在空间受限或大直径钢筋时代替搭接使用。"
+   },
+   "synonyms": {
+    "en": [
+     "rebar coupler",
+     "mechanical splice",
+     "threaded coupler"
+    ],
+    "ar": [
+     "كوبلر",
+     "وصلة ملولبة",
+     "جلبة ربط"
+    ],
+    "zh": [
+     "套筒",
+     "直螺纹套筒",
+     "机械接头"
+    ]
+   },
+   "related": [
+    "lap-splice",
+    "stock-length"
+   ]
+  },
+  {
+   "id": "tie-wire",
+   "category": "rebar",
+   "term": {
+    "en": "Tie wire",
+    "ar": "سلك الربط",
+    "zh": "绑扎丝"
+   },
+   "definition": {
+    "en": "Soft annealed steel wire used to tie crossing bars together so the reinforcement cage holds its position during concreting.",
+    "ar": "سلك صلب مُلدَّن طري يُستخدم لربط الأسياخ المتقاطعة حتى يحافظ قفص التسليح على موضعه أثناء الصب.",
+    "zh": "用于将交叉钢筋绑在一起的退火软钢丝，使钢筋骨架在浇筑混凝土时保持位置。"
+   },
+   "synonyms": {
+    "en": [
+     "binding wire",
+     "annealed wire"
+    ],
+    "ar": [
+     "سلك تربيط",
+     "سلك أسود"
+    ],
+    "zh": [
+     "扎丝",
+     "铁丝"
+    ]
+   },
+   "related": [
+    "steel-fixing",
+    "reinforcement-cage"
+   ]
+  },
+  {
+   "id": "welded-wire-mesh",
+   "category": "rebar",
+   "term": {
+    "en": "Welded wire mesh",
+    "ar": "شبك حديد ملحوم",
+    "zh": "焊接钢筋网"
+   },
+   "definition": {
+    "en": "A prefabricated sheet of bars or wires welded at their intersections in a regular grid, used mainly in slabs, walls and slabs on grade.",
+    "ar": "لوح مُصنَّع مسبقاً من أسياخ أو أسلاك ملحومة عند نقاط تقاطعها بشبكة منتظمة، يُستخدم غالباً في البلاطات والجدران والأرضيات على التربة.",
+    "zh": "由钢筋或钢丝在交叉点焊接成规则网格的预制网片，主要用于楼板、墙体和地面。"
+   },
+   "synonyms": {
+    "en": [
+     "welded wire fabric",
+     "mesh",
+     "WWF"
+    ],
+    "ar": [
+     "شبك ملحوم",
+     "شبكة تسليح"
+    ],
+    "zh": [
+     "钢筋网片",
+     "焊接网"
+    ]
+   },
+   "related": [
+    "slab",
+    "reinforcing-steel"
+   ],
+   "abbreviation": "WWM"
+  },
+  {
+   "id": "hot-rolled",
+   "category": "rebar",
+   "term": {
+    "en": "Hot rolling",
+    "ar": "الدرفلة على الساخن",
+    "zh": "热轧"
+   },
+   "definition": {
+    "en": "Shaping heated steel billets into bars by passing them through a series of rolls. Most reinforcing bars are hot rolled.",
+    "ar": "تشكيل كتل الصلب المسخنة إلى أسياخ بتمريرها عبر سلسلة من الدرافيل. معظم أسياخ التسليح تُنتج بالدرفلة على الساخن.",
+    "zh": "将加热的钢坯通过一系列轧辊轧制成钢筋的工艺。大多数钢筋为热轧钢筋。"
+   },
+   "synonyms": {
+    "en": [
+     "hot-rolled bar",
+     "rolling"
+    ],
+    "ar": [
+     "درفلة",
+     "حديد مدرفل على الساخن"
+    ],
+    "zh": [
+     "热轧钢筋",
+     "轧制"
+    ]
+   },
+   "related": [
+    "billet",
+    "rolling-mill"
+   ]
+  },
+  {
+   "id": "billet",
+   "category": "rebar",
+   "term": {
+    "en": "Billet",
+    "ar": "البليت",
+    "zh": "钢坯"
+   },
+   "definition": {
+    "en": "A semi-finished steel product of square cross-section, cast from molten steel and then rolled into bars.",
+    "ar": "منتج صلب نصف مصنَّع ذو مقطع مربع، يُصب من الصلب المنصهر ثم يُدرفل إلى أسياخ.",
+    "zh": "由钢水浇铸而成的方形截面半成品，再轧制成钢筋。"
+   },
+   "synonyms": {
+    "en": [
+     "steel billet",
+     "square billet"
+    ],
+    "ar": [
+     "عروق الصلب",
+     "كتلة صلب"
+    ],
+    "zh": [
+     "方坯",
+     "连铸坯"
+    ]
+   },
+   "related": [
+    "hot-rolled",
+    "rolling-mill",
+    "heat-number"
+   ],
+   "review": [
+    "ar"
+   ]
+  },
+  {
+   "id": "rolling-mill",
+   "category": "rebar",
+   "term": {
+    "en": "Rolling mill",
+    "ar": "مصنع الدرفلة",
+    "zh": "轧钢厂"
+   },
+   "definition": {
+    "en": "The plant where billets are reheated and rolled into finished bars, then cut, bundled and tagged.",
+    "ar": "المصنع الذي تُعاد فيه تسخين البليت ودرفلته إلى أسياخ نهائية، ثم تُقص وتُحزم وتُعلَّم.",
+    "zh": "将钢坯重新加热轧制成成品钢筋，再切断、打捆和挂牌的工厂。"
+   },
+   "synonyms": {
+    "en": [
+     "steel mill",
+     "mill",
+     "rebar mill"
+    ],
+    "ar": [
+     "المطحنة",
+     "مصنع الحديد",
+     "خط الدرفلة"
+    ],
+    "zh": [
+     "钢厂",
+     "轧机"
+    ]
+   },
+   "related": [
+    "hot-rolled",
+    "billet",
+    "mill-test-certificate"
+   ]
+  },
+  {
+   "id": "concrete",
+   "category": "concrete",
+   "term": {
+    "en": "Concrete",
+    "ar": "الخرسانة",
+    "zh": "混凝土"
+   },
+   "definition": {
+    "en": "A construction material made of cement, water, fine and coarse aggregate and, where specified, admixtures, which hardens into a stone-like mass. Strong in compression and weak in tension.",
+    "ar": "مادة إنشائية تتكون من الأسمنت والماء والركام الناعم والخشن، ومن الإضافات عند الحاجة، وتتصلب لتصبح كتلة تشبه الحجر. قوية في الضغط وضعيفة في الشد.",
+    "zh": "由水泥、水、细骨料、粗骨料以及按规定掺入的外加剂组成并硬化成类石材的建筑材料。抗压强、抗拉弱。"
+   },
+   "synonyms": {
+    "en": [],
+    "ar": [
+     "الباطون",
+     "خرسانة"
+    ],
+    "zh": [
+     "砼"
+    ]
+   },
+   "related": [
+    "reinforced-concrete",
+    "cement",
+    "aggregate",
+    "compressive-strength"
+   ]
+  },
+  {
+   "id": "reinforced-concrete",
+   "category": "concrete",
+   "term": {
+    "en": "Reinforced concrete",
+    "ar": "الخرسانة المسلحة",
+    "zh": "钢筋混凝土"
+   },
+   "definition": {
+    "en": "Concrete with embedded reinforcing steel, designed so that the concrete carries compression and the steel carries tension.",
+    "ar": "خرسانة يُدمج فيها حديد التسليح، وتُصمَّم بحيث تتحمل الخرسانة الضغط ويتحمل الحديد الشد.",
+    "zh": "内部配置钢筋的混凝土，设计上由混凝土承受压力、钢筋承受拉力。"
+   },
+   "synonyms": {
+    "en": [
+     "RCC",
+     "RC"
+    ],
+    "ar": [
+     "خرسانة مسلحة",
+     "الباطون المسلح"
+    ],
+    "zh": [
+     "钢筋砼"
+    ]
+   },
+   "related": [
+    "concrete",
+    "reinforcing-steel",
+    "concrete-cover",
+    "bond"
+   ],
+   "abbreviation": "RC"
+  },
+  {
+   "id": "ready-mix",
+   "category": "concrete",
+   "term": {
+    "en": "Ready-mixed concrete",
+    "ar": "الخرسانة الجاهزة",
+    "zh": "预拌混凝土"
+   },
+   "definition": {
+    "en": "Concrete batched at a central plant and delivered to site in truck mixers, ready to place.",
+    "ar": "خرسانة تُخلط في محطة مركزية وتُنقل إلى الموقع بشاحنات خلاطة جاهزة للصب.",
+    "zh": "在集中搅拌站配料搅拌、用搅拌运输车运到现场即可浇筑的混凝土。"
+   },
+   "synonyms": {
+    "en": [
+     "ready mix",
+     "RMC",
+     "transit-mixed concrete"
+    ],
+    "ar": [
+     "خرسانة جاهزة",
+     "خرسانة مصنع"
+    ],
+    "zh": [
+     "商品混凝土",
+     "商砼"
+    ]
+   },
+   "related": [
+    "concrete",
+    "concrete-pour",
+    "concrete-slump",
+    "delivery-note"
+   ]
+  },
+  {
+   "id": "cement",
+   "category": "concrete",
+   "term": {
+    "en": "Cement",
+    "ar": "الأسمنت",
+    "zh": "水泥"
+   },
+   "definition": {
+    "en": "A fine powder that reacts with water to bind aggregates into concrete or mortar. Ordinary Portland cement is the most common type; sulphate-resisting types are used where soil or water is aggressive.",
+    "ar": "مسحوق ناعم يتفاعل مع الماء ليربط الركام ويكوّن الخرسانة أو المونة. الأسمنت البورتلاندي العادي هو الأكثر استخداماً، وتُستخدم الأنواع المقاومة للكبريتات عند وجود تربة أو مياه عدوانية.",
+    "zh": "与水反应、将骨料胶结成混凝土或砂浆的细粉。普通硅酸盐水泥最常用；在土壤或水具侵蚀性时使用抗硫酸盐水泥。"
+   },
+   "synonyms": {
+    "en": [
+     "Portland cement",
+     "OPC",
+     "SRC"
+    ],
+    "ar": [
+     "أسمنت بورتلاندي",
+     "أسمنت مقاوم للكبريتات"
+    ],
+    "zh": [
+     "硅酸盐水泥",
+     "普通水泥"
+    ]
+   },
+   "related": [
+    "concrete",
+    "water-cement-ratio",
+    "grout"
+   ]
+  },
+  {
+   "id": "aggregate",
+   "category": "concrete",
+   "term": {
+    "en": "Aggregate",
+    "ar": "الركام",
+    "zh": "骨料"
+   },
+   "definition": {
+    "en": "Granular material such as sand, gravel or crushed stone mixed with cement paste to make concrete. Divided into fine aggregate (sand) and coarse aggregate.",
+    "ar": "مادة حبيبية مثل الرمل أو الحصى أو الحجر المكسر تُخلط مع عجينة الأسمنت لتكوين الخرسانة. ويُقسم إلى ركام ناعم (رمل) وركام خشن.",
+    "zh": "与水泥浆混合制成混凝土的颗粒材料，如砂、砾石或碎石，分为细骨料（砂）和粗骨料。"
+   },
+   "synonyms": {
+    "en": [
+     "fine aggregate",
+     "coarse aggregate",
+     "gravel",
+     "crushed stone"
+    ],
+    "ar": [
+     "بحص",
+     "حصى",
+     "زلط",
+     "رمل"
+    ],
+    "zh": [
+     "粗骨料",
+     "细骨料",
+     "石子",
+     "砂"
+    ]
+   },
+   "related": [
+    "concrete",
+    "cement"
+   ]
+  },
+  {
+   "id": "water-cement-ratio",
+   "category": "concrete",
+   "term": {
+    "en": "Water–cement ratio",
+    "ar": "نسبة الماء إلى الأسمنت",
+    "zh": "水灰比"
+   },
+   "definition": {
+    "en": "The mass of free water divided by the mass of cement in a mix. A lower ratio gives stronger and more durable concrete but less workability.",
+    "ar": "كتلة الماء الحر مقسومة على كتلة الأسمنت في الخلطة. النسبة الأقل تعطي خرسانة أقوى وأكثر ديمومة لكنها أقل قابلية للتشغيل.",
+    "zh": "拌合物中自由水质量与水泥质量之比。比值越低，混凝土强度和耐久性越高，但和易性越差。"
+   },
+   "synonyms": {
+    "en": [
+     "w/c ratio"
+    ],
+    "ar": [
+     "نسبة م/س",
+     "نسبة الماء للأسمنت"
+    ],
+    "zh": [
+     "水胶比"
+    ]
+   },
+   "related": [
+    "concrete-slump",
+    "compressive-strength",
+    "admixture"
+   ],
+   "abbreviation": "w/c"
+  },
+  {
+   "id": "admixture",
+   "category": "concrete",
+   "term": {
+    "en": "Admixture",
+    "ar": "المضافات",
+    "zh": "外加剂"
+   },
+   "definition": {
+    "en": "A chemical added to concrete during mixing to change a property, such as a superplasticiser to increase workability or a retarder to delay setting in hot weather.",
+    "ar": "مادة كيميائية تُضاف إلى الخرسانة أثناء الخلط لتعديل خاصية ما، مثل الملدن الفائق لزيادة القابلية للتشغيل أو المؤخر لتأخير الشك في الطقس الحار.",
+    "zh": "搅拌时加入混凝土以改变其性能的化学品，例如提高和易性的高效减水剂，或在炎热天气延缓凝结的缓凝剂。"
+   },
+   "synonyms": {
+    "en": [
+     "superplasticiser",
+     "retarder",
+     "plasticizer"
+    ],
+    "ar": [
+     "إضافات خرسانية",
+     "ملدن",
+     "مؤخر شك"
+    ],
+    "zh": [
+     "减水剂",
+     "缓凝剂"
+    ]
+   },
+   "related": [
+    "water-cement-ratio",
+    "concrete-slump",
+    "ready-mix"
+   ]
+  },
+  {
+   "id": "concrete-slump",
+   "category": "concrete",
+   "term": {
+    "en": "Concrete slump",
+    "ar": "هبوط الخرسانة",
+    "zh": "混凝土坍落度"
+   },
+   "definition": {
+    "en": "The drop in height of a cone of fresh concrete after the slump cone is lifted, measured by a standard test method. It indicates the consistency of the mix; workability is a broader property that slump only partly describes. The required range and how often it is tested are set by the project specification.",
+    "ar": "مقدار هبوط ارتفاع مخروط الخرسانة الطازجة بعد رفع قالب الهبوط، ويُقاس بطريقة اختبار قياسية. وهو مؤشر لقوام الخلطة؛ أما القابلية للتشغيل فخاصية أوسع لا يصفها الهبوط إلا جزئياً. ويحدد مدى القيم المطلوب وتكرار الاختبار في مواصفات المشروع.",
+    "zh": "提起坍落度筒后新拌混凝土锥体高度的下降值，按标准试验方法测定。它反映拌合物的稠度；和易性是更广的性能，坍落度只能部分说明。要求范围和检测频率由项目规范规定。"
+   },
+   "synonyms": {
+    "en": [
+     "slump",
+     "slump test"
+    ],
+    "ar": [
+     "اختبار الهبوط"
+    ],
+    "zh": [
+     "坍落度",
+     "坍落度试验"
+    ]
+   },
+   "related": [
+    "ready-mix",
+    "water-cement-ratio",
+    "concrete-pour"
+   ]
+  },
+  {
+   "id": "compressive-strength",
+   "category": "concrete",
+   "term": {
+    "en": "Compressive strength",
+    "ar": "مقاومة الضغط",
+    "zh": "抗压强度"
+   },
+   "definition": {
+    "en": "The load per unit area at which a concrete specimen fails in compression, usually tested on cubes or cylinders at 7 and 28 days. The specified strength defines the concrete class.",
+    "ar": "الحمل على وحدة المساحة الذي تنهار عنده عينة الخرسانة بالضغط، ويُختبر عادة على مكعبات أو أسطوانات بعمر 7 و28 يوماً. المقاومة المحددة تعرّف رتبة الخرسانة.",
+    "zh": "混凝土试件受压破坏时单位面积上的荷载，通常对立方体或圆柱体试件在7天和28天龄期进行试验。规定强度决定混凝土等级。"
+   },
+   "synonyms": {
+    "en": [
+     "f'c",
+     "fcu",
+     "concrete strength",
+     "concrete grade"
+    ],
+    "ar": [
+     "مقاومة الخرسانة",
+     "رتبة الخرسانة"
+    ],
+    "zh": [
+     "混凝土强度",
+     "强度等级"
+    ]
+   },
+   "related": [
+    "cube-test",
+    "concrete",
+    "curing"
+   ]
+  },
+  {
+   "id": "cube-test",
+   "category": "concrete",
+   "term": {
+    "en": "Concrete cube test",
+    "ar": "اختبار مكعبات الخرسانة",
+    "zh": "混凝土试块试验"
+   },
+   "definition": {
+    "en": "Casting concrete samples in standard moulds on site, curing them and crushing them in a laboratory to verify compressive strength. Cylinders are used under some standards instead of cubes.",
+    "ar": "صب عينات من الخرسانة في قوالب قياسية بالموقع ومعالجتها ثم كسرها في المختبر للتحقق من مقاومة الضغط. بعض المواصفات تستخدم الأسطوانات بدلاً من المكعبات.",
+    "zh": "在现场将混凝土浇入标准试模制成试块，养护后在实验室压碎以验证抗压强度。部分标准用圆柱体代替立方体。"
+   },
+   "synonyms": {
+    "en": [
+     "cube crushing test",
+     "cylinder test",
+     "test specimens"
+    ],
+    "ar": [
+     "المكعبات",
+     "كسر المكعبات",
+     "اختبار الأسطوانات"
+    ],
+    "zh": [
+     "试块",
+     "抗压试验",
+     "留置试块"
+    ]
+   },
+   "related": [
+    "compressive-strength",
+    "sampling",
+    "test-report"
+   ]
+  },
+  {
+   "id": "curing",
+   "category": "concrete",
+   "term": {
+    "en": "Curing",
+    "ar": "المعالجة",
+    "zh": "养护"
+   },
+   "definition": {
+    "en": "Keeping fresh concrete moist and at a suitable temperature for a period after placing so that the cement hydrates and the concrete reaches its strength and durability. Especially important in hot climates.",
+    "ar": "الحفاظ على رطوبة الخرسانة الطازجة ودرجة حرارة مناسبة لها فترة بعد الصب حتى يتميأ الأسمنت وتصل الخرسانة إلى مقاومتها وديمومتها. وهي مهمة خاصة في الأجواء الحارة.",
+    "zh": "浇筑后一段时间内保持新浇混凝土湿润和适宜温度，使水泥充分水化，混凝土达到强度和耐久性。在炎热气候下尤为重要。"
+   },
+   "synonyms": {
+    "en": [
+     "wet curing",
+     "curing compound"
+    ],
+    "ar": [
+     "معالجة الخرسانة",
+     "رش الخرسانة"
+    ],
+    "zh": [
+     "混凝土养护",
+     "洒水养护"
+    ]
+   },
+   "related": [
+    "compressive-strength",
+    "concrete-pour"
+   ]
+  },
+  {
+   "id": "concrete-pour",
+   "category": "concrete",
+   "term": {
+    "en": "Concrete pour",
+    "ar": "صب الخرسانة",
+    "zh": "混凝土浇筑"
+   },
+   "definition": {
+    "en": "Placing fresh concrete into formwork, compacting it and finishing it. A pour is planned with the supplier, pump, crew and inspections approved beforehand.",
+    "ar": "وضع الخرسانة الطازجة في الشدات ودمكها وتشطيبها. يُخطط للصب مع المورد والمضخة والعمالة بعد اعتماد الفحوصات مسبقاً.",
+    "zh": "将新拌混凝土浇入模板、振捣并抹面。浇筑前须与供应商、泵车和施工班组协调，并完成验收。"
+   },
+   "synonyms": {
+    "en": [
+     "casting",
+     "placing concrete",
+     "pouring"
+    ],
+    "ar": [
+     "الصبة",
+     "صبّ",
+     "الصب"
+    ],
+    "zh": [
+     "浇注",
+     "打混凝土"
+    ]
+   },
+   "related": [
+    "formwork",
+    "vibration",
+    "inspection-request",
+    "ready-mix"
+   ]
+  },
+  {
+   "id": "vibration",
+   "category": "concrete",
+   "term": {
+    "en": "Concrete vibration",
+    "ar": "هز الخرسانة",
+    "zh": "混凝土振捣"
+   },
+   "definition": {
+    "en": "Compacting fresh concrete with a poker or form vibrator to remove trapped air so that it fills the formwork and surrounds the reinforcement.",
+    "ar": "دمك الخرسانة الطازجة بالهزاز الداخلي أو الخارجي لإخراج الهواء المحبوس حتى تملأ الشدة وتحيط بالتسليح.",
+    "zh": "用插入式或附着式振动器密实新拌混凝土，排除内部空气，使其充满模板并包裹钢筋。"
+   },
+   "synonyms": {
+    "en": [
+     "compaction of concrete",
+     "poker vibrator"
+    ],
+    "ar": [
+     "دمك الخرسانة",
+     "الهزاز"
+    ],
+    "zh": [
+     "振捣",
+     "振动棒"
+    ]
+   },
+   "related": [
+    "concrete-pour",
+    "honeycombing"
+   ]
+  },
+  {
+   "id": "honeycombing",
+   "category": "concrete",
+   "term": {
+    "en": "Honeycombing",
+    "ar": "التعشيش",
+    "zh": "蜂窝"
+   },
+   "definition": {
+    "en": "Voids on the surface or inside concrete where the mortar did not fill the space between coarse aggregate, usually from poor compaction or congested reinforcement.",
+    "ar": "فراغات على سطح الخرسانة أو داخلها لم تملأ فيها المونة المسافة بين الركام الخشن، وغالباً بسبب ضعف الدمك أو تزاحم الحديد.",
+    "zh": "混凝土表面或内部砂浆未填满粗骨料间隙而形成的空洞，通常由振捣不足或钢筋过密造成。"
+   },
+   "synonyms": {
+    "en": [
+     "voids",
+     "rock pockets"
+    ],
+    "ar": [
+     "تعشيش الخرسانة",
+     "فجوات"
+    ],
+    "zh": [
+     "蜂窝麻面",
+     "孔洞"
+    ]
+   },
+   "related": [
+    "vibration",
+    "non-conformance-report"
+   ]
+  },
+  {
+   "id": "concrete-cover",
+   "category": "concrete",
+   "term": {
+    "en": "Concrete cover",
+    "ar": "الغطاء الخرساني",
+    "zh": "混凝土保护层"
+   },
+   "definition": {
+    "en": "The distance from the concrete surface to the nearest surface of the reinforcement. It protects the steel from corrosion and fire and is specified for each exposure condition.",
+    "ar": "المسافة من سطح الخرسانة إلى أقرب سطح لحديد التسليح. يحمي الحديد من الصدأ والحريق، ويُحدد لكل ظرف تعرض.",
+    "zh": "从混凝土表面到最近钢筋表面的距离，用于保护钢筋免受锈蚀和火灾，按环境类别规定。"
+   },
+   "synonyms": {
+    "en": [
+     "cover",
+     "clear cover",
+     "nominal cover"
+    ],
+    "ar": [
+     "التغطية",
+     "الغطاء"
+    ],
+    "zh": [
+     "保护层厚度",
+     "保护层"
+    ]
+   },
+   "related": [
+    "spacer",
+    "reinforced-concrete",
+    "durability"
+   ]
+  },
+  {
+   "id": "spacer",
+   "category": "concrete",
+   "term": {
+    "en": "Spacer",
+    "ar": "فاصل الغطاء الخرساني",
+    "zh": "垫块"
+   },
+   "definition": {
+    "en": "A block or clip of concrete or plastic fixed to the reinforcement to hold the specified cover to the formwork during concreting.",
+    "ar": "قطعة من الخرسانة أو البلاستيك تُثبت على الحديد لتحافظ على سماكة الغطاء الخرساني المحددة عن الشدة أثناء الصب.",
+    "zh": "固定在钢筋上的混凝土或塑料垫块，在浇筑时保持钢筋与模板之间的规定保护层厚度。"
+   },
+   "synonyms": {
+    "en": [
+     "cover block",
+     "cover spacer"
+    ],
+    "ar": [
+     "بسكوت",
+     "كراسي الغطاء",
+     "بسكويت"
+    ],
+    "zh": [
+     "保护层垫块",
+     "砂浆垫块"
+    ]
+   },
+   "related": [
+    "concrete-cover",
+    "bar-chair"
+   ],
+   "review": [
+    "ar"
+   ]
+  },
+  {
+   "id": "bar-chair",
+   "category": "concrete",
+   "term": {
+    "en": "Bar chair",
+    "ar": "كرسي الحديد",
+    "zh": "马凳筋"
+   },
+   "definition": {
+    "en": "A support, often made from bent bar, that holds the top reinforcement of a slab or raft at the correct height.",
+    "ar": "حامل يُصنع غالباً من سيخ مثني، يحمل الحديد العلوي في البلاطة أو اللبشة على الارتفاع الصحيح.",
+    "zh": "通常由弯曲钢筋制成的支架，使楼板或筏板上层钢筋保持正确高度。"
+   },
+   "synonyms": {
+    "en": [
+     "chair",
+     "high chair",
+     "support chair"
+    ],
+    "ar": [
+     "كراسي",
+     "كرسي"
+    ],
+    "zh": [
+     "马凳",
+     "撑筋"
+    ]
+   },
+   "related": [
+    "spacer",
+    "slab",
+    "raft-foundation"
+   ]
+  },
+  {
+   "id": "durability",
+   "category": "concrete",
+   "term": {
+    "en": "Durability",
+    "ar": "الديمومة",
+    "zh": "耐久性"
+   },
+   "definition": {
+    "en": "The ability of concrete and its reinforcement to resist weathering, chemical attack and corrosion during the design life. Cover, cement type and water–cement ratio are chosen for it.",
+    "ar": "قدرة الخرسانة وتسليحها على مقاومة العوامل الجوية والهجوم الكيميائي والصدأ طوال العمر التصميمي. يُختار الغطاء ونوع الأسمنت ونسبة الماء إلى الأسمنت لتحقيقها.",
+    "zh": "混凝土及其钢筋在设计使用年限内抵抗风化、化学侵蚀和锈蚀的能力。保护层、水泥类型和水灰比均据此选择。"
+   },
+   "synonyms": {
+    "en": [
+     "service life"
+    ],
+    "ar": [
+     "المتانة",
+     "عمر المنشأ"
+    ],
+    "zh": [
+     "耐用性"
+    ]
+   },
+   "related": [
+    "concrete-cover",
+    "water-cement-ratio",
+    "corrosion"
+   ]
+  },
+  {
+   "id": "corrosion",
+   "category": "concrete",
+   "term": {
+    "en": "Reinforcement corrosion",
+    "ar": "صدأ حديد التسليح",
+    "zh": "钢筋锈蚀"
+   },
+   "definition": {
+    "en": "Rusting of steel bars inside concrete, mostly caused by chlorides or carbonation. Rust occupies more volume than steel and cracks the concrete.",
+    "ar": "تآكل الأسياخ داخل الخرسانة بالصدأ، ويحدث غالباً بسبب الكلوريدات أو الكربنة. يشغل الصدأ حجماً أكبر من الحديد فيشقق الخرسانة.",
+    "zh": "混凝土内钢筋生锈，主要由氯离子或碳化引起。铁锈体积大于钢材，会使混凝土开裂。"
+   },
+   "synonyms": {
+    "en": [
+     "rusting",
+     "rebar corrosion"
+    ],
+    "ar": [
+     "تآكل الحديد",
+     "صدأ الحديد"
+    ],
+    "zh": [
+     "钢筋生锈"
+    ]
+   },
+   "related": [
+    "durability",
+    "concrete-cover",
+    "epoxy-coated-rebar"
+   ]
+  },
+  {
+   "id": "epoxy-coated-rebar",
+   "category": "concrete",
+   "term": {
+    "en": "Epoxy-coated rebar",
+    "ar": "حديد تسليح مطلي بالإيبوكسي",
+    "zh": "环氧涂层钢筋"
+   },
+   "definition": {
+    "en": "Reinforcing bar with a fusion-bonded epoxy coating that protects it from corrosion in aggressive environments such as coastal and below-ground structures. The coating must be repaired where it is damaged.",
+    "ar": "سيخ تسليح مطلي بطبقة إيبوكسي ملتحمة بالحرارة تحميه من الصدأ في البيئات العدوانية مثل المنشآت الساحلية وتحت الأرض. يجب إصلاح الطلاء في أماكن تلفه.",
+    "zh": "表面熔结环氧涂层的钢筋，用于沿海和地下等侵蚀性环境以防锈蚀。涂层破损处必须修补。"
+   },
+   "synonyms": {
+    "en": [
+     "epoxy rebar",
+     "fusion-bonded epoxy coated bar",
+     "ECR"
+    ],
+    "ar": [
+     "حديد إيبوكسي",
+     "حديد مدهون بالإيبوكسي"
+    ],
+    "zh": [
+     "环氧钢筋"
+    ]
+   },
+   "related": [
+    "corrosion",
+    "reinforcing-steel"
+   ],
+   "abbreviation": "ECR"
+  },
+  {
+   "id": "construction-joint",
+   "category": "concrete",
+   "term": {
+    "en": "Construction joint",
+    "ar": "فاصل الصب",
+    "zh": "施工缝"
+   },
+   "definition": {
+    "en": "A planned joint where one concrete pour stops and the next begins, located and prepared as the engineer specifies so that it transfers forces.",
+    "ar": "فاصل مخطط له حيث يتوقف صب ويبدأ صب لاحق، يُحدد موقعه ويُجهز حسب تعليمات المهندس لينقل القوى.",
+    "zh": "一次浇筑停止、下一次浇筑开始的预定接缝，其位置和处理须按工程师规定，以便传递内力。"
+   },
+   "synonyms": {
+    "en": [
+     "cold joint",
+     "pour joint"
+    ],
+    "ar": [
+     "وصلة صب",
+     "فاصل إنشائي"
+    ],
+    "zh": [
+     "冷缝"
+    ]
+   },
+   "related": [
+    "concrete-pour",
+    "dowel"
+   ]
+  },
+  {
+   "id": "precast-concrete",
+   "category": "concrete",
+   "term": {
+    "en": "Precast concrete",
+    "ar": "الخرسانة سابقة الصب",
+    "zh": "预制混凝土"
+   },
+   "definition": {
+    "en": "Concrete elements cast in a factory or casting yard and then transported and installed, such as hollow-core slabs and precast walls.",
+    "ar": "عناصر خرسانية تُصب في مصنع أو ساحة صب ثم تُنقل وتُركب، مثل البلاطات المفرغة والجدران سابقة الصب.",
+    "zh": "在工厂或预制场浇筑后运输、安装的混凝土构件，如空心板和预制墙板。"
+   },
+   "synonyms": {
+    "en": [
+     "precast",
+     "prefabricated concrete"
+    ],
+    "ar": [
+     "خرسانة مسبقة الصب",
+     "بريكاست"
+    ],
+    "zh": [
+     "预制构件",
+     "PC构件"
+    ]
+   },
+   "related": [
+    "concrete",
+    "reinforced-concrete"
+   ]
+  },
+  {
+   "id": "grout",
+   "category": "concrete",
+   "term": {
+    "en": "Grout",
+    "ar": "الجراوت",
+    "zh": "灌浆料"
+   },
+   "definition": {
+    "en": "A flowable mix of cement, sand and water, or a proprietary product, used to fill gaps such as under base plates or in sleeves.",
+    "ar": "خليط سائل من الأسمنت والرمل والماء أو منتج جاهز، يُستخدم لملء الفراغات مثل ما تحت قواعد الأعمدة الحديدية أو داخل الجلب.",
+    "zh": "水泥、砂和水的可流动拌合物或成品材料，用于填充底板下方或套筒内等缝隙。"
+   },
+   "synonyms": {
+    "en": [
+     "non-shrink grout",
+     "grouting"
+    ],
+    "ar": [
+     "مونة حقن",
+     "جراوت غير انكماشي"
+    ],
+    "zh": [
+     "灌浆",
+     "无收缩灌浆料"
+    ]
+   },
+   "related": [
+    "cement",
+    "mechanical-coupler"
+   ],
+   "review": [
+    "ar"
+   ]
+  },
+  {
+   "id": "blinding",
+   "category": "concrete",
+   "term": {
+    "en": "Blinding concrete",
+    "ar": "خرسانة النظافة",
+    "zh": "垫层混凝土"
+   },
+   "definition": {
+    "en": "A thin layer of lean plain concrete cast on prepared ground under foundations to give a clean, level surface for setting out and fixing reinforcement.",
+    "ar": "طبقة رقيقة من خرسانة عادية فقيرة تُصب على التربة المجهزة أسفل الأساسات لتوفير سطح نظيف ومستوٍ للتوقيع وتركيب الحديد.",
+    "zh": "在基础下方已处理地基上浇筑的一层薄素混凝土，提供干净平整的表面，便于放线和绑扎钢筋。"
+   },
+   "synonyms": {
+    "en": [
+     "blinding layer",
+     "lean concrete",
+     "mud mat"
+    ],
+    "ar": [
+     "خرسانة عادية",
+     "الخرسانة الفقيرة",
+     "فرشة النظافة"
+    ],
+    "zh": [
+     "垫层",
+     "素混凝土垫层"
+    ]
+   },
+   "related": [
+    "foundation",
+    "setting-out"
+   ]
+  },
+  {
+   "id": "beam",
+   "category": "structural",
+   "term": {
+    "en": "Beam",
+    "ar": "الجسر",
+    "zh": "梁"
+   },
+   "definition": {
+    "en": "A horizontal structural member that carries loads mainly by bending and transfers them to columns or walls. Reinforced with longitudinal bars and stirrups.",
+    "ar": "عنصر إنشائي أفقي يحمل الأحمال أساساً بالانحناء وينقلها إلى الأعمدة أو الجدران. يُسلَّح بأسياخ طولية وكانات.",
+    "zh": "主要以受弯方式承受荷载并将其传给柱或墙的水平结构构件，配有纵向钢筋和箍筋。"
+   },
+   "synonyms": {
+    "en": [
+     "girder",
+     "main beam"
+    ],
+    "ar": [
+     "كمرة",
+     "بيم",
+     "جسر خرساني"
+    ],
+    "zh": [
+     "横梁",
+     "大梁"
+    ]
+   },
+   "related": [
+    "column",
+    "slab",
+    "stirrup",
+    "main-reinforcement",
+    "bending-moment"
+   ],
+   "notes": {
+    "en": "In Saudi and Gulf site usage “جسر” is common; “كمرة” is the Egyptian term. Both are listed as synonyms.",
+    "ar": "في الاستخدام بالمواقع السعودية والخليجية تشيع كلمة «جسر»، و«كمرة» هي المصطلح المصري. وكلاهما مذكور كمرادف.",
+    "zh": "在沙特和海湾地区工地常用“جسر”，埃及称“كمرة”，两者均列为同义词。"
+   }
+  },
+  {
+   "id": "column",
+   "category": "structural",
+   "term": {
+    "en": "Column",
+    "ar": "العمود",
+    "zh": "柱"
+   },
+   "definition": {
+    "en": "A vertical structural member that carries axial load, often with bending, from beams and slabs down to the foundation.",
+    "ar": "عنصر إنشائي رأسي يحمل الحمل المحوري، ومعه انحناء غالباً، من الجسور والبلاطات إلى الأساس.",
+    "zh": "承受轴向荷载（常伴有弯矩）并将梁、板荷载传至基础的竖向结构构件。"
+   },
+   "synonyms": {
+    "en": [
+     "pillar",
+     "post"
+    ],
+    "ar": [
+     "عمود خرساني",
+     "عامود"
+    ],
+    "zh": [
+     "立柱",
+     "框架柱"
+    ]
+   },
+   "related": [
+    "beam",
+    "stirrup",
+    "foundation",
+    "dowel"
+   ]
+  },
+  {
+   "id": "slab",
+   "category": "structural",
+   "term": {
+    "en": "Slab",
+    "ar": "البلاطة",
+    "zh": "楼板"
+   },
+   "definition": {
+    "en": "A flat plate element forming a floor or roof, supported on beams, walls or columns, or directly on the ground.",
+    "ar": "عنصر مسطح يشكل أرضية أو سقفاً، ويرتكز على الجسور أو الجدران أو الأعمدة، أو على التربة مباشرة.",
+    "zh": "形成楼面或屋面的平板构件，支承于梁、墙或柱上，或直接置于地基上。"
+   },
+   "synonyms": {
+    "en": [
+     "floor slab",
+     "roof slab",
+     "flat slab"
+    ],
+    "ar": [
+     "سقف",
+     "بلاطة خرسانية",
+     "البلاطة المسطحة"
+    ],
+    "zh": [
+     "板",
+     "楼面板",
+     "屋面板"
+    ]
+   },
+   "related": [
+    "beam",
+    "bar-chair",
+    "welded-wire-mesh"
+   ]
+  },
+  {
+   "id": "foundation",
+   "category": "structural",
+   "term": {
+    "en": "Foundation",
+    "ar": "الأساس",
+    "zh": "基础"
+   },
+   "definition": {
+    "en": "The part of a structure that transfers its loads safely to the ground, such as isolated footings, strip footings, rafts or piles.",
+    "ar": "الجزء من المنشأ الذي ينقل أحماله بأمان إلى التربة، مثل القواعد المنفصلة والشريطية واللبشة والخوازيق.",
+    "zh": "将结构荷载安全传递到地基的部分，如独立基础、条形基础、筏板基础或桩基础。"
+   },
+   "synonyms": {
+    "en": [
+     "foundations",
+     "substructure"
+    ],
+    "ar": [
+     "الأساسات",
+     "القواعد"
+    ],
+    "zh": [
+     "地基基础",
+     "基础工程"
+    ]
+   },
+   "related": [
+    "footing",
+    "raft-foundation",
+    "pile",
+    "bearing-capacity"
+   ]
+  },
+  {
+   "id": "footing",
+   "category": "structural",
+   "term": {
+    "en": "Footing",
+    "ar": "القاعدة",
+    "zh": "独立基础"
+   },
+   "definition": {
+    "en": "A spread foundation under a column or wall that distributes its load over a larger area of soil. An isolated footing serves one column.",
+    "ar": "أساس منتشر تحت عمود أو جدار يوزع حمله على مساحة أكبر من التربة. القاعدة المنفصلة تخدم عموداً واحداً.",
+    "zh": "柱或墙下的扩展基础，将荷载分布到较大面积的土上。独立基础用于单根柱。"
+   },
+   "synonyms": {
+    "en": [
+     "isolated footing",
+     "pad footing",
+     "spread footing"
+    ],
+    "ar": [
+     "قاعدة منفصلة",
+     "قاعدة منفردة"
+    ],
+    "zh": [
+     "扩展基础",
+     "柱下独立基础"
+    ]
+   },
+   "related": [
+    "foundation",
+    "column",
+    "raft-foundation"
+   ]
+  },
+  {
+   "id": "raft-foundation",
+   "category": "structural",
+   "term": {
+    "en": "Raft foundation",
+    "ar": "اللبشة",
+    "zh": "筏板基础"
+   },
+   "definition": {
+    "en": "A thick reinforced concrete slab under the whole or a large part of a building that spreads the loads of many columns over the ground.",
+    "ar": "بلاطة خرسانية مسلحة سميكة تحت المبنى كله أو جزء كبير منه توزع أحمال أعمدة كثيرة على التربة.",
+    "zh": "位于整个建筑或其大部分下方的厚钢筋混凝土板，将多根柱的荷载分布到地基上。"
+   },
+   "synonyms": {
+    "en": [
+     "mat foundation",
+     "raft"
+    ],
+    "ar": [
+     "لبشة خرسانية",
+     "الحصيرة"
+    ],
+    "zh": [
+     "筏基",
+     "满堂基础"
+    ]
+   },
+   "related": [
+    "foundation",
+    "bar-chair",
+    "slab"
+   ]
+  },
+  {
+   "id": "pile",
+   "category": "structural",
+   "term": {
+    "en": "Pile",
+    "ar": "الخازوق",
+    "zh": "桩"
+   },
+   "definition": {
+    "en": "A long slender foundation element driven or bored into the ground to carry loads to deeper, stronger strata or by friction along its length.",
+    "ar": "عنصر أساس طويل ونحيف يُدق أو يُحفر في الأرض لنقل الأحمال إلى طبقات أعمق وأقوى أو بالاحتكاك على طوله.",
+    "zh": "打入或钻孔灌注于地下的细长基础构件，将荷载传至较深较硬土层或依靠侧摩阻力承载。"
+   },
+   "synonyms": {
+    "en": [
+     "bored pile",
+     "driven pile",
+     "pile foundation"
+    ],
+    "ar": [
+     "خوازيق",
+     "الركائز"
+    ],
+    "zh": [
+     "桩基",
+     "灌注桩"
+    ]
+   },
+   "related": [
+    "foundation",
+    "soil-investigation",
+    "reinforcement-cage"
+   ]
+  },
+  {
+   "id": "shear-wall",
+   "category": "structural",
+   "term": {
+    "en": "Shear wall",
+    "ar": "جدار القص",
+    "zh": "剪力墙"
+   },
+   "definition": {
+    "en": "A reinforced concrete wall that resists lateral loads from wind or earthquake through its in-plane stiffness.",
+    "ar": "جدار خرساني مسلح يقاوم الأحمال الجانبية من الرياح أو الزلازل بجساءته في مستواه.",
+    "zh": "依靠平面内刚度抵抗风或地震侧向荷载的钢筋混凝土墙。"
+   },
+   "synonyms": {
+    "en": [
+     "structural wall",
+     "core wall"
+    ],
+    "ar": [
+     "حائط قص",
+     "جدار خرساني"
+    ],
+    "zh": [
+     "抗震墙",
+     "核心筒墙"
+    ]
+   },
+   "related": [
+    "column",
+    "lateral-load"
+   ]
+  },
+  {
+   "id": "stirrup",
+   "category": "structural",
+   "term": {
+    "en": "Stirrup",
+    "ar": "الكانة",
+    "zh": "箍筋"
+   },
+   "definition": {
+    "en": "A bent bar that encloses the longitudinal bars of a beam or column. It resists shear, confines the concrete and holds the main bars in position. In columns it is also called a tie or link.",
+    "ar": "سيخ مثني يحيط بالأسياخ الطولية في الجسر أو العمود. يقاوم القص ويحصر الخرسانة ويثبت الأسياخ الرئيسية في مكانها.",
+    "zh": "包围梁或柱纵向钢筋的弯曲钢筋，用于抗剪、约束混凝土并固定主筋位置。"
+   },
+   "synonyms": {
+    "en": [
+     "link",
+     "tie",
+     "column tie",
+     "hoop"
+    ],
+    "ar": [
+     "كانات",
+     "الكانة المغلقة",
+     "طوق"
+    ],
+    "zh": [
+     "箍",
+     "钢箍"
+    ]
+   },
+   "related": [
+    "beam",
+    "column",
+    "shear-force",
+    "hook",
+    "main-reinforcement"
+   ]
+  },
+  {
+   "id": "main-reinforcement",
+   "category": "structural",
+   "term": {
+    "en": "Main reinforcement",
+    "ar": "التسليح الرئيسي",
+    "zh": "受力主筋"
+   },
+   "definition": {
+    "en": "The longitudinal bars that carry the tensile (and in columns compressive) forces in a member, as opposed to secondary bars that distribute load or control cracking.",
+    "ar": "الأسياخ الطولية التي تتحمل قوى الشد (والضغط في الأعمدة) في العنصر، بخلاف الأسياخ الثانوية التي توزع الحمل أو تتحكم في التشققات.",
+    "zh": "构件中承受拉力（柱中也承受压力）的纵向钢筋，区别于分布荷载或控制裂缝的次要钢筋。"
+   },
+   "synonyms": {
+    "en": [
+     "longitudinal reinforcement",
+     "main bars",
+     "tension reinforcement"
+    ],
+    "ar": [
+     "الحديد الرئيسي",
+     "الحديد الطولي",
+     "التسليح الطولي"
+    ],
+    "zh": [
+     "纵筋",
+     "主筋",
+     "纵向钢筋"
+    ]
+   },
+   "related": [
+    "distribution-bar",
+    "stirrup",
+    "beam"
+   ]
+  },
+  {
+   "id": "distribution-bar",
+   "category": "structural",
+   "term": {
+    "en": "Distribution bar",
+    "ar": "حديد التوزيع",
+    "zh": "分布钢筋"
+   },
+   "definition": {
+    "en": "Secondary bars placed at right angles to the main bars in slabs and walls to spread loads and control shrinkage and temperature cracking.",
+    "ar": "أسياخ ثانوية توضع عمودياً على الحديد الرئيسي في البلاطات والجدران لتوزيع الأحمال والتحكم في تشققات الانكماش والحرارة.",
+    "zh": "在板和墙中垂直于主筋布置的次要钢筋，用于分布荷载并控制收缩和温度裂缝。"
+   },
+   "synonyms": {
+    "en": [
+     "secondary reinforcement",
+     "temperature steel",
+     "shrinkage reinforcement"
+    ],
+    "ar": [
+     "الحديد الثانوي",
+     "تسليح الانكماش"
+    ],
+    "zh": [
+     "构造钢筋",
+     "温度筋"
+    ]
+   },
+   "related": [
+    "main-reinforcement",
+    "slab"
+   ]
+  },
+  {
+   "id": "development-length",
+   "category": "structural",
+   "term": {
+    "en": "Development length",
+    "ar": "طول التماسك",
+    "zh": "锚固长度"
+   },
+   "definition": {
+    "en": "The embedded length a bar needs beyond a critical section to develop its design stress through bond with the concrete. It is calculated with the design code used for the project: ACI 318 and SBC 304 call it development length, while Eurocode 2 uses anchorage length with its own method. The value depends on bar size, concrete strength, cover, bar position and the code, so it is taken from the code and the drawings, not from a general rule.",
+    "ar": "الطول المدفون الذي يحتاجه السيخ بعد المقطع الحرج ليطوّر إجهاده التصميمي عن طريق التماسك مع الخرسانة. يُحسب بكود التصميم المعتمد للمشروع: يستخدم ACI 318 والكود السعودي SBC 304 مصطلح development length، بينما يستخدم Eurocode 2 مصطلح anchorage length بطريقته الخاصة. تعتمد القيمة على قطر السيخ ومقاومة الخرسانة والغطاء وموضع السيخ والكود، لذلك تؤخذ من الكود والمخططات لا من قاعدة عامة.",
+    "zh": "钢筋在临界截面以外为通过与混凝土粘结达到其设计应力所需的埋入长度。按项目采用的设计规范计算：ACI 318 和 SBC 304 称为 development length，Eurocode 2 称为 anchorage length 并有各自的方法，中国规范称为锚固长度。取值取决于钢筋直径、混凝土强度、保护层、钢筋位置和规范，因此应以规范和图纸为准，而非通用规则。"
+   },
+   "synonyms": {
+    "en": [
+     "Ld",
+     "anchorage length (Eurocode 2)"
+    ],
+    "ar": [
+     "طول التثبيت",
+     "طول الإرساء"
+    ],
+    "zh": [
+     "锚固"
+    ]
+   },
+   "related": [
+    "lap-splice",
+    "bond",
+    "hook"
+   ],
+   "notes": {
+    "en": "Arabic usage varies by country and code translation; “طول التماسك” and “طول التثبيت” are both common. Confirm against the project specification.",
+    "ar": "تختلف التسمية العربية حسب البلد وترجمة الكود؛ «طول التماسك» و«طول التثبيت» كلاهما شائع. تأكد منها في مواصفات المشروع.",
+    "zh": "阿拉伯语用法因国家和规范译本而异，“طول التماسك”和“طول التثبيت”均常见，请以项目规范为准。"
+   },
+   "review": [
+    "ar"
+   ]
+  },
+  {
+   "id": "lap-splice",
+   "category": "structural",
+   "term": {
+    "en": "Lap splice",
+    "ar": "وصلة التراكب",
+    "zh": "搭接"
+   },
+   "definition": {
+    "en": "A joint in which two bars overlap for a specified length so that force passes from one to the other through the concrete. The required lap length is given by the design.",
+    "ar": "وصلة يتراكب فيها سيخان لطول محدد بحيث تنتقل القوة من أحدهما إلى الآخر عبر الخرسانة. طول التراكب المطلوب يحدده التصميم.",
+    "zh": "两根钢筋重叠规定长度、通过混凝土传力的连接方式。所需搭接长度由设计确定。"
+   },
+   "synonyms": {
+    "en": [
+     "lap",
+     "lap length",
+     "splice"
+    ],
+    "ar": [
+     "طول الركوب",
+     "التراكب",
+     "وصلة الحديد"
+    ],
+    "zh": [
+     "搭接长度",
+     "绑扎搭接"
+    ]
+   },
+   "related": [
+    "development-length",
+    "mechanical-coupler",
+    "stock-length"
+   ]
+  },
+  {
+   "id": "hook",
+   "category": "structural",
+   "term": {
+    "en": "Standard hook",
+    "ar": "الخطاف",
+    "zh": "弯钩"
+   },
+   "definition": {
+    "en": "A bend at the end of a bar, typically 90°, 135° or 180°, used to anchor the bar where there is not enough straight length. Dimensions follow the design code.",
+    "ar": "ثنية في نهاية السيخ، عادة بزاوية 90° أو 135° أو 180°، تُستخدم لتثبيت السيخ عندما لا يتوفر طول مستقيم كافٍ. أبعادها حسب كود التصميم.",
+    "zh": "钢筋末端的弯折，通常为90°、135°或180°，用于在直线长度不足时锚固钢筋，尺寸按设计规范确定。"
+   },
+   "synonyms": {
+    "en": [
+     "hook",
+     "bend",
+     "end hook"
+    ],
+    "ar": [
+     "جنش",
+     "الثنية",
+     "الكوع"
+    ],
+    "zh": [
+     "端部弯钩",
+     "弯头"
+    ]
+   },
+   "related": [
+    "development-length",
+    "bend-diameter",
+    "stirrup"
+   ],
+   "review": [
+    "ar"
+   ]
+  },
+  {
+   "id": "dowel",
+   "category": "structural",
+   "term": {
+    "en": "Starter bars",
+    "ar": "الأشاير",
+    "zh": "插筋"
+   },
+   "definition": {
+    "en": "Bars left projecting from a pour, for example from a footing into a column, so that the next element can be lapped to them.",
+    "ar": "أسياخ تُترك بارزة من الصبة، مثل الأسياخ البارزة من القاعدة إلى العمود، لتُوصل بها أسياخ العنصر التالي بالتراكب.",
+    "zh": "从已浇筑构件中伸出的钢筋，例如从基础伸入柱中，供下一构件钢筋搭接。"
+   },
+   "synonyms": {
+    "en": [
+     "dowels",
+     "dowel bars",
+     "starters",
+     "column starters"
+    ],
+    "ar": [
+     "أشاير الأعمدة",
+     "أشاير",
+     "الدوايل"
+    ],
+    "zh": [
+     "预留钢筋",
+     "甩筋"
+    ]
+   },
+   "related": [
+    "column",
+    "footing",
+    "lap-splice",
+    "construction-joint"
+   ]
+  },
+  {
+   "id": "reinforcement-cage",
+   "category": "structural",
+   "term": {
+    "en": "Reinforcement cage",
+    "ar": "قفص التسليح",
+    "zh": "钢筋笼"
+   },
+   "definition": {
+    "en": "An assembly of main bars and stirrups or links tied or welded together, prepared before placing in a column, beam or pile.",
+    "ar": "مجموعة من الأسياخ الرئيسية والكانات مربوطة أو ملحومة معاً، تُجهز قبل وضعها في العمود أو الجسر أو الخازوق.",
+    "zh": "由主筋和箍筋绑扎或焊接而成的骨架，在放入柱、梁或桩之前预先制作。"
+   },
+   "synonyms": {
+    "en": [
+     "rebar cage",
+     "cage"
+    ],
+    "ar": [
+     "قفص الحديد"
+    ],
+    "zh": [
+     "钢筋骨架"
+    ]
+   },
+   "related": [
+    "stirrup",
+    "tie-wire",
+    "pile",
+    "steel-fixing"
+   ]
+  },
+  {
+   "id": "bond",
+   "category": "structural",
+   "term": {
+    "en": "Bond",
+    "ar": "التماسك",
+    "zh": "粘结"
+   },
+   "definition": {
+    "en": "The grip between reinforcement and the surrounding concrete that lets forces pass between them. Ribs, clean surfaces and good compaction improve it.",
+    "ar": "التلاصق بين حديد التسليح والخرسانة المحيطة الذي يسمح بانتقال القوى بينهما. تحسّنه النتوءات ونظافة السطح وجودة الدمك.",
+    "zh": "钢筋与周围混凝土之间使力得以相互传递的握裹作用。横肋、清洁表面和良好振捣可提高粘结。"
+   },
+   "synonyms": {
+    "en": [
+     "bond strength",
+     "grip"
+    ],
+    "ar": [
+     "قوة التماسك",
+     "الالتصاق"
+    ],
+    "zh": [
+     "粘结力",
+     "握裹力"
+    ]
+   },
+   "related": [
+    "deformed-bar",
+    "development-length",
+    "rib"
+   ]
+  },
+  {
+   "id": "dead-load",
+   "category": "structural",
+   "term": {
+    "en": "Dead load",
+    "ar": "الحمل الميت",
+    "zh": "恒荷载"
+   },
+   "definition": {
+    "en": "The permanent load from the self-weight of the structure and fixed elements such as finishes and partitions.",
+    "ar": "الحمل الدائم الناتج عن الوزن الذاتي للمنشأ والعناصر الثابتة مثل التشطيبات والقواطع.",
+    "zh": "结构自重及装修、隔墙等固定构件产生的永久荷载。"
+   },
+   "synonyms": {
+    "en": [
+     "permanent load",
+     "self-weight"
+    ],
+    "ar": [
+     "الأحمال الدائمة",
+     "الوزن الذاتي"
+    ],
+    "zh": [
+     "永久荷载",
+     "自重"
+    ]
+   },
+   "related": [
+    "live-load",
+    "bending-moment"
+   ]
+  },
+  {
+   "id": "live-load",
+   "category": "structural",
+   "term": {
+    "en": "Live load",
+    "ar": "الحمل الحي",
+    "zh": "活荷载"
+   },
+   "definition": {
+    "en": "The variable load from occupancy and use, such as people, furniture and stored goods, given by the loading code for each type of use.",
+    "ar": "الحمل المتغير الناتج عن الإشغال والاستخدام مثل الأشخاص والأثاث والبضائع المخزنة، ويحدده كود الأحمال لكل نوع استخدام.",
+    "zh": "由使用产生的可变荷载，如人员、家具和堆放物品，按荷载规范对各类用途规定。"
+   },
+   "synonyms": {
+    "en": [
+     "imposed load",
+     "occupancy load"
+    ],
+    "ar": [
+     "الأحمال المتغيرة"
+    ],
+    "zh": [
+     "可变荷载",
+     "使用荷载"
+    ]
+   },
+   "related": [
+    "dead-load",
+    "lateral-load"
+   ]
+  },
+  {
+   "id": "lateral-load",
+   "category": "structural",
+   "term": {
+    "en": "Lateral load",
+    "ar": "الحمل الجانبي",
+    "zh": "水平荷载"
+   },
+   "definition": {
+    "en": "A horizontal load on a structure, mainly from wind or earthquake, resisted by frames, shear walls or bracing.",
+    "ar": "حمل أفقي على المنشأ ينتج أساساً عن الرياح أو الزلازل، وتقاومه الإطارات أو جدران القص أو التدعيم.",
+    "zh": "作用于结构的水平荷载，主要来自风或地震，由框架、剪力墙或支撑抵抗。"
+   },
+   "synonyms": {
+    "en": [
+     "wind load",
+     "seismic load",
+     "horizontal load"
+    ],
+    "ar": [
+     "أحمال الرياح",
+     "الأحمال الزلزالية"
+    ],
+    "zh": [
+     "侧向荷载",
+     "风荷载",
+     "地震作用"
+    ]
+   },
+   "related": [
+    "shear-wall",
+    "live-load"
+   ]
+  },
+  {
+   "id": "bending-moment",
+   "category": "structural",
+   "term": {
+    "en": "Bending moment",
+    "ar": "عزم الانحناء",
+    "zh": "弯矩"
+   },
+   "definition": {
+    "en": "The internal moment in a member caused by loads acting at a distance, which produces tension on one face and compression on the other. Main bars are placed on the tension face.",
+    "ar": "العزم الداخلي في العنصر الناتج عن أحمال تؤثر على بُعد، ويسبب شداً في وجه وضغطاً في الوجه الآخر. يوضع الحديد الرئيسي في وجه الشد.",
+    "zh": "荷载在构件内产生的内力矩，使一侧受拉、另一侧受压。主筋布置在受拉侧。"
+   },
+   "synonyms": {
+    "en": [
+     "moment",
+     "flexure"
+    ],
+    "ar": [
+     "العزم",
+     "عزم الانثناء"
+    ],
+    "zh": [
+     "弯曲力矩"
+    ]
+   },
+   "related": [
+    "shear-force",
+    "beam",
+    "main-reinforcement"
+   ],
+   "review": [
+    "ar"
+   ]
+  },
+  {
+   "id": "shear-force",
+   "category": "structural",
+   "term": {
+    "en": "Shear force",
+    "ar": "قوة القص",
+    "zh": "剪力"
+   },
+   "definition": {
+    "en": "The internal force acting across a section of a member, highest near supports. In beams it is resisted by the concrete and the stirrups.",
+    "ar": "القوة الداخلية المؤثرة عبر مقطع العنصر، وتكون أكبر قرب الركائز. في الجسور تقاومها الخرسانة والكانات.",
+    "zh": "作用于构件截面上的内力，在支座附近最大。梁中由混凝土和箍筋共同抵抗。"
+   },
+   "synonyms": {
+    "en": [
+     "shear"
+    ],
+    "ar": [
+     "القص"
+    ],
+    "zh": [
+     "剪切力"
+    ]
+   },
+   "related": [
+    "stirrup",
+    "bending-moment",
+    "beam"
+   ]
+  },
+  {
+   "id": "cantilever",
+   "category": "structural",
+   "term": {
+    "en": "Cantilever",
+    "ar": "الكابولي",
+    "zh": "悬臂"
+   },
+   "definition": {
+    "en": "A member fixed at one end and free at the other, such as a balcony slab. Its main reinforcement is at the top.",
+    "ar": "عنصر مثبت من طرف وحر من الطرف الآخر، مثل بلاطة الشرفة. يكون حديده الرئيسي في الأعلى.",
+    "zh": "一端固定、另一端自由的构件，如阳台板，其主筋位于上部。"
+   },
+   "synonyms": {
+    "en": [
+     "cantilever beam",
+     "overhang"
+    ],
+    "ar": [
+     "كابولي",
+     "ظفر",
+     "بروز"
+    ],
+    "zh": [
+     "悬臂梁",
+     "悬挑"
+    ]
+   },
+   "related": [
+    "beam",
+    "slab",
+    "main-reinforcement"
+   ],
+   "review": [
+    "ar"
+   ]
+  },
+  {
+   "id": "lintel",
+   "category": "structural",
+   "term": {
+    "en": "Lintel",
+    "ar": "العتبة",
+    "zh": "过梁"
+   },
+   "definition": {
+    "en": "A short beam over an opening such as a door or window that carries the wall above.",
+    "ar": "جسر قصير فوق فتحة مثل الباب أو النافذة يحمل الجدار الذي فوقه.",
+    "zh": "门窗洞口上方承受上部墙体的短梁。"
+   },
+   "synonyms": {
+    "en": [
+     "lintel beam"
+    ],
+    "ar": [
+     "أعتاب",
+     "عتبة خرسانية"
+    ],
+    "zh": [
+     "门窗过梁"
+    ]
+   },
+   "related": [
+    "beam"
+   ]
+  },
+  {
+   "id": "excavation",
+   "category": "civil",
+   "term": {
+    "en": "Excavation",
+    "ar": "الحفر",
+    "zh": "土方开挖"
+   },
+   "definition": {
+    "en": "Removing soil or rock to the levels and dimensions shown on the drawings, for foundations, basements or services.",
+    "ar": "إزالة التربة أو الصخر حتى المناسيب والأبعاد الموضحة في المخططات، للأساسات أو الأقبية أو التمديدات.",
+    "zh": "按图纸标高和尺寸挖除土石方，用于基础、地下室或管线施工。"
+   },
+   "synonyms": {
+    "en": [
+     "digging",
+     "excavation works"
+    ],
+    "ar": [
+     "أعمال الحفر",
+     "الحفريات"
+    ],
+    "zh": [
+     "开挖",
+     "挖方"
+    ]
+   },
+   "related": [
+    "backfill",
+    "dewatering",
+    "earthworks"
+   ]
+  },
+  {
+   "id": "earthworks",
+   "category": "civil",
+   "term": {
+    "en": "Earthworks",
+    "ar": "أعمال الترابية",
+    "zh": "土方工程"
+   },
+   "definition": {
+    "en": "All work that moves, places or compacts soil: excavation, filling, grading and compaction.",
+    "ar": "كل الأعمال التي تنقل التربة أو تضعها أو تدمكها: الحفر والردم والتسوية والدمك.",
+    "zh": "移动、填筑或压实土体的全部工作，包括开挖、回填、平整和压实。"
+   },
+   "synonyms": {
+    "en": [
+     "earthwork",
+     "cut and fill"
+    ],
+    "ar": [
+     "أعمال التربة",
+     "الحفر والردم"
+    ],
+    "zh": [
+     "土方",
+     "挖填方"
+    ]
+   },
+   "related": [
+    "excavation",
+    "backfill",
+    "compaction"
+   ]
+  },
+  {
+   "id": "backfill",
+   "category": "civil",
+   "term": {
+    "en": "Backfill",
+    "ar": "الردم",
+    "zh": "回填"
+   },
+   "definition": {
+    "en": "Soil or selected material placed back around foundations, walls or pipes after construction, in layers compacted to the specified density.",
+    "ar": "تربة أو مادة مختارة تُعاد حول الأساسات أو الجدران أو المواسير بعد التنفيذ، على طبقات تُدمك إلى الكثافة المحددة.",
+    "zh": "施工后在基础、墙体或管道周围分层回填并压实到规定密实度的土或选定材料。"
+   },
+   "synonyms": {
+    "en": [
+     "fill",
+     "backfilling"
+    ],
+    "ar": [
+     "أعمال الردم",
+     "ردم"
+    ],
+    "zh": [
+     "回填土",
+     "填方"
+    ]
+   },
+   "related": [
+    "compaction",
+    "excavation"
+   ]
+  },
+  {
+   "id": "compaction",
+   "category": "civil",
+   "term": {
+    "en": "Soil compaction",
+    "ar": "دمك التربة",
+    "zh": "土壤压实"
+   },
+   "definition": {
+    "en": "Increasing the density of soil by rolling, vibrating or tamping, checked by field density tests against the specified percentage of maximum dry density.",
+    "ar": "زيادة كثافة التربة بالدحل أو الاهتزاز أو الدق، وتُفحص باختبارات الكثافة الحقلية مقارنة بنسبة محددة من الكثافة الجافة القصوى.",
+    "zh": "通过碾压、振动或夯实提高土的密实度，以现场密度试验对照规定的最大干密度百分比检验。"
+   },
+   "synonyms": {
+    "en": [
+     "compaction test",
+     "field density",
+     "Proctor"
+    ],
+    "ar": [
+     "الدك",
+     "اختبار الكثافة الحقلية"
+    ],
+    "zh": [
+     "压实度",
+     "夯实"
+    ]
+   },
+   "related": [
+    "backfill",
+    "earthworks",
+    "soil-investigation"
+   ]
+  },
+  {
+   "id": "soil-investigation",
+   "category": "civil",
+   "term": {
+    "en": "Soil investigation",
+    "ar": "فحص التربة",
+    "zh": "岩土勘察"
+   },
+   "definition": {
+    "en": "Boreholes, sampling and laboratory tests that determine ground conditions, groundwater and bearing capacity for foundation design.",
+    "ar": "حفر جسات وأخذ عينات واختبارات معملية لتحديد ظروف التربة والمياه الجوفية وقدرة التحمل لتصميم الأساسات.",
+    "zh": "通过钻孔、取样和室内试验确定地质条件、地下水和承载力，用于基础设计。"
+   },
+   "synonyms": {
+    "en": [
+     "geotechnical investigation",
+     "site investigation",
+     "soil report",
+     "borehole"
+    ],
+    "ar": [
+     "تقرير التربة",
+     "الجسات",
+     "الدراسة الجيوتقنية"
+    ],
+    "zh": [
+     "地质勘察",
+     "地勘报告",
+     "钻探"
+    ]
+   },
+   "related": [
+    "bearing-capacity",
+    "foundation",
+    "pile"
+   ]
+  },
+  {
+   "id": "bearing-capacity",
+   "category": "civil",
+   "term": {
+    "en": "Bearing capacity",
+    "ar": "قدرة تحمل التربة",
+    "zh": "地基承载力"
+   },
+   "definition": {
+    "en": "The pressure the ground can safely carry under a foundation without shear failure or excessive settlement, taken from the soil report.",
+    "ar": "الضغط الذي تستطيع التربة تحمله بأمان تحت الأساس دون انهيار بالقص أو هبوط زائد، ويؤخذ من تقرير التربة.",
+    "zh": "地基在不发生剪切破坏或过大沉降的情况下能安全承受的基底压力，取自地勘报告。"
+   },
+   "synonyms": {
+    "en": [
+     "allowable bearing pressure",
+     "soil bearing capacity"
+    ],
+    "ar": [
+     "جهد التربة",
+     "إجهاد التربة المسموح"
+    ],
+    "zh": [
+     "承载力",
+     "容许承载力"
+    ]
+   },
+   "related": [
+    "soil-investigation",
+    "foundation",
+    "settlement"
+   ]
+  },
+  {
+   "id": "settlement",
+   "category": "civil",
+   "term": {
+    "en": "Settlement",
+    "ar": "الهبوط",
+    "zh": "沉降"
+   },
+   "definition": {
+    "en": "Downward movement of a foundation as the soil beneath compresses under load. Uneven settlement can crack a structure.",
+    "ar": "تحرك الأساس إلى الأسفل نتيجة انضغاط التربة تحته بالحمل. الهبوط غير المتساوي قد يسبب تشقق المنشأ.",
+    "zh": "地基土在荷载作用下压缩使基础向下移动。不均匀沉降可能导致结构开裂。"
+   },
+   "synonyms": {
+    "en": [
+     "differential settlement",
+     "subsidence"
+    ],
+    "ar": [
+     "هبوط الأساسات",
+     "الهبوط التفاضلي"
+    ],
+    "zh": [
+     "不均匀沉降",
+     "下沉"
+    ]
+   },
+   "related": [
+    "bearing-capacity",
+    "foundation"
+   ]
+  },
+  {
+   "id": "dewatering",
+   "category": "civil",
+   "term": {
+    "en": "Dewatering",
+    "ar": "نزح المياه",
+    "zh": "降水"
+   },
+   "definition": {
+    "en": "Lowering groundwater or removing water from an excavation by pumping, so that work can be done in dry conditions.",
+    "ar": "خفض منسوب المياه الجوفية أو إزالة المياه من الحفرية بالضخ، حتى يتم العمل في ظروف جافة.",
+    "zh": "通过抽水降低地下水位或排除基坑积水，使施工在干燥条件下进行。"
+   },
+   "synonyms": {
+    "en": [
+     "groundwater lowering",
+     "wellpoint"
+    ],
+    "ar": [
+     "سحب المياه الجوفية",
+     "التجفيف"
+    ],
+    "zh": [
+     "基坑降水",
+     "井点降水"
+    ]
+   },
+   "related": [
+    "excavation",
+    "waterproofing"
+   ]
+  },
+  {
+   "id": "waterproofing",
+   "category": "civil",
+   "term": {
+    "en": "Waterproofing",
+    "ar": "العزل المائي",
+    "zh": "防水"
+   },
+   "definition": {
+    "en": "Membranes, coatings or admixtures that prevent water from penetrating foundations, basements, roofs and wet areas.",
+    "ar": "أغشية أو طلاءات أو إضافات تمنع نفاذ الماء إلى الأساسات والأقبية والأسطح والمناطق الرطبة.",
+    "zh": "防止水渗入基础、地下室、屋面和潮湿区域的卷材、涂料或外加剂。"
+   },
+   "synonyms": {
+    "en": [
+     "damp proofing",
+     "membrane",
+     "tanking"
+    ],
+    "ar": [
+     "عزل الرطوبة",
+     "العزل"
+    ],
+    "zh": [
+     "防水层",
+     "防潮"
+    ]
+   },
+   "related": [
+    "dewatering",
+    "durability"
+   ]
+  },
+  {
+   "id": "retaining-wall",
+   "category": "civil",
+   "term": {
+    "en": "Retaining wall",
+    "ar": "الجدار الاستنادي",
+    "zh": "挡土墙"
+   },
+   "definition": {
+    "en": "A wall that holds back soil at a change in ground level and resists the lateral earth pressure.",
+    "ar": "جدار يحجز التربة عند تغير منسوب الأرض ويقاوم ضغط التربة الجانبي.",
+    "zh": "在地面高差处挡住土体并抵抗侧向土压力的墙。"
+   },
+   "synonyms": {
+    "en": [
+     "earth retaining wall",
+     "cantilever retaining wall"
+    ],
+    "ar": [
+     "حائط ساند",
+     "جدار ساند"
+    ],
+    "zh": [
+     "挡墙"
+    ]
+   },
+   "related": [
+    "lateral-load",
+    "backfill"
+   ]
+  },
+  {
+   "id": "drainage",
+   "category": "civil",
+   "term": {
+    "en": "Drainage",
+    "ar": "الصرف",
+    "zh": "排水"
+   },
+   "definition": {
+    "en": "Systems of pipes, channels and manholes that collect and remove surface water or wastewater from a site or building.",
+    "ar": "شبكات من المواسير والقنوات وغرف التفتيش تجمع مياه الأمطار أو مياه الصرف وتصرفها من الموقع أو المبنى.",
+    "zh": "收集并排除场地或建筑内地表水或污水的管道、沟渠和检查井系统。"
+   },
+   "synonyms": {
+    "en": [
+     "stormwater drainage",
+     "sewer"
+    ],
+    "ar": [
+     "تصريف المياه",
+     "شبكة الصرف",
+     "تصريف الأمطار"
+    ],
+    "zh": [
+     "排水系统",
+     "雨水排水",
+     "污水管"
+    ]
+   },
+   "related": [
+    "culvert",
+    "dewatering"
+   ]
+  },
+  {
+   "id": "culvert",
+   "category": "civil",
+   "term": {
+    "en": "Culvert",
+    "ar": "العبّارة",
+    "zh": "涵洞"
+   },
+   "definition": {
+    "en": "A buried pipe or box structure that carries water under a road, railway or embankment.",
+    "ar": "منشأ أنبوبي أو صندوقي مدفون ينقل المياه أسفل طريق أو سكة حديد أو جسر ترابي.",
+    "zh": "埋设于道路、铁路或路堤下方的管道或箱形过水构筑物。"
+   },
+   "synonyms": {
+    "en": [
+     "box culvert",
+     "pipe culvert"
+    ],
+    "ar": [
+     "عبارة صندوقية",
+     "عبارة مواسير"
+    ],
+    "zh": [
+     "箱涵",
+     "管涵"
+    ]
+   },
+   "related": [
+    "drainage",
+    "precast-concrete"
+   ]
+  },
+  {
+   "id": "asphalt",
+   "category": "civil",
+   "term": {
+    "en": "Asphalt pavement",
+    "ar": "الرصف الإسفلتي",
+    "zh": "沥青路面"
+   },
+   "definition": {
+    "en": "A road surface made of aggregate bound with bitumen, laid hot in layers over a compacted base course.",
+    "ar": "سطح طريق من ركام مرتبط بالبيتومين، يُفرش ساخناً على طبقات فوق طبقة أساس مدموكة.",
+    "zh": "由沥青胶结骨料组成、分层热铺于压实基层上的路面。"
+   },
+   "synonyms": {
+    "en": [
+     "asphalt concrete",
+     "bituminous paving",
+     "tarmac"
+    ],
+    "ar": [
+     "الإسفلت",
+     "الزفلتة",
+     "السفلتة"
+    ],
+    "zh": [
+     "沥青混凝土",
+     "柏油路面"
+    ]
+   },
+   "related": [
+    "base-course",
+    "compaction"
+   ]
+  },
+  {
+   "id": "base-course",
+   "category": "civil",
+   "term": {
+    "en": "Base course",
+    "ar": "طبقة الأساس",
+    "zh": "基层"
+   },
+   "definition": {
+    "en": "A layer of compacted granular material under a pavement or slab on grade that spreads loads to the subgrade.",
+    "ar": "طبقة من مواد حبيبية مدموكة أسفل الرصف أو البلاطة الأرضية توزع الأحمال على تربة التأسيس.",
+    "zh": "路面或地坪下方的压实粒料层，将荷载分布到路基上。"
+   },
+   "synonyms": {
+    "en": [
+     "aggregate base",
+     "sub-base",
+     "road base"
+    ],
+    "ar": [
+     "طبقة الأساس المساعد",
+     "البيس كورس"
+    ],
+    "zh": [
+     "底基层",
+     "碎石基层"
+    ]
+   },
+   "related": [
+    "asphalt",
+    "compaction"
+   ]
+  },
+  {
+   "id": "setting-out",
+   "category": "civil",
+   "term": {
+    "en": "Setting out",
+    "ar": "التوقيع المساحي",
+    "zh": "施工放线"
+   },
+   "definition": {
+    "en": "Transferring the positions and levels from the drawings to the ground using survey instruments, so that work is built in the right place.",
+    "ar": "نقل المواقع والمناسيب من المخططات إلى الأرض باستخدام أجهزة المساحة حتى يُنفذ العمل في مكانه الصحيح.",
+    "zh": "用测量仪器将图纸上的位置和标高放样到实地，使工程在正确位置施工。"
+   },
+   "synonyms": {
+    "en": [
+     "surveying",
+     "layout",
+     "staking out"
+    ],
+    "ar": [
+     "التوقيع",
+     "المساحة",
+     "توقيع المحاور"
+    ],
+    "zh": [
+     "放线",
+     "测量放样"
+    ]
+   },
+   "related": [
+    "benchmark",
+    "grid-line"
+   ]
+  },
+  {
+   "id": "benchmark",
+   "category": "civil",
+   "term": {
+    "en": "Benchmark",
+    "ar": "الروبير",
+    "zh": "水准点"
+   },
+   "definition": {
+    "en": "A fixed reference point of known level from which other levels on site are measured.",
+    "ar": "نقطة مرجعية ثابتة معروفة المنسوب تُقاس منها المناسيب الأخرى في الموقع.",
+    "zh": "已知高程的固定参考点，现场其他标高均据此测量。"
+   },
+   "synonyms": {
+    "en": [
+     "BM",
+     "datum",
+     "reference level"
+    ],
+    "ar": [
+     "نقطة منسوب",
+     "نقطة مرجعية",
+     "البنش مارك"
+    ],
+    "zh": [
+     "高程控制点",
+     "基准点"
+    ]
+   },
+   "related": [
+    "setting-out"
+   ],
+   "review": [
+    "ar"
+   ]
+  },
+  {
+   "id": "formwork",
+   "category": "site",
+   "term": {
+    "en": "Formwork",
+    "ar": "الشدة",
+    "zh": "模板"
+   },
+   "definition": {
+    "en": "Temporary moulds of timber, plywood, steel or aluminium that hold fresh concrete in shape until it can support itself.",
+    "ar": "قوالب مؤقتة من الخشب أو الأبلكاش أو الحديد أو الألمنيوم تحمل الخرسانة الطازجة على شكلها حتى تستطيع حمل نفسها.",
+    "zh": "由木材、胶合板、钢或铝制成的临时模具，在混凝土能自承前保持其形状。"
+   },
+   "synonyms": {
+    "en": [
+     "shuttering",
+     "forms"
+    ],
+    "ar": [
+     "الشدة الخشبية",
+     "القوالب",
+     "الطوبار"
+    ],
+    "zh": [
+     "模板工程",
+     "支模"
+    ]
+   },
+   "related": [
+    "falsework",
+    "concrete-pour",
+    "striking"
+   ]
+  },
+  {
+   "id": "falsework",
+   "category": "site",
+   "term": {
+    "en": "Falsework",
+    "ar": "التدعيم المؤقت",
+    "zh": "支撑体系"
+   },
+   "definition": {
+    "en": "Temporary structure of props, frames and beams that supports formwork and fresh concrete until the permanent structure can carry the loads.",
+    "ar": "منشأ مؤقت من الدعامات والإطارات والعوارض يحمل الشدات والخرسانة الطازجة حتى يستطيع المنشأ الدائم تحمل الأحمال.",
+    "zh": "由立杆、架体和梁组成的临时结构，在永久结构能承载前支撑模板和新浇混凝土。"
+   },
+   "synonyms": {
+    "en": [
+     "shoring",
+     "props",
+     "propping"
+    ],
+    "ar": [
+     "الدعامات",
+     "العروق",
+     "القوائم"
+    ],
+    "zh": [
+     "脚手支撑",
+     "顶撑"
+    ]
+   },
+   "related": [
+    "formwork",
+    "striking",
+    "scaffolding"
+   ],
+   "review": [
+    "ar"
+   ]
+  },
+  {
+   "id": "striking",
+   "category": "site",
+   "term": {
+    "en": "Striking formwork",
+    "ar": "فك الشدة",
+    "zh": "拆模"
+   },
+   "definition": {
+    "en": "Removing formwork once the concrete has reached the strength required, after the period or test result set by the engineer.",
+    "ar": "إزالة الشدات بعد أن تصل الخرسانة إلى المقاومة المطلوبة، بعد المدة أو نتيجة الاختبار التي يحددها المهندس.",
+    "zh": "混凝土达到要求强度后（按工程师规定的时间或试验结果）拆除模板。"
+   },
+   "synonyms": {
+    "en": [
+     "stripping",
+     "de-shuttering"
+    ],
+    "ar": [
+     "فك القوالب",
+     "الفك"
+    ],
+    "zh": [
+     "拆除模板"
+    ]
+   },
+   "related": [
+    "formwork",
+    "falsework",
+    "compressive-strength"
+   ]
+  },
+  {
+   "id": "scaffolding",
+   "category": "site",
+   "term": {
+    "en": "Scaffolding",
+    "ar": "السقالات",
+    "zh": "脚手架"
+   },
+   "definition": {
+    "en": "A temporary platform structure that gives workers safe access to work at height. It must be erected and inspected by competent persons.",
+    "ar": "منشأ مؤقت من المنصات يوفر للعمال وصولاً آمناً للعمل على ارتفاع. يجب أن يركبه ويفحصه أشخاص مؤهلون.",
+    "zh": "为工人提供安全高处作业通道的临时平台结构，须由合格人员搭设和检查。"
+   },
+   "synonyms": {
+    "en": [
+     "scaffold",
+     "access scaffold"
+    ],
+    "ar": [
+     "سقالة"
+    ],
+    "zh": [
+     "脚手板",
+     "作业平台"
+    ]
+   },
+   "related": [
+    "work-at-height",
+    "falsework"
+   ]
+  },
+  {
+   "id": "steel-fixing",
+   "category": "site",
+   "term": {
+    "en": "Steel fixing",
+    "ar": "تركيب الحديد",
+    "zh": "钢筋绑扎"
+   },
+   "definition": {
+    "en": "Placing and tying reinforcement in position to the drawings and schedules, with the correct spacing, laps and cover, ready for inspection.",
+    "ar": "وضع حديد التسليح وربطه في مكانه حسب المخططات والجداول، بالمسافات والتراكب والغطاء الصحيح، جاهزاً للفحص.",
+    "zh": "按图纸和下料表将钢筋放置并绑扎就位，保证间距、搭接和保护层正确，以备验收。"
+   },
+   "synonyms": {
+    "en": [
+     "rebar fixing",
+     "rebar installation",
+     "steel fixer"
+    ],
+    "ar": [
+     "تربيط الحديد",
+     "حدادة المسلح",
+     "الحدادين"
+    ],
+    "zh": [
+     "钢筋安装",
+     "扎筋"
+    ]
+   },
+   "related": [
+    "tie-wire",
+    "inspection-request",
+    "reinforcement-cage"
+   ],
+   "review": [
+    "ar"
+   ]
+  },
+  {
+   "id": "main-contractor",
+   "category": "site",
+   "term": {
+    "en": "Main contractor",
+    "ar": "المقاول الرئيسي",
+    "zh": "总承包商"
+   },
+   "definition": {
+    "en": "The company that holds the construction contract with the client and is responsible for the whole works, including its subcontractors.",
+    "ar": "الشركة التي تبرم عقد التنفيذ مع المالك وتكون مسؤولة عن كامل الأعمال بما فيها مقاولو الباطن.",
+    "zh": "与业主签订施工合同、对全部工程（包括分包商）负责的公司。"
+   },
+   "synonyms": {
+    "en": [
+     "general contractor",
+     "prime contractor"
+    ],
+    "ar": [
+     "المقاول العام",
+     "المقاول"
+    ],
+    "zh": [
+     "总包",
+     "施工总承包单位"
+    ]
+   },
+   "related": [
+    "subcontractor",
+    "client",
+    "consultant"
+   ]
+  },
+  {
+   "id": "subcontractor",
+   "category": "site",
+   "term": {
+    "en": "Subcontractor",
+    "ar": "مقاول الباطن",
+    "zh": "分包商"
+   },
+   "definition": {
+    "en": "A company engaged by the main contractor to carry out part of the works, such as steel fixing, formwork or MEP.",
+    "ar": "شركة يتعاقد معها المقاول الرئيسي لتنفيذ جزء من الأعمال، مثل تركيب الحديد أو الشدات أو الأعمال الكهروميكانيكية.",
+    "zh": "由总承包商雇用、承担部分工程（如钢筋、模板或机电）的公司。"
+   },
+   "synonyms": {
+    "en": [
+     "sub-contractor",
+     "specialist contractor"
+    ],
+    "ar": [
+     "مقاول فرعي",
+     "مقاول من الباطن"
+    ],
+    "zh": [
+     "分包单位",
+     "专业分包"
+    ]
+   },
+   "related": [
+    "main-contractor"
+   ]
+  },
+  {
+   "id": "client",
+   "category": "site",
+   "term": {
+    "en": "Client",
+    "ar": "المالك",
+    "zh": "业主"
+   },
+   "definition": {
+    "en": "The party that commissions and pays for the project. Also called the owner or employer in contracts.",
+    "ar": "الطرف الذي يطرح المشروع ويدفع تكاليفه. ويسمى أيضاً صاحب العمل في العقود.",
+    "zh": "委托并出资建设项目的一方，合同中也称业主或雇主。"
+   },
+   "synonyms": {
+    "en": [
+     "owner",
+     "employer",
+     "developer"
+    ],
+    "ar": [
+     "صاحب العمل",
+     "العميل"
+    ],
+    "zh": [
+     "建设单位",
+     "甲方",
+     "发包人"
+    ]
+   },
+   "related": [
+    "main-contractor",
+    "consultant"
+   ]
+  },
+  {
+   "id": "consultant",
+   "category": "site",
+   "term": {
+    "en": "Consultant",
+    "ar": "الاستشاري",
+    "zh": "工程咨询单位"
+   },
+   "definition": {
+    "en": "The engineering firm appointed by the client. Depending on its contract it may design the project, supervise construction, or both. The supervision role reviews submittals, inspects and approves work on site; the design role produces the drawings and specifications. Under FIDIC contracts the role that administers the contract is called “the Engineer”.",
+    "ar": "المكتب الهندسي الذي يعيّنه المالك. وبحسب عقده قد يتولى التصميم، أو الإشراف على التنفيذ، أو الاثنين معاً. دور الإشراف يراجع الاعتمادات ويفحص الأعمال في الموقع ويعتمدها، ودور التصميم يعد المخططات والمواصفات. وفي عقود فيديك يسمى الدور الذي يدير العقد «المهندس».",
+    "zh": "业主委托的工程咨询公司。视合同而定，可能负责设计、施工监理或两者兼有。施工监理角色负责审查报审资料、在现场检查和验收工程（中国称“监理单位”）；设计角色负责编制图纸和规范（中国称“设计单位”）。两者职责不同，不能互换使用。在 FIDIC 合同中，负责管理合同的角色称为“工程师”。"
+   },
+   "synonyms": {
+    "en": [
+     "the Engineer",
+     "supervision consultant",
+     "design consultant"
+    ],
+    "ar": [
+     "المهندس الاستشاري",
+     "استشاري الإشراف",
+     "استشاري التصميم"
+    ],
+    "zh": [
+     "监理单位",
+     "设计单位",
+     "工程师（FIDIC）"
+    ]
+   },
+   "related": [
+    "client",
+    "material-submittal",
+    "inspection-request"
+   ],
+   "notes": {
+    "en": "In Chinese the role must be named: 监理单位 is the construction supervision entity and 设计单位 the design entity. Use the one that matches the consultant’s contract.",
+    "ar": "في الصينية يجب تسمية الدور: ‏监理单位 هي جهة الإشراف على التنفيذ و‏设计单位 جهة التصميم. استخدم ما يطابق عقد الاستشاري.",
+    "zh": "中文须按角色称呼：监理单位为施工监理单位，设计单位为设计单位。请按咨询单位的合同角色选用。"
+   }
+  },
+  {
+   "id": "site-engineer",
+   "category": "site",
+   "term": {
+    "en": "Site engineer",
+    "ar": "مهندس الموقع",
+    "zh": "现场工程师"
+   },
+   "definition": {
+    "en": "An engineer who supervises daily work on site, checks that it follows the drawings and specifications, and coordinates inspections.",
+    "ar": "مهندس يشرف على العمل اليومي في الموقع، ويتأكد من مطابقته للمخططات والمواصفات، وينسق عمليات الفحص.",
+    "zh": "在现场监督日常施工、检查是否符合图纸和规范并协调验收的工程师。"
+   },
+   "synonyms": {
+    "en": [
+     "field engineer",
+     "project engineer"
+    ],
+    "ar": [
+     "مهندس التنفيذ",
+     "المهندس المقيم"
+    ],
+    "zh": [
+     "施工员",
+     "项目工程师"
+    ]
+   },
+   "related": [
+    "foreman",
+    "inspection-request"
+   ]
+  },
+  {
+   "id": "foreman",
+   "category": "site",
+   "term": {
+    "en": "Foreman",
+    "ar": "المراقب",
+    "zh": "工长"
+   },
+   "definition": {
+    "en": "The supervisor who directs a crew of workers on site day to day, for example the steel fixing foreman.",
+    "ar": "المشرف الذي يوجه فريق العمال في الموقع يومياً، مثل مراقب الحدادين.",
+    "zh": "在现场日常指挥一个班组工人的管理人员，例如钢筋工长。"
+   },
+   "synonyms": {
+    "en": [
+     "supervisor",
+     "charge hand"
+    ],
+    "ar": [
+     "الفورمن",
+     "ملاحظ العمال",
+     "رئيس العمال"
+    ],
+    "zh": [
+     "班组长",
+     "领班"
+    ]
+   },
+   "related": [
+    "site-engineer",
+    "steel-fixing"
+   ],
+   "review": [
+    "ar"
+   ]
+  },
+  {
+   "id": "method-statement",
+   "category": "site",
+   "term": {
+    "en": "Method statement",
+    "ar": "بيان طريقة العمل",
+    "zh": "施工方案"
+   },
+   "definition": {
+    "en": "A document describing how a task will be carried out step by step, with resources, sequence, quality checks and safety measures, submitted for approval before work starts.",
+    "ar": "وثيقة تصف كيفية تنفيذ عمل ما خطوة بخطوة، مع الموارد والتسلسل وفحوصات الجودة وإجراءات السلامة، وتُقدم للاعتماد قبل بدء العمل.",
+    "zh": "逐步说明某项工作如何实施的文件，包括资源、顺序、质量检查和安全措施，在开工前报批。"
+   },
+   "synonyms": {
+    "en": [
+     "work method statement",
+     "MS"
+    ],
+    "ar": [
+     "طريقة التنفيذ",
+     "الميثود ستيتمنت"
+    ],
+    "zh": [
+     "作业指导书",
+     "施工组织设计"
+    ]
+   },
+   "related": [
+    "risk-assessment",
+    "inspection-test-plan"
+   ]
+  },
+  {
+   "id": "daily-report",
+   "category": "site",
+   "term": {
+    "en": "Daily report",
+    "ar": "التقرير اليومي",
+    "zh": "施工日报"
+   },
+   "definition": {
+    "en": "A record of each day on site: manpower, equipment, work done, deliveries received, inspections and problems.",
+    "ar": "سجل لكل يوم في الموقع: العمالة والمعدات والأعمال المنفذة والتوريدات المستلمة والفحوصات والمشكلات.",
+    "zh": "记录现场每天的人员、设备、完成工作、到货、验收和问题的文件。"
+   },
+   "synonyms": {
+    "en": [
+     "site diary",
+     "daily progress report"
+    ],
+    "ar": [
+     "يومية الموقع",
+     "التقرير اليومي للموقع"
+    ],
+    "zh": [
+     "施工日志",
+     "日报"
+    ]
+   },
+   "related": [
+    "delivery-note"
+   ]
+  },
+  {
+   "id": "snag-list",
+   "category": "site",
+   "term": {
+    "en": "Snag list",
+    "ar": "قائمة الملاحظات",
+    "zh": "整改清单"
+   },
+   "definition": {
+    "en": "A list of defects and incomplete items found at inspection before handover, to be corrected by the contractor.",
+    "ar": "قائمة بالعيوب والبنود غير المكتملة التي تُرصد في الفحص قبل التسليم ليصححها المقاول.",
+    "zh": "交付前检查发现、需由承包商整改的缺陷和未完成项目清单。"
+   },
+   "synonyms": {
+    "en": [
+     "punch list",
+     "defects list"
+    ],
+    "ar": [
+     "قائمة النواقص",
+     "قائمة العيوب",
+     "بانش لست"
+    ],
+    "zh": [
+     "缺陷清单",
+     "尾项清单"
+    ]
+   },
+   "related": [
+    "handover",
+    "non-conformance-report"
+   ]
+  },
+  {
+   "id": "handover",
+   "category": "site",
+   "term": {
+    "en": "Handover",
+    "ar": "التسليم",
+    "zh": "移交"
+   },
+   "definition": {
+    "en": "Transfer of the completed works from the contractor to the client, with documents such as as-built drawings and warranties.",
+    "ar": "تسليم الأعمال المكتملة من المقاول إلى المالك، مع وثائق مثل المخططات حسب التنفيذ والضمانات.",
+    "zh": "承包商将完工工程连同竣工图、保修书等文件移交给业主。"
+   },
+   "synonyms": {
+    "en": [
+     "practical completion",
+     "taking over"
+    ],
+    "ar": [
+     "التسليم الابتدائي",
+     "الاستلام"
+    ],
+    "zh": [
+     "竣工交付",
+     "竣工验收"
+    ]
+   },
+   "related": [
+    "as-built-drawing",
+    "snag-list"
+   ]
+  },
+  {
+   "id": "site-instruction",
+   "category": "site",
+   "term": {
+    "en": "Site instruction",
+    "ar": "تعليمات الموقع",
+    "zh": "现场指令"
+   },
+   "definition": {
+    "en": "A written instruction from the consultant to the contractor on site, which may change or clarify the works.",
+    "ar": "تعليمات مكتوبة من الاستشاري إلى المقاول في الموقع، قد تغير الأعمال أو توضحها.",
+    "zh": "咨询/监理单位在现场向承包商发出的书面指令，可能变更或澄清工程内容。"
+   },
+   "synonyms": {
+    "en": [
+     "engineer’s instruction",
+     "SI"
+    ],
+    "ar": [
+     "أمر موقع",
+     "تعليمات المهندس"
+    ],
+    "zh": [
+     "工程指令",
+     "监理通知"
+    ]
+   },
+   "related": [
+    "variation-order",
+    "consultant"
+   ],
+   "abbreviation": "SI"
+  },
+  {
+   "id": "material-submittal",
+   "category": "procurement",
+   "term": {
+    "en": "Material submittal",
+    "ar": "اعتماد المواد",
+    "zh": "材料报审"
+   },
+   "definition": {
+    "en": "A package sent by the contractor to the consultant for approval of a material before it is ordered or used: data sheets, certificates, test reports and samples.",
+    "ar": "ملف يرسله المقاول إلى الاستشاري لاعتماد مادة قبل طلبها أو استخدامها: النشرات الفنية والشهادات وتقارير الاختبار والعينات.",
+    "zh": "承包商在订货或使用前报送咨询/监理单位审批材料的资料包：技术资料、证书、检测报告和样品。"
+   },
+   "synonyms": {
+    "en": [
+     "submittal",
+     "material approval request",
+     "MAR"
+    ],
+    "ar": [
+     "طلب اعتماد مادة",
+     "تقديم المواد",
+     "السبمتل"
+    ],
+    "zh": [
+     "材料审批",
+     "报审资料"
+    ]
+   },
+   "related": [
+    "mill-test-certificate",
+    "approved-vendor-list",
+    "consultant",
+    "specification"
+   ],
+   "abbreviation": "MAR",
+   "example": {
+    "en": "The rebar submittal included the mill test certificates and the factory’s quality certificate.",
+    "ar": "تضمن ملف اعتماد الحديد شهادات اختبار المصنع وشهادة الجودة للمصنع.",
+    "zh": "钢筋报审资料包括质量证明书和工厂质量认证证书。"
+   }
+  },
+  {
+   "id": "purchase-order",
+   "category": "procurement",
+   "term": {
+    "en": "Purchase order",
+    "ar": "أمر الشراء",
+    "zh": "采购订单"
+   },
+   "definition": {
+    "en": "A buyer’s formal document to a supplier confirming the items, quantities, prices, delivery terms and payment terms of an order. It is issued after the internal purchase request has been approved.",
+    "ar": "وثيقة رسمية من المشتري إلى المورد تؤكد الأصناف والكميات والأسعار وشروط التسليم وشروط الدفع للطلبية. وتصدر بعد اعتماد طلب الشراء الداخلي.",
+    "zh": "买方向供应商发出的正式文件，确认订单的品名、数量、价格、交货条件和付款条件。在内部请购获批后签发。"
+   },
+   "synonyms": {
+    "en": [
+     "PO"
+    ],
+    "ar": [
+     "أمر توريد"
+    ],
+    "zh": [
+     "订货单"
+    ]
+   },
+   "related": [
+    "quotation",
+    "payment-terms",
+    "delivery-note"
+   ],
+   "abbreviation": "PO",
+   "notes": {
+    "en": "“طلب شراء” (purchase request or requisition) is the internal request that comes before the order, so it is not listed as a synonym.",
+    "ar": "«طلب الشراء» هو الطلب الداخلي الذي يسبق أمر الشراء، لذلك لم يُدرج كمرادف.",
+    "zh": "“请购单”（purchase request）是下单前的内部申请，因此未列为同义词。"
+   }
+  },
+  {
+   "id": "rfq",
+   "category": "procurement",
+   "term": {
+    "en": "Request for quotation",
+    "ar": "طلب عرض سعر",
+    "zh": "询价"
+   },
+   "definition": {
+    "en": "A request from a buyer asking suppliers to price defined items, quantities and conditions.",
+    "ar": "طلب من المشتري إلى الموردين لتسعير أصناف وكميات وشروط محددة.",
+    "zh": "买方要求供应商就规定的品名、数量和条件报价的请求。"
+   },
+   "synonyms": {
+    "en": [
+     "enquiry",
+     "inquiry",
+     "RFQ"
+    ],
+    "ar": [
+     "استفسار سعر",
+     "طلب تسعير"
+    ],
+    "zh": [
+     "询价单",
+     "询价函"
+    ]
+   },
+   "related": [
+    "quotation",
+    "bill-of-quantities"
+   ],
+   "abbreviation": "RFQ"
+  },
+  {
+   "id": "quotation",
+   "category": "procurement",
+   "term": {
+    "en": "Quotation",
+    "ar": "عرض السعر",
+    "zh": "报价"
+   },
+   "definition": {
+    "en": "A supplier’s offer stating prices, validity, delivery and payment conditions for requested items.",
+    "ar": "عرض من المورد يذكر الأسعار ومدة صلاحية العرض وشروط التسليم والدفع للأصناف المطلوبة.",
+    "zh": "供应商就所询物品给出的报价，载明价格、有效期、交货和付款条件。"
+   },
+   "synonyms": {
+    "en": [
+     "quote",
+     "price offer",
+     "offer"
+    ],
+    "ar": [
+     "تسعيرة",
+     "عرض أسعار"
+    ],
+    "zh": [
+     "报价单"
+    ]
+   },
+   "related": [
+    "rfq",
+    "purchase-order",
+    "unit-price"
+   ]
+  },
+  {
+   "id": "unit-price",
+   "category": "procurement",
+   "term": {
+    "en": "Unit price",
+    "ar": "سعر الوحدة",
+    "zh": "单价"
+   },
+   "definition": {
+    "en": "The price per unit of measurement, for example per tonne of rebar or per cubic metre of concrete.",
+    "ar": "السعر لكل وحدة قياس، مثل سعر الطن من الحديد أو المتر المكعب من الخرسانة.",
+    "zh": "每计量单位的价格，例如每吨钢筋或每立方米混凝土。"
+   },
+   "synonyms": {
+    "en": [
+     "rate",
+     "price per ton"
+    ],
+    "ar": [
+     "سعر الطن",
+     "الفئة"
+    ],
+    "zh": [
+     "综合单价",
+     "吨价"
+    ]
+   },
+   "related": [
+    "quotation",
+    "bill-of-quantities"
+   ]
+  },
+  {
+   "id": "bill-of-quantities",
+   "category": "procurement",
+   "term": {
+    "en": "Bill of quantities",
+    "ar": "جدول الكميات",
+    "zh": "工程量清单"
+   },
+   "definition": {
+    "en": "A contract document listing every item of work with its description, unit and quantity, priced by tenderers.",
+    "ar": "وثيقة تعاقدية تسرد كل بند من الأعمال مع وصفه ووحدته وكميته، ويسعّره المتقدمون للمناقصة.",
+    "zh": "列出各工作项目名称、单位和数量、由投标人报价的合同文件。"
+   },
+   "synonyms": {
+    "en": [
+     "BOQ"
+    ],
+    "ar": [
+     "جداول الكميات",
+     "البوكيو"
+    ],
+    "zh": [
+     "清单",
+     "BOQ"
+    ]
+   },
+   "related": [
+    "unit-price",
+    "tender"
+   ],
+   "abbreviation": "BOQ"
+  },
+  {
+   "id": "tender",
+   "category": "procurement",
+   "term": {
+    "en": "Tender",
+    "ar": "المناقصة",
+    "zh": "招标"
+   },
+   "definition": {
+    "en": "A competitive process in which contractors or suppliers submit priced offers for a contract.",
+    "ar": "عملية تنافسية يقدم فيها المقاولون أو الموردون عروضاً مسعرة للحصول على عقد.",
+    "zh": "承包商或供应商为获得合同而提交报价的竞争性程序。"
+   },
+   "synonyms": {
+    "en": [
+     "bid",
+     "bidding"
+    ],
+    "ar": [
+     "العطاء",
+     "المنافسة"
+    ],
+    "zh": [
+     "投标",
+     "招投标"
+    ]
+   },
+   "related": [
+    "bill-of-quantities",
+    "quotation"
+   ]
+  },
+  {
+   "id": "supplier",
+   "category": "procurement",
+   "term": {
+    "en": "Supplier",
+    "ar": "المورد",
+    "zh": "供应商"
+   },
+   "definition": {
+    "en": "A company that provides materials or goods to the project under a purchase order.",
+    "ar": "شركة توفر المواد أو البضائع للمشروع بموجب أمر شراء.",
+    "zh": "根据采购订单向项目提供材料或货物的公司。"
+   },
+   "synonyms": {
+    "en": [
+     "vendor",
+     "manufacturer"
+    ],
+    "ar": [
+     "البائع",
+     "المصنّع"
+    ],
+    "zh": [
+     "供货商",
+     "厂家"
+    ]
+   },
+   "related": [
+    "approved-vendor-list",
+    "purchase-order"
+   ]
+  },
+  {
+   "id": "approved-vendor-list",
+   "category": "procurement",
+   "term": {
+    "en": "Approved vendor list",
+    "ar": "قائمة الموردين المعتمدين",
+    "zh": "合格供应商名录"
+   },
+   "definition": {
+    "en": "A list, usually in the specification or kept by the client, of manufacturers and suppliers whose products may be used without separate prequalification.",
+    "ar": "قائمة، غالباً في المواصفات أو لدى المالك، بالمصنّعين والموردين الذين يمكن استخدام منتجاتهم دون تأهيل مسبق منفصل.",
+    "zh": "通常列于规范中或由业主保存的制造商和供应商名单，名单内产品无需另行资格预审即可使用。"
+   },
+   "synonyms": {
+    "en": [
+     "AVL",
+     "approved manufacturers list",
+     "approved suppliers"
+    ],
+    "ar": [
+     "قائمة المصنعين المعتمدين",
+     "الموردون المعتمدون"
+    ],
+    "zh": [
+     "合格供方名录",
+     "短名单"
+    ]
+   },
+   "related": [
+    "supplier",
+    "material-submittal"
+   ],
+   "abbreviation": "AVL"
+  },
+  {
+   "id": "lead-time",
+   "category": "procurement",
+   "term": {
+    "en": "Lead time",
+    "ar": "مدة التوريد",
+    "zh": "交货期"
+   },
+   "definition": {
+    "en": "The time between placing an order and receiving the goods on site.",
+    "ar": "المدة بين إصدار الطلب واستلام البضاعة في الموقع.",
+    "zh": "从下订单到货物运抵现场的时间。"
+   },
+   "synonyms": {
+    "en": [
+     "delivery period",
+     "delivery time"
+    ],
+    "ar": [
+     "زمن التوريد",
+     "مدة التسليم"
+    ],
+    "zh": [
+     "供货周期",
+     "交付周期"
+    ]
+   },
+   "related": [
+    "purchase-order",
+    "delivery-schedule"
+   ]
+  },
+  {
+   "id": "payment-terms",
+   "category": "procurement",
+   "term": {
+    "en": "Payment terms",
+    "ar": "شروط الدفع",
+    "zh": "付款条件"
+   },
+   "definition": {
+    "en": "The agreed conditions for paying a supplier: amount, method and timing, for example advance payment, credit days or a letter of credit.",
+    "ar": "الشروط المتفق عليها لسداد قيمة التوريد: المبلغ والطريقة والتوقيت، مثل الدفعة المقدمة أو أيام الآجل أو الاعتماد المستندي.",
+    "zh": "约定的付款条件：金额、方式和时间，例如预付款、账期或信用证。"
+   },
+   "synonyms": {
+    "en": [
+     "terms of payment",
+     "credit terms"
+    ],
+    "ar": [
+     "طريقة الدفع",
+     "شروط السداد"
+    ],
+    "zh": [
+     "支付条件",
+     "账期"
+    ]
+   },
+   "related": [
+    "letter-of-credit",
+    "advance-payment",
+    "purchase-order"
+   ]
+  },
+  {
+   "id": "letter-of-credit",
+   "category": "procurement",
+   "term": {
+    "en": "Letter of credit",
+    "ar": "الاعتماد المستندي",
+    "zh": "信用证"
+   },
+   "definition": {
+    "en": "A bank’s undertaking to pay the seller when it presents documents that comply with the stated terms, used to secure payment in trade.",
+    "ar": "تعهد من البنك بالدفع للبائع عند تقديمه مستندات مطابقة للشروط المحددة، ويُستخدم لضمان السداد في التجارة.",
+    "zh": "银行承诺在卖方提交符合规定条款的单据时付款的文件，用于保障贸易付款。"
+   },
+   "synonyms": {
+    "en": [
+     "LC",
+     "L/C",
+     "documentary credit"
+    ],
+    "ar": [
+     "اعتماد بنكي",
+     "LC"
+    ],
+    "zh": [
+     "跟单信用证"
+    ]
+   },
+   "related": [
+    "payment-terms"
+   ],
+   "abbreviation": "LC"
+  },
+  {
+   "id": "advance-payment",
+   "category": "procurement",
+   "term": {
+    "en": "Advance payment",
+    "ar": "الدفعة المقدمة",
+    "zh": "预付款"
+   },
+   "definition": {
+    "en": "Part of the contract price paid before supply or work starts, often against a bank guarantee.",
+    "ar": "جزء من قيمة العقد يُدفع قبل بدء التوريد أو العمل، وغالباً مقابل ضمان بنكي.",
+    "zh": "在供货或开工前支付的部分合同价款，通常需提供银行保函。"
+   },
+   "synonyms": {
+    "en": [
+     "down payment",
+     "prepayment"
+    ],
+    "ar": [
+     "دفعة مقدمة",
+     "عربون"
+    ],
+    "zh": [
+     "定金",
+     "首付款"
+    ]
+   },
+   "related": [
+    "payment-terms",
+    "retention"
+   ]
+  },
+  {
+   "id": "retention",
+   "category": "procurement",
+   "term": {
+    "en": "Retention",
+    "ar": "المحتجزات",
+    "zh": "保留金"
+   },
+   "definition": {
+    "en": "A percentage withheld from each payment to a contractor until completion or the end of the defects period, as security for its obligations.",
+    "ar": "نسبة تُحتجز من كل دفعة للمقاول حتى الإنجاز أو نهاية فترة الضمان، تأميناً لالتزاماته.",
+    "zh": "在每期付款中扣留的一定比例款项，直至竣工或缺陷责任期结束，作为履约担保。"
+   },
+   "synonyms": {
+    "en": [
+     "retention money",
+     "retainage"
+    ],
+    "ar": [
+     "ضمان الأعمال",
+     "الاستقطاع"
+    ],
+    "zh": [
+     "质保金"
+    ]
+   },
+   "related": [
+    "advance-payment",
+    "handover"
+   ]
+  },
+  {
+   "id": "variation-order",
+   "category": "procurement",
+   "term": {
+    "en": "Variation order",
+    "ar": "أمر التغيير",
+    "zh": "变更单"
+   },
+   "definition": {
+    "en": "A formal instruction changing the scope, quantities or specification of the contract works, with its effect on price and time.",
+    "ar": "أمر رسمي يغير نطاق أعمال العقد أو كمياتها أو مواصفاتها، مع أثره على السعر والمدة.",
+    "zh": "变更合同工程范围、数量或规格并说明对价格和工期影响的正式指令。"
+   },
+   "synonyms": {
+    "en": [
+     "change order",
+     "VO",
+     "variation"
+    ],
+    "ar": [
+     "أمر تغييري",
+     "الأعمال الإضافية"
+    ],
+    "zh": [
+     "工程变更",
+     "设计变更"
+    ]
+   },
+   "related": [
+    "site-instruction",
+    "bill-of-quantities"
+   ],
+   "abbreviation": "VO"
+  },
+  {
+   "id": "incoterms",
+   "category": "procurement",
+   "term": {
+    "en": "Incoterms",
+    "ar": "شروط التجارة الدولية (إنكوترمز)",
+    "zh": "国际贸易术语"
+   },
+   "definition": {
+    "en": "Standard trade terms published by the International Chamber of Commerce, such as EXW, FOB, CIF and DDP, that define where risk and costs pass from seller to buyer.",
+    "ar": "شروط تجارية قياسية تصدرها غرفة التجارة الدولية، مثل EXW وFOB وCIF وDDP، تحدد أين تنتقل المخاطر والتكاليف من البائع إلى المشتري.",
+    "zh": "国际商会发布的标准贸易术语，如 EXW、FOB、CIF 和 DDP，规定风险和费用从卖方转移到买方的地点。"
+   },
+   "synonyms": {
+    "en": [
+     "delivery terms",
+     "EXW",
+     "FOB",
+     "CIF",
+     "DDP"
+    ],
+    "ar": [
+     "شروط التسليم"
+    ],
+    "zh": [
+     "贸易术语",
+     "交货条件"
+    ]
+   },
+   "related": [
+    "purchase-order",
+    "delivery-note"
+   ]
+  },
+  {
+   "id": "inspection-request",
+   "category": "qaqc",
+   "term": {
+    "en": "Inspection request",
+    "ar": "طلب الفحص",
+    "zh": "报验申请"
+   },
+   "definition": {
+    "en": "A formal request from the contractor asking the consultant to inspect completed work, such as fixed reinforcement before concreting, before the next activity proceeds.",
+    "ar": "طلب رسمي من المقاول للاستشاري لفحص عمل منجز، مثل الحديد المركب قبل الصب، قبل البدء في النشاط التالي.",
+    "zh": "承包商正式请求咨询/监理单位对已完工作（如浇筑前的钢筋）进行检查，验收合格后方可进行下一工序。"
+   },
+   "synonyms": {
+    "en": [
+     "IR",
+     "request for inspection",
+     "WIR",
+     "work inspection request"
+    ],
+    "ar": [
+     "طلب استلام أعمال",
+     "طلب تفتيش"
+    ],
+    "zh": [
+     "报验单",
+     "隐蔽工程验收申请"
+    ]
+   },
+   "related": [
+    "inspection-test-plan",
+    "hold-point",
+    "steel-fixing",
+    "material-inspection-request"
+   ],
+   "abbreviation": "IR"
+  },
+  {
+   "id": "material-inspection-request",
+   "category": "qaqc",
+   "term": {
+    "en": "Material inspection request",
+    "ar": "طلب فحص المواد",
+    "zh": "材料进场报验"
+   },
+   "definition": {
+    "en": "A request to inspect materials delivered to site against the approved submittal, the delivery note and the certificates before they are used.",
+    "ar": "طلب لفحص المواد الموردة إلى الموقع ومطابقتها مع الاعتماد ومذكرة التسليم والشهادات قبل استخدامها.",
+    "zh": "请求在使用前对照已批准的报审资料、送货单和证书检查进场材料。"
+   },
+   "synonyms": {
+    "en": [
+     "MIR",
+     "material receiving inspection"
+    ],
+    "ar": [
+     "طلب استلام مواد",
+     "فحص المواد الواردة"
+    ],
+    "zh": [
+     "进场验收",
+     "材料验收"
+    ]
+   },
+   "related": [
+    "material-submittal",
+    "delivery-note",
+    "mill-test-certificate"
+   ],
+   "abbreviation": "MIR"
+  },
+  {
+   "id": "non-conformance-report",
+   "category": "qaqc",
+   "term": {
+    "en": "Non-conformance report",
+    "ar": "تقرير عدم المطابقة",
+    "zh": "不合格报告"
+   },
+   "definition": {
+    "en": "A document recording work or material that does not meet the specification, with the required corrective action and its close-out.",
+    "ar": "وثيقة تسجل عملاً أو مادة لا تطابق المواصفات، مع الإجراء التصحيحي المطلوب وإغلاقه.",
+    "zh": "记录不符合规范的工作或材料、所需纠正措施及其关闭情况的文件。"
+   },
+   "synonyms": {
+    "en": [
+     "NCR",
+     "nonconformity report"
+    ],
+    "ar": [
+     "عدم مطابقة",
+     "NCR"
+    ],
+    "zh": [
+     "不符合项报告",
+     "质量问题通知"
+    ]
+   },
+   "related": [
+    "corrective-action",
+    "inspection-request"
+   ],
+   "abbreviation": "NCR"
+  },
+  {
+   "id": "corrective-action",
+   "category": "qaqc",
+   "term": {
+    "en": "Corrective action",
+    "ar": "الإجراء التصحيحي",
+    "zh": "纠正措施"
+   },
+   "definition": {
+    "en": "Action taken to remove the cause of a non-conformance and prevent it recurring, recorded and verified before the NCR is closed.",
+    "ar": "إجراء يُتخذ لإزالة سبب عدم المطابقة ومنع تكراره، ويُسجل ويُتحقق منه قبل إغلاق التقرير.",
+    "zh": "为消除不合格原因并防止再次发生而采取的措施，在关闭不合格报告前记录并验证。"
+   },
+   "synonyms": {
+    "en": [
+     "CAR",
+     "corrective action request"
+    ],
+    "ar": [
+     "طلب إجراء تصحيحي"
+    ],
+    "zh": [
+     "整改措施",
+     "纠正预防措施"
+    ]
+   },
+   "related": [
+    "non-conformance-report"
+   ],
+   "abbreviation": "CAR"
+  },
+  {
+   "id": "inspection-test-plan",
+   "category": "qaqc",
+   "term": {
+    "en": "Inspection and test plan",
+    "ar": "خطة الفحص والاختبار",
+    "zh": "检验与试验计划"
+   },
+   "definition": {
+    "en": "A table listing every inspection and test for an activity, its frequency, acceptance criteria, records and who must witness it.",
+    "ar": "جدول يسرد كل فحص واختبار لنشاط ما، وتكراره ومعايير القبول والسجلات ومن يجب أن يحضره.",
+    "zh": "列出某项活动所有检验和试验、频率、验收标准、记录及见证方的表格。"
+   },
+   "synonyms": {
+    "en": [
+     "ITP"
+    ],
+    "ar": [
+     "خطة الفحص",
+     "الـ ITP"
+    ],
+    "zh": [
+     "检验计划",
+     "质量检验计划"
+    ]
+   },
+   "related": [
+    "hold-point",
+    "inspection-request",
+    "method-statement"
+   ],
+   "abbreviation": "ITP"
+  },
+  {
+   "id": "hold-point",
+   "category": "qaqc",
+   "term": {
+    "en": "Hold point",
+    "ar": "نقطة توقف",
+    "zh": "停止点"
+   },
+   "definition": {
+    "en": "A stage in an inspection plan beyond which work must not continue until the inspection is done and released. A witness point only requires notice.",
+    "ar": "مرحلة في خطة الفحص لا يجوز تجاوزها حتى يتم الفحص والإفراج. أما نقطة الشهود فتتطلب الإخطار فقط.",
+    "zh": "检验计划中的一个阶段，未经检验放行不得继续施工；见证点则只需提前通知。"
+   },
+   "synonyms": {
+    "en": [
+     "witness point",
+     "hold and witness points"
+    ],
+    "ar": [
+     "نقطة الشهود",
+     "نقطة إيقاف"
+    ],
+    "zh": [
+     "见证点",
+     "待检点"
+    ]
+   },
+   "related": [
+    "inspection-test-plan",
+    "inspection-request"
+   ],
+   "review": [
+    "ar"
+   ]
+  },
+  {
+   "id": "quality-control",
+   "category": "qaqc",
+   "term": {
+    "en": "Quality control",
+    "ar": "ضبط الجودة",
+    "zh": "质量控制"
+   },
+   "definition": {
+    "en": "The inspections and tests that check that materials and work meet the specified requirements.",
+    "ar": "الفحوصات والاختبارات التي تتحقق من مطابقة المواد والأعمال للمتطلبات المحددة.",
+    "zh": "检查材料和工作是否符合规定要求的检验和试验。"
+   },
+   "synonyms": {
+    "en": [
+     "QC"
+    ],
+    "ar": [
+     "مراقبة الجودة"
+    ],
+    "zh": [
+     "QC",
+     "质检"
+    ]
+   },
+   "related": [
+    "quality-assurance",
+    "inspection-test-plan"
+   ],
+   "abbreviation": "QC"
+  },
+  {
+   "id": "quality-assurance",
+   "category": "qaqc",
+   "term": {
+    "en": "Quality assurance",
+    "ar": "ضمان الجودة",
+    "zh": "质量保证"
+   },
+   "definition": {
+    "en": "The planned system of procedures, responsibilities and records that gives confidence that quality requirements will be met.",
+    "ar": "النظام المخطط من الإجراءات والمسؤوليات والسجلات الذي يعطي الثقة بأن متطلبات الجودة ستتحقق.",
+    "zh": "为确保满足质量要求而计划的程序、职责和记录体系。"
+   },
+   "synonyms": {
+    "en": [
+     "QA",
+     "quality management"
+    ],
+    "ar": [
+     "توكيد الجودة",
+     "إدارة الجودة"
+    ],
+    "zh": [
+     "QA",
+     "质量管理"
+    ]
+   },
+   "related": [
+    "quality-control"
+   ],
+   "abbreviation": "QA"
+  },
+  {
+   "id": "tolerance",
+   "category": "qaqc",
+   "term": {
+    "en": "Tolerance",
+    "ar": "السماحية",
+    "zh": "允许偏差"
+   },
+   "definition": {
+    "en": "The permitted difference between a specified value and the actual value, for example in bar dimensions, cover or position of reinforcement.",
+    "ar": "الفرق المسموح به بين القيمة المحددة والقيمة الفعلية، مثل أبعاد الأسياخ أو الغطاء أو موضع الحديد.",
+    "zh": "规定值与实际值之间允许的差异，例如钢筋尺寸、保护层或钢筋位置。"
+   },
+   "synonyms": {
+    "en": [
+     "allowable deviation",
+     "permissible variation"
+    ],
+    "ar": [
+     "التفاوت المسموح",
+     "حد السماح"
+    ],
+    "zh": [
+     "公差",
+     "容许误差"
+    ]
+   },
+   "related": [
+    "mass-tolerance",
+    "concrete-cover"
+   ]
+  },
+  {
+   "id": "mass-tolerance",
+   "category": "qaqc",
+   "term": {
+    "en": "Mass tolerance",
+    "ar": "التفاوت المسموح في الكتلة",
+    "zh": "重量允许偏差"
+   },
+   "definition": {
+    "en": "The permitted variation between the actual mass and the nominal mass of reinforcing bars. Its limits, which may differ by bar size, and the way samples are taken and weighed are set by the applicable product standard or the project specification, not by a general rule. It is checked by weighing bars of measured length and comparing the result with the nominal mass.",
+    "ar": "التفاوت المسموح بين الكتلة الفعلية والكتلة الاسمية لأسياخ التسليح. حدوده، التي قد تختلف حسب القطر، وطريقة أخذ العينات ووزنها، تحددها مواصفة المنتج المعمول بها أو مواصفات المشروع، لا قاعدة عامة. ويُفحص بوزن أسياخ معلومة الطول ومقارنة النتيجة بالكتلة الاسمية.",
+    "zh": "钢筋实际质量与公称质量之间允许的偏差。其限值（可能因直径而异）以及取样和称量方法由适用的产品标准或项目规范规定，而非通用规则。检验方法是称量已知长度的钢筋并与公称质量比较。"
+   },
+   "synonyms": {
+    "en": [
+     "weight tolerance",
+     "permissible variation in mass"
+    ],
+    "ar": [
+     "سماحية الوزن",
+     "التفاوت المسموح في الوزن"
+    ],
+    "zh": [
+     "允许重量偏差",
+     "重量偏差限值"
+    ]
+   },
+   "related": [
+    "unit-weight",
+    "actual-weight",
+    "tolerance",
+    "theoretical-weight"
+   ],
+   "notes": {
+    "en": "A deviation is the measured difference; the tolerance is the permitted limit. The two are not the same.",
+    "ar": "الانحراف هو الفرق المقاس، والتفاوت المسموح هو الحد المقبول؛ وهما ليسا الشيء نفسه.",
+    "zh": "偏差是实测差值，允许偏差是规定的限值，两者不同。"
+   }
+  },
+  {
+   "id": "tensile-test",
+   "category": "qaqc",
+   "term": {
+    "en": "Tensile test",
+    "ar": "اختبار الشد",
+    "zh": "拉伸试验"
+   },
+   "definition": {
+    "en": "A laboratory test that pulls a bar sample to failure to measure yield strength, tensile strength and elongation.",
+    "ar": "اختبار معملي يشد عينة من السيخ حتى الكسر لقياس مقاومة الخضوع ومقاومة الشد والاستطالة.",
+    "zh": "将钢筋试样拉至断裂以测定屈服强度、抗拉强度和伸长率的实验室试验。"
+   },
+   "synonyms": {
+    "en": [
+     "tension test",
+     "pull test"
+    ],
+    "ar": [
+     "اختبار الشد للحديد"
+    ],
+    "zh": [
+     "拉力试验"
+    ]
+   },
+   "related": [
+    "yield-strength",
+    "tensile-strength",
+    "elongation",
+    "bend-test",
+    "sampling"
+   ]
+  },
+  {
+   "id": "bend-test",
+   "category": "qaqc",
+   "term": {
+    "en": "Bend test",
+    "ar": "اختبار الثني",
+    "zh": "弯曲试验"
+   },
+   "definition": {
+    "en": "A test in which a bar is bent around a mandrel of specified diameter to a set angle and must show no cracks on the outside of the bend.",
+    "ar": "اختبار يُثنى فيه السيخ حول محور بقطر محدد إلى زاوية معينة، ويجب ألا تظهر شقوق على الوجه الخارجي للثنية.",
+    "zh": "将钢筋绕规定直径的弯心弯曲至规定角度，弯曲外侧不得出现裂纹的试验。"
+   },
+   "synonyms": {
+    "en": [
+     "rebend test",
+     "cold bend test"
+    ],
+    "ar": [
+     "اختبار الثني على البارد"
+    ],
+    "zh": [
+     "冷弯试验",
+     "反向弯曲试验"
+    ]
+   },
+   "related": [
+    "bend-diameter",
+    "tensile-test"
+   ]
+  },
+  {
+   "id": "third-party-inspection",
+   "category": "qaqc",
+   "term": {
+    "en": "Third-party inspection",
+    "ar": "فحص طرف ثالث",
+    "zh": "第三方检验"
+   },
+   "definition": {
+    "en": "Inspection or testing by an independent body that is neither the supplier nor the buyer.",
+    "ar": "فحص أو اختبار تقوم به جهة مستقلة ليست المورد ولا المشتري.",
+    "zh": "由既非供应商也非买方的独立机构进行的检验或试验。"
+   },
+   "synonyms": {
+    "en": [
+     "TPI",
+     "independent inspection",
+     "third-party testing"
+    ],
+    "ar": [
+     "جهة فحص مستقلة",
+     "مختبر معتمد"
+    ],
+    "zh": [
+     "第三方检测",
+     "独立检验"
+    ]
+   },
+   "related": [
+    "tensile-test",
+    "sampling"
+   ],
+   "abbreviation": "TPI"
+  },
+  {
+   "id": "sampling",
+   "category": "qaqc",
+   "term": {
+    "en": "Sampling",
+    "ar": "أخذ العينات",
+    "zh": "取样"
+   },
+   "definition": {
+    "en": "Taking representative specimens of a material, at the frequency set by the specification, for testing.",
+    "ar": "أخذ عينات ممثلة من المادة، بالتكرار الذي تحدده المواصفات، لإجراء الاختبارات عليها.",
+    "zh": "按规范规定的频率抽取有代表性的材料试样进行试验。"
+   },
+   "synonyms": {
+    "en": [
+     "samples",
+     "test samples"
+    ],
+    "ar": [
+     "العينات",
+     "سحب العينات"
+    ],
+    "zh": [
+     "抽样",
+     "见证取样"
+    ]
+   },
+   "related": [
+    "tensile-test",
+    "cube-test",
+    "test-report"
+   ]
+  },
+  {
+   "id": "test-report",
+   "category": "qaqc",
+   "term": {
+    "en": "Test report",
+    "ar": "تقرير الاختبار",
+    "zh": "检测报告"
+   },
+   "definition": {
+    "en": "A laboratory document giving the sample identification, test method and results, signed by the laboratory.",
+    "ar": "وثيقة من المختبر تذكر تعريف العينة وطريقة الاختبار والنتائج، موقعة من المختبر.",
+    "zh": "实验室出具的载明试样标识、试验方法和结果并签章的文件。"
+   },
+   "synonyms": {
+    "en": [
+     "lab report",
+     "laboratory test report"
+    ],
+    "ar": [
+     "تقرير المختبر",
+     "نتيجة الاختبار"
+    ],
+    "zh": [
+     "试验报告",
+     "检验报告"
+    ]
+   },
+   "related": [
+    "sampling",
+    "mill-test-certificate"
+   ]
+  },
+  {
+   "id": "traceability",
+   "category": "qaqc",
+   "term": {
+    "en": "Traceability",
+    "ar": "إمكانية التتبع",
+    "zh": "可追溯性"
+   },
+   "definition": {
+    "en": "The ability to link each delivered or installed item back to its heat, certificates and tests through tags and records.",
+    "ar": "القدرة على ربط كل صنف مورد أو مركب برقم صبته وشهاداته واختباراته عن طريق البطاقات والسجلات.",
+    "zh": "通过标牌和记录将每件交付或安装的物品追溯到其炉号、证书和试验的能力。"
+   },
+   "synonyms": {
+    "en": [
+     "material traceability",
+     "tracking"
+    ],
+    "ar": [
+     "التتبع"
+    ],
+    "zh": [
+     "追溯"
+    ]
+   },
+   "related": [
+    "heat-number",
+    "bundle-tag",
+    "mill-test-certificate",
+    "batch-number"
+   ]
+  },
+  {
+   "id": "batch-number",
+   "category": "qaqc",
+   "term": {
+    "en": "Batch number",
+    "ar": "رقم الدفعة",
+    "zh": "批号"
+   },
+   "definition": {
+    "en": "A number identifying a production or delivery lot of a material, used to match it with its certificates and tests.",
+    "ar": "رقم يعرّف دفعة إنتاج أو توريد من مادة ما، ويُستخدم لمطابقتها مع شهاداتها واختباراتها.",
+    "zh": "标识材料生产批或交货批的编号，用于与其证书和试验相对应。"
+   },
+   "synonyms": {
+    "en": [
+     "lot number",
+     "batch no."
+    ],
+    "ar": [
+     "رقم اللوط",
+     "رقم التشغيلة"
+    ],
+    "zh": [
+     "批次号",
+     "生产批号"
+    ]
+   },
+   "related": [
+    "heat-number",
+    "traceability"
+   ]
+  },
+  {
+   "id": "calibration",
+   "category": "qaqc",
+   "term": {
+    "en": "Calibration",
+    "ar": "المعايرة",
+    "zh": "校准"
+   },
+   "definition": {
+    "en": "Checking a measuring instrument against a reference of known accuracy and recording the result, so that its measurements can be trusted.",
+    "ar": "مقارنة أداة القياس بمرجع معروف الدقة وتسجيل النتيجة، حتى يمكن الوثوق بقراءاتها.",
+    "zh": "将测量仪器与已知精度的标准进行比较并记录结果，使其测量值可信。"
+   },
+   "synonyms": {
+    "en": [
+     "calibration certificate"
+    ],
+    "ar": [
+     "شهادة المعايرة"
+    ],
+    "zh": [
+     "检定",
+     "校准证书"
+    ]
+   },
+   "related": [
+    "weighbridge",
+    "test-report"
+   ]
+  },
+  {
+   "id": "delivery-note",
+   "category": "logistics",
+   "term": {
+    "en": "Delivery note",
+    "ar": "سند التسليم",
+    "zh": "送货单"
+   },
+   "definition": {
+    "en": "The document that travels with a delivery, listing the items, sizes, quantities or weights, and the order reference. The receiver signs it on site.",
+    "ar": "المستند المرافق للشحنة، يسرد الأصناف والمقاسات والكميات أو الأوزان ومرجع الطلب، ويوقعه المستلم في الموقع.",
+    "zh": "随货同行的单据，列明品名、规格、数量或重量及订单号，由收货方在现场签收。"
+   },
+   "synonyms": {
+    "en": [
+     "DN",
+     "goods delivery note",
+     "delivery ticket"
+    ],
+    "ar": [
+     "مذكرة التسليم",
+     "إشعار التسليم",
+     "الدليفري نوت"
+    ],
+    "zh": [
+     "发货单",
+     "随货单"
+    ]
+   },
+   "related": [
+    "purchase-order",
+    "material-inspection-request",
+    "proof-of-delivery"
+   ],
+   "abbreviation": "DN",
+   "notes": {
+    "en": "“الدليفري نوت” is site usage borrowed from English. A waybill (transport document) and a delivery order (release of goods by a carrier or port) are different documents.",
+    "ar": "«الدليفري نوت» تعبير مواقع مأخوذ من الإنجليزية. وبوليصة النقل (مستند الناقل) وأمر التسليم (إذن الإفراج عن البضاعة من الناقل أو الميناء) مستندان مختلفان.",
+    "zh": "“الدليفري نوت”是借自英文的工地用语。运单（承运人的运输单据）和提货单（承运人或港口放货的凭证）是不同的单据。"
+   }
+  },
+  {
+   "id": "proof-of-delivery",
+   "category": "logistics",
+   "term": {
+    "en": "Proof of delivery",
+    "ar": "إثبات التسليم",
+    "zh": "签收凭证"
+   },
+   "definition": {
+    "en": "The signed and dated delivery note or receipt confirming that the goods arrived and were accepted.",
+    "ar": "مذكرة التسليم أو الإيصال الموقع والمؤرخ الذي يؤكد وصول البضاعة وقبولها.",
+    "zh": "经签字并注明日期、确认货物已到达并被接收的送货单或收据。"
+   },
+   "synonyms": {
+    "en": [
+     "POD",
+     "signed delivery note"
+    ],
+    "ar": [
+     "إيصال الاستلام",
+     "سند الاستلام"
+    ],
+    "zh": [
+     "收货回执",
+     "签收单"
+    ]
+   },
+   "related": [
+    "delivery-note"
+   ],
+   "abbreviation": "POD"
+  },
+  {
+   "id": "bundle",
+   "category": "logistics",
+   "term": {
+    "en": "Bundle",
+    "ar": "الربطة",
+    "zh": "捆"
+   },
+   "definition": {
+    "en": "A group of bars of the same size and grade tied together for handling and transport, usually by mass or number of bars.",
+    "ar": "مجموعة من الأسياخ بنفس المقاس والدرجة مربوطة معاً للمناولة والنقل، وتكون عادة بوزن أو عدد أسياخ محدد.",
+    "zh": "同规格、同牌号钢筋捆扎在一起便于搬运和运输的一组，通常按重量或根数计。"
+   },
+   "synonyms": {
+    "en": [
+     "bar bundle",
+     "bundles"
+    ],
+    "ar": [
+     "ربطة حديد",
+     "حزمة"
+    ],
+    "zh": [
+     "钢筋捆",
+     "捆包"
+    ]
+   },
+   "related": [
+    "bundle-tag",
+    "offloading"
+   ]
+  },
+  {
+   "id": "bundle-tag",
+   "category": "logistics",
+   "term": {
+    "en": "Bundle tag",
+    "ar": "بطاقة الربطة",
+    "zh": "钢筋捆牌"
+   },
+   "definition": {
+    "en": "A label fixed to each bundle showing the producer, standard, grade, size, length, heat number and weight or bar count.",
+    "ar": "بطاقة تُثبت على كل ربطة تبين المنتج والمواصفة والدرجة والمقاس والطول ورقم الصبة والوزن أو عدد الأسياخ.",
+    "zh": "挂在每捆钢筋上的标牌，标明生产厂、标准、牌号、规格、长度、炉号及重量或根数。"
+   },
+   "synonyms": {
+    "en": [
+     "bundle label",
+     "tag",
+     "metal tag"
+    ],
+    "ar": [
+     "التاغ",
+     "لاصق الربطة",
+     "بطاقة التعريف"
+    ],
+    "zh": [
+     "标牌",
+     "吊牌",
+     "标签"
+    ]
+   },
+   "related": [
+    "heat-number",
+    "traceability",
+    "bundle"
+   ]
+  },
+  {
+   "id": "flatbed-trailer",
+   "category": "logistics",
+   "term": {
+    "en": "Flatbed trailer",
+    "ar": "التريلا المسطحة",
+    "zh": "平板拖车"
+   },
+   "definition": {
+    "en": "A truck trailer with an open flat deck, the usual vehicle for delivering straight 12 m bars to site.",
+    "ar": "مقطورة شاحنة بسطح مسطح مكشوف، وهي المركبة المعتادة لتوريد الأسياخ المستقيمة بطول 12 م إلى الموقع.",
+    "zh": "具有敞开平板车厢的挂车，是将12米直条钢筋运到现场的常用车辆。"
+   },
+   "synonyms": {
+    "en": [
+     "flatbed",
+     "trailer",
+     "truck"
+    ],
+    "ar": [
+     "تريلا",
+     "سطحة",
+     "شاحنة"
+    ],
+    "zh": [
+     "平板车",
+     "半挂车"
+    ]
+   },
+   "related": [
+    "delivery-note",
+    "offloading"
+   ]
+  },
+  {
+   "id": "offloading",
+   "category": "logistics",
+   "term": {
+    "en": "Offloading",
+    "ar": "التنزيل",
+    "zh": "卸货"
+   },
+   "definition": {
+    "en": "Removing material from the delivery vehicle on site with a crane or forklift, following a lifting plan.",
+    "ar": "إنزال المواد من مركبة التوريد في الموقع بالرافعة أو الرافعة الشوكية وفق خطة الرفع.",
+    "zh": "按吊装方案用起重机或叉车在现场将材料从运输车辆上卸下。"
+   },
+   "synonyms": {
+    "en": [
+     "unloading",
+     "discharge"
+    ],
+    "ar": [
+     "التفريغ",
+     "تنزيل الحمولة"
+    ],
+    "zh": [
+     "卸车"
+    ]
+   },
+   "related": [
+    "lifting-plan",
+    "laydown-area",
+    "flatbed-trailer"
+   ]
+  },
+  {
+   "id": "laydown-area",
+   "category": "logistics",
+   "term": {
+    "en": "Laydown area",
+    "ar": "منطقة التخزين",
+    "zh": "材料堆场"
+   },
+   "definition": {
+    "en": "An area of the site set aside for receiving and storing materials before use.",
+    "ar": "مساحة مخصصة في الموقع لاستلام المواد وتخزينها قبل استخدامها.",
+    "zh": "现场划定的用于接收和存放待用材料的区域。"
+   },
+   "synonyms": {
+    "en": [
+     "storage yard",
+     "stockyard",
+     "lay-down yard"
+    ],
+    "ar": [
+     "ساحة التخزين",
+     "المخزن المكشوف"
+    ],
+    "zh": [
+     "堆放区",
+     "料场"
+    ]
+   },
+   "related": [
+    "stacking",
+    "offloading"
+   ]
+  },
+  {
+   "id": "stacking",
+   "category": "logistics",
+   "term": {
+    "en": "Stacking",
+    "ar": "التستيف",
+    "zh": "堆放"
+   },
+   "definition": {
+    "en": "Storing bars off the ground on timber bearers, separated by size and grade and protected from mud and standing water.",
+    "ar": "تخزين الأسياخ مرفوعة عن الأرض على عوارض خشبية، مفصولة حسب المقاس والدرجة ومحمية من الطين والمياه الراكدة.",
+    "zh": "将钢筋架空堆放在垫木上，按规格和牌号分开，并防止泥污和积水。"
+   },
+   "synonyms": {
+    "en": [
+     "storage",
+     "stockpiling"
+    ],
+    "ar": [
+     "الرص",
+     "التخزين"
+    ],
+    "zh": [
+     "码放",
+     "存放"
+    ]
+   },
+   "related": [
+    "laydown-area",
+    "corrosion"
+   ],
+   "review": [
+    "ar"
+   ]
+  },
+  {
+   "id": "weighbridge",
+   "category": "logistics",
+   "term": {
+    "en": "Weighbridge",
+    "ar": "القبان",
+    "zh": "地磅"
+   },
+   "definition": {
+    "en": "A large scale on which a loaded vehicle is weighed; the load is the loaded weight minus the empty (tare) weight.",
+    "ar": "ميزان كبير توزن عليه المركبة المحملة؛ ووزن الحمولة هو الوزن المحمل مطروحاً منه الوزن الفارغ.",
+    "zh": "称量满载车辆的大型秤，货物重量等于满载重量减去空车重量（皮重）。"
+   },
+   "synonyms": {
+    "en": [
+     "truck scale",
+     "weighing bridge"
+    ],
+    "ar": [
+     "ميزان الشاحنات",
+     "الميزان"
+    ],
+    "zh": [
+     "汽车衡",
+     "过磅"
+    ]
+   },
+   "related": [
+    "actual-weight",
+    "calibration",
+    "gross-weight"
+   ]
+  },
+  {
+   "id": "gross-weight",
+   "category": "logistics",
+   "term": {
+    "en": "Gross weight",
+    "ar": "الوزن الإجمالي",
+    "zh": "毛重"
+   },
+   "definition": {
+    "en": "The total weight of goods including packaging or of a vehicle with its load. Net weight excludes packaging or the vehicle; tare is the empty weight.",
+    "ar": "الوزن الكلي للبضاعة مع التغليف أو للمركبة مع حمولتها. الوزن الصافي يستبعد التغليف أو المركبة، والوزن الفارغ هو وزن المركبة دون حمولة.",
+    "zh": "货物连同包装或车辆连同货物的总重量。净重不含包装或车辆，皮重为空载重量。"
+   },
+   "synonyms": {
+    "en": [
+     "net weight",
+     "tare weight"
+    ],
+    "ar": [
+     "الوزن الصافي",
+     "الوزن الفارغ"
+    ],
+    "zh": [
+     "净重",
+     "皮重"
+    ]
+   },
+   "related": [
+    "weighbridge",
+    "actual-weight"
+   ]
+  },
+  {
+   "id": "packing-list",
+   "category": "logistics",
+   "term": {
+    "en": "Packing list",
+    "ar": "قائمة التعبئة",
+    "zh": "装箱单"
+   },
+   "definition": {
+    "en": "A shipping document listing the contents of each package, bundle or container with marks, quantities and weights.",
+    "ar": "مستند شحن يسرد محتويات كل طرد أو ربطة أو حاوية مع العلامات والكميات والأوزان.",
+    "zh": "列明每件包装、每捆或每个集装箱内容、标记、数量和重量的运输单据。"
+   },
+   "synonyms": {
+    "en": [
+     "packing specification"
+    ],
+    "ar": [
+     "بيان التعبئة",
+     "قائمة الطرود"
+    ],
+    "zh": [
+     "包装清单",
+     "码单"
+    ]
+   },
+   "related": [
+    "bill-of-lading",
+    "bundle"
+   ]
+  },
+  {
+   "id": "bill-of-lading",
+   "category": "logistics",
+   "term": {
+    "en": "Bill of lading",
+    "ar": "بوليصة الشحن",
+    "zh": "提单"
+   },
+   "definition": {
+    "en": "A document issued by a carrier for goods shipped by sea, serving as a receipt, evidence of the contract of carriage and a document of title.",
+    "ar": "مستند يصدره الناقل للبضائع المشحونة بحراً، ويعد إيصالاً ودليلاً على عقد النقل ومستند ملكية.",
+    "zh": "承运人为海运货物签发的单据，作为货物收据、运输合同证明和物权凭证。"
+   },
+   "synonyms": {
+    "en": [
+     "B/L",
+     "BL",
+     "ocean bill of lading"
+    ],
+    "ar": [
+     "بوليصة الشحن البحري"
+    ],
+    "zh": [
+     "海运提单"
+    ]
+   },
+   "related": [
+    "packing-list",
+    "customs-clearance",
+    "letter-of-credit"
+   ],
+   "abbreviation": "B/L"
+  },
+  {
+   "id": "customs-clearance",
+   "category": "logistics",
+   "term": {
+    "en": "Customs clearance",
+    "ar": "التخليص الجمركي",
+    "zh": "清关"
+   },
+   "definition": {
+    "en": "Completing the customs formalities and paying duties so that imported goods can be released.",
+    "ar": "إنهاء الإجراءات الجمركية ودفع الرسوم حتى يُفرج عن البضائع المستوردة.",
+    "zh": "办理海关手续并缴纳关税，使进口货物获得放行。"
+   },
+   "synonyms": {
+    "en": [
+     "customs release",
+     "import clearance"
+    ],
+    "ar": [
+     "التخليص",
+     "الإفراج الجمركي"
+    ],
+    "zh": [
+     "报关",
+     "海关放行"
+    ]
+   },
+   "related": [
+    "bill-of-lading"
+   ]
+  },
+  {
+   "id": "delivery-schedule",
+   "category": "logistics",
+   "term": {
+    "en": "Delivery schedule",
+    "ar": "جدول التسليم",
+    "zh": "交货计划"
+   },
+   "definition": {
+    "en": "The agreed dates and quantities for deliveries to site, coordinated with the construction programme and site storage.",
+    "ar": "التواريخ والكميات المتفق عليها للتوريد إلى الموقع، منسقة مع البرنامج الزمني للتنفيذ وسعة التخزين بالموقع.",
+    "zh": "约定的到场日期和数量，与施工进度和现场存放能力相协调。"
+   },
+   "synonyms": {
+    "en": [
+     "delivery programme",
+     "call-off schedule"
+    ],
+    "ar": [
+     "برنامج التوريد",
+     "مواعيد التوريد"
+    ],
+    "zh": [
+     "供货计划",
+     "到货计划"
+    ]
+   },
+   "related": [
+    "lead-time",
+    "partial-delivery"
+   ]
+  },
+  {
+   "id": "partial-delivery",
+   "category": "logistics",
+   "term": {
+    "en": "Partial delivery",
+    "ar": "التوريد الجزئي",
+    "zh": "分批交货"
+   },
+   "definition": {
+    "en": "Delivering an order in several loads at different times instead of all at once.",
+    "ar": "توريد الطلبية على عدة دفعات في أوقات مختلفة بدلاً من توريدها دفعة واحدة.",
+    "zh": "一份订单分多车次在不同时间交付，而非一次全部交付。"
+   },
+   "synonyms": {
+    "en": [
+     "split delivery",
+     "call-off",
+     "staggered delivery"
+    ],
+    "ar": [
+     "التوريد على دفعات",
+     "دفعات التوريد"
+    ],
+    "zh": [
+     "分批供货",
+     "分次交付"
+    ]
+   },
+   "related": [
+    "delivery-schedule"
+   ]
+  },
+  {
+   "id": "bar-bending-schedule",
+   "category": "drawings",
+   "term": {
+    "en": "Bar bending schedule",
+    "ar": "جدول تفريد الحديد",
+    "zh": "钢筋下料表"
+   },
+   "definition": {
+    "en": "A table listing every bar in a member: bar mark, diameter, shape code, dimensions, cut length, number of bars and weight. It is used for cutting, bending, ordering and checking.",
+    "ar": "جدول يسرد كل سيخ في العنصر: رقم السيخ والقطر وكود الشكل والأبعاد وطول القص وعدد الأسياخ والوزن. ويُستخدم للقص والثني والطلب والمراجعة.",
+    "zh": "列出构件中每根钢筋的表格：编号、直径、形状代码、尺寸、下料长度、根数和重量，用于切断、弯曲、订货和核对。"
+   },
+   "synonyms": {
+    "en": [
+     "BBS",
+     "bending schedule",
+     "rebar schedule",
+     "cutting list"
+    ],
+    "ar": [
+     "جدول التفريد",
+     "كشف الحديد",
+     "جدول الحديد"
+    ],
+    "zh": [
+     "钢筋表",
+     "钢筋配料单",
+     "料单"
+    ]
+   },
+   "related": [
+    "bar-mark",
+    "shape-code",
+    "cut-length",
+    "shop-drawing"
+   ],
+   "abbreviation": "BBS",
+   "example": {
+    "en": "The steel fixing subcontractor submitted the bar bending schedule for the first-floor slab.",
+    "ar": "قدم مقاول تركيب الحديد جدول التفريد لبلاطة الدور الأول.",
+    "zh": "钢筋分包商提交了一层楼板的钢筋下料表。"
+   }
+  },
+  {
+   "id": "shop-drawing",
+   "category": "drawings",
+   "term": {
+    "en": "Shop drawing",
+    "ar": "المخطط التنفيذي",
+    "zh": "深化图"
+   },
+   "definition": {
+    "en": "A detailed drawing prepared by the contractor or fabricator from the design drawings, showing exactly how an element will be made and installed, submitted for approval.",
+    "ar": "مخطط تفصيلي يعده المقاول أو المصنّع من مخططات التصميم، يبين بالضبط كيف سيُصنع العنصر ويُركب، ويُقدم للاعتماد.",
+    "zh": "承包商或加工厂根据设计图编制的详细图纸，准确表明构件如何制作和安装，并报审批准。"
+   },
+   "synonyms": {
+    "en": [
+     "fabrication drawing",
+     "working drawing"
+    ],
+    "ar": [
+     "رسومات الورشة",
+     "شوب دروينج"
+    ],
+    "zh": [
+     "施工详图",
+     "加工图"
+    ]
+   },
+   "related": [
+    "bar-bending-schedule",
+    "ifc-drawing",
+    "as-built-drawing"
+   ],
+   "review": [
+    "ar"
+   ]
+  },
+  {
+   "id": "ifc-drawing",
+   "category": "drawings",
+   "term": {
+    "en": "Issued for construction drawing",
+    "ar": "مخطط معتمد للتنفيذ",
+    "zh": "施工图"
+   },
+   "definition": {
+    "en": "A drawing revision formally released for construction. Work must follow the latest IFC revision, not earlier issues.",
+    "ar": "إصدار من المخطط معتمد رسمياً للتنفيذ. يجب أن يتبع العمل آخر إصدار معتمد للتنفيذ، لا الإصدارات السابقة.",
+    "zh": "正式发布用于施工的图纸版本。施工必须按最新的施工图版本，而非早期版本。"
+   },
+   "synonyms": {
+    "en": [
+     "IFC",
+     "construction drawing",
+     "for construction"
+    ],
+    "ar": [
+     "مخطط للتنفيذ",
+     "مخططات IFC"
+    ],
+    "zh": [
+     "正式施工图",
+     "发布施工图"
+    ]
+   },
+   "related": [
+    "drawing-revision",
+    "shop-drawing"
+   ],
+   "abbreviation": "IFC"
+  },
+  {
+   "id": "as-built-drawing",
+   "category": "drawings",
+   "term": {
+    "en": "As-built drawing",
+    "ar": "مخطط حسب التنفيذ",
+    "zh": "竣工图"
+   },
+   "definition": {
+    "en": "A drawing updated at the end of the works to show what was actually built, including approved changes.",
+    "ar": "مخطط يُحدَّث في نهاية الأعمال ليبين ما نُفذ فعلاً، بما في ذلك التعديلات المعتمدة.",
+    "zh": "工程结束时更新、反映实际建成情况（包括已批准变更）的图纸。"
+   },
+   "synonyms": {
+    "en": [
+     "record drawing",
+     "as-built"
+    ],
+    "ar": [
+     "مخططات الواقع",
+     "الآز بلت"
+    ],
+    "zh": [
+     "竣工图纸"
+    ]
+   },
+   "related": [
+    "handover",
+    "ifc-drawing"
+   ]
+  },
+  {
+   "id": "drawing-revision",
+   "category": "drawings",
+   "term": {
+    "en": "Drawing revision",
+    "ar": "إصدار المخطط",
+    "zh": "图纸版本"
+   },
+   "definition": {
+    "en": "A numbered or lettered update of a drawing, with a note of what changed. Only the current revision should be used on site.",
+    "ar": "تحديث مرقم أو مرمز للمخطط مع ملاحظة بما تغير. يجب استخدام الإصدار الحالي فقط في الموقع.",
+    "zh": "图纸的编号或字母版本更新，并注明更改内容。现场只应使用当前版本。"
+   },
+   "synonyms": {
+    "en": [
+     "revision",
+     "rev",
+     "drawing issue"
+    ],
+    "ar": [
+     "مراجعة المخطط",
+     "رقم الإصدار"
+    ],
+    "zh": [
+     "图纸修订",
+     "版次"
+    ]
+   },
+   "related": [
+    "ifc-drawing"
+   ]
+  },
+  {
+   "id": "specification",
+   "category": "drawings",
+   "term": {
+    "en": "Specification",
+    "ar": "المواصفات",
+    "zh": "技术规范"
+   },
+   "definition": {
+    "en": "The written contract document that states the required materials, standards, workmanship and tests for the project.",
+    "ar": "الوثيقة التعاقدية المكتوبة التي تحدد المواد والمعايير وجودة التنفيذ والاختبارات المطلوبة للمشروع.",
+    "zh": "规定项目所需材料、标准、工艺和试验的书面合同文件。"
+   },
+   "synonyms": {
+    "en": [
+     "specs",
+     "technical specification",
+     "project specification"
+    ],
+    "ar": [
+     "المواصفات الفنية",
+     "كراسة المواصفات"
+    ],
+    "zh": [
+     "规范",
+     "技术要求"
+    ]
+   },
+   "related": [
+    "material-submittal",
+    "astm-a615",
+    "general-notes"
+   ]
+  },
+  {
+   "id": "general-notes",
+   "category": "drawings",
+   "term": {
+    "en": "General notes",
+    "ar": "الملاحظات العامة",
+    "zh": "设计总说明"
+   },
+   "definition": {
+    "en": "The notes on the structural drawings that state design codes, material grades, concrete cover, lap lengths and other rules that apply to all details.",
+    "ar": "الملاحظات على المخططات الإنشائية التي تحدد أكواد التصميم ودرجات المواد والغطاء الخرساني وأطوال التراكب وغيرها من القواعد التي تنطبق على كل التفاصيل.",
+    "zh": "结构图上说明设计规范、材料等级、保护层厚度、搭接长度等适用于所有节点规则的说明。"
+   },
+   "synonyms": {
+    "en": [
+     "structural notes",
+     "drawing notes"
+    ],
+    "ar": [
+     "ملاحظات المخطط",
+     "النوتات العامة"
+    ],
+    "zh": [
+     "结构设计说明",
+     "总说明"
+    ]
+   },
+   "related": [
+    "specification",
+    "concrete-cover",
+    "lap-splice"
+   ]
+  },
+  {
+   "id": "detail",
+   "category": "drawings",
+   "term": {
+    "en": "Detail",
+    "ar": "التفصيلة",
+    "zh": "节点详图"
+   },
+   "definition": {
+    "en": "A large-scale drawing of a part of the structure, such as a beam–column joint, showing bar arrangement and dimensions.",
+    "ar": "رسم بمقياس كبير لجزء من المنشأ، مثل اتصال جسر بعمود، يبين ترتيب الأسياخ والأبعاد.",
+    "zh": "结构某一部位（如梁柱节点）的大比例图，表明钢筋布置和尺寸。"
+   },
+   "synonyms": {
+    "en": [
+     "detail drawing",
+     "typical detail"
+    ],
+    "ar": [
+     "تفصيلة إنشائية",
+     "التفاصيل"
+    ],
+    "zh": [
+     "详图",
+     "大样图"
+    ]
+   },
+   "related": [
+    "section",
+    "scale"
+   ]
+  },
+  {
+   "id": "section",
+   "category": "drawings",
+   "term": {
+    "en": "Section",
+    "ar": "المقطع",
+    "zh": "剖面图"
+   },
+   "definition": {
+    "en": "A drawing of a structure as if cut through along a line, showing internal arrangement, levels and reinforcement.",
+    "ar": "رسم للمنشأ كأنه مقطوع على طول خط، يبين الترتيب الداخلي والمناسيب والتسليح.",
+    "zh": "沿某一剖切线将结构剖开所绘的图，显示内部构造、标高和配筋。"
+   },
+   "synonyms": {
+    "en": [
+     "cross-section",
+     "sectional view"
+    ],
+    "ar": [
+     "قطاع",
+     "مقطع عرضي"
+    ],
+    "zh": [
+     "截面图",
+     "断面"
+    ]
+   },
+   "related": [
+    "detail",
+    "plan-view"
+   ]
+  },
+  {
+   "id": "plan-view",
+   "category": "drawings",
+   "term": {
+    "en": "Plan",
+    "ar": "المسقط الأفقي",
+    "zh": "平面图"
+   },
+   "definition": {
+    "en": "A drawing of a floor or element seen from above, showing layout, grid lines and dimensions.",
+    "ar": "رسم لدور أو عنصر كما يُرى من الأعلى، يبين التوزيع والمحاور والأبعاد.",
+    "zh": "从上方看楼层或构件的图，显示布置、轴线和尺寸。"
+   },
+   "synonyms": {
+    "en": [
+     "floor plan",
+     "layout plan"
+    ],
+    "ar": [
+     "مسقط",
+     "البلان"
+    ],
+    "zh": [
+     "布置图",
+     "楼层平面"
+    ]
+   },
+   "related": [
+    "section",
+    "grid-line"
+   ]
+  },
+  {
+   "id": "grid-line",
+   "category": "drawings",
+   "term": {
+    "en": "Grid line",
+    "ar": "المحور",
+    "zh": "轴线"
+   },
+   "definition": {
+    "en": "A reference line on drawings, labelled with letters and numbers, used to locate columns, walls and other elements on site.",
+    "ar": "خط مرجعي على المخططات يُرمز بالأحرف والأرقام، يُستخدم لتحديد مواقع الأعمدة والجدران والعناصر الأخرى في الموقع.",
+    "zh": "图纸上用字母和数字编号的参考线，用于在现场定位柱、墙等构件。"
+   },
+   "synonyms": {
+    "en": [
+     "axis",
+     "grid"
+    ],
+    "ar": [
+     "محاور الإنشاء",
+     "خطوط المحاور"
+    ],
+    "zh": [
+     "定位轴线",
+     "轴网"
+    ]
+   },
+   "related": [
+    "setting-out",
+    "plan-view"
+   ]
+  },
+  {
+   "id": "scale",
+   "category": "drawings",
+   "term": {
+    "en": "Drawing scale",
+    "ar": "مقياس الرسم",
+    "zh": "比例"
+   },
+   "definition": {
+    "en": "The ratio between dimensions on the drawing and real dimensions, for example 1:50. Written dimensions take precedence over scaling from the drawing.",
+    "ar": "النسبة بين الأبعاد على المخطط والأبعاد الحقيقية، مثل 1:50. الأبعاد المكتوبة مقدمة على القياس من الرسم.",
+    "zh": "图纸尺寸与实际尺寸之比，例如 1:50。标注尺寸优先于从图上量取。"
+   },
+   "synonyms": {
+    "en": [
+     "scale ratio"
+    ],
+    "ar": [
+     "المقياس"
+    ],
+    "zh": [
+     "图纸比例",
+     "绘图比例"
+    ]
+   },
+   "related": [
+    "detail"
+   ]
+  },
+  {
+   "id": "rfi",
+   "category": "drawings",
+   "term": {
+    "en": "Request for information",
+    "ar": "طلب استيضاح فني",
+    "zh": "信息请求单"
+   },
+   "definition": {
+    "en": "A formal question from the contractor to the designer or consultant to clarify a drawing or specification. The answer is given in writing and does not by itself change the contract scope.",
+    "ar": "سؤال رسمي من المقاول إلى المصمم أو الاستشاري لتوضيح مخطط أو مواصفة. يُرد عليه كتابةً، ولا يغيّر الرد بذاته نطاق العقد.",
+    "zh": "承包商向设计或咨询单位正式提出的、要求澄清图纸或规范的问题。答复以书面形式给出，答复本身不改变合同范围。"
+   },
+   "synonyms": {
+    "en": [
+     "RFI",
+     "technical query",
+     "TQ"
+    ],
+    "ar": [
+     "طلب معلومات",
+     "استفسار فني"
+    ],
+    "zh": [
+     "技术澄清单",
+     "图纸疑问"
+    ]
+   },
+   "related": [
+    "consultant",
+    "ifc-drawing",
+    "variation-order"
+   ],
+   "abbreviation": "RFI",
+   "notes": {
+    "en": "Chinese projects use several names for this document; 信息请求单 follows the English term. Confirm the name used in the project procedures.",
+    "ar": "تستخدم المشاريع الصينية عدة أسماء لهذا المستند؛ و‏信息请求单 ترجمة للمصطلح الإنجليزي. تأكد من الاسم المستخدم في إجراءات المشروع.",
+    "zh": "中国项目对该文件有多种叫法；“信息请求单”沿用英文术语。请以项目程序中的名称为准。"
+   },
+   "review": [
+    "zh"
+   ]
+  },
+  {
+   "id": "ppe",
+   "category": "safety",
+   "term": {
+    "en": "Personal protective equipment",
+    "ar": "معدات الوقاية الشخصية",
+    "zh": "个人防护装备"
+   },
+   "definition": {
+    "en": "Equipment worn to protect a worker from hazards, such as a hard hat, safety boots, gloves, glasses and a high-visibility vest.",
+    "ar": "معدات يرتديها العامل لحمايته من المخاطر، مثل الخوذة وحذاء السلامة والقفازات والنظارات والسترة العاكسة.",
+    "zh": "工人穿戴以防护危险的装备，如安全帽、安全鞋、手套、护目镜和反光背心。"
+   },
+   "synonyms": {
+    "en": [
+     "PPE",
+     "protective gear"
+    ],
+    "ar": [
+     "أدوات السلامة",
+     "مهمات الوقاية"
+    ],
+    "zh": [
+     "劳保用品",
+     "防护用品"
+    ]
+   },
+   "related": [
+    "hard-hat",
+    "safety-harness"
+   ],
+   "abbreviation": "PPE"
+  },
+  {
+   "id": "hard-hat",
+   "category": "safety",
+   "term": {
+    "en": "Hard hat",
+    "ar": "خوذة السلامة",
+    "zh": "安全帽"
+   },
+   "definition": {
+    "en": "A protective helmet worn on site against falling objects and head impact.",
+    "ar": "خوذة واقية تُلبس في الموقع للحماية من الأجسام المتساقطة وصدمات الرأس.",
+    "zh": "在现场佩戴、防护坠落物和头部撞击的头盔。"
+   },
+   "synonyms": {
+    "en": [
+     "safety helmet"
+    ],
+    "ar": [
+     "الخوذة",
+     "طاقية السلامة"
+    ],
+    "zh": [
+     "头盔"
+    ]
+   },
+   "related": [
+    "ppe"
+   ]
+  },
+  {
+   "id": "safety-harness",
+   "category": "safety",
+   "term": {
+    "en": "Safety harness",
+    "ar": "حزام الأمان",
+    "zh": "安全带"
+   },
+   "definition": {
+    "en": "A full-body harness with a lanyard attached to a secure anchor, used to arrest a fall when working at height.",
+    "ar": "حزام كامل للجسم مع حبل مثبت بنقطة تثبيت آمنة، يُستخدم لإيقاف السقوط عند العمل على ارتفاع.",
+    "zh": "连接在可靠锚点上、带系索的全身式安全带，用于高处作业时防止坠落。"
+   },
+   "synonyms": {
+    "en": [
+     "full body harness",
+     "fall arrest harness"
+    ],
+    "ar": [
+     "حزام السقوط",
+     "الحزام الكامل"
+    ],
+    "zh": [
+     "全身式安全带",
+     "防坠安全带"
+    ]
+   },
+   "related": [
+    "work-at-height",
+    "ppe"
+   ]
+  },
+  {
+   "id": "work-at-height",
+   "category": "safety",
+   "term": {
+    "en": "Work at height",
+    "ar": "العمل على ارتفاع",
+    "zh": "高处作业"
+   },
+   "definition": {
+    "en": "Any work where a person could fall a distance liable to cause injury, such as on scaffolds, slab edges or reinforcement cages. Requires planning and fall protection.",
+    "ar": "أي عمل قد يسقط فيه الشخص مسافة يمكن أن تسبب إصابة، مثل العمل على السقالات أو حواف البلاطات أو أقفاص التسليح. ويتطلب تخطيطاً وحماية من السقوط.",
+    "zh": "人员可能从高处坠落造成伤害的任何作业，如在脚手架、楼板边缘或钢筋笼上作业，需要计划和防坠措施。"
+   },
+   "synonyms": {
+    "en": [
+     "working at heights",
+     "fall protection"
+    ],
+    "ar": [
+     "العمل في المرتفعات",
+     "الحماية من السقوط"
+    ],
+    "zh": [
+     "登高作业",
+     "防坠落"
+    ]
+   },
+   "related": [
+    "safety-harness",
+    "scaffolding",
+    "permit-to-work"
+   ]
+  },
+  {
+   "id": "permit-to-work",
+   "category": "safety",
+   "term": {
+    "en": "Permit to work",
+    "ar": "تصريح العمل",
+    "zh": "作业许可证"
+   },
+   "definition": {
+    "en": "A written authorisation for high-risk work, such as hot work, confined spaces or heavy lifts, stating the hazards, controls and time limits.",
+    "ar": "إذن مكتوب للأعمال عالية الخطورة مثل الأعمال الساخنة أو الأماكن المحصورة أو الرفع الثقيل، يحدد المخاطر وإجراءات التحكم والمدة.",
+    "zh": "针对动火、受限空间或重型吊装等高风险作业的书面许可，载明危险、控制措施和时限。"
+   },
+   "synonyms": {
+    "en": [
+     "PTW",
+     "work permit"
+    ],
+    "ar": [
+     "تصريح عمل",
+     "إذن عمل"
+    ],
+    "zh": [
+     "工作许可",
+     "作业票"
+    ]
+   },
+   "related": [
+    "risk-assessment",
+    "work-at-height"
+   ],
+   "abbreviation": "PTW"
+  },
+  {
+   "id": "risk-assessment",
+   "category": "safety",
+   "term": {
+    "en": "Risk assessment",
+    "ar": "تقييم المخاطر",
+    "zh": "风险评估"
+   },
+   "definition": {
+    "en": "A systematic review of the hazards of a task, who could be harmed, how likely and how severe, and the controls needed to reduce the risk.",
+    "ar": "مراجعة منهجية لمخاطر العمل، ومن قد يتضرر، واحتمالية الضرر وشدته، وإجراءات التحكم اللازمة لتقليل الخطر.",
+    "zh": "系统地审查某项作业的危险、可能受伤害的人员、发生可能性和严重程度以及降低风险所需的控制措施。"
+   },
+   "synonyms": {
+    "en": [
+     "job safety analysis",
+     "JSA",
+     "hazard assessment"
+    ],
+    "ar": [
+     "تحليل المخاطر",
+     "تحليل سلامة العمل"
+    ],
+    "zh": [
+     "危险源辨识",
+     "作业安全分析"
+    ]
+   },
+   "related": [
+    "method-statement",
+    "permit-to-work",
+    "toolbox-talk"
+   ]
+  },
+  {
+   "id": "toolbox-talk",
+   "category": "safety",
+   "term": {
+    "en": "Toolbox talk",
+    "ar": "اجتماع السلامة القصير",
+    "zh": "班前安全讲话"
+   },
+   "definition": {
+    "en": "A short safety briefing given to a crew at the workplace before starting a task, on its hazards and controls.",
+    "ar": "إحاطة قصيرة حول السلامة تُعطى للفريق في مكان العمل قبل بدء المهمة، عن مخاطرها وإجراءات التحكم.",
+    "zh": "开工前在作业地点向班组进行的简短安全交底，讲解作业危险和控制措施。"
+   },
+   "synonyms": {
+    "en": [
+     "tool box meeting",
+     "safety briefing"
+    ],
+    "ar": [
+     "التولبوكس",
+     "توعية السلامة اليومية"
+    ],
+    "zh": [
+     "安全交底",
+     "班前会"
+    ]
+   },
+   "related": [
+    "risk-assessment"
+   ],
+   "review": [
+    "ar",
+    "zh"
+   ]
+  },
+  {
+   "id": "lifting-plan",
+   "category": "safety",
+   "term": {
+    "en": "Lifting plan",
+    "ar": "خطة الرفع",
+    "zh": "吊装方案"
+   },
+   "definition": {
+    "en": "A plan for a crane lift stating the load, crane, rigging, radius, ground conditions and the persons in charge.",
+    "ar": "خطة لعملية الرفع بالرافعة تحدد الحمل والرافعة وأدوات التعليق ونصف القطر وحالة الأرض والأشخاص المسؤولين.",
+    "zh": "起重吊装的计划，载明吊重、起重机、索具、作业半径、地面条件及负责人。"
+   },
+   "synonyms": {
+    "en": [
+     "lift plan",
+     "rigging plan"
+    ],
+    "ar": [
+     "خطة رفع الأحمال"
+    ],
+    "zh": [
+     "起重方案",
+     "吊装计划"
+    ]
+   },
+   "related": [
+    "rigging",
+    "offloading",
+    "permit-to-work"
+   ]
+  },
+  {
+   "id": "rigging",
+   "category": "safety",
+   "term": {
+    "en": "Rigging",
+    "ar": "أعمال التعليق والرفع",
+    "zh": "索具"
+   },
+   "definition": {
+    "en": "Slings, shackles and other gear used to attach a load to a crane, and the work of attaching it. Bundles of bars are lifted with two slings and a spreader where needed.",
+    "ar": "الحبال والشناكل وغيرها من الأدوات المستخدمة لتعليق الحمل بالرافعة، وعملية التعليق نفسها. تُرفع ربطات الحديد بحبلين وعارضة توزيع عند الحاجة.",
+    "zh": "用于将吊物挂到起重机上的吊带、卸扣等器具及挂钩作业。钢筋捆需用两根吊带吊装，必要时加用吊梁。"
+   },
+   "synonyms": {
+    "en": [
+     "slinging",
+     "rigger"
+    ],
+    "ar": [
+     "التربيط",
+     "الرقر",
+     "معدات الرفع"
+    ],
+    "zh": [
+     "吊具",
+     "挂钩工",
+     "司索"
+    ]
+   },
+   "related": [
+    "lifting-plan",
+    "banksman"
+   ],
+   "review": [
+    "ar"
+   ]
+  },
+  {
+   "id": "banksman",
+   "category": "safety",
+   "term": {
+    "en": "Banksman",
+    "ar": "مُرشد الرافعة",
+    "zh": "信号工"
+   },
+   "definition": {
+    "en": "The trained person who guides a crane operator or vehicle driver with signals when the operator cannot see the load or the path.",
+    "ar": "الشخص المدرب الذي يوجه مشغل الرافعة أو سائق المركبة بالإشارات عندما لا يرى المشغل الحمل أو المسار.",
+    "zh": "在司机看不到吊物或行驶路线时用信号指挥起重机司机或车辆驾驶员的受训人员。"
+   },
+   "synonyms": {
+    "en": [
+     "signalman",
+     "flagman"
+    ],
+    "ar": [
+     "المؤشر",
+     "الإشارجي",
+     "الفلاج مان"
+    ],
+    "zh": [
+     "指挥人员",
+     "司索信号工"
+    ]
+   },
+   "related": [
+    "rigging",
+    "lifting-plan"
+   ],
+   "review": [
+    "ar"
+   ]
+  },
+  {
+   "id": "rebar-cap",
+   "category": "safety",
+   "term": {
+    "en": "Rebar safety cap",
+    "ar": "غطاء أطراف الحديد",
+    "zh": "钢筋头保护帽"
+   },
+   "definition": {
+    "en": "A plastic cap placed over the exposed ends of vertical bars to prevent impalement and cuts.",
+    "ar": "غطاء بلاستيكي يوضع على الأطراف المكشوفة للأسياخ الرأسية لمنع الانغراز والجروح.",
+    "zh": "套在外露竖向钢筋端头的塑料帽，防止刺伤和划伤。"
+   },
+   "synonyms": {
+    "en": [
+     "mushroom cap",
+     "rebar end cap"
+    ],
+    "ar": [
+     "أغطية الأشاير",
+     "كاب الحديد"
+    ],
+    "zh": [
+     "钢筋保护帽",
+     "防刺帽"
+    ]
+   },
+   "related": [
+    "dowel",
+    "ppe"
+   ],
+   "review": [
+    "ar"
+   ]
+  },
+  {
+   "id": "housekeeping",
+   "category": "safety",
+   "term": {
+    "en": "Housekeeping",
+    "ar": "النظافة والترتيب",
+    "zh": "文明施工"
+   },
+   "definition": {
+    "en": "Keeping the site tidy: removing offcuts and waste, stacking materials safely and keeping access routes clear to prevent trips and injuries.",
+    "ar": "المحافظة على نظافة الموقع وترتيبه: إزالة الفضلات والمخلفات وتخزين المواد بأمان وإبقاء ممرات الحركة خالية لمنع التعثر والإصابات.",
+    "zh": "保持现场整洁：清除余料和垃圾、安全堆放材料并保持通道畅通，防止绊倒和受伤。"
+   },
+   "synonyms": {
+    "en": [
+     "site housekeeping",
+     "good housekeeping"
+    ],
+    "ar": [
+     "ترتيب الموقع",
+     "نظافة الموقع"
+    ],
+    "zh": [
+     "现场整洁",
+     "场容管理"
+    ]
+   },
+   "related": [
+    "stacking",
+    "offcut"
+   ],
+   "review": [
+    "zh"
+   ]
+  },
+  {
+   "id": "near-miss",
+   "category": "safety",
+   "term": {
+    "en": "Near miss",
+    "ar": "حادث وشيك",
+    "zh": "未遂事件"
+   },
+   "definition": {
+    "en": "An unplanned event that could have caused injury or damage but did not. Reporting near misses helps prevent accidents.",
+    "ar": "حدث غير مخطط كان يمكن أن يسبب إصابة أو ضرراً لكنه لم يحدث. الإبلاغ عنه يساعد على منع الحوادث.",
+    "zh": "本可能造成伤害或损失但实际未发生的意外事件。报告未遂事件有助于预防事故。"
+   },
+   "synonyms": {
+    "en": [
+     "close call",
+     "near-hit"
+    ],
+    "ar": [
+     "كاد أن يقع",
+     "شبه حادث"
+    ],
+    "zh": [
+     "险肇事件",
+     "险情"
+    ]
+   },
+   "related": [
+    "incident-report"
+   ]
+  },
+  {
+   "id": "incident-report",
+   "category": "safety",
+   "term": {
+    "en": "Incident report",
+    "ar": "تقرير الحادث",
+    "zh": "事故报告"
+   },
+   "definition": {
+    "en": "A record of an accident or dangerous occurrence: what happened, the causes found and the actions taken to prevent a repeat.",
+    "ar": "سجل لحادث أو واقعة خطرة: ما حدث، والأسباب المكتشفة، والإجراءات المتخذة لمنع تكراره.",
+    "zh": "记录事故或危险事件的文件：发生经过、查明的原因以及防止再次发生的措施。"
+   },
+   "synonyms": {
+    "en": [
+     "accident report",
+     "incident investigation"
+    ],
+    "ar": [
+     "تقرير إصابة",
+     "تقرير الحوادث"
+    ],
+    "zh": [
+     "事故调查报告",
+     "事件报告"
+    ]
+   },
+   "related": [
+    "near-miss",
+    "corrective-action"
+   ]
+  },
+  {
+   "id": "first-aid",
+   "category": "safety",
+   "term": {
+    "en": "First aid",
+    "ar": "الإسعافات الأولية",
+    "zh": "急救"
+   },
+   "definition": {
+    "en": "Immediate care given to an injured person on site by a trained first aider until medical help arrives.",
+    "ar": "رعاية فورية يقدمها مسعف مدرب للمصاب في الموقع حتى وصول المساعدة الطبية.",
+    "zh": "在医疗救助到达前，由受过培训的急救员在现场对伤者进行的即时救护。"
+   },
+   "synonyms": {
+    "en": [
+     "first aider",
+     "first aid kit"
+    ],
+    "ar": [
+     "المسعف",
+     "صندوق الإسعافات"
+    ],
+    "zh": [
+     "急救员",
+     "急救箱"
+    ]
+   },
+   "related": [
+    "incident-report"
+   ]
+  },
+  {
+   "id": "safety-officer",
+   "category": "safety",
+   "term": {
+    "en": "Safety officer",
+    "ar": "مسؤول السلامة",
+    "zh": "安全员"
+   },
+   "definition": {
+    "en": "The person responsible on site for monitoring health and safety, inspecting work areas and enforcing safety rules.",
+    "ar": "الشخص المسؤول في الموقع عن متابعة الصحة والسلامة وتفتيش مناطق العمل وتطبيق قواعد السلامة.",
+    "zh": "在现场负责监督健康与安全、检查作业区域并执行安全规定的人员。"
+   },
+   "synonyms": {
+    "en": [
+     "HSE officer",
+     "safety supervisor",
+     "HSE engineer"
+    ],
+    "ar": [
+     "مشرف السلامة",
+     "ضابط السلامة",
+     "مهندس السلامة"
+    ],
+    "zh": [
+     "安全主任",
+     "安全工程师"
+    ]
+   },
+   "related": [
+    "toolbox-talk",
+    "risk-assessment"
+   ]
+  }
+ ]
+}
