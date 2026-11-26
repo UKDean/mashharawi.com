@@ -15,5 +15,8 @@ health-report.md
 # Website team working files (plans, reports). Never published.
 .site-team/
 
+# SEO research reports (contain private Search Console data). Never published.
+research/seo-intelligence/
+
 # Python bytecode
 __pycache__/
