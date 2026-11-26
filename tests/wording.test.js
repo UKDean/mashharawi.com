@@ -106,7 +106,8 @@ test('detector ignores calculator text, processing speed and the approved wordin
 });
 
 // ---------- repository scan ----------
-const SKIP_DIRS = new Set(['.git', 'node_modules', 'motion', 'tests', 'vendor']);
+const { isLocalOnly } = require('./local-only');
+const SKIP_DIRS = new Set(['.git', 'node_modules', 'motion', 'tests', 'vendor', '.claude']);
 const EXT = new Set(['.html', '.md', '.txt', '.xml', '.py', '.js', '.json']);
 // Not sales copy: the dictionary defines terms (first aid is "immediate care"),
 // and the contract checker quotes customers' clauses for internal review.
@@ -114,7 +115,7 @@ const NOT_SALES_COPY = [/^assets\/construction-dictionary\//, /^(?:ar\/|zh\/)?to
 function walk(dir = ROOT, out = []) {
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
     const p = path.join(dir, e.name);
-    if (e.isDirectory()) { if (!SKIP_DIRS.has(e.name)) walk(p, out); }
+    if (e.isDirectory()) { if (!SKIP_DIRS.has(e.name) && !isLocalOnly(p)) walk(p, out); }
     else if (EXT.has(path.extname(e.name))) out.push(path.relative(ROOT, p).split(path.sep).join('/'));
   }
   return out;
@@ -205,6 +206,34 @@ test('Chinese cutting check flags unconditional offers and accepts confirmed one
 test('every Chinese offer of cutting on the site, in articles and in scheduled posts is subject to confirmation', () => {
   const hits = FILES.filter((f) => /\.(html|md|txt|xml|json|js|py)$/.test(f))
     .flatMap((f) => findUnconditionalCuttingZh(fs.readFileSync(path.join(ROOT, f), 'utf8')).map((h) => `${f}:${h.line}: ${h.match}`));
+  assert.deepEqual(hits, []);
+});
+
+// ---------- Chinese certificate claim: withdrawn wording ----------
+// "全部检验证书齐全" (all inspection certificates complete) was withdrawn from every
+// Chinese page; the approved claim is 可提供所订规格和牌号的钢厂质量证明书（MTC）.
+// Two pages written from an old template brought it back once (PR #27).
+// Scans every published file, scheduled posts and the page generator included;
+// local-only folders (worktrees, backups, research reports) are not published.
+const ZH_CERT_WITHDRAWN = /全部\s*检验\s*证书\s*齐全/;
+test('certificate check flags the withdrawn phrase and accepts the approved MTC wording', () => {
+  for (const s of ['10–32 毫米，可提供环氧涂层钢筋，全部检验证书齐全。', '"text": "全部检验证书 齐全"', '<p>发货至沙特全境，全部 检验证书齐全。</p>']) {
+    assert.ok(ZH_CERT_WITHDRAWN.test(s), 'not flagged: ' + s);
+  }
+  for (const s of ['可提供所订规格和牌号的钢厂质量证明书（MTC）。', '每批到货还要有覆盖车上所有炉号的出厂质量证明书（MTC）', '能提供检测证书吗？']) {
+    assert.ok(!ZH_CERT_WITHDRAWN.test(s), 'wrongly flagged: ' + s);
+  }
+});
+
+test('no published page, scheduled post or generator says 全部检验证书齐全', () => {
+  const files = walk();
+  const zhPages = files.filter((f) => /^zh\/.+\.html$/.test(f));
+  assert.ok(zhPages.length >= 20, `only ${zhPages.length} Chinese pages scanned`);
+  for (const must of ['zh/rebar/index.html', 'zh/rebar-site-inspection/index.html', 'zh/rebar-size-substitution-saudi/index.html', 'scripts/build_notes.py', 'llms.txt']) {
+    assert.ok(files.includes(must), `${must} is not scanned`);
+  }
+  const hits = files.flatMap((f) => fs.readFileSync(path.join(ROOT, f), 'utf8').split('\n')
+    .map((line, i) => (ZH_CERT_WITHDRAWN.test(line) ? `${f}:${i + 1}` : null)).filter(Boolean));
   assert.deepEqual(hits, []);
 });
 

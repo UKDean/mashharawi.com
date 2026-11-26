@@ -11,11 +11,12 @@ const path = require('node:path');
 
 const ROOT = path.join(__dirname, '..');
 const SITE = 'https://mashharawi.com';
-const SKIP_DIRS = new Set(['.git', 'node_modules', 'motion', 'tests', 'scripts', 'notes', '.github']);
+const { isLocalOnly } = require('./local-only');
+const SKIP_DIRS = new Set(['.git', 'node_modules', 'motion', 'tests', 'scripts', 'notes', '.github', '.claude']);
 
 function htmlPages(dir = ROOT, out = []) {
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
-    if (e.isDirectory()) { if (!SKIP_DIRS.has(e.name)) htmlPages(path.join(dir, e.name), out); }
+    if (e.isDirectory()) { if (!SKIP_DIRS.has(e.name) && !isLocalOnly(path.join(dir, e.name))) htmlPages(path.join(dir, e.name), out); }
     else if (e.name === 'index.html') out.push('/' + path.relative(ROOT, dir).split(path.sep).join('/') + (dir === ROOT ? '' : '/'));
   }
   return out.map((u) => u.replace(/^\/\/$/, '/')).sort();
