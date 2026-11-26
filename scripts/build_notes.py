@@ -80,6 +80,7 @@ ZH_PAGES = [
     ("/zh/rebar-procurement-saudi/", "0.8"),
     ("/zh/rebar-price-saudi/", "0.7"),
     ("/zh/rebar-site-inspection/", "0.7"),
+    ("/zh/rebar-size-substitution-saudi/", "0.7"),
 ]
 F_EN = ('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200..500'
         '&display=swap">')
