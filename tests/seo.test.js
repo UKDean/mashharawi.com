@@ -21,12 +21,13 @@ const path = require('node:path');
 
 const ROOT = path.join(__dirname, '..');
 const SITE = 'https://mashharawi.com';
-const SKIP_DIRS = new Set(['.git', 'node_modules', 'motion', 'tests', 'scripts', 'notes', '.github', 'docs']);
+const { isLocalOnly } = require('./local-only');
+const SKIP_DIRS = new Set(['.git', 'node_modules', 'motion', 'tests', 'scripts', 'notes', '.github', 'docs', '.claude']);
 
 function walk(dir = ROOT, out = []) {
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
     const p = path.join(dir, e.name);
-    if (e.isDirectory()) { if (!SKIP_DIRS.has(e.name)) walk(p, out); }
+    if (e.isDirectory()) { if (!SKIP_DIRS.has(e.name) && !isLocalOnly(p)) walk(p, out); }
     else if (e.name.endsWith('.html')) out.push(p);
   }
   return out;
